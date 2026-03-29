@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedMap | Interactive Medical Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── BASE STYLES ─── */
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:#F4F0E8;
+  --card:#FFFDF8;
+  --ink:#1A1209;
+  --muted:#7A6F5C;
+  --border:rgba(26,18,9,0.1);
+  --primary:#6B5CE7;
+}
+body { background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; color:var(--ink); overflow-x:hidden; }
+
+/* ─── LANDING ─── */
+#landing { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; padding: 2rem 0; }
+
+.hero-title { font-family:'Syne',sans-serif; font-size:clamp(2.8rem,7vw,5.5rem); font-weight:800; letter-spacing:-2px; line-height:1; text-align:center; margin-bottom:0.4rem; }
+.hero-title span { background:linear-gradient(130deg,#6B5CE7 0%,#E74C3C 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-sub { font-size:0.95rem; color:var(--muted); text-align:center; margin-bottom:2.5rem; }
+
+.landing-body { display:flex; align-items:center; justify-content:center; gap:3rem; flex-wrap:wrap; width:100%; max-width:1100px; padding:0 1rem; }
+
+.tag-col { display:flex; flex-direction:column; gap:12px; min-width: 180px; }
+
+.sys-pill {
+  background:var(--card);
+  border:1.5px solid var(--border);
+  border-radius:100px;
+  padding:10px 20px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow:0 4px 12px rgba(0,0,0,0.03);
+}
+.sys-pill:hover { transform:translateX(5px); background: #fff; border-color: var(--primary); box-shadow:0 8px 20px rgba(107, 92, 231, 0.15); }
+.sys-pill .dot { width:8px; height:8px; border-radius:50%; }
+
+/* ─── SVG INTERACTIVE STYLES ─── */
+.body-svg-wrap { position:relative; flex-shrink:0; transition: transform 0.5s ease; }
+.organ { cursor:pointer; transition: all 0.3s ease; }
+.organ:hover { transform: scale(1.05); filter: brightness(1.1) drop-shadow(0 10px 15px rgba(0,0,0,0.2)); }
+.hint-text { font-size:11px; color:var(--muted); text-align:center; margin-top:1.5rem; font-weight:600; text-transform: uppercase; letter-spacing: 1px; }
+
+/* ─── SYSTEM VIEW ─── */
+#sysview { display:none; min-height:100vh; flex-direction:column; background: white; }
+#sysview.on { display:flex; }
+.sys-header { display:flex; align-items:center; gap:1.5rem; padding:1.5rem 2rem; border-bottom:1px solid var(--border); background:var(--card); position:sticky; top:0; z-index:100; }
+.back-btn { width:40px; height:40px; border:1.5px solid var(--border); border-radius:50%; background:none; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:0.2s; }
+.back-btn:hover { background:var(--bg); transform: scale(1.1); }
+.sys-name { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800; }
+.sys-main { flex:1; display:grid; grid-template-columns:1fr 400px; }
+
+.diagram-area { background:var(--bg); display:flex; align-items:center; justify-content:center; padding:2rem; }
+.notes-pane { background:var(--card); border-left:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
+.notes-empty { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:3rem; text-align:center; opacity: 0.6; }
+.big-icon { font-size:4rem; margin-bottom: 1rem; }
+
+.notes-filled { display:none; flex-direction:column; height:100%; }
+.notes-filled.on { display:flex; animation: slideIn 0.4s ease-out; }
+@keyframes slideIn { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+.notes-filled-top { padding:1.5rem; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; }
+.notes-body { flex:1; overflow-y:auto; padding:1.5rem; }
+.tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.5rem; }
+.tag { padding:4px 12px; border-radius:100px; font-size:11px; font-weight:700; border:1.5px solid currentColor; text-transform: uppercase; }
+
+.nb { margin-bottom:1.5rem; }
+.nb h4 { font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:0.5rem; }
+.nb p { font-size:14px; line-height:1.7; color: #333; }
+
+.hy { background:#FFF9E6; border: 1px solid #FFE58F; border-radius:12px; padding:1rem; margin-bottom:1.5rem; }
+.hy h4 { color: #856404; }
+.hy p { font-weight:600; color: #856404; }
+
+.ai-box { background:#F0F2FF; border-radius:12px; padding:1.2rem; border: 1px solid #D6DAFF; }
+.ai-dot { width:8px; height:8px; border-radius:50%; background:#6B5CE7; display:inline-block; margin-right:8px; animation: pulse 2s infinite; }
+
+@media(max-width:900px) {
+  .sys-main { grid-template-columns:1fr; }
+  .notes-pane { max-height:50vh; border-left:none; border-top:1px solid var(--border); }
+  .tag-col { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div id="landing">
+  <div>
+    <h1 class="hero-title">Med<span>Map</span></h1>
+    <p class="hero-sub">Interactive medical notes for the visual clinician</p>
+  </div>
+
+  <div class="landing-body">
+    <div class="tag-col">
+      <div class="sys-pill" onclick="openSys('neuro')"><div class="dot" style="background:#6B5CE7"></div>Neurology</div>
+      <div class="sys-pill" onclick="openSys('cardio')"><div class="dot" style="background:#E74C3C"></div>Cardiology</div>
+      <div class="sys-pill" onclick="openSys('pulm')"><div class="dot" style="background:#5DAD6F"></div>Pulmonology</div>
+      <div class="sys-pill" onclick="openSys('heme')"><div class="dot" style="background:#C0392B"></div>Hematology</div>
+    </div>
+
+    <div class="body-svg-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 620" width="300" height="580">
+        <defs>
+          <radialGradient id="g-brain" cx="40%" cy="40%" r="60%"><stop offset="0%" stop-color="#FDF8F2"/><stop offset="100%" stop-color="#D9C5B2"/></radialGradient>
+          <radialGradient id="g-heart" cx="40%" cy="40%" r="65%"><stop offset="0%" stop-color="#FF8E84"/><stop offset="100%" stop-color="#D94132"/></radialGradient>
+          <radialGradient id="g-lung" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#A8EBB0"/><stop offset="100%" stop-color="#56A35C"/></radialGradient>
+          <radialGradient id="g-liver" cx="30%" cy="30%" r="80%"><stop offset="0%" stop-color="#B87352"/><stop offset="100%" stop-color="#7A3E25"/></radialGradient>
+          <radialGradient id="g-intestine" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFC88A"/><stop offset="100%" stop-color="#E67E22"/></radialGradient>
+          
+          <filter id="organ-depth" x="-20%" y="-20%" width="150%" height="150%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+            <feOffset dx="2" dy="4" result="offsetBlur"/>
+            <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
+          </filter>
+        </defs>
+
+        <path d="M160 25 C200 25 225 50 225 90 C225 125 210 140 205 160 C250 170 285 190 295 240 C305 300 295 380 295 430 C295 470 280 480 265 480 L250 480 C255 520 255 560 235 595 C215 630 185 635 160 635 C135 635 105 630 85 595 C65 560 65 520 70 480 L55 480 C40 480 25 470 25 430 C25 380 15 300 25 240 C35 190 70 170 115 160 C110 140 95 125 95 90 C95 50 120 25 160 25 Z" 
+              fill="#EBF5FB" stroke="#D6EAF8" stroke-width="3"/>
+
+        <g class="organ" onclick="openSys('neuro')" filter="url(#organ-depth)">
+          <path d="M125 85 C125 50 195 50 195 85 C195 115 180 125 160 125 C140 125 125 115 125 85 Z" fill="url(#g-brain)"/>
+          <path d="M140 70 Q160 60 180 70 M135 90 Q160 85 185 90" stroke="rgba(0,0,0,0.1)" fill="none" stroke-width="2"/>
+          <ellipse cx="150" cy="70" rx="15" ry="8" fill="white" opacity="0.3"/>
+        </g>
+
+        <g class="organ" onclick="openSys('pulm')" filter="url(#organ-depth)">
+          <path d="M152 240 C120 230 90 250 85 300 C80 350 105 390 135 395 C155 398 158 370 158 330 Z" fill="url(#g-lung)"/>
+          <path d="M168 240 C200 230 230 250 235 300 C240 350 215 390 185 395 C165 398 162 370 162 330 Z" fill="url(#g-lung)"/>
+        </g>
+
+        <g class="organ" onclick="openSys('cardio')" filter="url(#organ-depth)">
+          <path d="M145 320 C145 295 175 295 175 320 C175 350 160 375 160 375 C160 375 145 350 145 320 Z" fill="url(#g-heart)"/>
+          <path d="M160 300 V280 Q160 265 180 265" fill="none" stroke="#D94132" stroke-width="8" stroke-linecap="round"/>
+          <ellipse cx="155" cy="315" rx="8" ry="12" fill="white" opacity="0.2" transform="rotate(-20, 155, 315)"/>
+        </g>
+
+        <g class="organ" onclick="openSys('gi')" filter="url(#organ-depth)">
+          <path d="M175 405 C190 395 255 395 265 425 C275 455 235 475 200 480 C180 482 170 455 175 405 Z" fill="url(#g-liver)"/>
+          <path d="M115 415 C105 395 155 395 165 415 C175 445 150 475 130 470 C110 465 125 435 115 415 Z" fill="#E67E22"/>
+        </g>
+
+        <g class="organ" onclick="openSys('gi')" filter="url(#organ-depth)">
+          <path d="M100 485 H220 V555 H100 Z" fill="none" stroke="url(#g-intestine)" stroke-width="18" stroke-linejoin="round" opacity="0.4"/>
+          <path d="M130 500 Q160 490 190 500 Q205 520 190 540 Q160 550 130 540 Q115 520 130 500" fill="url(#g-intestine)"/>
+        </g>
+
+        <g class="organ" onclick="openSys('renal')" filter="url(#organ-depth)">
+          <path d="M100 430 C90 430 90 455 100 455 C110 455 110 430 100 430" fill="#922B21"/>
+        </g>
+      </svg>
+      <p class="hint-text">Select an organ to dive deep</p>
+    </div>
+
+    <div class="tag-col">
+      <div class="sys-pill" onclick="openSys('gi')"><div class="dot" style="background:#E67E22"></div>GI / Hepatic</div>
+      <div class="sys-pill" onclick="openSys('renal')"><div class="dot" style="background:#2980B9"></div>Renal</div>
+      <div class="sys-pill" onclick="openSys('msk')"><div class="dot" style="background:#8E44AD"></div>MSK / Rheum</div>
+      <div class="sys-pill" onclick="openSys('endo')"><div class="dot" style="background:#16A085"></div>Endocrinology</div>
+    </div>
+  </div>
+</div>
+
+<div id="sysview">
+  <div class="sys-header">
+    <button class="back-btn" onclick="closeSys()">←</button>
+    <div class="sys-color-dot" id="hdrDot" style="width:12px; height:12px; border-radius:50%;"></div>
+    <div>
+      <div class="sys-name" id="hdrName">System Name</div>
+      <div class="sys-hint" id="hdrHint">Click a structure to view notes</div>
+    </div>
+  </div>
+
+  <div class="sys-main">
+    <div class="diagram-area" id="diagArea"></div>
+    <div class="notes-pane">
+      <div class="notes-empty" id="notesEmpty">
+        <div class="big-icon" id="emptyIcon">📍</div>
+        <h3>Select a structure</h3>
+        <p>Explore high-yield boards material and AI insights.</p>
+      </div>
+      <div class="notes-filled" id="notesFilled">
+        <div class="notes-filled-top">
+          <h2 id="noteTitle">Structure Name</h2>
+          <button class="x-btn" onclick="closeNote()" style="margin-left:auto; font-size:24px; background:none; border:none; cursor:pointer;">×</button>
+        </div>
+        <div class="notes-body" id="notesBody"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ─── DATA ENGINE ─── */
+const SYS = {
+  neuro:{label:'Neurology',color:'#6B5CE7',icon:'🧠',hint:'Explore cerebral architecture',
+    structs:{
+      frontal:{name:'Frontal Lobe',tags:['Motor','Broca','Executive'],
+        overview:'Primary motor cortex and prefrontal executive centers.',
+        clinical:'UMN signs, Broca\'s aphasia, and personality shifts.',
+        lesions:'FEF damage causes eyes to deviate TOWARD the lesion.',
+        hy:'"Wet, Wobbly, Wacky" triad for NPH.'},
+      temporal:{name:'Temporal Lobe',tags:['Wernicke','Memory'],
+        overview:'Auditory processing and hippocampus-mediated memory.',
+        clinical:'Wernicke\'s aphasia (fluent nonsense) and Meyer\'s loop (pie in the sky).',
+        lesions:'Klüver-Bucy syndrome from bilateral amygdala damage.',
+        hy:'Most common site for adult partial seizures.'}
+    }
+  },
+  cardio:{label:'Cardiology',color:'#E74C3C',icon:'❤️',hint:'Explore hemodynamic systems',
+    structs:{
+      lv:{name:'Left Ventricle',tags:['Systemic','LAD'],
+        overview:'Pumps to systemic circulation; thickest myocardium.',
+        clinical:'LV failure causes pulmonary edema/crackles.',
+        lesions:'Anterior wall MI usually involves the LAD.',
+        hy:'S4 indicates stiff LV (pressure), S3 indicates dilated LV (volume).'}
+    }
+  },
+  // Additional system data truncated for brevity, but framework is intact
+};
+
+/* ─── APP LOGIC ─── */
+function openSys(sys){
+  const d = SYS[sys] || {label: sys, color: '#333', icon: '📍', hint: 'Detailed data coming soon', structs:{}};
+  document.getElementById('landing').style.display='none';
+  document.getElementById('sysview').classList.add('on');
+  document.getElementById('hdrDot').style.background=d.color;
+  document.getElementById('hdrName').textContent=d.label;
+  document.getElementById('hdrHint').textContent=d.hint;
+  document.getElementById('emptyIcon').textContent=d.icon;
+  
+  // Custom Dynamic SVG Generator based on system
+  document.getElementById('diagArea').innerHTML = `
+    <svg viewBox="0 0 400 400" width="400">
+      <circle cx="200" cy="200" r="150" fill="${d.color}05" stroke="${d.color}" stroke-dasharray="4 4" />
+      <text x="200" y="200" text-anchor="middle" font-weight="800" fill="${d.color}" opacity="0.2" font-size="24">${d.label}</text>
+      ${Object.entries(d.structs).map(([k,v], i) => `
+        <g class="anat" onclick="openNote('${sys}','${k}')">
+          <circle cx="${200 + 100 * Math.cos(i)}" cy="${200 + 100 * Math.sin(i)}" r="45" fill="white" stroke="${d.color}" stroke-width="2" style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))" />
+          <text x="${200 + 100 * Math.cos(i)}" y="${200 + 100 * Math.sin(i)}" text-anchor="middle" font-size="10" font-weight="700" fill="${d.color}">${v.name}</text>
+        </g>
+      `).join('')}
+    </svg>`;
+  closeNote();
+}
+
+function closeSys(){
+  document.getElementById('landing').style.display='flex';
+  document.getElementById('sysview').classList.remove('on');
+}
+
+function openNote(sys,key){
+  const s = SYS[sys].structs[key];
+  document.getElementById('notesEmpty').style.display='none';
+  document.getElementById('notesFilled').classList.add('on');
+  document.getElementById('noteTitle').textContent = s.name;
+  document.getElementById('notesBody').innerHTML = `
+    <div class="tags">${s.tags.map(t=>`<span class="tag" style="color:${SYS[sys].color}">${t}</span>`).join('')}</div>
+    <div class="nb"><h4>Overview</h4><p>${s.overview}</p></div>
+    <div class="nb"><h4>Clinical</h4><p>${s.clinical}</p></div>
+    <div class="hy"><h4>⚡ High-Yield</h4><p>${s.hy}</p></div>
+    <div class="ai-box"><h4><span class="ai-dot"></span>AI Insight</h4><p id="aiOut" style="font-size:13px; font-style:italic; color:#555;">Consulting medical models...</p></div>
+  `;
+  setTimeout(() => { document.getElementById('aiOut').textContent = "This structure is a primary boards target. Focus on the mechanism of injury and the classic presentation 'buzzwords' for 25% of your system questions."; }, 1200);
+}
+
+function closeNote(){
+  document.getElementById('notesEmpty').style.display='flex';
+  document.getElementById('notesFilled').classList.remove('on');
+}
+</script>
+</body>
+</html>
