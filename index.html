@@ -7,750 +7,650 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-:root {
-  --bg:#F4F0E8;
-  --card:#FFFDF8;
-  --ink:#1A1209;
-  --muted:#7A6F5C;
-  --border:rgba(26,18,9,0.1);
-}
+:root { --bg:#F4F0E8; --card:#FFFDF8; --ink:#1A1209; --muted:#7A6F5C; --border:rgba(26,18,9,0.1); }
 body { background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; color:var(--ink); overflow-x:hidden; }
 
-/* ─── LANDING ─── */
-#landing { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+/* ── LANDING ── */
+#landing { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; gap:1.5rem; }
+.hero { text-align:center; }
+.hero h1 { font-family:'Syne',sans-serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:800; letter-spacing:-2px; line-height:1; }
+.hero h1 span { background:linear-gradient(130deg,#6B5CE7,#E74C3C); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero p { font-size:.9rem; color:var(--muted); margin-top:.4rem; }
 
-.hero-title { font-family:'Syne',sans-serif; font-size:clamp(2.8rem,7vw,5.5rem); font-weight:800; letter-spacing:-2px; line-height:1; text-align:center; margin-bottom:0.4rem; }
-.hero-title span { background:linear-gradient(130deg,#6B5CE7 0%,#E74C3C 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.hero-sub { font-size:0.95rem; color:var(--muted); text-align:center; margin-bottom:2.5rem; }
+.body-layout { display:flex; align-items:center; gap:2rem; flex-wrap:wrap; justify-content:center; }
+.pill-col { display:flex; flex-direction:column; gap:9px; }
+.pill { background:var(--card); border:1.5px solid var(--border); border-radius:100px; padding:7px 16px; font-size:12px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:7px; white-space:nowrap; box-shadow:0 2px 8px rgba(0,0,0,0.05); transition:all .2s; }
+.pill:hover { transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.1); }
+.pill .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
 
-/* Body + tags layout */
-.landing-body { display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; width:100%; max-width:900px; padding:0 1rem; }
-
-.tag-col { display:flex; flex-direction:column; gap:10px; }
-
-.sys-pill {
-  background:var(--card);
-  border:1.5px solid var(--border);
-  border-radius:100px;
-  padding:7px 16px;
-  font-size:12px;
-  font-weight:600;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  white-space:nowrap;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  transition:all 0.2s ease;
+/* ── BODY CONTAINER ── */
+.body-container {
+  position: relative;
+  width: 320px;
+  height: 460px;
+  flex-shrink: 0;
 }
-.sys-pill:hover { transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.1); }
-.sys-pill .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
 
-/* SVG body wrapper */
-.body-svg-wrap { position:relative; flex-shrink:0; }
-.body-svg-wrap svg { display:block; }
+.body-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
 
-/* Organ hover glow */
-.organ { cursor:pointer; transition:filter 0.2s, transform 0.2s; transform-origin:center; }
-.organ:hover { filter:brightness(1.15) saturate(1.2) drop-shadow(0 4px 12px rgba(0,0,0,0.2)); transform:scale(1.04); }
+/* Hotspot base */
+.hotspot {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Pulse dot on hoverable organs */
-@keyframes pulse { 0%,100%{opacity:0.6;transform:scale(1)} 50%{opacity:0.2;transform:scale(1.8)} }
+.hotspot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+  transform: scale(0.8);
+}
 
-.hint-text { font-size:11px; color:var(--muted); text-align:center; margin-top:0.8rem; font-weight:500; }
+.hotspot:hover::before {
+  opacity: 0.6;
+  transform: scale(1);
+}
 
-/* ─── SYSTEM VIEW ─── */
+.hotspot:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+}
+
+/* Pulse animation on hotspots */
+@keyframes hotpulse {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 0.7; }
+  70% { box-shadow: 0 0 0 12px transparent; opacity: 0; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 0; }
+}
+
+.hotspot .pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: hotpulse 2.5s ease-out infinite;
+  color: inherit;
+  border: 2px solid currentColor;
+}
+
+.hotspot .label {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  background: var(--card);
+  padding: 2px 7px;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hotspot:hover .label { opacity: 1; }
+
+.hint-text { font-size:11px; color:var(--muted); text-align:center; margin-top:.6rem; font-weight:500; }
+
+/* ── SYSTEM VIEW ── */
 #sysview { display:none; min-height:100vh; flex-direction:column; }
 #sysview.on { display:flex; }
 
-.sys-header {
-  display:flex; align-items:center; gap:1rem;
-  padding:1.1rem 1.8rem;
-  border-bottom:1px solid var(--border);
-  background:var(--card);
-  position:sticky; top:0; z-index:100;
-}
-.back-btn { width:34px;height:34px;border:1.5px solid var(--border);border-radius:50%;background:none;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:all 0.2s; }
-.back-btn:hover { background:var(--bg); }
-.sys-name { font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:800; }
-.sys-hint { font-size:11px; color:var(--muted); }
-.sys-color-dot { width:12px;height:12px;border-radius:50%; }
+.syshead { display:flex; align-items:center; gap:.9rem; padding:1rem 1.6rem; border-bottom:1px solid var(--border); background:var(--card); position:sticky; top:0; z-index:100; }
+.bk { width:33px;height:33px;border:1.5px solid var(--border);border-radius:50%;background:none;cursor:pointer;font-size:15px;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .2s; }
+.bk:hover { background:var(--bg); }
+.sysname { font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800; }
+.syshint { font-size:11px; color:var(--muted); }
+.cdot { width:11px; height:11px; border-radius:50%; }
 
-.sys-main { flex:1; display:grid; grid-template-columns:1fr 360px; }
+.sysmain { flex:1; display:grid; grid-template-columns:1fr 360px; }
+.diagwrap { background:var(--bg); display:flex; align-items:center; justify-content:center; padding:2rem; min-height:540px; }
+.diagwrap svg { max-height:500px; overflow:visible; }
+.anat { cursor:pointer; transition:filter .2s; }
+.anat:hover { filter:brightness(1.15) saturate(1.2) drop-shadow(0 3px 10px rgba(0,0,0,0.2)); }
 
-.diagram-area { background:var(--bg); display:flex; align-items:center; justify-content:center; padding:2rem; min-height:560px; }
-.diagram-area svg { max-height:520px; overflow:visible; }
-
-.anat { cursor:pointer; transition:filter 0.2s,transform 0.2s; transform-origin:center; }
-.anat:hover { filter:brightness(1.18) saturate(1.3) drop-shadow(0 3px 10px rgba(0,0,0,0.18)); transform:scale(1.04); }
-
-/* Notes */
-.notes-pane { background:var(--card); border-left:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
-.notes-empty { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.9rem; padding:2rem; text-align:center; }
-.notes-empty .big-icon { font-size:2.8rem; }
-.notes-empty h3 { font-family:'Syne',sans-serif; font-size:1rem; font-weight:800; }
-.notes-empty p { font-size:13px; color:var(--muted); line-height:1.7; }
-
-.notes-filled { display:none; flex-direction:column; height:100%; }
-.notes-filled.on { display:flex; }
-.notes-filled-top { padding:1.1rem 1.4rem; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
-.notes-filled-top h2 { font-family:'Syne',sans-serif; font-size:1rem; font-weight:800; flex:1; }
-.x-btn { background:none;border:none;cursor:pointer;font-size:19px;color:var(--muted);line-height:1; }
-.x-btn:hover { color:var(--ink); }
-.notes-body { flex:1; overflow-y:auto; padding:1.2rem 1.4rem; }
-.notes-body::-webkit-scrollbar { width:3px; }
-.notes-body::-webkit-scrollbar-thumb { background:var(--border);border-radius:2px; }
-
-.tags { display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem; }
+.notepane { background:var(--card); border-left:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
+.nempty { flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;padding:2rem;text-align:center; }
+.nempty .ico { font-size:2.6rem; }
+.nempty h3 { font-family:'Syne',sans-serif; font-size:.95rem; font-weight:800; }
+.nempty p { font-size:13px;color:var(--muted);line-height:1.7; }
+.nfull { display:none;flex-direction:column;height:100%; }
+.nfull.on { display:flex; }
+.ntop { padding:1rem 1.3rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px; }
+.ntop h2 { font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;flex:1; }
+.xb { background:none;border:none;cursor:pointer;font-size:19px;color:var(--muted);line-height:1; }
+.xb:hover { color:var(--ink); }
+.nbody { flex:1;overflow-y:auto;padding:1.1rem 1.3rem; }
+.nbody::-webkit-scrollbar { width:3px; }
+.nbody::-webkit-scrollbar-thumb { background:var(--border);border-radius:2px; }
+.tags { display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.9rem; }
 .tag { padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1.5px solid currentColor; }
-
-.nb { margin-bottom:1rem; }
-.nb h4 { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem; }
+.nb { margin-bottom:.9rem; }
+.nb h4 { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem; }
 .nb p { font-size:13px;line-height:1.75; }
-
-.hy { background:var(--bg);border-radius:10px;padding:.85rem 1rem;margin-bottom:1rem; }
-.hy h4 { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem; }
+.hy { background:var(--bg);border-radius:10px;padding:.8rem .95rem;margin-bottom:.9rem; }
+.hy h4 { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem; }
 .hy p { font-size:13px;line-height:1.75;font-weight:600; }
+.aibox { background:var(--bg);border-radius:10px;padding:.8rem .95rem; }
+.aibox h4 { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem;display:flex;align-items:center;gap:5px; }
+.aidot { width:6px;height:6px;border-radius:50%;background:#6B5CE7;display:inline-block;animation:blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:.6}50%{opacity:.15} }
+.aitext { font-size:13px;line-height:1.75; }
+.aispin { font-size:12px;color:var(--muted);font-style:italic; }
 
-.ai-box { background:var(--bg);border-radius:10px;padding:.85rem 1rem; }
-.ai-box h4 { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;display:flex;align-items:center;gap:6px; }
-.ai-dot { width:6px;height:6px;border-radius:50%;background:#6B5CE7;animation:pulse 2s ease-in-out infinite; }
-.ai-text { font-size:13px;line-height:1.75; }
-.ai-loading { font-size:12px;color:var(--muted);font-style:italic; }
+@keyframes zIn { from{opacity:0;transform:scale(.88)} to{opacity:1;transform:scale(1)} }
+.zin { animation:zIn .38s cubic-bezier(.34,1.56,.64,1) forwards; }
+@keyframes sUp { from{opacity:0;transform:translateY(9px)} to{opacity:1;transform:translateY(0)} }
+.sup { animation:sUp .28s ease forwards; }
 
-@keyframes zoomIn { from{opacity:0;transform:scale(0.86)} to{opacity:1;transform:scale(1)} }
-.zoom-in { animation:zoomIn 0.38s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-@keyframes slideUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-.slide-up { animation:slideUp 0.28s ease forwards; }
-
-@media(max-width:760px) {
-  .sys-main { grid-template-columns:1fr; }
-  .notes-pane { border-left:none; border-top:1px solid var(--border); max-height:45vh; }
-  .tag-col { display:none; }
+@media(max-width:720px){
+  .sysmain{grid-template-columns:1fr;}
+  .notepane{border-left:none;border-top:1px solid var(--border);max-height:44vh;}
+  .pill-col{display:none;}
+  .body-container{width:260px;height:375px;}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════ LANDING ══════════ -->
+<!-- ══ LANDING ══ -->
 <div id="landing">
-  <div style="margin-bottom:0.3rem">
-    <h1 class="hero-title">Med<span>Map</span></h1>
-    <p class="hero-sub">Click any organ or system to explore your notes</p>
+  <div class="hero">
+    <h1>Med<span>Map</span></h1>
+    <p>Click any organ to explore your notes</p>
   </div>
 
-  <div class="landing-body">
+  <div class="body-layout">
 
     <!-- Left pills -->
-    <div class="tag-col">
-      <div class="sys-pill" onclick="openSys('neuro')"><div class="dot" style="background:#6B5CE7"></div>Neurology</div>
-      <div class="sys-pill" onclick="openSys('cardio')"><div class="dot" style="background:#E74C3C"></div>Cardiology</div>
-      <div class="sys-pill" onclick="openSys('pulm')"><div class="dot" style="background:#5DAD6F"></div>Pulmonology</div>
-      <div class="sys-pill" onclick="openSys('heme')"><div class="dot" style="background:#C0392B"></div>Hematology</div>
+    <div class="pill-col">
+      <div class="pill" onclick="openSys('neuro')"><div class="dot" style="background:#6B5CE7"></div>Neurology</div>
+      <div class="pill" onclick="openSys('cardio')"><div class="dot" style="background:#E74C3C"></div>Cardiology</div>
+      <div class="pill" onclick="openSys('pulm')"><div class="dot" style="background:#27AE60"></div>Pulmonology</div>
+      <div class="pill" onclick="openSys('heme')"><div class="dot" style="background:#922B21"></div>Hematology</div>
+      <div class="pill" onclick="openSys('ue')"><div class="dot" style="background:#8E44AD"></div>Upper Extremity</div>
     </div>
 
-    <!-- ════ CARTOON BODY SVG ════ -->
-    <div class="body-svg-wrap">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 590" width="280" height="533">
+    <!-- ══ BODY WITH HOTSPOTS ══ -->
+    <div>
+      <div class="body-container" id="bodyContainer">
 
-        <!-- ── BODY SILHOUETTE ── -->
-        <!-- Main torso + shoulders + neck + head as one connected shape -->
-        <!-- Head -->
-        <ellipse cx="155" cy="82" rx="68" ry="75" fill="#B8D8E8" opacity="0.75"/>
-        <!-- Neck -->
-        <rect x="133" y="148" width="44" height="42" fill="#B8D8E8" opacity="0.75"/>
-        <!-- Left shoulder blob -->
-        <ellipse cx="72" cy="188" rx="52" ry="32" fill="#B8D8E8" opacity="0.75"/>
-        <!-- Right shoulder blob -->
-        <ellipse cx="238" cy="188" rx="52" ry="32" fill="#B8D8E8" opacity="0.75"/>
-        <!-- Torso -->
-        <path d="M68 185 C50 195, 38 220, 40 280 C40 340, 48 390, 58 420 C68 450, 90 465, 110 468 L200 468 C220 468, 242 450, 252 420 C262 390, 270 340, 270 280 C272 220, 260 195, 242 185 Z" fill="#B8D8E8" opacity="0.75"/>
-        <!-- Arms -->
-        <path d="M40 185 C22 195, 12 230, 14 290 C16 330, 24 360, 36 375 C42 380, 52 378, 56 368 C60 355, 56 325, 56 290 C56 255, 60 220, 70 200 Z" fill="#B8D8E8" opacity="0.75"/>
-        <path d="M270 185 C288 195, 298 230, 296 290 C294 330, 286 360, 274 375 C268 380, 258 378, 254 368 C250 355, 254 325, 254 290 C254 255, 250 220, 240 200 Z" fill="#B8D8E8" opacity="0.75"/>
-        <!-- Hips / lower pelvis -->
-        <ellipse cx="155" cy="468" rx="95" ry="28" fill="#B8D8E8" opacity="0.75"/>
+        <!-- The actual illustration -->
+        <img src="body.svg" alt="Human body anatomy" id="bodyImg"/>
 
-        <!-- Face details on head -->
-        <!-- Jaw / mouth open slightly -->
-        <path d="M132 118 Q155 138 178 118" fill="#A0C4D8" opacity="0.5"/>
-        <!-- Nose bridge -->
-        <path d="M150 95 Q148 106 145 112" stroke="#A0C4D8" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <!-- Eye left -->
-        <ellipse cx="138" cy="88" rx="9" ry="7" fill="#E8F4FC" opacity="0.8"/>
-        <circle cx="138" cy="88" r="4" fill="#7BAEC8" opacity="0.7"/>
-        <!-- Eye right -->
-        <ellipse cx="172" cy="88" rx="9" ry="7" fill="#E8F4FC" opacity="0.8"/>
-        <circle cx="172" cy="88" r="4" fill="#7BAEC8" opacity="0.7"/>
+        <!--
+          HOTSPOTS — positioned as % of container (top/left/width/height)
+          Standard anatomical positions for a front-facing body with organs:
+          Body container = 320×460px
+          Head takes up top ~22%, torso ~55%, legs rest
+        -->
 
-        <!-- ── BRAIN ── (gray, bumpy, top of head) -->
-        <g class="organ" onclick="openSys('neuro')" id="org-brain">
-          <!-- Brain base -->
-          <ellipse cx="155" cy="62" rx="50" ry="38" fill="#B5AFA8"/>
-          <!-- Left hemisphere bumps -->
-          <circle cx="125" cy="55" r="16" fill="#C2BBB4"/>
-          <circle cx="120" cy="68" r="14" fill="#BDB6AF"/>
-          <circle cx="135" cy="78" r="12" fill="#C5BEB7"/>
-          <!-- Right hemisphere bumps -->
-          <circle cx="183" cy="55" r="16" fill="#C2BBB4"/>
-          <circle cx="188" cy="68" r="14" fill="#BDB6AF"/>
-          <circle cx="173" cy="78" r="12" fill="#C5BEB7"/>
-          <!-- Center top bumps -->
-          <circle cx="155" cy="42" r="13" fill="#C8C1BA"/>
-          <circle cx="142" cy="48" r="11" fill="#C0B9B2"/>
-          <circle cx="168" cy="48" r="11" fill="#C0B9B2"/>
-          <!-- Midline fissure -->
-          <path d="M155 28 Q153 45 155 78" stroke="#A09890" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Cerebellum hint -->
-          <ellipse cx="155" cy="82" rx="26" ry="12" fill="#AEA8A2"/>
-          <!-- Tonsil on right side of head (pituitary area) -->
-          <ellipse cx="186" cy="100" rx="10" ry="13" fill="#D4A5A0" opacity="0.85"/>
-        </g>
+        <!-- BRAIN — top center, inside head -->
+        <div class="hotspot" style="top:6%;left:38%;width:24%;height:12%;background:rgba(107,92,231,0.15);color:#6B5CE7;" onclick="openSys('neuro')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#6B5CE7">Brain</span>
+        </div>
 
-        <!-- ── TRACHEA / ESOPHAGUS tube ── -->
-        <g onclick="openSys('pulm')" style="cursor:pointer">
-          <rect x="146" y="148" width="18" height="70" rx="9" fill="#9BB5C8"/>
-          <!-- Cartilage rings -->
-          <rect x="144" y="158" width="22" height="4" rx="2" fill="#8AA8BC" opacity="0.7"/>
-          <rect x="144" y="168" width="22" height="4" rx="2" fill="#8AA8BC" opacity="0.7"/>
-          <rect x="144" y="178" width="22" height="4" rx="2" fill="#8AA8BC" opacity="0.7"/>
-          <rect x="144" y="188" width="22" height="4" rx="2" fill="#8AA8BC" opacity="0.7"/>
-          <rect x="144" y="198" width="22" height="4" rx="2" fill="#8AA8BC" opacity="0.7"/>
-        </g>
+        <!-- LUNGS — upper torso, both sides -->
+        <div class="hotspot" style="top:30%;left:18%;width:26%;height:14%;border-radius:40%;background:rgba(39,174,96,0.15);color:#27AE60;" onclick="openSys('pulm')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#27AE60">Lungs</span>
+        </div>
+        <div class="hotspot" style="top:30%;left:56%;width:26%;height:14%;border-radius:40%;background:rgba(39,174,96,0.15);color:#27AE60;" onclick="openSys('pulm')">
+          <div class="pulse-ring"></div>
+        </div>
 
-        <!-- ── THYROID (bow-tie / butterfly shape) ── -->
-        <g onclick="openSys('endo')" style="cursor:pointer" class="organ">
-          <ellipse cx="143" cy="152" rx="15" ry="10" fill="#B8A9CF"/>
-          <ellipse cx="167" cy="152" rx="15" ry="10" fill="#B8A9CF"/>
-          <ellipse cx="155" cy="152" rx="6" ry="7" fill="#C9BCDF"/>
-        </g>
+        <!-- HEART — center-left of chest -->
+        <div class="hotspot" style="top:33%;left:38%;width:18%;height:11%;background:rgba(231,76,60,0.18);color:#E74C3C;" onclick="openSys('cardio')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#E74C3C">Heart</span>
+        </div>
 
-        <!-- ── LUNGS ── (green, behind heart) -->
-        <g class="organ" onclick="openSys('pulm')" id="org-lungs">
-          <!-- Left lung -->
-          <path d="M155 218 C140 215, 95 222, 78 250 C62 276, 65 315, 75 335 C82 350, 100 358, 118 352 C132 348, 142 335, 148 318 C152 305, 153 285, 153 265 Z" fill="#7EC17A"/>
-          <!-- Left lung highlight -->
-          <path d="M115 228 C100 235, 85 255, 83 280" stroke="#92D48E" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.5"/>
-          <!-- Right lung -->
-          <path d="M155 218 C170 215, 218 222, 232 250 C248 276, 244 315, 232 335 C223 350, 204 358, 185 352 C170 348, 160 335, 157 318 C154 305, 154 285, 155 265 Z" fill="#7EC17A"/>
-          <!-- Right lung highlight -->
-          <path d="M198 228 C213 238, 225 258, 226 282" stroke="#92D48E" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.5"/>
-          <!-- Fissures on right lung -->
-          <path d="M157 280 C175 275, 200 278, 228 295" stroke="#6AAD66" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        </g>
+        <!-- LIVER — right upper abdomen -->
+        <div class="hotspot" style="top:46%;left:52%;width:24%;height:12%;border-radius:40%;background:rgba(160,82,45,0.18);color:#A0522D;" onclick="openSys('gi')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#A0522D">Liver</span>
+        </div>
 
-        <!-- ── HEART ── (red, center-left, on top of lungs) -->
-        <g class="organ" onclick="openSys('cardio')" id="org-heart">
-          <!-- Heart shape -->
-          <path d="M155 295 C155 295, 118 268, 118 248 C118 234, 128 224, 138 224 C146 224, 152 229, 155 235 C158 229, 164 224, 172 224 C182 224, 192 234, 192 248 C192 268, 155 295, 155 295 Z" fill="#D9534F"/>
-          <!-- Heart shading -->
-          <path d="M140 230 C132 238, 130 252, 138 266" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
-          <!-- Highlight -->
-          <ellipse cx="143" cy="238" rx="8" ry="11" fill="#E87570" opacity="0.5" transform="rotate(-20,143,238)"/>
-          <!-- Aorta stub -->
-          <path d="M155 224 Q158 210, 170 205 Q178 200, 178 192" stroke="#C0392B" stroke-width="6" fill="none" stroke-linecap="round"/>
-        </g>
+        <!-- STOMACH — left upper abdomen -->
+        <div class="hotspot" style="top:46%;left:28%;width:20%;height:11%;border-radius:40%;background:rgba(231,76,60,0.15);color:#c0392b;" onclick="openSys('gi')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#c0392b">Stomach</span>
+        </div>
 
-        <!-- ── LIVER ── (large dark brown, right side) -->
-        <g class="organ" onclick="openSys('gi')" id="org-liver">
-          <path d="M162 330 C162 320, 168 312, 200 308 C225 305, 252 315, 258 335 C264 355, 252 380, 230 388 C210 395, 188 390, 175 378 C163 367, 160 350, 162 330 Z" fill="#A0522D"/>
-          <!-- Liver highlight -->
-          <path d="M175 315 C195 310, 228 318, 242 335" stroke="#C17A50" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.4"/>
-        </g>
+        <!-- KIDNEYS — mid abdomen flanks -->
+        <div class="hotspot" style="top:55%;left:20%;width:13%;height:10%;background:rgba(141,68,173,0.15);color:#8E44AD;" onclick="openSys('renal')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#8E44AD">Kidney</span>
+        </div>
+        <div class="hotspot" style="top:55%;left:67%;width:13%;height:10%;background:rgba(141,68,173,0.15);color:#8E44AD;" onclick="openSys('renal')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#8E44AD">Kidney</span>
+        </div>
 
-        <!-- ── STOMACH ── (pink-peach, left of liver) -->
-        <g class="organ" onclick="openSys('gi')" id="org-stomach">
-          <path d="M115 340 C108 330, 110 315, 122 308 C132 302, 148 306, 158 316 C168 326, 168 345, 162 358 C156 370, 140 375, 128 370 C115 363, 112 353, 115 340 Z" fill="#E8A898"/>
-          <!-- Stomach highlight -->
-          <ellipse cx="135" cy="330" rx="14" ry="10" fill="#F0C0B0" opacity="0.5" transform="rotate(-20,135,330)"/>
-        </g>
+        <!-- INTESTINES — lower abdomen center -->
+        <div class="hotspot" style="top:60%;left:25%;width:50%;height:18%;border-radius:30%;background:rgba(230,126,34,0.12);color:#E67E22;" onclick="openSys('gi')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#E67E22">Intestines</span>
+        </div>
 
-        <!-- ── PANCREAS ── (yellow, horizontal below stomach) -->
-        <g class="organ" onclick="openSys('endo')" id="org-pancreas">
-          <path d="M112 378 C118 372, 148 370, 180 374 C200 376, 218 380, 220 388 C222 396, 205 400, 185 398 C160 396, 132 394, 115 390 C105 386, 106 382, 112 378 Z" fill="#E8C84A"/>
-          <!-- Lobular texture -->
-          <path d="M125 378 Q140 374 158 376 Q175 378 198 382" stroke="#D4B035" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-          <circle cx="130" cy="382" r="5" fill="#D4B035" opacity="0.3"/>
-          <circle cx="148" cy="380" r="5" fill="#D4B035" opacity="0.3"/>
-          <circle cx="166" cy="381" r="5" fill="#D4B035" opacity="0.3"/>
-          <circle cx="184" cy="384" r="5" fill="#D4B035" opacity="0.3"/>
-        </g>
+        <!-- UPPER EXTREMITY — arms -->
+        <div class="hotspot" style="top:28%;left:4%;width:14%;height:30%;border-radius:30%;background:rgba(142,68,173,0.1);color:#8E44AD;" onclick="openSys('ue')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#8E44AD">UE</span>
+        </div>
+        <div class="hotspot" style="top:28%;left:82%;width:14%;height:30%;border-radius:30%;background:rgba(142,68,173,0.1);color:#8E44AD;" onclick="openSys('ue')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#8E44AD">UE</span>
+        </div>
 
-        <!-- ── LARGE INTESTINE ── (pink, outer frame of lower cavity) -->
-        <g class="organ" onclick="openSys('gi')" id="org-colon">
-          <!-- Top transverse colon -->
-          <path d="M82 402 C82 392, 90 386, 105 384 C115 382, 125 384, 132 388 L232 388 C242 384, 252 382, 262 386 C272 390, 276 400, 272 410" stroke="#E8A0A8" stroke-width="22" fill="none" stroke-linecap="round"/>
-          <!-- Right side (ascending) -->
-          <path d="M272 410 C275 430, 274 450, 268 468 C262 482, 250 490, 238 490" stroke="#E8A0A8" stroke-width="22" fill="none" stroke-linecap="round"/>
-          <!-- Bottom (transverse low) -->
-          <path d="M238 490 C215 494, 185 496, 155 494 C130 492, 105 490, 80 488" stroke="#E8A0A8" stroke-width="22" fill="none" stroke-linecap="round"/>
-          <!-- Left side (descending) -->
-          <path d="M80 488 C72 470, 70 448, 74 428 C76 416, 80 408, 82 402" stroke="#E8A0A8" stroke-width="22" fill="none" stroke-linecap="round"/>
-          <!-- Rectum / sigmoid bottom center -->
-          <path d="M155 494 C150 504, 148 515, 152 525 C155 532, 162 535, 162 535" stroke="#E8A0A8" stroke-width="18" fill="none" stroke-linecap="round"/>
+        <!-- LOWER EXTREMITY — legs -->
+        <div class="hotspot" style="top:80%;left:20%;width:24%;height:18%;border-radius:30%;background:rgba(41,128,185,0.1);color:#2980B9;" onclick="openSys('le')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#2980B9">LE</span>
+        </div>
+        <div class="hotspot" style="top:80%;left:56%;width:24%;height:18%;border-radius:30%;background:rgba(41,128,185,0.1);color:#2980B9;" onclick="openSys('le')">
+          <div class="pulse-ring"></div>
+          <span class="label" style="color:#2980B9">LE</span>
+        </div>
 
-          <!-- Haustra bumps on colon - top -->
-          <path d="M90 390 C90 378, 104 376, 104 390" stroke="#D48890" stroke-width="1.5" fill="none"/>
-          <path d="M114 388 C114 376, 128 374, 128 388" stroke="#D48890" stroke-width="1.5" fill="none"/>
-          <path d="M138 388 C138 376, 152 374, 152 388" stroke="#D48890" stroke-width="1.5" fill="none"/>
-          <path d="M162 388 C162 376, 176 374, 176 388" stroke="#D48890" stroke-width="1.5" fill="none"/>
-          <path d="M186 388 C186 376, 200 374, 200 388" stroke="#D48890" stroke-width="1.5" fill="none"/>
-          <path d="M210 388 C210 376, 224 374, 224 388" stroke="#D48890" stroke-width="1.5" fill="none"/>
-        </g>
-
-        <!-- ── SMALL INTESTINE ── (beige coil, center) -->
-        <g class="organ" onclick="openSys('gi')" id="org-si">
-          <!-- Coiled loops of small intestine -->
-          <path d="M138 408 C125 410, 118 420, 124 432 C130 444, 148 446, 162 440 C176 434, 182 420, 174 410 C166 400, 148 400, 136 408" stroke="#D4B898" stroke-width="11" fill="none" stroke-linecap="round"/>
-          <path d="M136 432 C128 442, 128 455, 138 462 C150 469, 166 466, 174 456 C182 446, 178 432, 168 426" stroke="#D4B898" stroke-width="10" fill="none" stroke-linecap="round"/>
-          <path d="M145 462 C138 470, 140 480, 150 484 C160 488, 170 484, 174 476 C178 468, 174 458, 166 456" stroke="#D4B898" stroke-width="9" fill="none" stroke-linecap="round"/>
-          <!-- Center fill -->
-          <ellipse cx="155" cy="445" rx="30" ry="38" fill="#D4B898" opacity="0.18"/>
-        </g>
-
-        <!-- ── KIDNEYS (small, sides) ── -->
-        <g class="organ" onclick="openSys('renal')" id="org-kidneys">
-          <!-- Left kidney -->
-          <path d="M74 352 C68 342, 70 328, 80 322 C88 317, 98 322, 100 332 C102 342, 96 356, 86 360 C78 363, 74 360, 74 352 Z" fill="#C17A50"/>
-          <!-- Right kidney (partially behind liver) -->
-          <path d="M236 352 C230 342, 232 328, 242 322 C250 317, 260 322, 262 332 C264 342, 258 356, 248 360 C240 363, 236 360, 236 352 Z" fill="#C17A50"/>
-        </g>
-
-        <!-- ── SPLEEN (small, left side) ── -->
-        <g class="organ" onclick="openSys('heme')" id="org-spleen">
-          <ellipse cx="78" cy="316" rx="16" ry="22" fill="#9B7BAF"/>
-        </g>
-
-        <!-- Organ hover labels (appear on hover via CSS would need JS, skip for now) -->
-
-      </svg>
-
-      <p class="hint-text">↑ click any organ to explore notes</p>
+      </div>
+      <p class="hint-text">↑ hover to see organs · click to explore</p>
     </div>
 
     <!-- Right pills -->
-    <div class="tag-col">
-      <div class="sys-pill" onclick="openSys('gi')"><div class="dot" style="background:#E67E22"></div>GI / Hepatic</div>
-      <div class="sys-pill" onclick="openSys('renal')"><div class="dot" style="background:#2980B9"></div>Renal</div>
-      <div class="sys-pill" onclick="openSys('msk')"><div class="dot" style="background:#8E44AD"></div>MSK / Rheum</div>
-      <div class="sys-pill" onclick="openSys('endo')"><div class="dot" style="background:#16A085"></div>Endocrinology</div>
+    <div class="pill-col">
+      <div class="pill" onclick="openSys('gi')"><div class="dot" style="background:#E67E22"></div>GI / Hepatic</div>
+      <div class="pill" onclick="openSys('renal')"><div class="dot" style="background:#2980B9"></div>Renal</div>
+      <div class="pill" onclick="openSys('endo')"><div class="dot" style="background:#16A085"></div>Endocrinology</div>
+      <div class="pill" onclick="openSys('msk')"><div class="dot" style="background:#8E44AD"></div>MSK / Rheum</div>
+      <div class="pill" onclick="openSys('le')"><div class="dot" style="background:#2980B9"></div>Lower Extremity</div>
     </div>
 
   </div>
-</div><!-- /landing -->
+</div>
 
 
-<!-- ══════════ SYSTEM VIEW ══════════ -->
+<!-- ══ SYSTEM VIEW ══ -->
 <div id="sysview">
-  <div class="sys-header">
-    <button class="back-btn" onclick="closeSys()">←</button>
-    <div class="sys-color-dot" id="hdrDot"></div>
+  <div class="syshead">
+    <button class="bk" onclick="closeSys()">←</button>
+    <div class="cdot" id="hdrDot"></div>
     <div>
-      <div class="sys-name" id="hdrName">—</div>
-      <div class="sys-hint" id="hdrHint">Click a structure</div>
+      <div class="sysname" id="hdrName">—</div>
+      <div class="syshint" id="hdrHint">Click a structure</div>
     </div>
   </div>
-
-  <div class="sys-main">
-    <div class="diagram-area" id="diagArea"></div>
-    <div class="notes-pane">
-      <div class="notes-empty" id="notesEmpty">
-        <div class="big-icon" id="emptyIcon">🫀</div>
+  <div class="sysmain">
+    <div class="diagwrap" id="diagArea"></div>
+    <div class="notepane">
+      <div class="nempty" id="nEmpty">
+        <div class="ico" id="nIco">🫀</div>
         <h3>Select a structure</h3>
-        <p>Click any labeled part in the diagram to view your notes and an AI explanation.</p>
+        <p>Click any labeled part to view notes and AI explanation.</p>
       </div>
-      <div class="notes-filled" id="notesFilled">
-        <div class="notes-filled-top">
-          <div class="sys-color-dot" id="noteDot" style="width:10px;height:10px;border-radius:50%;"></div>
-          <h2 id="noteTitle">—</h2>
-          <button class="x-btn" onclick="closeNote()">×</button>
+      <div class="nfull" id="nFull">
+        <div class="ntop">
+          <div id="nDot" style="width:10px;height:10px;border-radius:50%;flex-shrink:0"></div>
+          <h2 id="nTitle">—</h2>
+          <button class="xb" onclick="closeNote()">×</button>
         </div>
-        <div class="notes-body" id="notesBody"></div>
+        <div class="nbody" id="nBody"></div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-// ══════════════════════════
-// DATA
-// ══════════════════════════
 const SYS = {
   neuro:{label:'Neurology',color:'#6B5CE7',icon:'🧠',hint:'Click a brain region',
     structs:{
       frontal:{name:'Frontal Lobe',tags:['Motor cortex','Broca\'s area','Executive fn'],
-        overview:'Precentral gyrus = primary motor cortex (homunculus: leg medial, face lateral). Prefrontal cortex handles executive function, working memory, personality. Broca\'s area (BA 44/45): dominant hemisphere, language production.',
-        clinical:'UMN signs: spasticity, hyperreflexia, Babinski+. Broca\'s aphasia: non-fluent, telegraphic speech, intact comprehension. Frontal release signs: grasp, snout, palmomental. Personality change, disinhibition.',
-        lesions:'Frontal eye fields: irritative lesion → eyes deviate AWAY from lesion. Destructive → eyes deviate TOWARD lesion. Seizure focus → eyes deviate AWAY. Urinary incontinence = parasagittal meningioma.',
-        hy:'FEF mnemonic: "Damage Delivers eyes to Damage side; Seizures Send eyes away." Normal pressure hydrocephalus triad = Wet, Wobbly, Wacky (incontinence, gait ataxia, dementia).'},
-      temporal:{name:'Temporal Lobe',tags:['Wernicke\'s','Hippocampus','Superior quadrantanopia'],
-        overview:'Primary auditory cortex (Heschl\'s gyrus). Wernicke\'s area (BA 22): dominant hemisphere, language comprehension. Hippocampus: memory consolidation. Amygdala: fear, emotion.',
-        clinical:'Wernicke\'s aphasia: fluent, paraphasic, neologisms, poor comprehension, poor repetition. Anterograde amnesia if bilateral hippocampal damage. Complex partial seizures: déjà vu, automatisms.',
-        lesions:'Meyer\'s loop damage → contralateral SUPERIOR quadrantanopia ("pie in the sky"). Bilateral hippocampal lesion → anterograde amnesia (Patient H.M.). Klüver-Bucy: bilateral amygdala → hypersexuality, hyperorality, docility.',
-        hy:'Temporal lobe epilepsy: most common adult partial epilepsy. MRI: mesial temporal sclerosis. Aura: déjà vu, olfactory hallucinations, rising epigastric sensation. Ictal: automatisms (lip-smacking, hand-rubbing).'},
-      parietal:{name:'Parietal Lobe',tags:['Somatosensory','Gerstmann\'s','Neglect'],
-        overview:'Postcentral gyrus = primary somatosensory cortex. Superior parietal lobule: proprioception, spatial awareness. Angular gyrus (BA 39): reading, arithmetic. Dominant = language; Non-dominant = visuospatial.',
-        clinical:'Gerstmann syndrome (dominant angular gyrus): Acalculia, Agraphia, finger Agnosia, L/R disorientation. Non-dominant: hemispatial neglect, anosognosia, constructional apraxia, dressing apraxia.',
-        lesions:'Inferior quadrantanopia ("pie in the floor"). Astereognosis, agraphesthesia (cortical sensory loss). Balint syndrome: bilateral parieto-occipital → simultanagnosia, optic ataxia, oculomotor apraxia.',
-        hy:'Gerstmann = 4 A\'s + L/R: Angular gyrus = Acalculia + Agraphia + finger Agnosia + L/R confusion. Non-dominant parietal neglect: patient bisects lines to the right, draws clocks with all numbers on right.'},
-      occipital:{name:'Occipital Lobe',tags:['V1 calcarine','Macular sparing','Cortical blindness'],
-        overview:'Primary visual cortex (V1) lines calcarine fissure. Upper bank → inferior visual field. Lower bank → superior visual field. Macular representation is most posterior, has DUAL supply (MCA + PCA).',
-        clinical:'Complete lesion → contralateral homonymous hemianopia WITH macular sparing (PCA stroke). Bilateral → cortical blindness. Anton\'s syndrome: patient denies cortical blindness.',
-        lesions:'Visual agnosia (ventral stream V4): can\'t recognize objects. Prosopagnosia: bilateral fusiform gyrus, can\'t recognize faces. Akinetopsia (V5/MT): can\'t perceive motion.',
-        hy:'Macular sparing is PATHOGNOMONIC of occipital (vs optic tract → no sparing). PCA stroke = occipital + thalamus + midbrain. Charles Bonnet: complex visual hallucinations with visual loss (not psychiatric).'},
-      cerebellum:{name:'Cerebellum',tags:['IPSILATERAL','DANISH','Medulloblastoma'],
-        overview:'Vermis: truncal/axial coordination. Hemispheres: ipsilateral limb coordination. Flocculonodular lobe: vestibular, balance. Input: contralateral cortex → crosses twice → net IPSILATERAL control.',
-        clinical:'DANISH: Dysdiadochokinesia, Ataxia (gait), Nystagmus (gaze-evoked, fast phase TOWARD lesion), Intention tremor, Slurred speech (scanning dysarthria), Hypotonia.',
-        lesions:'Vermis lesion: truncal ataxia, titubation, broad-based gait. Hemisphere: ipsilateral limb dysmetria, past-pointing. Cerebellar tonsil herniation → compress CN IX/X/XI/XII + PICA.',
-        hy:'IPSILATERAL signs always. Cerebellar vs vestibular: nystagmus fast phase = TOWARD cerebellar lesion; AWAY from peripheral vestibular lesion. Medulloblastoma: #1 pediatric brain tumor, 4th ventricle → obstructive hydrocephalus.'},
+        overview:'Precentral gyrus = primary motor cortex. Prefrontal cortex: executive function, working memory, personality. Broca\'s area (BA 44/45): dominant hemisphere language production.',
+        clinical:'UMN signs: spasticity, hyperreflexia, Babinski+. Broca\'s aphasia: non-fluent telegraphic speech, intact comprehension. Frontal release signs: grasp, snout, palmomental.',
+        lesions:'FEF lesion: eyes deviate TOWARD lesion. FEF seizure: eyes deviate AWAY. Normal pressure hydrocephalus: Wet + Wobbly + Wacky.',
+        hy:'"Damage Delivers eyes to Damage side; Seizures Send eyes away." Broca\'s = non-fluent + intact comprehension. Wernicke\'s = fluent + impaired comprehension.'},
+      temporal:{name:'Temporal Lobe',tags:['Wernicke\'s','Hippocampus','Meyer\'s loop'],
+        overview:'Wernicke\'s area (BA 22): dominant hemisphere comprehension. Hippocampus: memory consolidation. Amygdala: fear/emotion. Meyer\'s loop: inferior optic radiation.',
+        clinical:'Wernicke\'s aphasia: fluent, paraphasic, poor comprehension + repetition. Anterograde amnesia with bilateral hippocampal damage. TLE: déjà vu, automatisms.',
+        lesions:'Meyer\'s loop → contralateral SUPERIOR quadrantanopia ("pie in the sky"). Klüver-Bucy: bilateral amygdala → hypersexuality + hyperorality + docility.',
+        hy:'TLE MRI: mesial temporal sclerosis. Ictal: lip-smacking, hand-rubbing automatisms. Bilateral hippocampal damage → anterograde amnesia (H.M. case).'},
+      parietal:{name:'Parietal Lobe',tags:['Gerstmann\'s','Neglect','Inferior quadrantanopia'],
+        overview:'Postcentral gyrus = primary somatosensory cortex. Dominant: Gerstmann syndrome. Non-dominant: visuospatial + hemispatial neglect.',
+        clinical:'Gerstmann: Acalculia + Agraphia + finger Agnosia + L/R disorientation. Non-dominant: hemispatial neglect, anosognosia, constructional apraxia.',
+        lesions:'Inferior quadrantanopia ("pie in the floor"). Astereognosis, agraphesthesia. Balint syndrome: simultanagnosia + optic ataxia + oculomotor apraxia.',
+        hy:'Gerstmann = 4 A\'s + L/R = angular gyrus. Non-dominant parietal neglect: draws all clock numbers on right side, shaves only one side of face.'},
+      occipital:{name:'Occipital Lobe',tags:['V1 calcarine','Macular sparing','Anton\'s syndrome'],
+        overview:'Primary visual cortex (V1) = calcarine cortex. Macula has dual supply (MCA + PCA) → macular SPARING in PCA strokes. V4: color. V5/MT: motion.',
+        clinical:'Complete lesion → contralateral homonymous hemianopia WITH macular sparing. Bilateral → cortical blindness. Anton\'s syndrome: denial of cortical blindness.',
+        lesions:'Visual agnosia (ventral V4). Prosopagnosia: bilateral fusiform gyrus. Akinetopsia: V5 damage, can\'t perceive motion.',
+        hy:'Macular sparing = PATHOGNOMONIC of occipital lesion (vs optic tract = no sparing). PCA stroke: occipital + thalamus + midbrain.'},
+      cerebellum:{name:'Cerebellum',tags:['IPSILATERAL','DANISH','Ataxia'],
+        overview:'Vermis: truncal coordination. Hemispheres: ipsilateral limb coordination. Double cross = net IPSILATERAL control.',
+        clinical:'DANISH: Dysdiadochokinesia, Ataxia, Nystagmus (fast phase TOWARD lesion), Intention tremor, Scanning dysarthria, Hypotonia.',
+        lesions:'Vermis: truncal ataxia, titubation, broad-based gait. Hemisphere: ipsilateral dysmetria. Medulloblastoma: #1 pediatric brain tumor, 4th ventricle.',
+        hy:'IPSILATERAL always. Cerebellar nystagmus fast phase TOWARD lesion (vs vestibular: AWAY). Tonsil herniation → CN IX/X/XI + PICA compression.'},
       brainstem:{name:'Brainstem',tags:['Alternating hemiplegia','Wallenberg','CN nuclei'],
-        overview:'Midbrain (CN III-IV + red nucleus + substantia nigra). Pons (CN V-VIII + PPRF + locus ceruleus). Medulla (CN IX-XII + cardiovascular/respiratory centers). Rule: ipsilateral CN + contralateral body = BRAINSTEM.',
-        clinical:'Wallenberg (lateral medulla/PICA): ipsilateral face pain/temp + Horner\'s + dysphagia + ataxia; contralateral body pain/temp. Medial medulla (ASA): contralateral hemiplegia + position/vibration loss + ipsilateral tongue deviation.',
-        lesions:'Weber (midbrain): CN III palsy + contralateral hemiplegia. Millard-Gubler (pons): CN VI+VII palsy + contralateral hemiplegia. Locked-in syndrome: basilar artery occlusion at pons → bilateral corticospinal + corticobulbar.',
-        hy:'"Crossed signs = brainstem." Lateral = spinothalamic (pain/temp). Medial = corticospinal + DCML (motor + vibration/position). Wallenberg: "5 I\'s" — Ipsilateral face, Ipsilateral Horner\'s, Ipsilateral ataxia, contralateral body (pain/temp), dysphagia/hoarseness.'}
+        overview:'Midbrain (CN III-IV). Pons (CN V-VIII + PPRF). Medulla (CN IX-XII). Rule: ipsilateral CN palsy + contralateral body = BRAINSTEM.',
+        clinical:'Wallenberg (PICA): ipsilateral face pain/temp + Horner\'s + dysphagia + ataxia; contralateral body pain/temp.',
+        lesions:'Weber (midbrain): CN III + contralateral hemiplegia. Millard-Gubler (pons): CN VI+VII + contralateral hemiplegia. Locked-in: basilar artery.',
+        hy:'"Crossed signs = brainstem." Wallenberg "5 I\'s": Ipsilateral face, Horner\'s, ataxia + contralateral body pain/temp + dysphagia/hoarseness.'}
     }
   },
   cardio:{label:'Cardiology',color:'#E74C3C',icon:'❤️',hint:'Click a cardiac structure',
     structs:{
-      lv:{name:'Left Ventricle',tags:['Systemic','High pressure','LAD territory'],
-        overview:'Wall thickness 8-12mm. Pumps to systemic circulation via aorta at ~120 mmHg. Most common MI location (LAD supplies anterior wall + anterior septum). Compliance: stiff LV → S4; dilated LV → S3.',
-        clinical:'LV failure: orthopnea, PND, crackles, pink frothy sputum. S3 (volume overload: MR, DCM). S4 (pressure overload: HTN, AS, HCM). Pulsus alternans: severe LV dysfunction.',
-        lesions:'LVH: HTN (eccentric), AS (concentric), HCM (asymmetric septal). LV aneurysm post-MI: persistent ST elevation, VT, mural thrombus. Dressler syndrome: 2-10 weeks post-MI pericarditis.',
-        hy:'Vascular territories: LAD = anterior + anterior septum. RCA = inferior + posterior descending + posterior septum + SA node (bradycardia in inferior MI). LCx = lateral. "LAD is the widowmaker."'},
-      rv:{name:'Right Ventricle',tags:['Low pressure','RVMI pearls','Cor pulmonale'],
-        overview:'Thin-walled, crescent-shaped, pumps to pulmonary circulation at ~25/10 mmHg. Very preload-dependent. Extremely sensitive to sudden increases in afterload (saddle PE, acute pulmonary HTN).',
-        clinical:'RV failure → JVD, peripheral edema, hepatomegaly, ascites. NO pulmonary edema. Kussmaul\'s sign: JVP rises with inspiration (RVMI, constrictive pericarditis, tamponade).',
-        lesions:'RVMI (RCA occlusion, inferior MI): hypotension + JVD + clear lungs. Treatment: aggressive IV fluids (AVOID nitrates/diuretics). Cor pulmonale: chronic RVH from pulmonary HTN (COPD, ILD, OSA, PE).',
-        hy:'"Fill the right" — RVMI requires fluids. The more you diurese, the worse it gets. PA catheter: RVMI = elevated RAP, normal PCWP. Saddle PE: acute RV pressure overload → acute cor pulmonale → D-sign on echo (septal flattening).'},
-      aorticvalve:{name:'Aortic Valve',tags:['AS vs AR','SAD triad','Semilunar'],
-        overview:'Trileaflet semilunar valve, area 2.5-3.5cm². Most commonly replaced valve. AS: outflow obstruction → concentric LVH → diastolic dysfunction. AR: volume overload → eccentric LVH → dilation.',
-        clinical:'AS: harsh crescendo-decrescendo SEM at RUSB, radiates to carotids, pulsus parvus et tardus, S4, single S2. AR: decrescendo early diastolic murmur at LLSB/LUSB, wide pulse pressure, water-hammer pulse.',
-        lesions:'AS: SAD (Syncope 5yr, Angina 3yr, Dyspnea 2yr average survival). Severe AS: AVA<1cm², gradient>40mmHg, Vmax>4m/s. AR eponyms: Corrigan (water-hammer), de Musset (head bob), Quincke (nail pulsation), Duroziez, Traube.',
-        hy:'"SAD" triad of AS: Syncope worst (5y survival), then Angina (3y), then Dyspnea/HF (2y). Bicuspid AV: most common congenital cardiac defect (1-2%), associated with aortic coarctation and aortic aneurysm.'},
-      mitralvalve:{name:'Mitral Valve',tags:['Rheumatic','MVP','Papillary muscle rupture'],
-        overview:'Bicuspid AV valve. Anterior leaflet: larger, continuous with aortic valve fibers. Posterior leaflet: 3 scallops (P1/P2/P3 — P2 most common prolapse). Papillary muscles: posteromedial (single PDA supply) and anterolateral (dual supply).',
-        clinical:'MS: rumbling diastolic murmur at apex, opening snap (S2-OS interval ↓ = worse stenosis), AFib, hemoptysis, Ortner syndrome. MR: holosystolic at apex → axilla, S3, AFib, pulmonary HTN.',
-        lesions:'MR post-MI: posteromedial papillary muscle rupture (RCA/PDA territory, single blood supply = vulnerable). Causes: MVP>IE>ischemic>rheumatic. MS causes: rheumatic (most common). MVP: myxomatous degeneration.',
-        hy:'MVP click-murmur changes: decreased preload (standing/Valsalva) → LV smaller → click EARLIER, murmur LONGER. Increased preload (squatting/leg raise) → click LATER, murmur SHORTER. "Stand up = click moves toward S1."'}
+      lv:{name:'Left Ventricle',tags:['High pressure','LAD territory','S3 vs S4'],
+        overview:'Wall 8-12mm, ~120mmHg systolic. Most common MI site. S3 = volume overload (MR, DCM). S4 = pressure overload (HTN, AS, HCM).',
+        clinical:'LV failure → pulmonary edema: orthopnea, PND, crackles, pink frothy sputum. Cardiogenic shock: hypotension + ↑PCWP + ↓CO.',
+        lesions:'LVH: HTN (eccentric), AS (concentric), HCM (asymmetric septal). LV aneurysm post-MI: persistent ST elevation + VT risk + mural thrombus.',
+        hy:'LAD = widowmaker = anterior + anterior septum. RCA = inferior + SA node (bradycardia in inferior MI). LCx = lateral wall.'},
+      rv:{name:'Right Ventricle',tags:['Low pressure','RVMI','Cor pulmonale'],
+        overview:'Thin-walled, crescent-shaped. ~25/10 mmHg. Preload-dependent, sensitive to afterload increases.',
+        clinical:'RV failure → JVD + peripheral edema + hepatomegaly (NO pulmonary edema). Kussmaul\'s sign: JVP rises with inspiration.',
+        lesions:'RVMI: hypotension + JVD + clear lungs. Give IV fluids. Avoid nitrates/diuretics. RCA occlusion. Cor pulmonale: COPD #1 cause.',
+        hy:'"Fill the right" — RVMI needs fluids not diuretics. PA catheter: RVMI = elevated RAP, normal PCWP. D-sign on echo = septal flattening.'},
+      aorticvalve:{name:'Aortic Valve',tags:['AS SAD triad','AR eponyms','Bicuspid AV'],
+        overview:'Trileaflet semilunar valve, area 2.5-3.5cm². AS: concentric LVH. AR: eccentric LVH + dilation.',
+        clinical:'AS: crescendo-decrescendo SEM at RUSB, pulsus parvus et tardus, SAD triad (Syncope 5yr, Angina 3yr, Dyspnea 2yr). AR: decrescendo diastolic at LLSB, wide pulse pressure.',
+        lesions:'AS: bicuspid AV (young), calcific degeneration (elderly). Severe AS: AVA<1cm², gradient>40mmHg. AR: bicuspid, IE, Marfan\'s, syphilis.',
+        hy:'AR eponyms: Corrigan (water-hammer), de Musset (head bobbing), Quincke (nail pulsations), Duroziez, Traube. Bicuspid AV: most common congenital cardiac defect.'},
+      mitralvalve:{name:'Mitral Valve',tags:['Rheumatic','MVP click','Papillary rupture'],
+        overview:'Bicuspid AV valve. Posteromedial papillary muscle: single PDA supply = vulnerable to ischemia.',
+        clinical:'MS: rumbling diastolic + opening snap. AFib most common complication. MR: holosystolic at apex → axilla.',
+        lesions:'MS: rheumatic. MR: MVP (#1), ischemic papillary rupture (posteromedial, day 2-7 post-MI), IE, rheumatic.',
+        hy:'MVP: ↓preload (standing/Valsalva) → click EARLIER, murmur LONGER. ↑preload (squatting) → click LATER, murmur SHORTER.'}
     }
   },
-  pulm:{label:'Pulmonology',color:'#5DAD6F',icon:'🫁',hint:'Click a pulmonary structure',
+  pulm:{label:'Pulmonology',color:'#27AE60',icon:'🫁',hint:'Click a pulmonary structure',
     structs:{
-      upperlobe:{name:'Upper Lobe Pathology',tags:['TB reactivation','Pancoast','High V/Q'],
-        overview:'RUL: apical, posterior, anterior segments. LUL: apicoposterior, anterior, lingular (sup/inf). High V/Q ratio at apices: well-ventilated, poorly perfused → high O2 tension → TB colonizes here.',
-        clinical:'TB reactivation: apical posterior segment cavitation, Simon foci. Pancoast (superior sulcus tumor): Horner\'s syndrome + ipsilateral C8/T1/T2 brachial plexus invasion → shoulder/arm pain.',
-        lesions:'Cavitary lesions: TB > lung abscess > aspergilloma (fungus ball in old cavity, Monod sign). Pancoast: ipsilateral Horner\'s (ptosis, miosis, anhidrosis) + rib/vertebral erosion. Aspiration upright → upper lobe.',
-        hy:'V/Q apex ~3.3, base ~0.63. Dead space: V/Q = ∞ (PE: ventilated, not perfused). Shunt: V/Q = 0 (pneumonia/atelectasis: perfused, not ventilated). Shunt does NOT correct with 100% O2 (diagnostic distinction from V/Q mismatch).'},
-      lowerlobe:{name:'Lower Lobe Pathology',tags:['Aspiration (supine)','Pneumonia','IPF'],
-        overview:'Highest perfusion. 5 segments in RLL. Aspiration supine → posterior upper lobe segments OR superior lower lobe segments. Right > left (right mainstem more vertical). Most common CAP location.',
-        clinical:'IPF (UIP pattern): bibasilar crackles ("Velcro"), finger clubbing, honeycombing on HRCT. No response to steroids. Antifibrotics (pirfenidone, nintedanib) slow decline.',
-        lesions:'Aspiration pneumonia (anaerobes) vs aspiration pneumonitis (chemical, Mendelson\'s). Bronchiectasis: LLL most common (CF, Kartagener\'s/PCD, post-TB). RLL: most common aspiration + pneumonia site.',
-        hy:'IPF median survival 3-5 years, worse than most cancers. Need transplant eval early. PF on HRCT: traction bronchiectasis + honeycombing + subpleural/basal predominance + no GGO. Clubbing in IPF, not COPD.'},
+      upperlobe:{name:'Upper Lobe Pathology',tags:['TB reactivation','Pancoast','V/Q ratio'],
+        overview:'High V/Q at apex (~3.3): well-ventilated, poorly perfused → high O2 tension → TB colonizes here.',
+        clinical:'TB reactivation: apical posterior cavitation. Pancoast: Horner\'s + C8/T1/T2 brachial plexus → shoulder/arm pain.',
+        lesions:'Cavitary lesions: TB, lung abscess, aspergilloma (Monod sign). Pancoast: ipsilateral Horner\'s + rib/vertebral erosion.',
+        hy:'Shunt (V/Q=0): NO response to 100% O2 — diagnostic key. Dead space (V/Q=∞): PE. V/Q mismatch: COPD/PE — corrects with O2.'},
+      lowerlobe:{name:'Lower Lobe Pathology',tags:['Aspiration','IPF','Bronchiectasis'],
+        overview:'Highest perfusion. Aspiration supine → superior segments of lower lobes. Right > left (right mainstem more vertical).',
+        clinical:'IPF: bibasilar Velcro crackles, clubbing, honeycombing on HRCT. No steroids. Antifibrotics (pirfenidone, nintedanib).',
+        lesions:'IPF: median survival 3-5yr. Bronchiectasis: LLL most common (CF, Kartagener\'s). RLL: most common aspiration + CAP site.',
+        hy:'IPF = UIP: bibasilar + subpleural + honeycombing + traction bronchiectasis. NSIP (CTD): bilateral GGO + reticulation, responds to steroids.'},
       pleura:{name:'Pleura & Pleural Space',tags:['Tension PTX','Light\'s criteria','Mesothelioma'],
-        overview:'Visceral pleura (no pain) + parietal pleura (pain via intercostal/phrenic nerves). Normal fluid 5-15mL. Negative intrapleural pressure (-5cmH2O) maintains lung inflation. Starling forces determine fluid balance.',
-        clinical:'Tension PTX: tracheal deviation AWAY, hypotension, JVD, absent breath sounds. Clinical diagnosis — needle decompression 2nd ICS MCL immediately. Do NOT wait for CXR. Then chest tube 4th/5th ICS AAL.',
-        lesions:'Light\'s criteria — EXUDATE if any: (1) pleural protein/serum >0.5; (2) pleural LDH/serum >0.6; (3) pleural LDH >2/3 upper normal serum LDH. Mesothelioma: asbestos exposure, 40yr latency, calretinin+/WT-1+.',
-        hy:'Transudates: CHF (#1), cirrhosis, nephrotic syndrome, Meigs\'. Exudates: parapneumonic, malignancy, PE, TB, RA, SLE. Yellow nail syndrome: yellow nails + lymphedema + pleural effusion. Chylothorax: triglycerides >110.'}
+        overview:'Parietal pleura has pain fibers; visceral does not. Normal fluid: 5-15mL. Negative intrapleural pressure maintains lung inflation.',
+        clinical:'Tension PTX: tracheal deviation AWAY + hypotension + JVD. Clinical diagnosis — needle decompress 2nd ICS MCL IMMEDIATELY.',
+        lesions:'Light\'s criteria EXUDATE (any 1): protein/serum>0.5 OR LDH/serum>0.6 OR LDH>2/3 upper limit. Mesothelioma: asbestos, 40yr latency.',
+        hy:'Transudates: CHF (#1), cirrhosis, nephrotic. Exudates: parapneumonic, malignancy, PE, TB, RA (glucose<30). Chylothorax: TG>110.'}
     }
   },
   gi:{label:'GI / Hepatic',color:'#E67E22',icon:'🔶',hint:'Click an abdominal structure',
     structs:{
-      stomach:{name:'Stomach',tags:['PUD','H. pylori','ZE syndrome'],
-        overview:'Parietal cells (body/fundus): HCl + intrinsic factor. Chief cells: pepsinogen. G cells (antrum): gastrin → stimulates HCl. D cells: somatostatin → inhibits gastrin. ECL cells: histamine → stimulates parietal cells.',
-        clinical:'H. pylori: Gram-neg spiral rod, urease+. 90% DU, 70% GU. NSAIDs: COX-1 inhibition → ↓PGE2 → ↓mucus/bicarb/blood flow. DU: pain 2-3hr post-meal (relieved by food). GU: pain worsened by food.',
-        lesions:'Gastric adenocarcinoma: intestinal type (H.pylori, salty/smoked food, intestinal metaplasia, Lauren type I) vs diffuse type (CDH1/E-cadherin loss, signet ring cells, linitis plastica, young patients). Virchow\'s node, Blumer\'s shelf, Sister Mary Joseph.',
-        hy:'ZE (Zollinger-Ellison): gastrinoma → gastrin >1000 + paradoxical rise with secretin. Multiple ulcers + diarrhea + 25% MEN1. Triple therapy H.pylori: PPI + clarithromycin + amoxicillin × 14 days. Test of cure: UBT or stool antigen (>4 weeks after Rx).'},
+      stomach:{name:'Stomach',tags:['PUD','ZE syndrome','Gastric cancer'],
+        overview:'Parietal cells: HCl + intrinsic factor. Chief cells: pepsinogen. G cells (antrum): gastrin. D cells: somatostatin. ECL cells: histamine.',
+        clinical:'H. pylori: 90% DU, 70% GU. NSAIDs → COX-1 inhibition → ↓PGE2. DU: relieved by eating. GU: worsened by eating.',
+        lesions:'Gastric adenocarcinoma: intestinal type (H.pylori) vs diffuse type (CDH1 mutation, signet ring, linitis plastica). Virchow\'s node, Sister Mary Joseph.',
+        hy:'ZE: gastrin>1000 + paradoxical rise with secretin. Triple therapy: PPI + clarithromycin + amoxicillin ×14d. Test of cure: UBT or stool Ag >4 weeks post-Rx.'},
       liver:{name:'Liver',tags:['Zone 3 acetaminophen','Cirrhosis','MELD score'],
-        overview:'Zone 1 (periportal): O2/nutrient-rich, first hit by toxins, site of gluconeogenesis and β-oxidation. Zone 3 (centrilobular): lowest O2, most metabolic activity (P450), most vulnerable to ischemia + acetaminophen toxicity.',
-        clinical:'Cirrhosis → portal HTN (>10mmHg): varices, ascites (SAAG >1.1 = portal HTN), splenomegaly, caput medusae, HE. Hepatic failure: coagulopathy (↓II/VII/IX/X), hypoalbuminemia, jaundice.',
-        lesions:'Zone 3 necrosis: acetaminophen (CYP2E1 → NAPQI), ischemia (right heart failure), yellow fever, halothane. Zone 1: phosphorus, eclampsia. Budd-Chiari: hepatic vein thrombosis → nutmeg liver. Wilson\'s: ATP7B, copper → KF rings.',
-        hy:'MELD = 3.78[lnBili] + 11.2[lnINR] + 9.57[lnCr] + 6.43. Predicts 90-day transplant-free survival. Hemochromatosis: HFE gene (C282Y), iron in zone 1, bronze diabetes + cirrhosis + restrictive CM + hypogonadism + arthritis (2nd/3rd MCP).'},
-      pancreas:{name:'Pancreas',tags:['GET SMASHED','Islet cells','Ductal adenocarcinoma'],
-        overview:'Retroperitoneal. Exocrine (85%): acinar cells (zymogens) + ductal cells (HCO3). Endocrine islets: α (glucagon), β (insulin), δ (somatostatin), PP (pancreatic polypeptide), ε (ghrelin). Rich in secretin (CCK stimulation).',
-        clinical:'Acute pancreatitis: epigastric pain → back, ↑lipase (more specific) + amylase. Cullen\'s (periumbilical) + Grey-Turner\'s (flank) → hemorrhagic. Pseudocyst: >4 weeks, amylase-rich fluid.',
-        lesions:'Ductal adenocarcinoma: head (60-70%) → painless obstructive jaundice + palpable gallbladder (Courvoisier\'s sign). CA19-9. Trousseau\'s migratory thrombophlebitis. VIPoma → WDHA (watery diarrhea, hypokalemia, achlorhydria). Insulinoma: Whipple\'s triad.',
-        hy:'GET SMASHED: Gallstones, EtOH, Trauma, Steroids, Mumps, Autoimmune, Scorpion, Hyperlipidemia/Hypercalcemia/Hypothermia, ERCP, Drugs. Annular pancreas → duodenal obstruction (double bubble XR). Glucagonoma: 4 D\'s — Diabetes, DVT, Dermatitis (NME), Depression.'},
+        overview:'Zone 1 (periportal): O2/nutrient-rich, first hit by toxins. Zone 3 (centrilobular): lowest O2, most P450, most vulnerable to ischemia + acetaminophen.',
+        clinical:'Cirrhosis → portal HTN (>10mmHg): varices, ascites, splenomegaly, caput medusae, hepatic encephalopathy.',
+        lesions:'Zone 3: acetaminophen (NAC treatment), ischemia, yellow fever. Zone 1: phosphorus, eclampsia. Budd-Chiari: hepatic vein thrombosis → nutmeg liver.',
+        hy:'MELD = 3.78[lnBili] + 11.2[lnINR] + 9.57[lnCr] + 6.43. Hemochromatosis: HFE (C282Y), bronze diabetes + cirrhosis + CM + hypogonadism + arthritis (2nd/3rd MCP).'},
+      pancreas:{name:'Pancreas',tags:['GET SMASHED','Islet tumors','Ductal adenocarcinoma'],
+        overview:'Exocrine: acinar (zymogens) + ductal (HCO3). Endocrine islets: α (glucagon), β (insulin), δ (somatostatin), PP cells.',
+        clinical:'Acute pancreatitis: epigastric pain → back, ↑lipase + amylase. Cullen\'s + Grey-Turner\'s = hemorrhagic pancreatitis.',
+        lesions:'Head adenocarcinoma → painless jaundice + palpable GB (Courvoisier\'s sign). CA19-9. Trousseau\'s. Whipple procedure for resectable head cancers.',
+        hy:'GET SMASHED: Gallstones, EtOH, Trauma, Steroids, Mumps, Autoimmune, Scorpion, Hypertriglyceridemia/Hypercalcemia, ERCP, Drugs. Insulinoma: Whipple\'s triad.'},
       colon:{name:'Colon & IBD',tags:['Crohn\'s vs UC','Lynch syndrome','CRC sequence'],
-        overview:'Crohn\'s: skip lesions, transmural, any GI segment, cobblestone, fistulas, granulomas, smoking worsens, RLQ pain, "string sign" on barium. UC: continuous, mucosal only, always rectum extending proximally, crypt abscesses, pseudopolyps.',
-        clinical:'Crohn\'s complications: fistulas (entero-enteric, enterovesical, enterocutaneous), strictures, malabsorption, SBO. UC complications: toxic megacolon (transverse >6cm), fulminant colitis, PSC.',
-        lesions:'CRC: APC → K-RAS → DCC → TP53 (Fearon-Vogelstein). Lynch (HNPCC): MLH1/MSH2/MSH6/PMS2 → MSI → CRC + endometrial + ovarian. Amsterdam criteria: 3-2-1 rule. FAP: APC, >100 polyps, always gets cancer.',
-        hy:'IBD extraintestinal: parallel disease (erythema nodosum, episcleritis, peripheral arthritis). Independent of disease (pyoderma gangrenosum, uveitis, AS, PSC). PSC: UC >> Crohn\'s, p-ANCA+, "beads-on-a-string" MRCP, ↑risk cholangiocarcinoma.'}
+        overview:'Crohn\'s: skip lesions, transmural, any GI, fistulas, granulomas, smoking worsens. UC: continuous, mucosal only, always rectum, crypt abscesses, smoking protective.',
+        clinical:'IBD extraintestinal: parallel (EN, episcleritis). Independent (pyoderma gangrenosum, uveitis, AS, PSC — UC >> Crohn\'s).',
+        lesions:'CRC: APC → K-RAS → DCC → TP53. Lynch: MLH1/MSH2/MSH6/PMS2 → MSI → CRC + endometrial + ovarian. FAP: APC, >100 polyps, 100% malignant by 40.',
+        hy:'Toxic megacolon: UC, transverse colon >6cm → emergency colectomy. PSC: p-ANCA+, beads-on-a-string MRCP, ↑cholangiocarcinoma risk.'}
     }
   },
   renal:{label:'Renal',color:'#2980B9',icon:'🫘',hint:'Click a nephron segment',
     structs:{
-      glomerulus:{name:'Glomerulus',tags:['Nephritic vs nephrotic','GBM type IV collagen','GFR'],
-        overview:'Filtration barrier: fenestrated endothelium (size) + GBM (charge + size, type IV collagen + laminin + heparan sulfate) + podocyte foot processes + slit diaphragm (nephrin). Mesangial cells: structural support, phagocytosis, contract.',
-        clinical:'Nephritic: hematuria (RBC casts = pathognomonic of GN), HTN, oliguria, AKI, mild proteinuria. Nephrotic: massive proteinuria >3.5g/d, hypoalbuminemia, edema, hyperlipidemia, hypercoagulability (AT-III/protein C/S/plasminogen loss in urine).',
-        lesions:'NEPHROTIC: MCD (podocyte effacement, EM, steroids work), FSGS (HIV/heroin/obesity/sickle, collapsing in HIV), MGN (spike+dome, anti-PLA2R, HBV/SLE/drugs/cancer), MPGN (tram-tracks, HCV/complement). NEPHRITIC: Post-strep (humps), IgA (Berger\'s, mesangial), RPGN (crescents, 3 types).',
-        hy:'Nephrotic → hypercoagulable → renal vein thrombosis (especially MGN). MCD → steroids. FSGS → poor steroid response. Goodpasture: anti-GBM Ab + linear IF + pulmonary hemorrhage + rapidly progressive GN. Type II MPGN (dense deposit disease): C3 nephritic factor.'},
-      pct:{name:'Proximal Convoluted Tubule',tags:['67% reabsorption','SGLT2','Fanconi syndrome'],
-        overview:'Reabsorbs 67% of Na, Cl, H2O, K; ~90% of HCO3, glucose, amino acids, phosphate, uric acid. Na/H exchanger (NHE3) + Na/K-ATPase drives most reabsorption. Brush border with carbonic anhydrase IV.',
-        clinical:'Fanconi syndrome: generalized PCT dysfunction → glucosuria (normal serum glucose), aminoaciduria, phosphaturia, bicarbonaturia, uricosuria → Type 2 RTA + hypophosphatemic rickets. Causes: Wilson\'s, cystinosis, galactosemia, myeloma light chains, tenofovir.',
-        lesions:'Type 2 RTA: HCO3 wasting, NAGMA, urine pH<5.5 during severe acidosis. Carbonic anhydrase inhibitors (acetazolamide) → Type 2 RTA. SGLT2 (cotransports Na+glucose) → SGLT2 inhibitors: glucosuria + osmotic diuresis + cardioprotection.',
-        hy:'SGLT2 inhibitors (gliflozins): cardioprotective (↓hospitalization for HF), nephroprotective (↓progression CKD), weight loss, hypoglycemia risk low. PAH secreted in PCT → measures effective RPF (clearance = RPF × extraction ratio). PTH: ↓phosphate reabsorption in PCT.'},
-      loop:{name:'Loop of Henle',tags:['Countercurrent','NKCC2 furosemide','Bartter vs Gitelman'],
-        overview:'Descending thin limb: water permeable (AQP1), solute impermeable → concentration. Ascending thick limb: NKCC2 cotransporter (Na/K/2Cl), water impermeable → dilution. Creates medullary hyperosmolarity (countercurrent multiplication).',
-        clinical:'Loop diuretics block NKCC2 → prevent medullary gradient → ADH-independent natriuresis. Most potent diuretics. Loop → hypercalciuria (calcium follows sodium). Thiazides (DCT/NCC) → hypocalciuria.',
-        lesions:'Bartter syndrome: NKCC2 loss-of-function → "taking furosemide" phenotype: hypokalemia + metabolic alkalosis + normal/low BP + hypercalciuria + high renin + high aldosterone + nephrocalcinosis. Gitelman: NCC → hypomagnesemia + HYPOcalciuria.',
-        hy:'Bartter = furosemide; Gitelman = thiazide; Liddle = gain-of-function ENaC (HTN + hypokalemia + low renin + low aldosterone). Contrast Conn\'s: low renin + HIGH aldosterone + HTN. Loop diuretics treat hypercalcemia (force calciuresis). Thiazides treat hypercalciuria (calcium nephrolithiasis).'}
+      glomerulus:{name:'Glomerulus',tags:['Nephritic vs nephrotic','GBM','Crescents'],
+        overview:'Filtration barrier: fenestrated endothelium + GBM (type IV collagen + heparan sulfate) + podocyte foot processes + slit diaphragm (nephrin).',
+        clinical:'Nephritic: RBC casts (pathognomonic), HTN, oliguria, AKI. Nephrotic: proteinuria >3.5g/d, hypoalbuminemia, edema, hypercoagulability (AT-III loss).',
+        lesions:'Nephrotic: MCD (steroids), FSGS (HIV/heroin), MGN (spike+dome, anti-PLA2R, renal vein thrombosis), MPGN (tram-tracks, HCV). Nephritic: PSGN (humps), IgA (Berger\'s), RPGN (crescents).',
+        hy:'3 types RPGN: Type I = anti-GBM (Goodpasture, linear IF); Type II = immune complex; Type III = pauci-immune (ANCA+). Nephrotic → AT-III loss → renal vein thrombosis (especially MGN).'},
+      pct:{name:'Proximal Convoluted Tubule',tags:['67% reabsorption','SGLT2 inhibitors','Fanconi syndrome'],
+        overview:'Reabsorbs 67% of Na, Cl, H2O, K; ~90% of HCO3, glucose, amino acids, phosphate. NHE3 + Na/K-ATPase drives reabsorption.',
+        clinical:'SGLT2 inhibitors: glucosuria + osmotic diuresis + ↓intraglomerular pressure + cardioprotection + nephroprotection. Euglycemic DKA risk.',
+        lesions:'Fanconi: generalized PCT dysfunction → glucosuria + aminoaciduria + phosphaturia + bicarbonaturia → Type 2 RTA. Causes: Wilson\'s, cystinosis, myeloma, tenofovir.',
+        hy:'PAH secreted in PCT → measures RPF. PTH → ↓phosphate reabsorption. SGLT2 inhibitors reduce proteinuria + slow GFR decline in non-diabetic CKD (CREDENCE, DAPA-CKD).'},
+      loop:{name:'Loop of Henle',tags:['NKCC2 furosemide','Bartter vs Gitelman','Countercurrent'],
+        overview:'Descending thin limb: AQP1 (water out), impermeable to solutes. Ascending thick limb: NKCC2 (Na/K/2Cl), water impermeable → creates medullary gradient.',
+        clinical:'Loop diuretics block NKCC2 → prevent medullary gradient → massive natriuresis. Loop → hypercalciuria. Thiazides → hypocalciuria.',
+        lesions:'Bartter: NKCC2 loss-of-function → hypokalemia + alkalosis + normal BP + hypercalciuria + high renin/aldosterone + nephrocalcinosis. Gitelman: NCC → HYPOcalciuria + hypomagnesemia.',
+        hy:'Bartter=furosemide (LOOP). Gitelman=thiazide (DCT). Liddle=gain-of-function ENaC (HTN+hypokalemia+low renin+low aldosterone). Loop diuretics treat hypercalcemia.'}
     }
   },
-  msk:{label:'MSK / Rheum',color:'#8E44AD',icon:'🦴',hint:'Click a structure',
+  msk:{label:'MSK / Rheumatology',color:'#8E44AD',icon:'🦴',hint:'Click a structure',
     structs:{
-      joints:{name:'Synovial Joints & Arthritis',tags:['OA vs RA','Synovial fluid','Crystal arthropathy'],
-        overview:'Synovial fluid WBC interpretation: <200 normal; 200-2000 non-inflammatory (OA, trauma); 2000-50,000 inflammatory (RA, crystal); >50,000 septic (gram stain + culture always, even with crystals present). Knee is most commonly aspirated.',
-        clinical:'OA: DIP (Heberden\'s) + PIP (Bouchard\'s), spares MCP, bony crepitus, worsens with use, morning stiffness <30min. RA: MCP + PIP (spares DIP), morning stiffness >1hr, systemic, symmetric, deforming.',
-        lesions:'Gout: monosodium urate crystals (negatively birefringent, needle-shaped, yellow parallel to compensator). Pseudogout: CPPD (positively birefringent, rhomboid, blue perpendicular to compensator, knee > wrist).',
-        hy:'"Gout is Negative like urate has an N." Pseudogout = CPPD = Positive = rhomboid. RA: anti-CCP most specific (90%). RF: 70-80% sensitive. Pannus = synovial tissue invasion. Felty\'s: RA + splenomegaly + neutropenia. Caplan: RA + pneumoconiosis.'},
-      muscle:{name:'Skeletal Muscle & NMJ',tags:['Myopathy vs neuropathy','MG vs LE','Inflammatory myopathy'],
-        overview:'Type I (slow-twitch, oxidative, marathon): abundant mitochondria, myoglobin. Type II (fast-twitch, glycolytic, sprint): less oxidative. NMJ: Ca2+-triggered ACh vesicle release → nicotinic AChR on motor end plate → Na+ influx → AP.',
-        clinical:'Myopathy: proximal weakness (can\'t rise from chair/comb hair), elevated CK, no fasciculations, normal sensation. Neuropathy: distal>proximal, ↓reflexes, fasciculations, sensory loss. Both: ↓reflexes → NMJ disease.',
-        lesions:'Polymyositis: CD8+ cytotoxic T cells invade endomysium (no skin changes). Dermatomyositis: CD4+ perivascular + perifascicular atrophy; heliotrope rash, Gottron\'s papules, shawl sign, V-sign. Anti-Jo-1: ILD risk (both). Anti-Mi-2: dermatomyositis.',
-        hy:'MG vs Lambert-Eaton: MG WORSENS with repetition (anti-AChR Ab, thymoma), ocular/bulbar, Tensilon test+. LE IMPROVES (anti-VGCC Ab, SCLC paraneoplastic, proximal limbs, autonomic). Edrophonium test: inhibits AChE → more ACh → MG improves. Ice pack test: ptosis improves with cold.'}
+      joints:{name:'Synovial Joints & Arthritis',tags:['OA vs RA','Crystal arthropathy','Synovial WBC'],
+        overview:'Synovial WBC: <200 normal; 200-2000 non-inflammatory; 2000-50,000 inflammatory; >50,000 septic. Always gram stain + culture even with crystals.',
+        clinical:'OA: DIP (Heberden\'s) + PIP (Bouchard\'s), spares MCP, worsens with use, stiffness <30min. RA: MCP + PIP (spares DIP), stiffness >1hr, symmetric, systemic.',
+        lesions:'Gout: monosodium urate (negatively birefringent, needle-shaped). Pseudogout: CPPD (positively birefringent, rhomboid, knee > wrist).',
+        hy:'"Gout is Negative like urate has an N." RA: anti-CCP most specific (90%). Felty\'s: RA + splenomegaly + neutropenia. Reactive arthritis: can\'t see, pee, or climb a tree.'},
+      muscle:{name:'Muscle & NMJ',tags:['Myopathy vs neuropathy','MG vs LE','Dermatomyositis'],
+        overview:'NMJ: presynaptic Ca2+ → ACh vesicle fusion → nicotinic AChR → motor end plate AP. Type I (oxidative): fatigue-resistant. Type II (glycolytic): power.',
+        clinical:'Myopathy: PROXIMAL weakness, ↑CK, no fasciculations, normal sensation. Neuropathy: distal > proximal, ↓reflexes, fasciculations, sensory loss.',
+        lesions:'Polymyositis: CD8+ T cells invade endomysium. Dermatomyositis: CD4+ perivascular + perifascicular atrophy; heliotrope rash, Gottron\'s papules. Anti-Jo-1: ILD risk.',
+        hy:'MG: worsens with repetition, anti-AChR Ab, thymoma. LE: improves with repetition, anti-VGCC Ab, SCLC paraneoplastic. Tensilon test: AChE inhibitor reverses MG ptosis.'}
     }
   },
   endo:{label:'Endocrinology',color:'#16A085',icon:'⚗️',hint:'Click an endocrine gland',
     structs:{
       thyroid:{name:'Thyroid Gland',tags:['Graves vs Hashimoto','Thyroid cancer','Amiodarone'],
-        overview:'Follicular cells: T3/T4 synthesis (iodine needed). C cells (parafollicular): calcitonin. T4 is prohormone (T4→T3 by 5\'-deiodinase, inhibited by PTU, propranolol, glucocorticoids, amiodarone, sick euthyroid). T3 binds nuclear receptor → gene transcription.',
-        clinical:'Hypothyroidism: fatigue, weight gain, cold intolerance, constipation, bradycardia, delayed DTRs, myxedema, periorbital edema, macroglossia, hoarseness, depression. TSH↑, free T4↓. Hyperthyroidism: heat intolerance, AF, tremor, diarrhea, lid lag, pretibial myxedema (Graves only). TSH↓.',
-        lesions:'Thyroid cancer prognosis: Papillary (best, psammoma bodies, Orphan Annie nuclei, nuclear clearing, BRAF/RET-PTC, lymphatic spread) → Follicular (RAS, vascular invasion, hematogenous) → Medullary (C cells, calcitonin, RET, MEN2A/2B) → Anaplastic (worst, elderly, rapidly fatal, p53).',
-        hy:'Graves: TSI (stimulating anti-TSH-R Ab) → TSH↓, T3/T4↑. Extrathyroidal: exophthalmos, pretibial myxedema, acropachy. Hashimoto\'s: anti-TPO (most sensitive) + anti-thyroglobulin → lymphocytic infiltration + Hürthle cells. Most common cause of hypothyroidism in iodine-sufficient areas. Amiodarone: 37% iodine, inhibits T4→T3 → both hypo and hyperthyroidism.'},
-      adrenal:{name:'Adrenal Gland',tags:['GFR cortex zones','Cushing\'s workup','Waterhouse-Friderichsen'],
-        overview:'Cortex (outside→in, GFR: Salt/Sugar/Sex): Glomerulosa (aldosterone: 11β-hydroxylase, 18-hydroxylase), Fasciculata (cortisol: 17α-hydroxylase → 11β-hydroxylase), Reticularis (DHEA/androgens). Medulla: chromaffin cells → epi (80%) + NE. "GFR: the deeper, the sweeter."',
-        clinical:'Cushing\'s: HTN, central obesity (buffalo hump, supraclavicular fat pads, moon facies), purple striae, skin thinning, proximal myopathy, osteoporosis, DM, immunosuppression. Addison\'s: hyperpigmentation (↑ACTH → ↑MSH), postural hypotension, hyponatremia, hyperkalemia, hypoglycemia.',
-        lesions:'Cushing\'s by ACTH: Low ACTH = adrenal adenoma/carcinoma (adrenal source, suppressed). High ACTH + suppressed by high-dose dex = Cushing\'s disease (pituitary corticotroph adenoma). High ACTH + NOT suppressed = ectopic (SCLC, carcinoid, very high cortisol). Pheochromocytoma: rule of 10s.',
-        hy:'Pheochromocytoma rule of 10s: 10% bilateral, 10% malignant, 10% extra-adrenal (paraganglioma), 10% pediatric, 10% hereditary (VHL, MEN2, NF1, SDH mutations). Waterhouse-Friderichsen: N. meningitidis → bilateral adrenal hemorrhage → acute Addisonian crisis. Conn\'s: low renin + high aldosterone + HTN (vs renovascular: high renin + high aldosterone + HTN).'}
+        overview:'Follicular cells: T3/T4 synthesis. C cells: calcitonin. T4 → T3 by 5\'-deiodinase. Inhibited by PTU, propranolol, glucocorticoids, amiodarone.',
+        clinical:'Hypothyroidism: fatigue, weight gain, cold intolerance, bradycardia, delayed DTRs. TSH↑, free T4↓. Hyperthyroidism: heat intolerance, AF, tremor, lid lag. TSH↓.',
+        lesions:'Thyroid cancer: Papillary (best, psammoma bodies, Orphan Annie nuclei, BRAF) → Follicular (RAS, hematogenous) → Medullary (calcitonin, RET, MEN2) → Anaplastic (worst).',
+        hy:'Graves: TSI (stimulating anti-TSH-R Ab), exophthalmos, pretibial myxedema. Hashimoto\'s: anti-TPO most sensitive. Amiodarone: 37% iodine → hypo OR hyperthyroidism.'},
+      adrenal:{name:'Adrenal Gland',tags:['GFR zones','Cushing\'s workup','Pheochromocytoma'],
+        overview:'Cortex GFR: Glomerulosa (aldosterone), Fasciculata (cortisol), Reticularis (androgens). Medulla: chromaffin cells → epinephrine (80%) + NE.',
+        clinical:'Cushing\'s: HTN, central obesity, buffalo hump, purple striae, proximal myopathy, osteoporosis. Addison\'s: hyperpigmentation, postural hypotension, hyponatremia, hyperkalemia.',
+        lesions:'Cushing\'s: Low ACTH = adrenal. High ACTH + suppressed by high-dose dex = pituitary. High ACTH + not suppressed = ectopic (SCLC). Pheo: rule of 10s.',
+        hy:'Waterhouse-Friderichsen: N. meningitidis → bilateral adrenal hemorrhage → acute Addisonian crisis. Conn\'s: low renin + high aldosterone + HTN + hypokalemia.'}
     }
   },
-  heme:{label:'Hematology',color:'#C0392B',icon:'🩸',hint:'Click a hematologic structure',
+  heme:{label:'Hematology',color:'#922B21',icon:'🩸',hint:'Click a hematologic structure',
     structs:{
-      rbc:{name:'Red Blood Cells',tags:['Anemia workup','Cell morphology','Hemolysis'],
-        overview:'Biconcave disc 6-8μm, no nucleus/organelles, 120-day lifespan. HbA (α2β2) 95-97%, HbA2 (α2δ2) 2-3%, HbF (α2γ2) <1%. Extravascular hemolysis (spleen): indirect bili↑, no hemoglobinuria. Intravascular: hemoglobinuria, hemosiderinuria, ↓haptoglobin.',
-        clinical:'Anemia by MCV: Micro (IDA, thalassemia, ACD, sideroblastic, lead). Normo (ACD, aplastic, hemolytic, CKD, mixed). Macro (B12/folate, liver disease, MDS, alcohol, drugs: HU/MTX/AZT). IDA: ↓ferritin (most sensitive), ↓MCV, ↓MCHC, ↑TIBC, ↑RDW.',
-        lesions:'Sickle cell (HbS, β6 Glu→Val): sickling → vaso-occlusion → dactylitis (kids, 1st presentation), autosplenectomy → encapsulated organisms (S.pneumo/H.flu/N.meningitidis), ACS, AVN, priapism, stroke, renal papillary necrosis, aplastic crisis (Parvovirus B19).',
-        hy:'RBC morphology: Heinz bodies (G6PD, oxidized Hgb, bite cells). Howell-Jolly (nuclear remnants, asplenia). Schistocytes (MAHA: TTP/HUS/DIC/valve). Basophilic stippling (lead, thalassemia, sideroblastic). Target cells (HbC, liver, asplenia, thalassemia = "HALT"). Spherocytes (HS, AIHA).'},
+      rbc:{name:'Red Blood Cells',tags:['Anemia workup','RBC morphology','Hemolysis'],
+        overview:'Biconcave disc, 6-8μm, 120-day lifespan. HbA (α2β2) 95-97%. Extravascular hemolysis (spleen): ↑indirect bili. Intravascular: hemoglobinuria, ↓haptoglobin.',
+        clinical:'Anemia workup: MCV → Micro (IDA, thalassemia, ACD). Normo (ACD, aplastic, hemolytic, CKD). Macro (B12/folate, liver disease, MDS, drugs).',
+        lesions:'Sickle cell (HbS, β6 Glu→Val): dactylitis (1st presentation), autosplenectomy → encapsulated organisms, ACS, AVN, priapism, stroke. Aplastic crisis: Parvovirus B19.',
+        hy:'Morphology: Heinz bodies (G6PD, bite cells). Howell-Jolly (asplenia). Schistocytes (MAHA: TTP/HUS/DIC). Basophilic stippling (lead, thalassemia). Target cells = HALT.'},
       coag:{name:'Coagulation Cascade',tags:['PT vs aPTT','Factor V Leiden','TTP vs HUS'],
-        overview:'Extrinsic (PT/INR): TF + VII → X. Intrinsic (aPTT): XII→XI→IX→VIII→X. Common: X+V+II→fibrin. "PT=extrinsic=VII (7 letters in extrinsic matching 7 in the pathway)." Warfarin: II, VII, IX, X + protein C/S (vit K-dependent). Heparin: potentiates antithrombin → inhibits Xa + IIa.',
-        clinical:'↑PT only: factor VII deficiency, early warfarin. ↑aPTT only: hemophilia A (VIII), hemophilia B (IX), VWD, heparin. Both ↑: common pathway (X,V,II), fibrinogen, DIC, supratherapeutic warfarin, liver disease. aPTT corrects with mixing study = factor deficiency; doesn\'t correct = inhibitor.',
-        lesions:'DIC: simultaneous thrombosis + bleeding, ↑PT+aPTT, ↓fibrinogen, ↓platelets, ↑D-dimer, schistocytes. TTP: ADAMTS13 deficiency → ultralarge VWF multimers → FAT RN (Fever, Anemia/MAHA, Thrombocytopenia, Renal, Neurologic). HUS: Shiga toxin (STEC O157:H7) → TMA → renal failure > neurologic (kids, bloody diarrhea precedes).',
-        hy:'Factor V Leiden: most common inherited thrombophilia (5% population), APC resistance → VTE. Antiphospholipid syndrome: THROMBOSIS (not bleeding) + paradoxical ↑aPTT + recurrent miscarriage. Anti-β2GP1 + anticardiolipin + lupus anticoagulant. TTP: treat with PEX (NOT platelets — worsen!). HIT: PF4-heparin Ab → platelet drop 50% + thrombosis → stop all heparin → argatroban.'}
+        overview:'Extrinsic (PT): TF + VII → X. Intrinsic (aPTT): XII→XI→IX→VIII→X. Common: X+V+II→fibrin. Warfarin: II, VII, IX, X + protein C/S. Heparin: potentiates antithrombin.',
+        clinical:'↑PT only: factor VII, early warfarin. ↑aPTT only: hemophilia A(VIII), B(IX), VWD, heparin. Both ↑: common pathway, DIC, liver disease.',
+        lesions:'DIC: ↑PT+aPTT + ↓fibrinogen + ↓platelets + ↑D-dimer + schistocytes. TTP: ADAMTS13 deficiency → FAT RN. HUS: STEC O157:H7 → Shiga toxin → renal failure.',
+        hy:'TTP: PEX (NOT platelets!). HUS: supportive (no antibiotics). Factor V Leiden: most common inherited thrombophilia. APS: thrombosis + miscarriage + paradoxical ↑aPTT.'}
+    }
+  },
+  ue:{label:'Upper Extremity',color:'#8E44AD',icon:'💪',hint:'Click a UE structure',
+    structs:{
+      shoulder:{name:'Shoulder & Rotator Cuff',tags:['SITS muscles','Impingement','Brachial plexus'],
+        overview:'Rotator cuff SITS: Supraspinatus (abduction 0-15°), Infraspinatus (ER), Teres minor (ER), Subscapularis (IR). Supraspinatus most commonly torn. GH joint: most commonly dislocated.',
+        clinical:'Rotator cuff tear: positive drop arm test, painful arc 60-120°. Anterior GH dislocation (95%): axillary nerve injury → deltoid weakness + lateral shoulder anesthesia.',
+        lesions:'Hill-Sachs: posterior humeral head compression fracture (anterior dislocation). Bankart: anterior-inferior glenoid labrum tear. Posterior dislocation: seizure/electrocution, light bulb sign.',
+        hy:'Axillary nerve: C5-C6, surgical neck humerus → deltoid + teres minor + lateral shoulder skin. Winging scapula: long thoracic nerve (C5-C7) → serratus anterior palsy.'},
+      elbow:{name:'Elbow & Forearm',tags:['Cubital tunnel','Radial nerve','Median nerve'],
+        overview:'Ulnar nerve (C8-T1): medial epicondyle → intrinsics, medial 1.5 digits. Radial nerve: lateral compartment. Median nerve: anterior compartment, carpal tunnel.',
+        clinical:'Cubital tunnel (ulnar): ring + little numbness, Froment\'s sign. Lateral epicondylitis: ECRB origin (tennis elbow). Medial epicondylitis: common flexor origin (golfer\'s).',
+        lesions:'Radial nerve at spiral groove (humeral shaft fracture): wrist drop. AIN syndrome: can\'t flex DIP index + thumb IP (no "OK" sign). PIN: finger/thumb extension weakness.',
+        hy:'Radial = Saturday night palsy = wrist drop. Ulnar = cubital tunnel = claw hand (ring + little). Median = carpal tunnel = most common entrapment neuropathy. LOAF = median intrinsics.'},
+      hand:{name:'Hand & Wrist',tags:['Carpal tunnel','Thenar vs hypothenar','Dupuytren\'s'],
+        overview:'Thenar: median nerve (LOAF = Lateral 2 lumbricals, Opponens, Abductor pollicis brevis, Flexor pollicis brevis). Hypothenar: ulnar nerve.',
+        clinical:'Carpal tunnel (median at wrist): thumb + index + middle + lateral ring numbness, thenar wasting. Positive Tinel\'s + Phalen\'s. Worse at night.',
+        lesions:'De Quervain\'s: APL + EPB stenosis, positive Finkelstein\'s test. Dupuytren\'s: MCP + PIP flexion of ring + little, palmar fibromatosis. Trigger finger: A1 pulley stenosis.',
+        hy:'Ulnar paradox: low ulnar lesion → worse clawing (intrinsics gone, FDP intact). High ulnar → less claw (FDP also gone). Median high: can\'t pronate or make fist. Low: thenar wasting only.'}
+    }
+  },
+  le:{label:'Lower Extremity',color:'#2980B9',icon:'🦵',hint:'Click a LE structure',
+    structs:{
+      hip:{name:'Hip & Pelvis',tags:['AVN femoral head','Trendelenburg','Femoral nerve'],
+        overview:'Femoral nerve (L2-L4): anterior thigh flexion + knee extension. Obturator (L2-L4): hip adduction. Superior gluteal nerve (L4-S1): gluteus medius → hip abduction.',
+        clinical:'Trendelenburg: superior gluteal nerve/gluteus medius weakness → contralateral pelvis drops. AVN femoral head: steroids, sickle cell, alcohol, diving (the bends). MRI: early detection.',
+        lesions:'Femoral neck (intracapsular): disrupts blood supply → AVN + nonunion. Intertrochanteric (extracapsular): good blood supply. Posterior hip dislocation (90%): sciatic nerve injury.',
+        hy:'Blood supply femoral head: medial femoral circumflex artery (profunda femoris branch) = retinacular arteries. Disrupted in femoral neck fractures → AVN. Posterior dislocation: knee flexed + foot internally rotated.'},
+      knee:{name:'Knee',tags:['ACL vs PCL','Meniscus tears','Unhappy triad'],
+        overview:'ACL: prevents anterior tibial translation. PCL: prevents posterior translation. MCL: resists valgus. LCL: resists varus. Menisci: fibrocartilage shock absorbers.',
+        clinical:'ACL tear: pop + hemarthrosis, positive Lachman\'s (most sensitive), anterior drawer, pivot shift. PCL: posterior drawer. Unhappy triad: ACL + MCL + meniscus.',
+        lesions:'Medial meniscus: more commonly torn (less mobile, attached to MCL). McMurray\'s test. Segond fracture (lateral tibial plateau avulsion) = pathognomonic ACL tear on XR.',
+        hy:'Lachman\'s: 90% sensitive for ACL (30° flexion). Dashboard injury → PCL (posterior force on proximal tibia). Segond fracture on XR = ACL tear until proven otherwise.'},
+      foot:{name:'Foot & Ankle',tags:['Ottawa rules','Achilles','Compartment syndrome'],
+        overview:'Most common ankle sprain: lateral (inversion) → ATFL first. High ankle sprain: syndesmotic, external rotation mechanism. Deltoid: medial, avulsion fracture more common than tear.',
+        clinical:'Ottawa ankle rules: XR if bony tenderness at posterior 6cm fibula OR tibia OR 5th metatarsal base OR navicular + unable to weight-bear 4 steps.',
+        lesions:'Achilles rupture: Thompson test (no plantarflexion = positive). 2-6cm above insertion. Risk: fluoroquinolones. Compartment syndrome: fasciotomy if >30mmHg or within 30 of diastolic.',
+        hy:'Compartment syndrome earliest sign: pain with PASSIVE STRETCH. Acute anterior compartment → foot drop (deep peroneal nerve). Ottawa rules: 96-99% sensitive. Morton\'s neuroma: 3rd web space, Mulder\'s sign.'}
     }
   }
 };
 
-// ══════════════════════════
-// SYSTEM SVGs
-// ══════════════════════════
-function getSVG(sys) {
-  const c = SYS[sys].color;
-
-  if(sys==='neuro') return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 490" width="440" class="zoom-in">
-    <!-- Skull -->
+function getSVG(sys){
+  const c=SYS[sys].color;
+  if(sys==='neuro') return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 490" width="440" class="zin">
     <ellipse cx="220" cy="195" rx="168" ry="182" fill="#FDF8F2" stroke="#EAD9C0" stroke-width="2"/>
-    <!-- Midlines -->
     <line x1="220" y1="32" x2="220" y2="366" stroke="#E0D0B8" stroke-width="1.5" stroke-dasharray="5 4"/>
     <line x1="55" y1="195" x2="385" y2="195" stroke="#E0D0B8" stroke-width="1.5" stroke-dasharray="5 4"/>
-    <!-- Frontal -->
     <g class="anat" onclick="openNote('neuro','frontal')">
       <path d="M220 35 C168 35,108 60,82 106 C62 138,55 168,60 195 L220 195 Z" fill="#C8A8DC" stroke="#9B59B6" stroke-width="1.5"/>
       <text x="132" y="140" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="600" fill="#6C3483">Frontal</text>
       <text x="132" y="156" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#8E44AD">motor · executive</text>
-      <circle cx="132" cy="110" r="6" fill="#9B59B6" opacity="0.25" style="animation:pulse 2s infinite"/>
     </g>
-    <!-- Parietal -->
     <g class="anat" onclick="openNote('neuro','parietal')">
       <path d="M220 35 C272 35,332 60,358 106 C378 138,385 168,380 195 L220 195 Z" fill="#A8D8A8" stroke="#27AE60" stroke-width="1.5"/>
       <text x="305" y="140" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="600" fill="#1D6A2B">Parietal</text>
       <text x="305" y="156" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#27AE60">sensory · spatial</text>
     </g>
-    <!-- Temporal -->
     <g class="anat" onclick="openNote('neuro','temporal')">
       <path d="M60 195 C50 232,60 275,88 308 C115 338,158 352,220 355 L220 195 Z" fill="#FAD7A0" stroke="#E67E22" stroke-width="1.5"/>
       <text x="126" y="292" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="600" fill="#784212">Temporal</text>
       <text x="126" y="308" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#E67E22">memory · hearing</text>
     </g>
-    <!-- Occipital -->
     <g class="anat" onclick="openNote('neuro','occipital')">
       <path d="M220 195 L380 195 C388 232,378 275,352 308 C325 338,282 352,220 355 Z" fill="#AED6F1" stroke="#2980B9" stroke-width="1.5"/>
       <text x="314" y="292" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="600" fill="#1A5276">Occipital</text>
       <text x="314" y="308" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#2980B9">vision</text>
     </g>
-    <!-- Corpus callosum -->
     <path d="M160 195 Q180 183,220 183 Q260 183,280 195" stroke="#CEC0A8" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <!-- Brainstem -->
     <g class="anat" onclick="openNote('neuro','brainstem')">
       <rect x="188" y="350" width="64" height="62" rx="14" fill="#D5D8DC" stroke="#808B96" stroke-width="1.5"/>
-      <text x="220" y="377" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2C3E50">Brain</text>
-      <text x="220" y="393" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2C3E50">Stem</text>
+      <text x="220" y="378" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#2C3E50">Brain Stem</text>
     </g>
-    <!-- Cerebellum -->
     <g class="anat" onclick="openNote('neuro','cerebellum')">
       <ellipse cx="220" cy="432" rx="100" ry="50" fill="#FADBD8" stroke="#E74C3C" stroke-width="1.5"/>
       <path d="M128 432 Q145 416,162 432 Q177 416,194 432 Q208 416,220 432 Q232 416,246 432 Q263 416,278 432 Q293 416,312 432" stroke="#E74C3C" stroke-width="1.2" fill="none"/>
-      <text x="220" y="430" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="600" fill="#7B241C">Cerebellum</text>
-      <text x="220" y="446" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#E74C3C">IPSILATERAL</text>
+      <text x="220" y="432" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="600" fill="#7B241C">Cerebellum</text>
     </g>
-    <text x="220" y="480" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" fill="#9B8E7C">← Click any lobe to explore →</text>
+    <text x="220" y="480" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" fill="#9B8E7C">← Click any lobe →</text>
   </svg>`;
-
-  if(sys==='cardio') return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 470" width="440" class="zoom-in">
-    <!-- Heart outline -->
+  if(sys==='cardio') return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 470" width="440" class="zin">
     <path d="M220 400 C148 318,42 265,42 158 C42 85,92 44,150 44 C182 44,208 62,220 80 C232 62,258 44,290 44 C348 44,398 85,398 158 C398 265,292 318,220 400 Z" fill="#FEF0EE" stroke="#E74C3C" stroke-width="2"/>
-    <!-- Aorta -->
     <path d="M220 80 L220 26 Q220 8,244 8 L322 8" stroke="#C0392B" stroke-width="9" stroke-linecap="round" fill="none"/>
     <text x="330" y="13" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#C0392B">Aorta</text>
-    <!-- Pulmonary artery -->
     <path d="M178 102 Q155 62,132 42 L92 42" stroke="#2980B9" stroke-width="7" stroke-linecap="round" fill="none"/>
     <text x="18" y="38" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#2980B9">PA</text>
-    <!-- Dividers -->
     <line x1="220" y1="80" x2="220" y2="338" stroke="#E74C3C" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.35"/>
     <line x1="90" y1="196" x2="348" y2="196" stroke="#E74C3C" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.35"/>
-    <!-- RA -->
     <path d="M90 100 L220 100 L220 196 L90 196 C62 196,44 178,44 160 L44 136 C44 116,64 100,90 100 Z" fill="#AED6F1" stroke="#2980B9" stroke-width="1.5" opacity="0.75"/>
     <text x="144" y="155" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" font-weight="600" fill="#1A5276">RA</text>
-    <!-- LA -->
     <path d="M220 100 L332 100 L360 132 L360 168 C360 188,340 196,318 196 L220 196 Z" fill="#AED6F1" stroke="#2980B9" stroke-width="1.5" opacity="0.75"/>
     <text x="288" y="155" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" font-weight="600" fill="#1A5276">LA</text>
-    <!-- RV -->
     <g class="anat" onclick="openNote('cardio','rv')">
       <path d="M90 196 L220 196 L220 345 Q182 385,148 358 L70 260 C55 240,52 215,66 200 Z" fill="#FADBD8" stroke="#E74C3C" stroke-width="2"/>
-      <text x="138" y="288" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" font-weight="600" fill="#922B21">RV</text>
-      <text x="138" y="305" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#E74C3C">low pressure</text>
+      <text x="138" y="290" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" font-weight="600" fill="#922B21">RV</text>
     </g>
-    <!-- LV -->
     <g class="anat" onclick="openNote('cardio','lv')">
       <path d="M220 196 L332 196 L356 228 L345 275 L284 362 Q252 392,220 345 Z" fill="#FADBD8" stroke="#E74C3C" stroke-width="2"/>
-      <text x="285" y="288" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" font-weight="600" fill="#922B21">LV</text>
-      <text x="285" y="305" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#E74C3C">high pressure</text>
+      <text x="285" y="290" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="14" font-weight="600" fill="#922B21">LV</text>
     </g>
-    <!-- AV -->
     <g class="anat" onclick="openNote('cardio','aorticvalve')">
       <circle cx="220" cy="105" r="17" fill="#F9E79F" stroke="#D4AC0D" stroke-width="2"/>
-      <text x="220" y="101" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#7D6608">AV</text>
-      <text x="220" y="113" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="8" fill="#7D6608">valve</text>
+      <text x="220" y="109" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#7D6608">AV valve</text>
     </g>
-    <!-- MV -->
     <g class="anat" onclick="openNote('cardio','mitralvalve')">
       <circle cx="220" cy="200" r="17" fill="#A9DFBF" stroke="#27AE60" stroke-width="2"/>
-      <text x="220" y="196" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#1D6A2B">MV</text>
-      <text x="220" y="208" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="8" fill="#1D6A2B">valve</text>
+      <text x="220" y="204" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#1D6A2B">MV valve</text>
     </g>
     <text x="220" y="458" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" fill="#9B8E7C">← Click chambers or valves →</text>
   </svg>`;
-
-  if(sys==='pulm') return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 490" width="440" class="zoom-in">
-    <rect x="196" y="18" width="36" height="78" rx="12" fill="#C5D8E8" stroke="#8AAEC8" stroke-width="1.5"/>
-    <rect x="193" y="30" width="42" height="5" rx="2.5" fill="#A0BCD0" opacity="0.8"/>
-    <rect x="193" y="43" width="42" height="5" rx="2.5" fill="#A0BCD0" opacity="0.8"/>
-    <rect x="193" y="56" width="42" height="5" rx="2.5" fill="#A0BCD0" opacity="0.8"/>
-    <rect x="193" y="69" width="42" height="5" rx="2.5" fill="#A0BCD0" opacity="0.8"/>
-    <text x="214" y="14" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#5D6D7E" font-weight="600">Trachea</text>
-    <!-- Bronchi -->
-    <path d="M196 94 Q165 112,142 132" stroke="#8AAEC8" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <path d="M244 94 Q275 112,298 132" stroke="#8AAEC8" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <!-- L lung -->
-    <g class="anat" onclick="openNote('pulm','upperlobe')">
-      <path d="M142 132 C96 132,50 168,44 234 C38 290,62 342,94 370 C120 392,152 396,172 378 C188 362,192 336,192 286 L192 132 Z" fill="#7EC17A" stroke="#27AE60" stroke-width="2"/>
-      <line x1="50" y1="256" x2="192" y2="236" stroke="#5DAD69" stroke-width="1.5" stroke-dasharray="5 4"/>
-      <text x="112" y="202" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#1D6A2B">L. Upper</text>
-      <text x="112" y="310" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#1D6A2B">L. Lower</text>
-    </g>
-    <!-- R lung (3 lobes) -->
-    <g class="anat" onclick="openNote('pulm','lowerlobe')">
-      <path d="M298 132 C344 132,390 168,396 234 C402 290,378 342,346 370 C320 392,288 396,268 378 C252 362,248 336,248 286 L248 132 Z" fill="#7EC17A" stroke="#27AE60" stroke-width="2"/>
-      <line x1="248" y1="216" x2="394" y2="230" stroke="#5DAD69" stroke-width="1.5" stroke-dasharray="5 4"/>
-      <line x1="248" y1="278" x2="376" y2="290" stroke="#5DAD69" stroke-width="1.5" stroke-dasharray="5 4"/>
-      <text x="326" y="188" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#1D6A2B">R. Upper</text>
-      <text x="330" y="254" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#1D6A2B">R. Mid</text>
-      <text x="326" y="322" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#1D6A2B">R. Lower</text>
-    </g>
-    <!-- Pleura clickable -->
-    <g class="anat" onclick="openNote('pulm','pleura')">
-      <circle cx="62" cy="330" r="26" fill="#FADBD8" stroke="#E74C3C" stroke-width="1.5" opacity="0.92"/>
-      <text x="62" y="327" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#922B21">Pleura</text>
-      <text x="62" y="340" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" fill="#E74C3C">tap me</text>
-    </g>
-    <!-- Diaphragm -->
-    <path d="M22 398 Q220 450,418 398" stroke="#D5D8DC" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <text x="220" y="444" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#9B8E7C">Diaphragm</text>
-    <text x="220" y="478" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" fill="#9B8E7C">← Click lung regions or pleura →</text>
-  </svg>`;
-
-  // Generic radial for other systems
-  const entries = Object.entries(SYS[sys].structs);
-  const n = entries.length;
-  let circles = entries.map(([k,v],i)=>{
-    const a = (i*(360/n)-90)*Math.PI/180;
-    const x = Math.round(220+138*Math.cos(a));
-    const y = Math.round(240+138*Math.sin(a));
-    const short = v.name.split(' ').slice(0,2).join(' ');
+  const entries=Object.entries(SYS[sys].structs);
+  const n=entries.length;
+  let items=entries.map(([k,v],i)=>{
+    const a=(i*(360/n)-90)*Math.PI/180;
+    const x=Math.round(220+138*Math.cos(a));
+    const y=Math.round(240+138*Math.sin(a));
+    const short=v.name.split(' ').slice(0,2).join(' ');
     return `<g class="anat" onclick="openNote('${sys}','${k}')">
-      <circle cx="${x}" cy="${y}" r="52" fill="${c}18" stroke="${c}" stroke-width="2"/>
+      <circle cx="${x}" cy="${y}" r="54" fill="${c}18" stroke="${c}" stroke-width="2"/>
       <text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="${c}">${short}</text>
     </g>`;
   }).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 480" width="440" class="zoom-in">
-    <circle cx="220" cy="240" r="168" fill="${c}06" stroke="${c}20" stroke-width="1.5"/>
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 480" width="440" class="zin">
+    <circle cx="220" cy="240" r="165" fill="${c}06" stroke="${c}20" stroke-width="1.5"/>
     <text x="220" y="244" text-anchor="middle" dominant-baseline="middle" font-family="Plus Jakarta Sans" font-size="15" font-weight="700" fill="${c}">${SYS[sys].label}</text>
-    ${circles}
+    ${items}
     <text x="220" y="470" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" fill="#9B8E7C">← Click a structure →</text>
   </svg>`;
 }
 
-// ══════════════════════════
-// NAV
-// ══════════════════════════
 let curSys=null;
-
 function openSys(sys){
-  curSys=sys;
-  const d=SYS[sys];
+  curSys=sys; const d=SYS[sys];
   document.getElementById('landing').style.display='none';
   document.getElementById('sysview').classList.add('on');
   document.getElementById('hdrDot').style.background=d.color;
   document.getElementById('hdrName').textContent=d.label;
   document.getElementById('hdrHint').textContent=d.hint;
-  document.getElementById('emptyIcon').textContent=d.icon;
+  document.getElementById('nIco').textContent=d.icon;
   document.getElementById('diagArea').innerHTML=getSVG(sys);
-  closeNote();
-  window.scrollTo(0,0);
+  closeNote(); window.scrollTo(0,0);
 }
-
 function closeSys(){
   document.getElementById('landing').style.display='flex';
   document.getElementById('sysview').classList.remove('on');
   curSys=null;
 }
-
 function openNote(sys,key){
-  const d=SYS[sys]; const s=d.structs[key];
-  if(!s) return;
-  document.getElementById('notesEmpty').style.display='none';
-  document.getElementById('notesFilled').classList.add('on');
-  document.getElementById('noteDot').style.background=d.color;
-  document.getElementById('noteTitle').textContent=s.name;
+  const d=SYS[sys]; const s=d.structs[key]; if(!s) return;
+  document.getElementById('nEmpty').style.display='none';
+  document.getElementById('nFull').classList.add('on');
+  document.getElementById('nDot').style.background=d.color;
+  document.getElementById('nTitle').textContent=s.name;
   const tags=s.tags.map(t=>`<span class="tag" style="color:${d.color};border-color:${d.color}50">${t}</span>`).join('');
-  document.getElementById('notesBody').innerHTML=`<div class="slide-up">
+  document.getElementById('nBody').innerHTML=`<div class="sup">
     <div class="tags">${tags}</div>
     <div class="nb"><h4>Overview</h4><p>${s.overview}</p></div>
     <div class="nb"><h4>Clinical Correlates</h4><p>${s.clinical}</p></div>
     <div class="nb"><h4>Key Lesions</h4><p>${s.lesions}</p></div>
     <div class="hy"><h4>⚡ High-Yield</h4><p style="color:${d.color}">${s.hy}</p></div>
-    <div class="ai-box"><h4><span class="ai-dot"></span>AI Explanation</h4><div class="ai-text" id="aiOut"><span class="ai-loading">Generating...</span></div></div>
+    <div class="aibox"><h4><span class="aidot"></span>AI Explanation</h4><div class="aitext" id="aiOut"><span class="aispin">Generating...</span></div></div>
   </div>`;
   callAI(s);
 }
-
 function closeNote(){
-  document.getElementById('notesEmpty').style.display='flex';
-  document.getElementById('notesFilled').classList.remove('on');
+  document.getElementById('nEmpty').style.display='flex';
+  document.getElementById('nFull').classList.remove('on');
 }
-
 async function callAI(s){
-  const el=document.getElementById('aiOut');
-  if(!el) return;
+  const el=document.getElementById('aiOut'); if(!el) return;
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`You're a sharp med school tutor. A student clicked "${s.name}" in an interactive anatomy app. Give 3-4 sentences: the single most important clinical insight, mechanism, or boards-distinguishing fact. Be direct and memorable. No markdown, no bullets, plain prose.`}]})});
     const data=await r.json();
