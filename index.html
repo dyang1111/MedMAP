@@ -429,7 +429,7 @@ body{
       <img class="scene-bg" id="scene-bg" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775179062/Background_n0pwly.png" alt="" onerror="this.style.display='none'"/>
       <div class="scene-col">
         <img class="char-img" id="fennick-img"
-          src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775176989569/fennick_cropped.png"
+          src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775180170/DRDEFAULT_mpikmc.png"
           alt="Dr. Fennick"
           onerror="this.outerHTML='<div class=\'char-placeholder\'><div class=\'char-placeholder-label\'>Dr. Fennick</div></div>'"
         />
@@ -440,8 +440,8 @@ body{
           <div class="speech-text" id="fennick-speech">"Loading today's case..."</div>
         </div>
       </div>
-      <div class="scene-col">
-        <div class="char-placeholder">
+      <div class="scene-col" id="patient-col">
+        <div class="char-placeholder" id="patient-placeholder">
           <div class="char-placeholder-label">Today's<br>patient</div>
         </div>
       </div>
@@ -647,6 +647,14 @@ function renderGame(c, isArchive = false) {
   tagsEl.innerHTML = c.tags.map(t =>
     `<span class="tag tag-${t.type}">${t.label}</span>`
   ).join('');
+
+  // Patient image
+  const patientCol = document.getElementById('patient-col');
+  if (c.patient_img) {
+    patientCol.innerHTML = `<img class="char-img" src="${c.patient_img}" alt="Patient" onerror="this.outerHTML='<div class=\ar-placeholder\><div class=\ar-placeholder-label\>Today\'s<br>patient</div></div>'"/>`;
+  } else {
+    patientCol.innerHTML = '<div class="char-placeholder"><div class="char-placeholder-label">Today's<br>patient</div></div>';
+  }
 
   // Dr. Fennick opening line
   document.getElementById('fennick-speech').textContent = `"${c.title}. A curious case. Study the details carefully before you choose."`;
