@@ -1,1 +1,36 @@
 
+{
+  "Cephalexin": {
+    "correct": "Cephalexin covers E. coli UTI effectively, has no interaction with valproate, and is safe in G6PD deficiency. It is the clean first-line choice when all other options carry specific contraindications in this patient.",
+    "mechanism": "First-generation cephalosporin. Inhibits bacterial cell wall synthesis by binding penicillin-binding proteins. Covers gram-positive cocci and some gram-negative organisms including E. coli.",
+    "clinical_use": "Uncomplicated UTIs, skin and soft tissue infections, streptococcal pharyngitis. Oral bioavailability makes it ideal for outpatient use.",
+    "key_facts": "Safe in penicillin allergy (cross-reactivity <2%). No significant CYP interactions. Dose-adjust in renal impairment. Safe in G6PD deficiency.",
+    "wrong": {
+      "Ciprofloxacin": "Fluoroquinolones lower the seizure threshold and can reduce valproate serum levels through CYP interactions — a dangerous combination in a patient with epilepsy already on anticonvulsant therapy.",
+      "Trimethoprim-sulfamethoxazole": "Sulfonamides cause oxidative stress on red blood cells. In G6PD deficiency, the cell cannot neutralize this stress, triggering hemolytic anemia. Hard contraindication.",
+      "Nitrofurantoin": "Also causes oxidative hemolysis in G6PD-deficient patients through the same mechanism as sulfonamides. Both TMP-SMX and Nitrofurantoin are traps for the same reason — G6PD deficiency catches them both."
+    }
+  },
+  "Levofloxacin": {
+    "correct": "Levofloxacin covers both typical and atypical CAP organisms, is safe in penicillin allergy, and requires only dose adjustment for CKD stage 3 — not avoidance. It has no significant interaction with warfarin at standard doses.",
+    "mechanism": "Respiratory fluoroquinolone. Inhibits DNA gyrase and topoisomerase IV, blocking bacterial DNA replication. Broad spectrum covering gram-positives, gram-negatives, and atypicals.",
+    "clinical_use": "Community-acquired pneumonia, complicated UTIs, skin infections. 'Respiratory fluoroquinolone' because of superior S. pneumoniae coverage vs ciprofloxacin.",
+    "key_facts": "Dose-reduce in CKD (eGFR-based dosing). Safe with penicillin allergy. Monitor QTc. Weak CYP1A2 inhibitor — minimal warfarin interaction at standard doses.",
+    "wrong": {
+      "Amoxicillin-clavulanate": "This is a penicillin-class antibiotic. The patient had anaphylaxis to penicillin — an absolute contraindication. Cross-reactivity risk is real and this must be eliminated immediately.",
+      "Azithromycin": "Azithromycin monotherapy is insufficient for CAP in an elderly patient with significant comorbidities. It also carries QT prolongation risk in a patient with AFib. Not the right choice here.",
+      "Clarithromycin": "Clarithromycin is a potent CYP3A4 inhibitor. It would dramatically increase warfarin's anticoagulant effect in this patient, creating serious bleeding risk. This interaction is a clinical contraindication."
+    }
+  },
+  "Amoxicillin": {
+    "correct": "Amoxicillin is the first-line outpatient treatment for CAP caused by S. pneumoniae (Gram-positive diplococci) in a young healthy patient with no allergies or comorbidities. No reason to escalate therapy.",
+    "mechanism": "Aminopenicillin. Inhibits bacterial cell wall synthesis. Extended spectrum vs plain penicillin — covers gram-positive organisms including S. pneumoniae and some gram-negatives.",
+    "clinical_use": "Outpatient CAP, otitis media, strep pharyngitis, H. pylori (triple therapy), sinusitis. First-line for S. pneumoniae.",
+    "key_facts": "Oral bioavailability ~90%. Safe in pregnancy. No dose adjustment needed for normal renal function. Watch for maculopapular rash if EBV mononucleosis is missed.",
+    "wrong": {
+      "Vancomycin": "Vancomycin is reserved for MRSA, severe hospital-acquired infections, or patients who have failed other therapies. Using it for outpatient CAP in a healthy young adult is gross over-treatment and promotes resistance.",
+      "Meropenem": "A broad-spectrum carbapenem is entirely inappropriate for a simple outpatient CAP. It is reserved for multi-drug resistant organisms and severe hospital infections. Massive antibiotic stewardship violation.",
+      "Doxycycline": "Doxycycline is an alternative for atypical CAP coverage, but it is not the first-line agent for S. pneumoniae pneumonia. Amoxicillin has superior activity against this organism in a patient with no contraindications."
+    }
+  }
+}
