@@ -5,51 +5,100 @@
     "title": "The Clockmaker's Fever",
     "body": "A 52-year-old female presents with a 3-day history of burning urination, urinary frequency, and flank pain. Urine culture grows E. coli, sensitive to multiple antibiotics. She has a history of epilepsy and takes valproate daily. She also has a G6PD deficiency diagnosed in childhood. Her eGFR is normal.",
     "tags": [
-      { "label": "G6PD deficiency", "type": "red" },
-      { "label": "On valproate", "type": "red" },
-      { "label": "E. coli UTI", "type": "blue" },
-      { "label": "Normal renal function", "type": "green" }
+      {
+        "label": "G6PD deficiency",
+        "type": "red"
+      },
+      {
+        "label": "On valproate",
+        "type": "red"
+      },
+      {
+        "label": "E. coli UTI",
+        "type": "blue"
+      },
+      {
+        "label": "Normal renal function",
+        "type": "green"
+      }
     ],
     "options": [
-      { "drug": "Ciprofloxacin", "class": "Fluoroquinolone" },
-      { "drug": "Trimethoprim-sulfamethoxazole", "class": "Sulfonamide" },
-      { "drug": "Nitrofurantoin", "class": "Nitrofuran" },
-      { "drug": "Cephalexin", "class": "First-gen cephalosporin" }
+      {
+        "drug": "Ciprofloxacin",
+        "class": "Fluoroquinolone"
+      },
+      {
+        "drug": "Trimethoprim-sulfamethoxazole",
+        "class": "Sulfonamide"
+      },
+      {
+        "drug": "Nitrofurantoin",
+        "class": "Nitrofuran"
+      },
+      {
+        "drug": "Cephalexin",
+        "class": "First-gen cephalosporin"
+      }
     ],
     "answer": "Cephalexin",
-    "fennick_hint": "Two of these options share a mechanism that becomes lethal in a patient whose red blood cells lack a certain protective enzyme. A third carries a hidden danger for a patient whose seizures are already under chemical control. Read every detail — the answer has already been given to you.",
+    "fennick_hint": "Two of these options share a mechanism that becomes lethal in a patient whose red blood cells lack a certain protective enzyme. A third carries a hidden danger for a patient whose seizures are already under chemical control. Read every detail \u2014 the answer has already been given to you.",
     "explanation": {
       "correct": "Cephalexin covers E. coli UTI effectively, has no interaction with valproate, and is safe in G6PD deficiency. It is the clean first-line choice when all other options carry specific contraindications in this patient.",
       "wrong": {
-        "Ciprofloxacin": "Fluoroquinolones lower the seizure threshold and can reduce valproate serum levels through CYP interactions — a dangerous combination in a patient with epilepsy already on anticonvulsant therapy.",
+        "Ciprofloxacin": "Fluoroquinolones lower the seizure threshold and can reduce valproate serum levels through CYP interactions \u2014 a dangerous combination in a patient with epilepsy already on anticonvulsant therapy.",
         "Trimethoprim-sulfamethoxazole": "Sulfonamides cause oxidative stress on red blood cells. In G6PD deficiency, the cell cannot neutralize this stress, triggering hemolytic anemia. Hard contraindication.",
-        "Nitrofurantoin": "Also causes oxidative hemolysis in G6PD-deficient patients through the same mechanism as sulfonamides. Both B and C are traps for the same reason — the G6PD deficiency catches them both."
+        "Nitrofurantoin": "Also causes oxidative hemolysis in G6PD-deficient patients through the same mechanism as sulfonamides. Both B and C are traps for the same reason \u2014 the G6PD deficiency catches them both."
       }
-    }
+    },
+    "patient_img": "https://res.cloudinary.com/djiap51xq/image/upload/v1775179054/APR2_e5pjdg.png"
   },
   {
     "id": "002",
     "date": "2026-04-03",
     "title": "The Merchant's Cough",
-    "body": "A 67-year-old male presents with fever, productive cough, and consolidation on chest X-ray consistent with community-acquired pneumonia. He reports a severe penicillin allergy — anaphylaxis on prior exposure. He has CKD stage 3 and takes warfarin for atrial fibrillation. Sputum culture is pending.",
+    "body": "A 67-year-old male presents with fever, productive cough, and consolidation on chest X-ray consistent with community-acquired pneumonia. He reports a severe penicillin allergy \u2014 anaphylaxis on prior exposure. He has CKD stage 3 and takes warfarin for atrial fibrillation. Sputum culture is pending.",
     "tags": [
-      { "label": "Penicillin allergy", "type": "red" },
-      { "label": "On warfarin", "type": "red" },
-      { "label": "CKD stage 3", "type": "blue" },
-      { "label": "CAP confirmed", "type": "green" }
+      {
+        "label": "Penicillin allergy",
+        "type": "red"
+      },
+      {
+        "label": "On warfarin",
+        "type": "red"
+      },
+      {
+        "label": "CKD stage 3",
+        "type": "blue"
+      },
+      {
+        "label": "CAP confirmed",
+        "type": "green"
+      }
     ],
     "options": [
-      { "drug": "Amoxicillin-clavulanate", "class": "Aminopenicillin" },
-      { "drug": "Levofloxacin", "class": "Respiratory fluoroquinolone" },
-      { "drug": "Azithromycin", "class": "Macrolide" },
-      { "drug": "Clarithromycin", "class": "Macrolide" }
+      {
+        "drug": "Amoxicillin-clavulanate",
+        "class": "Aminopenicillin"
+      },
+      {
+        "drug": "Levofloxacin",
+        "class": "Respiratory fluoroquinolone"
+      },
+      {
+        "drug": "Azithromycin",
+        "class": "Macrolide"
+      },
+      {
+        "drug": "Clarithromycin",
+        "class": "Macrolide"
+      }
     ],
     "answer": "Levofloxacin",
-    "fennick_hint": "One option shares a family with a drug this patient has already proven he cannot tolerate. Two others belong to the same class — but only one of them carries a dangerous interaction with his current medications. Elimination, not guesswork.",
+    "fennick_hint": "One option shares a family with a drug this patient has already proven he cannot tolerate. Two others belong to the same class \u2014 but only one of them carries a dangerous interaction with his current medications. Elimination, not guesswork.",
     "explanation": {
-      "correct": "Levofloxacin covers both typical and atypical CAP organisms, is safe in penicillin allergy, and requires only dose adjustment for CKD stage 3 — not avoidance. It has no significant interaction with warfarin at standard doses.",
+      "correct": "Levofloxacin covers both typical and atypical CAP organisms, is safe in penicillin allergy, and requires only dose adjustment for CKD stage 3 \u2014 not avoidance. It has no significant interaction with warfarin at standard doses.",
       "wrong": {
-        "Amoxicillin-clavulanate": "This is a penicillin-class antibiotic. The patient had anaphylaxis to penicillin — an absolute contraindication. Cross-reactivity risk is real and this must be eliminated immediately.",
+        "Amoxicillin-clavulanate": "This is a penicillin-class antibiotic. The patient had anaphylaxis to penicillin \u2014 an absolute contraindication. Cross-reactivity risk is real and this must be eliminated immediately.",
         "Azithromycin": "Azithromycin monotherapy is insufficient for CAP in an elderly patient with significant comorbidities. It also carries QT prolongation risk in a patient with AFib. Not the right choice here.",
         "Clarithromycin": "Clarithromycin is a potent CYP3A4 inhibitor. It would dramatically increase warfarin's anticoagulant effect in this patient, creating serious bleeding risk. This interaction is a clinical contraindication."
       }
@@ -59,21 +108,45 @@
     "id": "003",
     "date": "2026-04-04",
     "title": "The Engineer's Chest",
-    "body": "A 34-year-old male with no significant past medical history presents with a 5-day productive cough, fever of 38.8°C, and right lower lobe consolidation on X-ray. He is otherwise healthy, takes no medications, and has no allergies. Sputum Gram stain shows Gram-positive diplococci. He is hemodynamically stable and can be managed as an outpatient.",
+    "body": "A 34-year-old male with no significant past medical history presents with a 5-day productive cough, fever of 38.8\u00b0C, and right lower lobe consolidation on X-ray. He is otherwise healthy, takes no medications, and has no allergies. Sputum Gram stain shows Gram-positive diplococci. He is hemodynamically stable and can be managed as an outpatient.",
     "tags": [
-      { "label": "No allergies", "type": "green" },
-      { "label": "No comorbidities", "type": "green" },
-      { "label": "Gram-positive diplococci", "type": "blue" },
-      { "label": "Outpatient CAP", "type": "blue" }
+      {
+        "label": "No allergies",
+        "type": "green"
+      },
+      {
+        "label": "No comorbidities",
+        "type": "green"
+      },
+      {
+        "label": "Gram-positive diplococci",
+        "type": "blue"
+      },
+      {
+        "label": "Outpatient CAP",
+        "type": "blue"
+      }
     ],
     "options": [
-      { "drug": "Amoxicillin", "class": "Aminopenicillin" },
-      { "drug": "Vancomycin", "class": "Glycopeptide" },
-      { "drug": "Meropenem", "class": "Carbapenem" },
-      { "drug": "Doxycycline", "class": "Tetracycline" }
+      {
+        "drug": "Amoxicillin",
+        "class": "Aminopenicillin"
+      },
+      {
+        "drug": "Vancomycin",
+        "class": "Glycopeptide"
+      },
+      {
+        "drug": "Meropenem",
+        "class": "Carbapenem"
+      },
+      {
+        "drug": "Doxycycline",
+        "class": "Tetracycline"
+      }
     ],
     "answer": "Amoxicillin",
-    "fennick_hint": "When a patient offers you no contraindications, no allergies, and a clear organism — the answer is almost always the simplest one. Two of these options are reserved for resistant organisms or hospital settings. One covers atypicals but misses this organism's first-line treatment.",
+    "fennick_hint": "When a patient offers you no contraindications, no allergies, and a clear organism \u2014 the answer is almost always the simplest one. Two of these options are reserved for resistant organisms or hospital settings. One covers atypicals but misses this organism's first-line treatment.",
     "explanation": {
       "correct": "Amoxicillin is the first-line outpatient treatment for CAP caused by S. pneumoniae (Gram-positive diplococci) in a young healthy patient with no allergies or comorbidities. No reason to escalate therapy.",
       "wrong": {
