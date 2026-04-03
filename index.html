@@ -131,6 +131,16 @@ body{
 .aitem-arrow{color:var(--brown-light);font-size:14px}
 .back-btn{background:none;border:none;color:var(--gold);font-family:'Lora',serif;font-size:12px;cursor:pointer;position:relative}
 .back-btn:hover{color:#f0d898}
+.played-banner{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--parchment-light);border:1.5px solid var(--brown-light);
+  border-radius:10px;padding:11px 16px;font-size:12px;color:var(--brown-mid);font-style:italic;
+}
+.played-banner button{
+  background:var(--gold);color:var(--brown-dark);
+  border:1.5px solid var(--gold-light);padding:5px 14px;
+  border-radius:20px;font-family:'Lora',serif;font-size:11px;cursor:pointer;
+}
 #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);padding:11px 22px;border-radius:9px;font-size:12px;font-family:'Lora',serif;color:#f0d898;background:var(--brown-dark);border:1px solid var(--gold);z-index:999;display:none;white-space:nowrap}
 @keyframes toastAnim{0%{opacity:0;transform:translateX(-50%) translateY(6px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}85%{opacity:1}100%{opacity:0}}
 @media(max-width:480px){.choices{grid-template-columns:1fr}.scene{grid-template-columns:90px 1fr 90px}}
@@ -162,7 +172,7 @@ body{
     <div class="scene">
       <img class="scene-bg" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775179062/Background_n0pwly.png" alt="" onerror="this.style.display='none'">
       <div class="scene-col">
-        <img class="char-img" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775183043/DRDEFAULT_mpikmc.png" alt="Dr. Fennick" onerror="this.style.display='none'">
+        <img class="char-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775183043/DRDEFAULT_mpikmc.png" alt="Dr. Fennick" onerror="this.style.display='none'">
       </div>
       <div class="bubble-col">
         <div class="speech">
@@ -261,8 +271,20 @@ body{
 </div>
 
 <script>
-let allCases = [], currentCase = null, answered = false, hintUsed = false;
+let allCases = [], allExplanations = {}, currentCase = null, answered = false, hintUsed = false, wrongAttempts = new Set();
 
+
+const FOX_FACES = {
+  default:     'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775183043/DRDEFAULT_mpikmc.png',
+  success:     'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189999/success_liqvnd.png',
+  one_wrong:   'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189988/one_wrong_fboh0v.png',
+  two_wrong:   'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189991/two_wrong_rhki4f.png',
+  three_wrong: 'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189995/three_wrong_pfjk6i.png'
+};
+function setFoxFace(face) {
+  const img = document.querySelector("#game-page .scene-col:first-child .char-img");
+  if (img) img.src = FOX_FACES[face] || FOX_FACES.default;
+}
 function todayCST() {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone:'America/Chicago', year:'numeric', month:'2-digit', day:'2-digit'
@@ -306,12 +328,16 @@ function toast(msg) {
 
 async function init() {
   try {
-    const r = await fetch('cases.json');
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    allCases = await r.json();
+    const [casesRes, expRes] = await Promise.all([
+      fetch('cases.json'),
+      fetch('explanations.json')
+    ]);
+    if (!casesRes.ok) throw new Error('cases.json HTTP ' + casesRes.status);
+    allCases = await casesRes.json();
+    if (expRes.ok) allExplanations = await expRes.json();
   } catch(e) {
-    console.error('cases.json failed:', e);
-    document.getElementById('case-title').textContent = 'Could not load cases. Make sure cases.json is in the same folder on GitHub.';
+    console.error('Load failed:', e);
+    document.getElementById('case-title').textContent = 'Could not load cases. Make sure cases.json and explanations.json are in the same folder on GitHub.';
     return;
   }
   const today = todayCST();
@@ -321,7 +347,7 @@ async function init() {
 }
 
 function renderGame(c, isArchive) {
-  currentCase = c; answered = false; hintUsed = false;
+  currentCase = c; answered = false; hintUsed = false; wrongAttempts = new Set(); setFoxFace('default');
   document.getElementById('case-pill').textContent = 'Case no. ' + c.id;
   document.getElementById('case-ribbon').textContent = 'case file — no. ' + c.id;
   document.getElementById('case-title').textContent = c.title;
@@ -349,37 +375,79 @@ function renderGame(c, isArchive) {
 
 function pick(idx) {
   if (answered) return;
-  answered = true;
   const c = currentCase, chosen = c.options[idx], correct = chosen.drug === c.answer;
+  const el = document.getElementById('ch' + idx);
+
+  if (!correct) {
+    el.classList.add('wrong', 'done');
+    wrongAttempts.add(idx);
+    const wCount = wrongAttempts.size;
+
+    if (wCount === 1) {
+      setFoxFace('one_wrong');
+      document.getElementById('speech-text').textContent = '"Hmm. Not that one. Look more carefully at the patient\'s history."';
+    } else if (wCount === 2) {
+      setFoxFace('two_wrong');
+      document.getElementById('speech-text').textContent = '"Two wrong. There is a clear answer here — re-read every detail."';
+    } else if (wCount >= 3) {
+      setFoxFace('three_wrong');
+      answered = true;
+      // Lock all remaining choices
+      c.options.forEach((o, i) => {
+        const el2 = document.getElementById('ch' + i);
+        if (el2) { el2.classList.add('done'); if (o.drug === c.answer) el2.classList.add('correct'); }
+      });
+      markPlayed(c.id, false);
+      renderStreak();
+      showReveal(c.answer);
+      document.getElementById('speech-text').textContent = '"Oh dear... three wrong turns. The answer was ' + c.answer + '. Study this one carefully before tomorrow."';
+      return;
+    }
+
+    showWrongReveal(chosen.drug);
+    return;
+  }
+
+  // Correct — lock everything, show full reveal
+  answered = true;
   c.options.forEach((o, i) => {
-    const el = document.getElementById('ch' + i);
-    el.classList.add('done');
-    if (o.drug === c.answer) el.classList.add('correct');
-    else if (i === idx) el.classList.add('wrong');
+    const el2 = document.getElementById('ch' + i);
+    el2.classList.add('done');
+    if (o.drug === c.answer) el2.classList.add('correct');
   });
-  if (correct) updateStreak();
-  markPlayed(c.id, correct);
+  setFoxFace('success');
+  updateStreak();
+  markPlayed(c.id, true);
   renderStreak();
-  showReveal(correct, chosen.drug);
-  document.getElementById('speech-text').textContent = correct
-    ? `"Precisely. ${c.answer} — the correct first-line choice. Well reasoned."`
-    : `"Not quite. Study the reasoning carefully. This is how you improve."`;
+  showReveal(chosen.drug);
+  document.getElementById('speech-text').textContent = `"Precisely. ${c.answer} — the correct first-line choice. Well reasoned."`;
 }
 
-function showReveal(correct, chosenDrug) {
+function showWrongReveal(chosenDrug) {
   const c = currentCase, rev = document.getElementById('reveal');
-  let html = '';
-  if (correct) {
-    rev.style.borderColor = 'var(--ok-brd)';
-    html += `<div class="rhead-ok">✓ Correct — ${c.answer}</div><div>${c.explanation.correct}</div><div class="rdivider"></div>`;
-    c.options.filter(o => o.drug !== c.answer).forEach(o => {
-      html += `<div class="ritem"><div class="rdrug">Why not ${o.drug}?</div><div class="rtext">${c.explanation.wrong[o.drug]||''}</div></div>`;
-    });
-  } else {
-    rev.style.borderColor = 'var(--err-brd)';
-    html += `<div class="rhead-err">✗ ${chosenDrug} — incorrect</div><div>${c.explanation.wrong[chosenDrug]||'Not the right choice for this patient.'}</div><div class="rdivider"></div>`;
-    html += `<div class="ritem"><div class="rdrug">The correct answer: ${c.answer}</div><div class="rtext">${c.explanation.correct}</div></div>`;
-  }
+  const exp = allExplanations[c.answer] || {};
+  const wrongText = exp.wrong ? exp.wrong[chosenDrug] : '';
+  rev.style.borderColor = 'var(--err-brd)';
+  rev.innerHTML = `<div class="rhead-err">✗ ${chosenDrug} — not quite</div><div>${wrongText||'Not the right choice for this patient.'}</div>`;
+  rev.style.display = 'block'; rev.classList.add('show');
+  setTimeout(() => rev.scrollIntoView({ behavior:'smooth', block:'nearest' }), 50);
+}
+
+function showReveal(chosenDrug) {
+  const c = currentCase, rev = document.getElementById('reveal');
+  const exp = allExplanations[c.answer] || {};
+  rev.style.borderColor = 'var(--ok-brd)';
+  let html = `<div class="rhead-ok">✓ Correct — ${c.answer}</div>`;
+  if (exp.correct) html += `<div>${exp.correct}</div>`;
+  html += `<div class="rdivider"></div>`;
+  if (exp.mechanism) html += `<div class="ritem"><div class="rdrug">Mechanism</div><div class="rtext">${exp.mechanism}</div></div>`;
+  if (exp.clinical_use) html += `<div class="ritem"><div class="rdrug">Clinical use</div><div class="rtext">${exp.clinical_use}</div></div>`;
+  if (exp.key_facts) html += `<div class="ritem"><div class="rdrug">Key facts</div><div class="rtext">${exp.key_facts}</div></div>`;
+  html += `<div class="rdivider"></div>`;
+  c.options.filter(o => o.drug !== c.answer).forEach(o => {
+    const wrongExp = exp.wrong ? exp.wrong[o.drug] : (allExplanations[o.drug] ? allExplanations[o.drug].why_wrong : '');
+    html += `<div class="ritem"><div class="rdrug">Why not ${o.drug}?</div><div class="rtext">${wrongExp||''}</div></div>`;
+  });
   rev.innerHTML = html; rev.style.display = 'block'; rev.classList.add('show');
   setTimeout(() => rev.scrollIntoView({ behavior:'smooth', block:'nearest' }), 50);
 }
@@ -393,12 +461,26 @@ function showHint() {
 
 function showAlreadyPlayed(c, wasCorrect) {
   answered = true;
-  document.getElementById('choices').innerHTML = '';
   document.getElementById('hint-btn').disabled = true;
-  const card = document.createElement('div');
-  card.className = 'played-card';
-  card.innerHTML = `<div class="icon">${wasCorrect?'✓':'✗'}</div><h3>Already played today's case.</h3><div class="played-ans">${wasCorrect?'✓':'✗'} ${c.answer}</div><p>Come back tomorrow for a new case.<br>Browse past cases in the archive.</p><button onclick="showArchive()">Browse Archive →</button>`;
-  document.getElementById('game-body').appendChild(card);
+
+  // Show all choices with correct highlighted
+  c.options.forEach((o, i) => {
+    const el = document.getElementById('ch' + i);
+    if (el) {
+      el.classList.add('done');
+      if (o.drug === c.answer) el.classList.add('correct');
+    }
+  });
+
+  // Show full explanation
+  showReveal(c.answer);
+
+  // Add played banner above case panel
+  const body = document.getElementById('game-body');
+  const banner = document.createElement('div');
+  banner.className = 'played-banner';
+  banner.innerHTML = `<span>${wasCorrect ? '✓ You got this one right.' : '✗ You missed this one.'}</span><button onclick="showArchive()">Browse Archive →</button>`;
+  body.insertBefore(banner, body.firstChild);
 }
 
 function showArchive() {
@@ -426,7 +508,7 @@ function loadArchive(id) {
   if (p[id]) {
     answered = true;
     c.options.forEach((o,i) => { const el = document.getElementById('ch'+i); if(el){el.classList.add('done');if(o.drug===c.answer)el.classList.add('correct');} });
-    showReveal(p[id].correct, p[id].correct ? c.answer : 'previous attempt');
+    if (p[id].correct) showReveal(c.answer); else { document.getElementById('reveal').style.display='none'; }
   }
 }
 
