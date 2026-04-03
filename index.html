@@ -381,27 +381,6 @@ body{
 
 <div id="toast"></div>
 
-<!-- HERO SCREEN -->
-<div id="hero">
-  <div class="hero-gear">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-      <circle cx="24" cy="24" r="9" fill="none" stroke="#c8a040" stroke-width="2"/>
-      <circle cx="24" cy="24" r="3.5" fill="#c8a040"/>
-      <path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.4 9.4l4.2 4.2M34.4 34.4l4.2 4.2M9.4 38.6l4.2-4.2M34.4 13.6l4.2-4.2" stroke="#c8a040" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </div>
-  <div class="hero-title">Rx &amp; the Fox</div>
-  <div class="hero-sub-title">Daily Diagnostic</div>
-  <div class="hero-desc">One clinical case per day. Four drug choices. One correct answer. Dr. Fennick is waiting.</div>
-  <div class="hero-pills">
-    <div class="hero-pill">Daily case</div>
-    <div class="hero-pill">First-line treatment</div>
-    <div class="hero-pill">Streaks</div>
-    <div class="hero-pill">Case archive</div>
-  </div>
-  <button class="hero-cta" onclick="dismissHero()">Today's Case →</button>
-</div>
-
 <!-- MAIN GAME PAGE -->
 <div id="game-page">
   <div class="page">
@@ -867,19 +846,9 @@ function showGame() {
   if (playedCard && currentCase && !getPlayedCases()[currentCase.id]) playedCard.remove();
 }
 
-// ── HERO ──
-function dismissHero() {
-  const hero = document.getElementById('hero');
-  hero.classList.add('hidden');
-  sessionStorage.setItem('rxfox_hero', '1');
-  setTimeout(() => hero.style.display = 'none', 400);
-}
 
 // ── INIT ──
 window.addEventListener('DOMContentLoaded', () => {
-  if (sessionStorage.getItem('rxfox_hero')) {
-    document.getElementById('hero').style.display = 'none';
-  }
   loadCases();
 });
 </script>
