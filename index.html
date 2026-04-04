@@ -60,11 +60,11 @@ body{
 .char-empty{width:88px;height:170px;background:rgba(155,114,48,.1);border:2px dashed rgba(155,114,48,.25);border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center}
 .char-empty span{color:rgba(80,40,0,.25);font-size:9px;letter-spacing:1px;text-align:center;line-height:1.8}
 .bubble-col{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:14px 10px}
-.speech{background:rgba(255,252,235,.97);border:2px solid var(--brown-mid);border-radius:12px;padding:13px 14px;position:relative}
+.speech{background:rgba(255,252,235,.97);border:2px solid var(--brown-mid);border-radius:12px;padding:11px 12px;position:relative;overflow-y:auto;max-height:180px}
 .speech::after{content:'';position:absolute;top:50%;left:-11px;transform:translateY(-50%);border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:11px solid var(--brown-mid)}
 .speech::before{content:'';position:absolute;top:50%;left:-8px;transform:translateY(-50%);z-index:1;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid rgba(255,252,235,.97)}
 .speech-name{font-size:9px;color:#9b5010;letter-spacing:1.5px;margin-bottom:4px}
-.speech-text{font-size:11.5px;color:#3a1e08;line-height:1.85;font-style:italic}
+.speech-text{font-size:11px;color:#3a1e08;line-height:1.75;font-style:italic}
 .woodbar{height:20px;border-top:2px solid var(--brown-mid);border-bottom:2px solid var(--brown-mid)}
 .body{padding:16px 18px;display:flex;flex-direction:column;gap:13px}
 .case-panel{background:var(--parchment-light);border:2px solid var(--brown-light);border-radius:11px;padding:15px;position:relative}
@@ -120,12 +120,12 @@ body{
 .archive-btn{font-size:11px;color:var(--gold);background:none;border:none;font-family:'Lora',serif;cursor:pointer;letter-spacing:.5px;border-bottom:1px solid rgba(200,160,64,.3);transition:color .15s;position:relative}
 .archive-btn:hover{color:#f0d898}
 #archive-page{display:none}
-.archive-grid{padding:16px 18px;display:flex;flex-direction:column;gap:8px}
-.aitem{background:var(--parchment-light);border:1.5px solid var(--brown-light);border-radius:10px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:border-color .15s,background .15s}
+.archive-grid{padding:18px;display:flex;flex-direction:column;gap:10px}
+.aitem{background:var(--parchment-light);border:1.5px solid var(--brown-light);border-radius:10px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:border-color .15s,background .15s;margin-bottom:2px}
 .aitem:hover{border-color:var(--brown-mid);background:#fef3d0}
 .aitem-left{display:flex;flex-direction:column;gap:3px}
-.aitem-title{font-size:13px;color:#4a2408}
-.aitem-date{font-size:10px;color:var(--brown-light);letter-spacing:.5px}
+.aitem-title{font-size:14px;color:#4a2408;margin-bottom:3px}
+.aitem-date{font-size:11px;color:var(--brown-light);letter-spacing:.5px}
 .aitem-right{display:flex;align-items:center;gap:8px}
 .aitem-badge{font-size:10px;padding:3px 10px;border-radius:20px;background:var(--tag-green-bg);color:var(--tag-green-txt);border:1px solid var(--tag-green-brd)}
 .aitem-arrow{color:var(--brown-light);font-size:14px}
@@ -147,6 +147,7 @@ body{
 </style>
 </head>
 <body>
+<audio id="bgm" src="theme.mp3" loop preload="auto"></audio>
 <div id="toast"></div>
 
 <div id="game-page">
@@ -165,6 +166,7 @@ body{
       </div>
       <div class="tright">
         <div class="streak-pill" id="streak-pill">🔥 <b id="streak-val">0</b> days</div>
+        <button id="music-btn" onclick="toggleMusic()" style="position:relative;background:rgba(200,160,64,.2);border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:4px 12px;font-size:11px;font-family:'Lora',serif;cursor:pointer;letter-spacing:.5px" title="Toggle music">♪ On</button>
         <div class="case-pill" id="case-pill">Case no. —</div>
       </div>
     </div>
@@ -172,7 +174,7 @@ body{
     <div class="scene">
       <img class="scene-bg" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775179062/Background_n0pwly.png" alt="" onerror="this.style.display='none'">
       <div class="scene-col">
-        <img class="char-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775183043/DRDEFAULT_mpikmc.png" alt="Dr. Fennick" onerror="this.style.display='none'">
+        <img class="char-img" id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775183043/DRDEFAULT_mpikmc.png" alt="Dr. Fennick" onerror="this.style.display='none'">
       </div>
       <div class="bubble-col">
         <div class="speech">
@@ -282,7 +284,7 @@ const FOX_FACES = {
   three_wrong: 'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189995/three_wrong_pfjk6i.png'
 };
 function setFoxFace(face) {
-  const img = document.querySelector("#game-page .scene-col:first-child .char-img");
+  const img = document.getElementById("fennick-img");
   if (img) img.src = FOX_FACES[face] || FOX_FACES.default;
 }
 function todayCST() {
@@ -483,20 +485,39 @@ function showAlreadyPlayed(c, wasCorrect) {
   body.insertBefore(banner, body.firstChild);
 }
 
-function showArchive() {
+async function showArchive() {
   document.getElementById('game-page').style.display = 'none';
   document.getElementById('archive-page').style.display = 'block';
   renderStreak();
   const played = getPlayed(), today = todayCST();
-  const past = allCases.filter(c => c.date <= today).sort((a,b) => b.date.localeCompare(a.date));
   const grid = document.getElementById('archive-grid');
+  grid.innerHTML = '<div style="text-align:center;padding:32px;font-size:13px;color:var(--brown-light);font-style:italic">Loading...</div>';
+
+  let archiveList = [];
+  try {
+    const r = await fetch('archives.json');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    archiveList = await r.json();
+  } catch(e) {
+    // fallback to allCases
+    archiveList = allCases.map(c => ({ id: c.id, date: c.date, title: c.title }));
+  }
+
+  const past = archiveList.filter(c => c.date <= today).sort((a,b) => b.date.localeCompare(a.date));
   if (!past.length) { grid.innerHTML = '<div style="text-align:center;padding:32px;font-size:13px;color:var(--brown-light);font-style:italic">No past cases yet.</div>'; return; }
+
   grid.innerHTML = past.map(c => {
     const p = played[c.id];
     const dateStr = new Date(c.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
     return `<div class="aitem" onclick="loadArchive('${c.id}')">
-      <div class="aitem-left"><div class="aitem-title">${c.title}</div><div class="aitem-date">${c.date===today?'Today — ':''}${dateStr}</div></div>
-      <div class="aitem-right">${p?`<span class="aitem-badge">${p.correct?'✓':'✗'} Played</span>`:''}<span class="aitem-arrow">›</span></div>
+      <div class="aitem-left">
+        <div class="aitem-title">${c.title}</div>
+        <div class="aitem-date">${c.date===today?'Today — ':''}${dateStr}</div>
+      </div>
+      <div class="aitem-right">
+        ${p?`<span class="aitem-badge">${p.correct?'✓':'✗'} Played</span>`:''}
+        <span class="aitem-arrow">›</span>
+      </div>
     </div>`;
   }).join('');
 }
@@ -516,6 +537,28 @@ function showGame() {
   document.getElementById('archive-page').style.display = 'none';
   document.getElementById('game-page').style.display = 'block';
 }
+
+let musicOn = true;
+let musicStarted = false;
+
+function startMusic() {
+  if (musicStarted) return;
+  const bgm = document.getElementById('bgm');
+  bgm.volume = 0.35;
+  bgm.play().then(() => { musicStarted = true; }).catch(() => {});
+}
+
+function toggleMusic() {
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('music-btn');
+  if (!musicStarted) { startMusic(); return; }
+  musicOn = !musicOn;
+  if (musicOn) { bgm.play(); btn.textContent = '♪ On'; btn.style.opacity = '1'; }
+  else { bgm.pause(); btn.textContent = '♪ Off'; btn.style.opacity = '0.5'; }
+}
+
+// Start on first click anywhere
+document.addEventListener('click', startMusic, { once: true });
 
 window.addEventListener('DOMContentLoaded', init);
 </script>
