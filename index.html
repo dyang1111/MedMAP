@@ -88,13 +88,14 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .fennick-portrait-box{
   display:flex;flex-direction:column;align-items:center;gap:4px;
   border-bottom:1px solid rgba(200,160,80,0.3);
-  background:#f5eac0;
+  background:linear-gradient(160deg,#4a2208 0%,#3a1a06 40%,#2e1405 100%);
   border-radius:8px;
-  padding:10px 8px 10px;
+  padding:8px 8px 10px;
+  border:1px solid rgba(200,160,60,0.25);
 }
-#fennick-img{width:180px;height:180px;object-fit:contain;transition:opacity .3s;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
-.fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:16px;font-weight:600;text-align:center}
-.fennick-title{color:#a08040;font-size:12px;text-align:center}
+#fennick-img{width:170px;height:170px;object-fit:cover;object-position:center top;transition:opacity .3s}
+.fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:15px;font-weight:600;text-align:center;margin-top:4px}
+.fennick-title{color:#c8a45a;font-size:11px;text-align:center;letter-spacing:.04em}
 
 .fennick-comment-box{
   background:rgba(0,0,0,0.22);
@@ -316,7 +317,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 </head>
 <body>
 
-<div id="bg" style="position:fixed;inset:0;z-index:0;background-size:cover;background-position:center;background-image:url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527232/background_ui_tl1rgz.png')"></div>
+<div id="bg" style="position:fixed;inset:0;z-index:0"></div>
 
 <nav class="fm-nav">
   <a class="fm-logo" href="#">
@@ -491,9 +492,11 @@ function updateFennickByErrors(){
 
 // ── INIT CASE ──
 function getTodayKey(){
-  const now = new Date();
-  const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
-  return cst.toISOString().split('T')[0];
+  const cst = new Date(new Date().toLocaleString('en-US',{timeZone:'America/Chicago'}));
+  const y = cst.getFullYear();
+  const m = String(cst.getMonth()+1).padStart(2,'0');
+  const d = String(cst.getDate()).padStart(2,'0');
+  return y+'-'+m+'-'+d;
 }
 
 function initCase(){
@@ -511,7 +514,7 @@ function initCase(){
   // Patient image
   const ptImg = document.getElementById('pt-img');
   if(currentCase.patient.image_url){
-    ptImg.src = currentCase.patient.image_url + '?w=110&h=130&c=fit';
+    ptImg.src = currentCase.patient.image_url;
   } else {
     ptImg.src = 'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png';
   }
