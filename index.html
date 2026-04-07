@@ -345,12 +345,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .prog-line{flex:1;height:2px;background:rgba(160,120,40,0.15);border-radius:2px;transition:background .3s}
 .prog-line.done{background:rgba(100,70,10,0.5)}
 
-/* ── GEAR OVERLAY PANELS ── */
-.note-gear {
-  position: relative;
-  overflow: hidden;
-}
-.gear-overlay {
+/* ── GEAR OVERLAY ── */
+.gear-overlay-div {
   position: absolute;
   top: -10px; right: -10px;
   width: 40%;
@@ -358,35 +354,15 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background-repeat: no-repeat;
   background-position: top right;
   background-size: 100% auto;
-  opacity: 0.28;
+  opacity: 0.26;
   pointer-events: none;
-  z-index: 0;
 }
-.gear-overlay-tint {
+.gear-tint-div {
   position: absolute;
   top: 0; right: 0;
-  width: 55%; height: 70%;
-  background: radial-gradient(ellipse at top right, rgba(140,90,20,0.25) 0%, rgba(180,130,50,0.1) 45%, transparent 70%);
+  width: 60%; height: 75%;
+  background: radial-gradient(ellipse at top right, rgba(140,90,20,0.22) 0%, rgba(180,130,50,0.08) 45%, transparent 70%);
   pointer-events: none;
-  z-index: 0;
-}
-.gear-overlay-workup {
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png');
-}
-.gear-overlay-mgmt {
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600417/Gemini_Generated_Image_eb02e8eb02e8eb02_copy_nvovzo.png');
-}
-
-.note-gear .section-tag,
-.note-gear #ordered-results,
-.note-gear #tests-grid,
-.note-gear #mgmt-progress,
-.note-gear #mgmt-stages,
-.note-gear .test-btn,
-.note-gear .mgmt-option,
-.note-gear .test-result-card {
-  position: relative;
-  z-index: 2;
 }
 
 /* ── ENDGAME ── */
@@ -472,9 +448,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <div class="vitals-row" id="vitals-row"></div>
     </div>
 
-    <div class="note note-gear gear-workup" id="workup-note">
-      <div class="gear-overlay gear-overlay-workup"></div>
-      <div class="gear-overlay-tint"></div>
+    <div class="note" id="workup-note" style="position:relative;overflow:hidden">
       <span class="section-tag">CLINICAL WORKUP</span>
       <div id="ordered-results"></div>
       <div class="tests-grid" id="tests-grid"></div>
@@ -490,9 +464,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <div id="dx-result"></div>
     </div>
 
-    <div class="note note-gear gear-mgmt" id="mgmt-note" style="display: none;">
-      <div class="gear-overlay gear-overlay-mgmt"></div>
-      <div class="gear-overlay-tint"></div>
+    <div class="note" id="mgmt-note" style="position:relative;overflow:hidden">
       <span class="section-tag">MANAGEMENT</span>
       <div class="progress-track" id="mgmt-progress"></div>
       <div style="margin-top:12px" id="mgmt-stages"></div>
@@ -612,6 +584,20 @@ function initCase(){
   renderTests();
   renderManagement();
   hints = currentCase.hints || [];
+
+  // ── GEAR OVERLAYS (injected after content so they don't interfere) ──
+  function addGearOverlay(panelId, imgUrl) {
+    const panel = document.getElementById(panelId);
+    const img = document.createElement('div');
+    img.className = 'gear-overlay-div';
+    img.style.backgroundImage = `url('${imgUrl}')`;
+    const tint = document.createElement('div');
+    tint.className = 'gear-tint-div';
+    panel.appendChild(img);
+    panel.appendChild(tint);
+  }
+  addGearOverlay('workup-note', 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png');
+  addGearOverlay('mgmt-note', 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600417/Gemini_Generated_Image_eb02e8eb02e8eb02_copy_nvovzo.png');
 }
 
 function setFennick(expr, comment){ 
@@ -661,29 +647,26 @@ function renderChart(){
   `;
 }
 
-function renderTests() { 
+function renderTests(){ 
   const grid = document.getElementById('tests-grid'); 
-  const tests = currentCase.tests || currentCase.labs; 
-  if(!tests) return; 
-  
-  grid.innerHTML = tests.map((t, i) => `
+  if(!currentCase.tests) return; 
+  grid.innerHTML = currentCase.tests.map((t,i)=>`
     <div class="test-btn" id="test-${i}" onclick="orderTest(${i})">
       <div class="test-btn-name">${t.name}</div>
-      <div class="test-btn-cost">−${t.cost !== undefined ? t.cost : 5} HP</div>
+      <div class="test-btn-cost">−${t.cost||5} HP</div>
     </div>
   `).join('');
 }
 
-window.orderTest = function(idx) { 
-  const tests = currentCase.tests || currentCase.labs;
-  if(!tests) return; 
-  const t = tests[idx]; 
+window.orderTest = function(idx){ 
+  if(!currentCase.tests) return; 
+  const t = currentCase.tests[idx]; 
   if(orderedTests.has(idx)) return; 
   
-  drainHP(t.cost !== undefined ? t.cost : 5); 
+  drainHP(t.cost||5); 
   orderedTests.add(idx); 
   
-  document.getElementById('test-' + idx).classList.add('ordered'); 
+  document.getElementById('test-'+idx).classList.add('ordered'); 
   
   const results = document.getElementById('ordered-results'); 
   const card = document.createElement('div'); 
@@ -845,9 +828,7 @@ function useHint(){
 }
 
 function unlockNextStage(){ 
-  const mgmtNote = document.getElementById('mgmt-note');
-  mgmtNote.style.display = 'block';
-  mgmtNote.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  if(currentStage===0){/* noop */}
 }
 
 function endCase(failed){ 
