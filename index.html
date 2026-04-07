@@ -35,10 +35,11 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   position: fixed;
   inset: 0;
   z-index: 0;
-  background-size: cover, auto;
-  background-position: center, center;
+  /* Paper tile will repeat, town will cover */
+  background-size: repeat, cover;
+  background-position: left top, center center;
   background-attachment: fixed;
-  background-blend-mode: multiply; /* This blends the paper texture with the town image */
+  background-blend-mode: multiply; 
   transition: background-image 1s ease;
 }
 
@@ -122,7 +123,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   border:1px solid rgba(200,160,60,0.25);
 }
 
-/* ── FIX DR FENNICK PICTURE FIT & CUTOFF ── */
+/* ── DR FENNICK PICTURE SPECIFICS (FIXED ZOOM) ── */
 #fennick-img-wrap {
   width: 170px;
   height: 170px;
@@ -131,16 +132,17 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   /* Sand color with gradient to look like old paper */
   background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* Anchor image to the bottom */
   justify-content: center;
   border: 1px solid rgba(140,100,30,0.4);
 }
 #fennick-img{
-  width: 100%;
-  height: 100%;
-  /* This prevents jumping and crops at mid-thorax */
-  object-fit: cover; 
-  object-position: center 20%; 
+  width: 95%; /* Slight padding so his ears don't hit the absolute top */
+  height: 95%;
+  /* Contain forces the full image to fit, preventing any zooming */
+  object-fit: contain; 
+  object-position: bottom center; 
+  transition: opacity .3s;
 }
 .fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:15px;font-weight:600;text-align:center;margin-top:4px}
 .fennick-title{color:#c8a45a;font-size:11px;text-align:center;letter-spacing:.04em}
@@ -199,6 +201,9 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   padding:18px 20px;
   box-shadow:1px 2px 10px rgba(60,30,0,0.18);
   font-size:15px;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/v1775618012/aged_paper_tile_fhnwqi.png');
+  background-repeat: repeat;
+  background-blend-mode: multiply;
 }
 
 /* ── PATIENT BANNER ── */
@@ -206,20 +211,20 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 /* ── PATIENT PICTURE SPECIFICS ── */
 #pt-img-wrap{
-  width:170px; /* Matched to Fox size */
-  height:170px; /* Matched to Fox size */
+  width:170px; 
+  height:170px; 
   flex-shrink:0;
   background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
   border:1px solid rgba(160,120,40,0.4);
   border-radius:6px;
   overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:flex-end;justify-content:center;
 }
 #pt-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top; 
+  width:95%;
+  height:95%;
+  object-fit:contain; /* Matches the Fox logic to prevent weird cutoffs */
+  object-position:bottom center; 
 }
 .pt-name{color: var(--text-primary);font-family:'Playfair Display',serif;font-size:22px;font-weight:600}
 .pt-occ{color: var(--text-secondary);font-size:14px;margin-top:2px}
@@ -382,7 +387,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   <div id="left-col">
     <div class="fennick-portrait-box">
       <div id="fennick-img-wrap">
-        <img id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png" alt="Dr. Fennick">
+        <img id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png" alt="Dr. Fennick">
       </div>
       <div class="fennick-name">Dr. Fennick</div>
       <div class="fennick-title">Chief Diagnostician</div>
@@ -477,13 +482,14 @@ let CASES = [];
 let currentCase = null;
 let hints = [];
 
+// Clean raw URLs to prevent Cloudinary from auto-cropping and breaking aspect ratio
 const FOX = {
-  default:   'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
-  answer:    'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
-  think:     'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527222/fox_think_qk9moa.png',
-  concerned: 'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527214/fox_-1_i7vjma.png',
-  danger:    'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527217/fox_-3_cjhvcn.png',
-  lose:      'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527215/fox_-2_t0r5hb.png',
+  default:   'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
+  answer:    'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
+  think:     'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527222/fox_think_qk9moa.png',
+  concerned: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527214/fox_-1_i7vjma.png',
+  danger:    'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527217/fox_-3_cjhvcn.png',
+  lose:      'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527215/fox_-2_t0r5hb.png',
 };
 
 // ── INIT ──
@@ -521,14 +527,14 @@ function applyTimeTheme(){
   
   const isNight = hr >= 18 || hr < 6; 
 
-  // Apply the town image and the paper texture overlay
   const bgUrl = isNight 
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527250/night_pi7sfg.png'
     : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527232/background_ui_tl1rgz.png';
   
   const paperUrl = 'https://res.cloudinary.com/djiap51xq/image/upload/v1775618012/aged_paper_tile_fhnwqi.png';
 
-  document.getElementById('bg').style.backgroundImage = `url('${bgUrl}'), url('${paperUrl}')`;
+  // PAPER goes first to sit on top of the town image and blend perfectly
+  document.getElementById('bg').style.backgroundImage = `url('${paperUrl}'), url('${bgUrl}')`;
 
   if(isNight) {
     document.body.classList.remove('day');
@@ -552,7 +558,7 @@ function initCase(){
 
   const ptImg = document.getElementById('pt-img');
   if(currentCase.patient.image_url){
-    // Replace the low-res string in the URL with a high-res one for crispness
+    // Load high res for sharp quality
     ptImg.src = currentCase.patient.image_url.replace('w_110,h_130', 'w_340,h_340');
     ptImg.style.display = 'block';
   } else {
