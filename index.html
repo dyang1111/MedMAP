@@ -3,836 +3,345 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fennick MD</title>
+<title>Fennick MD Game Interface</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+/* -- Reset & Fonts -- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Crimson Pro', serif;
+    background-color: #2a1a06;
+    color: #fdf8e8;
+    background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/w_2160,h_1080,c_fit/q_auto/f_auto/v1775527250/night_pi7sfg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+h1, h2, h3, .section-tag, .unit, .vitals-table th { font-family: 'Playfair Display', serif; }
 
-/* ── DEFINE DAY/NIGHT VARIABLES ── */
-body.day {
-  --panel-bg: rgba(252,248,225,0.95);
-  --text-primary: #2a1a06;
-  --text-secondary: #7a5010;
-  --chart-border: rgba(160,120,40,0.12);
-  --test-btn-bg: rgba(255,255,255,0.5);
-  --test-btn-hover: rgba(255,255,255,0.75);
+/* -- Main Layout -- */
+#game-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
 }
 
-body.night {
-  --panel-bg: rgba(235, 225, 180, 0.98); 
-  --text-primary: #1a1a01; 
-  --text-secondary: #604010; 
-  --chart-border: rgba(120,90,40,0.2);
-  --test-btn-bg: rgba(255,255,255,0.6);
-  --test-btn-hover: rgba(255,255,255,0.85);
+/* -- Top Navigation -- */
+#top-nav {
+    height: 52px;
+    background-color: #3e1e08;
+    background-image: linear-gradient(176deg, #522a0c 0%, #3c1a06 15%, #4e2608 30%, #3a1605 45%, #4c2208 60%, #3c1a06 75%, #4a2008 100%);
+    border-bottom: 2px solid #7a4a12;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 24px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+}
+.logo { color: #e8c87a; font-size: 17px; font-weight: 600; font-family: 'Playfair Display', serif;}
+.daily-case { color: #b09050; font-size: 10px; display: block; letter-spacing: 0.15em; font-style: italic; font-weight: 400; margin-top: -3px;}
+
+.case-info { display: flex; align-items: center; gap: 10px; }
+.hp-bar-track { width: 60px; height: 6px; background: rgba(0,0,0,0.3); border-radius: 99px; overflow: hidden; border: 1px solid rgba(200,160,80,0.3); }
+.hp-bar-fill { height: 100%; background: #c8a45a; border-radius: 99px; }
+.hp-num { color: #e8c87a; font-size: 11px; font-weight: 600; min-width: 28px; text-align: right; }
+.case-lbl { color: #b09050; font-size: 11px; }
+
+/* -- App Body Layout -- */
+#app-body {
+    display: flex;
+    width: 100%;
+    max-width: 980px;
+    margin: 52px auto 0 auto;
+    position: relative;
+    z-index: 10;
 }
 
-html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#2a1a06;}
-
-/* ── MAIN TOWN BACKGROUND ── */
-#bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  transition: background-image 1s ease;
+/* -- Left Sidebar -- */
+#left-col {
+    width: 210px;
+    flex-shrink: 0;
+    height: calc(100vh - 52px);
+    position: sticky; top: 52px;
+    background-color: #3e1e08;
+    background-image: linear-gradient(176deg, #522a0c 0%, #3c1a06 20%, #4e2608 40%, #3a1605 60%, #4a2008 100%);
+    border-right: 2px solid rgba(120,80,20,0.5);
+    display: flex; flex-direction: column;
+    padding: 14px 12px;
+    gap: 12px;
 }
 
-/* ── WOOD NAV ── */
-.fm-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:10px 24px;
-  display:flex;justify-content:space-between;align-items:center;
-  background-color:#3e1e08;
-  background-image:
-    repeating-linear-gradient(179deg,
-      transparent 0px,transparent 3px,
-      rgba(255,180,80,0.06) 3px,rgba(255,180,80,0.06) 4px,
-      transparent 4px,transparent 9px,
-      rgba(0,0,0,0.08) 9px,rgba(0,0,0,0.08) 10px,
-      transparent 10px,transparent 18px,
-      rgba(255,160,60,0.04) 18px,rgba(255,160,60,0.04) 19px,
-      transparent 19px,transparent 28px,
-      rgba(0,0,0,0.06) 28px,rgba(0,0,0,0.06) 29px,
-      transparent 29px,transparent 40px
-    ),
-    linear-gradient(176deg,#522a0c 0%,#3c1a06 15%,#4e2608 30%,#3a1605 45%,#4c2208 60%,#3c1a06 75%,#4a2008 100%);
-  border-bottom:2px solid #7a4a12;
-  height:52px;
+.portrait-box-outer {
+    background: linear-gradient(160deg, #4a2208 0%, #3a1a06 40%, #2e1405 100%);
+    border-radius: 8px;
+    padding: 8px 8px 10px 8px;
+    border: 1px solid rgba(200,160,60,0.25);
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
 }
-.fm-logo{color:#e8c87a;font-family:'Playfair Display',serif;font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;text-decoration:none}
-.fm-logo-gear{color:#c8a45a}
-.fm-logo small{color:#b09050;font-size:10px;display:block;letter-spacing:.15em;font-style:italic;font-weight:400;margin-top:1px}
-.fm-nav-r{display:flex;gap:10px;align-items:center}
-.fm-nav-pill{color:#e8c87a;font-size:12px;border:1px solid #8b6914;border-radius:20px;padding:3px 12px;background:rgba(0,0,0,0.25);cursor:pointer;font-family:'Crimson Pro',Georgia,serif}
-.fm-nav-pill:hover{background:rgba(0,0,0,0.4)}
-.fm-case-lbl{color:#b09050;font-size:11px}
-.fm-hp-nav{display:flex;align-items:center;gap:6px}
-.fm-hp-nav-track{width:60px;height:6px;background:rgba(0,0,0,0.3);border-radius:99px;overflow:hidden;border:1px solid rgba(200,160,80,0.3)}
-.fm-hp-nav-fill{height:100%;background:#c8a45a;border-radius:99px;transition:width .4s ease}
-.fm-hp-nav-num{color:#e8c87a;font-size:11px;font-weight:600;min-width:28px}
+.portrait-box-inner {
+    width: 170px; height: 170px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
+    display: flex; align-items: flex-end; justify-content: center;
+    border: 1px solid rgba(140,100,30,0.4);
+}
+.portrait-box-inner img { width: 95%; height: 95%; object-fit: contain; }
 
-/* ── MAIN LAYOUT ── */
-#app{
-  position:relative;z-index:10;
-  padding-top:52px;
-  display:flex;
-  justify-content:center;
-  min-height:100vh;
-}
-#app-inner{
-  display:flex;
-  width:100%;
-  max-width:980px;
-  position:relative;
-  z-index:10;
-}
+.stethoscope-icon { margin-top: 4px; width: 60px; }
+.character-name { color: #e8c87a; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; text-align: center; }
+.character-title { color: #c8a45a; font-size: 11px; text-align: center; margin-top: -2px; letter-spacing: 0.04em;}
 
-/* ── LEFT COLUMN — FIXED ── */
-#left-col{
-  width:210px;flex-shrink:0;
-  height:calc(100vh - 52px);
-  position:sticky;top:52px;
-  display:flex;flex-direction:column;
-  padding:14px 12px;
-  gap:12px;
-  background-color:rgba(62, 30, 8, 0.98); /* Solidified background so text stays legible */
-  background-image:
-    repeating-linear-gradient(179deg,
-      transparent 0px,transparent 3px,
-      rgba(255,180,80,0.05) 3px,rgba(255,180,80,0.05) 4px,
-      transparent 4px,transparent 9px,
-      rgba(0,0,0,0.07) 9px,rgba(0,0,0,0.07) 10px,
-      transparent 10px,transparent 18px
-    ),
-    linear-gradient(176deg,#522a0c 0%,#3c1a06 20%,#4e2608 40%,#3a1605 60%,#4a2008 100%);
-  border-right:2px solid rgba(120,80,20,0.5);
-  overflow:hidden;
-}
+.dark-field { background: rgba(0,0,0,0.22); border: 1px solid rgba(200,160,60,0.25); border-radius: 8px; padding: 10px; color: #d4c4a0;}
+.observe-lbl { color: #c8a45a; font-size: 11px; letter-spacing: 0.12em; margin-bottom: 5px; display: block; }
+.observe-text { font-size: 14px; line-height: 1.6; }
 
-.fennick-portrait-box{
-  display:flex;flex-direction:column;align-items:center;gap:4px;
-  background:linear-gradient(160deg,#4a2208 0%,#3a1a06 40%,#2e1405 100%);
-  border-radius:8px;
-  padding:8px 8px 10px;
-  border:1px solid rgba(200,160,60,0.25);
+.dark-btn-bar { display: flex; flex-direction: column; gap: 8px; }
+.dark-btn {
+    background: rgba(200,160,60,0.15); border: 1px solid rgba(200,160,60,0.35);
+    color: #e8c87a; font-family: 'Crimson Pro', serif; font-size: 14px;
+    border-radius: 8px; padding: 9px 10px; cursor: pointer; text-align: center;
 }
+.dark-btn small { font-size: 11px; color: #a08040; display: block; margin-top: 2px; }
 
-/* ── DR FENNICK PICTURE SPECIFICS (FIXED ZOOM) ── */
-#fennick-img-wrap {
-  width: 170px;
-  height: 170px;
-  border-radius: 6px;
-  overflow: hidden; 
-  /* Sand color with gradient to look like old paper */
-  background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
-  display: flex;
-  align-items: flex-end; /* Anchor image to the bottom */
-  justify-content: center;
-  border: 1px solid rgba(140,100,30,0.4);
-}
-#fennick-img{
-  width: 95%; /* Slight padding inside the frame */
-  height: 95%;
-  /* Contain forces the full image to fit, preventing any zooming */
-  object-fit: contain; 
-  object-position: bottom center; 
-  transition: opacity .3s;
-}
-.fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:15px;font-weight:600;text-align:center;margin-top:4px}
-.fennick-title{color:#c8a45a;font-size:11px;text-align:center;letter-spacing:.04em}
+.streak-row { background: rgba(0,0,0,0.18); border: 1px solid rgba(200,160,60,0.2); border-radius: 7px; padding: 7px 10px; display: flex; justify-content: space-between; align-items: center; }
+.streak-lbl { color: #a08040; font-size: 13px; }
+.streak-val { color: #e8c87a; font-size: 14px; }
+.fire-icon { margin-top: 1px; }
 
-.fennick-comment-box{
-  background:rgba(0,0,0,0.22);
-  border:1px solid rgba(200,160,60,0.25);
-  border-radius:8px;padding:10px;
-  flex:1;
+/* -- Main Content -- */
+#right-col {
+    flex: 1;
+    height: calc(100vh - 52px);
+    overflow-y: auto;
+    padding: 20px 16px;
+    display: flex; flex-direction: column;
+    gap: 14px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(160,120,40,0.6) rgba(62,30,8,0.1);
 }
-.fennick-comment-lbl{color:#c8a45a;font-size:11px;letter-spacing:.12em;margin-bottom:5px;display:block}
-#fennick-comment{color:#d4c4a0;font-size:14px;line-height:1.6;transition:color .3s}
-
-.hint-btn{
-  background:rgba(200,160,60,0.15);
-  border:1px solid rgba(200,160,60,0.35);
-  border-radius:8px;padding:9px 10px;
-  color:#e8c87a;font-size:14px;
-  cursor:pointer;text-align:center;
-  font-family:'Crimson Pro',Georgia,serif;
-  transition:background .2s;
-}
-.hint-btn:hover{background:rgba(200,160,60,0.25)}
-.hint-btn span{font-size:11px;color:#a08040;display:block;margin-top:2px}
-
-.streak-box{
-  background:rgba(0,0,0,0.18);
-  border:1px solid rgba(200,160,60,0.2);
-  border-radius:7px;padding:7px 10px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.streak-lbl{color:#a08040;font-size:13px}
-.streak-val{color:#e8c87a;font-size:14px}
-
-/* ── RIGHT SCROLLABLE (WITH SAND PAPER BACKGROUND) ── */
-#right-col{
-  flex:1;
-  max-width:680px;
-  height:calc(100vh - 52px);
-  overflow-y:auto;
-  padding:20px 16px;
-  display:flex;flex-direction:column;gap:14px;
-  
-  /* Applies the aged paper texture only to this specific scrollable area */
-  background-color: rgba(220, 205, 160, 0.88); /* Sand color base */
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/v1775618012/aged_paper_tile_fhnwqi.png');
-  background-repeat: repeat;
-  background-blend-mode: multiply;
-  
-  box-shadow: -4px 0 15px rgba(0,0,0,0.3); /* Adds depth so it sits above the town */
-}
-
-/* ── THEMATIC SCROLLBAR ── */
 #right-col::-webkit-scrollbar { width: 8px; }
-#right-col::-webkit-scrollbar-track { background: rgba(62, 30, 8, 0.1); border-radius: 4px; }
-#right-col::-webkit-scrollbar-thumb { background: rgba(160, 120, 40, 0.6); border-radius: 4px; }
-#right-col::-webkit-scrollbar-thumb:hover { background: rgba(200, 160, 60, 0.8); }
+#right-col::-webkit-scrollbar-track { background: rgba(62,30,8,0.1); border-radius: 4px; }
+#right-col::-webkit-scrollbar-thumb { background: rgba(160,120,40,0.6); border-radius: 4px; }
 
-/* ── NOTE PANELS (CLEAN IVORY, NO TEXTURE) ── */
-.note{
-  background: var(--panel-bg);
-  border:1px solid rgba(140,100,30,0.28);
-  border-radius:6px;
-  padding:18px 20px;
-  box-shadow:1px 2px 10px rgba(60,30,0,0.18);
-  font-size:15px;
+/* -- Note Panels -- */
+.note-panel {
+    background-color: rgba(252,248,225,0.95);
+    background-image: linear-gradient(176deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+    border: 1px solid rgba(140,100,30,0.28);
+    border-radius: 6px;
+    padding: 18px 20px;
+    color: #2a1a06;
+    box-shadow: 1px 2px 10px rgba(60,30,0,0.18);
+    font-size: 15px;
+}
+.section-tag { display: inline-block; background: #3a1a06; color: #e8c87a; font-size: 11px; letter-spacing: 0.14em; padding: 3px 10px; border-radius: 4px; margin-bottom: 10px;}
+
+/* -- Patient Box -- */
+.patient-panel { display: flex; gap: 14px; align-items: flex-start; }
+.patient-portrait-frame {
+    width: 110px; height: 130px;
+    flex-shrink: 0;
+    background: rgba(252,248,225,0.6);
+    border: 1px solid rgba(160,120,40,0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: center;
+}
+.patient-portrait-frame img { width: 110%; height: 110%; object-fit: cover; object-position: bottom;}
+.patient-info { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.name-line { color: #1a1a01; font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; }
+.occupation-line { color: #604010; font-size: 14px; margin-top: -1px; }
+.chief-tag { display:inline-flex; align-items: center; gap: 5px; background: #3a1a06; color: #e8c87a; font-size: 11px; letter-spacing: 0.12em; padding: 3px 9px; border-radius: 4px; margin-top: 6px;}
+.complaint-section p { font-size: 16px; color: #4a3010; margin-top: 8px; font-style: italic; line-height: 1.65; border-left: 2px solid rgba(160,120,40,0.4); padding-left: 8px;}
+
+/* -- Chart Box -- */
+.chart-panel dl { display: grid; grid-template-columns: 140px 1fr; gap: 0px; margin-top: 10px; }
+.chart-panel dt { font-size: 13px; color: #7a5010; font-weight: 600; letter-spacing: 0.04em; padding: 6px 0; border-bottom: 1px solid rgba(160,120,40,0.12); }
+.chart-panel dd { font-size: 15px; color: #2a1a06; padding: 6px 0 6px 12px; border-bottom: 1px solid rgba(160,120,40,0.12); line-height: 1.6; font-style: normal; }
+
+.vitals-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 10px; border: 1px solid rgba(160,120,40,0.2); border-radius: 4px; overflow: hidden; background:rgba(255,255,255,0.4); }
+.vitals-header { background: rgba(160,120,40,0.15); border-bottom: 1px solid rgba(160,120,40,0.2); padding: 5px 8px; font-size: 11px; color: #604010; text-align: center; }
+.vitals-value { padding: 8px; font-size: 16px; font-weight: 600; color: #1a1a01; text-align: center; position: relative; font-family: 'Playfair Display', serif; }
+.vitals-value .unit { font-size: 10px; color: #8a6020; font-weight: 400; font-style: normal; position: absolute; bottom: -2px; left: 0; right: 0; text-align: center;}
+
+/* -- Workup Box -- */
+.workup-panel .test-text { font-size: 15px; color: #2a1a06; line-height: 1.6; border-bottom: 1px solid rgba(160,120,40,0.12); padding-bottom: 10px; margin-bottom: 10px;}
+.workup-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.workup-btn {
+    background:rgba(255,255,255,0.5); border: 1px solid rgba(160,120,40,0.35); border-radius: 6px; padding: 8px 10px;
+    cursor: pointer; text-align: center; color: #2a1a06; font-family: 'Crimson Pro', serif; font-size: 14px;
+}
+.workup-btn.selected { background: rgba(180,230,160,0.6); border-color: rgba(80,160,60,0.6); }
+.workup-btn .cost { font-size: 11px; color: #604010; margin-top: 2px; display: block; }
+.workup-btn.selected .cost { color: #1a4a08; }
+
+/* -- Dx Box -- */
+.dx-panel input {
+    width: 100%; padding: 10px 14px;
+    background:rgba(255,255,255,0.6); border: 1.5px solid rgba(160,120,40,0.4); border-radius: 7px;
+    font-family: 'Crimson Pro', serif; font-size: 14px; color: #2a1a06; font-style: italic; margin-top: 8px;
+}
+.dx-btn {
+    margin-top: 8px; width: 100%; padding: 11px;
+    background: #3a1a06; color: #e8c87a; border: none; border-radius: 7px;
+    font-family: 'Playfair Display', serif; font-size: 16px; cursor: pointer;
 }
 
-/* ── PATIENT BANNER ── */
-#pt-banner{display:flex;gap:14px;align-items:flex-start}
+/* -- Mgmt Box -- */
+.mgmt-stages { display: flex; align-items: center; gap: 0px; padding: 10px 2px; }
+.stage-dot { width: 10px; height: 10px; border-radius: 50%; background:rgba(200,160,80,0.35); border: 1.5px solid rgba(120,80,10,0.35);}
+.stage-line { flex: 1; height: 2px; background: rgba(160,120,40,0.15); border-radius: 2px; }
+.mgmt-text { font-size: 14px; color: #2a1a06; line-height: 1.6; margin-top: 4px; padding-left: 12px; margin-bottom: 12px;}
+.mgmt-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
 
-/* ── PATIENT PICTURE SPECIFICS ── */
-#pt-img-wrap{
-  width:170px; 
-  height:170px; 
-  flex-shrink:0;
-  background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
-  border:1px solid rgba(160,120,40,0.4);
-  border-radius:6px;
-  overflow:hidden;
-  display:flex;align-items:flex-end;justify-content:center;
-}
-#pt-img{
-  width:95%;
-  height:95%;
-  object-fit:contain;
-  object-position:bottom center; 
-}
-.pt-name{color: var(--text-primary);font-family:'Playfair Display',serif;font-size:22px;font-weight:600}
-.pt-occ{color: var(--text-secondary);font-size:14px;margin-top:2px}
-.pt-tag{display:inline-flex;align-items:center;gap:5px;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.12em;padding:3px 9px;border-radius:4px;margin-top:6px}
-
-/* ── MEDICAL CHART ── */
-.chart-grid{display:grid;grid-template-columns:140px 1fr;gap:0;margin-top:10px}
-.chart-label{font-size:13px;color: var(--text-secondary);font-weight:600;letter-spacing:.04em;padding:6px 0;border-bottom:1px solid var(--chart-border)}
-.chart-val{font-size:15px;color: var(--text-primary);padding:6px 0 6px 12px;border-bottom:1px solid var(--chart-border);line-height:1.6;font-style:normal}
-
-.vitals-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
-.vital-item{display:flex;flex-direction:column;align-items:center;gap:1px}
-.vital-val{font-size:17px;font-weight:600;color: var(--text-primary);font-family:'Playfair Display',serif}
-.vital-lbl{font-size:11px;color: var(--text-secondary);letter-spacing:.08em}
-
-/* ── SECTION HEADERS ── */
-.section-tag{display:inline-block;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-bottom:10px}
-
-/* ── ORDERABLE TESTS ── */
-.tests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.test-btn{
-  background: var(--test-btn-bg);
-  border:1px solid rgba(160,120,40,0.35);
-  border-radius:6px;padding:8px 10px;
-  cursor:pointer;text-align:center;
-  font-family:'Crimson Pro',Georgia,serif;
-  transition:background .15s;
-}
-.test-btn:hover{background: var(--test-btn-hover)}
-.test-btn.ordered{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
-.test-btn-name{font-size:14px;color: var(--text-primary)}
-.test-btn-cost{font-size:11px;color: var(--text-secondary);margin-top:2px}
-
-@keyframes fadeInResult { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-.test-result-card{background:rgba(240,230,180,0.6);border:1px solid rgba(160,120,40,0.3);border-radius:6px;padding:10px 12px;margin-top:8px;animation: fadeInResult 0.3s ease-out forwards;}
-.test-result-name{font-size:12px;color: var(--text-secondary);letter-spacing:.1em;margin-bottom:4px}
-.test-result-val{font-size:15px;color: var(--text-primary);line-height:1.6}
-
-/* ── DX SECTION ── */
-.dx-input-wrap{position:relative;margin-top:8px}
-#dx-input{
-  width:100%;padding:10px 14px;
-  background:rgba(255,255,255,0.6);
-  border:1.5px solid rgba(160,120,40,0.4);
-  border-radius:7px;
-  font-family:'Crimson Pro',Georgia,serif;font-size:14px;color:#2a1a06;
-  font-style:italic;
-}
-#dx-input:focus{outline:none;border-color:rgba(160,120,40,0.7);background:rgba(255,255,255,0.8)}
-#dx-suggestions{
-  position:absolute;top:100%;left:0;right:0;z-index:50;
-  background:#fdf8e8;border:1px solid rgba(160,120,40,0.4);
-  border-radius:0 0 7px 7px;max-height:200px;overflow-y:auto;
-  display:none;
-}
-.dx-suggestion{padding:8px 14px;font-size:15px;color:#2a1a06;cursor:pointer}
-.dx-suggestion:hover{background:rgba(200,160,60,0.15)}
-#dx-submit-btn{
-  margin-top:8px;width:100%;padding:11px;
-  background:#3a1a06;color:#e8c87a;
-  border:none;border-radius:7px;
-  font-family:'Playfair Display',serif;font-size:16px;
-  cursor:pointer;transition:background .2s;
-}
-#dx-submit-btn:hover{background:#5a2a0a}
-#dx-result{margin-top:8px;font-size:15px;display:none;padding:8px 12px;border-radius:6px}
-#dx-result.correct{background:rgba(180,230,160,0.45);color:#1a4a08;border:1px solid rgba(80,160,60,0.4)}
-#dx-result.wrong{background:rgba(230,160,150,0.4);color:#4a1010;border:1px solid rgba(180,80,70,0.35)}
-
-/* ── MANAGEMENT ── */
-.mgmt-stage{margin-bottom:4px}
-.mgmt-stage-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-.stage-num{
-  width:22px;height:22px;border-radius:50%;
-  background:#3a1a06;color:#e8c87a;
-  font-size:11px;font-weight:600;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.stage-num.done{background:rgba(80,160,60,0.7)}
-.stage-num.locked{background:rgba(160,120,40,0.3);color:rgba(200,160,80,0.5)}
-.stage-title{font-family:'Playfair Display',serif;font-size:16px;color: var(--text-primary)}
-.stage-title.locked{color:rgba(60,40,10,0.4);opacity:0.5}
-
-.mgmt-options{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
-.mgmt-option{
-  background:rgba(255,255,255,0.48);
-  border:1px solid rgba(160,120,40,0.35);
-  border-radius:7px;padding:10px 12px;
-  cursor:pointer;display:flex;align-items:flex-start;gap:8px;
-  transition:background .15s;
-  font-family:'Crimson Pro',Georgia,serif;
-}
-.mgmt-option:hover{background:rgba(255,255,255,0.7)}
-.mgmt-option.selected-correct{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
-.mgmt-option.selected-wrong{background:rgba(230,160,150,0.4);border-color:rgba(180,80,70,0.38);cursor:default;opacity:.7}
-.mgmt-option.selected-danger{background:rgba(230,80,60,0.25);border-color:rgba(200,50,30,0.5);cursor:default}
-.mgmt-option.locked-opt{opacity:.4;cursor:not-allowed}
-.mgmt-ob{
-  width:22px;height:22px;border-radius:50%;
-  background:rgba(160,120,40,0.45);
-  color:#2a1a06;font-size:11px;font-weight:600;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.mgmt-option.selected-correct .mgmt-ob{background:rgba(80,160,60,0.7);color:#fff}
-.mgmt-option.selected-wrong .mgmt-ob{background:rgba(180,80,70,0.7);color:#fff}
-.mgmt-option.selected-danger .mgmt-ob{background:rgba(200,50,30,0.8);color:#fff}
-.mgmt-on{font-family:'Playfair Display',serif;font-size:15px;color: var(--text-primary)}
-.mgmt-oc{font-size:13px;color: var(--text-secondary);margin-top:1px}
-
-.stage-divider{height:1px;background:rgba(120,90,20,0.15);margin:10px 0}
-
-/* ── PROGRESS BAR ── */
-.progress-track{display:flex;align-items:center;gap:0;padding:0 2px}
-.prog-dot{width:10px;height:10px;border-radius:50%;background:rgba(200,160,80,0.35);border:1.5px solid rgba(120,80,10,0.35);flex-shrink:0;transition:all .3s}
-.prog-dot.done{background:rgba(100,70,10,0.65);border-color:rgba(80,50,5,0.65)}
-.prog-dot.cur{background:#c8a45a;border-color:#8b6914}
-.prog-line{flex:1;height:2px;background:rgba(160,120,40,0.15);border-radius:2px;transition:background .3s}
-.prog-line.done{background:rgba(100,70,10,0.5)}
-
-/* ── ENDGAME ── */
-#endgame{display:none;text-align:center;padding:20px}
-.grade-circle{
-  width:100px;height:100px;border-radius:50%;
-  margin:0 auto 16px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;font-size:48px;font-weight:600;color:#e8c87a;
-  background:#3a1a06;border:3px solid #c8a45a;
-}
-.endgame-title{font-family:'Playfair Display',serif;font-size:22px;color: var(--text-primary);font-weight:600;margin-bottom:6px}
-.endgame-fennick-comment{font-size:14px;color: var(--text-primary);font-style:normal;line-height:1.7;margin-bottom:16px;border-left:2px solid rgba(160,120,40,0.4);padding-left:12px;text-align:left}
-.endgame-stats{display:flex;gap:12px;justify-content:center;margin-bottom:16px}
-.endgame-stat{background:rgba(255,255,255,0.5);border:1px solid rgba(160,120,40,0.3);border-radius:7px;padding:10px 16px;text-align:center}
-.endgame-stat-val{font-family:'Playfair Display',serif;font-size:20px;color: var(--text-primary);font-weight:600}
-.endgame-stat-lbl{font-size:10px;color: var(--text-secondary);letter-spacing:.08em}
-
+/* Icons / specific assets placeholders or small SVGs */
+.火 { display: inline-block; vertical-align: middle; margin-top: -2px; font-style: normal; }
 </style>
 </head>
-<body class="day"> 
+<body class="night-theme">
 
-<div id="bg"></div>
-
-<nav class="fm-nav">
-  <a class="fm-logo" href="#">
-    <svg class="fm-logo-gear" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    Fennick MD
-    <small>Daily Case</small>
-  </a>
-  <div class="fm-nav-r">
-    <div class="fm-hp-nav">
-      <div class="fm-hp-nav-track"><div class="fm-hp-nav-fill" id="hp-bar-nav" style="width:100%"></div></div>
-      <span class="fm-hp-nav-num" id="hp-num-nav">100</span>
-    </div>
-    <span class="fm-case-lbl" id="case-num-lbl">Case no. —</span>
-  </div>
-</nav>
-
-<div id="app">
-<div id="app-inner">
-  <div id="left-col">
-    <div class="fennick-portrait-box">
-      <div id="fennick-img-wrap">
-        <img id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png" alt="Dr. Fennick">
-      </div>
-      <div class="fennick-name">Dr. Fennick</div>
-      <div class="fennick-title">Chief Diagnostician</div>
-    </div>
-    <div class="fennick-comment-box">
-      <span class="fennick-comment-lbl">DR. FENNICK OBSERVES</span>
-      <div id="fennick-comment">"Loading today's case..."</div>
-    </div>
-    <button class="hint-btn" onclick="useHint()">
-      Ask Dr. Fennick
-      <span>−10 HP per hint</span>
-    </button>
-    <div class="streak-box">
-      <span class="streak-lbl">Streak</span>
-      <span class="streak-val" id="streak-val">0 🔥</span>
-    </div>
-  </div>
-
-  <div id="right-col">
-
-    <div class="note" id="pt-banner-note">
-      <div id="pt-banner">
-        <div id="pt-img-wrap">
-          <img id="pt-img" src="" alt="Patient">
+<div id="game-container">
+    <nav id="top-nav">
+        <div class="logo">
+            Fennick MD
+            <small class="daily-case">Daily Case</small>
         </div>
-        <div style="flex:1">
-          <div class="pt-name" id="pt-name">—</div>
-          <div class="pt-occ" id="pt-occ">—</div>
-          <div class="pt-tag">● CHIEF COMPLAINT</div>
-          <div style="font-size:16px;color:#4a3010;margin-top:8px;font-style:italic;line-height:1.65;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
+        <div class="case-info">
+            <div class="hp-bar-track"><div class="hp-bar-fill" style="width: 100%;"></div></div>
+            <span class="hp-num">100</span>
+            <span class="case-lbl">Case no. 001</span>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <div class="note" id="chart-note">
-      <span class="section-tag">MEDICAL CHART</span>
-      <div class="chart-grid" id="chart-grid"></div>
-      <div class="vitals-row" id="vitals-row"></div>
-    </div>
+    <div id="app-body">
+        <aside id="left-col">
+            <div class="portrait-box-outer">
+                <div class="portrait-box-inner">
+                    <img src="https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png" alt="Dr. Fennick">
+                </div>
+            </div>
+            <svg class="stethoscope-icon" viewBox="0 0 100 80" fill="#a08040">
+                <circle cx="50" cy="40" r="35" stroke="#a08040" stroke-width="4" fill="none"/>
+                <circle cx="50" cy="40" r="20" stroke="#a08040" stroke-width="4" fill="none"/>
+                <rect x="45" y="10" width="10" height="60" fill="#a08040"/>
+                <rect x="20" y="35" width="60" height="10" fill="#a08040"/>
+            </svg>
+            <div class="character-name">Dr. Fennick</div>
+            <div class="character-title">Chief Diagnostician</div>
+            <div class="dark-field">
+                <span class="observe-lbl">DR. FENNICK OBSERVES</span>
+                <p class="observe-text">"Careful now."</p>
+            </div>
+            <div class="dark-btn-bar">
+                <button class="dark-btn">Ask Dr. Fennick <small>−10 HP per hint</small></button>
+                <div class="streak-row">
+                    <span class="streak-lbl">Streak</span>
+                    <span class="streak-val">0 <i class="火">🔥</i></span>
+                </div>
+            </div>
+        </aside>
 
-    <div class="note" id="workup-note">
-      <span class="section-tag">CLINICAL WORKUP</span>
-      <div id="ordered-results"></div>
-      <div class="tests-grid" id="tests-grid"></div>
-    </div>
+        <main id="right-col">
+            <div class="note-panel patient-panel">
+                <div class="patient-portrait-frame">
+                    <img src="https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_260,c_fit/q_auto/f_auto/v1775527248/lady_default_ofk11y.png" alt="The Clockmaker">
+                </div>
+                <div class="patient-info">
+                    <h1 class="name-line">The Clockmaker, 68F</h1>
+                    <p class="occupation-line">Master Clockmaker</p>
+                    <div class="complaint-section">
+                        <span class="chief-tag">● CHIEF COMPLAINT section</span>
+                        <p>" Progressive hand tremor for 14 months. I can no longer wind the city's great clock. "</p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="note" id="dx-note">
-      <span class="section-tag">DIAGNOSIS</span>
-      <div class="dx-input-wrap">
-        <input id="dx-input" type="text" placeholder="Enter your diagnosis..." autocomplete="off">
-        <div id="dx-suggestions"></div>
-      </div>
-      <button id="dx-submit-btn" onclick="submitDx()">Submit Diagnosis →</button>
-      <div id="dx-result"></div>
-    </div>
+            <div class="note-panel chart-panel">
+                <span class="section-tag">MEDICAL CHART section</span>
+                <dl>
+                    <dt>HPI</dt>
+                    <dd> 14-month history of rest tremor, right hand predominant. Worsens at rest, improves with intentional movement. Gradual onset, slowly progressive. Shuffling gait, difficulty initiating movement. Treated for depression x8 months without improvement. </dd>
+                    
+                    <dt>PMH</dt>
+                    <dd> Depression (misdiagnosed). Hypertension. </dd>
+                    
+                    <dt>PSH</dt>
+                    <dd> Appendectomy age 34. </dd>
+                    
+                    <dt>Medications</dt>
+                    <dd> Sertraline 50mg daily. Amlodipine 5mg daily. </dd>
+                    
+                    <dt>Allergies</dt>
+                    <dd> Penicillin — rash. </dd>
+                    
+                    <dt>Family Hx</dt>
+                    <dd> No family history of movement disorder. </dd>
+                    
+                    <dt>Social Hx</dt>
+                    <dd> Retired clockmaker. Lives with husband. Non-smoker. Occasional wine. </dd>
+                </dl>
+                
+                <div class="vitals-grid">
+                    <div class="vitals-header">BP</div>
+                    <div class="vitals-header">HR</div>
+                    <div class="vitals-header">RR</div>
+                    <div class="vitals-header">TEMP</div>
+                    <div class="vitals-header">O₂ SAT</div>
+                    
+                    <div class="vitals-value">138/84 <span class="unit">BP</span></div>
+                    <div class="vitals-value">68 <span class="unit">HR</span></div>
+                    <div class="vitals-value">16 <span class="unit">RR</span></div>
+                    <div class="vitals-value">37.0°C <span class="unit">TEMP</span></div>
+                    <div class="vitals-value">98% RA <span class="unit">O₂ SAT</span></div>
+                </div>
+            </div>
 
-    <div class="note" id="mgmt-note">
-      <span class="section-tag">MANAGEMENT</span>
-      <div class="progress-track" id="mgmt-progress"></div>
-      <div style="margin-top:12px" id="mgmt-stages"></div>
-    </div>
+            <div class="note-panel workup-panel">
+                <span class="section-tag">CLINICAL WORKUP section</span>
+                <p class="test-text">EMG / NCS<br>Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease.</p>
+                <div class="workup-options">
+                    <button class="workup-btn">CBC <span class="cost">−5 HP</span></button>
+                    <button class="workup-btn">CMP <span class="cost">−5 HP</span></button>
+                    <button class="workup-btn">TSH <span class="cost">−5 HP</span></button>
+                    <button class="workup-btn">B12 / Folate <span class="cost">−5 HP</span></button>
+                    <button class="workup-btn">MRI Brain <span class="cost">−15 HP</span></button>
+                    <button class="workup-btn">DatScan <span class="cost">−20 HP</span></button>
+                    <button class="workup-btn cbc emg selected">EMG / NCS <span class="cost">−10 HP</span></button>
+                </div>
+            </div>
 
-    <div class="note" id="endgame" style="display:none">
-      <div class="grade-circle" id="grade-circle">—</div>
-      <div class="endgame-title" id="endgame-title">Case Complete</div>
-      <div class="endgame-fennick-comment" id="endgame-comment">—</div>
-      <div class="endgame-stats">
-        <div class="endgame-stat"><div class="endgame-stat-val" id="end-hp">—</div><div class="endgame-stat-lbl">HP LEFT</div></div>
-        <div class="endgame-stat"><div class="endgame-stat-val" id="end-errors">—</div><div class="endgame-stat-lbl">ERRORS</div></div>
-        <div class="endgame-stat"><div class="endgame-stat-val" id="end-grade">—</div><div class="endgame-stat-lbl">GRADE</div></div>
-      </div>
-      <button class="fm-nav-pill" style="width:100%;padding:10px;font-size:14px" onclick="location.reload()">Next Case →</button>
-    </div>
+            <div class="note-panel dx-panel">
+                <span class="section-tag">DIAGNOSIS section</span>
+                <input type="text" placeholder="Enter your diagnosis...">
+                <button class="dx-btn">Submit Diagnosis →</button>
+            </div>
 
-  </div>
+            <div class="note-panel mgmt-panel">
+                <span class="section-tag">MANAGEMENT section</span>
+                <div class="mgmt-stages">
+                    <span class="stage-dot"></span>
+                    <span class="stage-line"></span>
+                    <span class="stage-dot"></span>
+                    <span class="stage-line"></span>
+                    <span class="stage-dot"></span>
+                    <span class="stage-line"></span>
+                    <span class="stage-dot"></span>
+                </div>
+                <p class="mgmt-text">Immediate stabilization.<br>Start patient on Carbidopa/Levodopa therapy, educate on lifestyle modifications, and monitor response to medication.</p>
+                <div class="mgmt-actions">
+                    <button class="dark-btn dx-btn">Order DaTscan <small>−20 HP</small></button>
+                    <button class="dark-btn dx-btn">Request neurological consultation <small>−10 HP</small></button>
+                </div>
+            </div>
+
+        </main>
+    </div>
 </div>
 
-<script>
-// ── STATE ──
-let HP = 100;
-let errors = 0;
-let dxSubmitted = false;
-let dxCorrect = false;
-let currentStage = 0; 
-let orderedTests = new Set();
-let currentHintIdx = 0;
-let streak = 0;
-
-// ── DATA WILL BE LOADED INTO THESE ──
-let DIAGNOSES = [];
-let CASES = [];
-let currentCase = null;
-let hints = [];
-
-const FOX = {
-  default:   'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
-  answer:    'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
-  think:     'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527222/fox_think_qk9moa.png',
-  concerned: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527214/fox_-1_i7vjma.png',
-  danger:    'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527217/fox_-3_cjhvcn.png',
-  lose:      'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527215/fox_-2_t0r5hb.png',
-};
-
-// ── INIT ──
-document.addEventListener("DOMContentLoaded", async function(){
-  applyTimeTheme(); 
-  
-  // Wait for the JSON files to load before building the UI
-  await loadData();
-  
-  if (CASES.length > 0) {
-    initCase();
-    setupDxAutocomplete();
-  }
-});
-
-// ── FETCH DATA ──
-async function loadData() {
-  try {
-    const diagRes = await fetch('diagnoses.json');
-    DIAGNOSES = await diagRes.json();
-
-    const casesRes = await fetch('cases.json');
-    CASES = await casesRes.json();
-  } catch (err) {
-    console.error("Failed to load JSON files. Are you running a local server?", err);
-    setFennick('danger', '"I cannot find the case files. Ensure you are running a local server to load the JSON."');
-  }
-}
-
-// ── TIME THEME LOGIC ──
-function applyTimeTheme(){
-  const now = new Date();
-  const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
-  const hr = cst.getHours();
-  
-  const isNight = hr >= 18 || hr < 6; 
-
-  const bgUrl = isNight 
-    ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527250/night_pi7sfg.png'
-    : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527232/background_ui_tl1rgz.png';
-
-  document.getElementById('bg').style.backgroundImage = `url('${bgUrl}')`;
-
-  if(isNight) {
-    document.body.classList.remove('day');
-    document.body.classList.add('night');
-  } else {
-    document.body.classList.remove('night');
-    document.body.classList.add('day');
-  }
-}
-
-// ── INIT CASE ──
-function initCase(){
-  currentCase = CASES[0]; 
-  if(!currentCase) return;
-
-  document.getElementById('case-num-lbl').textContent = 'Case no. ' + currentCase.id;
-
-  document.getElementById('pt-name').textContent = currentCase.patient.name + ', ' + currentCase.patient.age + currentCase.patient.sex;
-  document.getElementById('pt-occ').textContent = currentCase.patient.occupation;
-  document.getElementById('pt-cc').textContent = '"' + currentCase.chart.cc + '"';
-
-  const ptImg = document.getElementById('pt-img');
-  if(currentCase.patient.image_url){
-    // Replace the low-res string in the URL with a high-res one for crispness
-    ptImg.src = currentCase.patient.image_url.replace('w_110,h_130', 'w_340,h_340');
-    ptImg.style.display = 'block';
-  } else {
-    ptImg.style.display = 'none'; 
-  }
-
-  setFennick('default', `"A new case has arrived. Take your time — but not too much of it."`);
-  renderChart();
-  renderTests();
-  renderManagement();
-  hints = currentCase.hints || [];
-}
-
-function setFennick(expr, comment){ 
-  document.getElementById('fennick-img').src = FOX[expr] || FOX.default; 
-  if(comment) document.getElementById('fennick-comment').textContent = comment;
-}
-
-function drainHP(amount){ 
-  HP = Math.max(0, HP - amount); 
-  document.getElementById('hp-bar-nav').style.width = HP + '%'; 
-  document.getElementById('hp-num-nav').textContent = HP; 
-  if(HP === 0) endCase(true);
-}
-
-function updateFennickByErrors(){ 
-  if(errors === 0) setFennick('default'); 
-  else if(errors === 1) setFennick('think', '"Careful now."'); 
-  else if(errors >= 2) setFennick('concerned', '"You are making this harder than it needs to be."');
-}
-
-function renderChart(){ 
-  const c = currentCase.chart; 
-  const v = currentCase.vitals; 
-  const grid = document.getElementById('chart-grid'); 
-  const rows = [
-    ['HPI', c.hpi],
-    ['PMH', c.pmh],
-    ['PSH', c.psh],
-    ['Medications', c.meds],
-    ['Allergies', c.allergies],
-    ['Family Hx', c.fh],
-    ['Social Hx', c.sh]
-  ]; 
-  
-  grid.innerHTML = rows.map(([l,val])=>`
-    <div class="chart-label">${l}</div>
-    <div class="chart-val">${val||'None'}</div>
-  `).join(''); 
-  
-  const vitalsRow = document.getElementById('vitals-row'); 
-  vitalsRow.innerHTML = `
-    <div class="vital-item"><div class="vital-val">${v.bp}</div><div class="vital-lbl">BP</div></div>
-    <div class="vital-item"><div class="vital-val">${v.hr}</div><div class="vital-lbl">HR</div></div>
-    <div class="vital-item"><div class="vital-val">${v.rr}</div><div class="vital-lbl">RR</div></div>
-    <div class="vital-item"><div class="vital-val">${v.temp}°C</div><div class="vital-lbl">TEMP</div></div>
-    <div class="vital-item"><div class="vital-val">${v.o2}</div><div class="vital-lbl">O₂ SAT</div></div>
-  `;
-}
-
-function renderTests(){ 
-  const grid = document.getElementById('tests-grid'); 
-  if(!currentCase.tests) return; 
-  grid.innerHTML = currentCase.tests.map((t,i)=>`
-    <div class="test-btn" id="test-${i}" onclick="orderTest(${i})">
-      <div class="test-btn-name">${t.name}</div>
-      <div class="test-btn-cost">−${t.cost||5} HP</div>
-    </div>
-  `).join('');
-}
-
-window.orderTest = function(idx){ 
-  if(!currentCase.tests) return; 
-  const t = currentCase.tests[idx]; 
-  if(orderedTests.has(idx)) return; 
-  
-  drainHP(t.cost||5); 
-  orderedTests.add(idx); 
-  
-  document.getElementById('test-'+idx).classList.add('ordered'); 
-  
-  const results = document.getElementById('ordered-results'); 
-  const card = document.createElement('div'); 
-  card.className = 'test-result-card'; 
-  card.innerHTML = `<div class="test-result-name">${t.name.toUpperCase()}</div><div class="test-result-val">${t.result}</div>`; 
-  results.appendChild(card);
-};
-
-function setupDxAutocomplete(){ 
-  const input = document.getElementById('dx-input'); 
-  const sug = document.getElementById('dx-suggestions'); 
-  
-  input.addEventListener('input',()=>{ 
-    const q = input.value.toLowerCase().trim(); 
-    if(q.length < 2){ sug.style.display='none'; return; } 
-    
-    const matches = DIAGNOSES.filter(d=>d.toLowerCase().includes(q)).slice(0,8); 
-    if(!matches.length){ sug.style.display='none'; return; } 
-    
-    sug.innerHTML = matches.map(d=>`
-      <div class="dx-suggestion" onclick="selectDx('${d.replace(/'/g,"\\'")}')"> ${d}</div>
-    `).join(''); 
-    sug.style.display='block'; 
-  }); 
-  
-  document.addEventListener('click',e=>{ 
-    if(!e.target.closest('#dx-note')) sug.style.display='none'; 
-  });
-}
-
-window.selectDx = function(dx){ 
-  document.getElementById('dx-input').value = dx; 
-  document.getElementById('dx-suggestions').style.display='none';
-};
-
-window.submitDx = function(){ 
-  if(dxSubmitted && dxCorrect) return; 
-  const val = document.getElementById('dx-input').value.trim(); 
-  if(!val) return; 
-  
-  const result = document.getElementById('dx-result'); 
-  const correct = currentCase.dx_answer; 
-  
-  if(val.toLowerCase()===correct.toLowerCase()){ 
-    dxSubmitted=true; 
-    dxCorrect=true; 
-    result.className='dx-result correct'; 
-    result.textContent='✓ Correct — ' + correct; 
-    result.style.display='block'; 
-    setFennick('answer','"That is the diagnosis. Now let us see how you manage it."'); 
-    unlockNextStage();
-  } else { 
-    errors++; 
-    drainHP(15); 
-    result.className='dx-result wrong'; 
-    result.textContent='✗ Incorrect. Try again.'; 
-    result.style.display='block'; 
-    updateFennickByErrors(); 
-  }
-};
-
-function renderManagement(){ 
-  const stages = currentCase.management; 
-  if(!stages) return; 
-  
-  const progressEl = document.getElementById('mgmt-progress'); 
-  progressEl.innerHTML = stages.map((_,i)=>`
-    ${i>0?'<div class="prog-line" id="prog-line-'+i+'"></div>':''}
-    <div class="prog-dot ${i===0?'cur':''}" id="prog-dot-${i}"></div>
-  `).join(''); 
-  
-  const stagesEl = document.getElementById('mgmt-stages'); 
-  stagesEl.innerHTML = stages.map((s,si)=>`
-    <div class="mgmt-stage" id="stage-wrap-${si}">
-      ${si>0?'<div class="stage-divider"></div>':''}
-      <div class="mgmt-stage-header">
-        <div class="stage-num ${si>0?'locked':''}" id="stage-num-${si}">${si+1}</div>
-        <div class="stage-title ${si>0?'locked':''}" id="stage-title-${si}">${s.title}</div>
-      </div>
-      <div class="mgmt-options" id="stage-opts-${si}">
-        ${s.options.map((o,oi)=>`
-          <div class="mgmt-option ${si>0?'locked-opt':''}" id="opt-${si}-${oi}" onclick="pickMgmt(${si},${oi})">
-            <div class="mgmt-ob">${String.fromCharCode(65+oi)}</div>
-            <div>
-              <div class="mgmt-on">${o.text}</div>
-              ${o.sub?`<div class="mgmt-oc">${o.sub}</div>`:''}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-}
-
-window.pickMgmt = function(stageIdx, optIdx){ 
-  if(stageIdx !== currentStage) return; 
-  const stage = currentCase.management[stageIdx]; 
-  const opt = stage.options[optIdx]; 
-  const optEl = document.getElementById(`opt-${stageIdx}-${optIdx}`); 
-  
-  stage.options.forEach((_,i)=>{ 
-    const el = document.getElementById(`opt-${stageIdx}-${i}`); 
-    if(el) el.classList.add('locked-opt'); 
-  }); 
-  
-  if(opt.correct){ 
-    optEl.classList.remove('locked-opt'); 
-    optEl.classList.add('selected-correct'); 
-    document.getElementById('stage-num-'+stageIdx).classList.add('done'); 
-    setFennick('answer',opt.feedback_correct||'"Good call."'); 
-    advanceStage(stageIdx+1);
-  } else { 
-    optEl.classList.remove('locked-opt'); 
-    optEl.classList.add('selected-wrong'); 
-    errors++; 
-    drainHP(15); 
-    updateFennickByErrors(); 
-    setTimeout(()=>advanceStage(stageIdx+1), 600); 
-  }
-};
-
-function advanceStage(nextIdx){ 
-  const stages = currentCase.management; 
-  if(nextIdx >= stages.length){ 
-    setTimeout(()=>endCase(false), 500); 
-    return; 
-  } 
-  
-  currentStage = nextIdx; 
-  
-  const prevDot = document.getElementById('prog-dot-'+(nextIdx-1)); 
-  if(prevDot) prevDot.classList.replace('cur','done'); 
-  
-  const prevLine = document.getElementById('prog-line-'+nextIdx); 
-  if(prevLine) prevLine.classList.add('done'); 
-  
-  const curDot = document.getElementById('prog-dot-'+nextIdx); 
-  if(curDot) curDot.classList.add('cur'); 
-  
-  const numEl = document.getElementById('stage-num-'+nextIdx); 
-  const titleEl = document.getElementById('stage-title-'+nextIdx); 
-  if(numEl) numEl.classList.remove('locked'); 
-  if(titleEl) titleEl.classList.remove('locked'); 
-  
-  stages[nextIdx].options.forEach((_,i)=>{ 
-    const el = document.getElementById(`opt-${nextIdx}-${i}`); 
-    if(el) el.classList.remove('locked-opt'); 
-  }); 
-  
-  document.getElementById('stage-wrap-'+nextIdx)?.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
-function useHint(){ 
-  if(hints.length===0) return; 
-  drainHP(10); 
-  const hint = hints[currentHintIdx % hints.length]; 
-  currentHintIdx++; 
-  setFennick('think', '"' + hint + '"');
-}
-
-function unlockNextStage(){ 
-  if(currentStage===0){/* noop */}
-}
-
-function endCase(failed){ 
-  document.getElementById('mgmt-note').style.display='none'; 
-  document.getElementById('endgame').style.display='block'; 
-  document.getElementById('endgame').scrollIntoView({behavior:'smooth'}); 
-  
-  let grade, comment; 
-  if(failed){ 
-    grade='F'; 
-    comment='"The patient survived. That is the kindest thing I can say."'; 
-    setFennick('lose', comment); 
-  } else if(HP>=80){ 
-    grade='A'; 
-    comment='"Textbook. I had nothing to teach you today."'; 
-    setFennick('answer', comment); 
-  } else if(HP>=60){ 
-    grade='B'; 
-    comment='"Solid work. The right instincts."'; 
-    setFennick('answer', comment); 
-  } else { 
-    grade='F'; 
-    comment='"We will not speak of this. Study harder."'; 
-    setFennick('lose', comment); 
-  } 
-  
-  document.getElementById('grade-circle').textContent = grade; 
-  document.getElementById('endgame-title').textContent = failed ? 'Case Lost' : 'Case Complete'; 
-  document.getElementById('endgame-comment').textContent = comment; 
-  document.getElementById('end-hp').textContent = HP; 
-  document.getElementById('end-errors').textContent = errors; 
-  document.getElementById('end-grade').textContent = grade;
-}
-</script>
 </body>
 </html>
