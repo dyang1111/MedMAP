@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fennick MD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#c8b870}
+html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#c8b870}
 
 /* ── PAGE BACKGROUND ── */
 #bg{position:fixed;inset:0;z-index:0;background-size:cover;background-position:center;background-attachment:fixed;transition:background-image .8s}
@@ -39,7 +39,7 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
 .fm-logo-gear{color:#c8a45a}
 .fm-logo small{color:#b09050;font-size:10px;display:block;letter-spacing:.15em;font-style:italic;font-weight:400;margin-top:1px}
 .fm-nav-r{display:flex;gap:10px;align-items:center}
-.fm-nav-pill{color:#e8c87a;font-size:12px;border:1px solid #8b6914;border-radius:20px;padding:3px 12px;background:rgba(0,0,0,0.25);cursor:pointer;font-family:'EB Garamond',serif}
+.fm-nav-pill{color:#e8c87a;font-size:12px;border:1px solid #8b6914;border-radius:20px;padding:3px 12px;background:rgba(0,0,0,0.25);cursor:pointer;font-family:'Crimson Pro',Georgia,serif}
 .fm-nav-pill:hover{background:rgba(0,0,0,0.4)}
 .fm-case-lbl{color:#b09050;font-size:11px;font-style:italic}
 .fm-hp-nav{display:flex;align-items:center;gap:6px}
@@ -89,10 +89,13 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   display:flex;flex-direction:column;align-items:center;gap:6px;
   padding-bottom:12px;
   border-bottom:1px solid rgba(200,160,80,0.2);
+  background:rgba(252,248,225,0.12);
+  border-radius:8px;
+  padding:12px 8px;
 }
-#fennick-img{width:160px;height:160px;object-fit:contain;transition:opacity .3s;image-rendering:auto}
-.fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;text-align:center}
-.fennick-title{color:#a08040;font-size:10px;font-style:italic;text-align:center}
+#fennick-img{width:180px;height:180px;object-fit:contain;transition:opacity .3s;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
+.fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:16px;font-weight:600;text-align:center}
+.fennick-title{color:#a08040;font-size:12px;font-style:italic;text-align:center}
 
 .fennick-comment-box{
   background:rgba(0,0,0,0.22);
@@ -100,20 +103,20 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   border-radius:8px;padding:10px;
   flex:1;
 }
-.fennick-comment-lbl{color:#c8a45a;font-size:9px;letter-spacing:.12em;margin-bottom:5px;display:block}
-#fennick-comment{color:#d4c4a0;font-size:11.5px;font-style:italic;line-height:1.6;transition:color .3s}
+.fennick-comment-lbl{color:#c8a45a;font-size:11px;letter-spacing:.12em;margin-bottom:5px;display:block}
+#fennick-comment{color:#d4c4a0;font-size:14px;font-style:italic;line-height:1.6;transition:color .3s}
 
 .hint-btn{
   background:rgba(200,160,60,0.15);
   border:1px solid rgba(200,160,60,0.35);
-  border-radius:8px;padding:8px 10px;
-  color:#e8c87a;font-size:11px;font-style:italic;
+  border-radius:8px;padding:9px 10px;
+  color:#e8c87a;font-size:14px;font-style:italic;
   cursor:pointer;text-align:center;
-  font-family:'EB Garamond',serif;
+  font-family:'Crimson Pro',Georgia,serif;
   transition:background .2s;
 }
 .hint-btn:hover{background:rgba(200,160,60,0.25)}
-.hint-btn span{font-size:9px;color:#a08040;display:block;margin-top:2px}
+.hint-btn span{font-size:11px;color:#a08040;display:block;margin-top:2px}
 
 .streak-box{
   background:rgba(0,0,0,0.18);
@@ -121,8 +124,8 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   border-radius:7px;padding:7px 10px;
   display:flex;align-items:center;justify-content:space-between;
 }
-.streak-lbl{color:#a08040;font-size:10px;font-style:italic}
-.streak-val{color:#e8c87a;font-size:12px}
+.streak-lbl{color:#a08040;font-size:13px;font-style:italic}
+.streak-val{color:#e8c87a;font-size:14px}
 
 /* ── RIGHT SCROLLABLE ── */
 #right-col{
@@ -137,42 +140,43 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
 
 /* ── NOTE PANELS ── */
 .note{
-  background:rgba(252,248,225,0.93);
-  border:1px solid rgba(140,100,30,0.3);
+  background:rgba(252,248,225,0.95);
+  border:1px solid rgba(140,100,30,0.28);
   border-radius:6px;
-  padding:16px 18px;
-  box-shadow:1px 2px 8px rgba(60,30,0,0.15);
+  padding:18px 20px;
+  box-shadow:1px 2px 10px rgba(60,30,0,0.18);
+  font-size:15px;
 }
 
 /* ── PATIENT BANNER ── */
 #pt-banner{display:flex;gap:14px;align-items:flex-start}
 #pt-img-wrap{
-  width:110px;height:130px;flex-shrink:0;
-  background:rgba(255,255,255,0.4);
+  width:150px;height:175px;flex-shrink:0;
+  background:rgba(252,248,225,0.6);
   border:1px solid rgba(160,120,40,0.3);
   border-radius:6px;
   overflow:hidden;
   display:flex;align-items:flex-end;justify-content:center;
 }
-#pt-img{width:110px;height:130px;object-fit:contain;object-position:bottom}
-.pt-name{color:#2a1a06;font-family:'Playfair Display',serif;font-size:18px;font-weight:600}
-.pt-occ{color:#7a5010;font-size:11px;font-style:italic;margin-top:2px}
-.pt-tag{display:inline-flex;align-items:center;gap:5px;background:#3a1a06;color:#e8c87a;font-size:9px;letter-spacing:.12em;padding:3px 9px;border-radius:4px;margin-top:6px}
+#pt-img{width:150px;height:175px;object-fit:contain;object-position:bottom;image-rendering:-webkit-optimize-contrast}
+.pt-name{color:#2a1a06;font-family:'Playfair Display',serif;font-size:22px;font-weight:600}
+.pt-occ{color:#7a5010;font-size:14px;font-style:italic;margin-top:2px}
+.pt-tag{display:inline-flex;align-items:center;gap:5px;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.12em;padding:3px 9px;border-radius:4px;margin-top:6px}
 
 /* ── MEDICAL CHART ── */
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:10px}
 .chart-row{display:contents}
-.chart-label{font-size:11px;color:#7a5010;font-weight:500;letter-spacing:.05em;padding:4px 0;border-bottom:1px solid rgba(160,120,40,0.12)}
-.chart-val{font-size:13px;color:#2a1a06;padding:4px 0 4px 8px;border-bottom:1px solid rgba(160,120,40,0.12);line-height:1.5}
+.chart-label{font-size:13px;color:#7a5010;font-weight:500;letter-spacing:.05em;padding:4px 0;border-bottom:1px solid rgba(160,120,40,0.12)}
+.chart-val{font-size:15px;color:#2a1a06;padding:4px 0 4px 8px;border-bottom:1px solid rgba(160,120,40,0.12);line-height:1.5}
 .chart-full{grid-column:1/-1}
 .chart-full .chart-val{padding-left:0}
 .vitals-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
 .vital-item{display:flex;flex-direction:column;align-items:center;gap:1px}
-.vital-val{font-size:14px;font-weight:600;color:#2a1a06;font-family:'Playfair Display',serif}
-.vital-lbl{font-size:9px;color:#7a5010;letter-spacing:.08em}
+.vital-val{font-size:17px;font-weight:600;color:#2a1a06;font-family:'Playfair Display',serif}
+.vital-lbl{font-size:11px;color:#7a5010;letter-spacing:.08em}
 
 /* ── SECTION HEADERS ── */
-.section-tag{display:inline-block;background:#3a1a06;color:#e8c87a;font-size:9px;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-bottom:10px}
+.section-tag{display:inline-block;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-bottom:10px}
 .section-title{font-family:'Playfair Display',serif;font-size:17px;color:#2a1a06;font-weight:600;margin-bottom:8px}
 
 /* ── ORDERABLE TESTS ── */
@@ -182,16 +186,16 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   border:1px solid rgba(160,120,40,0.35);
   border-radius:6px;padding:8px 10px;
   cursor:pointer;text-align:center;
-  font-family:'EB Garamond',serif;
+  font-family:'Crimson Pro',Georgia,serif;
   transition:background .15s;
 }
 .test-btn:hover{background:rgba(255,255,255,0.75)}
 .test-btn.ordered{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
-.test-btn-name{font-size:12px;color:#2a1a06;font-style:italic}
-.test-btn-cost{font-size:9px;color:#8b6030;margin-top:2px}
+.test-btn-name{font-size:14px;color:#2a1a06;font-style:italic}
+.test-btn-cost{font-size:11px;color:#8b6030;margin-top:2px}
 .test-result-card{background:rgba(240,230,180,0.6);border:1px solid rgba(160,120,40,0.3);border-radius:6px;padding:10px 12px;margin-top:8px}
-.test-result-name{font-size:10px;color:#7a5010;letter-spacing:.1em;margin-bottom:4px}
-.test-result-val{font-size:13px;color:#2a1a06;line-height:1.6}
+.test-result-name{font-size:12px;color:#7a5010;letter-spacing:.1em;margin-bottom:4px}
+.test-result-val{font-size:15px;color:#2a1a06;line-height:1.6}
 
 /* ── DX SECTION ── */
 .dx-input-wrap{position:relative;margin-top:8px}
@@ -200,7 +204,7 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   background:rgba(255,255,255,0.6);
   border:1.5px solid rgba(160,120,40,0.4);
   border-radius:7px;
-  font-family:'EB Garamond',serif;font-size:14px;color:#2a1a06;
+  font-family:'Crimson Pro',Georgia,serif;font-size:14px;color:#2a1a06;
   font-style:italic;
 }
 #dx-input:focus{outline:none;border-color:rgba(160,120,40,0.7);background:rgba(255,255,255,0.8)}
@@ -210,17 +214,17 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   border-radius:0 0 7px 7px;max-height:200px;overflow-y:auto;
   display:none;
 }
-.dx-suggestion{padding:8px 14px;font-size:13px;color:#2a1a06;cursor:pointer;font-style:italic}
+.dx-suggestion{padding:8px 14px;font-size:15px;color:#2a1a06;cursor:pointer;font-style:italic}
 .dx-suggestion:hover{background:rgba(200,160,60,0.15)}
 #dx-submit-btn{
-  margin-top:8px;width:100%;padding:10px;
+  margin-top:8px;width:100%;padding:11px;
   background:#3a1a06;color:#e8c87a;
   border:none;border-radius:7px;
-  font-family:'Playfair Display',serif;font-size:14px;font-style:italic;
+  font-family:'Playfair Display',serif;font-size:16px;font-style:italic;
   cursor:pointer;transition:background .2s;
 }
 #dx-submit-btn:hover{background:#5a2a0a}
-#dx-result{margin-top:8px;font-size:13px;font-style:italic;display:none;padding:8px 12px;border-radius:6px}
+#dx-result{margin-top:8px;font-size:15px;font-style:italic;display:none;padding:8px 12px;border-radius:6px}
 #dx-result.correct{background:rgba(180,230,160,0.45);color:#1a4a08;border:1px solid rgba(80,160,60,0.4)}
 #dx-result.wrong{background:rgba(230,160,150,0.4);color:#4a1010;border:1px solid rgba(180,80,70,0.35)}
 
@@ -238,7 +242,7 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
 }
 .stage-num.done{background:rgba(80,160,60,0.7)}
 .stage-num.locked{background:rgba(160,120,40,0.3);color:rgba(200,160,80,0.5)}
-.stage-title{font-family:'Playfair Display',serif;font-size:14px;color:#2a1a06;font-style:italic}
+.stage-title{font-family:'Playfair Display',serif;font-size:16px;color:#2a1a06;font-style:italic}
 .stage-title.locked{color:rgba(60,40,10,0.4)}
 
 .mgmt-options{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
@@ -248,7 +252,7 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   border-radius:7px;padding:10px 12px;
   cursor:pointer;display:flex;align-items:flex-start;gap:8px;
   transition:background .15s;
-  font-family:'EB Garamond',serif;
+  font-family:'Crimson Pro',Georgia,serif;
 }
 .mgmt-option:hover{background:rgba(255,255,255,0.7)}
 .mgmt-option.selected-correct{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
@@ -264,8 +268,8 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
 .mgmt-option.selected-correct .mgmt-ob{background:rgba(80,160,60,0.7);color:#fff}
 .mgmt-option.selected-wrong .mgmt-ob{background:rgba(180,80,70,0.7);color:#fff}
 .mgmt-option.selected-danger .mgmt-ob{background:rgba(200,50,30,0.8);color:#fff}
-.mgmt-on{font-family:'Playfair Display',serif;font-size:13px;color:#2a1a06;font-style:italic}
-.mgmt-oc{font-size:11px;color:#7a5010;margin-top:1px}
+.mgmt-on{font-family:'Playfair Display',serif;font-size:15px;color:#2a1a06;font-style:italic}
+.mgmt-oc{font-size:13px;color:#7a5010;margin-top:1px}
 
 .stage-divider{height:1px;background:rgba(120,90,20,0.15);margin:10px 0}
 
@@ -300,7 +304,7 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
 .modal-title{font-family:'Playfair Display',serif;font-size:18px;color:#2a1a06;font-weight:600;margin-bottom:6px}
 .modal-sub{font-size:13px;color:#7a5010;margin-bottom:16px;font-style:italic}
 .modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:18px;color:#7a5010;cursor:pointer}
-.modal-input{width:100%;padding:9px 12px;border:1.5px solid rgba(160,120,40,0.4);border-radius:7px;font-family:'EB Garamond',serif;font-size:14px;margin-bottom:10px;background:rgba(255,255,255,0.7)}
+.modal-input{width:100%;padding:9px 12px;border:1.5px solid rgba(160,120,40,0.4);border-radius:7px;font-family:'Crimson Pro',Georgia,serif;font-size:14px;margin-bottom:10px;background:rgba(255,255,255,0.7)}
 .modal-btn{width:100%;padding:10px;background:#3a1a06;color:#e8c87a;border:none;border-radius:7px;font-family:'Playfair Display',serif;font-size:14px;cursor:pointer;font-style:italic}
 .modal-btn:hover{background:#5a2a0a}
 .modal-err{font-size:12px;color:#c84a3a;margin-top:6px;font-style:italic;display:none}
@@ -330,7 +334,7 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
 <div id="app-inner">
   <div id="left-col">
     <div class="fennick-portrait-box">
-      <img id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_160,h_160,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png" width="120" height="120" alt="Dr. Fennick">
+      <img id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png" width="180" height="180" alt="Dr. Fennick">
       <div class="fennick-name">Dr. Fennick</div>
       <div class="fennick-title">Chief Diagnostician</div>
     </div>
@@ -359,7 +363,7 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
           <div class="pt-name" id="pt-name">—</div>
           <div class="pt-occ" id="pt-occ">—</div>
           <div class="pt-tag">● CHIEF COMPLAINT</div>
-          <div style="font-size:13px;color:#4a3010;margin-top:8px;font-style:italic;line-height:1.65;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
+          <div style="font-size:16px;color:#4a3010;margin-top:8px;font-style:italic;line-height:1.65;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
         </div>
       </div>
     </div>
@@ -420,10 +424,8 @@ html,body{height:100%;font-family:'EB Garamond',Georgia,serif;background-color:#
   </div>
 </div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+<script>
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBzVNM6yylE2LF_8SfqRluqdQVRBB6i6HI",
@@ -434,15 +436,18 @@ const firebaseConfig = {
   appId: "1:123456789:web:abc123"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+let auth, db;
+try {
+  firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+  db = firebase.firestore();
+} catch(e){ console.log('Firebase init:', e); }
 
 // ── DIAGNOSES — INLINED ──
 let DIAGNOSES = ["AAA (Abdominal Aortic Aneurysm)", "Abetalipoproteinemia", "Acanthosis Nigricans", "Achalasia", "Acne Rosacea", "Acne Vulgaris", "Acoustic Neuroma (Vestibular Schwannoma)", "Acromegaly", "Actinic Keratosis", "Acute Angle-Closure Glaucoma", "Acute Chest Syndrome (Sickle Cell)", "Acute Cholecystitis", "Acute Coronary Syndrome (ACS)", "Acute Epiglottitis", "Acute Fatty Liver of Pregnancy", "Acute Intermittent Porphyria", "Acute Liver Failure", "Acute Lymphoblastic Leukemia (ALL)", "Acute Myeloid Leukemia (AML)", "Acute Pancreatitis", "Acute Pericarditis", "Acute Promyelocytic Leukemia (APML)", "Acute Respiratory Distress Syndrome (ARDS)", "Acute Tubular Necrosis (ATN)", "Addison Disease (Adrenal Insufficiency)", "Adenomyosis", "Adrenal Crisis", "Adrenal Incidentaloma", "Adrenoleukodystrophy", "Adult-Onset Still Disease", "Agammaglobulinemia (Bruton)", "Agoraphobia", "Alagille Syndrome", "Albinism", "Alcohol Use Disorder", "Alcohol Withdrawal Delirium (Delirium Tremens)", "Alcoholic Cardiomyopathy", "Alcoholic Hepatitis", "Aldosteronoma (Conn Syndrome)", "Alkaptonuria", "Alpha-1 Antitrypsin Deficiency", "Alport Syndrome", "Alzheimer Disease", "Amiodarone-Induced Thyrotoxicosis", "Amyloidosis (AA)", "Amyloidosis (AL)", "Amyotrophic Lateral Sclerosis (ALS)", "Anaphylaxis", "Anderson Disease (GSD Type IV)", "Androgen Insensitivity Syndrome", "Ankylosing Spondylitis", "Anorexia Nervosa", "Anthracosis", "Anthrax (Bacillus anthracis)", "Anti-MDA5 Dermatomyositis", "Anti-NMDA Receptor Encephalitis", "Antiphospholipid Syndrome", "Aortic Dissection", "Aortic Dissection (Marfan Syndrome)", "Aortic Regurgitation", "Aortic Stenosis", "Aplastic Anemia", "Appendicitis", "Argyll Robertson Pupil", "Arnold-Chiari Malformation", "Arrhythmogenic Right Ventricular Cardiomyopathy (ARVC)", "Asbestosis", "Ascariasis", "Aspergillosis (ABPA)", "Aspergillosis (Invasive)", "Asthma", "Ataxia-Telangiectasia", "Atrial Fibrillation (A-Fib)", "Atrial Flutter", "Atrial Myxoma", "Atrial Septal Defect (ASD)", "Attention Deficit Hyperactivity Disorder (ADHD)", "Autism Spectrum Disorder", "Autoimmune Hemolytic Anemia (Cold)", "Autoimmune Hemolytic Anemia (Warm)", "Autoimmune Hepatitis", "Autoimmune Pancreatitis (IgG4)", "Bacterial Meningitis", "Bacterial Vaginosis", "Baker Cyst (Popliteal Cyst)", "Balanitis Xerotica Obliterans", "Barrett Esophagus", "Bartholin Gland Abscess", "Bartter Syndrome", "Basal Cell Carcinoma", "Becker Muscular Dystrophy", "Beckwith-Wiedemann Syndrome", "Behcet Disease", "Bell Palsy", "Benign Paroxysmal Positional Vertigo (BPPV)", "Benign Prostatic Hyperplasia (BPH)", "Bernard-Soulier Syndrome", "Berylliosis", "Bicuspid Aortic Valve", "Biliary Atresia", "Bipolar I Disorder", "Bipolar II Disorder", "Bladder Cancer", "Blastomycosis", "Body Dysmorphic Disorder", "Boerhaave Syndrome", "Borderline Personality Disorder", "Botulism", "Brachial Neuritis (Parsonage-Turner Syndrome)", "Brain Abscess", "Bronchiectasis", "Bronchiolitis (RSV)", "Brucellosis", "Brugada Syndrome", "Budd-Chiari Syndrome", "Buerger Disease (Thromboangiitis Obliterans)", "Bulimia Nervosa", "Bullous Pemphigoid", "Burkitt Lymphoma", "C. Difficile Infection", "Carbamazepine Toxicity", "Carbon Monoxide Poisoning", "Carcinoid Syndrome", "Cardiac Tamponade", "Cardiogenic Shock", "Carotid Artery Stenosis", "Cat Scratch Disease (Bartonella)", "Cauda Equina Syndrome", "Cavernous Sinus Thrombosis", "Celiac Disease", "Cellulitis", "Central Pontine Myelinolysis (Osmotic Demyelination)", "Central Retinal Artery Occlusion", "Central Retinal Vein Occlusion", "Cerebral Palsy", "Cervical Cancer", "Chagas Disease", "Chancroid (Haemophilus ducreyi)", "Chediak-Higashi Syndrome", "Chickenpox (Varicella)", "Chlamydia", "Cholangiocarcinoma", "Choledocholithiasis", "Cholelithiasis", "Cholera", "Chondrosarcoma", "Choriocarcinoma", "Chronic Granulomatous Disease", "Chronic Lymphocytic Leukemia (CLL)", "Chronic Myeloid Leukemia (CML)", "Chronic Obstructive Pulmonary Disease (COPD)", "Churg-Strauss Syndrome (EGPA)", "Cirrhosis", "Clonorchiasis (Clonorchis sinensis)", "Cluster Headache", "Coarctation of the Aorta", "Coccidioidomycosis", "Common Variable Immunodeficiency (CVID)", "Complete Heart Block (3rd Degree AV Block)", "Conduct Disorder", "Condyloma Accuminatum (HPV)", "Congenital Adrenal Hyperplasia (CAH)", "Congenital Hypothyroidism (Cretinism)", "Congenital Rubella Syndrome", "Congenital Syphilis", "Congenital Toxoplasmosis", "Congestive Heart Failure (CHF)", "Conn Syndrome (Primary Hyperaldosteronism)", "Contact Dermatitis", "Conversion Disorder (Functional Neurological Symptom Disorder)", "Cor Pulmonale", "Cori Disease (GSD Type III)", "Craniopharyngioma", "Creutzfeldt-Jakob Disease", "Cri-du-chat Syndrome", "Crigler-Najjar Syndrome", "Crohn's Disease", "Croup (Laryngotracheobronchitis)", "Cryoglobulinemia", "Cryptococcal Meningitis", "Cryptorchidism", "Cryptosporidiosis", "Cushing Disease (Pituitary ACTH-Secreting Adenoma)", "Cushing Syndrome", "Cyclothymic Disorder", "Cystic Fibrosis", "Cystinuria", "Cytomegalovirus (CMV)", "DRESS Syndrome", "De Quervain Tenosynovitis", "De Quervain Thyroiditis", "Deep Vein Thrombosis (DVT)", "Delirium", "Delusional Disorder", "Dengue Fever", "Dependent Personality Disorder", "Depersonalization-Derealization Disorder", "Dermatomyositis", "DiGeorge Syndrome", "Diabetes Insipidus (Central)", "Diabetes Insipidus (Nephrogenic)", "Diabetes Mellitus Type 1", "Diabetes Mellitus Type 2", "Diabetic Ketoacidosis (DKA)", "Diabetic Nephropathy", "Diabetic Neuropathy", "Diffuse Axonal Injury", "Diffuse Large B-Cell Lymphoma", "Dilated Cardiomyopathy", "Diphtheria", "Disseminated Gonococcal Infection (Septic Arthritis)", "Disseminated Histoplasmosis", "Disseminated Intravascular Coagulation (DIC)", "Dissociative Amnesia", "Dissociative Identity Disorder", "Diverticulitis", "Diverticulosis", "Down Syndrome (Trisomy 21)", "Drug-Induced Lupus", "Duchenne Muscular Dystrophy", "Dumping Syndrome", "Duodenal Atresia", "Dupuytren Contracture", "Dysgerminoma", "Dysthymia (Persistent Depressive Disorder)", "Eclampsia", "Ectopic Pregnancy", "Edwards Syndrome (Trisomy 18)", "Ehlers-Danlos Syndrome", "Eisenmenger Syndrome", "Emphysema", "Empty Sella Syndrome", "Empyema", "Encephalitis (Viral)", "Enchondroma", "Endocarditis (Mitral Valve — Streptococcal)", "Endocarditis (Tricuspid Valve — IVDU)", "Endometrial Cancer", "Endometriosis", "Eosinophilic Esophagitis", "Eosinophilic Granulomatosis with Polyangiitis", "Epidermoid Cyst", "Epidural Abscess (Spinal)", "Epidural Hematoma", "Epiglottitis", "Erb Palsy", "Erysipelas", "Erythema Infectiosum (Fifth Disease)", "Erythema Marginatum", "Erythema Migrans (Lyme Disease)", "Erythema Multiforme", "Erythema Nodosum", "Esophageal Adenocarcinoma", "Esophageal Squamous Cell Carcinoma", "Esophageal Varices", "Essential Thrombocythemia", "Essential Tremor", "Ewing Sarcoma", "Exertional Heat Stroke", "Exfoliative Dermatitis (Erythroderma)", "Fabry Disease", "Factitious Disorder (Munchausen Syndrome)", "Factor V Leiden", "Familial Adenomatous Polyposis (FAP)", "Familial Hypercholesterolemia", "Familial Mediterranean Fever", "Fanconi Anemia", "Fanconi Syndrome", "Fat Embolism Syndrome", "Felty Syndrome", "Fibroadenoma", "Fibrocystic Breast Changes", "Fibromyalgia", "Fitz-Hugh-Curtis Syndrome", "Focal Segmental Glomerulosclerosis (FSGS)", "Follicular Lymphoma", "Fragile X Syndrome", "Friedreich Ataxia", "Frontotemporal Dementia", "G6PD Deficiency", "Galactosemia", "Gambling Disorder", "Gardner Syndrome", "Gastric Cancer", "Gastroesophageal Reflux Disease (GERD)", "Gaucher Disease", "Generalized Anxiety Disorder (GAD)", "Gestational Diabetes", "Gestational Hypertension", "Giant Cell Arteritis (Temporal Arteritis)", "Giant Cell Tumor of Bone", "Giardiasis", "Gilbert Syndrome", "Gitelman Syndrome", "Glanzmann Thrombasthenia", "Glioblastoma Multiforme", "Glomerulonephritis", "Glucagonoma", "Glycogen Storage Disease Type I (Von Gierke)", "Glycogen Storage Disease Type II (Pompe)", "Glycogen Storage Disease Type V (McArdle)", "Gonorrhea", "Goodpasture Syndrome", "Gout", "Graft-vs-Host Disease", "Granuloma Annulare", "Granulomatosis with Polyangiitis (Wegener's)", "Granulosa Cell Tumor", "Graves Disease", "Graves Ophthalmopathy", "Guillain-Barre Syndrome (GBS)", "HELLP Syndrome", "HIV / AIDS", "Hairy Cell Leukemia", "Hand-Foot-and-Mouth Disease", "Hashimoto Thyroiditis", "Hemochromatosis (Hereditary)", "Hemolytic Uremic Syndrome (HUS)", "Hemophilia A", "Hemophilia B", "Henoch-Schonlein Purpura (IgA Vasculitis)", "Heparin-Induced Thrombocytopenia (HIT)", "Hepatic Encephalopathy", "Hepatitis A", "Hepatitis B", "Hepatitis C", "Hepatitis D", "Hepatitis E", "Hepatocellular Carcinoma", "Hepatorenal Syndrome", "Hereditary Angioedema", "Hereditary Hemorrhagic Telangiectasia (Osler-Weber-Rendu)", "Hereditary Spherocytosis", "Herpangina", "Herpes Simplex Encephalitis", "Herpes Simplex Virus (HSV)", "Herpes Zoster (Shingles)", "Hers Disease (GSD Type VI)", "Hirschsprung Disease", "Histoplasmosis", "Histrionic Personality Disorder", "Hodgkin Lymphoma", "Holoprosencephaly", "Homocystinuria", "Hookworm (Ancylostoma duodenale)", "Hookworm (Necator americanus)", "Horner Syndrome", "Hunter Syndrome (MPS II)", "Huntington Disease", "Hurler Syndrome (MPS I)", "Hydatidiform Mole", "Hydrocephalus (Obstructive)", "Hypercalcemia of Malignancy", "Hyperemesis Gravidarum", "Hyperosmolar Hyperglycemic State (HHS)", "Hyperparathyroidism (Primary)", "Hyperparathyroidism (Secondary)", "Hypertensive Emergency", "Hypertensive Urgency", "Hyperthyroidism", "Hypertrophic Cardiomyopathy (HCM)", "Hyperviscosity Syndrome", "Hypoparathyroidism", "Hypothyroidism", "I-Cell Disease (Mucolipidosis II)", "Idiopathic Intracranial Hypertension (Pseudotumor Cerebri)", "Idiopathic Pulmonary Fibrosis (IPF)", "Idiopathic Thrombocytopenic Purpura (ITP)", "IgA Nephropathy (Berger Disease)", "IgA Vasculitis (Henoch-Schonlein Purpura)", "IgG4-Related Disease", "Illness Anxiety Disorder (Hypochondriasis)", "Immune Thrombocytopenic Purpura (ITP)", "Impetigo", "Infectious Mononucleosis", "Infective Endocarditis", "Influenza", "Insomnia Disorder", "Insulinoma", "Intellectual Disability", "Interstitial Cystitis", "Interstitial Nephritis (Acute)", "Intussusception", "Iron Deficiency Anemia", "Irritable Bowel Syndrome (IBS)", "Ischemic Cardiomyopathy", "Ischemic Colitis", "Ischemic Stroke", "Juvenile Idiopathic Arthritis", "Kaposi Sarcoma", "Kartagener Syndrome (Primary Ciliary Dyskinesia)", "Kawasaki Disease", "Kearns-Sayre Syndrome", "Keloid", "Klinefelter Syndrome", "Korsakoff Syndrome", "Krabbe Disease", "Kwashiorkor", "Lambert-Eaton Myasthenic Syndrome", "Langerhans Cell Histiocytosis", "Large Cell Lung Carcinoma", "Laryngomalacia", "Lateral Medullary Syndrome (Wallenberg)", "Lead Poisoning", "Legionnaires' Disease", "Leishmaniasis", "Lemierre Syndrome", "Lesch-Nyhan Syndrome", "Lewy Body Dementia", "Libman-Sacks Endocarditis", "Lichen Planus", "Lichen Sclerosus", "Liddle Syndrome", "Liposarcoma", "Listeriosis", "Lithium Toxicity", "Long QT Syndrome", "Ludwig Angina", "Lyme Disease", "Lymphogranuloma Venereum", "Lymphoma (Burkitt)", "MELAS Syndrome", "MEN1 (Multiple Endocrine Neoplasia Type 1)", "MEN2A (Multiple Endocrine Neoplasia Type 2A)", "MEN2B (Multiple Endocrine Neoplasia Type 2B)", "Major Depressive Disorder", "Major Depressive Disorder (with Psychotic Features)", "Malignant Hyperthermia", "Malignant Pleural Mesothelioma", "Malingering", "Mallory-Weiss Tear", "Mantle Cell Lymphoma", "Maple Syrup Urine Disease", "Marfan Syndrome", "Mastoiditis", "Measles (Rubeola)", "Meckel Diverticulum", "Medullary Thyroid Cancer", "Medulloblastoma", "Meigs Syndrome", "Melanoma", "Menetrier Disease", "Meniere Disease", "Meningioma", "Mesenteric Ischemia (Acute)", "Metachromatic Leukodystrophy", "Methanol Poisoning", "Methylmalonic Acidemia", "Microscopic Colitis", "Microscopic Polyangiitis", "Migraine", "Miller Fisher Syndrome", "Minimal Change Disease", "Mitral Regurgitation", "Mitral Stenosis", "Mitral Valve Prolapse", "Mixed Connective Tissue Disease", "Mobitz Type I Block (Wenckebach)", "Mobitz Type II Block", "Molluscum Contagiosum", "Monoclonal Gammopathy of Undetermined Significance (MGUS)", "Morphea (Localized Scleroderma)", "Mucormycosis (Zygomycosis)", "Multiple Myeloma", "Multiple Sclerosis (MS)", "Mumps", "Munchausen by Proxy (Factitious Disorder Imposed on Another)", "Myasthenia Gravis", "Myelodysplastic Syndrome (MDS)", "Myelofibrosis", "Myocardial Infarction (Heart Attack)", "Myositis Ossificans", "Myxedema Coma", "Narcissistic Personality Disorder", "Necrotizing Enterocolitis", "Necrotizing Fasciitis", "Neonatal Jaundice (Physiologic)", "Neonatal Respiratory Distress Syndrome", "Nephritic Syndrome", "Nephrotic Syndrome", "Neurofibromatosis Type 1 (NF1)", "Neurofibromatosis Type 2 (NF2)", "Neuroleptic Malignant Syndrome (NMS)", "Niemann-Pick Disease", "Non-Hodgkin Lymphoma", "Nonalcoholic Fatty Liver Disease (NAFLD)", "Nonalcoholic Steatohepatitis (NASH)", "Normal Pressure Hydrocephalus", "Nystagmus", "Obsessive-Compulsive Disorder (OCD)", "Obsessive-Compulsive Personality Disorder (OCPD)", "Ogilvie Syndrome (Acute Colonic Pseudo-Obstruction)", "Open-Angle Glaucoma", "Oppositional Defiant Disorder", "Oral Hairy Leukoplakia", "Oral Leukoplakia", "Orchitis", "Ornithine Transcarbamylase (OTC) Deficiency", "Osgood-Schlatter Disease", "Osteoarthritis", "Osteoblastoma", "Osteochondroma", "Osteogenesis Imperfecta", "Osteoid Osteoma", "Osteomalacia", "Osteomyelitis", "Osteoporosis", "Osteosarcoma", "Otitis Externa (Malignant)", "Otitis Media (Acute)", "Ovarian Cancer", "Ovarian Torsion", "Paget Disease of Bone", "Paget Disease of the Breast", "Pancreatic Cancer", "Pancreatic Pseudocyst", "Panic Disorder", "Papillary Thyroid Cancer", "Paragonimiasis", "Paranoid Personality Disorder", "Parkinson Disease", "Paroxysmal Nocturnal Hemoglobinuria (PNH)", "Patau Syndrome (Trisomy 13)", "Patent Ductus Arteriosus (PDA)", "Patent Foramen Ovale", "Pellagra", "Pelvic Inflammatory Disease (Chlamydia-Associated)", "Pelvic Inflammatory Disease (Gonococcal)", "Pemphigus Vulgaris", "Peptic Ulcer Disease", "Pericardial Effusion", "Peripartum Cardiomyopathy", "Peripheral Artery Disease", "Peritonsillar Abscess", "Pernicious Anemia", "Peyronie Disease", "Phenylketonuria (PKU)", "Pheochromocytoma", "Pickwickian Syndrome (Obesity Hypoventilation)", "Pityriasis Rosea", "Pityriasis Versicolor (Tinea Versicolor)", "Placenta Accreta", "Placenta Previa", "Placental Abruption", "Plaque Psoriasis", "Pleural Effusion (Exudative)", "Pleural Effusion (Transudative)", "Plummer-Vinson Syndrome", "Pneumoconiosis (Coal Worker)", "Pneumocystis Jirovecii Pneumonia (PCP)", "Pneumonia", "Pneumothorax (Spontaneous)", "Pneumothorax (Tension)", "Polyarteritis Nodosa", "Polycystic Kidney Disease (ADPKD)", "Polycystic Kidney Disease (ARPKD)", "Polycystic Ovary Syndrome (PCOS)", "Polycythemia Vera", "Polyhydramnios", "Polymyalgia Rheumatica", "Polymyositis", "Porphyria Cutanea Tarda", "Post-Streptococcal Glomerulonephritis", "Post-Traumatic Stress Disorder (PTSD)", "Posterior Reversible Encephalopathy Syndrome (PRES)", "Postpartum Depression", "Postpartum Psychosis", "Pott Disease (Tuberculosis of Spine)", "Preeclampsia", "Prerenal Acute Kidney Injury (NSAID-Induced)", "Primary Biliary Cholangitis", "Primary CNS Lymphoma", "Primary Hyperaldosteronism (Conn Syndrome)", "Primary Sclerosing Cholangitis", "Prinzmetal Angina", "Progressive Multifocal Leukoencephalopathy (PML)", "Progressive Supranuclear Palsy", "Propionic Acidemia", "Prostate Cancer", "Prothrombin Gene Mutation (Factor II)", "Pseudogout (CPPD)", "Pseudohypoparathyroidism", "Pseudomembranous Colitis", "Pseudomonas Corneal Ulcer (Contact Lens-Associated)", "Pseudotumor Cerebri", "Psoriasis", "Psoriatic Arthritis", "Pulmonary Embolism (PE)", "Pulmonary Fibrosis (IPF)", "Pulmonary Hypertension", "Pyelonephritis", "Pyloric Stenosis", "Pyoderma Gangrenosum", "Rabies", "Rapidly Progressive Glomerulonephritis (RPGN)", "Raynaud Phenomenon", "Reactive Arthritis (Reiter Syndrome)", "Refeeding Syndrome", "Renal Artery Stenosis", "Renal Cell Carcinoma", "Respiratory Syncytial Virus (RSV)", "Restrictive Cardiomyopathy", "Retinal Detachment", "Retinoblastoma", "Retropharyngeal Abscess", "Reye Syndrome", "Rhabdomyolysis", "Rhabdomyosarcoma", "Rheumatic Fever", "Rheumatoid Arthritis (RA)", "Rickets", "Rocky Mountain Spotted Fever", "Rosacea", "Roseola Infantum (HHV-6)", "Rotavirus", "Rubella", "SIADH", "Salmonellosis", "Sarcoidosis", "Scabies", "Scarlet Fever", "Schistosomiasis", "Schizoaffective Disorder", "Schizoid Personality Disorder", "Schizophrenia", "Schizotypal Personality Disorder", "Scleroderma (Systemic Sclerosis)", "Scurvy", "Seborrheic Dermatitis", "Seborrheic Keratosis", "Selective IgA Deficiency", "Seminoma", "Sepsis", "Septic Arthritis", "Septic Bursitis", "Septic Shock", "Serotonin Syndrome", "Sertoli-Leydig Cell Tumor", "Severe Combined Immunodeficiency (SCID)", "Shigellosis", "Short Bowel Syndrome", "Sick Sinus Syndrome", "Sickle Cell Anemia", "Sideroblastic Anemia", "Silicosis", "Sjogren Syndrome", "Sleep Apnea (Obstructive)", "Small Bowel Obstruction", "Small Cell Lung Cancer", "Social Anxiety Disorder", "Somatic Symptom Disorder", "Specific Phobia", "Spermatocele", "Spina Bifida", "Spinal Cord Compression (Metastatic)", "Spinal Dural Arteriovenous Fistula", "Spinal Muscular Atrophy (SMA)", "Splenic Rupture", "Spontaneous Bacterial Peritonitis", "Spontaneous Coronary Artery Dissection (SCAD)", "Sporotrichosis", "Squamous Cell Carcinoma (Skin)", "Squamous Cell Lung Carcinoma", "Stable Angina", "Staphylococcal Scalded Skin Syndrome", "Stevens-Johnson Syndrome (SJS)", "Stiff Person Syndrome", "Stress Fracture", "Strongyloidiasis", "Subacute Sclerosing Panencephalitis", "Subacute Sclerosing Panencephalitis (SSPE)", "Subarachnoid Hemorrhage (SAH)", "Subdural Hematoma", "Superior Vena Cava Syndrome", "Susac Syndrome", "Sydenham Chorea", "Symptomatic Bradycardia", "Synovial Sarcoma", "Syphilis (Primary)", "Syphilis (Secondary)", "Syphilis (Tertiary / Neurosyphilis)", "Syringomyelia", "Systemic Lupus Erythematosus (SLE)", "Takayasu Arteritis", "Takotsubo Cardiomyopathy", "Tay-Sachs Disease", "Temporal Lobe Epilepsy", "Tension Headache", "Testicular Cancer (Non-Seminoma)", "Testicular Torsion", "Tetanus", "Tetralogy of Fallot", "Thalassemia (Alpha)", "Thalassemia (Beta)", "Thoracic Outlet Syndrome", "Thrombotic Thrombocytopenic Purpura (TTP)", "Thyroid Storm", "Tick-Borne Encephalitis", "Tinea Capitis", "Tinea Corporis", "Tinea Pedis", "Torsades de Pointes", "Tourette Syndrome", "Toxic Epidermal Necrolysis (TEN)", "Toxic Megacolon", "Toxic Shock Syndrome (Staphylococcal)", "Toxic Shock Syndrome (Streptococcal)", "Toxoplasmosis", "Transient Ischemic Attack (TIA)", "Transient Synovitis", "Transposition of the Great Arteries", "Transverse Myelitis", "Trichomonas Vaginalis (Trichomoniasis)", "Tricuspid Regurgitation", "Trigeminal Neuralgia", "Tropical Sprue", "Tuberculosis (TB)", "Tuberous Sclerosis", "Tumor Lysis Syndrome", "Turner Syndrome", "Typhoid Fever", "Typhus (Epidemic)", "Ulcerative Colitis (UC)", "Uncomplicated Cystitis (E. coli)", "Upper Gastrointestinal Bleed", "Urinary Tract Infection (UTI)", "Urolithiasis (Kidney Stones)", "Urosepsis (Obstructive Pyelonephritis)", "Urticaria (Chronic)", "VIPoma", "Varicocele", "Varicose Veins", "Vasovagal Syncope", "Ventricular Fibrillation", "Ventricular Septal Defect (VSD)", "Ventricular Tachycardia", "Vertebral Artery Dissection", "Vestibular Neuritis", "Vitamin A Toxicity", "Vitamin B1 Deficiency (Thiamine / Beriberi)", "Vitamin B12 Deficiency", "Vitamin C Deficiency (Scurvy)", "Vitamin D Deficiency", "Vitamin K Deficiency", "Vitiligo", "Volvulus", "Von Hippel-Lindau Disease", "Von Willebrand Disease", "Waldenstrom Macroglobulinemia", "Warfarin Toxicity", "Wegener Granulomatosis (GPA)", "Wernicke Encephalopathy", "Wernicke-Korsakoff Syndrome", "West Nile Virus", "Whipple Disease", "Wilms Tumor", "Wilson Disease", "Wiskott-Aldrich Syndrome", "Wolff-Parkinson-White Syndrome (WPW)", "Wolman Disease", "X-Linked Agammaglobulinemia", "Xeroderma Pigmentosum", "Yellow Fever", "Yolk Sac Tumor (Endodermal Sinus Tumor)", "Zenker Diverticulum", "Zika Virus", "Zollinger-Ellison Syndrome (Gastrinoma)"];
 
 // ── CASES — INLINED ──
-let CASES = [{"id": "001", "date": "2026-04-06", "urgency": "stable", "title": "The Clockmaker's Tremor", "dx_answer": "Parkinson Disease", "danger_dx": ["haloperidol", "psychosis"], "patient": {"name": "The Clockmaker", "age": 68, "sex": "F", "occupation": "Master Clockmaker", "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/w_110,h_130,c_pad,g_south,b_transparent/q_auto/f_auto/v1775528227/api6_m3o0vw.png"}, "chart": {"cc": "Progressive hand tremor for 14 months. I can no longer wind the city's great clock.", "hpi": "14-month history of rest tremor, right hand predominant. Worsens at rest, improves with intentional movement. Gradual onset, slowly progressive. Shuffling gait, difficulty initiating movement. Treated for depression x8 months without improvement.", "pmh": "Depression (misdiagnosed). Hypertension.", "psh": "Appendectomy age 34.", "meds": "Sertraline 50mg daily. Amlodipine 5mg daily.", "allergies": "Penicillin — rash.", "fh": "No family history of movement disorder.", "sh": "Retired clockmaker. Lives with husband. Non-smoker. Occasional wine."}, "vitals": {"bp": "138/84", "hr": "68", "rr": "16", "temp": "37.0", "o2": "98% RA"}, "tests": [{"name": "CBC", "type": "lab", "cost": 5, "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224."}, {"name": "CMP", "type": "lab", "cost": 5, "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal."}, {"name": "TSH", "type": "lab", "cost": 5, "result": "TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out."}, {"name": "B12 / Folate", "type": "lab", "cost": 5, "result": "B12 420 pg/mL (normal). Folate normal."}, {"name": "MRI Brain", "type": "imaging", "cost": 15, "result": "No mass lesion. No infarct. Mild age-appropriate cortical atrophy. Standard sequences do not show midbrain abnormality. DaTscan preferred for confirmation."}, {"name": "DaTscan", "type": "imaging", "cost": 20, "result": "Reduced dopamine transporter uptake in bilateral putamen — asymmetric, right greater than left. Consistent with nigrostriatal dopaminergic degeneration."}, {"name": "EMG / NCS", "type": "lab", "cost": 10, "result": "Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease."}], "hints": ["The tremor frequency is 4-6 Hz. Note when it disappears — and when it returns.", "Look at her face carefully. A masked expression and reduced blink rate are not depression.", "The sertraline did not help the depression. That itself is a clue.", "Pill-rolling, cogwheeling, micrographia. The diagnosis is in the examination."], "management": [{"title": "Immediate stabilization", "options": [{"text": "Reassure and schedule follow-up", "sub": "No acute intervention needed", "correct": true, "feedback_correct": "Correct. This is not an emergency. A calm, thorough approach."}, {"text": "Admit for IV thiamine", "sub": "Wernicke protocol", "correct": false, "danger": false, "feedback_wrong": "Thiamine is for Wernicke — not indicated here."}, {"text": "Emergent neurology consult", "sub": "Urgent inpatient", "correct": false, "danger": false, "feedback_wrong": "Urgent, yes. Emergent, no. This has been progressing for 14 months."}, {"text": "Stop sertraline immediately", "sub": "Discontinue without taper", "correct": false, "danger": true, "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome. Taper if stopping."}]}, {"title": "First-line medication", "options": [{"text": "Levodopa / Carbidopa", "sub": "Dopamine precursor — 25/100mg TID", "correct": true, "feedback_correct": "The gold standard. You know your pharmacology."}, {"text": "Haloperidol", "sub": "Typical antipsychotic", "correct": false, "danger": true, "feedback_wrong": "Haloperidol blocks dopamine receptors — it will dramatically worsen Parkinson disease. Never."}, {"text": "Sertraline dose increase", "sub": "SSRI escalation", "correct": false, "danger": false, "feedback_wrong": "The depression was a misdiagnosis. Sertraline will not help the tremor."}, {"text": "Propranolol", "sub": "Beta blocker — for essential tremor", "correct": false, "danger": false, "feedback_wrong": "Propranolol is for essential tremor — an action tremor. This is a rest tremor."}]}, {"title": "Further workup", "options": [{"text": "Refer to movement disorder specialist", "sub": "Neurology subspecialty", "correct": true, "feedback_correct": "Correct. Movement disorder specialists optimize PD management."}, {"text": "Lumbar puncture", "sub": "CSF analysis", "correct": false, "danger": false, "feedback_wrong": "LP is not indicated in Parkinson disease. This is a clinical diagnosis."}, {"text": "Brain biopsy", "sub": "Histopathology", "correct": false, "danger": true, "feedback_wrong": "Brain biopsy for Parkinson disease would be unconscionable."}, {"text": "Occupational therapy referral", "sub": "ADL assessment and adaptation", "correct": true, "feedback_correct": "Also correct — OT is essential in PD management."}]}, {"title": "Disposition", "options": [{"text": "Outpatient — start levodopa, neurology follow-up", "sub": "Discharge with plan", "correct": true, "feedback_correct": "Exactly right. Stable patient, chronic condition, outpatient management."}, {"text": "Admit to neurology floor", "sub": "Inpatient workup", "correct": false, "danger": false, "feedback_wrong": "No indication for admission. This is a chronic, stable outpatient condition."}, {"text": "Discharge without treatment", "sub": "Watch and wait", "correct": false, "danger": false, "feedback_wrong": "The diagnosis is clear. Withholding treatment serves no one."}, {"text": "Admit for DaTscan", "sub": "Inpatient imaging", "correct": false, "danger": false, "feedback_wrong": "DaTscan is an outpatient procedure. No need for admission."}]}], "explanation": "Parkinson disease is a progressive neurodegenerative disorder caused by dopaminergic neuron loss in the substantia nigra. Cardinal features: rest tremor (4-6 Hz, pill-rolling), bradykinesia, rigidity (cogwheeling), postural instability. Levodopa/carbidopa remains the most effective symptomatic treatment. Dopamine-blocking agents (typical antipsychotics, metoclopramide) are contraindicated — they worsen motor symptoms dramatically."}];
+let CASES = [{"id": "001", "date": "2026-04-06", "urgency": "stable", "title": "The Clockmaker's Tremor", "dx_answer": "Parkinson Disease", "danger_dx": ["haloperidol", "psychosis"], "patient": {"name": "The Clockmaker", "age": 68, "sex": "F", "occupation": "Master Clockmaker", "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/w_300,h_350,c_pad,g_south,b_transparent/q_auto/f_auto/v1775528227/api6_m3o0vw.png"}, "chart": {"cc": "Progressive hand tremor for 14 months. I can no longer wind the city's great clock.", "hpi": "14-month history of rest tremor, right hand predominant. Worsens at rest, improves with intentional movement. Gradual onset, slowly progressive. Shuffling gait, difficulty initiating movement. Treated for depression x8 months without improvement.", "pmh": "Depression (misdiagnosed). Hypertension.", "psh": "Appendectomy age 34.", "meds": "Sertraline 50mg daily. Amlodipine 5mg daily.", "allergies": "Penicillin — rash.", "fh": "No family history of movement disorder.", "sh": "Retired clockmaker. Lives with husband. Non-smoker. Occasional wine."}, "vitals": {"bp": "138/84", "hr": "68", "rr": "16", "temp": "37.0", "o2": "98% RA"}, "tests": [{"name": "CBC", "type": "lab", "cost": 5, "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224."}, {"name": "CMP", "type": "lab", "cost": 5, "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal."}, {"name": "TSH", "type": "lab", "cost": 5, "result": "TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out."}, {"name": "B12 / Folate", "type": "lab", "cost": 5, "result": "B12 420 pg/mL (normal). Folate normal."}, {"name": "MRI Brain", "type": "imaging", "cost": 15, "result": "No mass lesion. No infarct. Mild age-appropriate cortical atrophy. Standard sequences do not show midbrain abnormality. DaTscan preferred for confirmation."}, {"name": "DaTscan", "type": "imaging", "cost": 20, "result": "Reduced dopamine transporter uptake in bilateral putamen — asymmetric, right greater than left. Consistent with nigrostriatal dopaminergic degeneration."}, {"name": "EMG / NCS", "type": "lab", "cost": 10, "result": "Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease."}], "hints": ["The tremor frequency is 4-6 Hz. Note when it disappears — and when it returns.", "Look at her face carefully. A masked expression and reduced blink rate are not depression.", "The sertraline did not help the depression. That itself is a clue.", "Pill-rolling, cogwheeling, micrographia. The diagnosis is in the examination."], "management": [{"title": "Immediate stabilization", "options": [{"text": "Reassure and schedule follow-up", "sub": "No acute intervention needed", "correct": true, "feedback_correct": "Correct. This is not an emergency. A calm, thorough approach."}, {"text": "Admit for IV thiamine", "sub": "Wernicke protocol", "correct": false, "danger": false, "feedback_wrong": "Thiamine is for Wernicke — not indicated here."}, {"text": "Emergent neurology consult", "sub": "Urgent inpatient", "correct": false, "danger": false, "feedback_wrong": "Urgent, yes. Emergent, no. This has been progressing for 14 months."}, {"text": "Stop sertraline immediately", "sub": "Discontinue without taper", "correct": false, "danger": true, "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome. Taper if stopping."}]}, {"title": "First-line medication", "options": [{"text": "Levodopa / Carbidopa", "sub": "Dopamine precursor — 25/100mg TID", "correct": true, "feedback_correct": "The gold standard. You know your pharmacology."}, {"text": "Haloperidol", "sub": "Typical antipsychotic", "correct": false, "danger": true, "feedback_wrong": "Haloperidol blocks dopamine receptors — it will dramatically worsen Parkinson disease. Never."}, {"text": "Sertraline dose increase", "sub": "SSRI escalation", "correct": false, "danger": false, "feedback_wrong": "The depression was a misdiagnosis. Sertraline will not help the tremor."}, {"text": "Propranolol", "sub": "Beta blocker — for essential tremor", "correct": false, "danger": false, "feedback_wrong": "Propranolol is for essential tremor — an action tremor. This is a rest tremor."}]}, {"title": "Further workup", "options": [{"text": "Refer to movement disorder specialist", "sub": "Neurology subspecialty", "correct": true, "feedback_correct": "Correct. Movement disorder specialists optimize PD management."}, {"text": "Lumbar puncture", "sub": "CSF analysis", "correct": false, "danger": false, "feedback_wrong": "LP is not indicated in Parkinson disease. This is a clinical diagnosis."}, {"text": "Brain biopsy", "sub": "Histopathology", "correct": false, "danger": true, "feedback_wrong": "Brain biopsy for Parkinson disease would be unconscionable."}, {"text": "Occupational therapy referral", "sub": "ADL assessment and adaptation", "correct": true, "feedback_correct": "Also correct — OT is essential in PD management."}]}, {"title": "Disposition", "options": [{"text": "Outpatient — start levodopa, neurology follow-up", "sub": "Discharge with plan", "correct": true, "feedback_correct": "Exactly right. Stable patient, chronic condition, outpatient management."}, {"text": "Admit to neurology floor", "sub": "Inpatient workup", "correct": false, "danger": false, "feedback_wrong": "No indication for admission. This is a chronic, stable outpatient condition."}, {"text": "Discharge without treatment", "sub": "Watch and wait", "correct": false, "danger": false, "feedback_wrong": "The diagnosis is clear. Withholding treatment serves no one."}, {"text": "Admit for DaTscan", "sub": "Inpatient imaging", "correct": false, "danger": false, "feedback_wrong": "DaTscan is an outpatient procedure. No need for admission."}]}], "explanation": "Parkinson disease is a progressive neurodegenerative disorder caused by dopaminergic neuron loss in the substantia nigra. Cardinal features: rest tremor (4-6 Hz, pill-rolling), bradykinesia, rigidity (cogwheeling), postural instability. Levodopa/carbidopa remains the most effective symptomatic treatment. Dopamine-blocking agents (typical antipsychotics, metoclopramide) are contraindicated — they worsen motor symptoms dramatically."}];
 let currentCase = null;
 let currentCaseIdx = 0;
 initCase();
@@ -462,12 +467,12 @@ let streak = 0;
 
 // ── FENNICK EXPRESSIONS ──
 const FOX = {
-  default:  'https://res.cloudinary.com/djiap51xq/image/upload/w_160,h_160,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
-  answer:   'https://res.cloudinary.com/djiap51xq/image/upload/w_160,h_160,c_fit/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
-  danger:   'https://res.cloudinary.com/djiap51xq/image/upload/w_160,h_160,c_fit/q_auto/f_auto/v1775527217/fox_-3_cjhvcn.png',
-  think:    'https://res.cloudinary.com/djiap51xq/image/upload/w_160,h_160,c_fit/q_auto/f_auto/v1775527222/fox_think_qk9moa.png',
-  lose:     'https://res.cloudinary.com/djiap51xq/image/upload/w_160,h_160,c_fit/q_auto/f_auto/v1775527215/fox_-2_t0r5hb.png',
-  concerned:'https://res.cloudinary.com/djiap51xq/image/upload/w_160,h_160,c_fit/q_auto/f_auto/v1775527214/fox_-1_i7vjma.png',
+  default:  'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
+  answer:   'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
+  danger:   'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527217/fox_-3_cjhvcn.png',
+  think:    'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527222/fox_think_qk9moa.png',
+  lose:     'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527215/fox_-2_t0r5hb.png',
+  concerned:'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527214/fox_-1_i7vjma.png',
 };
 
 function setFennick(expr, comment){
@@ -484,7 +489,7 @@ function setBackground(){
   const url = isNight
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527250/night_pi7sfg.png'
     : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527232/background_ui_tl1rgz.png';
-  document.getElementById('bg').style.backgroundImage = `url('${url}')`;
+  document.getElementById('bg').style.backgroundImage = `url('${url}')`;document.getElementById('bg').style.backgroundSize='cover';document.getElementById('bg').style.backgroundPosition='center';
   document.body.style.backgroundImage = `url('${url}')`;
   document.body.style.backgroundSize = 'cover';
   document.body.style.backgroundAttachment = 'fixed';
@@ -531,7 +536,7 @@ function initCase(){
   if(currentCase.patient.image_url){
     ptImg.src = currentCase.patient.image_url + '?w=110&h=130&c=fit';
   } else {
-    ptImg.src = 'https://res.cloudinary.com/djiap51xq/image/upload/w_110,h_130,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png';
+    ptImg.src = 'https://res.cloudinary.com/djiap51xq/image/upload/w_360,h_360,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png';
   }
 
   // Chart
@@ -825,7 +830,7 @@ function endCase(failed){
 
   // Save to Firestore if logged in
   if(currentUser){
-    addDoc(collection(db,'fennick_scores'),{
+    db.collection('fennick_scores').add({
       uid: currentUser.uid,
       username: currentUser.displayName||currentUser.email,
       caseDate: getTodayKey(),
@@ -834,22 +839,19 @@ function endCase(failed){
       grade,
       timestamp: new Date()
     });
-    // Update streak
-    updateDoc(doc(db,'users',currentUser.uid),{
-      fennickStreak: increment(1)
-    }).catch(()=>{});
+    db.collection('users').doc(currentUser.uid).update({ fennickStreak: firebase.firestore.FieldValue.increment(1) }).catch(()=>{});
   }
 }
 
 // ── AUTH ──
-onAuthStateChanged(auth, user=>{
+auth && auth.onAuthStateChanged( user=>{
   currentUser = user;
   const btn = document.getElementById('auth-btn');
   if(user){
     btn.textContent = 'Sign Out';
-    btn.onclick = ()=>signOut(auth);
+    btn.onclick = ()=>auth.signOut();
     // Load streak
-    getDoc(doc(db,'users',user.uid)).then(snap=>{
+    db.collection('users').doc(user.uid).get().then(snap=>{
       if(snap.exists()) streak = snap.data().fennickStreak||0;
       document.getElementById('streak-val').textContent = streak + ' 🔥';
     });
@@ -863,10 +865,13 @@ window.signIn = function(){
   const email = document.getElementById('auth-email').value;
   const pass = document.getElementById('auth-pass').value;
   const err = document.getElementById('auth-err');
-  signInWithEmailAndPassword(auth, email, pass)
+  auth.signInWithEmailAndPassword(email, pass)
     .then(()=>{ document.getElementById('auth-modal').classList.remove('show'); err.style.display='none'; })
     .catch(e=>{ err.textContent=e.message; err.style.display='block'; });
 };
 </script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </body>
 </html>
