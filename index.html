@@ -3,564 +3,864 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fennick MD — Daily Diagnostic</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<title>Fennick MD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --parchment:#f5edd0;
-  --parchment-light:#fffbe8;
-  --gold:#c8a040;
-  --gold-light:#e8d060;
-  --brown-dark:#3a1c08;
-  --brown-mid:#7a5218;
-  --brown-light:#9b7230;
-  --tag-red-bg:#fde8d8;--tag-red-txt:#7a2808;--tag-red-brd:#d08858;
-  --tag-blue-bg:#dce8f8;--tag-blue-txt:#18386a;--tag-blue-brd:#7898c8;
-  --tag-green-bg:#dcf0dc;--tag-green-txt:#184818;--tag-green-brd:#68a868;
-  --ok:#2a6a1a;--ok-bg:#e8f5e0;--ok-brd:#4a8a2a;
-  --err:#b04020;--err-bg:#fde8d8;--err-brd:#c05030;
+html,body{height:100%;font-family:'EB Garamond',Georgia,serif}
+
+/* ── PAGE BACKGROUND ── */
+#bg{position:fixed;inset:0;z-index:0;background-size:cover;background-position:center;transition:opacity .8s}
+
+/* ── WOOD NAV ── */
+.fm-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:10px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  background-color:#3e1e08;
+  background-image:
+    repeating-linear-gradient(179deg,
+      transparent 0px,transparent 3px,
+      rgba(255,180,80,0.06) 3px,rgba(255,180,80,0.06) 4px,
+      transparent 4px,transparent 9px,
+      rgba(0,0,0,0.08) 9px,rgba(0,0,0,0.08) 10px,
+      transparent 10px,transparent 18px,
+      rgba(255,160,60,0.04) 18px,rgba(255,160,60,0.04) 19px,
+      transparent 19px,transparent 28px,
+      rgba(0,0,0,0.06) 28px,rgba(0,0,0,0.06) 29px,
+      transparent 29px,transparent 40px
+    ),
+    linear-gradient(176deg,#522a0c 0%,#3c1a06 15%,#4e2608 30%,#3a1605 45%,#4c2208 60%,#3c1a06 75%,#4a2008 100%);
+  border-bottom:2px solid #7a4a12;
+  height:52px;
 }
-body{
-  font-family:'Lora',Georgia,serif;
-  background:url('https://res.cloudinary.com/djiap51xq/image/upload/v1775263027/background_f7pgu4.png') center center / cover fixed;
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;
-  padding:0 12px 60px;
+.fm-logo{color:#e8c87a;font-family:'Playfair Display',serif;font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;text-decoration:none}
+.fm-logo-gear{color:#c8a45a}
+.fm-logo small{color:#b09050;font-size:10px;display:block;letter-spacing:.15em;font-style:italic;font-weight:400;margin-top:1px}
+.fm-nav-r{display:flex;gap:10px;align-items:center}
+.fm-nav-pill{color:#e8c87a;font-size:12px;border:1px solid #8b6914;border-radius:20px;padding:3px 12px;background:rgba(0,0,0,0.25);cursor:pointer;font-family:'EB Garamond',serif}
+.fm-nav-pill:hover{background:rgba(0,0,0,0.4)}
+.fm-case-lbl{color:#b09050;font-size:11px;font-style:italic}
+.fm-hp-nav{display:flex;align-items:center;gap:6px}
+.fm-hp-nav-track{width:60px;height:6px;background:rgba(0,0,0,0.3);border-radius:99px;overflow:hidden;border:1px solid rgba(200,160,80,0.3)}
+.fm-hp-nav-fill{height:100%;background:#c8a45a;border-radius:99px;transition:width .4s ease}
+.fm-hp-nav-num{color:#e8c87a;font-size:11px;font-weight:600;min-width:28px}
+
+/* ── MAIN LAYOUT ── */
+#app{
+  position:relative;z-index:10;
+  padding-top:52px;
+  display:flex;
+  height:100vh;
 }
-.page{
-  width:100%;max-width:680px;
-  border-radius:14px;overflow:hidden;
-  border:2px solid var(--brown-mid);
-  margin-top:20px;
-  background:var(--parchment);
+
+/* ── LEFT COLUMN — FIXED ── */
+#left-col{
+  width:200px;flex-shrink:0;
+  height:calc(100vh - 52px);
+  position:sticky;top:52px;
+  display:flex;flex-direction:column;
+  padding:14px 12px;
+  gap:12px;
+  background-color:#3e1e08;
+  background-image:
+    repeating-linear-gradient(179deg,
+      transparent 0px,transparent 3px,
+      rgba(255,180,80,0.05) 3px,rgba(255,180,80,0.05) 4px,
+      transparent 4px,transparent 9px,
+      rgba(0,0,0,0.07) 9px,rgba(0,0,0,0.07) 10px,
+      transparent 10px,transparent 18px
+    ),
+    linear-gradient(176deg,#522a0c 0%,#3c1a06 20%,#4e2608 40%,#3a1605 60%,#4a2008 100%);
+  border-right:2px solid rgba(120,80,20,0.5);
+  overflow:hidden;
 }
-.wood{position:relative;overflow:hidden}
-.wood svg.grain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.topbar{
-  min-height:48px;padding:11px 22px;
+
+.fennick-portrait-box{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(200,160,80,0.2);
+}
+#fennick-img{width:120px;height:120px;object-fit:contain;transition:opacity .3s}
+.fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;text-align:center}
+.fennick-title{color:#a08040;font-size:10px;font-style:italic;text-align:center}
+
+.fennick-comment-box{
+  background:rgba(0,0,0,0.22);
+  border:1px solid rgba(200,160,60,0.25);
+  border-radius:8px;padding:10px;
+  flex:1;
+}
+.fennick-comment-lbl{color:#c8a45a;font-size:9px;letter-spacing:.12em;margin-bottom:5px;display:block}
+#fennick-comment{color:#d4c4a0;font-size:11.5px;font-style:italic;line-height:1.6;transition:color .3s}
+
+.hint-btn{
+  background:rgba(200,160,60,0.15);
+  border:1px solid rgba(200,160,60,0.35);
+  border-radius:8px;padding:8px 10px;
+  color:#e8c87a;font-size:11px;font-style:italic;
+  cursor:pointer;text-align:center;
+  font-family:'EB Garamond',serif;
+  transition:background .2s;
+}
+.hint-btn:hover{background:rgba(200,160,60,0.25)}
+.hint-btn span{font-size:9px;color:#a08040;display:block;margin-top:2px}
+
+.streak-box{
+  background:rgba(0,0,0,0.18);
+  border:1px solid rgba(200,160,60,0.2);
+  border-radius:7px;padding:7px 10px;
   display:flex;align-items:center;justify-content:space-between;
-  border-bottom:2px solid var(--brown-mid);
 }
-.tlogo{color:#f0d898;font-size:16px;letter-spacing:.5px;text-shadow:0 1px 2px rgba(0,0,0,.4);position:relative}
-.tsub{color:var(--gold);font-size:9px;letter-spacing:3px;margin-top:1px;position:relative}
-.tright{display:flex;align-items:center;gap:10px;position:relative}
-.streak-pill{font-size:11px;color:var(--gold);font-style:italic;display:none}
-.streak-pill b{color:#f0d898}
-.case-pill{background:var(--gold);color:var(--brown-dark);font-size:10px;padding:4px 14px;border-radius:20px;letter-spacing:1px;border:1px solid var(--gold-light)}
-.scene{
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  height:210px;overflow:hidden;
-  border-bottom:2px solid var(--brown-mid);
-  position:relative;background:#e8d488;
+.streak-lbl{color:#a08040;font-size:10px;font-style:italic}
+.streak-val{color:#e8c87a;font-size:12px}
+
+/* ── RIGHT SCROLLABLE ── */
+#right-col{
+  flex:1;
+  height:calc(100vh - 52px);
+  overflow-y:auto;
+  padding:16px;
+  background:
+    radial-gradient(ellipse 65% 65% at 0% 0%, #9a7010 0%, transparent 52%),
+    radial-gradient(ellipse 65% 65% at 100% 0%, #a08018 0%, transparent 52%),
+    radial-gradient(ellipse 65% 65% at 0% 100%, #987010 0%, transparent 52%),
+    radial-gradient(ellipse 65% 65% at 100% 100%, #9a7818 0%, transparent 52%),
+    #d0c070;
+  display:flex;flex-direction:column;gap:14px;
 }
-.scene-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.scene-col{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.char-img{width:100%;height:210px;object-fit:contain;object-position:center bottom;display:block}
-.char-empty{width:88px;height:170px;background:rgba(155,114,48,.1);border:2px dashed rgba(155,114,48,.25);border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center}
-.char-empty span{color:rgba(80,40,0,.25);font-size:9px;letter-spacing:1px;text-align:center;line-height:1.8}
-.bubble-col{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:14px 10px}
-.speech{background:rgba(255,252,235,.97);border:2px solid var(--brown-mid);border-radius:12px;padding:11px 12px;position:relative;overflow-y:auto;max-height:180px}
-.speech::after{content:'';position:absolute;top:50%;left:-11px;transform:translateY(-50%);border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:11px solid var(--brown-mid)}
-.speech::before{content:'';position:absolute;top:50%;left:-8px;transform:translateY(-50%);z-index:1;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid rgba(255,252,235,.97)}
-.speech-name{font-size:9px;color:#9b5010;letter-spacing:1.5px;margin-bottom:4px}
-.speech-text{font-size:11px;color:#3a1e08;line-height:1.75;font-style:italic}
-.woodbar{height:20px;border-top:2px solid var(--brown-mid);border-bottom:2px solid var(--brown-mid)}
-.body{padding:16px 18px;display:flex;flex-direction:column;gap:13px}
-.case-panel{background:var(--parchment-light);border:2px solid var(--brown-light);border-radius:11px;padding:15px;position:relative}
-.case-panel::after{content:'';position:absolute;inset:4px;border:1px solid rgba(155,114,48,.15);border-radius:7px;pointer-events:none}
-.case-ribbon{position:absolute;top:-1px;left:16px;background:var(--brown-light);color:var(--parchment);font-size:8px;letter-spacing:2px;padding:3px 12px;border-radius:0 0 7px 7px}
-.case-title{font-size:14px;color:#4a2408;margin:10px 0 8px}
-.case-body{font-size:12px;color:#3a1e08;line-height:2.1}
-.case-body b{color:#8b3808}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.tag{font-size:10px;padding:3px 11px;border-radius:20px;border:1.5px solid}
-.tag-red{background:var(--tag-red-bg);color:var(--tag-red-txt);border-color:var(--tag-red-brd)}
-.tag-blue{background:var(--tag-blue-bg);color:var(--tag-blue-txt);border-color:var(--tag-blue-brd)}
-.tag-green{background:var(--tag-green-bg);color:var(--tag-green-txt);border-color:var(--tag-green-brd)}
-.pipe{display:flex;align-items:center}
-.ps{height:7px;flex:1;background:var(--gold);border-top:1.5px solid #e8c060;border-bottom:1.5px solid #886010}
-.pb{width:12px;height:12px;flex-shrink:0;background:var(--gold);border-radius:50%;border:2px solid #886010;position:relative}
-.pb::after{content:'';position:absolute;top:50%;left:50%;width:3.5px;height:3.5px;background:#886010;border-radius:50%;transform:translate(-50%,-50%)}
-.choices-label{font-size:8px;letter-spacing:3px;color:var(--brown-light);margin-bottom:9px;text-transform:uppercase}
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.choice{background:var(--parchment-light);border:2px solid var(--gold);border-radius:10px;padding:13px;cursor:pointer;position:relative;overflow:hidden;text-align:left;transition:border-color .15s,transform .1s,background .15s}
-.choice::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 6px,#b89030 6px,#b89030 8px)}
-.choice:hover:not(.done){border-color:var(--brown-mid);background:#fef3d0;transform:translateY(-1px)}
-.choice.correct{background:var(--ok-bg);border-color:var(--ok-brd);cursor:default}
-.choice.wrong{background:var(--err-bg);border-color:var(--err-brd);cursor:default;opacity:.75}
-.choice.done{cursor:default}
-.cletter{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;background:var(--gold);color:var(--brown-dark);font-size:10px;margin-bottom:6px;border:1px solid var(--brown-light)}
-.choice.correct .cletter{background:var(--ok-brd);color:#fff;border-color:var(--ok)}
-.choice.wrong .cletter{background:var(--err-brd);color:#fff;border-color:var(--err)}
-.cdrug{font-size:13px;color:#4a2408;margin-bottom:2px}
-.cclass{font-size:10px;color:var(--brown-light);font-style:italic}
-.hint-row{display:flex;justify-content:flex-end}
-.hint-btn{background:var(--gold);color:var(--brown-dark);border:1.5px solid var(--gold-light);padding:7px 18px;border-radius:20px;font-family:'Lora',serif;font-size:12px;cursor:pointer;transition:background .15s}
-.hint-btn:hover{background:var(--gold-light)}
-.hint-btn:disabled{opacity:.45;cursor:default}
-.reveal{display:none;background:var(--parchment-light);border:2px solid var(--brown-light);border-radius:10px;padding:14px;font-size:12.5px;color:#3a1e08;line-height:1.9}
-.reveal.show{display:block;animation:slideIn .3s ease}
-@keyframes slideIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-.rhead-ok{color:var(--ok);font-size:13px;margin-bottom:8px}
-.rhead-err{color:var(--err);font-size:13px;margin-bottom:8px}
-.rdivider{height:1px;background:rgba(155,114,48,.2);margin:10px 0}
-.ritem{margin-bottom:8px}
-.rdrug{font-size:11px;font-weight:500;color:#5a2e08;margin-bottom:2px}
-.rtext{font-size:11.5px;color:#4a3020;line-height:1.8}
-.played-card{background:var(--parchment-light);border:2px solid var(--brown-light);border-radius:11px;padding:24px;text-align:center}
-.played-card .icon{font-size:28px;margin-bottom:10px}
-.played-card h3{font-size:14px;color:#4a2408;margin-bottom:8px}
-.played-ans{display:inline-block;margin-bottom:12px;font-size:12px;padding:6px 18px;border-radius:999px;background:var(--tag-green-bg);border:1px solid var(--tag-green-brd);color:var(--tag-green-txt)}
-.played-card p{font-size:12px;color:var(--brown-light);line-height:1.9;margin-bottom:16px}
-.played-card button{background:var(--gold);color:var(--brown-dark);border:1.5px solid var(--gold-light);padding:8px 20px;border-radius:20px;font-family:'Lora',serif;font-size:12px;cursor:pointer}
-.bottombar{min-height:46px;padding:10px 22px;display:flex;align-items:center;justify-content:space-between}
-.bstreak{font-size:11px;color:#d4b850;font-style:italic;position:relative}
-.bstreak b{color:#f0d898}
-.archive-btn{font-size:11px;color:var(--gold);background:none;border:none;font-family:'Lora',serif;cursor:pointer;letter-spacing:.5px;border-bottom:1px solid rgba(200,160,64,.3);transition:color .15s;position:relative}
-.archive-btn:hover{color:#f0d898}
-#archive-page{display:none}
-.archive-grid{padding:18px;display:flex;flex-direction:column;gap:10px}
-.aitem{background:var(--parchment-light);border:1.5px solid var(--brown-light);border-radius:10px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:border-color .15s,background .15s;margin-bottom:2px}
-.aitem:hover{border-color:var(--brown-mid);background:#fef3d0}
-.aitem-left{display:flex;flex-direction:column;gap:3px}
-.aitem-title{font-size:14px;color:#4a2408;margin-bottom:3px}
-.aitem-date{font-size:11px;color:var(--brown-light);letter-spacing:.5px}
-.aitem-right{display:flex;align-items:center;gap:8px}
-.aitem-badge{font-size:10px;padding:3px 10px;border-radius:20px;background:var(--tag-green-bg);color:var(--tag-green-txt);border:1px solid var(--tag-green-brd)}
-.aitem-arrow{color:var(--brown-light);font-size:14px}
-.back-btn{background:none;border:none;color:var(--gold);font-family:'Lora',serif;font-size:12px;cursor:pointer;position:relative}
-.back-btn:hover{color:#f0d898}
-.played-banner{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--parchment-light);border:1.5px solid var(--brown-light);
-  border-radius:10px;padding:11px 16px;font-size:12px;color:var(--brown-mid);font-style:italic;
+
+/* ── NOTE PANELS ── */
+.note{
+  background:rgba(255,252,230,0.82);
+  border:1px solid rgba(160,120,40,0.35);
+  border-radius:7px;
+  padding:14px 16px;
 }
-.played-banner button{
-  background:var(--gold);color:var(--brown-dark);
-  border:1.5px solid var(--gold-light);padding:5px 14px;
-  border-radius:20px;font-family:'Lora',serif;font-size:11px;cursor:pointer;
+
+/* ── PATIENT BANNER ── */
+#pt-banner{display:flex;gap:14px;align-items:flex-start}
+#pt-img-wrap{
+  width:110px;height:130px;flex-shrink:0;
+  background:rgba(255,255,255,0.4);
+  border:1px solid rgba(160,120,40,0.3);
+  border-radius:6px;
+  overflow:hidden;
+  display:flex;align-items:flex-end;justify-content:center;
 }
-#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);padding:11px 22px;border-radius:9px;font-size:12px;font-family:'Lora',serif;color:#f0d898;background:var(--brown-dark);border:1px solid var(--gold);z-index:999;display:none;white-space:nowrap}
-@keyframes toastAnim{0%{opacity:0;transform:translateX(-50%) translateY(6px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}85%{opacity:1}100%{opacity:0}}
-@media(max-width:480px){.choices{grid-template-columns:1fr}.scene{grid-template-columns:90px 1fr 90px}}
+#pt-img{width:110px;height:130px;object-fit:contain;object-position:bottom}
+.pt-name{color:#2a1a06;font-family:'Playfair Display',serif;font-size:18px;font-weight:600}
+.pt-occ{color:#7a5010;font-size:11px;font-style:italic;margin-top:2px}
+.pt-tag{display:inline-flex;align-items:center;gap:5px;background:#3a1a06;color:#e8c87a;font-size:9px;letter-spacing:.12em;padding:3px 9px;border-radius:4px;margin-top:6px}
+
+/* ── MEDICAL CHART ── */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:10px}
+.chart-row{display:contents}
+.chart-label{font-size:11px;color:#7a5010;font-weight:500;letter-spacing:.05em;padding:4px 0;border-bottom:1px solid rgba(160,120,40,0.12)}
+.chart-val{font-size:13px;color:#2a1a06;padding:4px 0 4px 8px;border-bottom:1px solid rgba(160,120,40,0.12);line-height:1.5}
+.chart-full{grid-column:1/-1}
+.chart-full .chart-val{padding-left:0}
+.vitals-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.vital-item{display:flex;flex-direction:column;align-items:center;gap:1px}
+.vital-val{font-size:14px;font-weight:600;color:#2a1a06;font-family:'Playfair Display',serif}
+.vital-lbl{font-size:9px;color:#7a5010;letter-spacing:.08em}
+
+/* ── SECTION HEADERS ── */
+.section-tag{display:inline-block;background:#3a1a06;color:#e8c87a;font-size:9px;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:17px;color:#2a1a06;font-weight:600;margin-bottom:8px}
+
+/* ── ORDERABLE TESTS ── */
+.tests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.test-btn{
+  background:rgba(255,255,255,0.5);
+  border:1px solid rgba(160,120,40,0.35);
+  border-radius:6px;padding:8px 10px;
+  cursor:pointer;text-align:center;
+  font-family:'EB Garamond',serif;
+  transition:background .15s;
+}
+.test-btn:hover{background:rgba(255,255,255,0.75)}
+.test-btn.ordered{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
+.test-btn-name{font-size:12px;color:#2a1a06;font-style:italic}
+.test-btn-cost{font-size:9px;color:#8b6030;margin-top:2px}
+.test-result-card{background:rgba(240,230,180,0.6);border:1px solid rgba(160,120,40,0.3);border-radius:6px;padding:10px 12px;margin-top:8px}
+.test-result-name{font-size:10px;color:#7a5010;letter-spacing:.1em;margin-bottom:4px}
+.test-result-val{font-size:13px;color:#2a1a06;line-height:1.6}
+
+/* ── DX SECTION ── */
+.dx-input-wrap{position:relative;margin-top:8px}
+#dx-input{
+  width:100%;padding:10px 14px;
+  background:rgba(255,255,255,0.6);
+  border:1.5px solid rgba(160,120,40,0.4);
+  border-radius:7px;
+  font-family:'EB Garamond',serif;font-size:14px;color:#2a1a06;
+  font-style:italic;
+}
+#dx-input:focus{outline:none;border-color:rgba(160,120,40,0.7);background:rgba(255,255,255,0.8)}
+#dx-suggestions{
+  position:absolute;top:100%;left:0;right:0;z-index:50;
+  background:#fdf8e8;border:1px solid rgba(160,120,40,0.4);
+  border-radius:0 0 7px 7px;max-height:200px;overflow-y:auto;
+  display:none;
+}
+.dx-suggestion{padding:8px 14px;font-size:13px;color:#2a1a06;cursor:pointer;font-style:italic}
+.dx-suggestion:hover{background:rgba(200,160,60,0.15)}
+#dx-submit-btn{
+  margin-top:8px;width:100%;padding:10px;
+  background:#3a1a06;color:#e8c87a;
+  border:none;border-radius:7px;
+  font-family:'Playfair Display',serif;font-size:14px;font-style:italic;
+  cursor:pointer;transition:background .2s;
+}
+#dx-submit-btn:hover{background:#5a2a0a}
+#dx-result{margin-top:8px;font-size:13px;font-style:italic;display:none;padding:8px 12px;border-radius:6px}
+#dx-result.correct{background:rgba(180,230,160,0.45);color:#1a4a08;border:1px solid rgba(80,160,60,0.4)}
+#dx-result.wrong{background:rgba(230,160,150,0.4);color:#4a1010;border:1px solid rgba(180,80,70,0.35)}
+
+/* ── MANAGEMENT ── */
+.mgmt-stage{margin-bottom:4px}
+.mgmt-stage-header{
+  display:flex;align-items:center;gap:8px;margin-bottom:8px;
+}
+.stage-num{
+  width:22px;height:22px;border-radius:50%;
+  background:#3a1a06;color:#e8c87a;
+  font-size:11px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.stage-num.done{background:rgba(80,160,60,0.7)}
+.stage-num.locked{background:rgba(160,120,40,0.3);color:rgba(200,160,80,0.5)}
+.stage-title{font-family:'Playfair Display',serif;font-size:14px;color:#2a1a06;font-style:italic}
+.stage-title.locked{color:rgba(60,40,10,0.4)}
+
+.mgmt-options{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.mgmt-option{
+  background:rgba(255,255,255,0.48);
+  border:1px solid rgba(160,120,40,0.35);
+  border-radius:7px;padding:10px 12px;
+  cursor:pointer;display:flex;align-items:flex-start;gap:8px;
+  transition:background .15s;
+  font-family:'EB Garamond',serif;
+}
+.mgmt-option:hover{background:rgba(255,255,255,0.7)}
+.mgmt-option.selected-correct{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
+.mgmt-option.selected-wrong{background:rgba(230,160,150,0.4);border-color:rgba(180,80,70,0.38);cursor:default;opacity:.7}
+.mgmt-option.selected-danger{background:rgba(230,80,60,0.25);border-color:rgba(200,50,30,0.5);cursor:default}
+.mgmt-option.locked-opt{opacity:.4;cursor:not-allowed}
+.mgmt-ob{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(160,120,40,0.45);
+  color:#2a1a06;font-size:11px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.mgmt-option.selected-correct .mgmt-ob{background:rgba(80,160,60,0.7);color:#fff}
+.mgmt-option.selected-wrong .mgmt-ob{background:rgba(180,80,70,0.7);color:#fff}
+.mgmt-option.selected-danger .mgmt-ob{background:rgba(200,50,30,0.8);color:#fff}
+.mgmt-on{font-family:'Playfair Display',serif;font-size:13px;color:#2a1a06;font-style:italic}
+.mgmt-oc{font-size:11px;color:#7a5010;margin-top:1px}
+
+.stage-divider{height:1px;background:rgba(120,90,20,0.15);margin:10px 0}
+
+/* ── PROGRESS BAR ── */
+.progress-track{display:flex;align-items:center;gap:0;padding:0 2px}
+.prog-dot{width:10px;height:10px;border-radius:50%;background:rgba(200,160,80,0.35);border:1.5px solid rgba(120,80,10,0.35);flex-shrink:0;transition:all .3s}
+.prog-dot.done{background:rgba(100,70,10,0.65);border-color:rgba(80,50,5,0.65)}
+.prog-dot.cur{background:#c8a45a;border-color:#8b6914}
+.prog-line{flex:1;height:2px;background:rgba(160,120,40,0.15);border-radius:2px;transition:background .3s}
+.prog-line.done{background:rgba(100,70,10,0.5)}
+
+/* ── ENDGAME ── */
+#endgame{display:none;text-align:center;padding:20px}
+.grade-circle{
+  width:100px;height:100px;border-radius:50%;
+  margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:48px;font-weight:600;color:#e8c87a;
+  background:#3a1a06;border:3px solid #c8a45a;
+}
+.endgame-title{font-family:'Playfair Display',serif;font-size:22px;color:#2a1a06;font-weight:600;margin-bottom:6px}
+.endgame-fennick-comment{font-size:14px;color:#4a3010;font-style:italic;line-height:1.7;margin-bottom:16px;border-left:2px solid rgba(160,120,40,0.4);padding-left:12px;text-align:left}
+.endgame-stats{display:flex;gap:12px;justify-content:center;margin-bottom:16px}
+.endgame-stat{background:rgba(255,255,255,0.5);border:1px solid rgba(160,120,40,0.3);border-radius:7px;padding:10px 16px;text-align:center}
+.endgame-stat-val{font-family:'Playfair Display',serif;font-size:20px;color:#2a1a06;font-weight:600}
+.endgame-stat-lbl{font-size:10px;color:#7a5010;letter-spacing:.08em}
+
+/* ── MODALS ── */
+.modal{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.5);align-items:center;justify-content:center}
+.modal.show{display:flex}
+.modal-box{background:#fdf8e8;border:2px solid #c8a45a;border-radius:10px;padding:24px;max-width:380px;width:90%;position:relative}
+.modal-title{font-family:'Playfair Display',serif;font-size:18px;color:#2a1a06;font-weight:600;margin-bottom:6px}
+.modal-sub{font-size:13px;color:#7a5010;margin-bottom:16px;font-style:italic}
+.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:18px;color:#7a5010;cursor:pointer}
+.modal-input{width:100%;padding:9px 12px;border:1.5px solid rgba(160,120,40,0.4);border-radius:7px;font-family:'EB Garamond',serif;font-size:14px;margin-bottom:10px;background:rgba(255,255,255,0.7)}
+.modal-btn{width:100%;padding:10px;background:#3a1a06;color:#e8c87a;border:none;border-radius:7px;font-family:'Playfair Display',serif;font-size:14px;cursor:pointer;font-style:italic}
+.modal-btn:hover{background:#5a2a0a}
+.modal-err{font-size:12px;color:#c84a3a;margin-top:6px;font-style:italic;display:none}
 </style>
 </head>
 <body>
-<audio id="bgm" src="theme.mp3" loop preload="auto"></audio>
-<div id="toast"></div>
 
-<div id="game-page">
-  <div class="page">
-    <div class="topbar wood">
-      <svg class="grain" viewBox="0 0 680 48" preserveAspectRatio="xMidYMid slice">
-        <rect width="680" height="48" fill="#3a1c08"/>
-        <path d="M0 8 Q170 4 340 8 Q510 12 680 8" stroke="rgba(255,200,100,0.07)" stroke-width="2.5" fill="none"/>
-        <path d="M0 18 Q170 13 340 18 Q510 23 680 16" stroke="rgba(0,0,0,0.09)" stroke-width="2" fill="none"/>
-        <path d="M0 28 Q170 23 340 29 Q510 35 680 27" stroke="rgba(255,200,100,0.06)" stroke-width="3" fill="none"/>
-        <path d="M0 38 Q170 33 340 39 Q510 45 680 37" stroke="rgba(0,0,0,0.08)" stroke-width="2" fill="none"/>
-      </svg>
-      <div style="position:relative">
-        <div class="tlogo">Fennick MD</div>
-        <div class="tsub">Daily Diagnostic</div>
-      </div>
-      <div class="tright">
-        <div class="streak-pill" id="streak-pill">🔥 <b id="streak-val">0</b> days</div>
-        <button id="music-btn" onclick="toggleMusic()" style="position:relative;background:rgba(200,160,64,.2);border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:4px 12px;font-size:11px;font-family:'Lora',serif;cursor:pointer;letter-spacing:.5px" title="Toggle music">♪ On</button>
-        <div class="case-pill" id="case-pill">Case no. —</div>
-      </div>
+<div id="bg"></div>
+
+<nav class="fm-nav">
+  <a class="fm-logo" href="#">
+    <svg class="fm-logo-gear" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    Fennick MD
+    <small>Daily Case</small>
+  </a>
+  <div class="fm-nav-r">
+    <div class="fm-hp-nav">
+      <div class="fm-hp-nav-track"><div class="fm-hp-nav-fill" id="hp-bar-nav" style="width:100%"></div></div>
+      <span class="fm-hp-nav-num" id="hp-num-nav">100</span>
     </div>
+    <span class="fm-case-lbl" id="case-num-lbl">Case no. 001</span>
+    <button class="fm-nav-pill" id="auth-btn" onclick="document.getElementById('auth-modal').classList.add('show')">Sign In</button>
+  </div>
+</nav>
 
-    <div class="scene">
-      <img class="scene-bg" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775179062/Background_n0pwly.png" alt="" onerror="this.style.display='none'">
-      <div class="scene-col">
-        <img class="char-img" id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775183043/DRDEFAULT_mpikmc.png" alt="Dr. Fennick" onerror="this.style.display='none'">
-      </div>
-      <div class="bubble-col">
-        <div class="speech">
-          <div class="speech-name">Dr. Fennick</div>
-          <div class="speech-text" id="speech-text">"Welcome. Today's case is loading..."</div>
+<div id="app">
+  <div id="left-col">
+    <div class="fennick-portrait-box">
+      <img id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/w_120,h_120,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png" width="120" height="120" alt="Dr. Fennick">
+      <div class="fennick-name">Dr. Fennick</div>
+      <div class="fennick-title">Chief Diagnostician</div>
+    </div>
+    <div class="fennick-comment-box">
+      <span class="fennick-comment-lbl">DR. FENNICK OBSERVES</span>
+      <div id="fennick-comment">"A new case has arrived. Take your time — but not too much of it."</div>
+    </div>
+    <button class="hint-btn" onclick="useHint()">
+      Ask Dr. Fennick
+      <span>−10 HP per hint</span>
+    </button>
+    <div class="streak-box">
+      <span class="streak-lbl">Streak</span>
+      <span class="streak-val" id="streak-val">0 🔥</span>
+    </div>
+  </div>
+
+  <div id="right-col">
+
+    <div class="note" id="pt-banner-note">
+      <div id="pt-banner">
+        <div id="pt-img-wrap">
+          <img id="pt-img" src="" width="110" height="130" alt="Patient">
+        </div>
+        <div style="flex:1">
+          <div class="pt-name" id="pt-name">—</div>
+          <div class="pt-occ" id="pt-occ">—</div>
+          <div class="pt-tag">● CHIEF COMPLAINT</div>
+          <div style="font-size:13px;color:#4a3010;margin-top:8px;font-style:italic;line-height:1.65;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
         </div>
       </div>
-      <div class="scene-col" id="patient-col">
-        <div class="char-empty"><span>Today's<br>patient</span></div>
-      </div>
     </div>
 
-    <div class="woodbar wood">
-      <svg class="grain" viewBox="0 0 680 20" preserveAspectRatio="xMidYMid slice">
-        <rect width="680" height="20" fill="#b8891e"/>
-        <path d="M0 4 Q170 1 340 5 Q510 9 680 4" stroke="rgba(255,220,120,0.12)" stroke-width="2" fill="none"/>
-        <path d="M0 10 Q170 6 340 11 Q510 16 680 10" stroke="rgba(0,0,0,0.09)" stroke-width="1.5" fill="none"/>
-        <path d="M0 16 Q170 12 340 17 Q510 22 680 15" stroke="rgba(255,220,120,0.08)" stroke-width="2" fill="none"/>
-      </svg>
+    <div class="note" id="chart-note">
+      <span class="section-tag">MEDICAL CHART</span>
+      <div class="chart-grid" id="chart-grid"></div>
+      <div class="vitals-row" id="vitals-row"></div>
     </div>
 
-    <div class="body" id="game-body">
-      <div class="case-panel">
-        <div class="case-ribbon" id="case-ribbon">loading...</div>
-        <div class="case-title" id="case-title">Loading today's case...</div>
-        <div class="case-body" id="case-body"></div>
-        <div class="tags" id="case-tags"></div>
-      </div>
-
-      <div class="pipe">
-        <div class="pb"></div><div class="ps"></div><div class="pb"></div><div class="ps"></div>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin:0 3px">
-          <circle cx="10" cy="10" r="8" fill="#c8a850" stroke="#886010" stroke-width="1.8"/>
-          <circle cx="10" cy="10" r="3.5" fill="#886010"/>
-          <line x1="10" y1="2" x2="10" y2="5" stroke="#886010" stroke-width="2" stroke-linecap="round"/>
-          <line x1="10" y1="15" x2="10" y2="18" stroke="#886010" stroke-width="2" stroke-linecap="round"/>
-          <line x1="2" y1="10" x2="5" y2="10" stroke="#886010" stroke-width="2" stroke-linecap="round"/>
-          <line x1="15" y1="10" x2="18" y2="10" stroke="#886010" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <div class="ps"></div><div class="pb"></div><div class="ps"></div><div class="pb"></div>
-      </div>
-
-      <div>
-        <div class="choices-label">Choose the first-line treatment</div>
-        <div class="choices" id="choices"></div>
-      </div>
-
-      <div class="hint-row">
-        <button class="hint-btn" id="hint-btn" onclick="showHint()">Ask Dr. Fennick</button>
-      </div>
-
-      <div class="reveal" id="reveal"></div>
+    <div class="note" id="workup-note">
+      <span class="section-tag">CLINICAL WORKUP</span>
+      <div id="ordered-results"></div>
+      <div class="tests-grid" id="tests-grid"></div>
     </div>
 
-    <div class="bottombar wood">
-      <svg class="grain" viewBox="0 0 680 46" preserveAspectRatio="xMidYMid slice">
-        <rect width="680" height="46" fill="#3a1c08"/>
-        <path d="M0 8 Q170 4 340 9 Q510 14 680 8" stroke="rgba(255,200,100,0.07)" stroke-width="2.5" fill="none"/>
-        <path d="M0 22 Q170 17 340 23 Q510 29 680 21" stroke="rgba(255,200,100,0.06)" stroke-width="3" fill="none"/>
-        <path d="M0 36 Q170 31 340 37 Q510 43 680 35" stroke="rgba(0,0,0,0.08)" stroke-width="2" fill="none"/>
-      </svg>
-      <div class="bstreak">Streak <b id="bottom-streak">0</b> days 🔥</div>
-      <button class="archive-btn" onclick="showArchive()">Archive →</button>
+    <div class="note" id="dx-note">
+      <span class="section-tag">DIAGNOSIS</span>
+      <div class="dx-input-wrap">
+        <input id="dx-input" type="text" placeholder="Enter your diagnosis..." autocomplete="off">
+        <div id="dx-suggestions"></div>
+      </div>
+      <button id="dx-submit-btn" onclick="submitDx()">Submit Diagnosis →</button>
+      <div id="dx-result"></div>
     </div>
+
+    <div class="note" id="mgmt-note">
+      <span class="section-tag">MANAGEMENT</span>
+      <div class="progress-track" id="mgmt-progress"></div>
+      <div style="margin-top:12px" id="mgmt-stages"></div>
+    </div>
+
+    <div class="note" id="endgame" style="display:none">
+      <div class="grade-circle" id="grade-circle">—</div>
+      <div class="endgame-title" id="endgame-title">Case Complete</div>
+      <div class="endgame-fennick-comment" id="endgame-comment">—</div>
+      <div class="endgame-stats">
+        <div class="endgame-stat"><div class="endgame-stat-val" id="end-hp">—</div><div class="endgame-stat-lbl">HP LEFT</div></div>
+        <div class="endgame-stat"><div class="endgame-stat-val" id="end-errors">—</div><div class="endgame-stat-lbl">ERRORS</div></div>
+        <div class="endgame-stat"><div class="endgame-stat-val" id="end-grade">—</div><div class="endgame-stat-lbl">GRADE</div></div>
+      </div>
+      <button class="fm-nav-pill" style="width:100%;padding:10px;font-size:14px" onclick="location.reload()">Next Case →</button>
+    </div>
+
   </div>
 </div>
 
-<div id="archive-page">
-  <div class="page">
-    <div class="topbar wood">
-      <svg class="grain" viewBox="0 0 680 48" preserveAspectRatio="xMidYMid slice">
-        <rect width="680" height="48" fill="#3a1c08"/>
-        <path d="M0 18 Q170 13 340 18 Q510 23 680 16" stroke="rgba(0,0,0,0.09)" stroke-width="2" fill="none"/>
-        <path d="M0 32 Q170 27 340 33 Q510 39 680 31" stroke="rgba(255,200,100,0.06)" stroke-width="3" fill="none"/>
-      </svg>
-      <button class="back-btn" onclick="showGame()">← Back</button>
-      <div class="tlogo" style="position:relative;font-size:14px">Case Archive</div>
-      <div style="width:60px"></div>
-    </div>
-    <div class="woodbar wood">
-      <svg class="grain" viewBox="0 0 680 20" preserveAspectRatio="xMidYMid slice">
-        <rect width="680" height="20" fill="#b8891e"/>
-        <path d="M0 10 Q170 6 340 11 Q510 16 680 10" stroke="rgba(0,0,0,0.09)" stroke-width="1.5" fill="none"/>
-      </svg>
-    </div>
-    <div class="archive-grid" id="archive-grid"></div>
-    <div class="bottombar wood">
-      <svg class="grain" viewBox="0 0 680 46" preserveAspectRatio="xMidYMid slice">
-        <rect width="680" height="46" fill="#3a1c08"/>
-        <path d="M0 22 Q170 17 340 23 Q510 29 680 21" stroke="rgba(255,200,100,0.06)" stroke-width="3" fill="none"/>
-      </svg>
-      <div class="bstreak">Streak <b id="arc-streak">0</b> days 🔥</div>
-      <span style="font-size:11px;color:var(--gold);font-style:italic;position:relative">Past cases</span>
-    </div>
+<!-- Auth Modal -->
+<div class="modal" id="auth-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('auth-modal').classList.remove('show')">✕</button>
+    <div class="modal-title">Welcome to Fennick MD</div>
+    <div class="modal-sub">Sign in to save your streak and progress.</div>
+    <input class="modal-input" id="auth-email" type="email" placeholder="Email">
+    <input class="modal-input" id="auth-pass" type="password" placeholder="Password">
+    <button class="modal-btn" onclick="signIn()">Sign In</button>
+    <div class="modal-err" id="auth-err"></div>
   </div>
 </div>
 
-<script>
-let allCases = [], allExplanations = {}, currentCase = null, answered = false, hintUsed = false, wrongAttempts = new Set();
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-
-const FOX_FACES = {
-  default:     'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775183043/DRDEFAULT_mpikmc.png',
-  success:     'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189999/success_liqvnd.png',
-  one_wrong:   'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189988/one_wrong_fboh0v.png',
-  two_wrong:   'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189991/two_wrong_rhki4f.png',
-  three_wrong: 'https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189995/three_wrong_pfjk6i.png'
+const firebaseConfig = {
+  apiKey: "AIzaSyBzVNM6yylE2LF_8SfqRluqdQVRBB6i6HI",
+  authDomain: "wardduel.firebaseapp.com",
+  projectId: "wardduel",
+  storageBucket: "wardduel.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abc123"
 };
-function setFoxFace(face) {
-  const img = document.getElementById("fennick-img");
-  if (img) img.src = FOX_FACES[face] || FOX_FACES.default;
-}
-function todayCST() {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone:'America/Chicago', year:'numeric', month:'2-digit', day:'2-digit'
-  }).format(new Date());
-}
-function getStreak() { return parseInt(localStorage.getItem('fmd_streak') || '0'); }
-function getLastPlayed() { return localStorage.getItem('fmd_last') || ''; }
-function updateStreak() {
-  const today = todayCST(), last = getLastPlayed();
-  const yest = new Intl.DateTimeFormat('en-CA', {
-    timeZone:'America/Chicago', year:'numeric', month:'2-digit', day:'2-digit'
-  }).format(new Date(Date.now() - 86400000));
-  if (last === today) return getStreak();
-  const s = last === yest ? getStreak() + 1 : 1;
-  localStorage.setItem('fmd_streak', s);
-  localStorage.setItem('fmd_last', today);
-  return s;
-}
-function renderStreak() {
-  const s = getStreak();
-  ['streak-val','bottom-streak','arc-streak'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = s;
-  });
-  if (s > 0) { const p = document.getElementById('streak-pill'); if (p) p.style.display = 'flex'; }
-}
-function getPlayed() {
-  try { return JSON.parse(localStorage.getItem('fmd_played') || '{}'); } catch(e) { return {}; }
-}
-function markPlayed(id, correct) {
-  const p = getPlayed(); p[id] = { correct, date: todayCST() };
-  localStorage.setItem('fmd_played', JSON.stringify(p));
-}
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.style.display = 'block';
-  t.style.animation = 'none'; void t.offsetHeight;
-  t.style.animation = 'toastAnim 2.4s ease-in-out';
-  setTimeout(() => t.style.display = 'none', 2400);
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// ── DIAGNOSES ──
+let DIAGNOSES = [];
+fetch('fennick_diagnoses.json').then(r=>r.json()).then(d=>{ DIAGNOSES=d; });
+
+// ── CASES ──
+let CASES = [];
+let currentCase = null;
+let currentCaseIdx = 0;
+
+fetch('fennick_cases.json').then(r=>r.json()).then(d=>{
+  CASES = d;
+  initCase();
+});
+
+// ── STATE ──
+let HP = 100;
+let errors = 0;
+let dxSubmitted = false;
+let dxCorrect = false;
+let currentStage = 0; // 0=stabilize,1=meds,2=workup,3=disposition
+let stageResults = [null,null,null,null];
+let orderedTests = new Set();
+let hints = [];
+let currentHintIdx = 0;
+let currentUser = null;
+let streak = 0;
+
+// ── FENNICK EXPRESSIONS ──
+const FOX = {
+  default:  'https://res.cloudinary.com/djiap51xq/image/upload/w_120,h_120,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
+  answer:   'https://res.cloudinary.com/djiap51xq/image/upload/w_120,h_120,c_fit/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
+  danger:   'https://res.cloudinary.com/djiap51xq/image/upload/w_120,h_120,c_fit/q_auto/f_auto/v1775527217/fox_-3_cjhvcn.png',
+  think:    'https://res.cloudinary.com/djiap51xq/image/upload/w_120,h_120,c_fit/q_auto/f_auto/v1775527222/fox_think_qk9moa.png',
+  lose:     'https://res.cloudinary.com/djiap51xq/image/upload/w_120,h_120,c_fit/q_auto/f_auto/v1775527215/fox_-2_t0r5hb.png',
+  concerned:'https://res.cloudinary.com/djiap51xq/image/upload/w_120,h_120,c_fit/q_auto/f_auto/v1775527214/fox_-1_i7vjma.png',
+};
+
+function setFennick(expr, comment){
+  document.getElementById('fennick-img').src = FOX[expr] || FOX.default;
+  if(comment) document.getElementById('fennick-comment').textContent = comment;
 }
 
-async function init() {
-  try {
-    const [casesRes, expRes] = await Promise.all([
-      fetch('cases.json'),
-      fetch('explanations.json')
-    ]);
-    if (!casesRes.ok) throw new Error('cases.json HTTP ' + casesRes.status);
-    allCases = await casesRes.json();
-    if (expRes.ok) allExplanations = await expRes.json();
-  } catch(e) {
-    console.error('Load failed:', e);
-    document.getElementById('case-title').textContent = 'Could not load cases. Make sure cases.json and explanations.json are in the same folder on GitHub.';
+// ── BACKGROUND ──
+function setBackground(){
+  const now = new Date();
+  const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
+  const h = cst.getHours();
+  const isNight = h >= 18 || h < 6;
+  document.getElementById('bg').style.backgroundImage = isNight
+    ? "url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527250/night_pi7sfg.png')"
+    : "url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527232/background_ui_tl1rgz.png')";
+}
+setBackground();
+setInterval(setBackground, 60000);
+
+// ── HP ──
+function drainHP(amount){
+  HP = Math.max(0, HP - amount);
+  document.getElementById('hp-bar-nav').style.width = HP + '%';
+  document.getElementById('hp-num-nav').textContent = HP;
+  if(HP === 0) endCase(true);
+}
+
+function updateFennickByErrors(){
+  if(errors === 0) setFennick('default');
+  else if(errors === 1) setFennick('think', '"Careful now."');
+  else if(errors >= 2) setFennick('concerned', '"You are making this harder than it needs to be."');
+}
+
+// ── INIT CASE ──
+function getTodayKey(){
+  const now = new Date();
+  const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
+  return cst.toISOString().split('T')[0];
+}
+
+function initCase(){
+  const today = getTodayKey();
+  currentCase = CASES.find(c=>c.date===today) || CASES[0];
+  if(!currentCase) return;
+
+  document.getElementById('case-num-lbl').textContent = 'Case no. ' + currentCase.id;
+
+  // Patient banner
+  document.getElementById('pt-name').textContent = currentCase.patient.name + ', ' + currentCase.patient.age + currentCase.patient.sex;
+  document.getElementById('pt-occ').textContent = currentCase.patient.occupation;
+  document.getElementById('pt-cc').textContent = '"' + currentCase.chart.cc + '"';
+
+  // Patient image
+  const ptImg = document.getElementById('pt-img');
+  if(currentCase.patient.image_url){
+    ptImg.src = currentCase.patient.image_url + '?w=110&h=130&c=fit';
+  } else {
+    ptImg.src = 'https://res.cloudinary.com/djiap51xq/image/upload/w_110,h_130,c_fit/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png';
+  }
+
+  // Chart
+  renderChart();
+
+  // Tests
+  renderTests();
+
+  // Management
+  renderManagement();
+
+  // Hints
+  hints = currentCase.hints || [];
+
+  // Dx autocomplete
+  setupDxAutocomplete();
+}
+
+function renderChart(){
+  const c = currentCase.chart;
+  const v = currentCase.vitals;
+  const grid = document.getElementById('chart-grid');
+  const rows = [
+    ['HPI', c.hpi],
+    ['PMH', c.pmh],
+    ['PSH', c.psh],
+    ['Medications', c.meds],
+    ['Allergies', c.allergies],
+    ['Family Hx', c.fh],
+    ['Social Hx', c.sh],
+  ];
+  grid.innerHTML = rows.map(([l,val])=>`
+    <div class="chart-label">${l}</div>
+    <div class="chart-val">${val||'None'}</div>
+  `).join('');
+
+  const vitalsRow = document.getElementById('vitals-row');
+  vitalsRow.innerHTML = `
+    <div class="vital-item"><div class="vital-val">${v.bp}</div><div class="vital-lbl">BP</div></div>
+    <div class="vital-item"><div class="vital-val">${v.hr}</div><div class="vital-lbl">HR</div></div>
+    <div class="vital-item"><div class="vital-val">${v.rr}</div><div class="vital-lbl">RR</div></div>
+    <div class="vital-item"><div class="vital-val">${v.temp}°C</div><div class="vital-lbl">TEMP</div></div>
+    <div class="vital-item"><div class="vital-val">${v.o2}</div><div class="vital-lbl">O₂ SAT</div></div>
+  `;
+}
+
+function renderTests(){
+  const grid = document.getElementById('tests-grid');
+  if(!currentCase.tests) return;
+  grid.innerHTML = currentCase.tests.map((t,i)=>`
+    <div class="test-btn" id="test-${i}" onclick="orderTest(${i})">
+      <div class="test-btn-name">${t.name}</div>
+      <div class="test-btn-cost">−${t.cost||5} HP</div>
+    </div>
+  `).join('');
+}
+
+window.orderTest = function(idx){
+  if(!currentCase.tests) return;
+  const t = currentCase.tests[idx];
+  if(orderedTests.has(idx)) return;
+
+  // Urgency penalty — ordering imaging before stabilization on critical case
+  if(currentCase.urgency==='critical' && currentStage===0 && t.type==='imaging'){
+    drainHP(10);
+    setFennick('think','"Stabilize first — then investigate."');
+  } else {
+    drainHP(t.cost||5);
+  }
+
+  orderedTests.add(idx);
+  document.getElementById('test-'+idx).classList.add('ordered');
+
+  const results = document.getElementById('ordered-results');
+  const card = document.createElement('div');
+  card.className = 'test-result-card';
+  card.innerHTML = `<div class="test-result-name">${t.name.toUpperCase()}</div><div class="test-result-val">${t.result}</div>`;
+  results.appendChild(card);
+};
+
+// ── DX ──
+function setupDxAutocomplete(){
+  const input = document.getElementById('dx-input');
+  const sug = document.getElementById('dx-suggestions');
+  input.addEventListener('input',()=>{
+    const q = input.value.toLowerCase().trim();
+    if(q.length < 2){ sug.style.display='none'; return; }
+    const matches = DIAGNOSES.filter(d=>d.toLowerCase().includes(q)).slice(0,8);
+    if(!matches.length){ sug.style.display='none'; return; }
+    sug.innerHTML = matches.map(d=>`<div class="dx-suggestion" onclick="selectDx('${d.replace(/'/g,"\\'")}')"> ${d}</div>`).join('');
+    sug.style.display='block';
+  });
+  document.addEventListener('click',e=>{ if(!e.target.closest('#dx-note')) sug.style.display='none'; });
+}
+
+window.selectDx = function(dx){
+  document.getElementById('dx-input').value = dx;
+  document.getElementById('dx-suggestions').style.display='none';
+};
+
+window.submitDx = function(){
+  if(dxSubmitted && dxCorrect) return;
+  const val = document.getElementById('dx-input').value.trim();
+  if(!val) return;
+  const result = document.getElementById('dx-result');
+  const correct = currentCase.dx_answer;
+
+  if(val.toLowerCase()===correct.toLowerCase()){
+    dxSubmitted=true; dxCorrect=true;
+    result.className='dx-result correct';
+    result.textContent='✓ Correct — ' + correct;
+    result.style.display='block';
+    setFennick('answer','"That is the diagnosis. Now let us see how you manage it."');
+    unlockNextStage();
+  } else {
+    errors++;
+    drainHP(15);
+    result.className='dx-result wrong';
+    // Check danger dx
+    if(currentCase.danger_dx && currentCase.danger_dx.some(d=>val.toLowerCase().includes(d.toLowerCase()))){
+      drainHP(15); // extra
+      setFennick('danger','"That diagnosis would lead you down a dangerous path."');
+    } else {
+      updateFennickByErrors();
+    }
+    result.textContent='✗ Incorrect. Try again.';
+    result.style.display='block';
+  }
+};
+
+// ── MANAGEMENT ──
+function renderManagement(){
+  const stages = currentCase.management;
+  if(!stages) return;
+
+  const progressEl = document.getElementById('mgmt-progress');
+  progressEl.innerHTML = stages.map((_,i)=>`
+    ${i>0?'<div class="prog-line" id="prog-line-'+i+'"></div>':''}
+    <div class="prog-dot ${i===0?'cur':''}" id="prog-dot-${i}"></div>
+  `).join('');
+
+  const stagesEl = document.getElementById('mgmt-stages');
+  stagesEl.innerHTML = stages.map((s,si)=>`
+    <div class="mgmt-stage" id="stage-wrap-${si}">
+      ${si>0?'<div class="stage-divider"></div>':''}
+      <div class="mgmt-stage-header">
+        <div class="stage-num ${si>0?'locked':''}" id="stage-num-${si}">${si+1}</div>
+        <div class="stage-title ${si>0?'locked':''}" id="stage-title-${si}">${s.title}</div>
+      </div>
+      <div class="mgmt-options" id="stage-opts-${si}">
+        ${s.options.map((o,oi)=>`
+          <div class="mgmt-option ${si>0?'locked-opt':''}" id="opt-${si}-${oi}" onclick="pickMgmt(${si},${oi})">
+            <div class="mgmt-ob">${String.fromCharCode(65+oi)}</div>
+            <div>
+              <div class="mgmt-on">${o.text}</div>
+              ${o.sub?`<div class="mgmt-oc">${o.sub}</div>`:''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+window.pickMgmt = function(stageIdx, optIdx){
+  if(stageIdx !== currentStage) return;
+  const stage = currentCase.management[stageIdx];
+  const opt = stage.options[optIdx];
+  const optEl = document.getElementById(`opt-${stageIdx}-${optIdx}`);
+
+  // Lock all options in this stage
+  stage.options.forEach((_,i)=>{
+    const el = document.getElementById(`opt-${stageIdx}-${i}`);
+    if(el) el.classList.add('locked-opt');
+  });
+
+  if(opt.correct){
+    optEl.classList.remove('locked-opt');
+    optEl.classList.add('selected-correct');
+    stageResults[stageIdx]='correct';
+    document.getElementById('stage-num-'+stageIdx).classList.add('done');
+    setFennick('answer',opt.feedback_correct||'"Good call."');
+    advanceStage(stageIdx+1);
+  } else if(opt.danger){
+    optEl.classList.remove('locked-opt');
+    optEl.classList.add('selected-danger');
+    errors+=2;
+    drainHP(30);
+    stageResults[stageIdx]='danger';
+    setFennick('danger', opt.feedback_wrong||'"That could harm the patient."');
+    // Still unlock next stage after penalty
+    setTimeout(()=>advanceStage(stageIdx+1), 800);
+  } else {
+    optEl.classList.remove('locked-opt');
+    optEl.classList.add('selected-wrong');
+    errors++;
+    drainHP(15);
+    stageResults[stageIdx]='wrong';
+    updateFennickByErrors();
+    setTimeout(()=>advanceStage(stageIdx+1), 600);
+  }
+};
+
+function advanceStage(nextIdx){
+  const stages = currentCase.management;
+  if(nextIdx >= stages.length){
+    // All stages done
+    setTimeout(()=>endCase(false), 500);
     return;
   }
-  const today = todayCST();
-  currentCase = allCases.find(c => c.date === today) || allCases[allCases.length - 1];
-  if (currentCase) renderGame(currentCase, false);
-  renderStreak();
-}
+  currentStage = nextIdx;
 
-function renderGame(c, isArchive) {
-  currentCase = c; answered = false; hintUsed = false; wrongAttempts = new Set(); setFoxFace('default');
-  document.getElementById('case-pill').textContent = 'Case no. ' + c.id;
-  document.getElementById('case-ribbon').textContent = 'case file — no. ' + c.id;
-  document.getElementById('case-title').textContent = c.title;
-  document.getElementById('case-body').innerHTML = c.body;
-  document.getElementById('speech-text').textContent = '"' + c.title + '. A curious case. Study the details carefully before you choose."';
-  document.getElementById('case-tags').innerHTML = c.tags.map(t =>
-    `<span class="tag tag-${t.type}">${t.label}</span>`).join('');
-  const col = document.getElementById('patient-col');
-  col.innerHTML = c.patient_img
-    ? `<img class="char-img" src="${c.patient_img}" alt="Patient" onerror="this.style.display='none'">`
-    : `<div class="char-empty"><span>Today's<br>patient</span></div>`;
-  document.getElementById('choices').innerHTML = c.options.map((o, i) =>
-    `<div class="choice" id="ch${i}" onclick="pick(${i})">
-      <div class="cletter">${'ABCD'[i]}</div>
-      <div class="cdrug">${o.drug}</div>
-      <div class="cclass">${o.class}</div>
-    </div>`).join('');
-  const rev = document.getElementById('reveal');
-  rev.className = 'reveal'; rev.innerHTML = ''; rev.style.display = 'none';
-  const hb = document.getElementById('hint-btn');
-  hb.disabled = false; hb.textContent = 'Ask Dr. Fennick';
-  const old = document.querySelector('.played-card'); if (old) old.remove();
-  if (!isArchive) { const p = getPlayed(); if (p[c.id]) showAlreadyPlayed(c, p[c.id].correct); }
-}
+  // Update progress dots
+  const prevDot = document.getElementById('prog-dot-'+(nextIdx-1));
+  if(prevDot) prevDot.classList.replace('cur','done');
+  const prevLine = document.getElementById('prog-line-'+nextIdx);
+  if(prevLine) prevLine.classList.add('done');
+  const curDot = document.getElementById('prog-dot-'+nextIdx);
+  if(curDot) curDot.classList.add('cur');
 
-function pick(idx) {
-  if (answered) return;
-  const c = currentCase, chosen = c.options[idx], correct = chosen.drug === c.answer;
-  const el = document.getElementById('ch' + idx);
+  // Unlock next stage options
+  const numEl = document.getElementById('stage-num-'+nextIdx);
+  const titleEl = document.getElementById('stage-title-'+nextIdx);
+  if(numEl) numEl.classList.remove('locked');
+  if(titleEl) titleEl.classList.remove('locked');
 
-  if (!correct) {
-    el.classList.add('wrong', 'done');
-    wrongAttempts.add(idx);
-    const wCount = wrongAttempts.size;
-
-    if (wCount === 1) {
-      setFoxFace('one_wrong');
-      document.getElementById('speech-text').textContent = '"Hmm. Not that one. Look more carefully at the patient\'s history."';
-    } else if (wCount === 2) {
-      setFoxFace('two_wrong');
-      document.getElementById('speech-text').textContent = '"Two wrong. There is a clear answer here — re-read every detail."';
-    } else if (wCount >= 3) {
-      setFoxFace('three_wrong');
-      answered = true;
-      // Lock all remaining choices
-      c.options.forEach((o, i) => {
-        const el2 = document.getElementById('ch' + i);
-        if (el2) { el2.classList.add('done'); if (o.drug === c.answer) el2.classList.add('correct'); }
-      });
-      markPlayed(c.id, false);
-      renderStreak();
-      showReveal(c.answer);
-      document.getElementById('speech-text').textContent = '"Oh dear... three wrong turns. The answer was ' + c.answer + '. Study this one carefully before tomorrow."';
-      return;
-    }
-
-    showWrongReveal(chosen.drug);
-    return;
-  }
-
-  // Correct — lock everything, show full reveal
-  answered = true;
-  c.options.forEach((o, i) => {
-    const el2 = document.getElementById('ch' + i);
-    el2.classList.add('done');
-    if (o.drug === c.answer) el2.classList.add('correct');
-  });
-  setFoxFace('success');
-  updateStreak();
-  markPlayed(c.id, true);
-  renderStreak();
-  showReveal(chosen.drug);
-  document.getElementById('speech-text').textContent = `"Precisely. ${c.answer} — the correct first-line choice. Well reasoned."`;
-}
-
-function showWrongReveal(chosenDrug) {
-  const c = currentCase, rev = document.getElementById('reveal');
-  const exp = allExplanations[c.answer] || {};
-  const wrongText = exp.wrong ? exp.wrong[chosenDrug] : '';
-  rev.style.borderColor = 'var(--err-brd)';
-  rev.innerHTML = `<div class="rhead-err">✗ ${chosenDrug} — not quite</div><div>${wrongText||'Not the right choice for this patient.'}</div>`;
-  rev.style.display = 'block'; rev.classList.add('show');
-  setTimeout(() => rev.scrollIntoView({ behavior:'smooth', block:'nearest' }), 50);
-}
-
-function showReveal(chosenDrug) {
-  const c = currentCase, rev = document.getElementById('reveal');
-  const exp = allExplanations[c.answer] || {};
-  rev.style.borderColor = 'var(--ok-brd)';
-  let html = `<div class="rhead-ok">✓ Correct — ${c.answer}</div>`;
-  if (exp.correct) html += `<div>${exp.correct}</div>`;
-  html += `<div class="rdivider"></div>`;
-  if (exp.mechanism) html += `<div class="ritem"><div class="rdrug">Mechanism</div><div class="rtext">${exp.mechanism}</div></div>`;
-  if (exp.clinical_use) html += `<div class="ritem"><div class="rdrug">Clinical use</div><div class="rtext">${exp.clinical_use}</div></div>`;
-  if (exp.key_facts) html += `<div class="ritem"><div class="rdrug">Key facts</div><div class="rtext">${exp.key_facts}</div></div>`;
-  html += `<div class="rdivider"></div>`;
-  c.options.filter(o => o.drug !== c.answer).forEach(o => {
-    const wrongExp = exp.wrong ? exp.wrong[o.drug] : (allExplanations[o.drug] ? allExplanations[o.drug].why_wrong : '');
-    html += `<div class="ritem"><div class="rdrug">Why not ${o.drug}?</div><div class="rtext">${wrongExp||''}</div></div>`;
-  });
-  rev.innerHTML = html; rev.style.display = 'block'; rev.classList.add('show');
-  setTimeout(() => rev.scrollIntoView({ behavior:'smooth', block:'nearest' }), 50);
-}
-
-function showHint() {
-  if (hintUsed) return; hintUsed = true;
-  document.getElementById('speech-text').textContent = '"' + currentCase.fennick_hint + '"';
-  const hb = document.getElementById('hint-btn'); hb.disabled = true; hb.textContent = 'Hint revealed';
-  toast('Dr. Fennick speaks...');
-}
-
-function showAlreadyPlayed(c, wasCorrect) {
-  answered = true;
-  document.getElementById('hint-btn').disabled = true;
-
-  // Show all choices with correct highlighted
-  c.options.forEach((o, i) => {
-    const el = document.getElementById('ch' + i);
-    if (el) {
-      el.classList.add('done');
-      if (o.drug === c.answer) el.classList.add('correct');
-    }
+  stages[nextIdx].options.forEach((_,i)=>{
+    const el = document.getElementById(`opt-${nextIdx}-${i}`);
+    if(el) el.classList.remove('locked-opt');
   });
 
-  // Show full explanation
-  showReveal(c.answer);
-
-  // Add played banner above case panel
-  const body = document.getElementById('game-body');
-  const banner = document.createElement('div');
-  banner.className = 'played-banner';
-  banner.innerHTML = `<span>${wasCorrect ? '✓ You got this one right.' : '✗ You missed this one.'}</span><button onclick="showArchive()">Browse Archive →</button>`;
-  body.insertBefore(banner, body.firstChild);
+  // Scroll to next stage
+  document.getElementById('stage-wrap-'+nextIdx)?.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-async function showArchive() {
-  document.getElementById('game-page').style.display = 'none';
-  document.getElementById('archive-page').style.display = 'block';
-  renderStreak();
-  const played = getPlayed(), today = todayCST();
-  const grid = document.getElementById('archive-grid');
-  grid.innerHTML = '<div style="text-align:center;padding:32px;font-size:13px;color:var(--brown-light);font-style:italic">Loading...</div>';
+// ── HINT ──
+window.useHint = function(){
+  if(hints.length===0) return;
+  drainHP(10);
+  const hint = hints[currentHintIdx % hints.length];
+  currentHintIdx++;
+  setFennick('think', '"' + hint + '"');
+};
 
-  let archiveList = [];
-  try {
-    const r = await fetch('archives.json');
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    archiveList = await r.json();
-  } catch(e) {
-    // fallback to allCases
-    archiveList = allCases.map(c => ({ id: c.id, date: c.date, title: c.title }));
-  }
-
-  const past = archiveList.filter(c => c.date <= today).sort((a,b) => b.date.localeCompare(a.date));
-  if (!past.length) { grid.innerHTML = '<div style="text-align:center;padding:32px;font-size:13px;color:var(--brown-light);font-style:italic">No past cases yet.</div>'; return; }
-
-  grid.innerHTML = past.map(c => {
-    const p = played[c.id];
-    const dateStr = new Date(c.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    return `<div class="aitem" onclick="loadArchive('${c.id}')">
-      <div class="aitem-left">
-        <div class="aitem-title">${c.title}</div>
-        <div class="aitem-date">${c.date===today?'Today — ':''}${dateStr}</div>
-      </div>
-      <div class="aitem-right">
-        ${p?`<span class="aitem-badge">${p.correct?'✓':'✗'} Played</span>`:''}
-        <span class="aitem-arrow">›</span>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function loadArchive(id) {
-  const c = allCases.find(x => x.id === id); if (!c) return;
-  showGame(); renderGame(c, true);
-  const p = getPlayed();
-  if (p[id]) {
-    answered = true;
-    c.options.forEach((o,i) => { const el = document.getElementById('ch'+i); if(el){el.classList.add('done');if(o.drug===c.answer)el.classList.add('correct');} });
-    if (p[id].correct) showReveal(c.answer); else { document.getElementById('reveal').style.display='none'; }
+// ── UNLOCK STAGE ON DX ──
+function unlockNextStage(){
+  if(currentStage===0){
+    // Dx correct — make sure first mgmt stage is unlocked (it always is)
   }
 }
 
-function showGame() {
-  document.getElementById('archive-page').style.display = 'none';
-  document.getElementById('game-page').style.display = 'block';
+// ── END CASE ──
+function endCase(failed){
+  document.getElementById('mgmt-note').style.display='none';
+  document.getElementById('endgame').style.display='block';
+  document.getElementById('endgame').scrollIntoView({behavior:'smooth'});
+
+  let grade, comment;
+  if(failed){
+    grade='F';
+    comment='"The patient survived. That is the kindest thing I can say."';
+    setFennick('lose', comment);
+  } else if(errors===0 && HP>=80){
+    grade='A';
+    comment='"Textbook. I had nothing to teach you today."';
+    setFennick('answer', comment);
+  } else if(errors<=1 && HP>=60){
+    grade='B';
+    comment='"Solid work. A few hesitations, but the right instincts."';
+    setFennick('answer', comment);
+  } else if(errors<=3 && HP>=40){
+    grade='C';
+    comment='"You got there. Eventually. Review your reasoning."';
+    setFennick('think', comment);
+  } else if(HP>=20){
+    grade='D';
+    comment='"You will remember this case. I hope."';
+    setFennick('concerned', comment);
+  } else {
+    grade='F';
+    comment='"We will not speak of this. Study harder."';
+    setFennick('lose', comment);
+  }
+
+  document.getElementById('grade-circle').textContent = grade;
+  document.getElementById('endgame-title').textContent = failed ? 'Case Lost' : 'Case Complete';
+  document.getElementById('endgame-comment').textContent = comment;
+  document.getElementById('end-hp').textContent = HP;
+  document.getElementById('end-errors').textContent = errors;
+  document.getElementById('end-grade').textContent = grade;
+
+  // Save to Firestore if logged in
+  if(currentUser){
+    addDoc(collection(db,'fennick_scores'),{
+      uid: currentUser.uid,
+      username: currentUser.displayName||currentUser.email,
+      caseDate: getTodayKey(),
+      hp: HP,
+      errors,
+      grade,
+      timestamp: new Date()
+    });
+    // Update streak
+    updateDoc(doc(db,'users',currentUser.uid),{
+      fennickStreak: increment(1)
+    }).catch(()=>{});
+  }
 }
 
-let musicOn = true;
-let musicStarted = false;
+// ── AUTH ──
+onAuthStateChanged(auth, user=>{
+  currentUser = user;
+  const btn = document.getElementById('auth-btn');
+  if(user){
+    btn.textContent = 'Sign Out';
+    btn.onclick = ()=>signOut(auth);
+    // Load streak
+    getDoc(doc(db,'users',user.uid)).then(snap=>{
+      if(snap.exists()) streak = snap.data().fennickStreak||0;
+      document.getElementById('streak-val').textContent = streak + ' 🔥';
+    });
+  } else {
+    btn.textContent = 'Sign In';
+    btn.onclick = ()=>document.getElementById('auth-modal').classList.add('show');
+  }
+});
 
-function startMusic() {
-  if (musicStarted) return;
-  const bgm = document.getElementById('bgm');
-  bgm.volume = 0.35;
-  bgm.play().then(() => { musicStarted = true; }).catch(() => {});
-}
-
-function toggleMusic() {
-  const bgm = document.getElementById('bgm');
-  const btn = document.getElementById('music-btn');
-  if (!musicStarted) { startMusic(); return; }
-  musicOn = !musicOn;
-  if (musicOn) { bgm.play(); btn.textContent = '♪ On'; btn.style.opacity = '1'; }
-  else { bgm.pause(); btn.textContent = '♪ Off'; btn.style.opacity = '0.5'; }
-}
-
-// Start on first click anywhere
-document.addEventListener('click', startMusic, { once: true });
-
-window.addEventListener('DOMContentLoaded', init);
+window.signIn = function(){
+  const email = document.getElementById('auth-email').value;
+  const pass = document.getElementById('auth-pass').value;
+  const err = document.getElementById('auth-err');
+  signInWithEmailAndPassword(auth, email, pass)
+    .then(()=>{ document.getElementById('auth-modal').classList.remove('show'); err.style.display='none'; })
+    .catch(e=>{ err.textContent=e.message; err.style.display='block'; });
+};
 </script>
 </body>
 </html>
