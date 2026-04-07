@@ -5,10 +5,7 @@
     "urgency": "stable",
     "title": "The Clockmaker's Tremor",
     "dx_answer": "Parkinson Disease",
-    "danger_dx": [
-      "haloperidol",
-      "psychosis"
-    ],
+    "danger_dx": ["haloperidol", "psychosis"],
     "patient": {
       "name": "The Clockmaker",
       "age": 68,
@@ -34,48 +31,13 @@
       "o2": "98% RA"
     },
     "tests": [
-      {
-        "name": "CBC",
-        "type": "lab",
-        "cost": 5,
-        "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224."
-      },
-      {
-        "name": "CMP",
-        "type": "lab",
-        "cost": 5,
-        "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal."
-      },
-      {
-        "name": "TSH",
-        "type": "lab",
-        "cost": 5,
-        "result": "TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out."
-      },
-      {
-        "name": "B12 / Folate",
-        "type": "lab",
-        "cost": 5,
-        "result": "B12 420 pg/mL (normal). Folate normal."
-      },
-      {
-        "name": "MRI Brain",
-        "type": "imaging",
-        "cost": 15,
-        "result": "No mass lesion. No infarct. Mild age-appropriate cortical atrophy. Standard sequences do not show midbrain abnormality. DaTscan preferred for confirmation."
-      },
-      {
-        "name": "DaTscan",
-        "type": "imaging",
-        "cost": 20,
-        "result": "Reduced dopamine transporter uptake in bilateral putamen — asymmetric, right greater than left. Consistent with nigrostriatal dopaminergic degeneration."
-      },
-      {
-        "name": "EMG / NCS",
-        "type": "lab",
-        "cost": 10,
-        "result": "Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease."
-      }
+      { "name": "CBC", "type": "lab", "cost": 5, "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224." },
+      { "name": "CMP", "type": "lab", "cost": 5, "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal." },
+      { "name": "TSH", "type": "lab", "cost": 5, "result": "TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out." },
+      { "name": "B12 / Folate", "type": "lab", "cost": 5, "result": "B12 420 pg/mL (normal). Folate normal." },
+      { "name": "MRI Brain", "type": "imaging", "cost": 15, "result": "No mass lesion. No infarct. Mild age-appropriate cortical atrophy. Standard sequences do not show midbrain abnormality. DaTscan preferred for confirmation." },
+      { "name": "DaTscan", "type": "imaging", "cost": 20, "result": "Reduced dopamine transporter uptake in bilateral putamen — asymmetric, right greater than left. Consistent with nigrostriatal dopaminergic degeneration." },
+      { "name": "EMG / NCS", "type": "lab", "cost": 10, "result": "Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease." }
     ],
     "hints": [
       "The tremor frequency is 4-6 Hz. Note when it disappears — and when it returns.",
@@ -87,128 +49,37 @@
       {
         "title": "Immediate stabilization",
         "options": [
-          {
-            "text": "Reassure and schedule follow-up",
-            "sub": "No acute intervention needed",
-            "correct": true,
-            "feedback_correct": "Correct. This is not an emergency. A calm, thorough approach."
-          },
-          {
-            "text": "Admit for IV thiamine",
-            "sub": "Wernicke protocol",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "Thiamine is for Wernicke — not indicated here."
-          },
-          {
-            "text": "Emergent neurology consult",
-            "sub": "Urgent inpatient",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "Urgent, yes. Emergent, no. This has been progressing for 14 months."
-          },
-          {
-            "text": "Stop sertraline immediately",
-            "sub": "Discontinue without taper",
-            "correct": false,
-            "danger": true,
-            "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome. Taper if stopping."
-          }
+          { "text": "Reassure and schedule follow-up", "sub": "No acute intervention needed", "correct": true, "feedback_correct": "Correct. This is not an emergency. A calm, thorough approach." },
+          { "text": "Admit for IV thiamine", "sub": "Wernicke protocol", "correct": false, "danger": false, "feedback_wrong": "Thiamine is for Wernicke — not indicated here." },
+          { "text": "Emergent neurology consult", "sub": "Urgent inpatient", "correct": false, "danger": false, "feedback_wrong": "Urgent, yes. Emergent, no. This has been progressing for 14 months." },
+          { "text": "Stop sertraline immediately", "sub": "Discontinue without taper", "correct": false, "danger": true, "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome. Taper if stopping." }
         ]
       },
       {
         "title": "First-line medication",
         "options": [
-          {
-            "text": "Levodopa / Carbidopa",
-            "sub": "Dopamine precursor — 25/100mg TID",
-            "correct": true,
-            "feedback_correct": "The gold standard. You know your pharmacology."
-          },
-          {
-            "text": "Haloperidol",
-            "sub": "Typical antipsychotic",
-            "correct": false,
-            "danger": true,
-            "feedback_wrong": "Haloperidol blocks dopamine receptors — it will dramatically worsen Parkinson disease. Never."
-          },
-          {
-            "text": "Sertraline dose increase",
-            "sub": "SSRI escalation",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "The depression was a misdiagnosis. Sertraline will not help the tremor."
-          },
-          {
-            "text": "Propranolol",
-            "sub": "Beta blocker — for essential tremor",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "Propranolol is for essential tremor — an action tremor. This is a rest tremor."
-          }
+          { "text": "Levodopa / Carbidopa", "sub": "Dopamine precursor — 25/100mg TID", "correct": true, "feedback_correct": "The gold standard. You know your pharmacology." },
+          { "text": "Haloperidol", "sub": "Typical antipsychotic", "correct": false, "danger": true, "feedback_wrong": "Haloperidol blocks dopamine receptors — it will dramatically worsen Parkinson disease. Never." },
+          { "text": "Sertraline dose increase", "sub": "SSRI escalation", "correct": false, "danger": false, "feedback_wrong": "The depression was a misdiagnosis. Sertraline will not help the tremor." },
+          { "text": "Propranolol", "sub": "Beta blocker — for essential tremor", "correct": false, "danger": false, "feedback_wrong": "Propranolol is for essential tremor — an action tremor. This is a rest tremor." }
         ]
       },
       {
         "title": "Further workup",
         "options": [
-          {
-            "text": "Refer to movement disorder specialist",
-            "sub": "Neurology subspecialty",
-            "correct": true,
-            "feedback_correct": "Correct. Movement disorder specialists optimize PD management."
-          },
-          {
-            "text": "Lumbar puncture",
-            "sub": "CSF analysis",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "LP is not indicated in Parkinson disease. This is a clinical diagnosis."
-          },
-          {
-            "text": "Brain biopsy",
-            "sub": "Histopathology",
-            "correct": false,
-            "danger": true,
-            "feedback_wrong": "Brain biopsy for Parkinson disease would be unconscionable."
-          },
-          {
-            "text": "Occupational therapy referral",
-            "sub": "ADL assessment and adaptation",
-            "correct": true,
-            "feedback_correct": "Also correct — OT is essential in PD management."
-          }
+          { "text": "Refer to movement disorder specialist", "sub": "Neurology subspecialty", "correct": true, "feedback_correct": "Correct. Movement disorder specialists optimize PD management." },
+          { "text": "Lumbar puncture", "sub": "CSF analysis", "correct": false, "danger": false, "feedback_wrong": "LP is not indicated in Parkinson disease. This is a clinical diagnosis." },
+          { "text": "Brain biopsy", "sub": "Histopathology", "correct": false, "danger": true, "feedback_wrong": "Brain biopsy for Parkinson disease would be unconscionable." },
+          { "text": "Occupational therapy referral", "sub": "ADL assessment and adaptation", "correct": true, "feedback_correct": "Also correct — OT is essential in PD management." }
         ]
       },
       {
         "title": "Disposition",
         "options": [
-          {
-            "text": "Outpatient — start levodopa, neurology follow-up",
-            "sub": "Discharge with plan",
-            "correct": true,
-            "feedback_correct": "Exactly right. Stable patient, chronic condition, outpatient management."
-          },
-          {
-            "text": "Admit to neurology floor",
-            "sub": "Inpatient workup",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "No indication for admission. This is a chronic, stable outpatient condition."
-          },
-          {
-            "text": "Discharge without treatment",
-            "sub": "Watch and wait",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "The diagnosis is clear. Withholding treatment serves no one."
-          },
-          {
-            "text": "Admit for DaTscan",
-            "sub": "Inpatient imaging",
-            "correct": false,
-            "danger": false,
-            "feedback_wrong": "DaTscan is an outpatient procedure. No need for admission."
-          }
+          { "text": "Outpatient — start levodopa, neurology follow-up", "sub": "Discharge with plan", "correct": true, "feedback_correct": "Exactly right. Stable patient, chronic condition, outpatient management." },
+          { "text": "Admit to neurology floor", "sub": "Inpatient workup", "correct": false, "danger": false, "feedback_wrong": "No indication for admission. This is a chronic, stable outpatient condition." },
+          { "text": "Discharge without treatment", "sub": "Watch and wait", "correct": false, "danger": false, "feedback_wrong": "The diagnosis is clear. Withholding treatment serves no one." },
+          { "text": "Admit for DaTscan", "sub": "Inpatient imaging", "correct": false, "danger": false, "feedback_wrong": "DaTscan is an outpatient procedure. No need for admission." }
         ]
       }
     ],
