@@ -349,10 +349,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .note-gear {
   position: relative;
   overflow: hidden;
-  isolation: isolate;
 }
-.note-gear::before {
-  content: '';
+.gear-overlay {
   position: absolute;
   top: -10px; right: -10px;
   width: 40%;
@@ -362,22 +360,33 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background-size: 100% auto;
   opacity: 0.28;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
-.note-gear::after {
-  content: '';
+.gear-overlay-tint {
   position: absolute;
   top: 0; right: 0;
   width: 55%; height: 70%;
   background: radial-gradient(ellipse at top right, rgba(140,90,20,0.25) 0%, rgba(180,130,50,0.1) 45%, transparent 70%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
-.gear-workup::before {
+.gear-overlay-workup {
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png');
 }
-.gear-mgmt::before {
+.gear-overlay-mgmt {
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600417/Gemini_Generated_Image_eb02e8eb02e8eb02_copy_nvovzo.png');
+}
+
+.note-gear .section-tag,
+.note-gear #ordered-results,
+.note-gear #tests-grid,
+.note-gear #mgmt-progress,
+.note-gear #mgmt-stages,
+.note-gear .test-btn,
+.note-gear .mgmt-option,
+.note-gear .test-result-card {
+  position: relative;
+  z-index: 2;
 }
 
 /* ── ENDGAME ── */
@@ -464,6 +473,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
     </div>
 
     <div class="note note-gear gear-workup" id="workup-note">
+      <div class="gear-overlay gear-overlay-workup"></div>
+      <div class="gear-overlay-tint"></div>
       <span class="section-tag">CLINICAL WORKUP</span>
       <div id="ordered-results"></div>
       <div class="tests-grid" id="tests-grid"></div>
@@ -480,6 +491,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
     </div>
 
     <div class="note note-gear gear-mgmt" id="mgmt-note">
+      <div class="gear-overlay gear-overlay-mgmt"></div>
+      <div class="gear-overlay-tint"></div>
       <span class="section-tag">MANAGEMENT</span>
       <div class="progress-track" id="mgmt-progress"></div>
       <div style="margin-top:12px" id="mgmt-stages"></div>
