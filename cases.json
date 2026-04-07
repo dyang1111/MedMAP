@@ -1,137 +1,217 @@
 [
   {
     "id": "001",
-    "date": "2026-04-02",
-    "title": "The Clockmaker's Fever",
-    "body": "A 52-year-old female presents with a 3-day history of burning urination, urinary frequency, and flank pain. Urine culture grows E. coli, sensitive to multiple antibiotics. She has a history of epilepsy and takes valproate daily. She also has a G6PD deficiency diagnosed in childhood. Her eGFR is normal.",
-    "tags": [
+    "date": "2026-04-06",
+    "urgency": "stable",
+    "title": "The Clockmaker's Tremor",
+    "dx_answer": "Parkinson Disease",
+    "danger_dx": [
+      "haloperidol",
+      "psychosis"
+    ],
+    "patient": {
+      "name": "The Clockmaker",
+      "age": 68,
+      "sex": "F",
+      "occupation": "Master Clockmaker",
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/w_110,h_130,c_pad,g_south,b_transparent/q_auto/f_auto/v1775528227/api6_m3o0vw.png"
+    },
+    "chart": {
+      "cc": "Progressive hand tremor for 14 months. I can no longer wind the city's great clock.",
+      "hpi": "14-month history of rest tremor, right hand predominant. Worsens at rest, improves with intentional movement. Gradual onset, slowly progressive. Shuffling gait, difficulty initiating movement. Treated for depression x8 months without improvement.",
+      "pmh": "Depression (misdiagnosed). Hypertension.",
+      "psh": "Appendectomy age 34.",
+      "meds": "Sertraline 50mg daily. Amlodipine 5mg daily.",
+      "allergies": "Penicillin — rash.",
+      "fh": "No family history of movement disorder.",
+      "sh": "Retired clockmaker. Lives with husband. Non-smoker. Occasional wine."
+    },
+    "vitals": {
+      "bp": "138/84",
+      "hr": "68",
+      "rr": "16",
+      "temp": "37.0",
+      "o2": "98% RA"
+    },
+    "tests": [
       {
-        "label": "G6PD deficiency",
-        "type": "red"
+        "name": "CBC",
+        "type": "lab",
+        "cost": 5,
+        "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224."
       },
       {
-        "label": "On valproate",
-        "type": "red"
+        "name": "CMP",
+        "type": "lab",
+        "cost": 5,
+        "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal."
       },
       {
-        "label": "E. coli UTI",
-        "type": "blue"
+        "name": "TSH",
+        "type": "lab",
+        "cost": 5,
+        "result": "TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out."
       },
       {
-        "label": "Normal renal function",
-        "type": "green"
+        "name": "B12 / Folate",
+        "type": "lab",
+        "cost": 5,
+        "result": "B12 420 pg/mL (normal). Folate normal."
+      },
+      {
+        "name": "MRI Brain",
+        "type": "imaging",
+        "cost": 15,
+        "result": "No mass lesion. No infarct. Mild age-appropriate cortical atrophy. Standard sequences do not show midbrain abnormality. DaTscan preferred for confirmation."
+      },
+      {
+        "name": "DaTscan",
+        "type": "imaging",
+        "cost": 20,
+        "result": "Reduced dopamine transporter uptake in bilateral putamen — asymmetric, right greater than left. Consistent with nigrostriatal dopaminergic degeneration."
+      },
+      {
+        "name": "EMG / NCS",
+        "type": "lab",
+        "cost": 10,
+        "result": "Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease."
       }
     ],
-    "options": [
+    "hints": [
+      "The tremor frequency is 4-6 Hz. Note when it disappears — and when it returns.",
+      "Look at her face carefully. A masked expression and reduced blink rate are not depression.",
+      "The sertraline did not help the depression. That itself is a clue.",
+      "Pill-rolling, cogwheeling, micrographia. The diagnosis is in the examination."
+    ],
+    "management": [
       {
-        "drug": "Ciprofloxacin",
-        "class": "Fluoroquinolone"
+        "title": "Immediate stabilization",
+        "options": [
+          {
+            "text": "Reassure and schedule follow-up",
+            "sub": "No acute intervention needed",
+            "correct": true,
+            "feedback_correct": "Correct. This is not an emergency. A calm, thorough approach."
+          },
+          {
+            "text": "Admit for IV thiamine",
+            "sub": "Wernicke protocol",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "Thiamine is for Wernicke — not indicated here."
+          },
+          {
+            "text": "Emergent neurology consult",
+            "sub": "Urgent inpatient",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "Urgent, yes. Emergent, no. This has been progressing for 14 months."
+          },
+          {
+            "text": "Stop sertraline immediately",
+            "sub": "Discontinue without taper",
+            "correct": false,
+            "danger": true,
+            "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome. Taper if stopping."
+          }
+        ]
       },
       {
-        "drug": "Trimethoprim-sulfamethoxazole",
-        "class": "Sulfonamide"
+        "title": "First-line medication",
+        "options": [
+          {
+            "text": "Levodopa / Carbidopa",
+            "sub": "Dopamine precursor — 25/100mg TID",
+            "correct": true,
+            "feedback_correct": "The gold standard. You know your pharmacology."
+          },
+          {
+            "text": "Haloperidol",
+            "sub": "Typical antipsychotic",
+            "correct": false,
+            "danger": true,
+            "feedback_wrong": "Haloperidol blocks dopamine receptors — it will dramatically worsen Parkinson disease. Never."
+          },
+          {
+            "text": "Sertraline dose increase",
+            "sub": "SSRI escalation",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "The depression was a misdiagnosis. Sertraline will not help the tremor."
+          },
+          {
+            "text": "Propranolol",
+            "sub": "Beta blocker — for essential tremor",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "Propranolol is for essential tremor — an action tremor. This is a rest tremor."
+          }
+        ]
       },
       {
-        "drug": "Nitrofurantoin",
-        "class": "Nitrofuran"
+        "title": "Further workup",
+        "options": [
+          {
+            "text": "Refer to movement disorder specialist",
+            "sub": "Neurology subspecialty",
+            "correct": true,
+            "feedback_correct": "Correct. Movement disorder specialists optimize PD management."
+          },
+          {
+            "text": "Lumbar puncture",
+            "sub": "CSF analysis",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "LP is not indicated in Parkinson disease. This is a clinical diagnosis."
+          },
+          {
+            "text": "Brain biopsy",
+            "sub": "Histopathology",
+            "correct": false,
+            "danger": true,
+            "feedback_wrong": "Brain biopsy for Parkinson disease would be unconscionable."
+          },
+          {
+            "text": "Occupational therapy referral",
+            "sub": "ADL assessment and adaptation",
+            "correct": true,
+            "feedback_correct": "Also correct — OT is essential in PD management."
+          }
+        ]
       },
       {
-        "drug": "Cephalexin",
-        "class": "First-gen cephalosporin"
+        "title": "Disposition",
+        "options": [
+          {
+            "text": "Outpatient — start levodopa, neurology follow-up",
+            "sub": "Discharge with plan",
+            "correct": true,
+            "feedback_correct": "Exactly right. Stable patient, chronic condition, outpatient management."
+          },
+          {
+            "text": "Admit to neurology floor",
+            "sub": "Inpatient workup",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "No indication for admission. This is a chronic, stable outpatient condition."
+          },
+          {
+            "text": "Discharge without treatment",
+            "sub": "Watch and wait",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "The diagnosis is clear. Withholding treatment serves no one."
+          },
+          {
+            "text": "Admit for DaTscan",
+            "sub": "Inpatient imaging",
+            "correct": false,
+            "danger": false,
+            "feedback_wrong": "DaTscan is an outpatient procedure. No need for admission."
+          }
+        ]
       }
     ],
-    "answer": "Cephalexin",
-    "fennick_hint": "Two of these options share a mechanism that becomes lethal in a patient whose red blood cells lack a certain protective enzyme. A third carries a hidden danger for a patient whose seizures are already under chemical control. Read every detail \u2014 the answer has already been given to you.",
-    "patient_img": "https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775186120/apr2nd_krv7ew.png"
-  },
-  {
-    "id": "002",
-    "date": "2026-04-03",
-    "title": "The Merchant's Cough",
-    "body": "A 67-year-old male presents with fever, productive cough, and consolidation on chest X-ray consistent with community-acquired pneumonia. He reports a severe penicillin allergy \u2014 anaphylaxis on prior exposure. He has CKD stage 3 and takes warfarin for atrial fibrillation. Sputum culture is pending.",
-    "tags": [
-      {
-        "label": "Penicillin allergy",
-        "type": "red"
-      },
-      {
-        "label": "On warfarin",
-        "type": "red"
-      },
-      {
-        "label": "CKD stage 3",
-        "type": "blue"
-      },
-      {
-        "label": "CAP confirmed",
-        "type": "green"
-      }
-    ],
-    "options": [
-      {
-        "drug": "Amoxicillin-clavulanate",
-        "class": "Aminopenicillin"
-      },
-      {
-        "drug": "Levofloxacin",
-        "class": "Respiratory fluoroquinolone"
-      },
-      {
-        "drug": "Azithromycin",
-        "class": "Macrolide"
-      },
-      {
-        "drug": "Clarithromycin",
-        "class": "Macrolide"
-      }
-    ],
-    "answer": "Levofloxacin",
-    "fennick_hint": "One option shares a family with a drug this patient has already proven he cannot tolerate. Two others belong to the same class \u2014 but only one of them carries a dangerous interaction with his current medications. Elimination, not guesswork.",
-    "patient_img": "https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/q_auto/f_auto/v1775189541/APR3_bfykcf_a_hflip_puvhcm.png"
-  },
-  {
-    "id": "003",
-    "date": "2026-04-04",
-    "title": "The Engineer's Chest",
-    "body": "A 34-year-old male with no significant past medical history presents with a 5-day productive cough, fever of 38.8\u00b0C, and right lower lobe consolidation on X-ray. He is otherwise healthy, takes no medications, and has no allergies. Sputum Gram stain shows Gram-positive diplococci. He is hemodynamically stable and can be managed as an outpatient.",
-    "tags": [
-      {
-        "label": "No allergies",
-        "type": "green"
-      },
-      {
-        "label": "No comorbidities",
-        "type": "green"
-      },
-      {
-        "label": "Gram-positive diplococci",
-        "type": "blue"
-      },
-      {
-        "label": "Outpatient CAP",
-        "type": "blue"
-      }
-    ],
-    "options": [
-      {
-        "drug": "Amoxicillin",
-        "class": "Aminopenicillin"
-      },
-      {
-        "drug": "Vancomycin",
-        "class": "Glycopeptide"
-      },
-      {
-        "drug": "Meropenem",
-        "class": "Carbapenem"
-      },
-      {
-        "drug": "Doxycycline",
-        "class": "Tetracycline"
-      }
-    ],
-    "answer": "Amoxicillin",
-    "fennick_hint": "When a patient offers you no contraindications, no allergies, and a clear organism \u2014 the answer is almost always the simplest one. Two of these options are reserved for resistant organisms or hospital settings. One covers atypicals but misses this organism's first-line treatment.",
-    "patient_img": "https://res.cloudinary.com/djiap51xq/image/upload/w_220,h_210,c_pad,g_south/v1775249773/APR3_rmm1sr_a_hflip_e616dl.png"
+    "explanation": "Parkinson disease is a progressive neurodegenerative disorder caused by dopaminergic neuron loss in the substantia nigra. Cardinal features: rest tremor (4-6 Hz, pill-rolling), bradykinesia, rigidity (cogwheeling), postural instability. Levodopa/carbidopa remains the most effective symptomatic treatment. Dopamine-blocking agents (typical antipsychotics, metoclopramide) are contraindicated — they worsen motor symptoms dramatically."
   }
 ]
