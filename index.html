@@ -345,7 +345,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .prog-line{flex:1;height:2px;background:rgba(160,120,40,0.15);border-radius:2px;transition:background .3s}
 .prog-line.done{background:rgba(100,70,10,0.5)}
 
-/* ── GEAR OVERLAY ── */
 .gear-overlay-div {
   position: absolute;
   top: -10px; right: -10px;
@@ -356,6 +355,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background-size: 100% auto;
   opacity: 0.26;
   pointer-events: none;
+  z-index: 0;
 }
 .gear-tint-div {
   position: absolute;
@@ -363,6 +363,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   width: 60%; height: 75%;
   background: radial-gradient(ellipse at top right, rgba(140,90,20,0.22) 0%, rgba(180,130,50,0.08) 45%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
 }
 
 /* ── ENDGAME ── */
@@ -448,7 +449,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <div class="vitals-row" id="vitals-row"></div>
     </div>
 
-    <div class="note" id="workup-note" style="position:relative;overflow:hidden">
+    <div class="note" id="workup-note">
       <span class="section-tag">CLINICAL WORKUP</span>
       <div id="ordered-results"></div>
       <div class="tests-grid" id="tests-grid"></div>
@@ -464,7 +465,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <div id="dx-result"></div>
     </div>
 
-    <div class="note" id="mgmt-note" style="position:relative;overflow:hidden">
+    <div class="note" id="mgmt-note">
       <span class="section-tag">MANAGEMENT</span>
       <div class="progress-track" id="mgmt-progress"></div>
       <div style="margin-top:12px" id="mgmt-stages"></div>
@@ -528,13 +529,12 @@ async function loadData() {
   try {
     const diagRes = await fetch('diagnoses.json');
     DIAGNOSES = await diagRes.json();
+
     const casesRes = await fetch('cases.json');
     CASES = await casesRes.json();
   } catch (err) {
-    // Fallback: inline data
-    CASES = [{"id":"001","date":"2026-04-06","urgency":"stable","title":"The Clockmaker's Tremor","dx_answer":"Parkinson Disease","danger_dx":["haloperidol","psychosis"],"patient":{"name":"The Clockmaker","age":68,"sex":"F","occupation":"Master Clockmaker","image_url":"https://res.cloudinary.com/djiap51xq/image/upload/w_110,h_130,c_pad,g_south,b_transparent/q_auto/f_auto/v1775528227/api6_m3o0vw.png"},"chart":{"cc":"Progressive hand tremor for 14 months. I can no longer wind the city's great clock.","hpi":"14-month history of rest tremor, right hand predominant. Worsens at rest, improves with intentional movement. Gradual onset, slowly progressive. Shuffling gait, difficulty initiating movement. Treated for depression x8 months without improvement.","pmh":"Depression (misdiagnosed). Hypertension.","psh":"Appendectomy age 34.","meds":"Sertraline 50mg daily. Amlodipine 5mg daily.","allergies":"Penicillin — rash.","fh":"No family history of movement disorder.","sh":"Retired clockmaker. Lives with husband. Non-smoker. Occasional wine."},"vitals":{"bp":"138/84","hr":"68","rr":"16","temp":"37.0","o2":"98% RA"},"tests":[{"name":"CBC","type":"lab","cost":5,"result":"Normal. Hgb 13.8, WBC 7.2, Plt 224."},{"name":"CMP","type":"lab","cost":5,"result":"Normal. Creatinine 1.0, glucose 94, LFTs normal."},{"name":"TSH","type":"lab","cost":5,"result":"TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out."},{"name":"B12 / Folate","type":"lab","cost":5,"result":"B12 420 pg/mL (normal). Folate normal."},{"name":"MRI Brain","type":"imaging","cost":15,"result":"No mass lesion. No infarct. Mild age-appropriate cortical atrophy. Standard sequences do not show midbrain abnormality. DaTscan preferred for confirmation."},{"name":"DaTscan","type":"imaging","cost":20,"result":"Reduced dopamine transporter uptake in bilateral putamen — asymmetric, right greater than left. Consistent with nigrostriatal dopaminergic degeneration."},{"name":"EMG / NCS","type":"lab","cost":10,"result":"Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease."}],"hints":["The tremor frequency is 4-6 Hz. Note when it disappears — and when it returns.","Look at her face carefully. A masked expression and reduced blink rate are not depression.","The sertraline did not help the depression. That itself is a clue.","Pill-rolling, cogwheeling, micrographia. The diagnosis is in the examination."],"management":[{"title":"Immediate stabilization","options":[{"text":"Reassure and schedule follow-up","sub":"No acute intervention needed","correct":true,"feedback_correct":"Correct. This is not an emergency. A calm, thorough approach."},{"text":"Admit for IV thiamine","sub":"Wernicke protocol","correct":false,"danger":false,"feedback_wrong":"Thiamine is for Wernicke — not indicated here."},{"text":"Emergent neurology consult","sub":"Urgent inpatient","correct":false,"danger":false,"feedback_wrong":"Urgent, yes. Emergent, no. This has been progressing for 14 months."},{"text":"Stop sertraline immediately","sub":"Discontinue without taper","correct":false,"danger":true,"feedback_wrong":"Abrupt SSRI discontinuation causes withdrawal syndrome. Taper if stopping."}]},{"title":"First-line medication","options":[{"text":"Levodopa / Carbidopa","sub":"Dopamine precursor — 25/100mg TID","correct":true,"feedback_correct":"The gold standard. You know your pharmacology."},{"text":"Haloperidol","sub":"Typical antipsychotic","correct":false,"danger":true,"feedback_wrong":"Haloperidol blocks dopamine receptors — it will dramatically worsen Parkinson disease. Never."},{"text":"Sertraline dose increase","sub":"SSRI escalation","correct":false,"danger":false,"feedback_wrong":"The depression was a misdiagnosis. Sertraline will not help the tremor."},{"text":"Propranolol","sub":"Beta blocker — for essential tremor","correct":false,"danger":false,"feedback_wrong":"Propranolol is for essential tremor — an action tremor. This is a rest tremor."}]},{"title":"Further workup","options":[{"text":"Refer to movement disorder specialist","sub":"Neurology subspecialty","correct":true,"feedback_correct":"Correct. Movement disorder specialists optimize PD management."},{"text":"Lumbar puncture","sub":"CSF analysis","correct":false,"danger":false,"feedback_wrong":"LP is not indicated in Parkinson disease. This is a clinical diagnosis."},{"text":"Brain biopsy","sub":"Histopathology","correct":false,"danger":true,"feedback_wrong":"Brain biopsy for Parkinson disease would be unconscionable."},{"text":"Occupational therapy referral","sub":"ADL assessment and adaptation","correct":true,"feedback_correct":"Also correct — OT is essential in PD management."}]},{"title":"Disposition","options":[{"text":"Outpatient — start levodopa, neurology follow-up","sub":"Discharge with plan","correct":true,"feedback_correct":"Exactly right. Stable patient, chronic condition, outpatient management."},{"text":"Admit to neurology floor","sub":"Inpatient workup","correct":false,"danger":false,"feedback_wrong":"No indication for admission. This is a chronic, stable outpatient condition."},{"text":"Discharge without treatment","sub":"Watch and wait","correct":false,"danger":false,"feedback_wrong":"The diagnosis is clear. Withholding treatment serves no one."},{"text":"Admit for DaTscan","sub":"Inpatient imaging","correct":false,"danger":false,"feedback_wrong":"DaTscan is an outpatient procedure. No need for admission."}]}],"explanation":"Parkinson disease is a progressive neurodegenerative disorder caused by dopaminergic neuron loss in the substantia nigra."}];
-    DIAGNOSES = ["Parkinson Disease","Essential Tremor","Alzheimer Disease","Multiple Sclerosis (MS)","Huntington Disease","Amyotrophic Lateral Sclerosis (ALS)","Myasthenia Gravis","Guillain-Barre Syndrome (GBS)","Normal Pressure Hydrocephalus","Lewy Body Dementia","Progressive Supranuclear Palsy","Wilson Disease","Frontotemporal Dementia","Vascular Dementia","Cerebral Palsy"];
-    console.log("Using inline fallback data");
+    console.error("Failed to load JSON files. Are you running a local server?", err);
+    setFennick('danger', '"I cannot find the case files. Ensure you are running a local server to load the JSON."');
   }
 }
 
@@ -586,19 +586,23 @@ function initCase(){
   renderManagement();
   hints = currentCase.hints || [];
 
-  // ── GEAR OVERLAYS (injected after content so they don't interfere) ──
-  function addGearOverlay(panelId, imgUrl) {
-    const panel = document.getElementById(panelId);
-    const img = document.createElement('div');
-    img.className = 'gear-overlay-div';
-    img.style.backgroundImage = `url('${imgUrl}')`;
+  // Gear overlays — prepended so they sit behind all content in DOM order
+  ['workup-note','mgmt-note'].forEach((id, i) => {
+    const urls = [
+      'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png',
+      'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600417/Gemini_Generated_Image_eb02e8eb02e8eb02_copy_nvovzo.png'
+    ];
+    const panel = document.getElementById(id);
+    panel.style.position = 'relative';
+    panel.style.overflow = 'hidden';
     const tint = document.createElement('div');
     tint.className = 'gear-tint-div';
-    panel.appendChild(img);
-    panel.appendChild(tint);
-  }
-  addGearOverlay('workup-note', 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png');
-  addGearOverlay('mgmt-note', 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600417/Gemini_Generated_Image_eb02e8eb02e8eb02_copy_nvovzo.png');
+    const img = document.createElement('div');
+    img.className = 'gear-overlay-div';
+    img.style.backgroundImage = `url('${urls[i]}')`;
+    panel.insertBefore(tint, panel.firstChild);
+    panel.insertBefore(img, panel.firstChild);
+  });
 }
 
 function setFennick(expr, comment){ 
