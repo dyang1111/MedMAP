@@ -99,7 +99,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   display:flex;flex-direction:column;
   padding:14px 12px;
   gap:12px;
-  background-color:rgba(62, 30, 8, 0.98); /* Solidified background so text stays legible */
+  background-color:rgba(62, 30, 8, 0.98);
   background-image:
     repeating-linear-gradient(179deg,
       transparent 0px,transparent 3px,
@@ -127,17 +127,15 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   height: 170px;
   border-radius: 6px;
   overflow: hidden; 
-  /* Sand color with gradient to look like old paper */
   background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
   display: flex;
-  align-items: flex-end; /* Anchor image to the bottom */
+  align-items: flex-end;
   justify-content: center;
   border: 1px solid rgba(140,100,30,0.4);
 }
 #fennick-img{
-  width: 95%; /* Slight padding inside the frame */
+  width: 95%;
   height: 95%;
-  /* Contain forces the full image to fit, preventing any zooming */
   object-fit: contain; 
   object-position: bottom center; 
   transition: opacity .3s;
@@ -175,7 +173,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .streak-lbl{color:#a08040;font-size:13px}
 .streak-val{color:#e8c87a;font-size:14px}
 
-/* ── RIGHT SCROLLABLE (WITH SAND PAPER BACKGROUND) ── */
+/* ── RIGHT SCROLLABLE — NEW PAPER BACKGROUND ── */
 #right-col{
   flex:1;
   max-width:680px;
@@ -183,14 +181,13 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   overflow-y:auto;
   padding:20px 16px;
   display:flex;flex-direction:column;gap:14px;
-  
-  /* Applies the aged paper texture only to this specific scrollable area */
-  background-color: rgba(220, 205, 160, 0.88); /* Sand color base */
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/v1775618012/aged_paper_tile_fhnwqi.png');
-  background-repeat: repeat;
-  background-blend-mode: multiply;
-  
-  box-shadow: -4px 0 15px rgba(0,0,0,0.3); /* Adds depth so it sits above the town */
+
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775594676/Gemini_Generated_Image_u7xtifu7xtifu7xt_wdifid.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: -4px 0 15px rgba(0,0,0,0.3);
 }
 
 /* ── THEMATIC SCROLLBAR ── */
@@ -498,7 +495,6 @@ const FOX = {
 document.addEventListener("DOMContentLoaded", async function(){
   applyTimeTheme(); 
   
-  // Wait for the JSON files to load before building the UI
   await loadData();
   
   if (CASES.length > 0) {
@@ -557,7 +553,6 @@ function initCase(){
 
   const ptImg = document.getElementById('pt-img');
   if(currentCase.patient.image_url){
-    // Replace the low-res string in the URL with a high-res one for crispness
     ptImg.src = currentCase.patient.image_url.replace('w_110,h_130', 'w_340,h_340');
     ptImg.style.display = 'block';
   } else {
@@ -836,5 +831,3 @@ function endCase(failed){
 </script>
 </body>
 </html>
-
-
