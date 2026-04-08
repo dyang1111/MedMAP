@@ -221,7 +221,16 @@
       "assessment": "Parkinson Disease",
       "plan": "initiate levodopa/carbidopa 25/100mg TID, taper sertraline, refer to movement disorder specialist, occupational therapy referral, outpatient follow-up in 4-6 weeks"
     },
-    "explanation": "Parkinson Disease is a progressive neurodegenerative disorder caused by loss of dopaminergic neurons in the substantia nigra pars compacta. Cardinal features: rest tremor (4-6 Hz, pill-rolling), bradykinesia, cogwheel rigidity, postural instability. Levodopa/carbidopa remains the most effective symptomatic treatment. Dopamine-blocking agents are absolutely contraindicated."
+    "explanation": "Parkinson Disease is a progressive neurodegenerative disorder caused by loss of dopaminergic neurons in the substantia nigra pars compacta. Cardinal features: rest tremor (4-6 Hz, pill-rolling), bradykinesia, cogwheel rigidity, postural instability. Levodopa/carbidopa remains the most effective symptomatic treatment. Dopamine-blocking agents are absolutely contraindicated.",
+    "explanation_detail": {
+      "who_gets_it": "Adults over 60, slightly more common in men. Associated with prior dopaminergic exposure (antipsychotics can mimic it — drug-induced parkinsonism).",
+      "risk_factors": "Age, male sex, pesticide/herbicide exposure, family history (LRRK2, PINK1, Parkin mutations). Protective: smoking, caffeine (oddly).",
+      "typical_presentation": "Rest tremor (pill-rolling, 4-6 Hz), bradykinesia, cogwheel rigidity, postural instability. Non-motor: hyposmia, constipation, REM sleep behavior disorder, depression, micrographia.",
+      "moa": "Loss of dopaminergic neurons in the substantia nigra pars compacta → reduced dopamine in the striatum → unopposed cholinergic activity → movement disorder. Lewy bodies (alpha-synuclein aggregates) are the pathologic hallmark.",
+      "step1_buzzwords": "Rest tremor, pill-rolling, cogwheel rigidity, masked facies, shuffling gait, micrographia, substantia nigra, Lewy bodies, dopamine deficiency.",
+      "lab_buzzwords": "DaTscan: reduced dopamine transporter uptake in putamen (comma → period sign). MRI is normal on standard sequences. Clinical diagnosis.",
+      "treatment": "Levodopa/Carbidopa (gold standard). MAO-B inhibitors (selegiline, rasagiline) for mild disease. Dopamine agonists (pramipexole, ropinirole). NEVER give dopamine blockers (haloperidol, metoclopramide) — catastrophic worsening."
+    }
   },
   {
     "id": "002",
@@ -445,7 +454,16 @@
       "assessment": "Small Cell Lung Cancer (SCLC), Extensive Stage with SVC syndrome, SIADH, and Lambert-Eaton Myasthenic Syndrome",
       "plan": "admit for stabilization, IV dexamethasone, fluid restriction for SIADH, urgent oncology consult, expedite tissue diagnosis, initiate carboplatin/etoposide/atezolizumab upon histologic confirmation"
     },
-    "explanation": "Small Cell Lung Cancer (SCLC) is a high-grade neuroendocrine carcinoma strongly associated with heavy smoking. It is characterized by rapid doubling time, early metastasis, and remarkable chemosensitivity. Extensive stage SCLC (beyond one hemithorax) is treated with carboplatin/etoposide + atezolizumab. Paraneoplastic syndromes are common: SIADH (ectopic ADH), Lambert-Eaton (VGCC antibodies), Cushing syndrome (ectopic ACTH). SVC syndrome occurs when mediastinal tumor compresses the superior vena cava — facial plethora, arm edema, dilated non-pulsatile neck veins, and morning headache are hallmarks."
+    "explanation": "Small Cell Lung Cancer (SCLC) is a high-grade neuroendocrine carcinoma strongly associated with heavy smoking. It is characterized by rapid doubling time, early metastasis, and remarkable chemosensitivity. Extensive stage SCLC (beyond one hemithorax) is treated with carboplatin/etoposide + atezolizumab. Paraneoplastic syndromes are common: SIADH (ectopic ADH), Lambert-Eaton (VGCC antibodies), Cushing syndrome (ectopic ACTH). SVC syndrome occurs when mediastinal tumor compresses the superior vena cava — facial plethora, arm edema, dilated non-pulsatile neck veins, and morning headache are hallmarks.",
+    "explanation_detail": {
+      "who_gets_it": "Heavy smokers (>30 pack-years), typically men over 60. SCLC accounts for ~15% of all lung cancers but is the most aggressive subtype.",
+      "risk_factors": "Smoking (almost universal — >95% of cases). Radon exposure. Occupational carcinogens (asbestos, arsenic). Prior radiation.",
+      "typical_presentation": "Central hilar mass, rapid doubling time, early metastasis. Paraneoplastic syndromes in up to 20%: SIADH (hyponatremia), Lambert-Eaton (proximal weakness, facilitation), Cushing (ectopic ACTH). SVC syndrome when mediastinal nodes compress SVC.",
+      "moa": "Neuroendocrine tumor arising from Kulchitsky cells of the bronchial epithelium. Expresses synaptophysin, chromogranin A, CD56. Rapid proliferation (Ki-67 >50%). Ectopic hormone production causes paraneoplastic syndromes.",
+      "step1_buzzwords": "Small blue cells, salt-and-pepper chromatin, nuclear molding, neuroendocrine markers, SIADH, Lambert-Eaton, SVC syndrome, hilar mass, never surgical.",
+      "lab_buzzwords": "Hyponatremia + high urine sodium (SIADH). Lambert-Eaton: facilitation on repetitive nerve stimulation (opposite of MG). ACTH-independent Cushing: very high ACTH, no dexamethasone suppression.",
+      "treatment": "Extensive stage: Carboplatin + Etoposide + Atezolizumab (IMpower133). Limited stage: concurrent chemoradiation + prophylactic cranial irradiation. Surgery: no role in extensive stage. Highly chemo-sensitive initially but relapses almost universally."
+    }
   },
   {
     "id": "003",
@@ -669,6 +687,15 @@
       "assessment": "Infective Endocarditis (native valve, Strep viridans) with SVC syndrome, immune complex glomerulonephritis, and septic pulmonary emboli",
       "plan": "blood cultures x3 before antibiotics, IV penicillin G or ceftriaxone x4 weeks, urgent TEE to evaluate for perivalvular abscess given PR prolongation, cardiac surgery consult, admit to cardiology"
     },
-    "explanation": "Infective endocarditis (IE) is infection of the cardiac endothelium, most commonly involving heart valves. Risk factors include structural valve disease (bicuspid aortic valve), dental procedures without prophylaxis, and IV drug use. Strep viridans is the classic causative organism post-dental procedure. The Duke Criteria (major: positive blood cultures, echo vegetation; minor: fever, vascular phenomena, immunologic phenomena, predisposing condition) guide diagnosis. Peripheral stigmata: Osler nodes (painful, immune complex), Janeway lesions (painless, septic emboli), splinter hemorrhages, Roth spots. Treatment: 4-6 weeks IV antibiotics guided by cultures. Surgical indications: heart failure, abscess, uncontrolled infection, recurrent emboli."
+    "explanation": "Infective endocarditis (IE) is infection of the cardiac endothelium, most commonly involving heart valves. Risk factors include structural valve disease (bicuspid aortic valve), dental procedures without prophylaxis, and IV drug use. Strep viridans is the classic causative organism post-dental procedure. The Duke Criteria (major: positive blood cultures, echo vegetation; minor: fever, vascular phenomena, immunologic phenomena, predisposing condition) guide diagnosis. Peripheral stigmata: Osler nodes (painful, immune complex), Janeway lesions (painless, septic emboli), splinter hemorrhages, Roth spots. Treatment: 4-6 weeks IV antibiotics guided by cultures. Surgical indications: heart failure, abscess, uncontrolled infection, recurrent emboli.",
+    "explanation_detail": {
+      "who_gets_it": "Structural valve disease (bicuspid AV, MVP, rheumatic), IV drug users (tricuspid), prosthetic valves, recent dental/invasive procedures without prophylaxis.",
+      "risk_factors": "Structural heart disease, IV drug use, poor dentition, central venous catheters, immunosuppression, hemodialysis.",
+      "typical_presentation": "Fever + new murmur = endocarditis until proven otherwise. Peripheral stigmata: Osler nodes (tender, fingers — immune complex), Janeway lesions (painless, palms/soles — septic emboli), splinter hemorrhages, Roth spots (retinal). Embolic complications: stroke, renal infarct, septic pulmonary emboli.",
+      "moa": "Bacteremia seeds damaged endothelium → vegetation forms (platelets, fibrin, bacteria) → local destruction + systemic emboli + immune complex deposition. Strep viridans post-dental (native valve). S. aureus most aggressive (IV drug use, prosthetic). Enterococcus GI/GU source.",
+      "step1_buzzwords": "Duke criteria (2 major OR 1 major + 3 minor), Osler nodes, Janeway lesions, Roth spots, splinter hemorrhages, new murmur, positive blood cultures, vegetation on echo.",
+      "lab_buzzwords": "Blood cultures x3 before antibiotics (most important step). UA: RBC casts (immune complex GN). New PR prolongation → perivalvular abscess → urgent TEE. Echo vegetation = major Duke criterion.",
+      "treatment": "Native valve Strep viridans: IV Penicillin G or Ceftriaxone x4 weeks. S. aureus: IV Nafcillin (MSSA) or Vancomycin (MRSA) x6 weeks. Surgery indications: heart failure, abscess, uncontrolled infection, recurrent emboli despite antibiotics."
+    }
   }
 ]
