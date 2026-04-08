@@ -522,6 +522,65 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .report-text strong{font-style:normal;color:var(--text-secondary)}
 #disclaimer{text-align:center;padding:16px 20px 32px;font-size:12px;color:rgba(160,120,40,0.7);font-style:italic;position:relative;z-index:10}
 
+
+/* ── END BUTTONS ── */
+.end-buttons{display:flex;gap:10px;margin-top:10px}
+.end-reveal-btn{
+  flex:1;padding:10px 14px;
+  border:1px solid rgba(200,160,60,0.4);border-radius:7px;
+  background:rgba(58,26,6,0.85);color:#e8c87a;
+  font-family:'Playfair Display',serif;font-size:14px;
+  cursor:pointer;transition:background .2s;text-align:center;
+}
+.end-reveal-btn:hover{background:rgba(90,42,10,0.95)}
+
+/* ── REPORT OVERLAY ── */
+#report-overlay,#explanation-overlay{
+  display:none;position:fixed;inset:0;z-index:400;
+  background:rgba(15,8,0,0.7);backdrop-filter:blur(4px);
+  align-items:flex-start;justify-content:center;
+  padding-top:52px;overflow-y:auto;
+}
+#report-overlay.open,#explanation-overlay.open{display:flex}
+.report-sheet,.explanation-sheet{
+  width:100%;max-width:640px;
+  background:rgba(252,248,225,0.98);
+  border:1px solid rgba(140,100,30,0.28);
+  border-radius:0 0 10px 10px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  overflow:hidden;
+  margin-bottom:40px;
+  background-image:url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
+  background-size:cover;background-position:center;
+}
+.overlay-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;border-bottom:1px solid rgba(140,100,30,0.2);
+  background:rgba(58,26,6,0.92);
+}
+.overlay-title{color:#e8c87a;font-family:'Playfair Display',serif;font-size:16px;font-weight:600}
+.overlay-close{background:none;border:none;color:#a08040;cursor:pointer;font-size:18px;padding:2px 6px}
+.overlay-close:hover{color:#e8c87a}
+.overlay-body{padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+
+/* Report styles */
+.report-soap{font-size:14px;color:#2a1a06;line-height:1.85;font-style:italic;border-left:3px solid rgba(160,120,40,0.5);padding:12px 14px 12px 16px;background:rgba(255,255,255,0.45);border-radius:0 6px 6px 0}
+.report-soap strong{font-style:normal;color:#7a5010}
+
+/* Explanation styles */
+.exp-row{border-radius:8px;padding:11px 14px;display:flex;gap:10px;align-items:flex-start}
+.exp-row-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.exp-row-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+.exp-row-val{font-size:13px;color:#2a1a06;line-height:1.65}
+.exp-row.clr-blue{background:rgba(200,220,255,0.4);border:1px solid rgba(100,140,220,0.3)}.exp-row.clr-blue .exp-row-label{color:#2040a0}
+.exp-row.clr-amber{background:rgba(255,235,180,0.5);border:1px solid rgba(180,130,40,0.3)}.exp-row.clr-amber .exp-row-label{color:#8a5010}
+.exp-row.clr-red{background:rgba(255,210,200,0.4);border:1px solid rgba(200,80,70,0.3)}.exp-row.clr-red .exp-row-label{color:#8a2010}
+.exp-row.clr-green{background:rgba(200,240,200,0.4);border:1px solid rgba(60,160,60,0.3)}.exp-row.clr-green .exp-row-label{color:#1a6010}
+.exp-row.clr-purple{background:rgba(220,200,255,0.4);border:1px solid rgba(120,80,200,0.3)}.exp-row.clr-purple .exp-row-label{color:#5020a0}
+.exp-row.clr-teal{background:rgba(180,240,230,0.4);border:1px solid rgba(40,160,140,0.3)}.exp-row.clr-teal .exp-row-label{color:#0a6050}
+.exp-row.clr-slate{background:rgba(220,225,235,0.4);border:1px solid rgba(100,120,160,0.3)}.exp-row.clr-slate .exp-row-label{color:#304060}
+.exp-disclaimer{font-size:11px;color:#a08040;text-align:center;font-style:italic;padding-top:4px}
+
 /* ── ENDGAME ── */
 #endgame{display:none;text-align:center;padding:20px}
 .grade-circle{
@@ -586,6 +645,31 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
     <input type="range" class="music-vol" id="vol-slider" min="0" max="1" step="0.05" value="0.5" oninput="setVolume(this.value)">
   </div>
   <div class="music-now-playing" id="now-playing-lbl">—</div>
+</div>
+
+
+<!-- REPORT OVERLAY -->
+<div id="report-overlay" onclick="if(event.target===this)closeOverlay('report')">
+  <div class="report-sheet">
+    <div class="overlay-header">
+      <div class="overlay-title">📋 Report to Attending</div>
+      <button class="overlay-close" onclick="closeOverlay('report')">✕</button>
+    </div>
+    <div class="overlay-body">
+      <div class="report-soap" id="report-soap-text">—</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLANATION OVERLAY -->
+<div id="explanation-overlay" onclick="if(event.target===this)closeOverlay('explanation')">
+  <div class="explanation-sheet">
+    <div class="overlay-header">
+      <div class="overlay-title">📚 High-Yield Explanation</div>
+      <button class="overlay-close" onclick="closeOverlay('explanation')">✕</button>
+    </div>
+    <div class="overlay-body" id="explanation-body"></div>
+  </div>
 </div>
 
 <audio id="bg-audio" loop></audio>
@@ -714,13 +798,73 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
         <div class="endgame-stat"><div class="endgame-stat-val" id="end-errors">—</div><div class="endgame-stat-lbl">ERRORS</div></div>
         <div class="endgame-stat"><div class="endgame-stat-val" id="end-grade">—</div><div class="endgame-stat-lbl">GRADE</div></div>
       </div>
-      <button class="fm-nav-pill" style="width:100%;padding:10px;font-size:14px" onclick="location.reload()">Next Case →</button>
+      <div class="end-buttons">
+        <button class="end-reveal-btn" onclick="openOverlay('report')">📋 Report to Attending</button>
+        <button class="end-reveal-btn" onclick="openOverlay('explanation')">📚 Explanation</button>
+      </div>
+      <button class="fm-nav-pill" style="width:100%;padding:10px;font-size:14px;margin-top:10px" onclick="location.reload()">Next Case →</button>
     </div>
 
   </div>
 </div>
 
 <script>
+
+// ── OVERLAYS ──
+window.openOverlay = function(type) {
+  if(type === 'report') buildReport();
+  if(type === 'explanation') buildExplanation();
+  document.getElementById(type+'-overlay').classList.add('open');
+};
+window.closeOverlay = function(type) {
+  document.getElementById(type+'-overlay').classList.remove('open');
+};
+
+async function buildReport() {
+  const el = document.getElementById('report-soap-text');
+  el.innerHTML = '<em style="color:#a08040">Loading...</em>';
+  let tmpl = null;
+  try {
+    const res = await fetch('report.json');
+    if(res.ok){ const data = await res.json(); tmpl = data[currentCase.date]; }
+  } catch(e) {}
+  if(!tmpl){ el.textContent = 'Report not available for this case.'; return; }
+  let parts = [];
+  if(revealedWorkup.has('addl-hx') && tmpl.pertinent_positives?.['addl-hx']) parts.push('history notable for ' + tmpl.pertinent_positives['addl-hx']);
+  if(revealedWorkup.has('pe') && tmpl.pertinent_positives?.pe) parts.push('physical exam showing ' + tmpl.pertinent_positives.pe);
+  if(orderedLabs.size > 0 && tmpl.pertinent_positives?.labs) parts.push(tmpl.pertinent_positives.labs);
+  if(revealedWorkup.has('imaging') && tmpl.pertinent_positives?.imaging) parts.push(tmpl.pertinent_positives.imaging);
+  if(orderedLabs.has('lab-special') && tmpl.pertinent_positives?.special) parts.push(tmpl.pertinent_positives.special);
+  const p = parts.length > 0 ? 'Pertinent positives include ' + parts.join('; ') + '. ' : 'Limited workup obtained. ';
+  el.innerHTML = `<strong>Patient:</strong> ${tmpl.age}yo ${tmpl.sex==='F'?'female':'male'} with PMH of ${tmpl.pmh}, presenting with ${tmpl.presenting}. ${p}<strong>Assessment:</strong> ${tmpl.assessment}. <strong>Plan:</strong> ${tmpl.plan}.`;
+}
+
+async function buildExplanation() {
+  const body = document.getElementById('explanation-body');
+  body.innerHTML = '<em style="color:#a08040">Loading...</em>';
+  let exp = null;
+  try {
+    const res = await fetch('explanations.json');
+    if(res.ok){ const data = await res.json(); exp = data[currentCase.date]; }
+  } catch(e) {}
+  if(!exp){ body.innerHTML = '<div style="color:#7a5010;font-size:14px;font-style:italic">No explanation available for this case yet.</div>'; return; }
+  const rows = [
+    {icon:'👤',label:'Who Gets It',val:exp.who_gets_it,clr:'clr-blue'},
+    {icon:'⚠️',label:'Risk Factors',val:exp.risk_factors,clr:'clr-amber'},
+    {icon:'🩺',label:'Typical Presentation',val:exp.typical_presentation,clr:'clr-red'},
+    {icon:'⚙️',label:'Mechanism',val:exp.moa,clr:'clr-purple'},
+    {icon:'📚',label:'Step Buzzwords',val:exp.step1_buzzwords,clr:'clr-teal'},
+    {icon:'🔬',label:'Lab Buzzwords',val:exp.lab_buzzwords,clr:'clr-slate'},
+    {icon:'💊',label:'Treatment',val:exp.treatment,clr:'clr-green'},
+  ];
+  body.innerHTML = rows.filter(r=>r.val).map(r=>`
+    <div class="exp-row ${r.clr}">
+      <div class="exp-row-icon">${r.icon}</div>
+      <div><div class="exp-row-label">${r.label}</div><div class="exp-row-val">${r.val}</div></div>
+    </div>`).join('') +
+    '<div class="exp-disclaimer">For educational purposes only. Verify with primary sources.</div>';
+}
+
 const TRACKS = {
   night: [
     { name: 'Foxfire at Midnight', url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606858/Foxfire_at_Midnight_wsbzbn.mp3' },
@@ -741,11 +885,42 @@ let musicStarted = false;
 
 function initMusic(isNight) {
   currentTimeOfDay = isNight ? 'night' : 'day';
+  // Restore from localStorage if coming from archives
+  const saved = localStorage.getItem('fennick_music_state');
+  if(saved){
+    try {
+      const s = JSON.parse(saved);
+      currentTrackType = s.type || currentTimeOfDay;
+      currentTrackIdx = s.idx || 0;
+      const audio = document.getElementById('bg-audio');
+      audio.volume = s.vol !== undefined ? s.vol : 0.5;
+      document.getElementById('vol-slider').value = audio.volume;
+      const track = TRACKS[currentTrackType][currentTrackIdx];
+      audio.src = track.url;
+      if(s.time) audio.currentTime = s.time;
+      if(s.playing !== false){
+        audio.play().catch(()=>{
+          document.addEventListener('click', function sc(){ audio.play(); document.removeEventListener('click',sc); }, {once:true});
+        });
+      }
+      updateTrackUI();
+      return;
+    } catch(e) {}
+  }
   currentTrackType = currentTimeOfDay;
-  // Pick random track from the correct set
   currentTrackIdx = Math.floor(Math.random() * TRACKS[currentTrackType].length);
   loadAndPlay();
 }
+
+// Save state before navigating to archives
+window.addEventListener('beforeunload', function(){
+  const audio = document.getElementById('bg-audio');
+  if(!audio) return;
+  localStorage.setItem('fennick_music_state', JSON.stringify({
+    type: currentTrackType, idx: currentTrackIdx,
+    time: audio.currentTime, vol: audio.volume, playing: !audio.paused
+  }));
+});
 
 function loadAndPlay() {
   const audio = document.getElementById('bg-audio');
@@ -852,7 +1027,7 @@ document.addEventListener("DOMContentLoaded", async function(){
 });
 
 // ── INLINE DATA (always available, no server needed) ──
-const INLINE_CASES = [{"id": "002", "date": "2026-04-07", "urgency": "urgent", "title": "The Merchant's Cough", "dx_answer": "Small Cell Lung Cancer", "patient": {"name": "The Merchant", "age": 62, "sex": "M", "occupation": "Traveling Merchant", "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775528229/api7_p31faf.png"}, "chart": {"cc": "I've had this cough for three months and my wife finally dragged me in. I kept telling her it was the dust from the roads. But last week there was blood in it, and — I don't know. I've also lost a lot of weight without trying. And my face looks puffy in the mornings, my collar's too tight.", "hpi": "62-year-old male with 3-month history of progressive dry cough, unintentional 12 lb weight loss over 4 months, and new-onset facial and neck swelling worse in the morning. He reports increasing fatigue and two episodes of blood-tinged sputum over the past 2 weeks. Denies fever. He also notes his face turns a deep red-purple when he bends forward. Treated with antibiotics twice for 'bronchitis' without improvement.", "pmh": "Hypertension. GERD.", "psh": "Appendectomy age 28. Hernia repair age 45.", "meds": "Lisinopril 10mg daily. Omeprazole 20mg daily.", "allergies": "NKDA.", "fh": "Father died of lung cancer age 67. Mother: colon cancer.", "sh": "45 pack-year smoking history, currently smokes 1 PPD. Occasional alcohol. Travels extensively for trade."}, "vitals": {"bp": "158/94", "hr": "96", "rr": "18", "temp": "37.2", "o2": "94% RA"}, "additional_hx": "The facial swelling began about 6 weeks ago and he initially attributed it to poor sleep on the road. It is notably worse in the mornings and when he leans forward. His collar has become too tight. He reports a headache that is also worse in the morning and when bending over. He has had two episodes of hemoptysis — small amounts, bright red. The weight loss is unintentional — he has been eating the same but losing weight regardless. He also mentions his arms feel weak lately and he has had difficulty buttoning his coat. On further questioning he reports occasional double vision over the past month.", "pe_findings": "General: Plethoric, cyanotic facies. Marked facial and bilateral upper extremity edema. Dilated, non-pulsatile neck veins. Prominent venous collaterals visible across the chest wall and upper abdomen — flow directed downward. Resp: Decreased breath sounds right upper lobe. No wheeze. Neuro: Proximal muscle weakness bilateral upper > lower extremities. Reflexes diminished globally. Pupils: sluggish reaction bilaterally. No Horner syndrome. No lymphadenopathy detected on palpation — nodes may be mediastinal.", "imaging": "CXR: Large right hilar mass with widened superior mediastinum. Right upper lobe infiltrate/atelectasis. No pleural effusion. CT Chest with contrast: 6.2cm right hilar mass with direct invasion of the superior vena cava and significant extrinsic compression — SVC lumen reduced by approximately 80%. Extensive mediastinal and paratracheal lymphadenopathy. No pulmonary emboli.", "special_test": {"name": "Bronchoscopy with Biopsy", "result": "Endobronchial lesion right upper lobe completely obstructing the bronchus. Biopsy: Small cell carcinoma — sheets of small round blue cells, salt-and-pepper chromatin, nuclear molding, scant cytoplasm. Ki-67 >80%. Positive: synaptophysin, chromogranin A, CD56, TTF-1. SCLC extensive stage confirmed."}, "tests": [{"name": "CBC", "cost": 5, "result": "WBC 11.2. Hgb 10.4 (low — anemia of chronic disease). Plt 398 (mildly elevated, reactive)."}, {"name": "CMP", "cost": 5, "result": "Na 128 mEq/L (LOW — SIADH). K 3.8. Cr 1.1. LFTs mildly elevated. Albumin 2.8 (low)."}, {"name": "EKG", "cost": 5, "result": "Sinus tachycardia. Low voltage QRS — large mediastinal mass effect. No ischemic changes."}, {"name": "Troponin", "cost": 5, "result": "Negative. No myocardial injury."}, {"name": "Lipase", "cost": 5, "result": "Normal. No pancreatic involvement."}, {"name": "UA", "cost": 5, "result": "Urine Na 62 mEq/L (inappropriately high given low serum Na — SIADH). Urine osmolality 680 mOsm/kg."}, {"name": "ABG/VBG", "cost": 5, "result": "pH 7.44, pO2 68 (low) on room air. Mild hypoxemia consistent with mediastinal compression and atelectasis."}, {"name": "Coags", "cost": 5, "result": "PT/INR 1.3 mildly elevated — hepatic involvement. PTT normal."}], "hints": ["The face is purple-red and swollen, worse in the morning. The neck veins are distended but non-pulsatile. The collar doesn't fit anymore. What structure passes through the mediastinum and would cause all of this if obstructed?", "45 pack-years. Hilar mass. Weight loss. Hemoptysis. The chest X-ray widened mediastinum is not a coincidence — it is the diagnosis announcing itself.", "Small cell lung cancer has a particular fondness for paraneoplastic syndromes. His hyponatremia, his proximal muscle weakness with facilitation, his facial swelling — these are not separate problems. They are all one disease.", "SIADH causing hyponatremia + Lambert-Eaton from voltage-gated calcium channel antibodies + SVC syndrome = classic SCLC paraneoplastic triad. The EMG is your confirmation."], "management": [{"title": "Immediate management of SVC syndrome", "hint": "His SVC is 80% occluded. His face is turning purple. He has a headache from raised intracranial pressure. What do you do first?", "options": [{"text": "Elevate head of bed, IV dexamethasone, urgent oncology consult", "sub": "Reduce edema and obstruction urgently", "correct": true, "feedback_correct": "Correct. Head elevation reduces venous pressure to the head. Dexamethasone reduces peritumoral edema acutely. This is a partial oncologic emergency — urgent but not requiring immediate intubation."}, {"text": "IV furosemide aggressively", "sub": "Diurese the facial edema", "correct": false, "feedback_wrong": "Diuresis will not relieve SVC obstruction and risks dangerous volume depletion in an already compromised patient. The edema is obstructive, not fluid overload."}, {"text": "Urgent SVC stenting by interventional radiology", "sub": "Mechanical recanalization", "correct": false, "feedback_wrong": "SVC stenting is sometimes used for severe SVC syndrome but is not the first step — stabilization, diagnosis confirmation, and oncology input come first. Stenting before histology is premature."}, {"text": "Start anticoagulation for presumed SVC thrombosis", "sub": "Heparin drip", "correct": false, "feedback_wrong": "The CT shows extrinsic compression by tumor, not primary thrombosis. Anticoagulation without histologic diagnosis and in the setting of hemoptysis is dangerous."}]}, {"title": "Correct the hyponatremia", "hint": "Na 128. Urine sodium is inappropriately elevated. What is the mechanism and how do you correct it safely?", "options": [{"text": "Fluid restriction 800-1000 mL/day", "sub": "First-line SIADH management", "correct": true, "feedback_correct": "Correct. SIADH treatment is free water restriction, not sodium supplementation. Giving salt will not fix the underlying ADH excess — the kidneys will just excrete it."}, {"text": "3% hypertonic saline bolus", "sub": "Rapid sodium correction", "correct": false, "feedback_wrong": "Hypertonic saline is reserved for symptomatic severe hyponatremia (seizures, coma, Na <120). Na of 128 without neurological symptoms does not warrant hypertonic saline — too rapid correction risks osmotic demyelination syndrome."}, {"text": "Normal saline 1L bolus", "sub": "Volume replacement", "correct": false, "feedback_wrong": "In SIADH, giving normal saline can paradoxically worsen hyponatremia — the kidneys excrete the sodium but retain the free water, worsening the dilution."}, {"text": "Fludrocortisone", "sub": "Mineralocorticoid replacement", "correct": false, "feedback_wrong": "Fludrocortisone is for adrenal insufficiency with hyponatremia. This is SIADH from ectopic ADH production by the tumor. Completely different mechanism."}]}, {"title": "First-line treatment for extensive stage SCLC", "hint": "Small cell lung cancer, extensive stage. It has already seeded — SVC involvement, likely liver mets. What is the standard of care?", "options": [{"text": "Carboplatin + Etoposide + Atezolizumab", "sub": "Chemoimmunotherapy — current standard of care", "correct": true, "feedback_correct": "Correct. EP (etoposide + platinum) with atezolizumab (PD-L1 inhibitor) is the current first-line for extensive stage SCLC based on the IMpower133 trial. SCLC is exquisitely chemo-sensitive initially."}, {"text": "Surgical resection of right hilar mass", "sub": "Lobectomy", "correct": false, "feedback_wrong": "Surgery has no role in extensive stage SCLC. SCLC is a systemic disease at presentation in most cases — the problem is not just the primary tumor. Chemotherapy is the backbone of treatment."}, {"text": "Stereotactic body radiotherapy (SBRT) alone", "sub": "Definitive local radiation", "correct": false, "feedback_wrong": "SBRT is for early-stage non-small cell lung cancer. Extensive stage SCLC requires systemic therapy. Local radiation does not address micrometastatic disease."}, {"text": "Erlotinib (EGFR inhibitor)", "sub": "Targeted therapy", "correct": false, "feedback_wrong": "EGFR-targeted therapy is for non-small cell lung cancer with EGFR mutations. SCLC does not harbor EGFR mutations and does not respond to EGFR inhibitors."}]}, {"title": "Disposition", "hint": "SVC syndrome, Na 128, hemoptysis, O2 94%. Is this patient safe to go home?", "options": [{"text": "Admit — oncology, IV dexamethasone, fluid restriction, urgent CT guided biopsy planning", "sub": "Inpatient workup and stabilization", "correct": true, "feedback_correct": "Correct. This is a new diagnosis of extensive stage SCLC with active SVC syndrome, hemoptysis, and hyponatremia. Inpatient admission is mandatory for stabilization and expedited workup."}, {"text": "Discharge with outpatient oncology referral", "sub": "Follow-up in 1-2 weeks", "correct": false, "feedback_wrong": "Absolutely not. This patient has SVC syndrome, oxygen saturation of 94%, hemoptysis, and a sodium of 128. Sending him home risks acute decompensation from worsening SVC obstruction or hyponatremic seizure."}, {"text": "Admit to ICU for immediate chemo initiation", "sub": "Urgent treatment", "correct": false, "feedback_wrong": "Chemotherapy is not started without histologic confirmation. You need a tissue diagnosis first. Admitting to the general oncology floor for workup and stabilization is the appropriate level of care."}, {"text": "Transfer to thoracic surgery for emergent resection", "sub": "OR today", "correct": false, "feedback_wrong": "Surgery has no role in SCLC management and would be catastrophic without histologic diagnosis. Extensive stage SCLC is managed medically."}]}], "report_template": {"age": 62, "sex": "M", "pmh": "hypertension, GERD, and 45 pack-year smoking history", "presenting": "a 3-month progressive cough with hemoptysis, 12 lb unintentional weight loss, and facial swelling", "pertinent_positives": {"hx": "progressive dry cough, hemoptysis, 12 lb weight loss, morning facial swelling worse with bending forward, tight collar, morning headaches, proximal muscle weakness, diplopia, 45 pack-year smoking history", "pe": "plethoric cyanotic facies, bilateral upper extremity and facial edema, dilated non-pulsatile neck veins, chest wall venous collaterals, decreased right upper lobe breath sounds, proximal muscle weakness with diminished reflexes", "labs": "hyponatremia Na 128 with inappropriately elevated urine sodium consistent with SIADH, anemia Hgb 10.4, mildly elevated LFTs", "imaging": "CXR and CT chest showing 6.2cm right hilar mass with 80% SVC compression and mediastinal lymphadenopathy", "special": "bronchoscopy biopsy confirming small cell carcinoma with synaptophysin and chromogranin A positivity, Ki-67 >80%"}, "assessment": "Small Cell Lung Cancer (SCLC), Extensive Stage with SVC syndrome, SIADH, and Lambert-Eaton Myasthenic Syndrome", "plan": "admit for stabilization, IV dexamethasone, fluid restriction for SIADH, urgent oncology consult, expedite tissue diagnosis, initiate carboplatin/etoposide/atezolizumab upon histologic confirmation"}, "explanation": "Small Cell Lung Cancer (SCLC) is a high-grade neuroendocrine carcinoma strongly associated with heavy smoking. It is characterized by rapid doubling time, early metastasis, and remarkable chemosensitivity. Extensive stage SCLC (beyond one hemithorax) is treated with carboplatin/etoposide + atezolizumab. Paraneoplastic syndromes are common: SIADH (ectopic ADH), Lambert-Eaton (VGCC antibodies), Cushing syndrome (ectopic ACTH). SVC syndrome occurs when mediastinal tumor compresses the superior vena cava — facial plethora, arm edema, dilated non-pulsatile neck veins, and morning headache are hallmarks."}];
+const INLINE_CASES = [{"id": "002", "date": "2026-04-07", "urgency": "urgent", "title": "The Merchant's Cough", "dx_answer": "Small Cell Lung Cancer", "patient": {"name": "The Merchant", "age": 62, "sex": "M", "occupation": "Traveling Merchant", "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775528229/api7_p31faf.png"}, "chart": {"cc": "I've had this cough for three months and my wife finally dragged me in. I kept telling her it was the dust from the roads. But last week there was blood in it, and — I don't know. I've also lost a lot of weight without trying. And my face looks puffy in the mornings, my collar's too tight.", "hpi": "62-year-old male with 3-month history of progressive dry cough, unintentional 12 lb weight loss over 4 months, and new-onset facial and neck swelling worse in the morning. He reports increasing fatigue and two episodes of blood-tinged sputum over the past 2 weeks. Denies fever. He also notes his face turns a deep red-purple when he bends forward. Treated with antibiotics twice for 'bronchitis' without improvement.", "pmh": "Hypertension. GERD.", "psh": "Appendectomy age 28. Hernia repair age 45.", "meds": "Lisinopril 10mg daily. Omeprazole 20mg daily.", "allergies": "NKDA.", "fh": "Father died of lung cancer age 67. Mother: colon cancer.", "sh": "45 pack-year smoking history, currently smokes 1 PPD. Occasional alcohol. Travels extensively for trade."}, "vitals": {"bp": "158/94", "hr": "96", "rr": "18", "temp": "37.2", "o2": "94% RA"}, "additional_hx": "The facial swelling began about 6 weeks ago and he initially attributed it to poor sleep on the road. It is notably worse in the mornings and when he leans forward. His collar has become too tight. He reports a headache that is also worse in the morning and when bending over. He has had two episodes of hemoptysis — small amounts, bright red. The weight loss is unintentional — he has been eating the same but losing weight regardless. He also mentions his arms feel weak lately and he has had difficulty buttoning his coat. On further questioning he reports occasional double vision over the past month.", "pe_findings": "General: Plethoric, cyanotic facies. Marked facial and bilateral upper extremity edema. Dilated, non-pulsatile neck veins. Prominent venous collaterals visible across the chest wall and upper abdomen — flow directed downward. Resp: Decreased breath sounds right upper lobe. No wheeze. Neuro: Proximal muscle weakness bilateral upper > lower extremities. Reflexes diminished globally. Pupils: sluggish reaction bilaterally. No Horner syndrome. No lymphadenopathy detected on palpation — nodes may be mediastinal.", "imaging": "CXR: Large right hilar mass with widened superior mediastinum. Right upper lobe infiltrate/atelectasis. No pleural effusion. CT Chest with contrast: 6.2cm right hilar mass with direct invasion of the superior vena cava and significant extrinsic compression — SVC lumen reduced by approximately 80%. Extensive mediastinal and paratracheal lymphadenopathy. No pulmonary emboli.", "special_test": {"name": "Bronchoscopy with Biopsy", "result": "Endobronchial lesion right upper lobe completely obstructing the bronchus. Biopsy: Small cell carcinoma — sheets of small round blue cells, salt-and-pepper chromatin, nuclear molding, scant cytoplasm. Ki-67 >80%. Positive: synaptophysin, chromogranin A, CD56, TTF-1. SCLC extensive stage confirmed."}, "tests": [{"name": "CBC", "cost": 5, "result": "WBC 11.2. Hgb 10.4 (low — anemia of chronic disease). Plt 398 (mildly elevated, reactive)."}, {"name": "CMP", "cost": 5, "result": "Na 128 mEq/L (LOW — SIADH). K 3.8. Cr 1.1. LFTs mildly elevated. Albumin 2.8 (low)."}, {"name": "EKG", "cost": 5, "result": "Sinus tachycardia. Low voltage QRS — large mediastinal mass effect. No ischemic changes."}, {"name": "Troponin", "cost": 5, "result": "Negative. No myocardial injury."}, {"name": "Lipase", "cost": 5, "result": "Normal. No pancreatic involvement."}, {"name": "UA", "cost": 5, "result": "Urine Na 62 mEq/L (inappropriately high given low serum Na — SIADH). Urine osmolality 680 mOsm/kg."}, {"name": "ABG/VBG", "cost": 5, "result": "pH 7.44, pO2 68 (low) on room air. Mild hypoxemia consistent with mediastinal compression and atelectasis."}, {"name": "Coags", "cost": 5, "result": "PT/INR 1.3 mildly elevated — hepatic involvement. PTT normal."}], "hints": ["The face is purple-red and swollen, worse in the morning. The neck veins are distended but non-pulsatile. The collar doesn't fit anymore. What structure passes through the mediastinum and would cause all of this if obstructed?", "45 pack-years. Hilar mass. Weight loss. Hemoptysis. The chest X-ray widened mediastinum is not a coincidence — it is the diagnosis announcing itself.", "Small cell lung cancer has a particular fondness for paraneoplastic syndromes. His hyponatremia, his proximal muscle weakness with facilitation, his facial swelling — these are not separate problems. They are all one disease.", "SIADH causing hyponatremia + Lambert-Eaton from voltage-gated calcium channel antibodies + SVC syndrome = classic SCLC paraneoplastic triad. The EMG is your confirmation."], "management": [{"title": "Immediate management of SVC syndrome", "hint": "His SVC is 80% occluded. His face is turning purple. He has a headache from raised intracranial pressure. What do you do first?", "options": [{"text": "Elevate head of bed, IV dexamethasone, urgent oncology consult", "sub": "Reduce edema and obstruction urgently", "correct": true, "feedback_correct": "Correct. Head elevation reduces venous pressure to the head. Dexamethasone reduces peritumoral edema acutely. This is a partial oncologic emergency — urgent but not requiring immediate intubation."}, {"text": "IV furosemide aggressively", "sub": "Diurese the facial edema", "correct": false, "feedback_wrong": "Diuresis will not relieve SVC obstruction and risks dangerous volume depletion in an already compromised patient. The edema is obstructive, not fluid overload."}, {"text": "Urgent SVC stenting by interventional radiology", "sub": "Mechanical recanalization", "correct": false, "feedback_wrong": "SVC stenting is sometimes used for severe SVC syndrome but is not the first step — stabilization, diagnosis confirmation, and oncology input come first. Stenting before histology is premature."}, {"text": "Start anticoagulation for presumed SVC thrombosis", "sub": "Heparin drip", "correct": false, "feedback_wrong": "The CT shows extrinsic compression by tumor, not primary thrombosis. Anticoagulation without histologic diagnosis and in the setting of hemoptysis is dangerous."}]}, {"title": "Correct the hyponatremia", "hint": "Na 128. Urine sodium is inappropriately elevated. What is the mechanism and how do you correct it safely?", "options": [{"text": "Fluid restriction 800-1000 mL/day", "sub": "First-line SIADH management", "correct": true, "feedback_correct": "Correct. SIADH treatment is free water restriction, not sodium supplementation. Giving salt will not fix the underlying ADH excess — the kidneys will just excrete it."}, {"text": "3% hypertonic saline bolus", "sub": "Rapid sodium correction", "correct": false, "feedback_wrong": "Hypertonic saline is reserved for symptomatic severe hyponatremia (seizures, coma, Na <120). Na of 128 without neurological symptoms does not warrant hypertonic saline — too rapid correction risks osmotic demyelination syndrome."}, {"text": "Normal saline 1L bolus", "sub": "Volume replacement", "correct": false, "feedback_wrong": "In SIADH, giving normal saline can paradoxically worsen hyponatremia — the kidneys excrete the sodium but retain the free water, worsening the dilution."}, {"text": "Fludrocortisone", "sub": "Mineralocorticoid replacement", "correct": false, "feedback_wrong": "Fludrocortisone is for adrenal insufficiency with hyponatremia. This is SIADH from ectopic ADH production by the tumor. Completely different mechanism."}]}, {"title": "First-line treatment for extensive stage SCLC", "hint": "Small cell lung cancer, extensive stage. It has already seeded — SVC involvement, likely liver mets. What is the standard of care?", "options": [{"text": "Carboplatin + Etoposide + Atezolizumab", "sub": "Chemoimmunotherapy — current standard of care", "correct": true, "feedback_correct": "Correct. EP (etoposide + platinum) with atezolizumab (PD-L1 inhibitor) is the current first-line for extensive stage SCLC based on the IMpower133 trial. SCLC is exquisitely chemo-sensitive initially."}, {"text": "Surgical resection of right hilar mass", "sub": "Lobectomy", "correct": false, "feedback_wrong": "Surgery has no role in extensive stage SCLC. SCLC is a systemic disease at presentation in most cases — the problem is not just the primary tumor. Chemotherapy is the backbone of treatment."}, {"text": "Stereotactic body radiotherapy (SBRT) alone", "sub": "Definitive local radiation", "correct": false, "feedback_wrong": "SBRT is for early-stage non-small cell lung cancer. Extensive stage SCLC requires systemic therapy. Local radiation does not address micrometastatic disease."}, {"text": "Erlotinib (EGFR inhibitor)", "sub": "Targeted therapy", "correct": false, "feedback_wrong": "EGFR-targeted therapy is for non-small cell lung cancer with EGFR mutations. SCLC does not harbor EGFR mutations and does not respond to EGFR inhibitors."}]}, {"title": "Disposition", "hint": "SVC syndrome, Na 128, hemoptysis, O2 94%. Is this patient safe to go home?", "options": [{"text": "Admit — oncology, IV dexamethasone, fluid restriction, urgent CT guided biopsy planning", "sub": "Inpatient workup and stabilization", "correct": true, "feedback_correct": "Correct. This is a new diagnosis of extensive stage SCLC with active SVC syndrome, hemoptysis, and hyponatremia. Inpatient admission is mandatory for stabilization and expedited workup."}, {"text": "Discharge with outpatient oncology referral", "sub": "Follow-up in 1-2 weeks", "correct": false, "feedback_wrong": "Absolutely not. This patient has SVC syndrome, oxygen saturation of 94%, hemoptysis, and a sodium of 128. Sending him home risks acute decompensation from worsening SVC obstruction or hyponatremic seizure."}, {"text": "Admit to ICU for immediate chemo initiation", "sub": "Urgent treatment", "correct": false, "feedback_wrong": "Chemotherapy is not started without histologic confirmation. You need a tissue diagnosis first. Admitting to the general oncology floor for workup and stabilization is the appropriate level of care."}, {"text": "Transfer to thoracic surgery for emergent resection", "sub": "OR today", "correct": false, "feedback_wrong": "Surgery has no role in SCLC management and would be catastrophic without histologic diagnosis. Extensive stage SCLC is managed medically."}]}], "report_template": {"age": 62, "sex": "M", "pmh": "hypertension, GERD, and 45 pack-year smoking history", "presenting": "a 3-month progressive cough with hemoptysis, 12 lb unintentional weight loss, and facial swelling", "pertinent_positives": {"hx": "progressive dry cough, hemoptysis, 12 lb weight loss, morning facial swelling worse with bending forward, tight collar, morning headaches, proximal muscle weakness, diplopia, 45 pack-year smoking history", "pe": "plethoric cyanotic facies, bilateral upper extremity and facial edema, dilated non-pulsatile neck veins, chest wall venous collaterals, decreased right upper lobe breath sounds, proximal muscle weakness with diminished reflexes", "labs": "hyponatremia Na 128 with inappropriately elevated urine sodium consistent with SIADH, anemia Hgb 10.4, mildly elevated LFTs", "imaging": "CXR and CT chest showing 6.2cm right hilar mass with 80% SVC compression and mediastinal lymphadenopathy", "special": "bronchoscopy biopsy confirming small cell carcinoma with synaptophysin and chromogranin A positivity, Ki-67 >80%"}, "assessment": "Small Cell Lung Cancer (SCLC), Extensive Stage with SVC syndrome, SIADH, and Lambert-Eaton Myasthenic Syndrome", "plan": "admit for stabilization, IV dexamethasone, fluid restriction for SIADH, urgent oncology consult, expedite tissue diagnosis, initiate carboplatin/etoposide/atezolizumab upon histologic confirmation"}, "explanation": "Small Cell Lung Cancer (SCLC) is a high-grade neuroendocrine carcinoma strongly associated with heavy smoking. It is characterized by rapid doubling time, early metastasis, and remarkable chemosensitivity. Extensive stage SCLC (beyond one hemithorax) is treated with carboplatin/etoposide + atezolizumab. Paraneoplastic syndromes are common: SIADH (ectopic ADH), Lambert-Eaton (VGCC antibodies), Cushing syndrome (ectopic ACTH). SVC syndrome occurs when mediastinal tumor compresses the superior vena cava — facial plethora, arm edema, dilated non-pulsatile neck veins, and morning headache are hallmarks.", "explanation_detail": {"who_gets_it": "Heavy smokers (>30 pack-years), typically men over 60. SCLC accounts for ~15% of all lung cancers but is the most aggressive subtype.", "risk_factors": "Smoking (almost universal — >95% of cases). Radon exposure. Occupational carcinogens (asbestos, arsenic). Prior radiation.", "typical_presentation": "Central hilar mass, rapid doubling time, early metastasis. Paraneoplastic syndromes in up to 20%: SIADH (hyponatremia), Lambert-Eaton (proximal weakness, facilitation), Cushing (ectopic ACTH). SVC syndrome when mediastinal nodes compress SVC.", "moa": "Neuroendocrine tumor arising from Kulchitsky cells of the bronchial epithelium. Expresses synaptophysin, chromogranin A, CD56. Rapid proliferation (Ki-67 >50%). Ectopic hormone production causes paraneoplastic syndromes.", "step1_buzzwords": "Small blue cells, salt-and-pepper chromatin, nuclear molding, neuroendocrine markers, SIADH, Lambert-Eaton, SVC syndrome, hilar mass, never surgical.", "lab_buzzwords": "Hyponatremia + high urine sodium (SIADH). Lambert-Eaton: facilitation on repetitive nerve stimulation (opposite of MG). ACTH-independent Cushing: very high ACTH, no dexamethasone suppression.", "treatment": "Extensive stage: Carboplatin + Etoposide + Atezolizumab (IMpower133). Limited stage: concurrent chemoradiation + prophylactic cranial irradiation. Surgery: no role in extensive stage. Highly chemo-sensitive initially but relapses almost universally."}}];
 
 // ── FETCH DATA ──
 async function loadData() {
