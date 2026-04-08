@@ -212,6 +212,28 @@ html,body{
 ::-webkit-scrollbar{width:8px;}
 ::-webkit-scrollbar-track{background:rgba(62,30,8,0.1);}
 ::-webkit-scrollbar-thumb{background:rgba(160,120,40,0.5);border-radius:4px;}
+
+/* ── MUSIC PLAYER ── */
+#music-modal{display:none;position:fixed;top:60px;right:16px;width:280px;z-index:200;background:linear-gradient(160deg,#4a2208 0%,#3a1a06 60%,#2e1405 100%);border:1px solid rgba(200,160,60,0.35);border-radius:10px;padding:14px;box-shadow:0 8px 32px rgba(0,0,0,0.6)}
+#music-modal.open{display:block}
+.music-modal-title{color:#e8c87a;font-family:'Playfair Display',serif;font-size:14px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.music-close{color:#a08040;cursor:pointer;font-size:16px;line-height:1}
+.music-close:hover{color:#e8c87a}
+.music-track{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:6px;cursor:pointer;transition:background .15s;margin-bottom:3px}
+.music-track:hover{background:rgba(200,160,60,0.12)}
+.music-track.active{background:rgba(200,160,60,0.2)}
+.music-track-dot{width:8px;height:8px;border-radius:50%;border:1.5px solid rgba(200,160,60,0.5);flex-shrink:0}
+.music-track.active .music-track-dot{background:#c8a45a;border-color:#c8a45a}
+.music-track-name{color:#d4c4a0;font-size:13px;flex:1}
+.music-track.active .music-track-name{color:#e8c87a}
+.music-section-lbl{color:#a08040;font-size:10px;letter-spacing:.12em;margin:8px 0 4px}
+.music-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px;padding-top:10px;border-top:1px solid rgba(200,160,60,0.15)}
+.music-ctrl-btn{background:none;border:none;color:#c8a45a;cursor:pointer;padding:4px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+.music-ctrl-btn:hover{color:#e8c87a}
+.music-vol{-webkit-appearance:none;width:70px;height:3px;border-radius:2px;background:rgba(200,160,60,0.3);outline:none}
+.music-vol::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:#c8a45a;cursor:pointer}
+.music-now-playing{color:#a08040;font-size:11px;text-align:center;margin-top:8px;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 </style>
 </head>
 <body>
@@ -224,9 +246,12 @@ html,body{
     Fennick MD
     <small>Archives</small>
   </a>
-  <a class="fm-nav-pill" href="index.html">
-    ← Today's Case
-  </a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a class="fm-nav-pill" href="index.html">← Today's Case</a>
+    <button id="music-btn" onclick="toggleMusicModal()" title="Soundtrack" style="background:none;border:1px solid rgba(200,160,60,0.4);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#e8c87a;transition:background .2s;flex-shrink:0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+    </button>
+  </div>
 </nav>
 
 <div id="app">
@@ -379,5 +404,129 @@ function applyTimeTheme(){
 applyTimeTheme();
 loadCases();
 </script>
+
+<div id="music-modal">
+  <div class="music-modal-title">
+    <span>🎵 Soundtrack</span>
+    <span class="music-close" onclick="toggleMusicModal()">✕</span>
+  </div>
+  <div class="music-section-lbl">🌙 NIGHT THEMES</div>
+  <div class="music-track" id="track-n0" onclick="playTrack('night',0)"><div class="music-track-dot"></div><div class="music-track-name">Foxfire at Midnight</div></div>
+  <div class="music-track" id="track-n1" onclick="playTrack('night',1)"><div class="music-track-dot"></div><div class="music-track-name">Fox's Midnight Walk</div></div>
+  <div class="music-track" id="track-n2" onclick="playTrack('night',2)"><div class="music-track-dot"></div><div class="music-track-name">Soft Lights, Quiet Hearts</div></div>
+  <div class="music-section-lbl">☀️ DAY THEMES</div>
+  <div class="music-track" id="track-d0" onclick="playTrack('day',0)"><div class="music-track-dot"></div><div class="music-track-name">Main Theme</div></div>
+  <div class="music-track" id="track-d1" onclick="playTrack('day',1)"><div class="music-track-dot"></div><div class="music-track-name">Foxfire Morning Waltz</div></div>
+  <div class="music-track" id="track-d2" onclick="playTrack('day',2)"><div class="music-track-dot"></div><div class="music-track-name">Paws, Pipes & Possibilities</div></div>
+  <div class="music-controls">
+    <button class="music-ctrl-btn" onclick="prevTrack()"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg></button>
+    <button class="music-ctrl-btn" id="play-pause-btn" onclick="togglePlayPause()"><svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg></button>
+    <button class="music-ctrl-btn" onclick="nextTrack()"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2-6 8.5 6V6z"/></svg></button>
+    <input type="range" class="music-vol" id="vol-slider" min="0" max="1" step="0.05" value="0.5" oninput="setVolume(this.value)">
+  </div>
+  <div class="music-now-playing" id="now-playing-lbl">—</div>
+</div>
+<audio id="bg-audio" loop></audio>
+
+<script>
+const TRACKS = {
+  night:[
+    {name:'Foxfire at Midnight',url:'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606858/Foxfire_at_Midnight_wsbzbn.mp3'},
+    {name:"Fox's Midnight Walk",url:'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606862/Fox_s_Midnight_Walk_hkrhoo.mp3'},
+    {name:'Soft Lights, Quiet Hearts',url:'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606867/Soft_Lights_Quiet_Hearts_vrorda.mp3'}
+  ],
+  day:[
+    {name:'Main Theme',url:'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606963/Main_Theme_nlfas1.mp3'},
+    {name:'Foxfire Morning Waltz',url:'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606970/Foxfire_Morning_Waltz_x1dl5d.mp3'},
+    {name:"Paws, Pipes & Possibilities",url:'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606974/Paws_Pipes_and_Possibilities_blnxsk.mp3'}
+  ]
+};
+
+let currentTrackType = 'day';
+let currentTrackIdx = 0;
+
+function getTimeOfDay(){
+  const hr = new Date(new Date().toLocaleString('en-US',{timeZone:'America/Chicago'})).getHours();
+  return (hr >= 18 || hr < 6) ? 'night' : 'day';
+}
+
+function initMusic(){
+  // Restore state from localStorage if coming from index
+  const saved = localStorage.getItem('fennick_music_state');
+  const audio = document.getElementById('bg-audio');
+  if(saved){
+    try {
+      const s = JSON.parse(saved);
+      currentTrackType = s.type || getTimeOfDay();
+      currentTrackIdx = s.idx || 0;
+      audio.volume = s.vol !== undefined ? s.vol : 0.5;
+      document.getElementById('vol-slider').value = audio.volume;
+      const track = TRACKS[currentTrackType][currentTrackIdx];
+      audio.src = track.url;
+      if(s.time) audio.currentTime = s.time;
+      if(s.playing !== false) {
+        audio.play().catch(()=>{
+          document.addEventListener('click', function sc(){ audio.play(); document.removeEventListener('click',sc); }, {once:true});
+        });
+      }
+    } catch(e) { startFresh(); }
+  } else { startFresh(); }
+  updateTrackUI();
+}
+
+function startFresh(){
+  currentTrackType = getTimeOfDay();
+  currentTrackIdx = Math.floor(Math.random() * TRACKS[currentTrackType].length);
+  const audio = document.getElementById('bg-audio');
+  audio.src = TRACKS[currentTrackType][currentTrackIdx].url;
+  audio.play().catch(()=>{
+    document.addEventListener('click', function sc(){ audio.play(); document.removeEventListener('click',sc); }, {once:true});
+  });
+}
+
+function saveState(){
+  const audio = document.getElementById('bg-audio');
+  localStorage.setItem('fennick_music_state', JSON.stringify({
+    type: currentTrackType, idx: currentTrackIdx,
+    time: audio.currentTime, vol: audio.volume, playing: !audio.paused
+  }));
+}
+
+// Save state before navigating away
+window.addEventListener('beforeunload', saveState);
+document.querySelectorAll('a[href]').forEach(a => a.addEventListener('click', saveState));
+
+function loadAndPlay(){
+  const audio = document.getElementById('bg-audio');
+  const track = TRACKS[currentTrackType][currentTrackIdx];
+  audio.src = track.url;
+  audio.volume = parseFloat(document.getElementById('vol-slider').value);
+  audio.play().catch(()=>{});
+  updateTrackUI();
+}
+
+function updateTrackUI(){
+  const audio = document.getElementById('bg-audio');
+  document.querySelectorAll('.music-track').forEach(el => el.classList.remove('active'));
+  const id = 'track-'+currentTrackType[0]+currentTrackIdx;
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
+  document.getElementById('now-playing-lbl').textContent = TRACKS[currentTrackType][currentTrackIdx].name;
+  document.getElementById('play-icon').innerHTML = audio.paused
+    ? '<path d="M8 5v14l11-7z"/>'
+    : '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+}
+
+window.playTrack = function(type, idx){ currentTrackType=type; currentTrackIdx=idx; loadAndPlay(); };
+window.togglePlayPause = function(){ const a=document.getElementById('bg-audio'); if(a.paused)a.play(); else a.pause(); setTimeout(updateTrackUI,100); };
+window.nextTrack = function(){ currentTrackIdx=(currentTrackIdx+1)%TRACKS[currentTrackType].length; loadAndPlay(); };
+window.prevTrack = function(){ currentTrackIdx=(currentTrackIdx-1+TRACKS[currentTrackType].length)%TRACKS[currentTrackType].length; loadAndPlay(); };
+window.setVolume = function(val){ document.getElementById('bg-audio').volume=parseFloat(val); };
+window.toggleMusicModal = function(){ document.getElementById('music-modal').classList.toggle('open'); updateTrackUI(); };
+document.getElementById('bg-audio').addEventListener('ended', ()=>{ window.nextTrack(); });
+
+initMusic();
+</script>
+
 </body>
 </html>
