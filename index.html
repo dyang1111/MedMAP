@@ -243,136 +243,56 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 /* ── SECTION HEADERS ── */
 .section-tag{display:inline-block;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-bottom:10px}
 
-/* ── WORKUP BUTTONS ── */
-.workup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px;}
-.workup-btn{
-  background:rgba(255,255,255,0.5);
+/* ── ORDERABLE TESTS ── */
+.tests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.test-btn{
+  background: var(--test-btn-bg);
   border:1px solid rgba(160,120,40,0.35);
-  border-radius:7px;padding:11px 13px;
-  cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  border-radius:6px;padding:8px 10px;
+  cursor:pointer;text-align:center;
+  font-family:'Crimson Pro',Georgia,serif;
   transition:background .15s;
-  font-family:'Crimson Pro',Georgia,serif;
 }
-.workup-btn:hover:not(.used){background:rgba(255,255,255,0.75);}
-.workup-btn.used{background:rgba(180,230,160,0.35);border-color:rgba(80,160,60,0.4);cursor:default;}
-.workup-btn-name{font-size:14px;color:var(--text-primary);font-weight:600;}
-.workup-btn.used .workup-btn-name{color:#2a6a10;}
-.workup-btn-cost{font-size:11px;font-weight:700;color:#c04040;background:rgba(200,60,60,0.1);padding:2px 7px;border-radius:4px;}
-.workup-btn.used .workup-btn-cost{display:none;}
-.workup-btn-check{display:none;font-size:11px;font-weight:700;color:#2a6a10;}
-.workup-btn.used .workup-btn-check{display:inline;}
+.test-btn:hover{background: var(--test-btn-hover)}
+.test-btn.ordered{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
+.test-btn-name{font-size:14px;color: var(--text-primary)}
+.test-btn-cost{font-size:11px;color: var(--text-secondary);margin-top:2px}
 
-/* ── HINT REVEAL CARDS ── */
-.hint-reveal-card{
-  border-radius:7px;padding:12px 14px;margin-bottom:8px;
-  animation:fadeInResult .25s ease-out;
-}
-.hint-reveal-card.hx-card{background:rgba(240,255,240,0.7);border:1px solid rgba(80,160,60,0.3);}
-.hint-reveal-card.pe-card{background:rgba(245,240,255,0.7);border:1px solid rgba(120,80,200,0.3);}
-.hint-reveal-card.img-card{background:rgba(255,245,230,0.7);border:1px solid rgba(180,120,40,0.3);}
-.hint-reveal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;}
-.hx-card .hint-reveal-label{color:#2a6a10;}
-.pe-card .hint-reveal-label{color:#6040b0;}
-.img-card .hint-reveal-label{color:#a06020;}
-.hint-reveal-text{font-size:14px;color:var(--text-primary);line-height:1.7;}
+@keyframes fadeInResult { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.test-result-card{background:rgba(240,230,180,0.6);border:1px solid rgba(160,120,40,0.3);border-radius:6px;padding:10px 12px;margin-top:8px;animation: fadeInResult 0.3s ease-out forwards;}
+.test-result-name{font-size:12px;color: var(--text-secondary);letter-spacing:.1em;margin-bottom:4px}
+.test-result-val{font-size:15px;color: var(--text-primary);line-height:1.6}
 
-/* ── LABS PANEL ── */
-.labs-panel{
-  background:rgba(255,255,255,0.35);
-  border:1px solid rgba(160,120,40,0.25);
-  border-radius:7px;padding:12px;
-  margin-bottom:8px;
-  display:none;
-}
-.labs-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-.labs-close-btn{background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:16px;padding:2px 6px;border-radius:4px;}
-.labs-close-btn:hover{background:rgba(200,60,60,0.1);color:#c04040;}
-.labs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
-.lab-btn{
-  background:rgba(255,255,255,0.5);
-  border:1px solid rgba(160,120,40,0.3);
-  border-radius:6px;padding:8px 6px;
-  font-size:13px;font-weight:600;
-  cursor:pointer;color:var(--text-primary);
-  transition:all .15s;text-align:center;
-  font-family:'Crimson Pro',Georgia,serif;
-}
-.lab-btn:hover:not(.ordered):not(.locked-lab){border-color:rgba(160,120,40,0.7);background:rgba(255,255,255,0.8);}
-.lab-btn.ordered{background:rgba(180,230,160,0.4);border-color:rgba(80,160,60,0.4);color:#2a6a10;cursor:default;}
-.lab-btn.locked-lab{opacity:.5;cursor:not-allowed;border-style:dashed;}
-.lab-counter{font-size:11px;color:var(--text-secondary);background:rgba(0,0,0,0.08);padding:2px 8px;border-radius:4px;}
-.lab-counter.unlocked{color:#2a6a10;background:rgba(80,160,60,0.15);}
-
-/* ── DX PANEL ── */
-.dx-input-wrap{position:relative;margin-top:8px;}
+/* ── DX SECTION ── */
+.dx-input-wrap{position:relative;margin-top:8px}
 #dx-input{
-  width:100%;padding:12px 14px;
-  background:rgba(255,255,255,0.65);
+  width:100%;padding:10px 14px;
+  background:rgba(255,255,255,0.6);
   border:1.5px solid rgba(160,120,40,0.4);
   border-radius:7px;
-  font-family:'Crimson Pro',Georgia,serif;
-  font-size:16px;
-  color:#2a1a06;
+  font-family:'Crimson Pro',Georgia,serif;font-size:14px;color:#2a1a06;
   font-style:italic;
-  outline:none;
 }
-#dx-input:focus{border-color:rgba(160,120,40,0.75);background:rgba(255,255,255,0.85);}
-#dx-input.wrong{border-color:rgba(200,60,60,0.7);background:rgba(255,240,240,0.7);}
+#dx-input:focus{outline:none;border-color:rgba(160,120,40,0.7);background:rgba(255,255,255,0.8)}
 #dx-suggestions{
-  position:absolute;bottom:100%;left:0;right:0;
-  z-index:50;
-  background:#fdf8e8;
-  border:1px solid rgba(160,120,40,0.4);
-  border-radius:7px 7px 0 0;
-  max-height:220px;overflow-y:auto;
+  position:absolute;top:100%;left:0;right:0;z-index:50;
+  background:#fdf8e8;border:1px solid rgba(160,120,40,0.4);
+  border-radius:0 0 7px 7px;max-height:200px;overflow-y:auto;
   display:none;
-  box-shadow:0 -4px 12px rgba(60,30,0,0.15);
 }
-.dx-suggestion{padding:9px 14px;font-size:15px;color:#2a1a06;cursor:pointer;border-bottom:1px solid rgba(160,120,40,0.1);}
-.dx-suggestion:last-child{border-bottom:none;}
-.dx-suggestion:hover{background:rgba(200,160,60,0.15);}
-.dx-suggestion.wrong-ans{text-decoration:line-through;color:#c04040;cursor:not-allowed;}
-.dx-suggestion.wrong-ans:hover{background:rgba(200,60,60,0.08);}
+.dx-suggestion{padding:8px 14px;font-size:15px;color:#2a1a06;cursor:pointer}
+.dx-suggestion:hover{background:rgba(200,160,60,0.15)}
 #dx-submit-btn{
-  margin-top:8px;width:100%;padding:12px;
+  margin-top:8px;width:100%;padding:11px;
   background:#3a1a06;color:#e8c87a;
   border:none;border-radius:7px;
   font-family:'Playfair Display',serif;font-size:16px;
   cursor:pointer;transition:background .2s;
 }
-#dx-submit-btn:hover:not(:disabled){background:#5a2a0a;}
-#dx-submit-btn:disabled{opacity:.4;cursor:not-allowed;}
-#dx-result{margin-top:8px;font-size:15px;display:none;padding:8px 12px;border-radius:6px;}
-#dx-result.correct{background:rgba(180,230,160,0.45);color:#1a4a08;border:1px solid rgba(80,160,60,0.4);}
-#dx-result.wrong{background:rgba(230,160,150,0.4);color:#4a1010;border:1px solid rgba(180,80,70,0.35);}
-.wrong-answers-list{margin-top:6px;display:flex;flex-wrap:wrap;gap:5px;}
-.wrong-answer-tag{font-size:12px;color:#8a3030;text-decoration:line-through;background:rgba(200,80,80,0.1);padding:2px 8px;border-radius:4px;border:1px solid rgba(200,80,80,0.2);}
-
-/* ── REPORT PANEL ── */
-#report-note{display:none;}
-.report-text{
-  font-size:14px;color:var(--text-primary);
-  line-height:1.85;
-  font-style:italic;
-  border-left:3px solid rgba(160,120,40,0.4);
-  padding-left:12px;
-  background:rgba(255,255,255,0.35);
-  border-radius:0 6px 6px 0;
-  padding:12px 14px 12px 16px;
-}
-.report-text strong{font-style:normal;color:var(--text-secondary);}
-
-/* ── DISCLAIMER ── */
-#disclaimer{
-  text-align:center;
-  padding:16px 20px 32px;
-  font-size:12px;
-  color:rgba(160,120,40,0.7);
-  font-style:italic;
-  position:relative;z-index:10;
-}
-
-/* ── ENDGAME ── */
+#dx-submit-btn:hover{background:#5a2a0a}
+#dx-result{margin-top:8px;font-size:15px;display:none;padding:8px 12px;border-radius:6px}
+#dx-result.correct{background:rgba(180,230,160,0.45);color:#1a4a08;border:1px solid rgba(80,160,60,0.4)}
+#dx-result.wrong{background:rgba(230,160,150,0.4);color:#4a1010;border:1px solid rgba(180,80,70,0.35)}
 
 /* ── MANAGEMENT ── */
 .mgmt-stage{margin-bottom:4px}
@@ -445,7 +365,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   pointer-events: none;
   z-index: 0;
 }
-.note-gear .section-tag,
+.section-tag, .tests-grid, .ordered-results, #ordered-results,
+#tests-grid, #mgmt-progress, #mgmt-stages, .test-btn,
 .mgmt-option, .test-result-card, .vitals-row, .chart-grid,
 .dx-input-wrap, #dx-submit-btn, #dx-result, .progress-track {
   position: relative;
@@ -576,6 +497,59 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+/* ── WORKUP BUTTONS ── */
+.workup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+.workup-btn{background:rgba(255,255,255,0.5);border:1px solid rgba(160,120,40,0.35);border-radius:7px;padding:11px 13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .15s;font-family:'Crimson Pro',Georgia,serif}
+.workup-btn:hover:not(.used){background:rgba(255,255,255,0.75)}
+.workup-btn.used{background:rgba(180,230,160,0.35);border-color:rgba(80,160,60,0.4);cursor:default}
+.workup-btn-name{font-size:14px;color:var(--text-primary);font-weight:600}
+.workup-btn.used .workup-btn-name{color:#2a6a10}
+.workup-btn-cost{font-size:11px;font-weight:700;color:#c04040;background:rgba(200,60,60,0.1);padding:2px 7px;border-radius:4px}
+.workup-btn.used .workup-btn-cost{display:none}
+.workup-btn-check{display:none;font-size:11px;font-weight:700;color:#2a6a10}
+.workup-btn.used .workup-btn-check{display:inline}
+.hint-reveal-card{border-radius:7px;padding:12px 14px;margin-bottom:8px;animation:fadeInResult .25s ease-out}
+.hint-reveal-card.hx-card{background:rgba(240,255,240,0.7);border:1px solid rgba(80,160,60,0.3)}
+.hint-reveal-card.pe-card{background:rgba(245,240,255,0.7);border:1px solid rgba(120,80,200,0.3)}
+.hint-reveal-card.img-card{background:rgba(255,245,230,0.7);border:1px solid rgba(180,120,40,0.3)}
+.hint-reveal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.hx-card .hint-reveal-label{color:#2a6a10}
+.pe-card .hint-reveal-label{color:#6040b0}
+.img-card .hint-reveal-label{color:#a06020}
+.hint-reveal-text{font-size:14px;color:var(--text-primary);line-height:1.7}
+.labs-panel{background:rgba(255,255,255,0.35);border:1px solid rgba(160,120,40,0.25);border-radius:7px;padding:12px;margin-bottom:8px;display:none}
+.labs-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.labs-close-btn{background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:16px;padding:2px 6px;border-radius:4px}
+.labs-close-btn:hover{background:rgba(200,60,60,0.1);color:#c04040}
+.labs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.lab-btn{background:rgba(255,255,255,0.5);border:1px solid rgba(160,120,40,0.3);border-radius:6px;padding:8px 6px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text-primary);transition:all .15s;text-align:center;font-family:'Crimson Pro',Georgia,serif}
+.lab-btn:hover:not(.ordered):not(.locked-lab){border-color:rgba(160,120,40,0.7);background:rgba(255,255,255,0.8)}
+.lab-btn.ordered{background:rgba(180,230,160,0.4);border-color:rgba(80,160,60,0.4);color:#2a6a10;cursor:default}
+.lab-btn.locked-lab{opacity:.5;cursor:not-allowed;border-style:dashed}
+.lab-counter{font-size:11px;color:var(--text-secondary);background:rgba(0,0,0,0.08);padding:2px 8px;border-radius:4px}
+.lab-counter.unlocked{color:#2a6a10;background:rgba(80,160,60,0.15)}
+#dx-input{width:100%;padding:12px 14px;background:rgba(255,255,255,0.65);border:1.5px solid rgba(160,120,40,0.4);border-radius:7px;font-family:'Crimson Pro',Georgia,serif;font-size:16px;color:#2a1a06;font-style:italic;outline:none}
+#dx-input:focus{border-color:rgba(160,120,40,0.75);background:rgba(255,255,255,0.85)}
+#dx-input.wrong{border-color:rgba(200,60,60,0.7);background:rgba(255,240,240,0.7)}
+#dx-suggestions{position:absolute;bottom:100%;left:0;right:0;z-index:50;background:#fdf8e8;border:1px solid rgba(160,120,40,0.4);border-radius:7px 7px 0 0;max-height:220px;overflow-y:auto;display:none;box-shadow:0 -4px 12px rgba(60,30,0,0.15)}
+.dx-suggestion{padding:9px 14px;font-size:15px;color:#2a1a06;cursor:pointer;border-bottom:1px solid rgba(160,120,40,0.1)}
+.dx-suggestion:last-child{border-bottom:none}
+.dx-suggestion:hover{background:rgba(200,160,60,0.15)}
+.dx-suggestion.wrong-ans{text-decoration:line-through;color:#c04040;cursor:not-allowed}
+.dx-suggestion.wrong-ans:hover{background:rgba(200,60,60,0.08)}
+#dx-submit-btn{margin-top:8px;width:100%;padding:12px;background:#3a1a06;color:#e8c87a;border:none;border-radius:7px;font-family:'Playfair Display',serif;font-size:16px;cursor:pointer;transition:background .2s}
+#dx-submit-btn:hover:not(:disabled){background:#5a2a0a}
+#dx-submit-btn:disabled{opacity:.4;cursor:not-allowed}
+#dx-result{margin-top:8px;font-size:15px;display:none;padding:8px 12px;border-radius:6px}
+#dx-result.correct{background:rgba(180,230,160,0.45);color:#1a4a08;border:1px solid rgba(80,160,60,0.4)}
+#dx-result.wrong{background:rgba(230,160,150,0.4);color:#4a1010;border:1px solid rgba(180,80,70,0.35)}
+.wrong-answers-list{margin-bottom:6px;display:flex;flex-wrap:wrap;gap:5px}
+.wrong-answer-tag{font-size:12px;color:#8a3030;text-decoration:line-through;background:rgba(200,80,80,0.1);padding:2px 8px;border-radius:4px;border:1px solid rgba(200,80,80,0.2)}
+.report-text{font-size:14px;color:var(--text-primary);line-height:1.85;border-left:3px solid rgba(160,120,40,0.4);padding:12px 14px 12px 16px;background:rgba(255,255,255,0.35);border-radius:0 6px 6px 0}
+.report-text strong{font-style:normal;color:var(--text-secondary)}
+#disclaimer{text-align:center;padding:16px 20px 32px;font-size:12px;color:rgba(160,120,40,0.7);font-style:italic;position:relative;z-index:10}
 
 /* ── ENDGAME ── */
 #endgame{display:none;text-align:center;padding:20px}
@@ -719,43 +693,21 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <div class="vitals-row" id="vitals-row"></div>
     </div>
 
-    <div class="note note-gear gear-workup" id="workup-note">
+    <div class="note" id="workup-note" style="position:relative">
       <span class="section-tag">CLINICAL WORKUP</span>
-
       <div class="workup-grid">
-        <button class="workup-btn" id="btn-addl-hx" onclick="revealWorkup('addl-hx')">
-          <span class="workup-btn-name">Additional Hx</span>
-          <span class="workup-btn-cost">−5 HP</span>
-          <span class="workup-btn-check">✓ Revealed</span>
-        </button>
-        <button class="workup-btn" id="btn-pe" onclick="revealWorkup('pe')">
-          <span class="workup-btn-name">PE Findings</span>
-          <span class="workup-btn-cost">−8 HP</span>
-          <span class="workup-btn-check">✓ Revealed</span>
-        </button>
-        <button class="workup-btn" id="btn-labs" onclick="toggleLabsPanel()">
-          <span class="workup-btn-name">Order Labs</span>
-          <span class="workup-btn-cost">−5 ea</span>
-          <span class="workup-btn-check">✓ Open</span>
-        </button>
-        <button class="workup-btn" id="btn-imaging" onclick="revealWorkup('imaging')">
-          <span class="workup-btn-name">Imaging</span>
-          <span class="workup-btn-cost">−15 HP</span>
-          <span class="workup-btn-check">✓ Revealed</span>
-        </button>
+        <button class="workup-btn" id="btn-addl-hx" onclick="revealWorkup('addl-hx')"><span class="workup-btn-name">Additional Hx</span><span class="workup-btn-cost">−5 HP</span><span class="workup-btn-check">✓ Revealed</span></button>
+        <button class="workup-btn" id="btn-pe" onclick="revealWorkup('pe')"><span class="workup-btn-name">PE Findings</span><span class="workup-btn-cost">−8 HP</span><span class="workup-btn-check">✓ Revealed</span></button>
+        <button class="workup-btn" id="btn-labs" onclick="toggleLabsPanel()"><span class="workup-btn-name">Order Labs</span><span class="workup-btn-cost">−5 ea</span><span class="workup-btn-check">✓ Open</span></button>
+        <button class="workup-btn" id="btn-imaging" onclick="revealWorkup('imaging')"><span class="workup-btn-name">Imaging</span><span class="workup-btn-cost">−15 HP</span><span class="workup-btn-check">✓ Revealed</span></button>
       </div>
-
       <div class="labs-panel" id="labs-panel">
         <div class="labs-panel-header">
           <span class="section-tag" style="margin-bottom:0">SELECT LAB</span>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="lab-counter" id="lab-counter">0/2 for Special Test</span>
-            <button class="labs-close-btn" onclick="toggleLabsPanel()">✕</button>
-          </div>
+          <div style="display:flex;align-items:center;gap:8px"><span class="lab-counter" id="lab-counter">0/2 for Special Test</span><button class="labs-close-btn" onclick="toggleLabsPanel()">✕</button></div>
         </div>
         <div class="labs-grid" id="labs-grid"></div>
       </div>
-
       <div id="workup-reveals"></div>
       <div id="lab-results"></div>
     </div>
@@ -763,7 +715,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
     <div class="note" id="dx-note">
       <span class="section-tag">DIAGNOSIS</span>
       <div class="wrong-answers-list" id="wrong-answers-list"></div>
-      <div class="dx-input-wrap">
+      <div style="position:relative">
         <div id="dx-suggestions"></div>
         <input id="dx-input" type="text" placeholder="Search diagnosis..." autocomplete="off" oninput="dxInputHandler()">
       </div>
@@ -771,7 +723,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <div id="dx-result"></div>
     </div>
 
-    <div class="note" id="report-note">
+    <div class="note" id="report-note" style="display:none">
       <span class="section-tag">REPORT TO ATTENDING</span>
       <div class="report-text" id="report-text"></div>
     </div>
@@ -793,8 +745,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       </div>
       <button class="fm-nav-pill" style="width:100%;padding:10px;font-size:14px" onclick="location.reload()">Next Case →</button>
     </div>
-
-    <div id="disclaimer">⚕ Fennick MD is for educational purposes only and does not constitute medical advice. All cases are fictional.</div>
 
   </div>
 </div>
@@ -931,18 +881,28 @@ document.addEventListener("DOMContentLoaded", async function(){
 });
 
 // ── INLINE DATA (always available, no server needed) ──
-const INLINE_CASES = [{"id":"001","date":"2026-04-06","urgency":"stable","title":"The Clockmaker's Tremor","dx_answer":"Parkinson Disease","patient":{"name":"The Clockmaker","age":68,"sex":"F","occupation":"Master Clockmaker","image_url":"https://res.cloudinary.com/djiap51xq/image/upload/w_110,h_130,c_pad,g_south,b_transparent/q_auto/f_auto/v1775528227/api6_m3o0vw.png"},"chart":{"cc":"Progressive hand tremor for 14 months. I can no longer wind the city's great clock.","hpi":"14-month history of rest tremor, right hand predominant. Worsens at rest, improves with intentional movement. Gradual onset, slowly progressive. Shuffling gait, difficulty initiating movement. Treated for depression x8 months without improvement.","pmh":"Depression (misdiagnosed). Hypertension.","psh":"Appendectomy age 34.","meds":"Sertraline 50mg daily. Amlodipine 5mg daily.","allergies":"Penicillin \u2014 rash.","fh":"No family history of movement disorder.","sh":"Retired clockmaker. Lives with husband. Non-smoker. Occasional wine."},"vitals":{"bp":"138/84","hr":"68","rr":"16","temp":"37.0","o2":"98% RA"},"additional_hx":"Patient reports the tremor is worse when her hands are at rest and actually improves when she reaches for objects. She has noticed her handwriting has become very small over the past year. She walks with short, shuffling steps and has difficulty getting out of chairs. She also reports a reduced sense of smell for the past 2 years and occasional constipation. The sertraline prescribed for depression provided no benefit whatsoever.","pe_findings":"General: Masked facies, reduced blink rate, hypophonic voice. Neuro: 4-6 Hz resting tremor right hand > left, classic pill-rolling quality. Cogwheel rigidity bilateral upper extremities. Bradykinesia on finger-tapping. Gait: shuffling, reduced arm swing, difficulty initiating. Postural instability on pull test. No cerebellar signs. MMSE 29/30.","imaging":"MRI Brain (non-contrast): No mass lesion, no acute infarct, no hydrocephalus. Mild age-appropriate cortical atrophy. Standard sequences cannot visualize dopaminergic neurons \u2014 DaTscan is the appropriate functional study. No midbrain atrophy to suggest PSP.","special_test":{"name":"DaTscan (Dopamine Transporter Scan)","result":"Reduced dopamine transporter uptake in bilateral putamen, asymmetric \u2014 right greater than left. Classic comma-to-period sign. Consistent with nigrostriatal dopaminergic degeneration, confirming Parkinson Disease."},"tests":[{"name":"CBC","cost":5,"result":"Normal. Hgb 13.8, WBC 7.2, Plt 224. No anemia or infection."},{"name":"CMP","cost":5,"result":"Normal. Creatinine 1.0, glucose 94, LFTs normal. No metabolic cause."},{"name":"TSH","cost":5,"result":"TSH 1.8 mIU/L \u2014 normal. Hyperthyroidism ruled out."},{"name":"B12","cost":5,"result":"B12 420 pg/mL \u2014 normal. Folate normal. No nutritional deficiency."},{"name":"EKG","cost":5,"result":"Normal sinus rhythm. No arrhythmia."},{"name":"Coags","cost":5,"result":"PT/INR normal. PTT normal. No coagulopathy."},{"name":"UA","cost":5,"result":"Clear, no infection, no protein. Unremarkable."},{"name":"EMG/NCS","cost":5,"result":"Normal nerve conduction. No peripheral neuropathy. Tremor analysis: 4-6 Hz rest tremor, suppressible with movement \u2014 consistent with Parkinson Disease."}],"hints":["The tremor frequency is 4-6 Hz and disappears with intentional movement. That pattern narrows your differential significantly.","Look beyond the tremor \u2014 masked face, reduced blink rate, hypophonic voice, micrographia. These are not psychiatric symptoms.","The sertraline did absolutely nothing. That itself is diagnostic information.","Pill-rolling rest tremor + cogwheel rigidity + bradykinesia + shuffling gait. You have all four cardinal features in front of you."],"management":[{"title":"Immediate stabilization","hint":"This patient has been slowly progressive for 14 months. Think about what level of urgency is truly warranted here.","options":[{"text":"Reassure and schedule outpatient follow-up","sub":"No acute intervention needed","correct":true,"feedback_correct":"Correct. This is a chronic, slowly progressive condition. No emergency exists."},{"text":"Admit for IV thiamine","sub":"Wernicke protocol","correct":false,"feedback_wrong":"Thiamine is for Wernicke encephalopathy \u2014 confusion, ophthalmoplegia, ataxia. None of those are present here."},{"text":"Emergent neurology consult","sub":"Urgent inpatient","correct":false,"feedback_wrong":"This has been progressing for 14 months. Urgent outpatient neurology, yes. Emergent inpatient is not warranted."},{"text":"Stop sertraline immediately","sub":"Abrupt discontinuation","correct":false,"feedback_wrong":"Abrupt SSRI discontinuation causes withdrawal syndrome. Always taper. Never stop abruptly."}]},{"title":"First-line pharmacotherapy","hint":"Parkinson Disease involves loss of dopaminergic neurons. Your first-line treatment should address that deficit directly.","options":[{"text":"Levodopa / Carbidopa","sub":"25/100mg TID \u2014 dopamine precursor","correct":true,"feedback_correct":"The gold standard. Levodopa crosses the BBB and is converted to dopamine. Carbidopa prevents peripheral conversion. You know your pharmacology."},{"text":"Haloperidol","sub":"Typical antipsychotic \u2014 D2 blocker","correct":false,"feedback_wrong":"Catastrophically wrong. Haloperidol blocks dopamine receptors \u2014 the exact opposite of what this patient needs. It will dramatically worsen every motor symptom. Never."},{"text":"Increase sertraline dose","sub":"SSRI escalation","correct":false,"feedback_wrong":"The depression was a misdiagnosis \u2014 it was masked facies and bradyphrenia from Parkinson Disease. More sertraline will not help a dopamine deficiency."},{"text":"Propranolol","sub":"Beta-blocker \u2014 for essential tremor","correct":false,"feedback_wrong":"Propranolol is for essential tremor \u2014 an action tremor. This is a rest tremor from dopamine deficiency. Propranolol will not touch it."}]},{"title":"Specialist referral","hint":"Parkinson Disease is complex and progressive. Who manages it best long-term?","options":[{"text":"Movement disorder specialist","sub":"Neurology subspecialty","correct":true,"feedback_correct":"Correct. Movement disorder neurologists specialize in optimizing PD management \u2014 medication timing, DBS candidacy, motor complications."},{"text":"Lumbar puncture","sub":"CSF analysis","correct":false,"feedback_wrong":"LP is not indicated in Parkinson Disease. This is a clinical diagnosis supported by DaTscan. CSF will not change management."},{"text":"Brain biopsy","sub":"Histopathology for Lewy bodies","correct":false,"feedback_wrong":"Brain biopsy for Parkinson Disease is not done in living patients. Lewy bodies are a post-mortem finding. This would be unconscionable."},{"text":"Occupational therapy","sub":"ADL assessment and adaptation","correct":true,"feedback_correct":"Also correct \u2014 OT is essential. Fine motor tasks, handwriting aids, safety assessment. Both this and movement disorder referral are right."}]},{"title":"Disposition","hint":"Is there any reason this stable chronic condition requires inpatient admission?","options":[{"text":"Discharge \u2014 start levodopa, neurology follow-up","sub":"Outpatient management","correct":true,"feedback_correct":"Exactly right. Stable chronic condition, clear diagnosis, outpatient management with appropriate follow-up."},{"text":"Admit to neurology floor","sub":"Inpatient workup","correct":false,"feedback_wrong":"No indication for admission. This has been present for 14 months and she is hemodynamically stable."},{"text":"Discharge without treatment","sub":"Watch and wait","correct":false,"feedback_wrong":"The diagnosis is established. Withholding levodopa serves no purpose and leaves the patient suffering unnecessarily."},{"text":"Admit for DaTscan","sub":"Inpatient imaging","correct":false,"feedback_wrong":"DaTscan is an outpatient nuclear medicine study. There is no indication for inpatient admission to obtain it."}]}],"report_template":{"age":68,"sex":"F","pmh":"hypertension and previously misdiagnosed depression","presenting":"a 14-month progressive rest tremor","pertinent_positives":{"hx":"pill-rolling 4-6 Hz rest tremor worse at rest and improved with movement, micrographia, shuffling gait, reduced sense of smell, failure to respond to sertraline","pe":"masked facies, reduced blink rate, cogwheel rigidity, bradykinesia, shuffling gait with reduced arm swing, positive pull test","labs":"normal CBC, CMP, TSH, B12 ruling out metabolic and nutritional causes","imaging":"MRI brain without acute findings","special":"DaTscan showing reduced dopamine transporter uptake in bilateral putamen consistent with nigrostriatal degeneration"},"assessment":"Parkinson Disease","plan":"initiate levodopa/carbidopa 25/100mg TID, taper sertraline, refer to movement disorder specialist, occupational therapy referral, outpatient follow-up in 4-6 weeks"}}];
+const INLINE_CASES = [{"id":"001","date":"2026-04-06","urgency":"stable","title":"The Clockmaker's Tremor","dx_answer":"Parkinson Disease","danger_dx":["haloperidol","psychosis"],"patient":{"name":"The Clockmaker","age":68,"sex":"F","occupation":"Master Clockmaker","image_url":"https://res.cloudinary.com/djiap51xq/image/upload/w_110,h_130,c_pad,g_south,b_transparent/q_auto/f_auto/v1775528227/api6_m3o0vw.png"},"chart":{"cc":"Progressive hand tremor for 14 months. I can no longer wind the city's great clock.","hpi":"14-month history of rest tremor, right hand predominant. Worsens at rest, improves with intentional movement. Gradual onset, slowly progressive. Shuffling gait, difficulty initiating movement. Treated for depression x8 months without improvement.","pmh":"Depression (misdiagnosed). Hypertension.","psh":"Appendectomy age 34.","meds":"Sertraline 50mg daily. Amlodipine 5mg daily.","allergies":"Penicillin — rash.","fh":"No family history of movement disorder.","sh":"Retired clockmaker. Lives with husband. Non-smoker. Occasional wine."},"vitals":{"bp":"138/84","hr":"68","rr":"16","temp":"37.0","o2":"98% RA"},"tests":[{"name":"CBC","type":"lab","cost":5,"result":"Normal. Hgb 13.8, WBC 7.2, Plt 224."},{"name":"CMP","type":"lab","cost":5,"result":"Normal. Creatinine 1.0, glucose 94, LFTs normal."},{"name":"TSH","type":"lab","cost":5,"result":"TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out."},{"name":"B12 / Folate","type":"lab","cost":5,"result":"B12 420 pg/mL (normal). Folate normal."},{"name":"MRI Brain","type":"imaging","cost":15,"result":"No mass lesion. No infarct. Mild age-appropriate cortical atrophy. Standard sequences do not show midbrain abnormality. DaTscan preferred for confirmation."},{"name":"DaTscan","type":"imaging","cost":20,"result":"Reduced dopamine transporter uptake in bilateral putamen — asymmetric, right greater than left. Consistent with nigrostriatal dopaminergic degeneration."},{"name":"EMG / NCS","type":"lab","cost":10,"result":"Normal nerve conduction. No peripheral neuropathy. Tremor: 4-6 Hz rest tremor pattern — consistent with Parkinson disease."}],"hints":["The tremor frequency is 4-6 Hz. Note when it disappears — and when it returns.","Look at her face carefully. A masked expression and reduced blink rate are not depression.","The sertraline did not help the depression. That itself is a clue.","Pill-rolling, cogwheeling, micrographia. The diagnosis is in the examination."],"management":[{"title":"Immediate stabilization","options":[{"text":"Reassure and schedule follow-up","sub":"No acute intervention needed","correct":true,"feedback_correct":"Correct. This is not an emergency. A calm, thorough approach."},{"text":"Admit for IV thiamine","sub":"Wernicke protocol","correct":false,"danger":false,"feedback_wrong":"Thiamine is for Wernicke — not indicated here."},{"text":"Emergent neurology consult","sub":"Urgent inpatient","correct":false,"danger":false,"feedback_wrong":"Urgent, yes. Emergent, no. This has been progressing for 14 months."},{"text":"Stop sertraline immediately","sub":"Discontinue without taper","correct":false,"danger":true,"feedback_wrong":"Abrupt SSRI discontinuation causes withdrawal syndrome. Taper if stopping."}]},{"title":"First-line medication","options":[{"text":"Levodopa / Carbidopa","sub":"Dopamine precursor — 25/100mg TID","correct":true,"feedback_correct":"The gold standard. You know your pharmacology."},{"text":"Haloperidol","sub":"Typical antipsychotic","correct":false,"danger":true,"feedback_wrong":"Haloperidol blocks dopamine receptors — it will dramatically worsen Parkinson disease. Never."},{"text":"Sertraline dose increase","sub":"SSRI escalation","correct":false,"danger":false,"feedback_wrong":"The depression was a misdiagnosis. Sertraline will not help the tremor."},{"text":"Propranolol","sub":"Beta blocker — for essential tremor","correct":false,"danger":false,"feedback_wrong":"Propranolol is for essential tremor — an action tremor. This is a rest tremor."}]},{"title":"Further workup","options":[{"text":"Refer to movement disorder specialist","sub":"Neurology subspecialty","correct":true,"feedback_correct":"Correct. Movement disorder specialists optimize PD management."},{"text":"Lumbar puncture","sub":"CSF analysis","correct":false,"danger":false,"feedback_wrong":"LP is not indicated in Parkinson disease. This is a clinical diagnosis."},{"text":"Brain biopsy","sub":"Histopathology","correct":false,"danger":true,"feedback_wrong":"Brain biopsy for Parkinson disease would be unconscionable."},{"text":"Occupational therapy referral","sub":"ADL assessment and adaptation","correct":true,"feedback_correct":"Also correct — OT is essential in PD management."}]},{"title":"Disposition","options":[{"text":"Outpatient — start levodopa, neurology follow-up","sub":"Discharge with plan","correct":true,"feedback_correct":"Exactly right. Stable patient, chronic condition, outpatient management."},{"text":"Admit to neurology floor","sub":"Inpatient workup","correct":false,"danger":false,"feedback_wrong":"No indication for admission. This is a chronic, stable outpatient condition."},{"text":"Discharge without treatment","sub":"Watch and wait","correct":false,"danger":false,"feedback_wrong":"The diagnosis is clear. Withholding treatment serves no one."},{"text":"Admit for DaTscan","sub":"Inpatient imaging","correct":false,"danger":false,"feedback_wrong":"DaTscan is an outpatient procedure. No need for admission."}]}],"explanation":"Parkinson disease is a progressive neurodegenerative disorder caused by dopaminergic neuron loss in the substantia nigra. Cardinal features: rest tremor (4-6 Hz, pill-rolling), bradykinesia, rigidity (cogwheeling), postural instability. Levodopa/carbidopa remains the most effective symptomatic treatment. Dopamine-blocking agents (typical antipsychotics, metoclopramide) are contraindicated — they worsen motor symptoms dramatically."}];
 
 // ── FETCH DATA ──
 async function loadData() {
+  // Start with inline data so it always works
   CASES = INLINE_CASES;
-  DIAGNOSES = ["AAA (Abdominal Aortic Aneurysm)","Achalasia","Acromegaly","Acute Cholecystitis","Acute Coronary Syndrome (ACS)","Acute Pancreatitis","Addison Disease (Adrenal Insufficiency)","Alcohol Use Disorder","Alzheimer Disease","Amyotrophic Lateral Sclerosis (ALS)","Anaphylaxis","Ankylosing Spondylitis","Aortic Dissection","Aortic Stenosis","Appendicitis","Asthma","Atrial Fibrillation (A-Fib)","Bacterial Meningitis","Bipolar I Disorder","Brain Abscess","Celiac Disease","Chronic Obstructive Pulmonary Disease (COPD)","Cirrhosis","Congestive Heart Failure (CHF)","Crohn's Disease","Cushing Syndrome","Cystic Fibrosis","Deep Vein Thrombosis (DVT)","Delirium","Diabetes Mellitus Type 1","Diabetes Mellitus Type 2","Diabetic Ketoacidosis (DKA)","Disseminated Intravascular Coagulation (DIC)","Essential Tremor","Frontotemporal Dementia","Gout","Graves Disease","Guillain-Barre Syndrome (GBS)","HIV / AIDS","Hashimoto Thyroiditis","Hepatitis B","Hepatitis C","Hodgkin Lymphoma","Huntington Disease","Hypertensive Emergency","Hypothyroidism","Iron Deficiency Anemia","Ischemic Stroke","Lewy Body Dementia","Lyme Disease","Major Depressive Disorder","Marfan Syndrome","Melanoma","Multiple Sclerosis (MS)","Myasthenia Gravis","Myocardial Infarction (Heart Attack)","Normal Pressure Hydrocephalus","Osteoporosis","Ovarian Cancer","Pancreatic Cancer","Parkinson Disease","Peptic Ulcer Disease","Pneumonia","Polycystic Ovary Syndrome (PCOS)","Progressive Supranuclear Palsy","Prostate Cancer","Pulmonary Embolism (PE)","Rheumatoid Arthritis (RA)","Sarcoidosis","Schizophrenia","Sickle Cell Anemia","Systemic Lupus Erythematosus (SLE)","Tuberculosis (TB)","Ulcerative Colitis (UC)","Wilson Disease"];
+  DIAGNOSES = ["AAA (Abdominal Aortic Aneurysm)","Achalasia","Acromegaly","Acute Cholecystitis","Acute Coronary Syndrome (ACS)","Acute Pancreatitis","Addison Disease (Adrenal Insufficiency)","Alcohol Use Disorder","Alzheimer Disease","Amyotrophic Lateral Sclerosis (ALS)","Anaphylaxis","Ankylosing Spondylitis","Aortic Dissection","Aortic Stenosis","Appendicitis","Asthma","Atrial Fibrillation (A-Fib)","Bacterial Meningitis","Bipolar I Disorder","Brain Abscess","Celiac Disease","Chronic Obstructive Pulmonary Disease (COPD)","Cirrhosis","Congestive Heart Failure (CHF)","Crohn's Disease","Cushing Syndrome","Cystic Fibrosis","Deep Vein Thrombosis (DVT)","Delirium","Diabetes Mellitus Type 1","Diabetes Mellitus Type 2","Diabetic Ketoacidosis (DKA)","Disseminated Intravascular Coagulation (DIC)","Endocarditis (Mitral Valve — Streptococcal)","Essential Tremor","Frontotemporal Dementia","Gout","Graves Disease","Guillain-Barre Syndrome (GBS)","HIV / AIDS","Hashimoto Thyroiditis","Hepatitis B","Hepatitis C","Hodgkin Lymphoma","Huntington Disease","Hypertensive Emergency","Hypothyroidism","Iron Deficiency Anemia","Ischemic Stroke","Lewy Body Dementia","Lyme Disease","Major Depressive Disorder","Marfan Syndrome","Melanoma","Multiple Sclerosis (MS)","Myasthenia Gravis","Myocardial Infarction (Heart Attack)","Normal Pressure Hydrocephalus","Osteoporosis","Ovarian Cancer","Pancreatic Cancer","Parkinson Disease","Peptic Ulcer Disease","Pneumonia","Polycystic Ovary Syndrome (PCOS)","Progressive Supranuclear Palsy","Prostate Cancer","Pulmonary Embolism (PE)","Rheumatoid Arthritis (RA)","Sarcoidosis","Schizophrenia","Sickle Cell Anemia","Systemic Lupus Erythematosus (SLE)","Tuberculosis (TB)","Ulcerative Colitis (UC)","Wilson Disease"];
+  // Try to upgrade with full JSON files if running on a server
   try {
     const diagRes = await fetch('diagnoses.json');
-    if(diagRes.ok){ const d = await diagRes.json(); if(Array.isArray(d)&&d.length>0) DIAGNOSES=d; }
+    if(diagRes.ok) {
+      const diagData = await diagRes.json();
+      if(Array.isArray(diagData) && diagData.length > 0) DIAGNOSES = diagData;
+    }
     const casesRes = await fetch('cases.json');
-    if(casesRes.ok){ const c = await casesRes.json(); if(Array.isArray(c)&&c.length>0) CASES=c; }
-  } catch(e) {}
+    if(casesRes.ok) {
+      const casesData = await casesRes.json();
+      if(Array.isArray(casesData) && casesData.length > 0) CASES = casesData;
+    }
+  } catch (err) {
+    // silently use inline data
+  }
 }
 
 // ── TIME THEME LOGIC ──
@@ -950,13 +910,22 @@ function applyTimeTheme(){
   const now = new Date();
   const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
   const hr = cst.getHours();
-  const isNight = hr >= 18 || hr < 6;
-  const bgUrl = isNight
+  
+  const isNight = hr >= 18 || hr < 6; 
+
+  const bgUrl = isNight 
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527250/night_pi7sfg.png'
     : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527232/background_ui_tl1rgz.png';
+
   document.getElementById('bg').style.backgroundImage = `url('${bgUrl}')`;
-  if(isNight){ document.body.classList.remove('day'); document.body.classList.add('night'); }
-  else{ document.body.classList.remove('night'); document.body.classList.add('day'); }
+
+  if(isNight) {
+    document.body.classList.remove('day');
+    document.body.classList.add('night');
+  } else {
+    document.body.classList.remove('night');
+    document.body.classList.add('day');
+  }
   initMusic(isNight);
 }
 
@@ -966,26 +935,31 @@ function initCase(){
   currentCase = urlDate ? CASES.find(c => c.date === urlDate) || CASES[0] : CASES[0];
   if(!currentCase) return;
 
-  if(urlDate){ document.getElementById('case-num-lbl').textContent = 'Archive \u2014 ' + urlDate; }
-  else{ document.getElementById('case-num-lbl').textContent = 'Case no. ' + currentCase.id; }
+  if(urlDate) {
+    document.getElementById('case-num-lbl').textContent = 'Archive — ' + urlDate;
+  } else {
+    document.getElementById('case-num-lbl').textContent = 'Case no. ' + currentCase.id;
+  }
 
   document.getElementById('pt-name').textContent = currentCase.patient.name + ', ' + currentCase.patient.age + currentCase.patient.sex;
   document.getElementById('pt-occ').textContent = currentCase.patient.occupation;
-  document.getElementById('pt-cc').textContent = '\u201c' + currentCase.chart.cc + '\u201d';
+  document.getElementById('pt-cc').textContent = '"' + currentCase.chart.cc + '"';
 
   const ptImg = document.getElementById('pt-img');
   if(currentCase.patient.image_url){
-    ptImg.src = currentCase.patient.image_url.replace('w_110,h_130','w_340,h_340');
+    ptImg.src = currentCase.patient.image_url.replace('w_110,h_130', 'w_340,h_340');
     ptImg.style.display = 'block';
-  } else { ptImg.style.display = 'none'; }
+  } else {
+    ptImg.style.display = 'none'; 
+  }
 
-  setFennick('default', '\u201cA new case has arrived. Take your time \u2014 but not too much of it.\u201d');
+  setFennick('default', `"A new case has arrived. Take your time — but not too much of it."`);
   renderChart();
   renderLabsGrid();
   renderManagement();
   hints = currentCase.hints || [];
 
-  // Gear overlays
+  // Gear overlays — prepended so they sit behind all content in DOM order
   ['workup-note','mgmt-note'].forEach((id, i) => {
     const urls = [
       'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png',
@@ -993,410 +967,225 @@ function initCase(){
     ];
     const panel = document.getElementById(id);
     panel.style.position = 'relative';
-    const tint = document.createElement('div'); tint.className = 'gear-tint-div';
-    const img = document.createElement('div'); img.className = 'gear-overlay-div';
+    const tint = document.createElement('div');
+    tint.className = 'gear-tint-div';
+    const img = document.createElement('div');
+    img.className = 'gear-overlay-div';
     img.style.backgroundImage = `url('${urls[i]}')`;
     panel.insertBefore(tint, panel.firstChild);
     panel.insertBefore(img, panel.firstChild);
   });
 }
 
-function setFennick(expr, comment){
-  document.getElementById('fennick-img').src = FOX[expr] || FOX.default;
+function setFennick(expr, comment){ 
+  document.getElementById('fennick-img').src = FOX[expr] || FOX.default; 
   if(comment) document.getElementById('fennick-comment').textContent = comment;
 }
 
-function drainHP(amount){
-  HP = Math.max(0, HP - amount);
-  document.getElementById('hp-bar-nav').style.width = HP + '%';
-  document.getElementById('hp-num-nav').textContent = HP;
+function drainHP(amount){ 
+  HP = Math.max(0, HP - amount); 
+  document.getElementById('hp-bar-nav').style.width = HP + '%'; 
+  document.getElementById('hp-num-nav').textContent = HP; 
   if(HP === 0) endCase(true);
 }
 
-function updateFennickByErrors(){
-  if(errors === 0) setFennick('default');
-  else if(errors === 1) setFennick('think', '\u201cCareful now.\u201d');
-  else if(errors >= 2) setFennick('concerned', '\u201cYou are making this harder than it needs to be.\u201d');
+function updateFennickByErrors(){ 
+  if(errors === 0) setFennick('default'); 
+  else if(errors === 1) setFennick('think', '"Careful now."'); 
+  else if(errors >= 2) setFennick('concerned', '"You are making this harder than it needs to be."');
 }
 
 function renderChart(){
-  const c = currentCase.chart;
-  const v = currentCase.vitals;
-  const grid = document.getElementById('chart-grid');
-  const rows = [['HPI',c.hpi],['PMH',c.pmh],['PSH',c.psh],['Medications',c.meds],['Allergies',c.allergies],['Family Hx',c.fh],['Social Hx',c.sh]];
-  grid.innerHTML = rows.map(([l,val])=>`<div class="chart-label">${l}</div><div class="chart-val">${val||'None'}</div>`).join('');
-  document.getElementById('vitals-row').innerHTML = `
-    <div class="vital-item"><div class="vital-val">${v.bp}</div><div class="vital-lbl">BP</div></div>
-    <div class="vital-item"><div class="vital-val">${v.hr}</div><div class="vital-lbl">HR</div></div>
-    <div class="vital-item"><div class="vital-val">${v.rr}</div><div class="vital-lbl">RR</div></div>
-    <div class="vital-item"><div class="vital-val">${v.temp}\u00b0C</div><div class="vital-lbl">TEMP</div></div>
-    <div class="vital-item"><div class="vital-val">${v.o2}</div><div class="vital-lbl">O\u2082 SAT</div></div>`;
+  const c=currentCase.chart,v=currentCase.vitals;
+  const rows=[['HPI',c.hpi],['PMH',c.pmh],['PSH',c.psh],['Medications',c.meds],['Allergies',c.allergies],['Family Hx',c.fh],['Social Hx',c.sh]];
+  document.getElementById('chart-grid').innerHTML=rows.map(([l,val])=>`<div class="chart-label">${l}</div><div class="chart-val">${val||'None'}</div>`).join('');
+  document.getElementById('vitals-row').innerHTML=`<div class="vital-item"><div class="vital-val">${v.bp}</div><div class="vital-lbl">BP</div></div><div class="vital-item"><div class="vital-val">${v.hr}</div><div class="vital-lbl">HR</div></div><div class="vital-item"><div class="vital-val">${v.rr}</div><div class="vital-lbl">RR</div></div><div class="vital-item"><div class="vital-val">${v.temp}\xb0C</div><div class="vital-lbl">TEMP</div></div><div class="vital-item"><div class="vital-val">${v.o2}</div><div class="vital-lbl">O\u2082 SAT</div></div>`;
 }
 
-// ── WORKUP ──
-const revealedWorkup = new Set();
-const orderedLabs = new Set();
+const revealedWorkup=new Set(),orderedLabs=new Set(),wrongAnswers=new Set();
 
-window.revealWorkup = function(type) {
-  if(revealedWorkup.has(type)) return;
-  const costs = {'addl-hx':5, 'pe':8, 'imaging':15};
-  drainHP(costs[type] || 5);
-  revealedWorkup.add(type);
-  document.getElementById('btn-'+type).classList.add('used');
-
-  const content = {
-    'addl-hx': { label: 'ADDITIONAL HISTORY', cls: 'hx-card', text: currentCase.additional_hx },
-    'pe':       { label: 'PHYSICAL EXAM FINDINGS', cls: 'pe-card', text: currentCase.pe_findings },
-    'imaging':  { label: 'IMAGING', cls: 'img-card', text: currentCase.imaging }
-  };
-  const c = content[type];
-  if(!c) return;
-  const card = document.createElement('div');
-  card.className = 'hint-reveal-card ' + c.cls;
-  card.innerHTML = `<div class="hint-reveal-label">${c.label}</div><div class="hint-reveal-text">${c.text}</div>`;
+window.revealWorkup=function(type){
+  if(revealedWorkup.has(type))return;
+  drainHP({'addl-hx':5,'pe':8,'imaging':15}[type]||5);
+  revealedWorkup.add(type);document.getElementById('btn-'+type).classList.add('used');
+  const ct={'addl-hx':{label:'ADDITIONAL HISTORY',cls:'hx-card',text:currentCase.additional_hx},'pe':{label:'PHYSICAL EXAM FINDINGS',cls:'pe-card',text:currentCase.pe_findings},'imaging':{label:'IMAGING',cls:'img-card',text:currentCase.imaging}};
+  const c=ct[type];if(!c||!c.text)return;
+  const card=document.createElement('div');card.className='hint-reveal-card '+c.cls;
+  card.innerHTML=`<div class="hint-reveal-label">${c.label}</div><div class="hint-reveal-text">${c.text}</div>`;
   document.getElementById('workup-reveals').appendChild(card);
 };
 
-window.toggleLabsPanel = function() {
-  const panel = document.getElementById('labs-panel');
-  const open = panel.style.display === 'block';
-  panel.style.display = open ? 'none' : 'block';
-  if(!open) document.getElementById('btn-labs').classList.add('used');
+window.toggleLabsPanel=function(){
+  const p=document.getElementById('labs-panel'),open=p.style.display==='block';
+  p.style.display=open?'none':'block';
+  if(!open)document.getElementById('btn-labs').classList.add('used');
 };
 
-function renderLabsGrid() {
-  if(!currentCase.tests) return;
-  const grid = document.getElementById('labs-grid');
-  grid.innerHTML = '';
-
-  // Regular labs
-  currentCase.tests.forEach((t, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'lab-btn';
-    btn.id = 'lab-btn-' + i;
-    btn.textContent = t.name;
-    btn.onclick = () => orderLab(i);
-    grid.appendChild(btn);
+function renderLabsGrid(){
+  if(!currentCase.tests)return;
+  const grid=document.getElementById('labs-grid');grid.innerHTML='';
+  currentCase.tests.forEach((t,i)=>{
+    const b=document.createElement('button');b.className='lab-btn';b.id='lab-btn-'+i;b.textContent=t.name;b.onclick=()=>orderLab(i);grid.appendChild(b);
   });
-
-  // Special test
-  if(currentCase.special_test) {
-    const btn = document.createElement('button');
-    btn.className = 'lab-btn locked-lab';
-    btn.id = 'lab-btn-special';
-    btn.textContent = '\ud83d\udd12 ' + currentCase.special_test.name + ' \u221220 HP';
-    btn.onclick = () => orderSpecialTest();
-    grid.appendChild(btn);
+  if(currentCase.special_test){
+    const b=document.createElement('button');b.className='lab-btn locked-lab';b.id='lab-btn-special';
+    b.textContent='\ud83d\udd12 '+currentCase.special_test.name+' \u221220 HP';b.onclick=()=>orderSpecialTest();grid.appendChild(b);
   }
 }
 
-window.orderLab = function(idx) {
-  if(orderedLabs.has('lab-'+idx)) return;
-  const t = currentCase.tests[idx];
-  drainHP(t.cost || 5);
-  orderedLabs.add('lab-'+idx);
+window.orderLab=function(idx){
+  if(orderedLabs.has('lab-'+idx))return;
+  const t=currentCase.tests[idx];drainHP(t.cost||5);orderedLabs.add('lab-'+idx);
   document.getElementById('lab-btn-'+idx).classList.add('ordered');
-
-  // Check if special test should unlock
-  const regularLabCount = [...orderedLabs].filter(k => k.startsWith('lab-') && k !== 'lab-special').length;
-  const counter = document.getElementById('lab-counter');
-  if(regularLabCount >= 2) {
-    const specialBtn = document.getElementById('lab-btn-special');
-    if(specialBtn) { specialBtn.classList.remove('locked-lab'); specialBtn.textContent = currentCase.special_test.name + ' \u221220 HP'; }
-    if(counter) { counter.textContent = '\ud83d\udd13 Special Test unlocked'; counter.classList.add('unlocked'); }
-  } else {
-    if(counter) counter.textContent = regularLabCount + '/2 for Special Test';
-  }
-
-  addLabResult(t.name, t.result);
+  const rc=[...orderedLabs].filter(k=>k.startsWith('lab-')&&k!=='lab-special').length;
+  const counter=document.getElementById('lab-counter');
+  if(rc>=2){const sb=document.getElementById('lab-btn-special');if(sb){sb.classList.remove('locked-lab');sb.textContent=currentCase.special_test.name+' \u221220 HP';}if(counter){counter.textContent='\ud83d\udd13 Special Test unlocked';counter.classList.add('unlocked');}}
+  else if(counter)counter.textContent=rc+'/2 for Special Test';
+  addLabResult(t.name,t.result);
 };
 
-window.orderSpecialTest = function() {
-  const regularLabCount = [...orderedLabs].filter(k => k.startsWith('lab-') && k !== 'lab-special').length;
-  if(regularLabCount < 2) return;
-  if(orderedLabs.has('lab-special')) return;
-  drainHP(20);
-  orderedLabs.add('lab-special');
+window.orderSpecialTest=function(){
+  const rc=[...orderedLabs].filter(k=>k.startsWith('lab-')&&k!=='lab-special').length;
+  if(rc<2||orderedLabs.has('lab-special'))return;
+  drainHP(20);orderedLabs.add('lab-special');
   document.getElementById('lab-btn-special').classList.add('ordered');
-  addLabResult(currentCase.special_test.name, currentCase.special_test.result);
+  addLabResult(currentCase.special_test.name,currentCase.special_test.result);
 };
 
-function addLabResult(name, result) {
-  const card = document.createElement('div');
-  card.className = 'test-result-card';
-  card.innerHTML = `<div class="test-result-name">${name.toUpperCase()}</div><div class="test-result-val">${result}</div>`;
+function addLabResult(name,result){
+  const card=document.createElement('div');card.className='test-result-card';
+  card.innerHTML=`<div class="test-result-name">${name.toUpperCase()}</div><div class="test-result-val">${result}</div>`;
   document.getElementById('lab-results').appendChild(card);
 }
 
-// ── DIAGNOSIS ──
-const wrongAnswers = new Set();
-
-window.dxInputHandler = function() {
-  const val = document.getElementById('dx-input').value.trim();
-  document.getElementById('dx-submit-btn').disabled = !val;
-  const q = val.toLowerCase();
-  const sug = document.getElementById('dx-suggestions');
-  if(q.length < 2) { sug.style.display = 'none'; return; }
-  const matches = DIAGNOSES.filter(d => d.toLowerCase().includes(q)).slice(0, 8);
-  if(!matches.length) { sug.style.display = 'none'; return; }
-  sug.innerHTML = matches.map(d => {
-    const isWrong = wrongAnswers.has(d);
-    return `<div class="dx-suggestion${isWrong?' wrong-ans':''}" onclick="${isWrong?'':\"selectDx('\" + d.replace(/'/g,\"\\\\'\") + \"')\"}">${d}${isWrong?' \u2014 incorrect':''}</div>`;
-  }).join('');
-  sug.style.display = 'block';
+window.dxInputHandler=function(){
+  const val=document.getElementById('dx-input').value.trim();
+  document.getElementById('dx-submit-btn').disabled=!val;
+  const q=val.toLowerCase(),sug=document.getElementById('dx-suggestions');
+  if(q.length<2){sug.style.display='none';return;}
+  const matches=DIAGNOSES.filter(d=>d.toLowerCase().includes(q)).slice(0,8);
+  if(!matches.length){sug.style.display='none';return;}
+  sug.innerHTML=matches.map(d=>{const iw=wrongAnswers.has(d);return `<div class="dx-suggestion${iw?' wrong-ans':''}" onclick="${iw?'void 0':"selectDx('"+d.replace(/'/g,"\\'")+"')"}">${d}${iw?' \u2014 incorrect':''}</div>`;}).join('');
+  sug.style.display='block';
 };
 
-window.selectDx = function(dx) {
-  document.getElementById('dx-input').value = dx;
-  document.getElementById('dx-suggestions').style.display = 'none';
-  document.getElementById('dx-submit-btn').disabled = false;
-};
+window.selectDx=function(dx){document.getElementById('dx-input').value=dx;document.getElementById('dx-suggestions').style.display='none';document.getElementById('dx-submit-btn').disabled=false;};
+document.addEventListener('click',e=>{if(!e.target.closest('#dx-note'))document.getElementById('dx-suggestions').style.display='none';});
 
-document.addEventListener('click', e => {
-  if(!e.target.closest('#dx-note')) document.getElementById('dx-suggestions').style.display = 'none';
-});
-
-window.submitDx = function() {
-  if(dxSubmitted && dxCorrect) return;
-  const val = document.getElementById('dx-input').value.trim();
-  if(!val) return;
-  const result = document.getElementById('dx-result');
-  const correct = currentCase.dx_answer;
-
-  if(val.toLowerCase() === correct.toLowerCase()) {
-    dxSubmitted = true; dxCorrect = true;
-    result.className = 'dx-result correct';
-    result.textContent = '\u2713 Correct \u2014 ' + correct;
-    result.style.display = 'block';
-    document.getElementById('dx-submit-btn').disabled = true;
-    document.getElementById('dx-suggestions').style.display = 'none';
-    setFennick('answer', '\u201cThat is the diagnosis. Now let us see how you manage it.\u201d');
-    showReport();
-    unlockManagement();
+window.submitDx=function(){
+  if(dxSubmitted&&dxCorrect)return;
+  const val=document.getElementById('dx-input').value.trim();if(!val)return;
+  const result=document.getElementById('dx-result');
+  if(val.toLowerCase()===currentCase.dx_answer.toLowerCase()){
+    dxSubmitted=true;dxCorrect=true;
+    result.className='dx-result correct';result.textContent='\u2713 Correct \u2014 '+currentCase.dx_answer;result.style.display='block';
+    document.getElementById('dx-submit-btn').disabled=true;document.getElementById('dx-suggestions').style.display='none';
+    setFennick('answer','"That is the diagnosis. Now let us see how you manage it."');
+    showReport();unlockManagement();
   } else {
-    errors++;
-    drainHP(10);
-    wrongAnswers.add(val);
-    result.className = 'dx-result wrong';
-    result.textContent = '\u2717 Incorrect. Try again.';
-    result.style.display = 'block';
-    document.getElementById('dx-input').value = '';
-    document.getElementById('dx-input').classList.add('wrong');
-    setTimeout(() => document.getElementById('dx-input').classList.remove('wrong'), 600);
-    document.getElementById('dx-submit-btn').disabled = true;
+    errors++;drainHP(10);wrongAnswers.add(val);
+    result.className='dx-result wrong';result.textContent='\u2717 Incorrect. Try again.';result.style.display='block';
+    document.getElementById('dx-input').value='';
+    const inp=document.getElementById('dx-input');inp.classList.add('wrong');setTimeout(()=>inp.classList.remove('wrong'),600);
+    document.getElementById('dx-submit-btn').disabled=true;
+    document.getElementById('wrong-answers-list').innerHTML=[...wrongAnswers].map(w=>`<span class="wrong-answer-tag">${w}</span>`).join('');
     updateFennickByErrors();
-    // Show wrong answers
-    const list = document.getElementById('wrong-answers-list');
-    list.innerHTML = [...wrongAnswers].map(w => `<span class="wrong-answer-tag">${w}</span>`).join('');
   }
 };
 
-// ── REPORT TO ATTENDING ──
-function showReport() {
-  const tmpl = currentCase.report_template;
-  if(!tmpl) return;
-
-  // Build pertinent positives from what was actually revealed
-  let pertinentParts = [];
-  if(revealedWorkup.has('addl-hx') && tmpl.pertinent_positives?.hx) pertinentParts.push('history notable for ' + tmpl.pertinent_positives.hx);
-  if(revealedWorkup.has('pe') && tmpl.pertinent_positives?.pe) pertinentParts.push('physical exam showing ' + tmpl.pertinent_positives.pe);
-  if(orderedLabs.size > 0 && tmpl.pertinent_positives?.labs) pertinentParts.push(tmpl.pertinent_positives.labs);
-  if(revealedWorkup.has('imaging') && tmpl.pertinent_positives?.imaging) pertinentParts.push(tmpl.pertinent_positives.imaging);
-  if(orderedLabs.has('lab-special') && tmpl.pertinent_positives?.special) pertinentParts.push(tmpl.pertinent_positives.special);
-
-  const pertinent = pertinentParts.length > 0
-    ? 'Pertinent positives include ' + pertinentParts.join('; ') + '.'
-    : 'Workup was limited.';
-
-  const reportText = `<strong>Patient:</strong> ${tmpl.age} year old ${tmpl.sex === 'F' ? 'female' : 'male'} with a past medical history of ${tmpl.pmh}, presenting with ${tmpl.presenting}. ${pertinent} <strong>Assessment:</strong> ${tmpl.assessment}. <strong>Plan:</strong> ${tmpl.plan}.`;
-
-  document.getElementById('report-text').innerHTML = reportText;
-  document.getElementById('report-note').style.display = 'block';
-  document.getElementById('report-note').scrollIntoView({behavior:'smooth', block:'nearest'});
+function showReport(){
+  const tmpl=currentCase.report_template,rn=document.getElementById('report-note');rn.style.display='block';
+  if(!tmpl){document.getElementById('report-text').textContent='Assessment: '+currentCase.dx_answer;rn.scrollIntoView({behavior:'smooth',block:'nearest'});return;}
+  let parts=[];
+  if(revealedWorkup.has('addl-hx')&&tmpl.pertinent_positives?.hx)parts.push('history notable for '+tmpl.pertinent_positives.hx);
+  if(revealedWorkup.has('pe')&&tmpl.pertinent_positives?.pe)parts.push('physical exam showing '+tmpl.pertinent_positives.pe);
+  if(orderedLabs.size>0&&tmpl.pertinent_positives?.labs)parts.push(tmpl.pertinent_positives.labs);
+  if(revealedWorkup.has('imaging')&&tmpl.pertinent_positives?.imaging)parts.push(tmpl.pertinent_positives.imaging);
+  if(orderedLabs.has('lab-special')&&tmpl.pertinent_positives?.special)parts.push(tmpl.pertinent_positives.special);
+  const p=parts.length>0?'Pertinent positives include '+parts.join('; ')+'.':'Limited workup obtained.';
+  document.getElementById('report-text').innerHTML=`<strong>Patient:</strong> ${tmpl.age}yo ${tmpl.sex==='F'?'female':'male'} with PMH of ${tmpl.pmh}, presenting with ${tmpl.presenting}. ${p} <strong>Assessment:</strong> ${tmpl.assessment}. <strong>Plan:</strong> ${tmpl.plan}.`;
+  rn.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ── MANAGEMENT ──
-function unlockManagement() {
-  currentStage = 0;
-  renderManagement();
-  document.getElementById('mgmt-note').scrollIntoView({behavior:'smooth', block:'nearest'});
-}
+function unlockManagement(){currentStage=0;renderManagement();document.getElementById('mgmt-note').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 function renderManagement(){
-  const stages = currentCase.management;
-  if(!stages) return;
-
-  const progressEl = document.getElementById('mgmt-progress');
-  progressEl.innerHTML = stages.map((_,i) => `
-    ${i>0?'<div class="prog-line" id="prog-line-'+i+'"></div>':''}
-    <div class="prog-dot ${i===0&&dxCorrect?'cur':''}" id="prog-dot-${i}"></div>
-  `).join('');
-
-  const stagesEl = document.getElementById('mgmt-stages');
-  stagesEl.innerHTML = stages.map((s, si) => `
-    <div class="mgmt-stage" id="stage-wrap-${si}">
-      ${si>0?'<div class="stage-divider"></div>':''}
-      <div class="mgmt-stage-header">
-        <div class="stage-num ${!dxCorrect||si>0?'locked':''}" id="stage-num-${si}">${si+1}</div>
-        <div class="stage-title ${!dxCorrect||si>0?'locked':''}" id="stage-title-${si}">${s.title}</div>
-      </div>
-      <div class="mgmt-options" id="stage-opts-${si}">
-        ${s.options.map((o, oi) => `
-          <div class="mgmt-option ${!dxCorrect||si>0?'locked-opt':''}" id="opt-${si}-${oi}" onclick="pickMgmt(${si},${oi})">
-            <div class="mgmt-ob">${String.fromCharCode(65+oi)}</div>
-            <div>
-              <div class="mgmt-on">${o.text}</div>
-              ${o.sub?`<div class="mgmt-oc">${o.sub}</div>`:''}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="mgmt-feedback" id="stage-feedback-${si}" style="display:none;margin-top:8px;font-size:14px;padding:8px 12px;border-radius:6px;"></div>
-    </div>
-  `).join('');
+  const stages=currentCase.management;if(!stages)return;
+  document.getElementById('mgmt-progress').innerHTML=stages.map((_,i)=>`${i>0?'<div class="prog-line" id="prog-line-'+i+'"></div>':''}<div class="prog-dot ${i===0&&dxCorrect?'cur':''}" id="prog-dot-${i}"></div>`).join('');
+  document.getElementById('mgmt-stages').innerHTML=stages.map((s,si)=>`
+    <div class="mgmt-stage" id="stage-wrap-${si}">${si>0?'<div class="stage-divider"></div>':''}
+      <div class="mgmt-stage-header"><div class="stage-num ${!dxCorrect||si>0?'locked':''}" id="stage-num-${si}">${si+1}</div><div class="stage-title ${!dxCorrect||si>0?'locked':''}" id="stage-title-${si}">${s.title}</div></div>
+      <div class="mgmt-options" id="stage-opts-${si}">${s.options.map((o,oi)=>`<div class="mgmt-option ${!dxCorrect||si>0?'locked-opt':''}" id="opt-${si}-${oi}" onclick="pickMgmt(${si},${oi})"><div class="mgmt-ob">${String.fromCharCode(65+oi)}</div><div><div class="mgmt-on">${o.text}</div>${o.sub?`<div class="mgmt-oc">${o.sub}</div>`:''}</div></div>`).join('')}</div>
+      <div id="stage-feedback-${si}" style="display:none"></div>
+    </div>`).join('');
 }
 
-window.pickMgmt = function(stageIdx, optIdx) {
-  if(stageIdx !== currentStage) return;
-  const stage = currentCase.management[stageIdx];
-  const opt = stage.options[optIdx];
-  const optEl = document.getElementById(`opt-${stageIdx}-${optIdx}`);
-  const feedbackEl = document.getElementById(`stage-feedback-${stageIdx}`);
-
-  // Lock all options in this stage
-  stage.options.forEach((_,i) => {
-    const el = document.getElementById(`opt-${stageIdx}-${i}`);
-    if(el) el.classList.add('locked-opt');
-  });
-
+window.pickMgmt=function(stageIdx,optIdx){
+  if(stageIdx!==currentStage)return;
+  const stage=currentCase.management[stageIdx],opt=stage.options[optIdx];
+  const optEl=document.getElementById(`opt-${stageIdx}-${optIdx}`),fbEl=document.getElementById(`stage-feedback-${stageIdx}`);
+  stage.options.forEach((_,i)=>{const el=document.getElementById(`opt-${stageIdx}-${i}`);if(el)el.classList.add('locked-opt');});
   if(opt.correct){
-    optEl.classList.remove('locked-opt');
-    optEl.classList.add('selected-correct');
-    document.getElementById('stage-num-'+stageIdx).classList.add('done');
-    if(feedbackEl){ feedbackEl.style.display='block'; feedbackEl.style.background='rgba(180,230,160,0.4)'; feedbackEl.style.border='1px solid rgba(80,160,60,0.4)'; feedbackEl.style.color='#1a4a08'; feedbackEl.textContent = opt.feedback_correct || 'Correct.'; }
-    setFennick('answer', opt.feedback_correct || '\u201cGood call.\u201d');
-    advanceStage(stageIdx+1);
+    optEl.classList.remove('locked-opt');optEl.classList.add('selected-correct');document.getElementById('stage-num-'+stageIdx).classList.add('done');
+    if(fbEl){fbEl.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_correct||'Correct.';}
+    setFennick('answer','"'+(opt.feedback_correct||'Good call.')+'"');advanceStage(stageIdx+1);
   } else {
-    optEl.classList.remove('locked-opt');
-    optEl.classList.add('selected-wrong');
-    errors++;
-    drainHP(10);
-    if(feedbackEl){ feedbackEl.style.display='block'; feedbackEl.style.background='rgba(230,160,150,0.4)'; feedbackEl.style.border='1px solid rgba(180,80,70,0.35)'; feedbackEl.style.color='#4a1010'; feedbackEl.textContent = opt.feedback_wrong || 'Incorrect.'; }
-    setFennick('concerned', opt.feedback_wrong ? '\u201c' + opt.feedback_wrong + '\u201d' : '\u201cNot quite.\u201d');
-    updateFennickByErrors();
-    setTimeout(() => advanceStage(stageIdx+1), 800);
+    optEl.classList.remove('locked-opt');optEl.classList.add('selected-wrong');errors++;drainHP(10);
+    if(fbEl){fbEl.style.cssText='display:block;background:rgba(230,160,150,0.4);border:1px solid rgba(180,80,70,0.35);color:#4a1010;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_wrong||'Incorrect.';}
+    setFennick('concerned','"'+(opt.feedback_wrong||'Not quite.')+'"');updateFennickByErrors();setTimeout(()=>advanceStage(stageIdx+1),800);
   }
 };
 
 function advanceStage(nextIdx){
-  const stages = currentCase.management;
-  if(nextIdx >= stages.length){ setTimeout(() => endCase(false), 500); return; }
-
-  currentStage = nextIdx;
-
-  const prevDot = document.getElementById('prog-dot-'+(nextIdx-1));
-  if(prevDot) prevDot.classList.replace('cur','done');
-  const prevLine = document.getElementById('prog-line-'+nextIdx);
-  if(prevLine) prevLine.classList.add('done');
-  const curDot = document.getElementById('prog-dot-'+nextIdx);
-  if(curDot) curDot.classList.add('cur');
-
-  const numEl = document.getElementById('stage-num-'+nextIdx);
-  const titleEl = document.getElementById('stage-title-'+nextIdx);
-  if(numEl) numEl.classList.remove('locked');
-  if(titleEl) titleEl.classList.remove('locked');
-
-  stages[nextIdx].options.forEach((_,i) => {
-    const el = document.getElementById(`opt-${nextIdx}-${i}`);
-    if(el) el.classList.remove('locked-opt');
-  });
-
+  const stages=currentCase.management;if(nextIdx>=stages.length){setTimeout(()=>endCase(false),500);return;}
+  currentStage=nextIdx;
+  const pd=document.getElementById('prog-dot-'+(nextIdx-1));if(pd)pd.classList.replace('cur','done');
+  const pl=document.getElementById('prog-line-'+nextIdx);if(pl)pl.classList.add('done');
+  const cd=document.getElementById('prog-dot-'+nextIdx);if(cd)cd.classList.add('cur');
+  const ne=document.getElementById('stage-num-'+nextIdx);if(ne)ne.classList.remove('locked');
+  const te=document.getElementById('stage-title-'+nextIdx);if(te)te.classList.remove('locked');
+  stages[nextIdx].options.forEach((_,i)=>{const el=document.getElementById(`opt-${nextIdx}-${i}`);if(el)el.classList.remove('locked-opt');});
   document.getElementById('stage-wrap-'+nextIdx)?.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ── HINTS (context-aware) ──
 function useHint(){
   drainHP(10);
-  if(!dxCorrect) {
-    // Pre-dx: cycle through dx hints
-    const hint = hints[currentHintIdx % hints.length];
-    currentHintIdx++;
-    setFennick('think', '\u201c' + hint + '\u201d');
-  } else {
-    // Post-dx: hint for current management stage
-    const stage = currentCase.management[currentStage];
-    if(stage && stage.hint) {
-      setFennick('think', '\u201c' + stage.hint + '\u201d');
-    } else {
-      setFennick('think', '\u201cTrust your instincts.\u201d');
-    }
-  }
+  if(!dxCorrect){const h=hints[currentHintIdx%hints.length];currentHintIdx++;setFennick('think','"'+h+'"');}
+  else{const s=currentCase.management[currentStage];setFennick('think','"'+(s&&s.hint?s.hint:'Trust your instincts.')+'"');}
 }
 
-// ── END CASE ──
+function unlockNextStage(){}
+
 function endCase(failed){
-  // Keep management visible but make all remaining options reviewable
   revealAllManagement();
-  document.getElementById('endgame').style.display = 'block';
-  document.getElementById('endgame').scrollIntoView({behavior:'smooth'});
-
-  let grade, comment;
-  if(failed){
-    grade='F'; comment='\u201cThe patient survived. That is the kindest thing I can say.\u201d';
-    setFennick('lose', comment);
-  } else if(HP>=80){
-    grade='A'; comment='\u201cTextbook. I had nothing to teach you today.\u201d';
-    setFennick('answer', comment);
-  } else if(HP>=60){
-    grade='B'; comment='\u201cSolid work. The right instincts.\u201d';
-    setFennick('answer', comment);
-  } else if(HP>=40){
-    grade='C'; comment='\u201cYou got there. But the road was longer than it needed to be.\u201d';
-    setFennick('concerned', comment);
-  } else {
-    grade='F'; comment='\u201cWe will not speak of this. Study harder.\u201d';
-    setFennick('lose', comment);
-  }
-
-  document.getElementById('grade-circle').textContent = grade;
-  document.getElementById('endgame-title').textContent = failed ? 'Case Lost' : 'Case Complete';
-  document.getElementById('endgame-comment').textContent = comment;
-  document.getElementById('end-hp').textContent = HP;
-  document.getElementById('end-errors').textContent = errors;
-  document.getElementById('end-grade').textContent = grade;
+  document.getElementById('endgame').style.display='block';document.getElementById('endgame').scrollIntoView({behavior:'smooth'});
+  let grade,comment;
+  if(failed){grade='F';comment='"The patient survived. That is the kindest thing I can say."';setFennick('lose',comment);}
+  else if(HP>=80){grade='A';comment='"Textbook. I had nothing to teach you today."';setFennick('answer',comment);}
+  else if(HP>=60){grade='B';comment='"Solid work. The right instincts."';setFennick('answer',comment);}
+  else if(HP>=40){grade='C';comment='"You got there. The road was longer than it needed to be."';setFennick('concerned',comment);}
+  else{grade='F';comment='"We will not speak of this. Study harder."';setFennick('lose',comment);}
+  document.getElementById('grade-circle').textContent=grade;document.getElementById('endgame-title').textContent=failed?'Case Lost':'Case Complete';document.getElementById('endgame-comment').textContent=comment;document.getElementById('end-hp').textContent=HP;document.getElementById('end-errors').textContent=errors;document.getElementById('end-grade').textContent=grade;
 }
 
 function revealAllManagement(){
-  // After case ends, unlock all management options for review
-  // Each wrong option shows its feedback when clicked
-  const stages = currentCase.management;
-  stages.forEach((s, si) => {
-    s.options.forEach((o, oi) => {
-      const el = document.getElementById(`opt-${si}-${oi}`);
-      if(!el) return;
+  if(!currentCase.management)return;
+  currentCase.management.forEach((s,si)=>{
+    s.options.forEach((o,oi)=>{
+      const el=document.getElementById(`opt-${si}-${oi}`);if(!el)return;
       el.classList.remove('locked-opt');
-      // If not already answered, make it reviewable
-      if(!el.classList.contains('selected-correct') && !el.classList.contains('selected-wrong')){
-        el.style.opacity = '0.7';
-        el.onclick = () => {
-          const fb = document.getElementById(`stage-feedback-${si}`);
-          if(fb){
-            fb.style.display = 'block';
-            if(o.correct){
-              fb.style.background='rgba(180,230,160,0.4)'; fb.style.border='1px solid rgba(80,160,60,0.4)'; fb.style.color='#1a4a08';
-              fb.textContent = '\u2713 ' + (o.feedback_correct || 'This was the correct choice.');
-            } else {
-              fb.style.background='rgba(230,160,150,0.4)'; fb.style.border='1px solid rgba(180,80,70,0.35)'; fb.style.color='#4a1010';
-              fb.textContent = '\u2717 ' + (o.feedback_wrong || 'This was incorrect.');
-            }
-            setFennick(o.correct?'answer':'concerned', '\u201c' + (o.correct ? o.feedback_correct : o.feedback_wrong) + '\u201d');
-          }
+      if(!el.classList.contains('selected-correct')&&!el.classList.contains('selected-wrong')){
+        el.style.opacity='0.75';
+        el.onclick=()=>{
+          const fb=document.getElementById(`stage-feedback-${si}`);if(!fb)return;
+          if(o.correct){fb.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fb.textContent='\u2713 '+(o.feedback_correct||'Correct choice.');}
+          else{fb.style.cssText='display:block;background:rgba(230,160,150,0.4);border:1px solid rgba(180,80,70,0.35);color:#4a1010;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fb.textContent='\u2717 '+(o.feedback_wrong||'Incorrect.');}
+          setFennick(o.correct?'answer':'concerned','"'+(o.correct?o.feedback_correct:o.feedback_wrong)+'"');
         };
       }
     });
   });
 }
-
 </script>
 </body>
 </html>
