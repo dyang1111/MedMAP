@@ -587,6 +587,10 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <span class="fm-hp-nav-num" id="hp-num-nav">100</span>
     </div>
     <span class="fm-case-lbl" id="case-num-lbl">Case no. —</span>
+    <button class="fm-nav-pill" onclick="window.location.href='archives.html'" style="display:flex;align-items:center;gap:5px;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+      Archives
+    </button>
   </div>
 </nav>
 
@@ -674,7 +678,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 </div>
 
 <script>
-// ── MUSIC PLAYER ──
 const TRACKS = {
   night: [
     { name: 'Foxfire at Midnight', url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606858/Foxfire_at_Midnight_wsbzbn.mp3' },
@@ -857,10 +860,15 @@ function applyTimeTheme(){
 
 // ── INIT CASE ──
 function initCase(){
-  currentCase = CASES[0]; 
+  const urlDate = new URLSearchParams(window.location.search).get('date');
+  currentCase = urlDate ? CASES.find(c => c.date === urlDate) || CASES[0] : CASES[0];
   if(!currentCase) return;
 
-  document.getElementById('case-num-lbl').textContent = 'Case no. ' + currentCase.id;
+  if(urlDate) {
+    document.getElementById('case-num-lbl').textContent = 'Archive — ' + urlDate;
+  } else {
+    document.getElementById('case-num-lbl').textContent = 'Case no. ' + currentCase.id;
+  }
 
   document.getElementById('pt-name').textContent = currentCase.patient.name + ', ' + currentCase.patient.age + currentCase.patient.sex;
   document.getElementById('pt-occ').textContent = currentCase.patient.occupation;
