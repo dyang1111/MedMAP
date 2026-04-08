@@ -29,12 +29,313 @@
       "temp": "37.0",
       "o2": "98% RA"
     },
-    "additional_hx": "Patient reports the tremor is worse when her hands are at rest and actually improves when she reaches for objects. She has noticed her handwriting has become very small over the past year. She walks with short, shuffling steps and has difficulty getting out of chairs. She also reports a reduced sense of smell for the past 2 years and occasional constipation. She denies any family history of similar symptoms. The sertraline prescribed for 'depression' provided no benefit whatsoever.",
-    "pe_findings": "General: Masked facies, reduced blink rate, hypophonic voice. Neuro: 4-6 Hz resting tremor right hand > left, classic pill-rolling quality. Cogwheel rigidity bilateral upper extremities. Bradykinesia on finger-tapping. Gait: shuffling, reduced arm swing, difficulty initiating. Postural instability on pull test. No cerebellar signs. Cognition intact. MMSE 29/30.",
+    "additional_hx": "Patient reports the tremor is worse when her hands are at rest and actually improves when she reaches for objects. She has noticed her handwriting has become very small over the past year. She walks with short, shuffling steps and has difficulty getting out of chairs. She also reports a reduced sense of smell for the past 2 years and occasional constipation. She denies any family history of similar symptoms. The sertraline prescribed for depression provided no benefit whatsoever.",
+    "pe_findings": "General: Masked facies, reduced blink rate, hypophonic voice. Neuro: 4-6 Hz resting tremor right hand > left, classic pill-rolling quality. Cogwheel rigidity bilateral upper extremities. Bradykinesia on finger-tapping. Gait: shuffling, reduced arm swing, difficulty initiating. Postural instability on pull test. No cerebellar signs. MMSE 29/30.",
     "imaging": "MRI Brain (non-contrast): No mass lesion, no acute infarct, no hydrocephalus. Mild age-appropriate cortical atrophy. Standard sequences cannot visualize dopaminergic neurons — DaTscan is the appropriate functional study. No midbrain atrophy to suggest PSP.",
     "special_test": {
       "name": "DaTscan (Dopamine Transporter Scan)",
-      "result": "Reduced dopamine transporter uptake in bilateral putamen, asymmetric — right greater than left. Classic 'comma to period' sign. Findings are consistent with nigrostriatal dopaminergic degeneration, confirming Parkinson Disease. Rules out essential tremor and drug-induced parkinsonism."
+      "result": "Reduced dopamine transporter uptake in bilateral putamen, asymmetric — right greater than left. Classic comma-to-period sign. Consistent with nigrostriatal dopaminergic degeneration, confirming Parkinson Disease. Rules out essential tremor and drug-induced parkinsonism."
+    },
+    "tests": [
+      { "name": "CBC", "cost": 5, "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224. No anemia or infection." },
+      { "name": "CMP", "cost": 5, "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal. No metabolic cause." },
+      { "name": "TSH", "cost": 5, "result": "TSH 1.8 mIU/L — normal. Hyperthyroidism ruled out as tremor cause." },
+      { "name": "B12", "cost": 5, "result": "B12 420 pg/mL — normal. Folate normal. No nutritional deficiency." },
+      { "name": "EKG", "cost": 5, "result": "Normal sinus rhythm. No arrhythmia. Not directly relevant." },
+      { "name": "Coags", "cost": 5, "result": "PT/INR normal. PTT normal. No coagulopathy." },
+      { "name": "UA", "cost": 5, "result": "Clear, no infection, no protein. Unremarkable." },
+      { "name": "EMG/NCS", "cost": 5, "result": "Normal nerve conduction. No peripheral neuropathy. Tremor analysis: 4-6 Hz rest tremor pattern, suppressible with movement — consistent with Parkinson Disease." }
+    ],
+    "hints": [
+      "The tremor frequency is 4-6 Hz and disappears with intentional movement. That pattern narrows your differential significantly.",
+      "Look beyond the tremor — masked face, reduced blink rate, hypophonic voice, micrographia. These are not psychiatric symptoms.",
+      "The sertraline did absolutely nothing. That itself is diagnostic information.",
+      "Pill-rolling rest tremor + cogwheel rigidity + bradykinesia + shuffling gait. You have all four cardinal features in front of you."
+    ],
+    "management": [
+      {
+        "title": "Immediate stabilization",
+        "hint": "This patient has been slowly progressive for 14 months. Think about what level of urgency is truly warranted here.",
+        "options": [
+          { "text": "Reassure and schedule outpatient follow-up", "sub": "No acute intervention needed", "correct": true, "feedback_correct": "Correct. This is a chronic, slowly progressive condition. No emergency exists. A calm and thorough outpatient approach is ideal." },
+          { "text": "Admit for IV thiamine", "sub": "Wernicke protocol", "correct": false, "feedback_wrong": "Thiamine is for Wernicke encephalopathy — confusion, ophthalmoplegia, ataxia. None of those are present here." },
+          { "text": "Emergent neurology consult", "sub": "Urgent inpatient", "correct": false, "feedback_wrong": "This has been progressing for 14 months. Urgent outpatient neurology yes. Emergent inpatient is not warranted." },
+          { "text": "Stop sertraline immediately", "sub": "Abrupt discontinuation", "correct": false, "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome — dizziness, nausea, electric shock sensations. Always taper. Never stop abruptly." }
+        ]
+      },
+      {
+        "title": "First-line pharmacotherapy",
+        "hint": "Parkinson Disease involves loss of dopaminergic neurons. Your first-line treatment should address that deficit directly.",
+        "options": [
+          { "text": "Levodopa / Carbidopa", "sub": "25/100mg TID — dopamine precursor", "correct": true, "feedback_correct": "The gold standard. Levodopa crosses the BBB and is converted to dopamine. Carbidopa prevents peripheral conversion, reducing side effects." },
+          { "text": "Haloperidol", "sub": "Typical antipsychotic — D2 blocker", "correct": false, "feedback_wrong": "Catastrophically wrong. Haloperidol blocks dopamine receptors — the exact opposite of what this patient needs. It will dramatically worsen every motor symptom. Never." },
+          { "text": "Increase sertraline dose", "sub": "SSRI escalation", "correct": false, "feedback_wrong": "The depression was a misdiagnosis — masked facies and bradyphrenia from Parkinson Disease. More sertraline will not help a dopamine deficiency." },
+          { "text": "Propranolol", "sub": "Beta-blocker — for essential tremor", "correct": false, "feedback_wrong": "Propranolol is for essential tremor — an action tremor. This is a rest tremor from dopamine deficiency. Propranolol will not touch it." }
+        ]
+      },
+      {
+        "title": "Specialist referral",
+        "hint": "Parkinson Disease is complex and progressive. Who manages it best long-term?",
+        "options": [
+          { "text": "Movement disorder specialist", "sub": "Neurology subspecialty", "correct": true, "feedback_correct": "Correct. Movement disorder neurologists specialize in optimizing PD management — medication timing, DBS candidacy, motor complications." },
+          { "text": "Lumbar puncture", "sub": "CSF analysis", "correct": false, "feedback_wrong": "LP is not indicated in Parkinson Disease. This is a clinical diagnosis supported by DaTscan. CSF analysis will not change management." },
+          { "text": "Brain biopsy", "sub": "Histopathology for Lewy bodies", "correct": false, "feedback_wrong": "Brain biopsy for Parkinson Disease is not done in living patients. Lewy bodies are a post-mortem finding. This would be unconscionable." },
+          { "text": "Occupational therapy", "sub": "ADL assessment and adaptation", "correct": true, "feedback_correct": "Also correct — OT is essential. Fine motor tasks, handwriting aids, safety assessment. Both this and movement disorder referral are right answers." }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Is there any reason this stable chronic condition requires inpatient admission?",
+        "options": [
+          { "text": "Discharge — start levodopa, neurology follow-up", "sub": "Outpatient management", "correct": true, "feedback_correct": "Exactly right. Stable chronic condition, clear diagnosis, outpatient management with appropriate follow-up." },
+          { "text": "Admit to neurology floor", "sub": "Inpatient workup", "correct": false, "feedback_wrong": "No indication for admission. This has been present for 14 months and she is hemodynamically stable. Admission wastes resources." },
+          { "text": "Discharge without treatment", "sub": "Watch and wait", "correct": false, "feedback_wrong": "The diagnosis is established. Withholding levodopa serves no purpose and leaves the patient suffering unnecessarily." },
+          { "text": "Admit for DaTscan", "sub": "Inpatient imaging", "correct": false, "feedback_wrong": "DaTscan is an outpatient nuclear medicine study. There is no indication for inpatient admission to obtain it." }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 68,
+      "sex": "F",
+      "pmh": "hypertension and previously misdiagnosed depression",
+      "presenting": "a 14-month progressive rest tremor",
+      "pertinent_positives": {
+        "hx": "pill-rolling 4-6 Hz rest tremor worse at rest and improved with movement, micrographia, shuffling gait, reduced sense of smell, failure to respond to sertraline",
+        "pe": "masked facies, reduced blink rate, cogwheel rigidity, bradykinesia, shuffling gait with reduced arm swing, positive pull test",
+        "labs": "normal CBC, CMP, TSH, B12 ruling out metabolic and nutritional causes",
+        "imaging": "MRI brain without acute findings",
+        "special": "DaTscan showing reduced dopamine transporter uptake in bilateral putamen consistent with nigrostriatal degeneration"
+      },
+      "assessment": "Parkinson Disease",
+      "plan": "initiate levodopa/carbidopa 25/100mg TID, taper sertraline, refer to movement disorder specialist, occupational therapy referral, outpatient follow-up in 4-6 weeks"
+    },
+    "explanation": "Parkinson Disease is a progressive neurodegenerative disorder caused by loss of dopaminergic neurons in the substantia nigra pars compacta. Cardinal features: rest tremor (4-6 Hz, pill-rolling), bradykinesia, cogwheel rigidity, postural instability. Levodopa/carbidopa remains the most effective symptomatic treatment. Dopamine-blocking agents are absolutely contraindicated."
+  },
+  {
+    "id": "002",
+    "date": "2026-04-07",
+    "urgency": "urgent",
+    "title": "The Merchant's Cough",
+    "dx_answer": "Lung Cancer (Small Cell)",
+    "patient": {
+      "name": "The Merchant",
+      "age": 62,
+      "sex": "M",
+      "occupation": "Traveling Merchant",
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775528229/api7_p31faf.png"
+    },
+    "chart": {
+      "cc": "Persistent cough for 3 months. I thought it was the road dust. My wife made me come in.",
+      "hpi": "62-year-old male with 3-month history of progressive dry cough, unintentional 12 lb weight loss over 4 months, and new-onset facial and neck swelling worse in the morning. He reports increasing fatigue and two episodes of blood-tinged sputum over the past 2 weeks. Denies fever. He also notes his face turns a deep red-purple when he bends forward. Treated with antibiotics twice for 'bronchitis' without improvement.",
+      "pmh": "Hypertension. GERD.",
+      "psh": "Appendectomy age 28. Hernia repair age 45.",
+      "meds": "Lisinopril 10mg daily. Omeprazole 20mg daily.",
+      "allergies": "NKDA.",
+      "fh": "Father died of lung cancer age 67. Mother: colon cancer.",
+      "sh": "45 pack-year smoking history, currently smokes 1 PPD. Occasional alcohol. Travels extensively for trade."
+    },
+    "vitals": {
+      "bp": "158/94",
+      "hr": "96",
+      "rr": "18",
+      "temp": "37.2",
+      "o2": "94% RA"
+    },
+    "additional_hx": "The facial swelling began about 6 weeks ago and he initially attributed it to poor sleep on the road. It is notably worse in the mornings and when he leans forward. His collar has become too tight. He reports a headache that is also worse in the morning and when bending over. He has had two episodes of hemoptysis — small amounts, bright red. The weight loss is unintentional — he has been eating the same but losing weight regardless. He also mentions his arms feel weak lately and he has had difficulty buttoning his coat. On further questioning he reports occasional double vision over the past month.",
+    "pe_findings": "General: Plethoric, cyanotic facies. Marked facial and bilateral upper extremity edema. Dilated, non-pulsatile neck veins. Prominent venous collaterals visible across the chest wall and upper abdomen — flow directed downward. Resp: Decreased breath sounds right upper lobe. No wheeze. Neuro: Proximal muscle weakness bilateral upper > lower extremities. Reflexes diminished globally. Pupils: sluggish reaction bilaterally. No Horner syndrome. No lymphadenopathy detected on palpation — nodes may be mediastinal.",
+    "imaging": "CXR: Large right hilar mass with widened superior mediastinum. Right upper lobe infiltrate/atelectasis. No pleural effusion. CT Chest with contrast: 6.2cm right hilar mass with direct invasion of the superior vena cava and significant extrinsic compression — SVC lumen reduced by approximately 80%. Extensive mediastinal and paratracheal lymphadenopathy. No pulmonary emboli.",
+    "special_test": {
+      "name": "Bronchoscopy with Biopsy",
+      "result": "Bronchoscopy: endobronchial lesion right upper lobe completely obstructing the bronchus. Biopsy: Small cell carcinoma — sheets of small, round, blue cells with salt-and-pepper chromatin, nuclear molding, scant cytoplasm. Ki-67 >80%. Positive: synaptophysin, chromogranin A, CD56. TTF-1 positive. Consistent with small cell lung cancer (SCLC), extensive stage."
+    },
+    "tests": [
+      { "name": "CBC", "cost": 5, "result": "WBC 11.2 (mildly elevated). Hgb 10.4 (low — anemia of chronic disease). Plt 398 (mildly elevated, reactive). MCV 82 — normocytic." },
+      { "name": "CMP", "cost": 5, "result": "Na 128 mEq/L (LOW — SIADH). K 3.8. Cr 1.1. BUN 22. LFTs: AST 68, ALT 52 (mildly elevated — possible liver mets). Albumin 2.8 (low — malnutrition/malignancy)." },
+      { "name": "TSH", "cost": 5, "result": "TSH 1.4 mIU/L — normal. Thyroid not contributing to hyponatremia." },
+      { "name": "B12", "cost": 5, "result": "B12 310 pg/mL — normal. Folate normal. Nutritional deficiency not contributing to weakness." },
+      { "name": "EKG", "cost": 5, "result": "Sinus tachycardia. Low voltage QRS complexes — can be seen with large mediastinal mass. No ischemic changes." },
+      { "name": "Coags", "cost": 5, "result": "PT/INR mildly elevated at 1.3 — likely malnutrition/hepatic involvement. PTT normal." },
+      { "name": "UA", "cost": 5, "result": "Urine sodium 62 mEq/L (inappropriately high given low serum sodium — consistent with SIADH). Urine osmolality 680 mOsm/kg (concentrated)." },
+      { "name": "EMG/NCS", "cost": 5, "result": "Abnormal. Reduced compound muscle action potentials with facilitation on repetitive high-frequency stimulation — pattern consistent with Lambert-Eaton Myasthenic Syndrome (LEMS), a paraneoplastic complication of SCLC." }
+    ],
+    "hints": [
+      "The face is purple-red and swollen, worse in the morning. The neck veins are distended but non-pulsatile. The collar doesn't fit anymore. What structure passes through the mediastinum and would cause all of this if obstructed?",
+      "45 pack-years. Hilar mass. Weight loss. Hemoptysis. The chest X-ray widened mediastinum is not a coincidence — it is the diagnosis announcing itself.",
+      "Small cell lung cancer has a particular fondness for paraneoplastic syndromes. His hyponatremia, his proximal muscle weakness with facilitation, his facial swelling — these are not separate problems. They are all one disease.",
+      "SIADH causing hyponatremia + Lambert-Eaton from voltage-gated calcium channel antibodies + SVC syndrome = classic SCLC paraneoplastic triad. The EMG is your confirmation."
+    ],
+    "management": [
+      {
+        "title": "Immediate management of SVC syndrome",
+        "hint": "His SVC is 80% occluded. His face is turning purple. He has a headache from raised intracranial pressure. What do you do first?",
+        "options": [
+          { "text": "Elevate head of bed, IV dexamethasone, urgent oncology consult", "sub": "Reduce edema and obstruction urgently", "correct": true, "feedback_correct": "Correct. Head elevation reduces venous pressure to the head. Dexamethasone reduces peritumoral edema acutely. This is a partial oncologic emergency — urgent but not requiring immediate intubation." },
+          { "text": "IV furosemide aggressively", "sub": "Diurese the facial edema", "correct": false, "feedback_wrong": "Diuresis will not relieve SVC obstruction and risks dangerous volume depletion in an already compromised patient. The edema is obstructive, not fluid overload." },
+          { "text": "Urgent SVC stenting by interventional radiology", "sub": "Mechanical recanalization", "correct": false, "feedback_wrong": "SVC stenting is sometimes used for severe SVC syndrome but is not the first step — stabilization, diagnosis confirmation, and oncology input come first. Stenting before histology is premature." },
+          { "text": "Start anticoagulation for presumed SVC thrombosis", "sub": "Heparin drip", "correct": false, "feedback_wrong": "The CT shows extrinsic compression by tumor, not primary thrombosis. Anticoagulation without histologic diagnosis and in the setting of hemoptysis is dangerous." }
+        ]
+      },
+      {
+        "title": "Correct the hyponatremia",
+        "hint": "Na 128. Urine sodium is inappropriately elevated. What is the mechanism and how do you correct it safely?",
+        "options": [
+          { "text": "Fluid restriction 800-1000 mL/day", "sub": "First-line SIADH management", "correct": true, "feedback_correct": "Correct. SIADH treatment is free water restriction, not sodium supplementation. Giving salt will not fix the underlying ADH excess — the kidneys will just excrete it." },
+          { "text": "3% hypertonic saline bolus", "sub": "Rapid sodium correction", "correct": false, "feedback_wrong": "Hypertonic saline is reserved for symptomatic severe hyponatremia (seizures, coma, Na <120). Na of 128 without neurological symptoms does not warrant hypertonic saline — too rapid correction risks osmotic demyelination syndrome." },
+          { "text": "Normal saline 1L bolus", "sub": "Volume replacement", "correct": false, "feedback_wrong": "In SIADH, giving normal saline can paradoxically worsen hyponatremia — the kidneys excrete the sodium but retain the free water, worsening the dilution." },
+          { "text": "Fludrocortisone", "sub": "Mineralocorticoid replacement", "correct": false, "feedback_wrong": "Fludrocortisone is for adrenal insufficiency with hyponatremia. This is SIADH from ectopic ADH production by the tumor. Completely different mechanism." }
+        ]
+      },
+      {
+        "title": "First-line treatment for extensive stage SCLC",
+        "hint": "Small cell lung cancer, extensive stage. It has already seeded — SVC involvement, likely liver mets. What is the standard of care?",
+        "options": [
+          { "text": "Carboplatin + Etoposide + Atezolizumab", "sub": "Chemoimmunotherapy — current standard of care", "correct": true, "feedback_correct": "Correct. EP (etoposide + platinum) with atezolizumab (PD-L1 inhibitor) is the current first-line for extensive stage SCLC based on the IMpower133 trial. SCLC is exquisitely chemo-sensitive initially." },
+          { "text": "Surgical resection of right hilar mass", "sub": "Lobectomy", "correct": false, "feedback_wrong": "Surgery has no role in extensive stage SCLC. SCLC is a systemic disease at presentation in most cases — the problem is not just the primary tumor. Chemotherapy is the backbone of treatment." },
+          { "text": "Stereotactic body radiotherapy (SBRT) alone", "sub": "Definitive local radiation", "correct": false, "feedback_wrong": "SBRT is for early-stage non-small cell lung cancer. Extensive stage SCLC requires systemic therapy. Local radiation does not address micrometastatic disease." },
+          { "text": "Erlotinib (EGFR inhibitor)", "sub": "Targeted therapy", "correct": false, "feedback_wrong": "EGFR-targeted therapy is for non-small cell lung cancer with EGFR mutations. SCLC does not harbor EGFR mutations and does not respond to EGFR inhibitors." }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "SVC syndrome, Na 128, hemoptysis, O2 94%. Is this patient safe to go home?",
+        "options": [
+          { "text": "Admit — oncology, IV dexamethasone, fluid restriction, urgent CT guided biopsy planning", "sub": "Inpatient workup and stabilization", "correct": true, "feedback_correct": "Correct. This is a new diagnosis of extensive stage SCLC with active SVC syndrome, hemoptysis, and hyponatremia. Inpatient admission is mandatory for stabilization and expedited workup." },
+          { "text": "Discharge with outpatient oncology referral", "sub": "Follow-up in 1-2 weeks", "correct": false, "feedback_wrong": "Absolutely not. This patient has SVC syndrome, oxygen saturation of 94%, hemoptysis, and a sodium of 128. Sending him home risks acute decompensation from worsening SVC obstruction or hyponatremic seizure." },
+          { "text": "Admit to ICU for immediate chemo initiation", "sub": "Urgent treatment", "correct": false, "feedback_wrong": "Chemotherapy is not started without histologic confirmation. You need a tissue diagnosis first. Admitting to the general oncology floor for workup and stabilization is the appropriate level of care." },
+          { "text": "Transfer to thoracic surgery for emergent resection", "sub": "OR today", "correct": false, "feedback_wrong": "Surgery has no role in SCLC management and would be catastrophic without histologic diagnosis. Extensive stage SCLC is managed medically." }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 62,
+      "sex": "M",
+      "pmh": "hypertension, GERD, and 45 pack-year smoking history",
+      "presenting": "a 3-month progressive cough with hemoptysis, 12 lb unintentional weight loss, and facial swelling",
+      "pertinent_positives": {
+        "hx": "progressive dry cough, hemoptysis, 12 lb weight loss, morning facial swelling worse with bending forward, tight collar, morning headaches, proximal muscle weakness, diplopia, 45 pack-year smoking history",
+        "pe": "plethoric cyanotic facies, bilateral upper extremity and facial edema, dilated non-pulsatile neck veins, chest wall venous collaterals, decreased right upper lobe breath sounds, proximal muscle weakness with diminished reflexes",
+        "labs": "hyponatremia Na 128 with inappropriately elevated urine sodium consistent with SIADH, anemia Hgb 10.4, mildly elevated LFTs",
+        "imaging": "CXR and CT chest showing 6.2cm right hilar mass with 80% SVC compression and mediastinal lymphadenopathy",
+        "special": "bronchoscopy biopsy confirming small cell carcinoma with synaptophysin and chromogranin A positivity, Ki-67 >80%"
+      },
+      "assessment": "Small Cell Lung Cancer (SCLC), Extensive Stage with SVC syndrome, SIADH, and Lambert-Eaton Myasthenic Syndrome",
+      "plan": "admit for stabilization, IV dexamethasone, fluid restriction for SIADH, urgent oncology consult, expedite tissue diagnosis, initiate carboplatin/etoposide/atezolizumab upon histologic confirmation"
+    },
+    "explanation": "Small Cell Lung Cancer (SCLC) is a high-grade neuroendocrine carcinoma strongly associated with heavy smoking. It is characterized by rapid doubling time, early metastasis, and remarkable chemosensitivity. Extensive stage SCLC (beyond one hemithorax) is treated with carboplatin/etoposide + atezolizumab. Paraneoplastic syndromes are common: SIADH (ectopic ADH), Lambert-Eaton (VGCC antibodies), Cushing syndrome (ectopic ACTH). SVC syndrome occurs when mediastinal tumor compresses the superior vena cava — facial plethora, arm edema, dilated non-pulsatile neck veins, and morning headache are hallmarks."
+  },
+  {
+    "id": "003",
+    "date": "2026-04-08",
+    "urgency": "urgent",
+    "title": "The Engineer's Fever",
+    "dx_answer": "Infective Endocarditis",
+    "patient": {
+      "name": "The Engineer",
+      "age": 34,
+      "sex": "M",
+      "occupation": "Civil Engineer",
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775528232/api8_oa0piq.png"
+    },
+    "chart": {
+      "cc": "Fever for 3 weeks and I feel exhausted. I thought it was a flu that wouldn't quit.",
+      "hpi": "34-year-old male with 3-week history of daily fevers to 38.8°C, drenching night sweats, profound fatigue, and a 9 lb unintentional weight loss. He reports intermittent sharp chest pain, worse with inspiration. Two days ago he noticed a painful red spot on his right index finger. He saw his GP last week who prescribed azithromycin for presumed atypical pneumonia — no improvement. He denies cough, URI symptoms, or sick contacts.",
+      "pmh": "Bicuspid aortic valve — diagnosed incidentally at age 22, never required intervention. No other medical history.",
+      "psh": "None.",
+      "meds": "Azithromycin 250mg (ongoing). Ibuprofen PRN.",
+      "allergies": "NKDA.",
+      "fh": "Father: bicuspid aortic valve. Mother: healthy.",
+      "sh": "Non-smoker. Drinks 2-3 beers/week. Works on construction sites — frequent cuts and lacerations to hands. Denied IV drug use. Had a dental cleaning 5 weeks ago — no prophylaxis given."
+    },
+    "vitals": {
+      "bp": "122/48",
+      "hr": "104",
+      "rr": "18",
+      "temp": "38.9",
+      "o2": "96% RA"
+    },
+    "additional_hx": "He recalls the dental cleaning 5 weeks ago — his gums bled significantly during the procedure and no antibiotics were given beforehand, though he was not informed he needed prophylaxis for his bicuspid valve. The fevers began approximately 2 weeks after the dental visit. He reports that the chest pain is pleuritic and started 5 days ago. The painful red spot on his finger appeared 2 days ago and is very tender — not a blister, more like a bruise under the skin. He also reports noticing small dark lines under two of his fingernails on the right hand. His wife noticed his eyes looked slightly yellow last week. He denies headache, focal neurological symptoms, or hematuria, though he has not been paying attention to urine color.",
+    "pe_findings": "General: Ill-appearing, sweating, pale. Cardiovascular: Hyperdynamic precordium. New harsh diastolic murmur grade III/VI at left sternal border — not present on prior echocardiogram. JVP mildly elevated. Skin: Osler nodes — tender erythematous nodules on right index and middle fingertip pads. Splinter hemorrhages under right index and middle fingernails (3 total). Janeway lesions — flat, non-tender, hemorrhagic macules on bilateral thenar eminences. Eyes: conjunctival petechiae bilaterally. Fundoscopy: Roth spots — white-centered hemorrhages bilateral retinae. Mild scleral icterus. Spleen palpable 2 cm below costal margin. No peripheral edema. No clubbing yet.",
+    "imaging": "CXR: Multiple bilateral peripheral nodular opacities — septic emboli pattern. Mild cardiomegaly. Transthoracic Echocardiogram (TTE): Bicuspid aortic valve with a 1.4cm oscillating vegetation on the non-coronary cusp. Severe aortic regurgitation — wide pulse pressure confirmed. EF 55%. No perivalvular abscess on TTE (TEE recommended to exclude).",
+    "special_test": {
+      "name": "Blood Cultures x3 (Before Antibiotics)",
+      "result": "All 3 sets positive within 12 hours: Streptococcus viridans (mitis group) — gram-positive cocci in chains. Susceptibility: penicillin MIC 0.06 (fully susceptible). Gentamicin susceptible. Ampicillin susceptible. This organism is the most common cause of native valve endocarditis following dental procedures and is a classic finding in the setting of poor dental prophylaxis in a patient with a bicuspid valve."
+    },
+    "tests": [
+      { "name": "CBC", "cost": 5, "result": "WBC 16,800 with 88% PMNs and left shift. Hgb 9.8 (low — anemia of chronic disease/inflammation). Plt 142 (low-normal, immune consumption). MCV 82." },
+      { "name": "CMP", "cost": 5, "result": "Cr 1.6 (elevated from baseline — immune complex glomerulonephritis). BUN 28. Total bilirubin 2.4 (mildly elevated — hemolysis + hepatic emboli). LFTs mildly elevated. Albumin 2.6 (low — chronic illness)." },
+      { "name": "TSH", "cost": 5, "result": "TSH 1.9 — normal. Not contributing to febrile illness." },
+      { "name": "B12", "cost": 5, "result": "Normal. Not contributing." },
+      { "name": "EKG", "cost": 5, "result": "Sinus tachycardia rate 104. New PR interval prolongation to 220ms — concerning for aortic root extension/perivalvular abscess. Urgent TEE recommended." },
+      { "name": "Coags", "cost": 5, "result": "PT/INR 1.4 (mildly elevated — hepatic involvement, malnutrition). PTT 38 (mildly elevated)." },
+      { "name": "UA", "cost": 5, "result": "RBC 45/hpf (HIGH — microscopic hematuria). RBC casts present — immune complex glomerulonephritis from endocarditis. Protein 2+ — nephritic pattern. This is a classic endocarditis finding." },
+      { "name": "EMG/NCS", "cost": 5, "result": "Not indicated for this presentation. Normal if performed. This is not a neurological or neuromuscular disease." }
+    ],
+    "hints": [
+      "Fever for 3 weeks, a dental procedure 5 weeks ago without prophylaxis, a known bicuspid aortic valve, and a new diastolic murmur. The diagnosis is written plainly if you read the timeline.",
+      "Osler nodes, Janeway lesions, Roth spots, splinter hemorrhages, microscopic hematuria with RBC casts. These are not separate findings — they are one unifying syndrome with a name.",
+      "The wide pulse pressure (122/48) is telling you the aortic valve is incompetent. The vegetation on echo confirms it. Blood cultures will tell you the organism and guide 4-6 weeks of antibiotics.",
+      "Duke Criteria: fever (major), vegetation on echo (major), Osler nodes (minor), Janeway lesions (minor), splinter hemorrhages (minor), predisposing valve lesion (minor). You are well past the threshold for definite endocarditis."
+    ],
+    "management": [
+      {
+        "title": "Immediate management",
+        "hint": "He has been on azithromycin for a week with no improvement. What is your first priority before starting the right antibiotics?",
+        "options": [
+          { "text": "Draw 3 sets of blood cultures then start IV antibiotics", "sub": "Culture first — always", "correct": true, "feedback_correct": "Correct and critical. Blood cultures must be drawn before antibiotics whenever possible. In stable endocarditis you have time to get cultures first — this guides your entire 4-6 week treatment plan. Rushing antibiotics before cultures destroys your ability to tailor therapy." },
+          { "text": "Start IV vancomycin immediately", "sub": "Empiric broad-spectrum coverage", "correct": false, "feedback_wrong": "Do not start antibiotics before blood cultures in stable endocarditis. He is not in septic shock. He can wait 15 minutes for cultures. Starting vancomycin blindly eliminates your ability to identify the organism and optimize therapy." },
+          { "text": "Urgent cardiac surgery consultation for valve replacement", "sub": "Emergent OR", "correct": false, "feedback_wrong": "Surgery is indicated for severe complications (heart failure, abscess, emboli, uncontrolled infection) — not as the first step. Medical therapy is initiated first. Surgery timing is decided after stabilization and culture results." },
+          { "text": "Start oral amoxicillin and observe", "sub": "Outpatient oral therapy", "correct": false, "feedback_wrong": "Infective endocarditis requires IV antibiotics for 4-6 weeks. Oral therapy is not appropriate for native valve endocarditis with vegetation. This patient requires admission." }
+        ]
+      },
+      {
+        "title": "Antibiotic regimen for Strep viridans endocarditis",
+        "hint": "Strep viridans, fully penicillin susceptible, native valve. What is the guideline-recommended regimen?",
+        "options": [
+          { "text": "IV Penicillin G or Ceftriaxone x4 weeks", "sub": "Drug of choice for susceptible Strep viridans", "correct": true, "feedback_correct": "Correct. Penicillin-susceptible Strep viridans (MIC ≤0.12) on a native valve is treated with penicillin G or ceftriaxone for 4 weeks. Gentamicin can be added for the first 2 weeks to shorten treatment in uncomplicated cases." },
+          { "text": "IV Vancomycin x6 weeks", "sub": "MRSA coverage", "correct": false, "feedback_wrong": "Vancomycin is appropriate for penicillin-allergic patients or MRSA. This organism is fully penicillin susceptible — using vancomycin is inferior to beta-lactam therapy and unnecessarily broad." },
+          { "text": "IV Daptomycin monotherapy", "sub": "Lipopeptide antibiotic", "correct": false, "feedback_wrong": "Daptomycin is inactivated by pulmonary surfactant and cannot be used when pulmonary involvement is present (septic emboli). It is not first-line for Strep viridans endocarditis." },
+          { "text": "Oral azithromycin continuation", "sub": "Macrolide coverage", "correct": false, "feedback_wrong": "He was already on azithromycin and worsened. Macrolides have poor activity against Strep viridans in a biofilm-protected cardiac vegetation. IV therapy is mandatory." }
+        ]
+      },
+      {
+        "title": "PR prolongation on EKG — next step",
+        "hint": "New PR prolongation to 220ms in a patient with aortic valve endocarditis. What does this mean and what do you do?",
+        "options": [
+          { "text": "Urgent transesophageal echocardiogram (TEE)", "sub": "Rule out perivalvular abscess", "correct": true, "feedback_correct": "Correct and urgent. New PR prolongation in aortic valve endocarditis indicates possible extension into the aortic root with perivalvular abscess — the abscess can interrupt the conduction system. TEE is far more sensitive than TTE for detecting perivalvular complications. Abscess is a surgical indication." },
+          { "text": "Cardiology consult for pacemaker placement", "sub": "Treat the AV block", "correct": false, "feedback_wrong": "Do not place a pacemaker in active endocarditis — the pacemaker wire becomes a nidus for further infection. The underlying cause (potential abscess) must be diagnosed and treated first." },
+          { "text": "Increase antibiotic duration to 8 weeks", "sub": "Empiric extension", "correct": false, "feedback_wrong": "Extending antibiotic duration empirically does not address the question of whether a perivalvular abscess has formed. You need imaging to answer that question, not more antibiotics." },
+          { "text": "Reassure — first-degree AV block is benign", "sub": "Observe only", "correct": false, "feedback_wrong": "A new PR prolongation in the context of aortic valve endocarditis is never benign — it is a red flag for perivalvular extension until proven otherwise. This is an indication for urgent TEE and possible surgery." }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Vegetation confirmed, new murmur, EKG changes, septic emboli on CXR. Where does this patient go?",
+        "options": [
+          { "text": "Admit to cardiology with cardiac surgery on standby", "sub": "Inpatient IV antibiotics + monitoring", "correct": true, "feedback_correct": "Correct. Native valve endocarditis with a visible vegetation, severe AR, PR prolongation, and septic emboli requires inpatient admission to cardiology with cardiac surgery availability. 4-6 weeks of IV antibiotics, daily EKGs, serial echos, and monitoring for surgical indications." },
+          { "text": "Discharge with PICC line for outpatient IV antibiotics", "sub": "OPAT — outpatient parenteral therapy", "correct": false, "feedback_wrong": "OPAT is appropriate only for stable, uncomplicated endocarditis after initial inpatient stabilization and when the organism and susceptibilities are known. This patient has active complications — PR prolongation, septic emboli — and is not a candidate for early discharge." },
+          { "text": "Emergency valve replacement tonight", "sub": "Immediate OR", "correct": false, "feedback_wrong": "Surgery is not emergent here. He is hemodynamically stable. Indications for urgent surgery include heart failure, uncontrolled infection, abscess, or recurrent emboli despite antibiotics. He needs TEE first to clarify anatomy before any surgical decision." },
+          { "text": "Admit to general medicine floor only", "sub": "No cardiology or surgery involvement", "correct": false, "feedback_wrong": "The complexity of this case — new severe AR, EKG changes suggesting possible abscess, septic emboli — requires cardiology input and cardiac surgery availability. General medicine alone is insufficient." }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 34,
+      "sex": "M",
+      "pmh": "bicuspid aortic valve diagnosed at age 22",
+      "presenting": "3 weeks of daily fevers, night sweats, and 9 lb weight loss following a dental cleaning without antibiotic prophylaxis",
+      "pertinent_positives": {
+        "hx": "fever 3 weeks duration, dental procedure 5 weeks ago without prophylaxis, known bicuspid aortic valve, pleuritic chest pain, painful fingertip nodules, dark lines under fingernails",
+        "pe": "new harsh diastolic murmur, Osler nodes on fingertip pads, splinter hemorrhages, Janeway lesions on thenar eminences, Roth spots on fundoscopy, splenomegaly, wide pulse pressure 122/48",
+        "labs": "leukocytosis with left shift, anemia, elevated creatinine, microscopic hematuria with RBC casts on UA consistent with immune complex glomerulonephritis",
+        "imaging": "TTE showing 1.4cm vegetation on bicuspid aortic valve with severe aortic regurgitation, septic emboli on CXR",
+        "special": "all 3 blood culture sets positive for Streptococcus viridans, penicillin susceptible"
+      },
+      "assessment": "Infective Endocarditis (native valve, Strep viridans) with SVC syndrome, immune complex glomerulonephritis, and septic pulmonary emboli",
+      "plan": "blood cultures x3 before antibiotics, IV penicillin G or ceftriaxone x4 weeks, urgent TEE to evaluate for perivalvular abscess given PR prolongation, cardiac surgery consult, admit to cardiology"
+    },
+    "explanation": "Infective endocarditis (IE) is infection of the cardiac endothelium, most commonly involving heart valves. Risk factors include structural valve disease (bicuspid aortic valve), dental procedures without prophylaxis, and IV drug use. Strep viridans is the classic causative organism post-dental procedure. The Duke Criteria (major: positive blood cultures, echo vegetation; minor: fever, vascular phenomena, immunologic phenomena, predisposing condition) guide diagnosis. Peripheral stigmata: Osler nodes (painful, immune complex), Janeway lesions (painless, septic emboli), splinter hemorrhages, Roth spots. Treatment: 4-6 weeks IV antibiotics guided by cultures. Surgical indications: heart failure, abscess, uncontrolled infection, recurrent emboli."
+  }
+]      "result": "Reduced dopamine transporter uptake in bilateral putamen, asymmetric — right greater than left. Classic 'comma to period' sign. Findings are consistent with nigrostriatal dopaminergic degeneration, confirming Parkinson Disease. Rules out essential tremor and drug-induced parkinsonism."
     },
     "tests": [
       { "name": "CBC", "cost": 5, "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224. No anemia or infection." },
