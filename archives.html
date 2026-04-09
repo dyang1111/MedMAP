@@ -299,9 +299,17 @@ function getTodayCST(){
 async function loadCases(){
   try{
     // Load all known monthly case files
-    const KNOWN_MONTHS = ['2026-04cases.json']; // add '2026-5cases.json' etc when ready
+    // Auto-generate monthly file list from launch month up to current month
+    const LAUNCH = {year: 2026, month: 4}; // first month cases exist
+    const now = new Date();
+    const months = [];
+    let y = LAUNCH.year, m = LAUNCH.month;
+    while(y < now.getFullYear() || (y === now.getFullYear() && m <= now.getMonth()+1)){
+      months.push(`${y}-${String(m).padStart(2,'0')}cases.json`);
+      m++; if(m > 12){ m = 1; y++; }
+    }
     let allFetched = [];
-    for(const file of KNOWN_MONTHS){
+    for(const file of months){
       try{
         const r = await fetch(file);
         if(r.ok){ const d = await r.json(); if(Array.isArray(d)) allFetched = allFetched.concat(d); }
