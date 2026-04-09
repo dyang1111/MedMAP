@@ -28,5 +28,15 @@
     "step1_buzzwords": "Duke criteria (2 major OR 1 major + 3 minor OR 5 minor), Osler nodes, Janeway lesions, Roth spots, splinter hemorrhages, new murmur, positive blood cultures, vegetation on echo. PR prolongation → perivalvular abscess.",
     "lab_buzzwords": "Blood cultures x3 before antibiotics — most critical step. UA: RBC casts = immune complex GN. New PR prolongation on EKG = perivalvular abscess until proven otherwise → urgent TEE. Echo vegetation = major Duke criterion.",
     "treatment": "Native valve Strep viridans (penicillin-susceptible): IV Penicillin G or Ceftriaxone x4 weeks. S. aureus MSSA: IV Nafcillin x6 weeks. MRSA: Vancomycin x6 weeks. Surgery indications: heart failure from valve destruction, perivalvular abscess, uncontrolled infection despite antibiotics, recurrent emboli, fungal endocarditis. Prophylaxis: amoxicillin before dental procedures in high-risk valve patients."
+  },
+  "2026-04-09": {
+    "diagnosis": "Pheochromocytoma",
+    "who_gets_it": "Any age but peak 40-60. Associated with genetic syndromes in ~40% of cases: MEN2A/2B (RET mutation), Von Hippel-Lindau (VHL), Neurofibromatosis type 1, SDH mutations. Rule of 10s: 10% malignant, 10% bilateral, 10% extra-adrenal, 10% in children.",
+    "risk_factors": "Genetic syndromes (MEN2, VHL, NF1, SDH mutations). Family history of adrenal tumors. No lifestyle risk factors — this is not a preventable disease.",
+    "typical_presentation": "Classic triad: episodic headache, diaphoresis, palpitations. Paroxysmal hypertension triggered by exertion, bending, emotional stress, certain foods/medications. Episodes last 20-40 minutes with complete resolution between attacks. Hypertension may be sustained, paroxysmal, or both. Weight loss, hyperglycemia (catecholamines inhibit insulin), pallor during attacks.",
+    "moa": "Tumor of chromaffin cells in adrenal medulla secretes excess epinephrine, norepinephrine, and dopamine → alpha-1 activation (vasoconstriction, hypertension) + beta-1 activation (tachycardia, palpitations) + beta-2 (hyperglycemia, tremor). Episodes triggered by tumor manipulation, physical pressure, or sympathetic activation.",
+    "step1_buzzwords": "Rule of 10s, episodic hypertension, headache/sweating/palpitations triad, alpha-block before beta-block, never biopsy, plasma free metanephrines (most sensitive), 24-hr urine metanephrines, adrenal mass on CT.",
+    "lab_buzzwords": "Plasma free metanephrines >0.5 nmol/L = highly suspicious. 24-hr urine metanephrines >900 mcg = abnormal. Hyperglycemia without diabetes. Elevated hematocrit (volume contraction). CT: heterogeneous adrenal mass with central necrosis.",
+    "treatment": "1. Alpha-blockade first: Phenoxybenzamine (irreversible, non-selective) x10-14 days. 2. Add beta-blocker only after alpha-blockade established. 3. High-salt diet + IV fluids for volume expansion. 4. Laparoscopic adrenalectomy. NEVER: biopsy the tumor, give beta-blockers first, operate without preparation. Genetic testing post-op for all patients."
   }
 }
