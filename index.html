@@ -41,6 +41,18 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   transition: background-image 1s ease;
 }
 
+/* ── TABLE OVERLAY ── */
+#table-overlay{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  height:28%;
+  z-index:1;
+  background-image:url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775783849/table_default_rv2oju.png');
+  background-size:cover;
+  background-position:center top;
+  pointer-events:none;
+}
+
 /* ── WOOD NAV ── */
 .fm-nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -675,6 +687,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 <audio id="bg-audio" loop></audio>
 
 <div id="bg"></div>
+<div id="table-overlay"></div>
 
 <nav class="fm-nav">
   <a class="fm-logo" href="#">
