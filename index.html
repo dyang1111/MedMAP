@@ -33,15 +33,10 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 /* ── MAIN TOWN BACKGROUND ── */
 #bg {
   position: fixed;
-  top: 52px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 0;
-  background-size: auto 72vh;
-  background-position: left top;
-  background-repeat: no-repeat;
-  background-color: #0a1520;
+  background-size: cover;
+  background-position: center center;
   transition: background-image 1s ease;
 }
 
@@ -1076,8 +1071,8 @@ function applyTimeTheme(){
   const isNight = hr >= 18 || hr < 6; 
 
   const bgUrl = isNight 
-    ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775787022/background_default_night_phwlbp.png'
-    : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775787022/backgruond_default_morning_mosthe.png';
+    ? 'https://res.cloudinary.com/djiap51xq/image/upload/v1775790944/BACKGROUND_NIGHT_gik0es.png'
+    : 'https://res.cloudinary.com/djiap51xq/image/upload/v1775790946/BACKGROUND_MORNING_pzmh5w.png';
 
   document.getElementById('bg').style.backgroundImage = `url('${bgUrl}')`;
 
