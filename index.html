@@ -82,7 +82,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   display:flex;
   justify-content:center;
   min-height:100vh;
-  overflow:hidden;
 }
 
 #app-inner{
@@ -91,46 +90,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   max-width:980px;
   position:relative;
   z-index:10;
-  /* leather border — no margin, flush against nav, no scroll */
-  border-top:    7px solid #1a0902;
-  border-right:  6px solid #1a0902;
-  border-bottom: 0px solid transparent;
-  border-left:  13px solid #160802;
-  box-shadow:
-    inset  1px 0 0 rgba(150,95,18,0.18),
-    inset -1px 0 0 rgba(150,95,18,0.12),
-    inset  0 1px 0 rgba(150,95,18,0.15);
-}
-
-/* Left stitch only — very subtle, sparse */
-#app-inner::before{
-  content:'';
-  position:absolute;
-  pointer-events:none;
-  z-index:20;
-  left:-9px; top:20px; bottom:0; width:2px;
-  background:repeating-linear-gradient(
-    to bottom,
-    rgba(160,115,28,0.3) 0px,
-    rgba(160,115,28,0.3) 4px,
-    transparent 4px,
-    transparent 24px
-  );
-}
-/* Top stitch — very subtle */
-#app-inner::after{
-  content:'';
-  position:absolute;
-  pointer-events:none;
-  z-index:20;
-  top:-4px; left:18px; right:0; height:2px;
-  background:repeating-linear-gradient(
-    to right,
-    rgba(160,115,28,0.25) 0px,
-    rgba(160,115,28,0.25) 4px,
-    transparent 4px,
-    transparent 26px
-  );
 }
 
 /* ── LEFT COLUMN — FIXED ── */
@@ -218,7 +177,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 /* ── RIGHT SCROLLABLE — NEW PAPER BACKGROUND ── */
 #right-col{
   flex:1;
-  min-width:0;
+  max-width:680px;
   height:calc(100vh - 52px);
   overflow-y:auto;
   padding:20px 16px;
