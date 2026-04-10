@@ -1103,6 +1103,7 @@ let HP = 100;
 let errors = 0;
 let dxSubmitted = false;
 let dxCorrect = false;
+let _perfectRun = true;
 let currentStage = 0; 
 let orderedTests = new Set();
 let currentHintIdx = 0;
@@ -1197,7 +1198,7 @@ function applyTimeTheme(){
 }
 
 // ── INIT CASE ──
-function initCase(){
+function initCase(){ _fennickLocked = false;
   const urlDate = new URLSearchParams(window.location.search).get('date');
   const todayCST = new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   if(urlDate){
@@ -1249,7 +1250,10 @@ function initCase(){
   });
 }
 
+let _fennickLocked = false;
 function setFennick(expr, comment){ 
+  if(_fennickLocked && expr !== 'lose') return;
+  if(expr === 'lose') _fennickLocked = true;
   const img = (expr==='default') ? getDefaultImg() : (FOX[expr] || getDefaultImg());
   document.getElementById('fennick-img').src = img; 
   if(comment) document.getElementById('fennick-comment').textContent = comment;
@@ -1368,7 +1372,7 @@ window.submitDx=function(){
     dxSubmitted=true;dxCorrect=true;
     result.className='dx-result correct';result.textContent='\u2713 Correct \u2014 '+currentCase.dx_answer;result.style.display='block';
     document.getElementById('dx-submit-btn').disabled=true;document.getElementById('dx-suggestions').style.display='none';
-    setFennick(errors===0?'answer':'slight_approval','"That is the diagnosis. Now let us see how you manage it."');
+    setFennick('good_job','"That is the diagnosis. Now let us see how you manage it."');
     unlockManagement();
   } else {
     errors++;drainHP(10);wrongAnswers.add(val);
@@ -1416,11 +1420,11 @@ window.pickMgmt=function(stageIdx,optIdx){
   if(opt.correct){
     optEl.classList.remove('locked-opt');optEl.classList.add('selected-correct');document.getElementById('stage-num-'+stageIdx).classList.add('done');
     if(fbEl){fbEl.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_correct||'Correct.';}
-    setFennick(currentHintIdx>0?'good_job':'answer','"'+(opt.feedback_correct||'Good call.')+'"');advanceStage(stageIdx+1);
+    setFennick('good_job','"'+(opt.feedback_correct||'Good call.')+'"');advanceStage(stageIdx+1);
   } else {
     optEl.classList.remove('locked-opt');optEl.classList.add('selected-wrong');errors++;drainHP(10);
     if(fbEl){fbEl.style.cssText='display:block;background:rgba(230,160,150,0.4);border:1px solid rgba(180,80,70,0.35);color:#4a1010;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_wrong||'Incorrect.';}
-    const _wrongFace=(errors%2===0)?'concerned':'thinking';setFennick(_wrongFace,'"'+(opt.feedback_wrong||'Not quite.')+'"');updateFennickByErrors();setTimeout(()=>advanceStage(stageIdx+1),800);
+    _perfectRun=false;const _wrongFace=(errors%2===0)?'concerned':'thinking';setFennick(_wrongFace,'"'+(opt.feedback_wrong||'Not quite.')+'"');updateFennickByErrors();setTimeout(()=>advanceStage(stageIdx+1),800);
   }
 };
 
@@ -1438,7 +1442,7 @@ function advanceStage(nextIdx){
 
 function useHint(){
   drainHP(10);
-  if(!dxCorrect){const h=hints[currentHintIdx%hints.length];currentHintIdx++;const hintFace=(currentHintIdx%3===0)?'confused':'think';setFennick(hintFace,'"'+h+'"');}
+  _perfectRun=false;if(!dxCorrect){const h=hints[currentHintIdx%hints.length];currentHintIdx++;const hintFace=(currentHintIdx%3===0)?'confused':'think';setFennick(hintFace,'"'+h+'"');}
   else{const s=currentCase.management[currentStage];const hintFace2=(currentHintIdx%3===0)?'confused':'think';setFennick(hintFace2,'"'+(s&&s.hint?s.hint:'Trust your instincts.')+'"');}
 }
 
@@ -1450,8 +1454,8 @@ function endCase(failed){
   let grade,comment;
   if(failed){grade='F';comment='"That drug would have destroyed the patient. Do not forget this."';setFennick('lose',comment);}
   else if(hp_on_fail!==undefined&&hp_on_fail<1){grade='F';comment='"Nothing left to work with. Start over."';setFennick('danger',comment);}
-  else if(HP>=80&&errors===0){grade='A';comment='"Not a single misstep. Good."';setFennick('answer',comment);}
-  else if(HP>=80&&errors>0){grade='A';comment='"Strong finish. The early stumbles did not define it."';setFennick('good_job',comment);}
+  else if(HP>=80&&_perfectRun){grade='A';comment='"Not a single misstep. Good."';setFennick('answer',comment);}
+  else if(HP>=80&&!_perfectRun){grade='A';comment='"Strong finish. The early stumbles did not define it."';setFennick('good_job',comment);}
   else if(HP>=60){grade='B';comment='"Solid. The right instincts, mostly."';setFennick('slight_approval',comment);}
   else if(HP>=40){grade='C';comment='"You got there. The road was longer than it needed to be."';setFennick('concerned',comment);}
   else{grade='F';comment='"We will not speak of this."';setFennick('lose',comment);}
