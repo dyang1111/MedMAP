@@ -204,8 +204,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background-color: #0d1520;
 
   box-shadow: -4px 0 15px rgba(0,0,0,0.3);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0px, transparent 232px, black 248px);
-  mask-image: linear-gradient(to bottom, transparent 0px, transparent 232px, black 248px);
 }
 
 /* ── THEMATIC SCROLLBAR ── */
@@ -215,7 +213,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 #right-col::-webkit-scrollbar-thumb:hover { background: rgba(200, 160, 60, 0.8); }
 
 /* ── NOTE PANELS (CLEAN IVORY, NO TEXTURE) ── */
-.note{
+.note{scroll-margin-top:280px;
   background: var(--panel-bg);
   border:1px solid rgba(140,100,30,0.28);
   border-radius:6px;
@@ -660,8 +658,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 
 /* ── STICKY HEADER STACK ── */
-#pt-banner-note{position:sticky;top:42px;z-index:20;}
-.tab-bar-row{position:sticky;top:236px;z-index:19;background:transparent;}
+
+.tab-bar-row{position:sticky;top:236px;z-index:19;}
 
 /* ── VITALS INLINE (left of tabs) ── */
 .tab-bar-row{
@@ -927,7 +925,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
   <div id="right-col">
 
-    <div class="note" id="pt-banner-note" style="padding:12px 14px;position:sticky;top:0;z-index:20;">
+    <div class="note" id="pt-banner-note" style="padding:12px 14px;position:sticky;top:42px;z-index:20;">
       <div id="pt-banner">
         <div style="flex:1">
           <div class="pt-name" id="pt-name">—</div>
