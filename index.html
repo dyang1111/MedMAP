@@ -109,8 +109,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   height:calc(100vh - 42px);
   position:sticky;top:42px;
   display:flex;flex-direction:column;
-  padding:14px 12px;
-  gap:12px;
+  padding:6px 12px;
+  gap:10px;
   background-color:rgba(62, 30, 8, 0.98);
   background-image:
     repeating-linear-gradient(179deg,
@@ -191,7 +191,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   max-width:680px;
   height:calc(100vh - 42px);
   overflow-y:auto;
-  padding:4px 16px 20px;
+  padding:0px 16px 20px;
   display:flex;flex-direction:column;gap:10px;
 
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
@@ -204,6 +204,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background-color: #0d1520;
 
   box-shadow: -4px 0 15px rgba(0,0,0,0.3);
+  scroll-padding-top:290px;
 }
 
 /* ── THEMATIC SCROLLBAR ── */
@@ -213,7 +214,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 #right-col::-webkit-scrollbar-thumb:hover { background: rgba(200, 160, 60, 0.8); }
 
 /* ── NOTE PANELS (CLEAN IVORY, NO TEXTURE) ── */
-.note{scroll-margin-top:280px;
+.note{
   background: var(--panel-bg);
   border:1px solid rgba(140,100,30,0.28);
   border-radius:6px;
@@ -605,10 +606,9 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   /* Tabs fill right portion only */
 }
 .tab-btn{
-  flex:1;padding:6px 12px;
-  font-family:'Playfair Display',serif;font-size:12px;font-weight:600;
+  flex:1;padding:4px 12px;
+  font-family:'Playfair Display',serif;font-size:11px;font-weight:600;
   letter-spacing:.05em;color:#9a7030;
-  /* inactive = darker parchment */
   background:linear-gradient(160deg,rgba(210,195,155,0.9),rgba(195,178,138,0.92));
   border:1px solid rgba(155,115,36,0.38);
   border-bottom:none;
@@ -657,9 +657,31 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .typing-cursor{display:inline-block;width:2px;height:1em;background:#7a5010;margin-left:2px;vertical-align:text-bottom;animation:blink .7s step-end infinite}
 
 
+
+/* ── SCROLL CLIP OVERLAY ── */
+#scroll-clip-overlay{
+  position:sticky;
+  top:0;
+  height:0;
+  z-index:18;
+  pointer-events:none;
+}
+#scroll-clip-overlay::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  /* Height = pt-banner height + tab-bar height + small gap */
+  height:280px;
+  /* Match right-col background — parchment paper texture */
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
+  background-size:cover;
+  background-position:center;
+  pointer-events:none;
+}
+
 /* ── STICKY HEADER STACK ── */
 
-.tab-bar-row{position:sticky;top:236px;z-index:19;}
+.tab-bar-row{position:sticky;top:236px;z-index:19;margin-top:2px;}
 
 /* ── VITALS INLINE (left of tabs) ── */
 .tab-bar-row{
@@ -674,7 +696,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   border-radius:5px 5px 0 0;
   padding:4px 8px;
   gap:10px;
-  flex:1;
 }
 .vi-item{display:flex;flex-direction:column;align-items:center;gap:0}
 .vi-item + .vi-item{border-left:1px solid rgba(155,115,36,0.2);padding-left:10px}
@@ -925,6 +946,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
   <div id="right-col">
 
+    <div id="scroll-clip-overlay"></div>
     <div class="note" id="pt-banner-note" style="padding:12px 14px;position:sticky;top:42px;z-index:20;">
       <div id="pt-banner">
         <div style="flex:1">
