@@ -669,12 +669,13 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 /* ── STICKY HEADER STACK ── */
 
-.tab-bar-row{position:sticky;top:236px;z-index:19;margin-top:2px;background:rgba(252,248,225,0);}
+.tab-bar-row{position:sticky;top:316px;z-index:19;margin-top:0;}
 
 /* ── VITALS INLINE (left of tabs) ── */
 .tab-bar-row{
   display:flex;align-items:flex-end;gap:0;
   margin-bottom:0;
+  background:rgba(252,248,225,0);
 }
 #vitals-inline{
   display:flex;align-items:center;
@@ -964,7 +965,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 <div id="scroll-content">
         <!-- CASE / DX TAB -->
         <div class="tab-content active" id="tab-case">
-          <div class="note" id="chart-note" style="padding-top:6px;">
+          <div class="note" id="chart-note" style="padding-top:6px;scroll-margin-top:340px;">
             <span class="section-tag">MEDICAL CHART</span>
             <div class="chart-grid" id="chart-grid"></div>
           </div>
