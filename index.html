@@ -194,7 +194,17 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   padding:0px 16px 20px;
   display:flex;flex-direction:column;gap:0px;
 
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
+  background-attachment: fixed;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #0a1520;
+  background-repeat: no-repeat;
+  background-color: #0d1520;
+
   box-shadow: -4px 0 15px rgba(0,0,0,0.3);
+  scroll-padding-top:290px;
 }
 
 /* ── THEMATIC SCROLLBAR ── */
@@ -621,7 +631,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   color:#5a3a10;
 }
 .tab-content{display:none}
-.tab-content.active{display:flex;flex-direction:column;gap:14px;margin-top:1px;}
+.tab-content.active{display:flex;flex-direction:column;gap:14px;margin-top:0;}
 
 @keyframes tabFlipIn{
   0%{opacity:0;transform:translateY(5px);}
@@ -650,30 +660,29 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 
 /* Tab row clips scrolling content behind it */
-
-
-
-#scroll-content{
-  flex:1;
-  overflow-y:auto;
-  padding:0 16px 20px;
-  display:flex;flex-direction:column;gap:10px;
+.tab-bar-row{
+  background:var(--panel-bg);
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
   background-size:cover;
   background-position:center;
 }
-#scroll-content::-webkit-scrollbar{width:8px}
-#scroll-content::-webkit-scrollbar-track{background:rgba(62,30,8,0.1);border-radius:4px}
-#scroll-content::-webkit-scrollbar-thumb{background:rgba(160,120,40,0.6);border-radius:4px}
+.tab-bar-row::before{
+  content:'';
+  position:absolute;
+  top:0;left:-20px;right:-20px;bottom:0;
+  background:inherit;
+  background-size:cover;
+  z-index:-1;
+}
 
 /* ── STICKY HEADER STACK ── */
 
-.tab-bar-row{position:sticky;top:297px;z-index:19;margin-top:0;}
+.tab-bar-row{position:sticky;top:236px;z-index:19;margin-top:2px;background:rgba(252,248,225,0);}
 
 /* ── VITALS INLINE (left of tabs) ── */
 .tab-bar-row{
   display:flex;align-items:flex-end;gap:0;
   margin-bottom:0;
-  background:rgba(252,248,225,0);
 }
 #vitals-inline{
   display:flex;align-items:center;
@@ -934,7 +943,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
   <div id="right-col">
 
-    <div class="note" id="pt-banner-note" style="padding:8px 14px 12px;position:sticky;top:42px;z-index:20;background:rgba(252,248,225,1);margin-top:0;margin-bottom:0;">
+    <div class="note" id="pt-banner-note" style="padding:12px 14px;position:sticky;top:42px;z-index:20;background:rgba(252,248,225,1);margin-top:6px;margin-bottom:6px;">
       <div id="pt-banner">
         <div style="flex:1">
           <div class="pt-name" id="pt-name">—</div>
@@ -960,10 +969,9 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
           </div>
         </div>
 
-<div id="scroll-content">
         <!-- CASE / DX TAB -->
         <div class="tab-content active" id="tab-case">
-          <div class="note" id="chart-note" style="padding-top:6px;scroll-margin-top:340px;">
+          <div class="note" id="chart-note" style="padding-top:6px;">
             <span class="section-tag">MEDICAL CHART</span>
             <div class="chart-grid" id="chart-grid"></div>
           </div>
@@ -1028,7 +1036,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 
     </div>
-</div><!-- end scroll-content -->
 
   </div>
 </div>
