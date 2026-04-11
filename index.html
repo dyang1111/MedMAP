@@ -191,7 +191,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   max-width:680px;
   height:calc(100vh - 42px);
   overflow-y:auto;
-  padding:8px 16px 20px;
+  padding:4px 16px 20px;
   display:flex;flex-direction:column;gap:10px;
 
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
@@ -204,7 +204,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background-color: #0d1520;
 
   box-shadow: -4px 0 15px rgba(0,0,0,0.3);
-  scroll-padding-top: 200px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0px, transparent 232px, black 248px);
+  mask-image: linear-gradient(to bottom, transparent 0px, transparent 232px, black 248px);
 }
 
 /* ── THEMATIC SCROLLBAR ── */
@@ -603,8 +604,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .tab-bar{
   display:flex;gap:0;margin-bottom:0;
   position:relative;z-index:2;
-  /* Right-aligned tabs — left half is blank */
-  padding-left:50%;
+  /* Tabs fill right portion only */
 }
 .tab-btn{
   flex:1;padding:6px 12px;
@@ -649,12 +649,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   gap:0;
   align-items:flex-start;
 }
-.tab-bar-row{
-  position:sticky;
-  top:170px;
-  z-index:19;
-  background:transparent;
-}
+
 #tab-area{flex:1;min-width:0;}
 
 
@@ -663,6 +658,10 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .typing-cursor{display:inline-block;width:2px;height:1em;background:#7a5010;margin-left:2px;vertical-align:text-bottom;animation:blink .7s step-end infinite}
 
+
+/* ── STICKY HEADER STACK ── */
+#pt-banner-note{position:sticky;top:42px;z-index:20;}
+.tab-bar-row{position:sticky;top:236px;z-index:19;background:transparent;}
 
 /* ── VITALS INLINE (left of tabs) ── */
 .tab-bar-row{
@@ -677,14 +676,14 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   border-radius:5px 5px 0 0;
   padding:4px 8px;
   gap:10px;
-  margin-right:0;
+  flex:1;
 }
 .vi-item{display:flex;flex-direction:column;align-items:center;gap:0}
 .vi-item + .vi-item{border-left:1px solid rgba(155,115,36,0.2);padding-left:10px}
 .vi-val{font-size:11px;font-weight:600;color:#2a1a06;font-family:'Playfair Display',serif;line-height:1.2}
 .vi-lbl{font-size:8px;color:#9a7030;letter-spacing:.07em}
 .vi-item.abnormal .vi-val{color:#8a2010}
-.tab-bar{flex:1;display:flex;gap:0;}
+.tab-bar{display:flex;gap:0;}
 
 /* ── STEAMPUNK ANIMATIONS ── */
 
@@ -956,7 +955,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
         <!-- CASE / DX TAB -->
         <div class="tab-content active" id="tab-case">
-          <div class="note" id="chart-note">
+          <div class="note" id="chart-note" style="padding-top:10px;">
             <span class="section-tag">MEDICAL CHART</span>
             <div class="chart-grid" id="chart-grid"></div>
           </div>
