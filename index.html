@@ -660,11 +660,18 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 
 /* Tab row clips scrolling content behind it */
+.tab-bar-row{
+  background:var(--panel-bg);
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
+  background-size:cover;
+  background-position:center;
+}
 .tab-bar-row::before{
   content:'';
   position:absolute;
   top:0;left:-20px;right:-20px;bottom:0;
-  background:var(--panel-bg);
+  background:inherit;
+  background-size:cover;
   z-index:-1;
 }
 
@@ -685,6 +692,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   border-radius:5px 5px 0 0;
   padding:4px 8px;
   gap:10px;
+  width:fit-content;
 }
 .vi-item{display:flex;flex-direction:column;align-items:center;gap:0}
 .vi-item + .vi-item{border-left:1px solid rgba(155,115,36,0.2);padding-left:10px}
@@ -935,7 +943,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
   <div id="right-col">
 
-    <div class="note" id="pt-banner-note" style="padding:12px 14px;position:sticky;top:42px;z-index:20;background:rgba(252,248,225,1);margin-top:6px;">
+    <div class="note" id="pt-banner-note" style="padding:12px 14px;position:sticky;top:42px;z-index:20;background:rgba(252,248,225,1);margin-top:6px;margin-bottom:6px;">
       <div id="pt-banner">
         <div style="flex:1">
           <div class="pt-name" id="pt-name">—</div>
