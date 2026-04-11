@@ -224,7 +224,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 }
 
 /* ── PATIENT BANNER ── */
-#pt-banner{display:flex;gap:14px;align-items:flex-start}
+#pt-banner{display:flex;gap:10px;align-items:flex-start}
 
 /* ── PATIENT PICTURE SPECIFICS ── */
 #pt-img-wrap{
@@ -243,8 +243,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   object-fit:contain;
   object-position:bottom center; 
 }
-.pt-name{color: var(--text-primary);font-family:'Playfair Display',serif;font-size:22px;font-weight:600}
-.pt-occ{color: var(--text-secondary);font-size:14px;margin-top:2px}
+.pt-name{color: var(--text-primary);font-family:'Playfair Display',serif;font-size:21px;font-weight:600;margin-top:0}
+.pt-occ{color: var(--text-secondary);font-size:13px;margin-top:1px}
 .pt-tag{display:inline-flex;align-items:center;gap:5px;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.12em;padding:3px 9px;border-radius:4px;margin-top:6px}
 
 /* ── MEDICAL CHART ── */
@@ -840,7 +840,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
   <div id="right-col">
 
-    <div class="note" id="pt-banner-note">
+    <div class="note" id="pt-banner-note" style="padding:12px 14px;">
       <div id="pt-banner">
         <div id="pt-img-wrap">
           <img id="pt-img" src="" alt="Patient">
@@ -848,8 +848,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
         <div style="flex:1">
           <div class="pt-name" id="pt-name">—</div>
           <div class="pt-occ" id="pt-occ">—</div>
-          <div class="pt-tag">● CHIEF COMPLAINT</div>
-          <div style="font-size:16px;color:#4a3010;margin-top:8px;font-style:italic;line-height:1.65;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
+          <div style="font-size:15px;color:#4a3010;margin-top:6px;font-style:italic;line-height:1.6;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
         </div>
       </div>
     </div>
