@@ -208,7 +208,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   /* FIX 3: Updated scroll-padding-top to match new combined sticky height
      nav(42) + banner(198) + tab-row(38) = 278px
      This prevents Medical Chart label from clipping on anchor scroll */
-  scroll-padding-top:286px;
+  scroll-padding-top:278px;
 }
 
 /* ── THEMATIC SCROLLBAR ── */
@@ -666,7 +666,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
    margin-top:0 (was 2px) — moves it flush against banner bottom */
 .tab-bar-row{
   position:sticky;
-  top:248px;
+  top:240px;
   z-index:19;
   margin-top:0;
   background:rgba(252,248,225,0);
@@ -848,7 +848,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 </div>
 
 
-<!-- REPORT OVERLAY -->
 <div id="report-overlay" onclick="if(event.target===this)closeOverlay('report')">
   <div class="report-sheet">
     <div class="overlay-header">
@@ -861,7 +860,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   </div>
 </div>
 
-<!-- EXPLANATION OVERLAY -->
 <div id="explanation-overlay" onclick="if(event.target===this)closeOverlay('explanation')">
   <div class="explanation-sheet">
     <div class="overlay-header">
@@ -927,12 +925,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
   <div id="right-col">
 
-    <!-- FIX 1: Patient banner sticky panel
-         - margin-top:0 (was 6px) — eliminates gap so right col starts flush at nav bottom
-         - padding:14px 14px 12px (was 12px 14px) — 14px top aligns patient portrait with
-           Fennick portrait which has left-col padding(6px) + portrait-box padding(8px) = 14px
-         - margin-bottom:0 (was 6px) — gap between banner and tab-bar is now just the tab border -->
-    <div class="note" id="pt-banner-note" style="padding:22px 14px 12px;position:sticky;top:42px;z-index:20;background:rgba(252,248,225,1);margin-top:0;margin-bottom:0;">
+    <div class="note" id="pt-banner-note" style="padding:14px 14px 12px;position:sticky;top:42px;z-index:20;background:rgba(252,248,225,1);margin-top:0;margin-bottom:0;">
       <div id="pt-banner">
         <div style="flex:1">
           <div class="pt-name" id="pt-name">—</div>
@@ -945,10 +938,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       </div>
     </div>
 
-    <!-- CASE/MANAGEMENT AREA -->
     <div id="case-management-area">
 
-      <!-- TAB AREA -->
       <div id="tab-area">
         <div class="tab-bar-row">
           <div id="vitals-inline"></div>
@@ -958,13 +949,9 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
           </div>
         </div>
 
-        <!-- CASE / DX TAB -->
         <div class="tab-content active" id="tab-case">
 
-          <!-- FIX 2 (part 2): scroll-margin-top on chart-note = tab-row bottom from viewport
-               tab-bar-row top(240) + tab-bar-row height(~38px) = 278px
-               This ensures "MEDICAL CHART" label is never hidden behind sticky headers on load -->
-          <div class="note" id="chart-note" style="padding-top:6px;scroll-margin-top:286px;">
+          <div class="note" id="chart-note" style="padding-top:6px;scroll-margin-top:278px;">
             <span class="section-tag">MEDICAL CHART</span>
             <div class="chart-grid" id="chart-grid"></div>
           </div>
@@ -1000,7 +987,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
           </div>
         </div>
 
-        <!-- MANAGEMENT TAB -->
         <div class="tab-content" id="tab-management">
           <div class="note" id="mgmt-note">
             <span class="section-tag">MANAGEMENT</span>
