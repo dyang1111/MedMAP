@@ -135,8 +135,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 /* ── DR FENNICK PICTURE SPECIFICS (FIXED ZOOM) ── */
 #fennick-img-wrap {
-  width: 155px;
-  height: 155px;
+  width: 160px;
+  height: 160px;
   border-radius: 6px;
   overflow: hidden; 
   background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
@@ -200,7 +200,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background-repeat: no-repeat;
   background-color: #0a1520;
   box-shadow: -4px 0 15px rgba(0,0,0,0.3);
-  scroll-padding-top: 236px;
+  scroll-padding-top: 188px;
 }
 
 /* ── THEMATIC SCROLLBAR ── */
@@ -224,8 +224,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 /* ── PATIENT PICTURE SPECIFICS ── */
 #pt-img-wrap{
-  width:155px; 
-  height:155px; 
+  width:160px; 
+  height:160px; 
   flex-shrink:0;
   background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
   border:1px solid rgba(160,120,40,0.4);
@@ -659,12 +659,13 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 }
 #vitals-inline{
   display:flex;
-  align-items:center;
-  gap:16px;
-  margin-top:14px;
-  padding-top:10px;
-  border-top:1px solid rgba(160,120,40,0.2);
+  align-items:flex-end;
+  gap:12px;
+  padding-top:8px;
+  border-top:1px solid rgba(160,120,40,0.15);
 }
+.vi-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.vi-item + .vi-item{border-left:1px solid rgba(155,115,36,0.3);padding-left:12px}
 .vi-item{display:flex;flex-direction:column;align-items:center;gap:0}
 .vi-item + .vi-item{border-left:1px solid rgba(155,115,36,0.2);padding-left:10px}
 .vi-val{font-size:11px;font-weight:600;color:#2a1a06;font-family:'Playfair Display',serif;line-height:1.2}
@@ -678,34 +679,31 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   margin-top:8px;
 }
 
-/* Hang tabs off the right edge */
 .tab-bar-row{
   position:absolute;
-  right:-28px;
-  top:20px;
+  right:-24px;
+  top:16px;
   z-index:1;
 }
 
-/* Stack tabs vertically */
 .tab-bar{
   display:flex;
   flex-direction:column;
   gap:6px;
 }
 
-/* Side folder tab styling */
 .tab-btn{
   writing-mode:vertical-rl;
-  padding:14px 6px;
+  padding:10px 4px;
   font-family:'Playfair Display',serif;
-  font-size:12px;
+  font-size:11px;
   font-weight:600;
   letter-spacing:.05em;
   color:#9a7030;
   background:linear-gradient(160deg,rgba(210,195,155,0.9),rgba(195,178,138,0.92));
   border:1px solid rgba(155,115,36,0.38);
   border-left:none;
-  border-radius:0 6px 6px 0;
+  border-radius:0 5px 5px 0;
   cursor:pointer;
   transition:background .18s ease, color .18s ease;
 }
@@ -714,7 +712,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   background:linear-gradient(160deg,rgba(255,253,232,0.99),rgba(252,245,215,0.98));
   color:#2a1a06;
   border-left:2px solid rgba(255,253,232,0.99);
-  margin-left:-2px;
+  margin-left:-1px;
   z-index:3;
 }
 
@@ -960,20 +958,23 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
   <div id="right-col">
 
-    <div class="note" id="pt-banner-note" style="padding:14px 14px 12px;position:sticky;top:6px;z-index:20;background:rgba(252,248,225,1);margin-top:6px;margin-bottom:0;border-radius:6px;">
-      <div id="pt-banner">
-        <div style="flex:1">
-          <div class="pt-name" id="pt-name">—</div>
-          <div class="pt-occ" id="pt-occ">—</div>
-          <div style="font-size:15px;color:#4a3010;margin-top:6px;font-style:italic;line-height:1.6;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
+    <div class="note" id="pt-banner-note" style="padding:8px 14px;position:sticky;top:6px;z-index:20;background:rgba(252,248,225,1);margin-top:6px;margin-bottom:0;border-radius:6px;">
+      <div id="pt-banner" style="display:flex;gap:14px;align-items:stretch;">
+        
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div class="pt-name" id="pt-name">—</div>
+            <div class="pt-occ" id="pt-occ">—</div>
+            <div style="font-size:15px;color:#4a3010;margin-top:6px;font-style:italic;line-height:1.6;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
+          </div>
+          <div id="vitals-inline"></div>
         </div>
+
         <div id="pt-img-wrap">
           <img id="pt-img" src="" alt="Patient">
         </div>
+
       </div>
-      
-      <div id="vitals-inline"></div>
-      
     </div>
 
     <!-- CASE/MANAGEMENT AREA -->
@@ -991,7 +992,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 <div id="scroll-content">
         <!-- CASE / DX TAB -->
         <div class="tab-content active" id="tab-case">
-          <div class="note" id="chart-note" style="padding-top:6px;scroll-margin-top:236px;">
+          <div class="note" id="chart-note" style="padding-top:6px;scroll-margin-top:188px;">
             <span class="section-tag">MEDICAL CHART</span>
             <div class="chart-grid" id="chart-grid"></div>
           </div>
