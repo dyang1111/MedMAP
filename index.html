@@ -28,7 +28,7 @@ body.night {
   --test-btn-hover: rgba(255,255,255,0.85);
 }
 
-html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#2a1a06;}
+html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#2a1a06;overflow-x:hidden;}
 
 /* ── MAIN TOWN BACKGROUND ── */
 #bg {
@@ -93,6 +93,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   display:flex;
   justify-content:center;
   min-height:100vh;
+  overflow-x:clip;
 }
 
 #app-inner{
@@ -101,6 +102,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   max-width:980px;
   position:relative;
   z-index:10;
+  min-height:100vh;
 }
 
 /* ── LEFT COLUMN — FIXED ── */
@@ -195,7 +197,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   display:flex;flex-direction:column;gap:0px;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
   background-attachment: fixed;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #0a1520;
@@ -599,7 +601,6 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 .tab-bar{
   display:flex;gap:0;margin-bottom:0;
   position:relative;z-index:2;
-  /* Tabs fill right portion only */
 }
 
 .tab-content{display:none}
@@ -635,16 +636,9 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 
 #scroll-content{
-  flex:1;
-  overflow-y:auto;
-  padding:0 16px 20px;
   display:flex;flex-direction:column;gap:10px;
-  background-size:cover;
-  background-position:center;
+  padding:0 0 20px;
 }
-#scroll-content::-webkit-scrollbar{width:8px}
-#scroll-content::-webkit-scrollbar-track{background:rgba(62,30,8,0.1);border-radius:4px}
-#scroll-content::-webkit-scrollbar-thumb{background:rgba(160,120,40,0.6);border-radius:4px}
 
 /* ── STICKY HEADER STACK ── */
 
@@ -674,15 +668,26 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 #tab-area{
   display:block;
   width:100%;
-  position:relative;
+  position:sticky;
+  top:178px;
+  z-index:15;
   margin-top:8px;
+  pointer-events:none;
+  height:0;
+}
+#tab-area .tab-bar-row{
+  pointer-events:all;
 }
 
 .tab-bar-row{
-  position:absolute;
-  left:100%;
-  top:16px;
-  z-index:1;
+  position:sticky;
+  top:330px;
+  z-index:19;
+  width:0;
+  height:0;
+  overflow:visible;
+  align-self:flex-end;
+  margin-right:0;
 }
 
 .tab-bar{
@@ -693,24 +698,25 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 
 .tab-btn{
   writing-mode:vertical-rl;
-  padding:8px 4px;
+  padding:5px 3px;
   font-family:'Playfair Display',serif;
-  font-size:10.5px;
+  font-size:9px;
   font-weight:600;
-  letter-spacing:.05em;
+  letter-spacing:.04em;
   color:#9a7030;
   background:linear-gradient(160deg,rgba(210,195,155,0.9),rgba(195,178,138,0.92));
   border:1px solid rgba(155,115,36,0.38);
   border-left:none;
-  border-radius:0 5px 5px 0;
+  border-radius:0 4px 4px 0;
   cursor:pointer;
   transition:background .18s ease, color .18s ease;
+  white-space:nowrap;
 }
 
 .tab-btn.active{
-  background:linear-gradient(160deg,rgba(255,253,232,0.99),rgba(252,245,215,0.98));
+  background:var(--panel-bg);
   color:#2a1a06;
-  border-left:2px solid rgba(255,253,232,0.99);
+  border-left:2px solid var(--panel-bg);
   margin-left:-1px;
   z-index:3;
 }
@@ -867,7 +873,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
     </button>
     <button class="music-ctrl-btn" id="play-pause-btn" onclick="togglePlayPause()" title="Play/Pause">
-      <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14l11-7z"/></svg>
+      <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
     <button class="music-ctrl-btn" onclick="nextTrack()" title="Next">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2-6 8.5 6V6z"/></svg>
@@ -976,17 +982,17 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
       </div>
     </div>
 
+    <!-- TABS: direct child of right-col so sticky works, same as pt-banner-note -->
+    <div class="tab-bar-row">
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tab-case-btn" onclick="switchTab('case')">Case &amp; Dx</button>
+        <button class="tab-btn" id="tab-mgmt-btn" onclick="switchTab('management')">Management</button>
+      </div>
+    </div>
+
     <!-- CASE/MANAGEMENT AREA -->
     <div id="case-management-area">
-
-      <!-- TAB AREA -->
       <div id="tab-area">
-        <div class="tab-bar-row">
-          <div class="tab-bar">
-            <button class="tab-btn active" id="tab-case-btn" onclick="switchTab('case')">Case &amp; Dx</button>
-            <button class="tab-btn" id="tab-mgmt-btn" onclick="switchTab('management')">Management</button>
-          </div>
-        </div>
 
 <div id="scroll-content">
         <!-- CASE / DX TAB -->
@@ -1069,7 +1075,6 @@ let _currentTab = 'case';
 let _paperFlipAudio = null;
 
 function initPaperFlip(){
-  // Simple click sound using Web Audio API
   try {
     const ctx = new (window.AudioContext||window.webkitAudioContext)();
     _paperFlipAudio = ctx;
@@ -1102,23 +1107,17 @@ window.switchTab = function(tab){
     setFennick('pause','"Reach a diagnosis first."');
     return;
   }
-  // paper flip sound removed — visual only
   _currentTab = tab;
   document.getElementById('tab-case').classList.toggle('active', tab==='case');
   document.getElementById('tab-management').classList.toggle('active', tab==='management');
   document.getElementById('tab-case-btn').classList.toggle('active', tab==='case');
   document.getElementById('tab-mgmt-btn').classList.toggle('active', tab==='management');
-  // Scroll to top of right col
   document.getElementById('right-col').scrollTo({top:0,behavior:'smooth'});
 };
-
-// Auto switch to management tab after correct dx
-const _origUnlockMgmt = window.unlockManagement;
 
 // ── VITALS SIDEBAR ──
 function populateVitalsSidebar(v){
   if(!v) return;
-  // Strip anything after space or parenthesis — just the number
   function cleanVal(s){ return s ? s.split(/[\s(]/)[0] : '—'; }
   const bp = cleanVal(v.bp), hr = cleanVal(v.hr), rr = cleanVal(v.rr);
   const temp = cleanVal(v.temp), o2 = cleanVal(v.o2);
@@ -1253,7 +1252,6 @@ let musicStarted = false;
 
 function initMusic(isNight) {
   currentTimeOfDay = isNight ? 'night' : 'day';
-  // Restore from localStorage if coming from archives
   const saved = localStorage.getItem('fennick_music_state');
   if(saved){
     try {
@@ -1280,7 +1278,6 @@ function initMusic(isNight) {
   loadAndPlay();
 }
 
-// Save state before navigating to archives
 window.addEventListener('beforeunload', function(){
   const audio = document.getElementById('bg-audio');
   if(!audio) return;
@@ -1296,7 +1293,6 @@ function loadAndPlay() {
   audio.src = track.url;
   audio.volume = parseFloat(document.getElementById('vol-slider').value);
   audio.play().catch(() => {
-    // Autoplay blocked — wait for user interaction
     document.addEventListener('click', function startOnClick() {
       audio.play();
       document.removeEventListener('click', startOnClick);
@@ -1307,20 +1303,15 @@ function loadAndPlay() {
 
 function updateTrackUI() {
   const track = TRACKS[currentTrackType][currentTrackIdx];
-  // Clear all active states
   document.querySelectorAll('.music-track').forEach(el => el.classList.remove('active'));
-  // Set active
   const id = `track-${currentTrackType[0]}${currentTrackIdx}`;
   const el = document.getElementById(id);
   if(el) el.classList.add('active');
-  // Now playing label
   document.getElementById('now-playing-lbl').textContent = track.name;
-  // Play/pause icon
   const audio = document.getElementById('bg-audio');
   document.getElementById('play-icon').innerHTML = audio.paused
     ? '<path d="M8 5v14l11-7z"/>'
     : '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-  // Nav button state
   document.getElementById('music-btn').classList.toggle('playing', !audio.paused);
 }
 
@@ -1355,7 +1346,6 @@ window.toggleMusicModal = function() {
   updateTrackUI();
 };
 
-// Auto-advance to next random track when one ends
 document.getElementById('bg-audio').addEventListener('ended', function() {
   nextTrack();
 });
@@ -1369,18 +1359,14 @@ let orderedTests = new Set();
 let currentHintIdx = 0;
 let streak = 0;
 
-// ── DATA WILL BE LOADED INTO THESE ──
 let DIAGNOSES = [];
 let CASES = [];
 let currentCase = null;
 let hints = [];
 
-// defaultAlt slips in randomly
 let _defaultCallCount = 0;
 function getDefaultImg(){ _defaultCallCount++; return (_defaultCallCount % 7 === 0) ? FOX.default_alt : FOX.default; }
 const FOX = {
-  default:   'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
-  // New expression system
   default:        'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854007/default2_bwxelk.png',
   default_alt:    'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
   answer:         'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
@@ -1397,20 +1383,14 @@ const FOX = {
   coffee:         'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775855149/coffe_en8cir.png',
 };
 
-// ── INIT ──
 document.addEventListener("DOMContentLoaded", async function(){
   applyTimeTheme(); 
-  
   await loadData();
-  
   if (CASES.length > 0) {
     initCase();
   }
 });
 
-// ── INLINE DATA (always available, no server needed) ──
-
-// ── FETCH DATA ──
 async function loadData() {
   CASES = [];
   DIAGNOSES = [];
@@ -1430,20 +1410,15 @@ async function loadData() {
   } catch (err) {}
 }
 
-// ── TIME THEME LOGIC ──
 function applyTimeTheme(){
   const now = new Date();
   const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
   const hr = cst.getHours();
-  
   const isNight = hr >= 18 || hr < 6; 
-
   const bgUrl = isNight 
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/v1775793458/background_final_night_qhqtkh.png'
     : 'https://res.cloudinary.com/djiap51xq/image/upload/v1775793453/background_default_morning_jddbhw.png';
-
   document.getElementById('bg').style.backgroundImage = `url('${bgUrl}')`;
-
   if(isNight) {
     document.body.classList.remove('day');
     document.body.classList.add('night');
@@ -1454,7 +1429,6 @@ function applyTimeTheme(){
   initMusic(isNight);
 }
 
-// ── INIT CASE ──
 function initCase(){ _fennickLocked = false;
   const urlDate = new URLSearchParams(window.location.search).get('date');
   const todayCST = new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -1489,7 +1463,6 @@ function initCase(){ _fennickLocked = false;
   renderManagement();
   hints = currentCase.hints || [];
 
-  // Gear overlays — prepended so they sit behind all content in DOM order
   ['workup-note','mgmt-note'].forEach((id, i) => {
     const urls = [
       'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png',
@@ -1534,14 +1507,12 @@ function renderChart(){
   const c=currentCase.chart,v=currentCase.vitals;
   const rows=[['HPI',c.hpi],['PMH',c.pmh],['PSH',c.psh],['Medications',c.meds],['Allergies',c.allergies],['Family Hx',c.fh],['Social Hx',c.sh]];
   document.getElementById('chart-grid').innerHTML=rows.map(([l,val])=>`<div class="chart-label">${l}</div><div class="chart-val">${val||'None'}</div>`).join('');
-  // vitals now in sidebar
 }
 
 const revealedWorkup=new Set(),orderedLabs=new Set(),wrongAnswers=new Set();
 
 window.revealWorkup=function(type){
   if(type==='addl-hx') setFennick('chart','');
-
   if(revealedWorkup.has(type))return;
   drainHP({'addl-hx':5,'pe':8,'imaging':15}[type]||5);
   revealedWorkup.add(type);document.getElementById('btn-'+type).classList.add('used');
@@ -1586,7 +1557,6 @@ window.orderLab=function(idx){
     if(sb){sb.classList.remove('locked-lab');sb.textContent='Special Test \u221220 HP';}
     if(counter){counter.textContent='\ud83d\udd13 Special Test unlocked';counter.classList.add('unlocked');}
   } else if(counter) counter.textContent=rc+'/2 for Special Test';
-  // Look up result by name from cases.json tests array
   const labName=STANDARD_LABS[idx];
   const testData=currentCase.tests?currentCase.tests.find(t=>t.name.toLowerCase()===labName.toLowerCase()):null;
   const result=testData?testData.result:'No result available for this case.';
@@ -1711,7 +1681,6 @@ function endCase(failed){
   document.getElementById('endgame').style.display='block';document.getElementById('endgame').scrollIntoView({behavior:'smooth'});
   let grade,comment;
   if(failed){grade='F';comment='"That drug would have destroyed the patient. Do not forget this."';setFennick('lose',comment);}
-  else if(hp_on_fail!==undefined&&hp_on_fail<1){grade='F';comment='"Nothing left to work with. Start over."';setFennick('danger',comment);}
   else if(HP>=80&&_perfectRun){grade='A';comment='"Not a single misstep. Good."';setFennick('answer',comment);}
   else if(HP>=80&&!_perfectRun){grade='A';comment='"Strong finish. The early stumbles did not define it."';setFennick('good_job',comment);}
   else if(HP>=60){grade='B';comment='"Solid. The right instincts, mostly."';setFennick('slight_approval',comment);}
