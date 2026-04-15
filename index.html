@@ -61,7 +61,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   top: 0; bottom: 0;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776289464/foggg_utm3zt.jpg');
   background-size: cover;
-  opacity: 0.12;
+  opacity: 0.18;
   animation: fogDriftRight 80s linear infinite;
 }
 /* Middle band layers */
@@ -1852,6 +1852,7 @@ function initAudioFilter() {
   if (!audio || _audioCtx) return;
   try {
     _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (_audioCtx.state === 'suspended') _audioCtx.resume();
     _audioSource = _audioCtx.createMediaElementSource(audio);
     _lowPassFilter = _audioCtx.createBiquadFilter();
     _lowPassFilter.type = 'lowpass';
@@ -1862,7 +1863,14 @@ function initAudioFilter() {
     _audioSource.connect(_lowPassFilter);
     _lowPassFilter.connect(_gainNode);
     _gainNode.connect(_audioCtx.destination);
-  } catch(e) { console.log('Audio filter init failed:', e); }
+    // Resume audio playback through new graph
+    if (audio.paused) audio.play().catch(()=>{});
+  } catch(e) {
+    // Filter failed — kill the broken ctx so audio plays normally
+    _audioCtx = null;
+    _lowPassFilter = null;
+    console.log('Audio filter skipped:', e);
+  }
 }
 
 function setFilterFreq(target, duration) {
@@ -1913,11 +1921,8 @@ window.submitDx = function() {
   _origSubmitDxAudio();
   try {
     if (isCorrect) {
-      setFilterFreq(8000, 2.5); // full clarity on correct dx
+      setFilterFreq(8000, 2.5);
       window.fogSweep();
-    } else {
-      triggerStaticBurst();
-      window.setFogDensity((_fogTargetDensity || 60) + 15, 'toxic');
     }
   } catch(e) {}
 };
