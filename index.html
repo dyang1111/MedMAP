@@ -1837,6 +1837,108 @@ function setFogForCase(c) {
   _fogTargetDensity = FOG_TIER_BASELINE[tier] || 50;
   window.setFogDensity(_fogTargetDensity);
 }
+
+
+// ── AUDIO LOW-PASS FILTER SYSTEM ──
+let _audioCtx = null;
+let _audioSource = null;
+let _lowPassFilter = null;
+let _gainNode = null;
+let _filterFreq = 200; // start muffled
+let _filterTarget = 200;
+
+function initAudioFilter() {
+  const audio = document.getElementById('bg-audio');
+  if (!audio || _audioCtx) return;
+  try {
+    _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    _audioSource = _audioCtx.createMediaElementSource(audio);
+    _lowPassFilter = _audioCtx.createBiquadFilter();
+    _lowPassFilter.type = 'lowpass';
+    _lowPassFilter.frequency.value = _filterFreq;
+    _lowPassFilter.Q.value = 0.5;
+    _gainNode = _audioCtx.createGain();
+    _gainNode.gain.value = 1.0;
+    _audioSource.connect(_lowPassFilter);
+    _lowPassFilter.connect(_gainNode);
+    _gainNode.connect(_audioCtx.destination);
+  } catch(e) { console.log('Audio filter init failed:', e); }
+}
+
+function setFilterFreq(target, duration) {
+  if (!_lowPassFilter) return;
+  duration = duration || 1.5;
+  _filterTarget = Math.max(100, Math.min(20000, target));
+  _lowPassFilter.frequency.cancelScheduledValues(_audioCtx.currentTime);
+  _lowPassFilter.frequency.setValueAtTime(_lowPassFilter.frequency.value, _audioCtx.currentTime);
+  _lowPassFilter.frequency.linearRampToValueAtTime(_filterTarget, _audioCtx.currentTime + duration);
+}
+
+function triggerStaticBurst() {
+  if (!_audioCtx) return;
+  try {
+    const bufSize = _audioCtx.sampleRate * 0.15;
+    const buf = _audioCtx.createBuffer(1, bufSize, _audioCtx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < bufSize; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufSize, 2) * 0.3;
+    }
+    const src = _audioCtx.createBufferSource();
+    src.buffer = buf;
+    const gain = _audioCtx.createGain();
+    gain.gain.value = 0.4;
+    src.connect(gain);
+    gain.connect(_audioCtx.destination);
+    src.start();
+  } catch(e) {}
+}
+
+// Hook into game actions
+const _origRevealWorkupAudio = window.revealWorkup;
+window.revealWorkup = function(type) {
+  _origRevealWorkupAudio(type);
+  try { setFilterFreq(Math.min((_filterTarget || 200) + 150, 2000), 1.2); } catch(e) {}
+};
+
+const _origOrderLabAudio = window.orderLab;
+window.orderLab = function(idx) {
+  _origOrderLabAudio(idx);
+  try { setFilterFreq(Math.min((_filterTarget || 200) + 100, 2000), 1.0); } catch(e) {}
+};
+
+const _origSubmitDxAudio = window.submitDx;
+window.submitDx = function() {
+  const val = document.getElementById('dx-input') ? document.getElementById('dx-input').value.trim() : '';
+  const isCorrect = val && currentCase && val.toLowerCase() === currentCase.dx_answer.toLowerCase();
+  _origSubmitDxAudio();
+  try {
+    if (isCorrect) {
+      setFilterFreq(8000, 2.5); // full clarity on correct dx
+      window.fogSweep();
+    } else {
+      triggerStaticBurst();
+      window.setFogDensity((_fogTargetDensity || 60) + 15, 'toxic');
+    }
+  } catch(e) {}
+};
+
+// Reset filter on new case
+function resetAudioFilter(tier) {
+  const startFreq = tier === 3 ? 150 : tier === 2 ? 200 : 300;
+  _filterTarget = startFreq;
+  if (_lowPassFilter && _audioCtx) {
+    _lowPassFilter.frequency.cancelScheduledValues(_audioCtx.currentTime);
+    _lowPassFilter.frequency.setValueAtTime(startFreq, _audioCtx.currentTime);
+  }
+}
+
+// Init filter on first user interaction
+document.addEventListener('click', function _initFilter() {
+  initAudioFilter();
+  if (_audioCtx && _audioCtx.state === 'suspended') _audioCtx.resume();
+  document.removeEventListener('click', _initFilter);
+}, { once: true });
+
 </script>
 </body>
 </html>
