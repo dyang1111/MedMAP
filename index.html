@@ -43,8 +43,8 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 /* ── FOG LAYERS ── */
 .fog-layer {
   position: fixed;
-  left: -100%;
-  width: 300%;
+  left: -150%;
+  width: 400%;
   pointer-events: none;
   z-index: 1;
   background-repeat: repeat-x;
@@ -63,36 +63,44 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 /* Middle band layers */
 #fog-mid-a {
   top: 18%;
-  height: 50%;
+  height: 52%;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776290898/Unknown-2_bdwntl.png');
   background-size: auto 100%;
-  opacity: 0.38;
+  opacity: 0.42;
   animation: fogDriftLeft 35s linear infinite;
 }
 #fog-mid-b {
   top: 26%;
-  height: 48%;
+  height: 50%;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776290904/Unknown-3_fs7zgk.png');
   background-size: auto 100%;
-  opacity: 0.28;
+  opacity: 0.32;
   animation: fogDriftRight 50s linear infinite;
 }
 #fog-mid-c {
   top: 10%;
-  height: 52%;
+  height: 54%;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776290910/foggg_ofbmzt.png');
   background-size: auto 100%;
-  opacity: 0.22;
+  opacity: 0.26;
   animation: fogDriftLeft 65s linear infinite;
+}
+#fog-mid-d {
+  top: 3%;
+  height: 48%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776290898/Unknown-2_bdwntl.png');
+  background-size: auto 100%;
+  opacity: 0.18;
+  animation: fogDriftRight 80s linear infinite;
 }
 
 @keyframes fogDriftLeft {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(33.33%); }
+  100% { transform: translateX(25%); }
 }
 @keyframes fogDriftRight {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-33.33%); }
+  100% { transform: translateX(-25%); }
 }
 
 
@@ -972,6 +980,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 <div id="fog-mid-a" class="fog-layer"></div>
 <div id="fog-mid-b" class="fog-layer"></div>
 <div id="fog-mid-c" class="fog-layer"></div>
+<div id="fog-mid-d" class="fog-layer"></div>
 <div id="table-overlay"></div>
 
 <nav class="fm-nav">
@@ -1785,10 +1794,11 @@ let _fogAnimFrame = null;
 window.setFogDensity = function(value, mode) {
   _fogTargetDensity = Math.max(0, Math.min(100, value));
   const scale = _fogTargetDensity / 100;
-  document.getElementById('fog-ambient').style.opacity = 0.06 * scale;
-  document.getElementById('fog-mid-a').style.opacity = 0.35 * scale;
-  document.getElementById('fog-mid-b').style.opacity = 0.25 * scale;
-  document.getElementById('fog-mid-c').style.opacity = 0.20 * scale;
+  document.getElementById('fog-ambient').style.opacity = 0.12 * scale;
+  document.getElementById('fog-mid-a').style.opacity = 0.42 * scale;
+  document.getElementById('fog-mid-b').style.opacity = 0.32 * scale;
+  document.getElementById('fog-mid-c').style.opacity = 0.26 * scale;
+  document.getElementById('fog-mid-d').style.opacity = 0.18 * scale;
   if (mode === 'toxic') {
     ['fog-mid-a','fog-mid-b','fog-mid-c'].forEach(id => {
       document.getElementById(id).style.filter = 'hue-rotate(200deg) saturate(1.5)';
