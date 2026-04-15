@@ -40,12 +40,64 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
   transition: background-image 1s ease;
 }
 
+/* ── FOG LAYERS ── */
+.fog-layer {
+  position: fixed;
+  left: -100%;
+  width: 300%;
+  pointer-events: none;
+  z-index: 1;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  transition: opacity 1.5s ease;
+}
+/* Full screen ambient haze */
+#fog-ambient {
+  top: 0; bottom: 0;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776289464/foggg_utm3zt.jpg');
+  background-size: cover;
+  opacity: 0.06;
+  animation: fogDriftRight 80s linear infinite;
+}
+/* Middle band layers */
+#fog-mid-a {
+  top: 28%;
+  height: 35%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776289459/fog_y0bq3z.png');
+  opacity: 0.35;
+  animation: fogDriftLeft 35s linear infinite;
+}
+#fog-mid-b {
+  top: 33%;
+  height: 32%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776289712/fogg_fbmetw.png');
+  opacity: 0.25;
+  animation: fogDriftRight 50s linear infinite;
+}
+#fog-mid-c {
+  top: 23%;
+  height: 38%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776289717/foggy_szh0ov.png');
+  opacity: 0.20;
+  animation: fogDriftLeft 65s linear infinite;
+}
+
+@keyframes fogDriftLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(33.33%); }
+}
+@keyframes fogDriftRight {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+
 /* ── TABLE OVERLAY ── */
 #table-overlay{
   position:fixed;
   bottom:0;left:0;right:0;
   height:36%;
-  z-index:1;
+  z-index:2;
   background-image:url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775788704/Table_default1_hpioo4.png');
   background-size:cover;
   background-position:center top;
@@ -638,6 +690,7 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 #scroll-content{
   display:flex;flex-direction:column;gap:10px;
   padding:0 0 20px;
+  pointer-events:all;
 }
 
 /* ── STICKY HEADER STACK ── */
@@ -911,6 +964,10 @@ html,body{height:100%;font-family:'Crimson Pro',Georgia,serif;background-color:#
 <audio id="bg-audio" loop></audio>
 
 <div id="bg"></div>
+<div id="fog-ambient" class="fog-layer"></div>
+<div id="fog-mid-a" class="fog-layer"></div>
+<div id="fog-mid-b" class="fog-layer"></div>
+<div id="fog-mid-c" class="fog-layer"></div>
 <div id="table-overlay"></div>
 
 <nav class="fm-nav">
@@ -1710,6 +1767,47 @@ function revealAllManagement(){
       }
     });
   });
+}
+
+
+
+
+
+// ── FOG DENSITY CONTROL ──
+let _fogDensity = 60;
+let _fogTargetDensity = 60;
+let _fogAnimFrame = null;
+
+window.setFogDensity = function(value, mode) {
+  _fogTargetDensity = Math.max(0, Math.min(100, value));
+  const scale = _fogTargetDensity / 100;
+  document.getElementById('fog-ambient').style.opacity = 0.06 * scale;
+  document.getElementById('fog-mid-a').style.opacity = 0.35 * scale;
+  document.getElementById('fog-mid-b').style.opacity = 0.25 * scale;
+  document.getElementById('fog-mid-c').style.opacity = 0.20 * scale;
+  if (mode === 'toxic') {
+    ['fog-mid-a','fog-mid-b','fog-mid-c'].forEach(id => {
+      document.getElementById(id).style.filter = 'hue-rotate(200deg) saturate(1.5)';
+    });
+    setTimeout(() => {
+      ['fog-mid-a','fog-mid-b','fog-mid-c'].forEach(id => {
+        document.getElementById(id).style.filter = '';
+      });
+    }, 2000);
+  }
+};
+
+window.fogSweep = function() {
+  window.setFogDensity(15, 'clear');
+};
+
+// Tier baselines
+const FOG_TIER_BASELINE = { 1: 50, 2: 70, 3: 90 };
+
+function setFogForCase(c) {
+  const tier = c && c.tier ? c.tier : 1;
+  _fogTargetDensity = FOG_TIER_BASELINE[tier] || 50;
+  window.setFogDensity(_fogTargetDensity);
 }
 </script>
 </body>
