@@ -654,10 +654,10 @@ body.tier-3 #pt-vignette {
 /* ── STAMP SYSTEM ── */
 #stamp-container {
   position: absolute;
-  top: -14px;
-  left: -14px;
-  width: 120px;
-  height: 120px;
+  top: -50px;
+  left: -50px;
+  width: 160px;
+  height: 160px;
   z-index: 20;
   pointer-events: none;
   overflow: visible;
@@ -666,8 +666,8 @@ body.tier-3 #pt-vignette {
   position: absolute;
   top: 0;
   left: 0;
-  width: 110px;
-  height: 110px;
+  width: 160px;
+  height: 160px;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776378857/wax_imprint_hs10c5.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -681,8 +681,8 @@ body.tier-3 #pt-vignette {
   position: absolute;
   top: 0;
   left: 0;
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776379245/stamp1_oohmi6.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -1852,8 +1852,11 @@ window.revealWorkup=function(type){
   if(type==='addl-hx'&&currentCase.patient_quote_addl_hx){
     quoteHtml=`<div style="font-style:italic;color:var(--text-secondary);font-size:14px;border-left:2px solid rgba(160,120,40,0.5);padding-left:10px;margin-bottom:10px">${currentCase.patient_quote_addl_hx}</div>`;
   }
-  card.innerHTML=`<div class="hint-reveal-label">${c.label}</div>${quoteHtml}<div class="hint-reveal-text">${c.text}</div>`;
+  card.innerHTML=`<div class="hint-reveal-label">${c.label}</div>${quoteHtml}<div class="hint-reveal-text"></div>`;
   document.getElementById('workup-reveals').appendChild(card);
+  // Type out reveal text with ink sound
+  const _revealTextEl = card.querySelector('.hint-reveal-text');
+  if(_revealTextEl) setTimeout(()=>typewriterWrite(_revealTextEl, c.text, 14, true), 150);
 };
 
 window.toggleLabsPanel=function(){
@@ -1966,7 +1969,7 @@ window.submitDx=function(){
     const dxRemark = (currentCase && currentCase.cc_after_dx) || getGenericRemark('dx-correct');
     if(dxRemark) setTimeout(()=>setPtRemark(dxRemark), 600);
     setFennick('good_job','"That is the diagnosis. Now let us see how you manage it."');
-    unlockManagement(); setTimeout(()=>switchTab('management'), 800);
+    unlockManagement(); setTimeout(()=>switchTab('management'), 2600);
   } else {
     errors++;drainHP(10);wrongAnswers.add(val);
     result.className='dx-result wrong';result.textContent='\u2717 Incorrect. Try again.';result.style.display='block';
@@ -2278,10 +2281,10 @@ function playInkSound() {
   } catch(e) {}
 }
 
-// Patch typewriterWrite to play ink sound per character
+// Patch typewriterWrite — ink sound only for chart/panel elements, not pt or fennick speech
 const _origTypewriterWrite = typewriterWrite;
-window.typewriterWrite = function(el, text, speed) {
-  initInkSound();
+window.typewriterWrite = function(el, text, speed, withInk) {
+  if (withInk) initInkSound();
   speed = speed || 22;
   return new Promise(resolve => {
     el.textContent = '';
@@ -2292,7 +2295,7 @@ window.typewriterWrite = function(el, text, speed) {
     function tick() {
       if (i < text.length) {
         el.insertBefore(document.createTextNode(text[i]), cursor);
-        if (text[i] !== ' ') playInkSound();
+        if (withInk && text[i] !== ' ') playInkSound();
         i++;
         setTimeout(tick, speed + Math.random() * 8);
       } else {
