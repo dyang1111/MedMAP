@@ -1601,7 +1601,7 @@
     },
     "explanation": "Anticholinergic toxidrome: dry as a bone (anhidrosis), blind as a bat (mydriasis), red as a beet (flushing), hot as a hare (hyperthermia), mad as a hatter (delirium). Caused by muscarinic blockade — atropine, scopolamine, belladonna, jimsonweed, diphenhydramine. Antidote: physostigmine (crosses BBB). Never give atropine. Never give haloperidol. Distinguish from sympathomimetic (also hot/tachy/agitated but DIAPHORETIC — key difference)."
   },
-  {
+ {
   "id": "008",
   "date": "2026-04-13",
   "tier": 2,
@@ -1705,25 +1705,29 @@
           "text": "Serum ferritin, serum iron, TIBC",
           "sub": "Iron studies — the definitive workup",
           "correct": true,
-          "feedback_correct": "Correct. Ferritin is the most sensitive marker for iron deficiency — it reflects total body iron stores. In iron deficiency: ferritin low, serum iron low, TIBC high. Together these make the diagnosis airtight."
+          "feedback_correct": "Correct. Ferritin is the most sensitive marker for iron deficiency — it reflects total body iron stores. In iron deficiency: ferritin low, serum iron low, TIBC high. Together these make the diagnosis airtight.",
+          "pt_remark_correct": "So the numbers will prove it. That something is actually wrong. That I wasn't just... weak."
         },
         {
           "text": "TSH and free T4",
           "sub": "Rule out hypothyroidism",
           "correct": false,
-          "feedback_wrong": "Hypothyroidism causes fatigue and depression — but it causes macrocytic or normocytic anaemia, not microcytic. The CBC is already showing you the picture. Follow it."
+          "feedback_wrong": "Hypothyroidism causes fatigue and depression — but it causes macrocytic or normocytic anaemia, not microcytic. The CBC is already showing you the picture. Follow it.",
+          "pt_remark_wrong": "My thyroid. Could it be my thyroid? I hadn't thought of that."
         },
         {
           "text": "Antidepressant level",
           "sub": "Check sertraline compliance",
           "correct": false,
-          "feedback_wrong": "She is not depressed. Checking whether she is taking her sertraline misses the point entirely. The CBC is telling you what is wrong."
+          "feedback_wrong": "She is not depressed. Checking whether she is taking her sertraline misses the point entirely. The CBC is telling you what is wrong.",
+          "pt_remark_wrong": "You want to check if I've been taking the pills. I have. Every morning. They just... don't work."
         },
         {
           "text": "MRI brain",
           "sub": "Rule out intracranial pathology",
           "correct": false,
-          "feedback_wrong": "There is nothing in this presentation to suggest intracranial pathology. The CBC has already handed you the diagnosis. An MRI brain tells you nothing useful here."
+          "feedback_wrong": "There is nothing in this presentation to suggest intracranial pathology. The CBC has already handed you the diagnosis. An MRI brain tells you nothing useful here.",
+          "pt_remark_wrong": "There's something in my brain? I — I don't think it's my brain."
         }
       ]
     },
@@ -1741,25 +1745,29 @@
             "\"The dry riverbed of her veins is about to receive rain for the first time in months. The iron will flow back. The red will return — slowly, not all at once, but it will return.\"",
             "\"In a week her reticulocytes will surge. In four weeks her Hgb will climb. And somewhere around week six... she will reach for a needle without thinking about it. Not because she decided to. Because her hands will remember before she does.\"",
             "\"We did not treat depression today. We returned the thread to the woman who makes beautiful things.\""
-          ]
+          ],
+          "pt_remark_correct": "Iron. Red. I used to know what that felt like."
         },
         {
           "text": "IV iron infusion — urgent",
           "sub": "Intravenous iron sucrose",
           "correct": false,
-          "feedback_wrong": "IV iron is for patients who cannot tolerate oral iron or have malabsorption. Hgb 7.4 with no haemodynamic compromise — oral iron is appropriate. Do not over-escalate."
+          "feedback_wrong": "IV iron is for patients who cannot tolerate oral iron or have malabsorption. Hgb 7.4 with no haemodynamic compromise — oral iron is appropriate. Do not over-escalate.",
+          "pt_remark_wrong": "I can take anything. A drip, pills, whatever. I just want to feel like myself again."
         },
         {
           "text": "Blood transfusion",
           "sub": "2 units packed red blood cells",
           "correct": false,
-          "feedback_wrong": "Transfusion threshold in stable non-bleeding patients is Hgb below 7.0 — and even then, only with cardiovascular compromise. She is tachycardic but maintaining. Oral iron is correct."
+          "feedback_wrong": "Transfusion threshold in stable non-bleeding patients is Hgb below 7.0 — and even then, only with cardiovascular compromise. She is tachycardic but maintaining. Oral iron is correct.",
+          "pt_remark_wrong": "A transfusion sounds frightening. Is it that bad?"
         },
         {
           "text": "Continue sertraline and increase dose",
           "sub": "Treat the depression first",
           "correct": false,
-          "feedback_wrong": "There is no depression to treat. The sadness, the anhedonia, the fog — all manifestations of severe anaemia. Increasing her sertraline will do precisely nothing."
+          "feedback_wrong": "There is no depression to treat. The sadness, the anhedonia, the fog — all manifestations of severe anaemia. Increasing her sertraline will do precisely nothing.",
+          "pt_remark_wrong": "More sertraline. I knew you'd say more sertraline."
         }
       ]
     },
@@ -1771,25 +1779,29 @@
           "text": "Refer to gynaecology for heavy menstrual bleeding",
           "sub": "Investigate and treat the source",
           "correct": true,
-          "feedback_correct": "Correct. Heavy menstrual bleeding is the most common cause of iron deficiency anaemia in premenopausal women — and she has been losing blood every cycle for years without anyone asking about it. Gynaecology referral for workup. You are not just treating a number. You are treating a person who has been quietly bleeding out."
+          "feedback_correct": "Correct. Heavy menstrual bleeding is the most common cause of iron deficiency anaemia in premenopausal women — and she has been losing blood every cycle for years without anyone asking about it. Gynaecology referral for workup. You are not just treating a number. You are treating a person who has been quietly bleeding out.",
+          "pt_remark_correct": "Someone is finally going to ask about it. In six years, no one has ever asked about it."
         },
         {
           "text": "Dietary counselling only",
           "sub": "Improve iron intake through food",
           "correct": false,
-          "feedback_wrong": "Diet is a contributing factor but dietary changes alone cannot compensate for seven days of heavy menstrual bleeding every month. Address the source."
+          "feedback_wrong": "Diet is a contributing factor but dietary changes alone cannot compensate for seven days of heavy menstrual bleeding every month. Address the source.",
+          "pt_remark_wrong": "I'll eat more. I will. I know I haven't been."
         },
         {
           "text": "Upper GI endoscopy to rule out bleeding ulcer",
           "sub": "Investigate GI blood loss",
           "correct": false,
-          "feedback_wrong": "GI investigation is appropriate in postmenopausal women or men where the source is not obvious. In a 29-year-old woman with heavy periods, the source is almost certainly menstrual. Do not scope her before addressing the obvious cause."
+          "feedback_wrong": "GI investigation is appropriate in postmenopausal women or men where the source is not obvious. In a 29-year-old woman with heavy periods, the source is almost certainly menstrual. Do not scope her before addressing the obvious cause.",
+          "pt_remark_wrong": "A scope. Inside. I — alright. If you think it's necessary."
         },
         {
           "text": "No further workup — iron stores will replete with supplements",
           "sub": "Treat and discharge",
           "correct": false,
-          "feedback_wrong": "Treating the anaemia without finding why it keeps recurring means she will be back in six months with the same Hgb. The underlying cause is gynaecological. Patching a leak without finding the pipe."
+          "feedback_wrong": "Treating the anaemia without finding why it keeps recurring means she will be back in six months with the same Hgb. The underlying cause is gynaecological. Patching a leak without finding the pipe.",
+          "pt_remark_wrong": "Alright. Just the iron then."
         }
       ]
     },
@@ -1801,25 +1813,29 @@
           "text": "Discharge — ferrous sulfate, stop sertraline, gynaecology referral, recheck CBC in 4 weeks",
           "sub": "Outpatient management with appropriate follow-up",
           "correct": true,
-          "feedback_correct": "Exactly right. She goes home with iron, a clear explanation of what was actually wrong with her, instructions to stop the sertraline, and a referral to gynaecology. Recheck CBC and iron studies in 4 weeks. Tell her the ice cravings will go away once her iron is repleted. Tell her she is not broken."
+          "feedback_correct": "Exactly right. She goes home with iron, a clear explanation of what was actually wrong with her, instructions to stop the sertraline, and a referral to gynaecology. Recheck CBC and iron studies in 4 weeks. Tell her the ice cravings will go away once her iron is repleted. Tell her she is not broken.",
+          "pt_remark_correct": "Four weeks. I can hold on for four weeks. And then — the needles again. The red thread."
         },
         {
           "text": "Admit for IV iron and monitoring",
           "sub": "Inpatient admission",
           "correct": false,
-          "feedback_wrong": "There is no indication for admission. She is haemodynamically stable, not actively bleeding, and oral iron will work."
+          "feedback_wrong": "There is no indication for admission. She is haemodynamically stable, not actively bleeding, and oral iron will work.",
+          "pt_remark_wrong": "I don't need to stay here. I just need to go home."
         },
         {
           "text": "Discharge with increased sertraline dose and iron",
           "sub": "Treat both depression and anaemia",
           "correct": false,
-          "feedback_wrong": "The depression is the anaemia. Once the iron is repleted, the mood will follow — reliably, within weeks. Continuing the sertraline perpetuates a misdiagnosis."
+          "feedback_wrong": "The depression is the anaemia. Once the iron is repleted, the mood will follow — reliably, within weeks. Continuing the sertraline perpetuates a misdiagnosis.",
+          "pt_remark_wrong": "More sertraline. I — I'll take it. If you think it's right."
         },
         {
           "text": "Refer to psychiatry for treatment-resistant depression",
           "sub": "Escalate psychiatric care",
           "correct": false,
-          "feedback_wrong": "Referring her to psychiatry now would be the final insult of a long diagnostic failure. She does not have treatment-resistant depression. She has a Hgb of 7.4 and empty iron stores."
+          "feedback_wrong": "Referring her to psychiatry now would be the final insult of a long diagnostic failure. She does not have treatment-resistant depression. She has a Hgb of 7.4 and empty iron stores.",
+          "pt_remark_wrong": "I can see a psychiatrist. If that's what you think is wrong."
         }
       ]
     }
@@ -1855,6 +1871,13 @@
     "step1_buzzwords": "Microcytic hypochromic anaemia, low ferritin, low serum iron, high TIBC, koilonychia, pagophagia, pencil cells, reactive thrombocytosis.",
     "lab_buzzwords": "Low Hgb, low MCV (<80), low MCH, high RDW, low ferritin (most sensitive), low serum iron, high TIBC. Peripheral smear: pencil cells, target cells, hypochromic microcytic RBCs.",
     "treatment": "Oral ferrous sulfate 325mg TID with vitamin C (enhances absorption). Take on empty stomach if tolerated. Reticulocytosis in 5-10 days, Hgb normalises in 4-8 weeks. Continue 3-6 months after normalisation to replete stores. Treat underlying cause."
-  }
+  },
+  "cc_after_imaging": "My heart is alright though? At least tell me my heart is alright.",
+  "cc_after_hint": "Please. I just want to know what's wrong with me. I'm so tired of not knowing.",
+  "cc_after_dx": "Iron. That's all it is? All these months of crying at my bench — and it was iron?",
+  "fennick_after_addl_hx": "\"Seven to eight days. Clots. And not one person in her life thought to ask whether that was normal. Not one.\"",
+  "fennick_after_pe": "\"Look at her nail beds. Look at her conjunctivae. The colour of old linen. This is not a woman who is depressed, Eddie. This is a woman who is running dry.\"",
+  "fennick_after_imaging": "\"The chest is clear. The heart is holding. But a machine that runs without fuel does not stay intact forever. Look elsewhere.\""
+}
 }
 ]
