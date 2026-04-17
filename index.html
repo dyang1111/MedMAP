@@ -1634,10 +1634,20 @@ function switchMusicTrack(trackName) {
   // If already on this track, do nothing
   if(currentTrackType === found.type && currentTrackIdx === found.idx) return;
   if(!musicStarted || audio.paused) {
-    // Not playing yet — just set the track, it will play on first interaction
+    // Set track and wire up play-on-first-click
     currentTrackType = found.type;
     currentTrackIdx = found.idx;
     audio.src = TRACKS[found.type][found.idx].url;
+    audio.volume = parseFloat(document.getElementById('vol-slider').value) || 0.5;
+    audio.play().catch(() => {
+      // Browser blocked autoplay — play on next user click anywhere
+      document.addEventListener('click', function _switchPlay() {
+        audio.play().catch(()=>{});
+        musicStarted = true;
+        document.removeEventListener('click', _switchPlay);
+      }, { once: true });
+    });
+    updateTrackUI();
     return;
   }
   const fade = setInterval(()=>{
@@ -1817,7 +1827,7 @@ async function loadData() {
   } catch (err) {}
 }
 
-function applyTimeTheme(){
+function applyTimeTheme(bgOnly){
   const now = new Date();
   const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
   const hr = cst.getHours();
@@ -1837,7 +1847,7 @@ function applyTimeTheme(){
     document.body.classList.remove('night');
     document.body.classList.add('day');
   }
-  initMusic(isNight);
+  if(!bgOnly) initMusic(isNight);
 }
 
 function initCase(){ _fennickLocked = false;
@@ -2159,6 +2169,7 @@ function renderManagement(){
   document.getElementById('mgmt-stages').innerHTML=stages.map((s,si)=>`
     <div class="mgmt-stage" id="stage-wrap-${si}">${si>0?'<div class="stage-divider"></div>':''}
       <div class="mgmt-stage-header"><div class="stage-num ${!dxCorrect||si>0?'locked':''}" id="stage-num-${si}">${si+1}</div><div class="stage-title ${!dxCorrect||si>0?'locked':''}" id="stage-title-${si}">${s.title}</div></div>
+      ${s.description ? `<div style="font-size:13px;color:#6a4a18;font-style:italic;margin:4px 0 8px 36px;line-height:1.5;opacity:0.85;">${s.description}</div>` : ''}
       <div class="mgmt-options" id="stage-opts-${si}">${s.options.map((o,oi)=>`<div class="mgmt-option ${!dxCorrect||si>0?'locked-opt':''}" id="opt-${si}-${oi}" onclick="pickMgmt(${si},${oi})"><div class="mgmt-ob">${String.fromCharCode(65+oi)}</div><div><div class="mgmt-on">${o.text}</div>${o.sub?`<div class="mgmt-oc">${o.sub}</div>`:''}</div></div>`).join('')}</div>
       <div id="stage-feedback-${si}" style="display:none"></div>
     </div>`).join('');
@@ -2346,11 +2357,17 @@ function endCase(failed){
     setTimeout(() => {
       try {
         const ctx = new (window.AudioContext||window.webkitAudioContext)();
-        const buf = ctx.createBuffer(1, ctx.sampleRate*0.05, ctx.sampleRate);
+        const buf = ctx.createBuffer(1, ctx.sampleRate*0.08, ctx.sampleRate);
         const d = buf.getChannelData(0);
-        for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,0.4)*0.8;
+        // Mechanical shutter: sharp click + brief decay
+        for(let i=0;i<d.length;i++){
+          const t = i/d.length;
+          d[i] = (Math.random()*2-1) * (t<0.05 ? 1.0 : Math.pow(1-t,1.2)*0.6);
+        }
         const s=ctx.createBufferSource(); s.buffer=buf;
-        s.connect(ctx.destination); s.start();
+        const g=ctx.createGain(); g.gain.value=1.4;
+        const f=ctx.createBiquadFilter(); f.type='bandpass'; f.frequency.value=3500;
+        s.connect(f); f.connect(g); g.connect(ctx.destination); s.start();
       } catch(e){}
     }, 400);
     // Step 2: white flash at 450ms then snap bg back to Ferrovane
@@ -2361,7 +2378,7 @@ function endCase(failed){
       // Restore correct Ferrovane bg behind the flash
       if(bgEl) {
         bgEl.style.transition = 'none';
-        applyTimeTheme();
+        applyTimeTheme(true); // bgOnly — don't reinit music
       }
       // Fade flash out
       setTimeout(()=>{ flash.style.opacity='0'; setTimeout(()=>flash.remove(),600); }, 100);
