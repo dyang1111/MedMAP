@@ -1813,6 +1813,21 @@ function initCase(){ _fennickLocked = false;
     panel.insertBefore(tint, panel.firstChild);
     panel.insertBefore(img, panel.firstChild);
   });
+
+  // Medical chart panel — top-left corner gear
+  (function() {
+    const chartPanel = document.getElementById('chart-note');
+    if (!chartPanel) return;
+    chartPanel.style.position = 'relative';
+    chartPanel.style.overflow = 'hidden';
+    const tint = document.createElement('div');
+    tint.style.cssText = 'position:absolute;top:0;left:0;width:60%;height:75%;background:radial-gradient(ellipse at top left,rgba(140,90,20,0.22) 0%,rgba(180,130,50,0.08) 45%,transparent 70%);pointer-events:none;z-index:0;';
+    const img = document.createElement('div');
+    img.style.cssText = 'position:absolute;top:-10px;left:-10px;width:40%;height:110%;background-repeat:no-repeat;background-position:top left;background-size:100% auto;opacity:0.26;pointer-events:none;z-index:0;';
+    img.style.backgroundImage = "url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776394702/Unknown-2_r0sh0d.png')";
+    chartPanel.insertBefore(tint, chartPanel.firstChild);
+    chartPanel.insertBefore(img, chartPanel.firstChild);
+  })();
 }
 
 let _fennickLocked = false;
