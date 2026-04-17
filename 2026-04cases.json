@@ -29,8 +29,8 @@
       "temp": "37.0",
       "o2": "98% RA"
     },
-    "additional_hx": "When pressed for more detail, she speaks carefully, as if measuring each word like a gear tooth. The tremor is worst when her hands rest in her lap — it quiets the moment she reaches for something, which she finds cruelly ironic given her trade. Her handwriting has shrunk to near-illegibility over the past year. She rises from chairs by pushing off with both arms, and on cobblestones she moves slowly, afraid of her own feet. She lost her sense of smell two years ago — she mentioned it only when asked, as if it were beneath complaint. The sertraline did nothing. She knew it wouldn't.",
-    "pe_findings": "General: Masked facies, reduced blink rate, hypophonic voice. Neuro: 4-6 Hz resting tremor right hand > left, classic pill-rolling quality. Cogwheel rigidity bilateral upper extremities. Bradykinesia on finger-tapping. Gait: shuffling, reduced arm swing, difficulty initiating. Postural instability on pull test. No cerebellar signs. MMSE 29/30.",
+    "additional_hx": "She measures every word like a gear tooth. The tremor is worst at rest — paradoxically quiets when she reaches. Handwriting has shrunk to near illegible in the past year. She rises from chairs using both arms, moves slowly on cobblestones. Lost her sense of smell two years ago. Mentioned it only when asked. The sertraline did nothing. She knew it wouldn't.",
+    "pe_findings": "Masked facies, reduced blink rate, hypophonic voice. 4-6 Hz resting tremor right > left, pill-rolling quality. Cogwheel rigidity bilateral upper limbs. Bradykinesia on finger tapping. Gait: shuffling, reduced arm swing, initiation difficulty. Pull test positive. MMSE 29/30.",
     "imaging": "MRI Brain (non-contrast): No mass lesion, no acute infarct, no hydrocephalus. Mild age-appropriate cortical atrophy. Standard sequences cannot visualize dopaminergic neurons — DaTscan is the appropriate functional study. No midbrain atrophy to suggest PSP.",
     "special_test": {
       "name": "DaTscan (Dopamine Transporter Scan)",
@@ -93,13 +93,15 @@
             "text": "Stop sertraline immediately",
             "sub": "Abrupt discontinuation",
             "correct": false,
-            "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome — dizziness, nausea, electric shock sensations. Always taper. Never stop abruptly."
+            "feedback_wrong": "Abrupt SSRI discontinuation causes withdrawal syndrome — dizziness, nausea, electric shock sensations. Always taper. Never stop abruptly.",
+            "pt_remark_correct": "No emergency. Good. I have been waiting fourteen months — I can wait a little longer for the right answer."
           },
           {
             "text": "Emergent neurology consult",
             "sub": "Urgent inpatient",
             "correct": false,
-            "feedback_wrong": "This has been progressing for 14 months. Urgent outpatient neurology yes. Emergent inpatient is not warranted."
+            "feedback_wrong": "This has been progressing for 14 months. Urgent outpatient neurology yes. Emergent inpatient is not warranted.",
+            "pt_remark_correct": "Emergent. That word frightens me more than the tremor did."
           },
           {
             "text": "Admit for IV thiamine",
@@ -129,13 +131,18 @@
             "text": "Levodopa / Carbidopa",
             "sub": "25/100mg TID — dopamine precursor",
             "correct": true,
-            "feedback_correct": "The gold standard. Levodopa crosses the BBB and is converted to dopamine. Carbidopa prevents peripheral conversion, reducing side effects."
+            "feedback_correct": "Correct. Levodopa crosses the BBB; carbidopa prevents peripheral conversion. Gold standard — nothing has surpassed it in fifty years.",
+            "fennick_correct_comment": "\"Levodopa is the precursor. Carbidopa blocks peripheral decarboxylation — without it, 95% converts before reaching the brain.\"",
+            "pt_remark_correct": "A medication for the dopamine. Finally something that makes mechanical sense."
           },
           {
             "text": "Haloperidol",
             "sub": "Typical antipsychotic — D2 blocker",
             "correct": false,
-            "feedback_wrong": "Catastrophically wrong. Haloperidol blocks dopamine receptors — the exact opposite of what this patient needs. It will dramatically worsen every motor symptom. Never."
+            "feedback_wrong": "Catastrophically wrong. Haloperidol blocks dopamine receptors — the exact opposite of what this patient needs. It will dramatically worsen every motor symptom. Never.",
+            "feedback_correct": "Haloperidol blocks D2 receptors. This patient needs dopamine restored, not blocked. This would catastrophically worsen every motor symptom.",
+            "fennick_correct_comment": "\"A D2 antagonist for a D2 deficiency. Think about what you just prescribed.\"",
+            "pt_remark_correct": "Haloperidol. That is for psychosis. Isn't it."
           },
           {
             "text": "Propranolol",
@@ -233,7 +240,15 @@
     },
     "patient_quote_addl_hx": "\"The right hand first. Then the left began. I kept telling myself it was fatigue from the mechanisms — the fine work. But I know my hands. These are not tired hands. These are broken ones.\"",
     "fennick_opening": "\"The tremor started a year ago. She adjusted her life around it before she came here.\"",
-    "music_default": "Foxfire at Midnight"
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "The right hand first. Then the left. I kept telling myself it was the fine work. But I know my hands. These are not tired hands.",
+    "cc_after_pe": "Follow your finger, you said. I used to set the Grand Meridian tolerance to a tenth of a millimetre. I cannot follow your finger.",
+    "cc_after_imaging": "The scan tells you nothing I don't already know. Something in the mechanism is wrong. I just need to know which part.",
+    "cc_after_hint": "It is not depression. My husband thinks it is depression. It is not.",
+    "cc_after_dx": "So it has a name. My hands have a name for what they are doing.",
+    "fennick_after_addl_hx": "\"Fourteen months misdiagnosed. The SSRI doing nothing is not a treatment failure — it is a clue. Follow it.\"",
+    "fennick_after_pe": "\"Four cardinal features in one room. Do not complicate what is already clear.\"",
+    "fennick_after_imaging": "\"Standard MRI cannot visualize dopaminergic neurons. The imaging confirms nothing — the clinical picture already has.\""
   },
   {
     "id": "002",
@@ -265,8 +280,8 @@
       "temp": "37.2",
       "o2": "94% RA"
     },
-    "additional_hx": "He answers questions with the minimum number of words possible, arms crossed, as if the consultation is keeping him from something more important. The facial swelling, he admits, has been worsening for six weeks — worse in the mornings, worse when he hunches over his ledgers. His collar is a full inch too tight now. The headaches come with it, mornings mainly. He has lost twelve pounds without meaning to and is irritated by the fact. His arms have gone weak — he had trouble lifting his traveling case this morning and he clearly hates admitting it. The double vision started a month ago. He attributes everything to the roads.",
-    "pe_findings": "General: Plethoric, cyanotic facies. Marked facial and bilateral upper extremity edema. Dilated, non-pulsatile neck veins. Prominent venous collaterals visible across the chest wall and upper abdomen — flow directed downward. Resp: Decreased breath sounds right upper lobe. No wheeze. Neuro: Proximal muscle weakness bilateral upper > lower extremities. Reflexes diminished globally. Pupils: sluggish reaction bilaterally. No Horner syndrome. No lymphadenopathy detected on palpation — nodes may be mediastinal.",
+    "additional_hx": "He answers with the fewest words possible, arms crossed. Facial swelling worsening six weeks — worse mornings, worse hunching over ledgers. Collar an inch too tight. Headaches mornings. Lost twelve pounds, irritated about it. Arms gone weak — trouble with his traveling case this morning. Double vision started a month ago. Attributes everything to the roads.",
+    "pe_findings": "Plethoric, cyanotic facies. Marked facial and bilateral upper extremity edema. Dilated, non-pulsatile neck veins. Venous collaterals across chest wall flowing downward. Decreased breath sounds right upper lobe. Proximal muscle weakness bilateral upper > lower. Reflexes globally diminished. Pupils sluggish bilaterally.",
     "imaging": "CXR: Large right hilar mass with widened superior mediastinum. Right upper lobe infiltrate/atelectasis. No pleural effusion. CT Chest with contrast: 6.2cm right hilar mass with direct invasion of the superior vena cava and significant extrinsic compression — SVC lumen reduced by approximately 80%. Extensive mediastinal and paratracheal lymphadenopathy. No pulmonary emboli.",
     "special_test": {
       "name": "Bronchoscopy with Biopsy",
@@ -335,7 +350,8 @@
             "text": "Elevate head of bed, IV dexamethasone, urgent oncology consult",
             "sub": "Reduce edema and obstruction urgently",
             "correct": true,
-            "feedback_correct": "Correct. Head elevation reduces venous pressure to the head. Dexamethasone reduces peritumoral edema acutely. This is a partial oncologic emergency — urgent but not requiring immediate intubation."
+            "feedback_correct": "Correct. Head elevation reduces venous pressure. Dexamethasone reduces peritumoral edema acutely — the mass is not shrinking, the inflammatory response around it is.",
+            "fennick_correct_comment": "\"Dexamethasone gives temporal relief while you establish histology. The mass is still there. The compression is still there. This buys time.\""
           },
           {
             "text": "Start anticoagulation for presumed SVC thrombosis",
@@ -365,13 +381,17 @@
             "text": "Fluid restriction 800-1000 mL/day",
             "sub": "First-line SIADH management",
             "correct": true,
-            "feedback_correct": "Correct. SIADH treatment is free water restriction, not sodium supplementation. Giving salt will not fix the underlying ADH excess — the kidneys will just excrete it."
+            "feedback_correct": "Correct. SIADH from ectopic ADH. Free water restriction — not sodium. The kidneys will excrete any sodium you give; the problem is inappropriate ADH, not sodium depletion.",
+            "fennick_correct_comment": "\"Urine osmolality higher than serum despite hyponatraemia. That is SIADH in two numbers. The kidneys are retaining water they should be excreting.\""
           },
           {
             "text": "Normal saline 1L bolus",
             "sub": "Volume replacement",
             "correct": false,
-            "feedback_wrong": "In SIADH, giving normal saline can paradoxically worsen hyponatremia — the kidneys excrete the sodium but retain the free water, worsening the dilution."
+            "feedback_wrong": "In SIADH, giving normal saline can paradoxically worsen hyponatremia — the kidneys excrete the sodium but retain the free water, worsening the dilution.",
+            "feedback_correct": "In SIADH, saline can worsen hyponatraemia — the kidneys excrete the sodium but retain the free water. Giving salt does not fix the ADH problem.",
+            "fennick_correct_comment": "\"Normal saline in SIADH. The sodium will be excreted. The water will be retained. The sodium will drop further.\"",
+            "pt_remark_correct": "Normal saline. That is just salt water. I've drunk saltwater before. It didn't help."
           },
           {
             "text": "Fludrocortisone",
@@ -469,7 +489,15 @@
     },
     "patient_quote_addl_hx": "\"I've crossed the Ashgate lowlands in a broken cart with a fever and kept moving. I don't come to doctors. My wife packed my bag. I didn't even know she'd done it until she handed it to me at the door.\"",
     "fennick_opening": "\"He did not come on his own. Remember that.\"",
-    "music_default": "Foxfire at Midnight"
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "My wife packed the bag. I didn't know until she handed it to me at the door. She does not do things without a reason.",
+    "cc_after_pe": "You want me to lift both arms. I'll tell you which one won't go all the way up.",
+    "cc_after_imaging": "A mass in the chest. Say it plainly. I prefer plainly.",
+    "cc_after_hint": "The collar has been wrong for six weeks. I thought it had shrunk in the wash.",
+    "cc_after_dx": "I see. How long have I had it.",
+    "fennick_after_addl_hx": "\"Face swells worse in the morning, worse bending forward. The anatomy of that pattern points to one structure. Find it.\"",
+    "fennick_after_pe": "\"Non-pulsatile neck veins. Venous collaterals flowing downward. The upper body is draining somewhere other than where it should be.\"",
+    "fennick_after_imaging": "\"80% SVC compression. The CT is confirming what the collar already knew. What is compressing it and why.\""
   },
   {
     "id": "003",
@@ -501,8 +529,8 @@
       "temp": "38.9",
       "o2": "96% RA"
     },
-    "additional_hx": "He is cooperative and forthcoming, asking clarifying questions as if this were a technical problem to be solved collaboratively. He remembers the dental visit precisely — fifth week ago, Tuesday afternoon, the guild dentist on Meridian Lane, gums bled more than usual. He started feeling feverish about two weeks later and assumed it would pass. He has been tracking his temperature on a small chart he brought with him — nightly spikes to 38.8, breaking by morning. The painful spot on his finger appeared two days ago and he finds it genuinely puzzling. He has not yet connected any of this into a single picture, and when you mention the heart, he looks up with sudden attention.",
-    "pe_findings": "General: Ill-appearing, sweating, pale. Cardiovascular: Hyperdynamic precordium. New harsh diastolic murmur grade III/VI at left sternal border — not present on prior echocardiogram. JVP mildly elevated. Skin: Osler nodes — tender erythematous nodules on right index and middle fingertip pads. Splinter hemorrhages under right index and middle fingernails (3 total). Janeway lesions — flat, non-tender, hemorrhagic macules on bilateral thenar eminences. Eyes: conjunctival petechiae bilaterally. Fundoscopy: Roth spots — white-centered hemorrhages bilateral retinae. Mild scleral icterus. Spleen palpable 2 cm below costal margin. No peripheral edema. No clubbing yet.",
+    "additional_hx": "He remembers the dental visit precisely: fifth week ago, Tuesday, Meridian Lane dentist, gums bled more than usual. Fever two weeks later, assumed it would pass. Tracks temperature on a chart he brought — nightly spikes to 38.8, breaking by morning. The finger spot appeared two days ago and genuinely puzzles him. When you mention the heart, he looks up with sudden attention.",
+    "pe_findings": "Ill-appearing, sweating. New harsh diastolic murmur grade III/VI at left sternal border. JVP mildly elevated. Osler nodes on right index and middle fingertip pads. Splinter hemorrhages under two fingernails. Janeway lesions on bilateral thenar eminences. Roth spots on fundoscopy. Mild scleral icterus. Spleen 2cm below costal margin.",
     "imaging": "CXR: Multiple bilateral peripheral nodular opacities — septic emboli pattern. Mild cardiomegaly. Transthoracic Echocardiogram (TTE): Bicuspid aortic valve with a 1.4cm oscillating vegetation on the non-coronary cusp. Severe aortic regurgitation — wide pulse pressure confirmed. EF 55%. No perivalvular abscess on TTE (TEE recommended to exclude).",
     "special_test": {
       "name": "Blood Cultures x3",
@@ -577,13 +605,16 @@
             "text": "Draw 3 sets of blood cultures then start IV antibiotics",
             "sub": "Culture first — always",
             "correct": true,
-            "feedback_correct": "Correct and critical. Blood cultures must be drawn before antibiotics whenever possible. In stable endocarditis you have time to get cultures first — this guides your entire 4-6 week treatment plan. Rushing antibiotics before cultures destroys your ability to tailor therapy."
+            "feedback_correct": "Correct. Blood cultures before antibiotics in stable endocarditis — always. This guides 4-6 weeks of IV therapy. Starting antibiotics before cultures eliminates your ability to identify the organism.",
+            "fennick_correct_comment": "\"15 minutes to draw cultures. He is not in septic shock. Every hour of antibiotics before cultures reduces identification probability.\""
           },
           {
             "text": "Start IV vancomycin immediately",
             "sub": "Empiric broad-spectrum coverage",
             "correct": false,
-            "feedback_wrong": "Do not start antibiotics before blood cultures in stable endocarditis. He is not in septic shock. He can wait 15 minutes for cultures. Starting vancomycin blindly eliminates your ability to identify the organism and optimize therapy."
+            "feedback_wrong": "Do not start antibiotics before blood cultures in stable endocarditis. He is not in septic shock. He can wait 15 minutes for cultures. Starting vancomycin blindly eliminates your ability to identify the organism and optimize therapy.",
+            "feedback_correct": "Vancomycin before cultures destroys the diagnostic pathway. He is hemodynamically stable.",
+            "fennick_correct_comment": "\"You gave antibiotics before you knew what was growing. Now you may never know. That is 6 weeks of empiric therapy instead of targeted.\""
           }
         ]
       },
@@ -613,7 +644,8 @@
             "text": "IV Penicillin G or Ceftriaxone x4 weeks",
             "sub": "Drug of choice for susceptible Strep viridans",
             "correct": true,
-            "feedback_correct": "Correct. Penicillin-susceptible Strep viridans (MIC ≤0.12) on a native valve is treated with penicillin G or ceftriaxone for 4 weeks. Gentamicin can be added for the first 2 weeks to shorten treatment in uncomplicated cases."
+            "feedback_correct": "Correct. Penicillin-susceptible Strep viridans on a native valve — penicillin G or ceftriaxone for 4 weeks. Gentamicin can be added for the first 2 weeks to shorten treatment.",
+            "fennick_correct_comment": "\"Ceftriaxone has the advantage of once-daily dosing for outpatient completion. If he stabilizes, OPAT becomes possible — but not before the complications are addressed.\""
           }
         ]
       },
@@ -625,7 +657,8 @@
             "text": "Urgent transesophageal echocardiogram (TEE)",
             "sub": "Rule out perivalvular abscess",
             "correct": true,
-            "feedback_correct": "Correct and urgent. New PR prolongation in aortic valve endocarditis indicates possible extension into the aortic root with perivalvular abscess — the abscess can interrupt the conduction system. TEE is far more sensitive than TTE for detecting perivalvular complications. Abscess is a surgical indication."
+            "feedback_correct": "Correct and urgent. New PR prolongation in aortic endocarditis means possible perivalvular extension — the abscess interrupts conduction. TEE is far more sensitive than TTE. Abscess is a surgical indication.",
+            "fennick_correct_comment": "\"The AV node sits millimetres from the aortic root. An abscess extending there delays conduction. That is what the EKG is showing you.\""
           },
           {
             "text": "Reassure — first-degree AV block is benign",
@@ -705,7 +738,15 @@
     },
     "patient_quote_addl_hx": "\"I actually looked up my symptoms last week. I thought maybe it was just a virus going around the construction site. My wife said I should come in sooner. I kept saying it wasn't a big deal. Is it a big deal?\"",
     "fennick_opening": "\"He has a chart. He brought it himself. Read it.\"",
-    "music_default": "Foxfire at Midnight"
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "I looked it up. I thought it was a site virus. I kept saying it wasn't a big deal. Is it a big deal.",
+    "cc_after_pe": "You're checking my eyes, my fingers, my palms. You're connecting things I thought were separate.",
+    "cc_after_imaging": "Something on the valve. 1.4 centimetres. My wife is going to ask me what that means.",
+    "cc_after_hint": "The heart. My wife said my eyes looked yellow. I didn't think those two were related.",
+    "cc_after_dx": "Endocarditis. From a routine cleaning. From a routine cleaning.",
+    "fennick_after_addl_hx": "\"Dental procedure, bicuspid valve, no prophylaxis, two weeks to onset. The question is what organism and what it has already done to that valve.\"",
+    "fennick_after_pe": "\"Osler nodes: immune complex, painful. Janeway lesions: septic emboli, painless. Both present together. And a new murmur. The valve is already involved.\"",
+    "fennick_after_imaging": "\"1.4 centimetres on the non-coronary cusp. And PR prolongation on the EKG. Think about what sits adjacent to that anatomy.\""
   },
   {
     "id": "004",
@@ -737,8 +778,8 @@
       "temp": "37.4",
       "o2": "97% RA"
     },
-    "additional_hx": "He describes the episodes only when directly asked, in clipped military language, as if filing a damage report on someone else's equipment. The attacks come without warning — a sudden hammering behind the eyes, then the sweating, then the heart going wild. They last perhaps half an hour and then vanish completely, which is part of why he dismissed them. He has had seven or eight in the past two months. This morning's was triggered by bending to retrieve a map from the floor — he straightened up, the room tilted, and he struck his desk on the way down. He lost perhaps thirty seconds. He does not call this a collapse. He calls it a 'brief interruption.' His mother died of something near the kidney — he doesn't know what, he was overseas. He has lost eight pounds and attributes it to the recent campaign's rations.",
-    "pe_findings": "General: Flushed, diaphoretic, visibly anxious despite his attempts to appear composed. BP 188/112 right arm, 186/110 left arm — symmetric. HR 108, irregular with frequent palpitations. Skin: warm, clammy, facial flushing. Abdomen: vague fullness in right upper quadrant on deep palpation — patient winces. No palpable mass but tenderness noted. No carotid bruits. Fundoscopy: mild hypertensive retinopathy. No focal neurological deficits. No lymphadenopathy.",
+    "additional_hx": "Files his own symptoms like a damage report on someone else. Attacks: hammering behind the eyes, then sweating, then heart going wild. Thirty minutes then complete resolution — which is why he dismissed them. Seven or eight in the past two months. This morning triggered by bending for a map — straightened up, room tilted, hit the desk. He does not call it a collapse. A brief interruption. Mother died of something near the kidney, he was overseas. Eight pounds lost, attributed to campaign rations.",
+    "pe_findings": "Flushed, diaphoretic, attempting composure. BP 188/112 bilateral symmetrically. HR 108, frequent palpitations. Warm clammy skin, facial flushing. Right upper quadrant fullness on deep palpation — winces. No palpable mass. Mild hypertensive retinopathy.",
     "imaging": "CT Abdomen/Pelvis with contrast: 4.8cm heterogeneous right adrenal mass with central necrosis and peripheral enhancement — highly suspicious for adrenal neoplasm. No liver metastases identified. No lymphadenopathy. Left adrenal gland normal. Incidental note: mild atherosclerosis of the abdominal aorta.",
     "special_test": {
       "name": "24-Hour Urine Metanephrines",
@@ -801,13 +842,16 @@
             "text": "IV Phentolamine or oral Phenoxybenzamine",
             "sub": "Alpha-blockade first — standard of care",
             "correct": true,
-            "feedback_correct": "Correct. Alpha-blockade must come first in pheochromocytoma. Phenoxybenzamine (oral, non-selective) or phentolamine (IV for acute crisis) controls the catecholamine-driven hypertension safely. Beta-blockers are added only after alpha-blockade is established."
+            "feedback_correct": "Correct. Alpha blockade first — always. Phenoxybenzamine or phentolamine controls catecholamine-driven hypertension. Beta blockers only after alpha blockade is established.",
+            "fennick_correct_comment": "\"Phenoxybenzamine is irreversible and non-selective. That matters — you want sustained blockade before surgery. Do not stop it.\""
           },
           {
             "text": "IV Metoprolol",
             "sub": "Beta-1 selective blocker",
             "correct": false,
-            "feedback_wrong": "Never give beta-blockers first in pheochromocytoma. Blocking beta-2 vasodilation leaves unopposed alpha-1 vasoconstriction — you will precipitate a catastrophic hypertensive crisis. This is one of the classic dangerous drug errors in medicine."
+            "feedback_wrong": "Never give beta-blockers first in pheochromocytoma. Blocking beta-2 vasodilation leaves unopposed alpha-1 vasoconstriction — you will precipitate a catastrophic hypertensive crisis. This is one of the classic dangerous drug errors in medicine.",
+            "feedback_correct": "Beta blockade before alpha removes vasodilatory beta-2 effect and leaves unopposed alpha-1 constriction. Hypertensive crisis. A classic and potentially fatal error.",
+            "fennick_correct_comment": "\"You removed beta-2 vasodilation and left alpha-1 vasoconstriction unopposed. What happens to the pressure now.\""
           },
           {
             "text": "IV Labetalol",
@@ -831,13 +875,17 @@
             "text": "Plasma free metanephrines or 24-hr urine metanephrines",
             "sub": "Most sensitive biochemical test",
             "correct": true,
-            "feedback_correct": "Correct. Plasma free metanephrines have >97% sensitivity for pheochromocytoma. 24-hour urine metanephrines are slightly less sensitive but highly specific. Either is appropriate. Biochemical confirmation is mandatory before surgical planning."
+            "feedback_correct": "Correct. Plasma free metanephrines >97% sensitivity. Biochemical confirmation is mandatory before surgical planning — operating without it is dangerous.",
+            "fennick_correct_comment": "\"Metanephrines are stable metabolites — they do not fluctuate with paroxysms the way catecholamines do. That is why they are more sensitive.\""
           },
           {
             "text": "Adrenal biopsy",
             "sub": "Tissue diagnosis",
             "correct": false,
-            "feedback_wrong": "Adrenal biopsy of a suspected pheochromocytoma is absolutely contraindicated. Needle manipulation of the tumor can trigger a massive catecholamine release and fatal hypertensive crisis. Never biopsy a suspected pheo."
+            "feedback_wrong": "Adrenal biopsy of a suspected pheochromocytoma is absolutely contraindicated. Needle manipulation of the tumor can trigger a massive catecholamine release and fatal hypertensive crisis. Never biopsy a suspected pheo.",
+            "feedback_correct": "Adrenal biopsy of a suspected pheo is absolutely contraindicated. Needle manipulation triggers massive catecholamine release. Potentially fatal on the table.",
+            "fennick_correct_comment": "\"Do not touch it with a needle. Not until it is blocked, prepared, and on the surgical table.\"",
+            "pt_remark_correct": "A needle directly into the adrenal. You want to put a needle directly into it."
           },
           {
             "text": "Urine cortisol",
@@ -932,7 +980,15 @@
     "explanation": "Pheochromocytoma is a catecholamine-secreting tumor of the adrenal medulla (or extra-adrenal paraganglia). The classic triad is episodic headache, sweating, and palpitations. Key: paroxysmal hypertension triggered by exertion, bending, or stress. Diagnose with plasma free metanephrines (most sensitive). Image with CT/MRI. Treat with alpha-blockade first (phenoxybenzamine), then beta-blockade, then surgery. Never biopsy. Never beta-block first.",
     "patient_quote_addl_hx": "\"I've been in three campaigns. I don't get dizzy. I don't collapse. What happened this morning was — I was simply fatigued from the night exercise. My aide is prone to exaggeration. I'm here as a courtesy.\"",
     "fennick_opening": "\"His aide is more alarmed than he is. That is the data point.\"",
-    "music_default": "Foxfire at Midnight"
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "I've been in three campaigns. I don't collapse. This morning was fatigue from the night exercise. My aide exaggerates.",
+    "cc_after_pe": "You pressed there and it hurt. I've taken shrapnel without flinching. Note that.",
+    "cc_after_imaging": "A mass near the adrenal. That is what my mother had. No one ever told me what it was.",
+    "cc_after_hint": "The attacks come and then completely stop. Like a field engagement that ends as suddenly as it began.",
+    "cc_after_dx": "A tumour producing the crisis. That explains the attacks. That explains all of it.",
+    "fennick_after_addl_hx": "\"Paroxysmal. Complete resolution between attacks. The abdominal tenderness and family history of adrenal disease are not incidental.\"",
+    "fennick_after_pe": "\"188 over 112 at rest. During a paroxysm this pressure is probably over 250. The right upper quadrant tenderness with no palpable mass — lesion is retroperitoneal. Image it.\"",
+    "fennick_after_imaging": "\"4.8 centimetres, central necrosis, right adrenal. Family history confirmed. Before you do anything else — remember the one drug class you must never give first.\""
   },
   {
     "id": "005",
@@ -964,9 +1020,9 @@
       "temp": "37.1",
       "o2": "97% RA (falsely reassuring — pulse ox cannot distinguish COHb)"
     },
-    "additional_hx": "He answers every question with an apology first. The headaches are bilateral, pressure-like, never throbbing — he rates them a four out of ten, then immediately revises to three, not wanting to exaggerate. They begin within an hour of starting his shift and resolve over a day or two when he is away from work. Last Sunday — his day off — he felt nearly normal and assumed he was improving. Monday morning at the furnace the headache returned within two hours. He has had two episodes of vomiting in the past week, which he attributed to something he ate. The near-syncope yesterday lasted perhaps thirty seconds — he caught himself on a pipe. He has not told his foreman how bad it has gotten because he does not want to cause trouble.",
+    "additional_hx": "He apologizes before every sentence. Headaches bilateral, pressure-like — rates them four out of ten, immediately revises to three, not wanting to exaggerate. Starts within an hour of shift, resolves over a day off. Last Sunday felt nearly normal. Monday morning, back within two hours. Two vomiting episodes this week, attributed to food. Near-syncope yesterday, thirty seconds, caught himself on a pipe. Has not told his foreman how bad it has gotten.",
     "patient_quote_addl_hx": "\"I — I'm sure it's just fatigue. I've been working long shifts. I don't want to make a fuss. The other men have headaches too but they haven't come in. Should I have... come in sooner? I'm sorry if I should have come sooner.\"",
-    "pe_findings": "General: Anxious, mildly confused — takes a moment to process questions. Mild diaphoresis. Cherry-red skin tone subtle but present on lips and nail beds. Neuro: oriented to person and place but not date. Mild ataxia on tandem gait. Pupils equal and reactive. No focal deficits. CV: tachycardic, rhythm regular. Resp: clear bilaterally — deceptively normal. No signs of frank coma but clearly encephalopathic.",
+    "pe_findings": "Mildly confused — processes questions slowly. Mild diaphoresis. Subtle cherry-red tinge on lips and nail beds. Oriented to person and place, not date. Mild ataxia on tandem gait. Tachycardic, regular. Lungs clear.",
     "imaging": "CXR: Normal. No pulmonary edema, no infiltrate. CT Head: no acute intracranial process, no hemorrhage, no mass. Mild diffuse cerebral edema — subtle, consistent with toxic encephalopathy. MRI would show bilateral globus pallidus hyperintensity on T2 — classic delayed CO finding.",
     "special_test": {
       "name": "Carboxyhemoglobin Level (COHb)",
@@ -1029,7 +1085,10 @@
             "text": "Supplemental O2 at 2L nasal cannula",
             "sub": "Low-flow oxygen",
             "correct": false,
-            "feedback_wrong": "Completely inadequate. Low-flow oxygen will not displace CO quickly enough. This patient needs 100% O2 via non-rebreather mask — maximum inspired oxygen concentration. There is no benefit to titrating oxygen in CO poisoning."
+            "feedback_wrong": "Completely inadequate. Low-flow oxygen will not displace CO quickly enough. This patient needs 100% O2 via non-rebreather mask — maximum inspired oxygen concentration. There is no benefit to titrating oxygen in CO poisoning.",
+            "feedback_correct": "Inadequate. Low-flow oxygen will not displace CO quickly enough. Maximum inspired oxygen is required — there is no benefit to titrating in CO poisoning.",
+            "fennick_correct_comment": "\"2 litres per minute. You are moving his COHb half-life from 5 hours to perhaps 4 hours. That is not treatment.\"",
+            "pt_remark_correct": "2 litres. Fine. I can manage with the nose prongs."
           },
           {
             "text": "Intubate and mechanically ventilate",
@@ -1047,7 +1106,8 @@
             "text": "100% O2 via non-rebreather mask, remove from source",
             "sub": "Competitive displacement of CO from hemoglobin",
             "correct": true,
-            "feedback_correct": "Correct. High-flow 100% oxygen is the immediate treatment. It reduces COHb half-life from ~5 hours (room air) to 60-90 minutes. Remove him from the source immediately and notify authorities about the furnace hall."
+            "feedback_correct": "Correct. 100% O2 via NRB reduces COHb half-life from ~5 hours to 60-90 minutes. Remove from source immediately. The hall is still running.",
+            "fennick_correct_comment": "\"Competitive displacement — at FiO2 1.0, oxygen outcompetes CO for haemoglobin binding sites. Every minute on room air adds to his half-life.\""
           }
         ]
       },
@@ -1059,13 +1119,16 @@
             "text": "Yes — COHb >25% with neurological symptoms meets HBO criteria",
             "sub": "Hyperbaric oxygen therapy",
             "correct": true,
-            "feedback_correct": "Correct. Hyperbaric oxygen (HBO) is indicated for COHb >25%, loss of consciousness, neurological symptoms, cardiac involvement, or pregnancy. This patient has COHb 28% with encephalopathy and troponin elevation — he meets multiple criteria. HBO reduces COHb half-life to ~20 minutes and reduces risk of delayed neurological sequelae."
+            "feedback_correct": "Correct. COHb 28% with neurological symptoms and cardiac injury meets HBO criteria. Reduces COHb half-life to ~20 minutes and reduces delayed neuropsychiatric sequelae.",
+            "fennick_correct_comment": "\"Delayed neurological syndrome — memory loss, personality change, parkinsonism — can emerge 2-4 weeks after apparent recovery. HBO reduces that risk. That is the argument beyond the acute phase.\""
           },
           {
             "text": "Give IV methylene blue",
             "sub": "Antidote for CO",
             "correct": false,
-            "feedback_wrong": "Methylene blue is the antidote for methemoglobinemia, not carbon monoxide poisoning. Completely different condition. CO poisoning is treated with oxygen — high-flow normobaric and hyperbaric."
+            "feedback_wrong": "Methylene blue is the antidote for methemoglobinemia, not carbon monoxide poisoning. Completely different condition. CO poisoning is treated with oxygen — high-flow normobaric and hyperbaric.",
+            "feedback_correct": "Methylene blue reverses methemoglobinemia — ferric iron. CO poisoning produces carboxyhemoglobin — ferrous iron with CO bound. Different mechanism entirely.",
+            "fennick_correct_comment": "\"Methaemoglobin and carboxyhemoglobin are not the same. Both confound pulse oximetry. That is where the similarity ends.\""
           },
           {
             "text": "No — normobaric O2 is sufficient for all CO cases",
@@ -1159,7 +1222,15 @@
     },
     "explanation": "Carbon monoxide binds hemoglobin with 250x the affinity of oxygen, forming carboxyhemoglobin (COHb) and preventing oxygen delivery. Key: SpO2 is falsely normal — it cannot distinguish COHb from OHb. Classic presentation: headache/nausea/confusion worse at work, better on days off, multiple people affected. Treatment: 100% O2 via NRB (half-life 60-90 min vs 5hr on room air). HBO if COHb >25%, neuro symptoms, cardiac involvement, pregnancy.",
     "fennick_opening": "\"He apologized before he sat down. That is the first thing you should write.\"",
-    "music_default": "Foxfire at Midnight"
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "I should have come in sooner. I'm sorry if I should have come in sooner. The other men have the headaches too but they haven't come in.",
+    "cc_after_pe": "Walk in a straight line. With my eyes closed. I — sorry. Let me try again.",
+    "cc_after_imaging": "The brain looks normal. Then why does my head feel like this.",
+    "cc_after_hint": "The other men. Two of them said the same thing last week. I thought it was just the long shifts.",
+    "cc_after_dx": "The furnace. It's been the furnace the whole time. I sealed those ducts myself. Last November.",
+    "fennick_after_addl_hx": "\"Worse at work. Better on days off. Two colleagues. Ventilation sealed for winter. The hall is still running right now.\"",
+    "fennick_after_pe": "\"SpO2 97% and encephalopathic. The numbers do not match the patient in front of you. Pulse oximetry cannot distinguish carboxyhemoglobin. That reading is a lie.\"",
+    "fennick_after_imaging": "\"CT normal. Brain is not the source — it is the target. Order the test the standard panel does not include.\""
   },
   {
     "id": "006",
@@ -1191,9 +1262,9 @@
       "temp": "37.0",
       "o2": "95% RA"
     },
-    "additional_hx": "He answers questions directly and without embellishment — a practical young man who would rather know what is wrong and fix it than discuss how he feels about it. He confirms the first episode eighteen months ago: same sudden pop, same left-sided pain, resolved after two days of rest. He assumed it was a muscle. This time it has not improved since this morning and the shortness of breath is more noticeable than before. He is tall — just over six feet — and on the lean side. He has never smoked. No recent illness, no cough, no fever. He asks, matter-of-factly, whether he will need an operation.",
+    "additional_hx": "Answers directly, no embellishment. First episode 18 months ago — same side, same pop, resolved after two days rest. Assumed pulled muscle. This time has not improved and breathlessness is more noticeable. Tall, over six feet, lean. Never smoked. No illness, no cough, no fever. Asks matter-of-factly whether he will need an operation.",
     "patient_quote_addl_hx": "\"It happened once before, about a year and a half ago. Same side, same feeling. I just rested and it went away after a couple of days. I figured it was a pulled muscle. Should I have come in for that one?\"",
-    "pe_findings": "General: Tall (188cm), lean, BMI 19.2. Mild respiratory distress — breathing shallowly to minimize pain. Resp: Decreased breath sounds left base, hyperresonance to percussion left hemithorax. Trachea midline — no deviation (not tension). No subcutaneous emphysema. CV: Tachycardic, regular. No JVP elevation. No peripheral edema. Skin: no marfanoid features on quick inspection — no arachnodactyly, no high arched palate noted, though formal assessment warranted.",
+    "pe_findings": "Tall 188cm, BMI 19.2. Breathing shallowly to minimise pain. Decreased breath sounds left base. Hyperresonance to percussion left hemithorax. Trachea midline. No subcutaneous emphysema. Tachycardic, regular.",
     "imaging": "CXR PA: Left-sided pneumothorax — visible pleural line with absent lung markings peripheral to it. Estimated 30% left lung collapse. No mediastinal shift. No effusion. Right lung clear. No underlying parenchymal disease or blebs visible on plain film. CT chest recommended to assess for subpleural blebs.",
     "special_test": {
       "name": "CT Chest (High Resolution)",
@@ -1268,7 +1339,8 @@
             "text": "Supplemental O2 and needle aspiration or small-bore chest tube",
             "sub": "Active intervention for symptomatic 30% PTX",
             "correct": true,
-            "feedback_correct": "Correct. A 30% pneumothorax in a symptomatic patient warrants active intervention. Needle aspiration is first-line for primary spontaneous PTX — if successful, the patient can be observed. If unsuccessful or recurrent, small-bore chest tube. High-flow O2 also accelerates nitrogen resorption from the pleural space."
+            "feedback_correct": "Correct. 30% pneumothorax in a symptomatic patient warrants intervention. Needle aspiration first-line for primary spontaneous PTX. High-flow O2 accelerates nitrogen resorption.",
+            "fennick_correct_comment": "\"Aspiration first. If the lung re-expands and stays up, you may avoid a chest tube. If it does not, or recurs, tube comes next.\""
           },
           {
             "text": "Intubate and positive pressure ventilation",
@@ -1286,7 +1358,8 @@
             "text": "Refer for VATS pleurodesis",
             "sub": "Video-assisted thoracoscopic surgery",
             "correct": true,
-            "feedback_correct": "Correct. After a second ipsilateral spontaneous pneumothorax, current guidelines (BTS, ACCP) recommend surgical intervention — VATS with bullectomy and pleurodesis. Recurrence risk after second episode exceeds 80%. The CT shows bilateral blebs, making this even more important."
+            "feedback_correct": "Correct. Second ipsilateral episode plus bilateral bleb disease on CT — VATS with bullectomy and pleurodesis. Recurrence rate after second episode exceeds 80%.",
+            "fennick_correct_comment": "\"VATS allows direct resection of the blebs, not just pleurodesis through a tube. In a young patient with bilateral disease, mechanical pleurodesis at the time of bullectomy gives the best long-term outcome.\""
           },
           {
             "text": "Long-term bronchodilator therapy",
@@ -1328,7 +1401,8 @@
             "text": "Assess for Marfan syndrome — echocardiogram and genetics referral",
             "sub": "Rule out connective tissue disorder",
             "correct": true,
-            "feedback_correct": "Correct. Marfan syndrome and other connective tissue disorders (Ehlers-Danlos, Birt-Hogg-Dubé) are associated with spontaneous pneumothorax. A tall, lean young man with recurrent PTX needs formal assessment — arm span, upper/lower segment ratio, slit lamp, echocardiogram for aortic root, genetics consult."
+            "feedback_correct": "Correct. Marfan syndrome associated with spontaneous PTX. Formal assessment: arm span, segment ratio, echocardiogram for aortic root. The aortic root is the reason Marfan matters beyond the pneumothorax.",
+            "fennick_correct_comment": "\"Aortic root dilation, progressive, dissection risk. You are not just screening for a diagnosis — you are looking for a potentially fatal complication he does not yet know he has.\""
           },
           {
             "text": "No workup needed — primary spontaneous PTX requires no further investigation",
@@ -1386,7 +1460,15 @@
     },
     "explanation": "Primary spontaneous pneumothorax (PSP) occurs in tall, thin young men without underlying lung disease — subpleural blebs rupture at the apex. Recurrence after first episode ~30%, after second >80%. Treat first episode: aspiration or small-bore chest tube. Second ipsilateral episode: VATS bullectomy + pleurodesis. Always rule out Marfan syndrome in young patients with recurrent PSP.",
     "fennick_opening": "\"Second time. Same side. He ignored the first.\"",
-    "music_default": "Foxfire at Midnight"
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "The first time I thought it was a pulled muscle. Should I have come in for that one.",
+    "cc_after_pe": "You're tapping on my chest. What does the difference in sound tell you.",
+    "cc_after_imaging": "Thirty percent of the left lung. That seems like something that should have been addressed the first time.",
+    "cc_after_hint": "Second time. Same side. I didn't think resting it the first time was the wrong call.",
+    "cc_after_dx": "It has a name. And I need an operation. I can see that from your face.",
+    "fennick_after_addl_hx": "\"Tall, lean, young, second ipsilateral episode. The first was 18 months ago and he ignored it. Recurrence rate after a second episode exceeds 80%.\"",
+    "fennick_after_pe": "\"Hyperresonance, absent breath sounds, trachea midline. Not tension. But 30% collapse in a symptomatic patient is not observation territory.\"",
+    "fennick_after_imaging": "\"Bilateral blebs. Largest 1.4cm, left upper lobe. Second episode, bilateral disease. The surgical threshold has been met.\""
   },
   {
     "id": "007",
@@ -1418,9 +1500,9 @@
       "temp": "38.6",
       "o2": "98% RA"
     },
-    "additional_hx": "She is frightened but still coherent — she knows exactly what she was working with and volunteers the information immediately. The belladonna was a large fresh harvest. She ground the berries with her bare hands for approximately two hours, then rubbed her face at some point. She cannot recall exactly when symptoms began but her vision went blurry first, then her mouth dried completely, then the heart racing. She tried to drink water but could not produce enough saliva to swallow it comfortably. She has not been able to urinate in four hours. She is warm to the touch all over and her skin is completely dry despite the obvious distress — no sweat at all.",
+    "additional_hx": "She volunteers the exposure history before you ask — knows exactly what happened. Large fresh belladonna harvest, bare-handed grinding for two hours, rubbed her face. Vision went first, then dry mouth, then heart racing. Could not swallow water properly. Has not urinated in four hours. Warm all over, completely dry despite obvious distress.",
     "patient_quote_addl_hx": "\"I know what this is. I know it. I just — I didn't think it would happen through the skin. I wasn't even eating it. I've handled it before but never for this long. How bad is it? Please just tell me how bad it is.\"",
-    "pe_findings": "General: Flushed, hot, dry skin — no diaphoresis whatsoever. Agitated, frightened, oriented. Pupils: fixed and maximally dilated bilaterally (8mm) — unable to constrict to direct light. Photophobia. Eyes: dry conjunctivae, unable to focus near objects. Mouth: profoundly dry mucous membranes, thick ropy saliva, cracked lips. CV: HR 128, regular. BP 148/92. Heart sounds normal. Abdomen: distended bladder on percussion, tender on palpation — urinary retention. Bowel sounds absent — ileus. Skin: generalised flushing, hot, completely anhidrotic.",
+    "pe_findings": "Flushed, hot, dry skin — no diaphoresis. Agitated, frightened, oriented. Pupils fixed and maximally dilated 8mm bilaterally. Photophobia. Profoundly dry mucous membranes, thick ropy saliva. HR 128, BP 148/92. Distended bladder on percussion, tender. Bowel sounds absent.",
     "imaging": "CXR: Normal. No aspiration pneumonia. CT Head: No acute intracranial process. Performed given altered mentation — normal. Bladder ultrasound: 680mL retained urine — acute urinary retention confirmed.",
     "special_test": {
       "name": "Serum and Urine Toxicology Screen",
@@ -1489,7 +1571,8 @@
             "text": "IV access, benzodiazepines for agitation, urinary catheter, cooling measures",
             "sub": "Supportive care first",
             "correct": true,
-            "feedback_correct": "Correct. Supportive care is the foundation. Benzodiazepines (not haloperidol — which worsens anticholinergic QT prolongation) for agitation. Urinary catheter for the 680mL retention. Active cooling for hyperthermia — anhidrosis means she cannot thermoregulate. IV fluids for dry mucous membranes."
+            "feedback_correct": "Correct. Benzodiazepines for agitation — not haloperidol, which worsens QT. Catheter for 680mL retention. Active cooling — anhidrosis means she cannot thermoregulate.",
+            "fennick_correct_comment": "\"She cannot sweat. Without diaphoresis, hyperthermia will continue to climb. Cooling is not comfort — it is treatment.\""
           },
           {
             "text": "Induce emesis",
@@ -1501,7 +1584,9 @@
             "text": "IV haloperidol for agitation",
             "sub": "Antipsychotic sedation",
             "correct": false,
-            "feedback_wrong": "Haloperidol is contraindicated in anticholinergic toxidrome — it has additional anticholinergic activity and prolongs the QT interval further. This patient already has QT 480ms. Benzodiazepines are the correct sedative agent here."
+            "feedback_wrong": "Haloperidol is contraindicated in anticholinergic toxidrome — it has additional anticholinergic activity and prolongs the QT interval further. This patient already has QT 480ms. Benzodiazepines are the correct sedative agent here.",
+            "feedback_correct": "Haloperidol has anticholinergic activity and prolongs QT. She already has QT 480ms. This worsens the toxidrome and increases arrhythmia risk simultaneously.",
+            "fennick_correct_comment": "\"QT 480 already. You gave her a drug with anticholinergic side effects and QT prolongation. The benzos work centrally without making any of this worse.\""
           }
         ]
       },
@@ -1519,7 +1604,8 @@
             "text": "Physostigmine IV — reversible AChE inhibitor, crosses BBB",
             "sub": "Antidote for severe anticholinergic toxidrome",
             "correct": true,
-            "feedback_correct": "Correct. Physostigmine inhibits acetylcholinesterase, increasing synaptic ACh to overcome muscarinic blockade. It crosses the blood-brain barrier — making it effective for central anticholinergic effects (agitation, delirium). Use in severe toxidrome: agitation not controlled by benzos, hemodynamic instability, seizures. Give slowly — risk of bradycardia and seizures if pushed too fast."
+            "feedback_correct": "Correct. Physostigmine inhibits acetylcholinesterase, raising ACh to overcome muscarinic blockade. Crosses BBB — effective centrally. Slow IV push — bradycardia and seizures if pushed too fast.",
+            "fennick_correct_comment": "\"The dose matters. Push it fast and you create cholinergic crisis. Slow push, atropine at bedside. It is an antidote, not an emergency bolus.\""
           },
           {
             "text": "Flumazenil IV",
@@ -1531,7 +1617,9 @@
             "text": "Atropine IV",
             "sub": "Anticholinergic antidote",
             "correct": false,
-            "feedback_wrong": "Atropine IS the poison here — giving more atropine would catastrophically worsen the toxidrome. This is one of the most dangerous errors in toxicology. Never give atropine for anticholinergic toxidrome."
+            "feedback_wrong": "Atropine IS the poison here — giving more atropine would catastrophically worsen the toxidrome. This is one of the most dangerous errors in toxicology. Never give atropine for anticholinergic toxidrome.",
+            "feedback_correct": "Atropine is the toxin. Giving more atropine to an anticholinergic toxidrome is catastrophic.",
+            "fennick_correct_comment": "\"You gave the poison as the antidote.\""
           }
         ]
       },
@@ -1613,7 +1701,15 @@
     },
     "explanation": "Anticholinergic toxidrome: dry as a bone (anhidrosis), blind as a bat (mydriasis), red as a beet (flushing), hot as a hare (hyperthermia), mad as a hatter (delirium). Caused by muscarinic blockade — atropine, scopolamine, belladonna, jimsonweed, diphenhydramine. Antidote: physostigmine (crosses BBB). Never give atropine. Never give haloperidol. Distinguish from sympathomimetic (also hot/tachy/agitated but DIAPHORETIC — key difference).",
     "fennick_opening": "\"She knows exactly what happened. She told you before you asked.\"",
-    "music_default": "Foxfire at Midnight"
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "I know what this is. I know it. I just didn't think it would happen through the skin. I've handled it before. Never for this long.",
+    "cc_after_pe": "8 millimetres. I could feel them not responding. Like they belonged to someone else.",
+    "cc_after_imaging": "680 millilitres. I can feel every millilitre of it. I could not understand why I couldn't go.",
+    "cc_after_hint": "How bad is it. Please just tell me how bad it is.",
+    "cc_after_dx": "The alkaloids. Through the skin. I know the pharmacology. I just couldn't believe I'd managed to dose myself through my hands.",
+    "fennick_after_addl_hx": "\"Two hours of direct contact with fresh belladonna. She gave you the exposure history before you asked. The rest is clinical confirmation.\"",
+    "fennick_after_pe": "\"Dry, hot, flushed, mydriasis, tachycardia, retention, silent bowel. Every secretion blocked. Muscarinic antagonism made visible.\"",
+    "fennick_after_imaging": "\"Bladder full, bowel silent, head clear. The CNS is the remaining concern. You have an antidote. Use it before the delirium worsens.\""
   },
   {
     "id": "008",
@@ -1646,17 +1742,17 @@
       "temp": "36.8",
       "o2": "98% RA"
     },
-    "cc_after_addl_hx": "The periods have always been heavy. Seven, eight days. I just thought — I thought that was normal. Nobody ever told me it wasn't.",
-    "cc_after_pe": "My nails have been like this for months. I kept filing them down. I didn't know they were trying to tell me something.",
+    "cc_after_addl_hx": "The periods have always been heavy. I just thought — I thought that was normal. Nobody ever told me it wasn't.",
+    "cc_after_pe": "My nails. I've been filing them down for months. I didn't know they were trying to tell me something.",
     "cc_after_imaging": "My heart is alright though? At least tell me my heart is alright.",
     "cc_after_hint": "Please. I just want to know what's wrong with me. I'm so tired of not knowing.",
-    "cc_after_dx": "Iron. That's all it is? All these months of crying at my bench — and it was iron?",
+    "cc_after_dx": "Iron. All these months. And it was just iron.",
     "fennick_after_addl_hx": "\"Seven to eight days. Clots. And not one person in her life thought to ask whether that was normal. Not one.\"",
-    "fennick_after_pe": "\"Look at her nail beds. Look at her conjunctivae. The colour of old linen. This is not a woman who is depressed, Eddie. This is a woman who is running dry.\"",
-    "fennick_after_imaging": "\"The chest is clear. The heart is holding. But a machine that runs without fuel does not stay intact forever. Look elsewhere.\"",
-    "additional_hx": "She answers questions with the quiet precision of someone accustomed to following instructions, but her eyes are glassy with a tiredness that feels older than four months. When you ask about her periods, she pauses — then describes them as 'rather heavy, always have been.' Seven to eight days. Soaking through pads. Clots. She has never once sought help for it because no one told her she should. She craves ice — has been chewing it constantly from the ice cart outside the mill, which she finds embarrassing to admit. She has not been eating real meals since November. When you ask if she ever feels short of breath on the stairs, something shifts in her expression — recognition. Yes. Every morning. She thought she was just unfit. The sertraline hasn't touched the sadness. Nothing has. She looks at her hands when she says this — they are the hands of a woman who has spent her life making beautiful things, and right now her nails are brittle and she cannot hold a needle steady.",
+    "fennick_after_pe": "\"The colour of old linen. That is not depression. That is a woman running dry.\"",
+    "fennick_after_imaging": "\"Heart is holding. The flow murmur is compensatory — high output state from anaemia. The structure is fine. Look at the blood.\"",
+    "additional_hx": "She answers with quiet precision, as if following instructions. Periods: always heavy, seven to eight days, soaking, clots. Never sought help — no one told her she should. Craves ice constantly from the cart outside the mill. Embarrassed to mention it. Not eating real meals since November. Short of breath on the stairs every morning — thought she was just unfit. The sertraline has not touched the sadness. She looks at her hands when she says this.",
     "patient_quote_addl_hx": "\"I keep thinking I should be able to push through it. I've always pushed through things. But it's like pushing through water. And the crying — I don't even know what I'm crying about. I just cry. The ice helps somehow. I know that sounds strange.\"",
-    "pe_findings": "General: Pale, thin, fatigued-appearing woman. Quiet affect, appropriate. Skin: marked pallor of face, palms, and nail beds. Koilonychia — bilateral spoon-shaped nails, most pronounced on index and middle fingers. Angular cheilitis at bilateral mouth corners. Hair: diffuse thinning. Eyes: conjunctival pallor bilaterally — the palpebral conjunctivae are the colour of old linen. Tongue: mild glossitis, smooth and tender. Nails: brittle, longitudinally ridged. CV: tachycardic rate 108, regular. Soft systolic flow murmur at left sternal border — high-output state. No JVP elevation, no oedema. Resp: clear. Abdomen: soft, non-tender, no organomegaly. No lymphadenopathy.",
+    "pe_findings": "Pale, thin, fatigued. Koilonychia — bilateral spoon-shaped nails, worst at index and middle fingers. Angular cheilitis. Conjunctival pallor bilaterally — palpebral conjunctivae colour of old linen. Mild glossitis. HR 108, regular. Soft systolic flow murmur at left sternal border.",
     "imaging": "CXR: Normal cardiac silhouette. No infiltrate, no effusion. Mild cardiomegaly not present — the flow murmur is functional. No bony abnormalities. No hilar lymphadenopathy. Not the diagnostic study of choice here — blood work is what you need.",
     "special_test": {
       "name": "Peripheral Blood Smear",
@@ -1725,8 +1821,9 @@
             "text": "Serum ferritin, serum iron, TIBC",
             "sub": "Iron studies — the definitive workup",
             "correct": true,
-            "feedback_correct": "Correct. Ferritin is the most sensitive marker for iron deficiency — it reflects total body iron stores. In iron deficiency: ferritin low, serum iron low, TIBC high. Together these make the diagnosis airtight.",
-            "pt_remark_correct": "So the numbers will prove it. That something is actually wrong. That I wasn't just... weak."
+            "feedback_correct": "Confirmed. Ferritin depletes before Hgb falls — most sensitive marker. In iron deficiency: ferritin low, serum iron low, TIBC high.",
+            "pt_remark_correct": "So the numbers will prove it. That something is actually wrong. That I wasn't just weak.",
+            "fennick_correct_comment": "\"Ferritin is an acute phase reactant — it can be falsely normal in inflammation. At Hgb 7.4 with this history, you will not find a false normal. Check it.\""
           },
           {
             "text": "TSH and free T4",
@@ -1759,14 +1856,15 @@
             "text": "Oral ferrous sulfate 325mg TID with vitamin C",
             "sub": "First-line iron replacement",
             "correct": true,
-            "feedback_correct": "Correct. Oral ferrous sulfate with vitamin C is first-line.",
+            "feedback_correct": "Correct. Ferrous sulfate with vitamin C. Hgb 7.4, haemodynamically stable — oral iron is appropriate. Transfusion threshold in stable patients is below 7.0.",
             "fennick_speech": [
               "\"Stop. Before you write that prescription — look at her.\"",
               "\"The dry riverbed of her veins is about to receive rain for the first time in months. The iron will flow back. The red will return — slowly, not all at once, but it will return.\"",
               "\"In a week her reticulocytes will surge. In four weeks her Hgb will climb. And somewhere around week six... she will reach for a needle without thinking about it. Not because she decided to. Because her hands will remember before she does.\"",
               "\"We did not treat depression today. We returned the thread to the woman who makes beautiful things.\""
             ],
-            "pt_remark_correct": "Iron. Red. I used to know what that felt like."
+            "pt_remark_correct": "Iron. Red. I used to know what that felt like.",
+            "fennick_correct_comment": "\"Vitamin C reduces ferric to ferrous iron in the gut — meaningfully increases absorption. It is not optional.\""
           },
           {
             "text": "IV iron infusion — urgent",
@@ -1787,7 +1885,10 @@
             "sub": "Treat the depression first",
             "correct": false,
             "feedback_wrong": "There is no depression to treat. The sadness, the anhedonia, the fog — all manifestations of severe anaemia. Increasing her sertraline will do precisely nothing.",
-            "pt_remark_wrong": "More sertraline. I knew you'd say more sertraline."
+            "pt_remark_wrong": "More sertraline. I knew you'd say more sertraline.",
+            "feedback_correct": "There is no depression to treat. Sadness, anhedonia, cognitive fog — all downstream of Hgb 7.4. Iron will lift the mood within weeks.",
+            "fennick_correct_comment": "\"Eight weeks of sertraline already tried. Already failed. What does a higher dose accomplish.\"",
+            "pt_remark_correct": "More sertraline. I knew you would say more sertraline."
           }
         ]
       },
@@ -1799,8 +1900,9 @@
             "text": "Refer to gynaecology for heavy menstrual bleeding",
             "sub": "Investigate and treat the source",
             "correct": true,
-            "feedback_correct": "Correct. Heavy menstrual bleeding is the most common cause of iron deficiency anaemia in premenopausal women — and she has been losing blood every cycle for years without anyone asking about it. Gynaecology referral for workup. You are not just treating a number. You are treating a person who has been quietly bleeding out.",
-            "pt_remark_correct": "Someone is finally going to ask about it. In six years, no one has ever asked about it."
+            "feedback_correct": "Correct. Heavy menstrual bleeding is the most common cause of IDA in premenopausal women. She has been losing blood every cycle for years without anyone asking. Gynaecology is not optional.",
+            "pt_remark_correct": "Someone is finally going to ask about it. In six years, no one has ever asked about it.",
+            "fennick_correct_comment": "\"Oral iron without gynaecology referral means she is back here in six months with the same haemoglobin.\""
           },
           {
             "text": "Dietary counselling only",
