@@ -1820,9 +1820,11 @@ async function loadData() {
     const now = new Date();
     const ym = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
     const casesRes = await fetch(ym + 'cases.json');
-    const remarksRes = await fetch(ym + 'remarks.json').catch(()=>null);
     let remarksData = {};
-    if(remarksRes && remarksRes.ok) remarksData = await remarksRes.json();
+    try {
+      const remarksRes = await fetch(ym + 'remarks.json');
+      if(remarksRes.ok) remarksData = await remarksRes.json();
+    } catch(e) { console.warn('remarks.json not loaded:', e); }
     if(casesRes.ok) {
       const casesData = await casesRes.json();
       if(Array.isArray(casesData) && casesData.length > 0) {
