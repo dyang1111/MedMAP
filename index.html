@@ -1834,7 +1834,8 @@ function initCase(){ _fennickLocked = false;
   }
 
   clearMgmtSelections();
-  setFennick('chart', `"A new case has arrived. Take your time — but not too much of it."`); setTimeout(()=>setFennick('default',''), 2800);
+  const _opening = currentCase.fennick_opening || '"A new case has arrived. Take your time — but not too much of it."';
+  setFennick('chart', _opening); setTimeout(()=>setFennick('default',''), 2800);
   renderChart();
   renderLabsGrid();
   renderManagement();
