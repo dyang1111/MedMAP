@@ -232,7 +232,8 @@
       "treatment": "Levodopa/Carbidopa (gold standard). MAO-B inhibitors (selegiline, rasagiline) for mild disease. Dopamine agonists (pramipexole, ropinirole). NEVER give dopamine blockers (haloperidol, metoclopramide) — catastrophic worsening."
     },
     "patient_quote_addl_hx": "\"The right hand first. Then the left began. I kept telling myself it was fatigue from the mechanisms — the fine work. But I know my hands. These are not tired hands. These are broken ones.\"",
-    "fennick_opening": "\"The tremor started a year ago. She adjusted her life around it before she came here.\""
+    "fennick_opening": "\"The tremor started a year ago. She adjusted her life around it before she came here.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "002",
@@ -467,7 +468,8 @@
       "treatment": "Extensive stage: Carboplatin + Etoposide + Atezolizumab (IMpower133). Limited stage: concurrent chemoradiation + prophylactic cranial irradiation. Surgery: no role in extensive stage. Highly chemo-sensitive initially but relapses almost universally."
     },
     "patient_quote_addl_hx": "\"I've crossed the Ashgate lowlands in a broken cart with a fever and kept moving. I don't come to doctors. My wife packed my bag. I didn't even know she'd done it until she handed it to me at the door.\"",
-    "fennick_opening": "\"He did not come on his own. Remember that.\""
+    "fennick_opening": "\"He did not come on his own. Remember that.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "003",
@@ -702,7 +704,8 @@
       "treatment": "Native valve Strep viridans: IV Penicillin G or Ceftriaxone x4 weeks. S. aureus: IV Nafcillin (MSSA) or Vancomycin (MRSA) x6 weeks. Surgery indications: heart failure, abscess, uncontrolled infection, recurrent emboli despite antibiotics."
     },
     "patient_quote_addl_hx": "\"I actually looked up my symptoms last week. I thought maybe it was just a virus going around the construction site. My wife said I should come in sooner. I kept saying it wasn't a big deal. Is it a big deal?\"",
-    "fennick_opening": "\"He has a chart. He brought it himself. Read it.\""
+    "fennick_opening": "\"He has a chart. He brought it himself. Read it.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "004",
@@ -928,7 +931,8 @@
     },
     "explanation": "Pheochromocytoma is a catecholamine-secreting tumor of the adrenal medulla (or extra-adrenal paraganglia). The classic triad is episodic headache, sweating, and palpitations. Key: paroxysmal hypertension triggered by exertion, bending, or stress. Diagnose with plasma free metanephrines (most sensitive). Image with CT/MRI. Treat with alpha-blockade first (phenoxybenzamine), then beta-blockade, then surgery. Never biopsy. Never beta-block first.",
     "patient_quote_addl_hx": "\"I've been in three campaigns. I don't get dizzy. I don't collapse. What happened this morning was — I was simply fatigued from the night exercise. My aide is prone to exaggeration. I'm here as a courtesy.\"",
-    "fennick_opening": "\"His aide is more alarmed than he is. That is the data point.\""
+    "fennick_opening": "\"His aide is more alarmed than he is. That is the data point.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "005",
@@ -1154,7 +1158,8 @@
       "plan": "100% O2 via non-rebreather mask, admit for cardiac monitoring, hyperbaric oxygen therapy (COHb >25% with neurological symptoms), serial troponins, neurology follow-up for delayed sequelae, mandatory reporting and evacuation of furnace hall"
     },
     "explanation": "Carbon monoxide binds hemoglobin with 250x the affinity of oxygen, forming carboxyhemoglobin (COHb) and preventing oxygen delivery. Key: SpO2 is falsely normal — it cannot distinguish COHb from OHb. Classic presentation: headache/nausea/confusion worse at work, better on days off, multiple people affected. Treatment: 100% O2 via NRB (half-life 60-90 min vs 5hr on room air). HBO if COHb >25%, neuro symptoms, cardiac involvement, pregnancy.",
-    "fennick_opening": "\"He apologized before he sat down. That is the first thing you should write.\""
+    "fennick_opening": "\"He apologized before he sat down. That is the first thing you should write.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "006",
@@ -1380,7 +1385,8 @@
       "plan": "needle aspiration or small-bore chest tube, supplemental O2, admit for observation and repeat CXR, thoracic surgery consult for VATS pleurodesis, Marfan syndrome assessment"
     },
     "explanation": "Primary spontaneous pneumothorax (PSP) occurs in tall, thin young men without underlying lung disease — subpleural blebs rupture at the apex. Recurrence after first episode ~30%, after second >80%. Treat first episode: aspiration or small-bore chest tube. Second ipsilateral episode: VATS bullectomy + pleurodesis. Always rule out Marfan syndrome in young patients with recurrent PSP.",
-    "fennick_opening": "\"Second time. Same side. He ignored the first.\""
+    "fennick_opening": "\"Second time. Same side. He ignored the first.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "007",
@@ -1606,7 +1612,8 @@
       "plan": "IV benzodiazepines for agitation, urinary catheterization, active cooling, continuous telemetry for QT monitoring, IV magnesium on standby, physostigmine if refractory agitation or hemodynamic compromise, toxicology consult, admit for 24-48hr monitoring"
     },
     "explanation": "Anticholinergic toxidrome: dry as a bone (anhidrosis), blind as a bat (mydriasis), red as a beet (flushing), hot as a hare (hyperthermia), mad as a hatter (delirium). Caused by muscarinic blockade — atropine, scopolamine, belladonna, jimsonweed, diphenhydramine. Antidote: physostigmine (crosses BBB). Never give atropine. Never give haloperidol. Distinguish from sympathomimetic (also hot/tachy/agitated but DIAPHORETIC — key difference).",
-    "fennick_opening": "\"She knows exactly what happened. She told you before you asked.\""
+    "fennick_opening": "\"She knows exactly what happened. She told you before you asked.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "008",
@@ -1885,292 +1892,8 @@
       "lab_buzzwords": "Low Hgb, low MCV (<80), low MCH, high RDW, low ferritin (most sensitive), low serum iron, high TIBC. Peripheral smear: pencil cells, target cells, hypochromic microcytic RBCs.",
       "treatment": "Oral ferrous sulfate 325mg TID with vitamin C (enhances absorption). Take on empty stomach if tolerated. Reticulocytosis in 5-10 days, Hgb normalises in 4-8 weeks. Continue 3-6 months after normalisation to replete stores. Treat underlying cause."
     },
-    "fennick_opening": "\"Her supervisor noticed before she did. Think about that.\""
-  },
-  {
-    "id": "009",
-    "date": "2026-04-14",
-    "tier": 3,
-    "urgency": "urgent",
-    "title": "The Pianist's Hands",
-    "dx_answer": "Vitamin B12 Deficiency",
-    "patient": {
-      "name": "The Pianist",
-      "age": 71,
-      "sex": "M",
-      "occupation": "Retired Concert Pianist, Conservatory Instructor",
-      "image_url": ""
-    },
-    "chart": {
-      "cc": "Something is wrong with my hands. I thought it was age. I've been telling myself that for eight months.",
-      "hpi": "Maestro Voss arrived alone. He was the principal pianist of the Ferrovane Meridian Concert Hall for thirty-one years. He has been teaching at the Conservatory since his retirement four years ago. Over eight months, sensation in his fingertips has been fading. He noticed it first in his right index finger during a lesson — a student asked why he wasn't demonstrating the passage and he realized he could not feel which key he was pressing. He has told no one. The numbness has moved into his feet. He fell crossing the stage last Tuesday. His students saw. He is here because a colleague insisted.",
-      "pmh": "Mild dyspepsia for several years. Consulted a guild physician eight months ago — was given a diagnosis he does not fully understand and sent home.",
-      "psh": "None.",
-      "meds": "None prescribed. Occasional antacid for dyspepsia.",
-      "allergies": "NKDA.",
-      "fh": "Mother: thyroid disease. No known neurological family history.",
-      "sh": "Retired concert pianist. Teaches at the Ferrovane Conservatory, three mornings per week. Lives alone in a flat above the Meridian Concert Hall. Strict vegetarian for thirty-two years — ethical conviction. Does not drink. Does not smoke."
-    },
-    "vitals": {
-      "bp": "138/82",
-      "hr": "78",
-      "rr": "14",
-      "temp": "36.9",
-      "o2": "97% RA"
-    },
-    "cc_after_addl_hx": "She always sat in the third row, center. Every performance, thirty-one years. I still set a place at the table. I know it's foolish.",
-    "cc_after_pe": "The tuning fork. I know what you're checking. I tried it on my piano last week. I pressed it to the case and felt nothing. I've felt that resonance every day for fifty years.",
-    "cc_after_imaging": "The spine. I thought it was my hands. But it goes deeper than the hands, doesn't it.",
-    "cc_after_hint": "Just tell me — is there time. Is there still time to fix this.",
-    "cc_after_dx": "Pernicious. That is the word. All these months and it has a name. And it was... taking me apart. From the inside. Without telling me.",
-    "fennick_after_addl_hx": "\"Forty-seven years of music. And his body has been quietly dismantling the mechanism that lets him feel it. Not age. Look at what the stomach is telling you.\"",
-    "fennick_after_pe": "\"Upper and lower motor neuron signs in the same patient. Two different tracts. One cord. Think about what process does that — and think about what the blood is telling you simultaneously.\"",
-    "fennick_after_imaging": "\"Posterior and lateral. Both. Not a compressive lesion. Not demyelinating plaques. Symmetric, bilateral, continuous from cervical to thoracic. The distribution is the diagnosis if you know what you're looking at.\"",
-    "additional_hx": "He answers carefully, the way someone does when they have been practicing composure. The numbness began in his right index finger eight months ago — he is certain of the date because he was mid-lesson when a student asked why he wasn't demonstrating the passage. He realized he could not feel which key he was pressing. He has told no one. The numbness now extends to all fingers bilaterally, to the mid-forearm, and in his feet to the ankle. He stumbles on uneven ground and holds the wall on stairs. He has had intermittent dyspepsia for several years — early satiety, mild bloating — never investigated because he assumed it was dietary. He has been a strict vegetarian for thirty-two years. His wife died four years ago. He stopped performing the week she was diagnosed. He has never said aloud that the music feels different now — that he can hear everything but feel almost nothing under his hands.",
-    "patient_quote_addl_hx": "\"There is a Bösendorfer in my flat. I play every morning. I can hear when it is right. But I cannot feel the difference between the keys anymore — not really. I know the fingering. I know the sound. But the... the conversation between my hands and the instrument. It has gone quiet.\"",
-    "pe_findings": "General: Thin, quietly composed. Mild pallor. Faint icteric tinge to sclerae. Tongue smooth and pale at lateral edges. Neurological: Vibration perception: absent bilaterally at ankles, absent at wrists, absent to knee on the right. Position sense: markedly impaired at the toes bilaterally, impaired at fingers. Unable to maintain balance with eyes closed — falls to the right. Gait: wide-based, stamping quality, markedly worsened with eyes closed. Patellar reflexes: brisk, 3+ bilaterally. Ankle reflexes: absent bilaterally. Plantar responses: upgoing bilaterally. Upper limbs: reduced light touch in a distal-to-proximal gradient. Fine motor: cannot perform finger opposition sequence accurately with eyes closed.",
-    "imaging": "MRI Spine (cervical and thoracic, T2): Bilateral symmetric increased T2 signal involving the posterior aspect and lateral aspect of the cord — present at cervical and upper thoracic levels, continuous. Axial cross-sections show a characteristic symmetric posterior signal pattern. No compressive lesion. No disc herniation. No cord atrophy. No enhancing lesion on post-contrast sequences.",
-    "special_test": {
-      "name": "Serum B12 + Anti-Intrinsic Factor Antibodies",
-      "result": "Serum B12: 68 pmol/L (reference 150–700). Methylmalonic acid: markedly elevated. Homocysteine: markedly elevated. Anti-intrinsic factor antibodies: POSITIVE. Anti-parietal cell antibodies: POSITIVE. Serum gastrin: elevated."
-    },
-    "memory_fragments": {
-      "cbc": "His handwriting was famous at the Conservatory — perfect notation, the stems exactly the right length, dynamics marked with absolute precision. His students kept his annotated scores. He has not written a note in four months.",
-      "pe_vibration": "He pressed a tuning fork to the case of the Bösendorfer last week. He has done this every morning for fifty years — felt the resonance travel through the wood into his palm, the way it used to travel from the keys up through the hammers into the strings. He felt nothing. He stood at the piano for a long time after that.",
-      "mri": "The posterior columns carry sensation upward. The lateral columns carry the command to move. Both are fraying — like strings losing their tension one by one, silently, in the dark of a closed piano."
-    },
-    "tests": [
-      {
-        "name": "CBC",
-        "cost": 5,
-        "result": "Hgb 9.8 g/dL. MCV 114 fL. Hypersegmented neutrophils on peripheral smear. WBC 4.2. Platelets 138.",
-        "memory_fragment": "His handwriting was famous at the Conservatory — perfect notation, the stems exactly the right length, dynamics marked with absolute precision. His students kept his annotated scores. He has not written a note in four months."
-      },
-      {
-        "name": "CMP",
-        "cost": 5,
-        "result": "LDH elevated (intravascular hemolysis from megaloblastic destruction). Indirect bilirubin mildly elevated. Creatinine 1.0. LFTs normal. No metabolic cause for neuropathy."
-      },
-      {
-        "name": "EKG",
-        "cost": 5,
-        "result": "Normal sinus rhythm. No ischemic changes. Not directly contributory."
-      },
-      {
-        "name": "Troponin",
-        "cost": 5,
-        "result": "Negative. No cardiac injury."
-      },
-      {
-        "name": "Lipase",
-        "cost": 5,
-        "result": "Normal."
-      },
-      {
-        "name": "UA",
-        "cost": 5,
-        "result": "Normal. No protein, no casts. No diabetic nephropathy pattern."
-      },
-      {
-        "name": "ABG/VBG",
-        "cost": 5,
-        "result": "Normal. pO2 96, pH 7.41. Anaemia is compensated."
-      },
-      {
-        "name": "Coags",
-        "cost": 5,
-        "result": "Normal. No coagulopathy."
-      }
-    ],
-    "hints": [
-      "Upper motor neuron signs and lower motor neuron signs in the same patient. Hyperreflexia at the knees, absent ankle jerks, upgoing plantars. A central process affecting two different tracts simultaneously. The MRI tells you exactly where.",
-      "The MCV is 114. The smear has hypersegmented neutrophils. He is a strict vegetarian of 32 years with autoimmune markers in his bloodwork and elevated gastrin. These are not separate facts.",
-      "He has been treating dyspepsia with antacids for years. His gastrin is elevated, his parietal cell antibodies are positive, and his serum B12 is 68. The stomach is the beginning of this story, not the nervous system.",
-      "Folate deficiency produces the same blood picture. Treating it corrects the anaemia and makes everything look better — while the cord continues to deteriorate silently. The choice of what to treat first, and how to give it, is the whole case."
-    ],
-    "management": [
-      {
-        "title": "Confirm the diagnosis biochemically",
-        "hint": "The MRI and clinical picture strongly suggest B12 deficiency. What confirms it — and distinguishes pernicious anemia from dietary deficiency?",
-        "options": [
-          {
-            "text": "Serum B12, methylmalonic acid, homocysteine, anti-intrinsic factor antibodies",
-            "sub": "Full B12 deficiency workup",
-            "correct": true,
-            "feedback_correct": "Correct. Serum B12 alone can be falsely normal in early or masked deficiency. Methylmalonic acid and homocysteine are the functional markers — both elevated when B12 is truly depleted at the cellular level. The antibody results will determine the mechanism and dictate the route of treatment.",
-            "pt_remark_correct": "So there is a test. There is something in the blood that will say what is wrong. After eight months of nothing."
-          },
-          {
-            "text": "TSH and free T4 only",
-            "sub": "Thyroid screen",
-            "correct": false,
-            "feedback_wrong": "Thyroid disease can cause neuropathy but does not explain posterior column signs, macrocytic anaemia, or an inverted V on spinal MRI. You have a much more specific picture in front of you.",
-            "pt_remark_wrong": "The thyroid. My mother had that. Is that — is that what this is?"
-          },
-          {
-            "text": "Nerve conduction studies only",
-            "sub": "EMG/NCS",
-            "correct": false,
-            "feedback_wrong": "NCS will confirm peripheral neuropathy but cannot diagnose the cause or detect the posterior column involvement. You already have the MRI. Follow the biochemistry.",
-            "pt_remark_wrong": "More tests on the nerves. I've had those. They told me peripheral neuropathy. Just peripheral neuropathy."
-          },
-          {
-            "text": "HbA1c to rule out diabetic neuropathy",
-            "sub": "Diabetes screen",
-            "correct": false,
-            "feedback_wrong": "Diabetic neuropathy is peripheral only — it does not cause posterior column signs, Babinski, or MRI cord signal change. And he has macrocytic, not normocytic anaemia.",
-            "pt_remark_wrong": "Diabetes. I've never had sugar problems. I've been careful my whole life."
-          }
-        ]
-      },
-      {
-        "title": "First-line treatment",
-        "hint": "B12 critically low, pernicious anemia confirmed, active cord demyelination. What is the correct route and why?",
-        "options": [
-          {
-            "text": "IM hydroxocobalamin — loading doses then lifelong maintenance",
-            "sub": "Intramuscular B12 — bypasses absent intrinsic factor",
-            "correct": true,
-            "feedback_correct": "Correct. The antibody profile tells you the mechanism — parietal cell destruction, absent intrinsic factor. Oral supplementation will not be absorbed regardless of dose. The only route that works is intramuscular. Loading doses then lifelong maintenance.",
-            "fennick_speech": [
-              "\"Before you give the injection — understand what you are giving back.\"",
-              "\"The central lesions — the cord signal you saw on imaging — some of that has been dark too long. That will not fully return.\"",
-              "\"But the peripheral nerves regenerate. In six weeks his fingertips will begin to feel the keys again. Not perfectly. Enough.\"",
-              "\"That is what this is. Not a cure. The return of sensation to a man who has been playing music he could no longer feel.\""
-            ],
-            "pt_remark_correct": "A needle. Every week. I can do that. I have been waiting eight months for something to do."
-          },
-          {
-            "text": "High-dose oral B12 supplementation",
-            "sub": "Cyanocobalamin 1000mcg daily orally",
-            "correct": false,
-            "feedback_wrong": "He cannot absorb oral B12. The route matters as much as the drug. You have the antibody results. Act on them.",
-            "pt_remark_wrong": "Pills. I've already tried changing my diet. I've been eating carefully my whole life."
-          },
-          {
-            "text": "Folate 5mg daily",
-            "sub": "Treat the macrocytic anaemia",
-            "correct": false,
-            "feedback_wrong": "This corrects the blood count. It does not address the cord. And once the anaemia improves the picture looks better — while below the surface, nothing has changed. This is the trap.",
-            "pt_remark_wrong": "A vitamin. You think this is a vitamin deficiency?"
-          },
-          {
-            "text": "Thiamine IM",
-            "sub": "Wernicke protocol",
-            "correct": false,
-            "feedback_wrong": "Thiamine is for Wernicke encephalopathy — confusion, ophthalmoplegia, ataxia in an alcoholic or malnourished patient. He is none of those things and the MRI shows posterior and lateral column signal, not mammillary body involvement.",
-            "pt_remark_wrong": "I don't drink. I've never drunk."
-          }
-        ]
-      },
-      {
-        "title": "Investigate for associated conditions",
-        "hint": "Pernicious anemia is an autoimmune condition. Autoimmune gastritis carries a specific long-term risk. What do you screen for?",
-        "options": [
-          {
-            "text": "Upper endoscopy with gastric biopsy",
-            "sub": "Screen for gastric atrophy and gastric cancer",
-            "correct": true,
-            "feedback_correct": "Correct. Autoimmune gastritis causes chronic atrophic gastritis which carries a 3–6x increased risk of gastric carcinoid tumours and adenocarcinoma. Upper endoscopy at diagnosis is standard. Also assess for H. pylori.",
-            "pt_remark_correct": "A camera. Down the throat. I understand. Whatever it takes."
-          },
-          {
-            "text": "CT chest only",
-            "sub": "Lung cancer screen",
-            "correct": false,
-            "feedback_wrong": "Lung cancer is not the associated risk here. The autoimmune gastritis that causes pernicious anemia increases gastric cancer risk specifically. The correct investigation is upper endoscopy.",
-            "pt_remark_wrong": "The lungs. I don't smoke. I've never smoked."
-          },
-          {
-            "text": "No further workup — treat and discharge",
-            "sub": "B12 replacement is sufficient",
-            "correct": false,
-            "feedback_wrong": "Pernicious anemia is not just a B12 problem — it is a marker of autoimmune gastritis with ongoing malignancy risk. Sending him home without endoscopic surveillance is incomplete medicine.",
-            "pt_remark_wrong": "So that's it then. Just the injection and I go."
-          },
-          {
-            "text": "Colonoscopy",
-            "sub": "Colorectal cancer screen",
-            "correct": false,
-            "feedback_wrong": "Colonoscopy is standard cancer screening for his age but is not the specific concern here. The gastric risk from autoimmune gastritis takes priority.",
-            "pt_remark_wrong": "The bowel. Is this about the bowel."
-          }
-        ]
-      },
-      {
-        "title": "Disposition and prognosis",
-        "hint": "Stable patient, diagnosis confirmed, treatment started. What does he need to know and where does he go?",
-        "options": [
-          {
-            "text": "Discharge — lifelong IM B12, neurology follow-up, physiotherapy, honest prognosis",
-            "sub": "Outpatient with appropriate counselling",
-            "correct": true,
-            "feedback_correct": "Correct. He is medically stable. He needs to understand: neurological recovery is partial and slow. The longest-demyelinated axons will not fully recover. But sensation in the fingertips — the peripheral nerves — will regenerate meaningfully over 6–12 weeks. Tell him the truth. He is a man who has been living with uncertainty for eight months. He can handle the truth.",
-            "pt_remark_correct": "Six weeks. I'll count them. There is sheet music on the stand. I haven't touched it in four months."
-          },
-          {
-            "text": "Admit for IV B12 loading",
-            "sub": "Inpatient B12 therapy",
-            "correct": false,
-            "feedback_wrong": "IV B12 is not standard and confers no benefit over IM in a stable patient. He is haemodynamically stable and neurologically compensated. Outpatient IM loading is appropriate.",
-            "pt_remark_wrong": "Admitted. To a ward. For how long."
-          },
-          {
-            "text": "Discharge with oral B12 and outpatient follow-up",
-            "sub": "Oral route",
-            "correct": false,
-            "feedback_wrong": "He has pernicious anemia. Oral B12 will not be absorbed. You have already established this.",
-            "pt_remark_wrong": "I'll take whatever you say. I just want to feel the keys again."
-          },
-          {
-            "text": "Refer to psychiatry for grief counselling",
-            "sub": "Address the underlying emotional state",
-            "correct": false,
-            "feedback_wrong": "He is grieving, yes. And he deserves support for that separately. But his neurological decline is not grief. Referring him to psychiatry without completing medical management abandons him at the moment he finally has an answer.",
-            "pt_remark_wrong": "A psychiatrist. You think this is in my head."
-          }
-        ]
-      }
-    ],
-    "fennick_case_complete": [
-      "\"Put the chart down, Eddie.\"",
-      "\"He came in here believing his hands had simply finished. Eight months of that. Eight months of performing in front of students and feeling nothing under his fingers and telling himself this was what ending felt like.\"",
-      "\"It wasn't ending. It was a protein his stomach stopped making years ago — quietly, without symptoms he would have noticed — and the nervous system paid the debt one axon at a time.\"",
-      "\"The posterior columns will not fully heal. Some of what was lost is gone. But the fingertips will come back. In six weeks he will press a key and feel it.\"",
-      "\"He will go back to that hall. He will sit at the piano. And for the first time in four years, he will play for her and actually feel every note.\""
-    ],
-    "tier3_background_url": "",
-    "tier3_silhouette_description": "An old man seated at a grand piano in an empty concert hall, back to us, hands resting on the keys. Not playing. Just resting. On top of the piano: a framed photograph, barely visible in the amber light.",
-    "polaroid_success_url": "",
-    "polaroid_failure_url": "",
-    "polaroid_caption_success": "He played the Goldberg Variations on a Thursday afternoon in April. The hall was empty. He said she was there. He was probably right.",
-    "polaroid_caption_failure": "The piano remained closed. His students said he still came to teach. But he never played for them again.",
-    "report_template": {
-      "age": 71,
-      "sex": "M",
-      "pmh": "peripheral neuropathy previously attributed to aging, chronic dyspepsia, strict vegetarianism for 32 years",
-      "presenting": "eight months of progressive distal sensory loss, gait instability, and deterioration of fine motor function",
-      "pertinent_positives": {
-        "addl-hx": "right index finger numbness first — noticed during piano lesson, now bilateral glove-stocking neuropathy, falls on uneven ground, unable to feel key texture",
-        "pe": "absent vibration and proprioception bilaterally, positive Romberg, hyperreflexia at knees, absent ankle jerks, bilateral Babinski — classic subacute combined degeneration pattern",
-        "labs": "Hgb 9.8 macrocytic MCV 114 with hypersegmented neutrophils, elevated MMA and homocysteine, serum B12 critically low at 68 pmol/L",
-        "imaging": "MRI spine with bilateral T2 hyperintensity in posterior and lateral columns — inverted V sign on axial imaging",
-        "special": "anti-intrinsic factor antibodies positive and anti-parietal cell antibodies positive — confirming pernicious anemia as the aetiology"
-      },
-      "assessment": "Vitamin B12 Deficiency secondary to Pernicious Anemia, complicated by subacute combined degeneration of the spinal cord",
-      "plan": "IM hydroxocobalamin loading then lifelong maintenance, upper endoscopy for gastric cancer surveillance, neurology follow-up, physiotherapy, counselling regarding partial neurological recovery"
-    },
-    "explanation": "Vitamin B12 deficiency from pernicious anemia causes subacute combined degeneration — demyelination of the posterior columns (vibration, proprioception) and lateral columns (corticospinal tract), producing a mixed UMN/LMN picture. The inverted V on MRI is pathognomonic. Treatment requires IM B12 — oral B12 is useless without intrinsic factor. Folate alone is dangerous — it corrects the anaemia while cord demyelination continues silently.",
-    "explanation_detail": {
-      "who_gets_it": "Elderly patients, strict vegans/vegetarians, patients with autoimmune gastritis (pernicious anemia), postgastrectomy, metformin use (reduces B12 absorption).",
-      "risk_factors": "Pernicious anemia (most common in elderly), strict vegan diet without supplementation, gastric surgery, Crohn's disease affecting terminal ileum, metformin long-term.",
-      "typical_presentation": "Subacute combined degeneration: posterior column (vibration, proprioception loss, positive Romberg, ataxia) + lateral column (hyperreflexia, Babinski) + peripheral neuropathy (absent ankle jerks). Megaloblastic anaemia: high MCV, hypersegmented neutrophils. Neuropsychiatric: cognitive slowing, depression.",
-      "moa": "B12 essential for myelin synthesis and DNA replication. Deficiency → impaired methylation → demyelination of posterior and lateral spinal columns. Pernicious anemia: autoimmune destruction of parietal cells → absent intrinsic factor → B12 malabsorption regardless of dietary intake.",
-      "step1_buzzwords": "Subacute combined degeneration, inverted V sign MRI, macrocytic anaemia, hypersegmented neutrophils, anti-intrinsic factor antibodies, absent vibration + hyperreflexia + Babinski, MMA elevated.",
-      "lab_buzzwords": "Low B12, high MCV, high MMA (most sensitive), high homocysteine, positive anti-intrinsic factor antibodies (specific for pernicious anemia), hypersegmented neutrophils on smear.",
-      "treatment": "IM hydroxocobalamin — bypass absent intrinsic factor. NEVER oral in pernicious anemia. NEVER folate alone (masks anaemia, cord continues to demyelinate). Loading: daily IM x1 week, then every 3 months lifelong. Neurological recovery: partial — peripheral nerves regenerate, central lesions may be permanent."
-    },
-    "fennick_opening": "\"He has not performed in four years. His hands have not stopped.\""
+    "fennick_opening": "\"Her supervisor noticed before she did. Think about that.\"",
+    "music_default": "Foxfire at Midnight"
   },
   {
     "id": "010",
@@ -2192,7 +1915,7 @@
     },
     "chart": {
       "cc": "My student brought me. I told her I was fine. I am not sure what fine means anymore.",
-      "hpi": "Maestro Driscoll was brought in by his student, Mira. His wife died seven months ago. He lives alone. Mira visits three times a week — she finds him at the piano, playing. Always the same piece. On good days he is entirely himself. On bad days he asks where Elise is. He has fallen twice this month. He has been sleeping in the armchair. Mira found him on the floor Thursday morning. He told her he had been performing.",
+      "hpi": "he was brought in by his student, his student. His wife died seven months ago. He lives alone. his student visits three times a week — she finds him at the piano, playing. Always the same piece. On good days he is entirely himself. On bad days he asks where his wife is. He has fallen twice this month. He has been sleeping in the armchair. his student found him on the floor Thursday morning. He told her he had been performing.",
       "pmh": "Hypertension — well controlled. No prior neurological history. No diabetes.",
       "psh": "None.",
       "meds": "Amlodipine 5mg daily.",
@@ -2215,7 +1938,7 @@
     "fennick_after_addl_hx": "\"Good days and bad days. Not a steady slope. That pattern is not arbitrary.\"",
     "fennick_after_pe": "\"Upper motor. Lower motor. Both. In the same patient. The cord is not the problem.\"",
     "fennick_after_imaging": "\"Posterior cortex. DaTscan. You have two pieces. Put them together.\"",
-    "additional_hx": "He corrects one detail immediately: he did not fall on Thursday. He was performing. He makes this distinction seriously. He describes some days as completely clear — last Monday he caught a fingering error in Mira's Scarlatti. Other days the flat feels unfamiliar. Visitors take a moment to resolve. He mentions Elise once: 'She would have wanted me to keep playing.' No sadness. A fact. He has slept in the armchair for six weeks. The bed feels dangerous, he says, and cannot explain why. He woke with a bruised wrist two weeks ago. Doesn't know how. He mentions, as an afterthought, that sometimes when he plays there is someone watching. He considers this a good sign.",
+    "additional_hx": "He corrects one detail immediately: he did not fall on Thursday. He was performing. He makes this distinction seriously. He describes some days as completely clear — last Monday he caught a fingering error in his student's Scarlatti. Other days the flat feels unfamiliar. Visitors take a moment to resolve. He mentions his wife once: 'She would have wanted me to keep playing.' No sadness. A fact. He has slept in the armchair for six weeks. The bed feels dangerous, he says, and cannot explain why. He woke with a bruised wrist two weeks ago. Doesn't know how. He mentions, as an afterthought, that sometimes when he plays there is someone watching. He considers this a good sign.",
     "patient_quote_addl_hx": "\"I don't remember choosing the piece. I just play it.\"",
     "pe_findings": "Thin, upright. Mild masked facies, reduced blink rate. Cogwheel rigidity bilateral upper limbs, asymmetric R>L. Bradykinesia on finger tapping. Gait: stooped, reduced arm swing, short steps. Pull test: mildly positive. No resting tremor. MMSE 21/30 — orientation, recall, drawing. Clock drawing: severely impaired, posterior cortical pattern. Romberg negative. No focal weakness.",
     "imaging": "MRI Brain: Cortical atrophy, posterior predominant — parietal and occipital regions disproportionately affected. Mild hippocampal atrophy, less severe than expected for degree of cognitive impairment. No acute infarct. No mass lesion. No normal pressure hydrocephalus pattern. DaTscan (Dopamine Transporter Scan): Reduced dopamine transporter uptake in bilateral putamen and caudate — asymmetric, right greater than left. Markedly abnormal pattern.",
@@ -2285,7 +2008,7 @@
             "text": "Formal neuropsychological testing + polysomnography",
             "sub": "Characterize cognitive profile and confirm RBD",
             "correct": true,
-            "feedback_correct": "Correct. Neuropsychological testing characterizes the cognitive profile — posterior pattern, not hippocampal. Polysomnography confirms the sleep finding and makes it a diagnostic criterion, not just a symptom.",
+            "feedback_correct": "Correct. Neuropsychological testing confirms the posterior cortical pattern. Polysomnography confirms RBD as a diagnostic criterion.",
             "pt_remark_correct": "More tests. I don't mind tests. I mind not knowing.",
             "scene_trigger": null
           },
@@ -2318,7 +2041,7 @@
         "options": [
           {
             "text": "Rivastigmine — cholinesterase inhibitor, start low and titrate",
-            "sub": "First-line for cognitive symptoms",
+            "sub": "Cholinesterase inhibitor — start 1.5mg BID, titrate slowly",
             "correct": true,
             "feedback_correct": "Correct. Strongest cholinesterase inhibitor evidence in this diagnosis specifically. Start low, titrate with food. It does not stop the disease.",
             "pt_remark_correct": "A patch. I can do a patch. Mira will make sure I use it.",
@@ -2335,32 +2058,38 @@
                   "text": "Low-dose clonazepam or melatonin at night",
                   "sub": "Treat REM sleep behavior disorder",
                   "correct": true,
-                  "feedback_correct": "Correct. The nocturnal episodes are REM sleep behavior disorder — he is acting out his dreams without the normal muscle atonia. He is performing in his sleep. Low-dose clonazepam (0.25–0.5mg) or high-dose melatonin are first-line. Protect him from injury — bed rail, floor mattress, clear the space beside the bed.",
+                  "feedback_correct": "Correct. RBD — acting out dreams without muscle atonia. Low-dose clonazepam 0.25mg or melatonin at night. Clear the floor beside the bed.",
                   "pt_remark_correct": "I was performing. I was in the hall. She was in the third row. I was playing the right notes.",
-                  "scene_trigger": "mgmt_silhouette"
+                  "scene_trigger": "mgmt_silhouette",
+                  "fennick_speech": null,
+                  "fennick_correct_comment": "\"Clonazepam. The mechanism is GABA-A. It suppresses the brainstem circuit that is failing to hold the body still during REM. It will not slow the disease. It will stop him breaking his wrist.\""
                 },
                 {
                   "text": "Haloperidol 0.5mg at night for agitation",
                   "sub": "Typical antipsychotic — sedation",
                   "correct": false,
-                  "feedback_wrong": "This is one of the most dangerous errors you can make in this diagnosis. Typical antipsychotics — and many atypical ones — can precipitate a severe, potentially fatal neuroleptic sensitivity reaction: acute parkinsonism, impaired consciousness, autonomic instability. The sensitivity rate exceeds 50%. Never give haloperidol here. Never.",
-                  "pt_remark_wrong": "Something to make me sleep. Yes. I would like to sleep properly."
+                  "feedback_wrong": "Haloperidol blocks dopamine receptors. In this diagnosis the dopaminergic system is already compromised. The sensitivity reaction — rigidity, impaired consciousness, autonomic instability — occurs in over 50% of cases. It can be fatal.",
+                  "pt_remark_wrong": "Something to make me sleep. Yes. I would like to sleep properly.",
+                  "fennick_wrong_comment": "\"That drug has killed patients with this diagnosis. Never. Not even once.\""
                 },
                 {
                   "text": "Increase rivastigmine dose",
                   "sub": "Escalate cognition treatment",
                   "correct": false,
-                  "feedback_wrong": "The rivastigmine is working — escalating it does not address the nocturnal injury risk. These are separate mechanisms. Treat the RBD directly.",
-                  "pt_remark_wrong": "More of the same. Alright."
+                  "feedback_wrong": "The rivastigmine is working. These are separate mechanisms — cholinergic deficit and REM motor disinhibition. You cannot dose your way out of the second one.",
+                  "pt_remark_wrong": "More of the same. Alright.",
+                  "fennick_wrong_comment": "\"More of the same does not fix a different problem.\""
                 },
                 {
                   "text": "Zolpidem for sleep",
                   "sub": "Sedative-hypnotic",
                   "correct": false,
-                  "feedback_wrong": "Zolpidem worsens confusion and falls in elderly patients and does not suppress the REM motor activity causing injury. It sedates without treating the mechanism.",
-                  "pt_remark_wrong": "A sleeping pill. I've never taken those."
+                  "feedback_wrong": "Zolpidem sedates. It does not suppress REM motor activity. In an elderly patient with parkinsonism it increases fall risk. You are making the night more dangerous, not safer.",
+                  "pt_remark_wrong": "A sleeping pill. I've never taken those.",
+                  "fennick_wrong_comment": "\"Sedation is not sleep architecture. These are not the same thing.\""
                 }
-              ]
+              ],
+              "description": "Found on floor beside bed at 03:10 — arm extended, vocalizing. Second episode this week. Bruised right forearm."
             }
           },
           {
@@ -2394,7 +2123,7 @@
             "text": "Discharge with carer support, medication alert card, specialist follow-up, no typical antipsychotics in notes",
             "sub": "Safe discharge with appropriate safeguards",
             "correct": true,
-            "feedback_correct": "Correct. He needs support, not admission. The familiar environment is protective. The medication alert card is not optional — it follows him to every future emergency.",
+            "feedback_correct": "Correct. Stable enough to go home. Familiar environment is protective. The medication alert card follows him everywhere — no haloperidol, no typical antipsychotics.",
             "pt_remark_correct": "I want to go home. The piano is there. I need to finish the piece.",
             "scene_trigger": null
           },
@@ -2453,6 +2182,8 @@
     },
     "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png",
     "polaroid_success_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401074/poloarid_p9ovhf.png",
-    "fennick_opening": "\"He was brought in by someone else. Note that.\""
+    "fennick_opening": "\"He was brought in by someone else. Note that.\"",
+    "music_default": "Fox's Midnight Walk",
+    "music_tier3_scene2": "Soft Lights, Quiet Hearts"
   }
 ]
