@@ -654,11 +654,11 @@ body.tier-3 #pt-vignette {
 /* ── INK SPLATTER ── */
 #ink-splatter {
   position: absolute;
-  left: 50%;
-  top: -30px;
+  left: 70%;
+  top: -50px;
   transform: translateX(-50%) scale(0);
-  width: 180px;
-  height: 140px;
+  width: 360px;
+  height: 280px;
   background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776395438/_ink-removebg_deq3v6.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -668,10 +668,10 @@ body.tier-3 #pt-vignette {
   opacity: 0;
 }
 @keyframes inkSplat {
-  0%   { transform: translateX(-50%) scale(0.2); opacity: 0; }
-  25%  { transform: translateX(-50%) scale(1.15); opacity: 0.85; }
-  55%  { transform: translateX(-50%) scale(1.0);  opacity: 0.75; }
-  100% { transform: translateX(-50%) scale(1.05); opacity: 0; }
+  0%   { transform: translateX(-50%) scale(0.2) rotate(-5deg); opacity: 0; }
+  25%  { transform: translateX(-50%) scale(1.12) rotate(1deg); opacity: 0.88; }
+  55%  { transform: translateX(-50%) scale(1.0)  rotate(0deg); opacity: 0.78; }
+  100% { transform: translateX(-50%) scale(1.05) rotate(0deg); opacity: 0; }
 }
 
 /* ── LANTERN CURSOR ── */
