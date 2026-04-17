@@ -2170,8 +2170,8 @@
     "urgency": "urgent",
     "title": "The Morning Piece",
     "dx_answer": "Lewy Body Dementia",
-    "tier3_bg_url": "",
-    "tier3_silhouette_url": "",
+    "tier3_bg_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776400149/apr_14_bg1_ntcvjr.png",
+    "tier3_silhouette_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776400069/apr_14_bg2_bphbhq.png",
     "polaroid_caption_success": "On a Tuesday morning in May, he played the whole piece without stopping. His student said it was correct. Every note. She did not tell him that. She just listened.",
     "polaroid_caption_failure": "He played every morning until he didn't. The piece was always the same. No one ever learned its name.",
     "patient": {
@@ -2179,7 +2179,7 @@
       "age": 74,
       "sex": "M",
       "occupation": "Retired Concert Pianist",
-      "image_url": ""
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776399887/apr_14_ybmkbn.png"
     },
     "chart": {
       "cc": "My student brought me. I told her I was fine. I am not sure what fine means anymore.",
@@ -2444,6 +2444,8 @@
       "step1_buzzwords": "Fluctuating cognition, visual hallucinations (formed, detailed), parkinsonism, RBD, DaTscan positive, posterior cortical atrophy, neuroleptic sensitivity, rivastigmine.",
       "lab_buzzwords": "No specific blood marker. DaTscan: reduced uptake in putamen and caudate. PSG: REM without atonia. MRI: posterior > hippocampal atrophy (opposite of Alzheimer's).",
       "treatment": "Rivastigmine (strongest evidence of all dementias). Clonazepam or melatonin for RBD. Levodopa cautiously for motor symptoms. ABSOLUTE CONTRAINDICATION: typical antipsychotics, many atypicals (risperidone, olanzapine — high sensitivity risk). Quetiapine or clozapine if antipsychotic unavoidable."
-    }
+    },
+    "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png",
+    "polaroid_success_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401074/poloarid_p9ovhf.png"
   }
 ]
