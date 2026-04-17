@@ -1,0 +1,697 @@
+{
+  "001": {
+    "fennick_opening": "\"The tremor started a year ago. She adjusted her life around it before she came here.\"",
+    "cc_after_addl_hx": "The right hand first. Then the left. I kept telling myself it was the fine work. But I know my hands. These are not tired hands.",
+    "cc_after_pe": "Follow your finger, you said. I used to set the Grand Meridian tolerance to a tenth of a millimetre. I cannot follow your finger.",
+    "cc_after_imaging": "The machine is very loud. Is that — is that what my brain looks like. Is that normal.",
+    "cc_after_hint": "It is not depression. My husband thinks it is depression. It is not.",
+    "cc_after_dx": "So it has a name. My hands have a name for what they are doing.",
+    "fennick_after_addl_hx": "\"Fourteen months misdiagnosed. The SSRI doing nothing is not a treatment failure — it is a clue. Follow it.\"",
+    "fennick_after_pe": "\"Four cardinal features in one room. Do not complicate what is already clear.\"",
+    "fennick_after_imaging": "\"Standard MRI cannot visualize dopaminergic neurons. The imaging confirms nothing — the clinical picture already has.\"",
+    "patient_quote_addl_hx": "\"The right hand first. Then the left began. I kept telling myself it was fatigue from the mechanisms — the fine work. But I know my hands. These are not tired hands. These are broken ones.\"",
+    "management": [
+      [
+        {
+          "pt_remark_correct": "No emergency. Good. I have been waiting fourteen months — I can wait a little longer for the right answer.",
+          "pt_remark_wrong": "Stop it suddenly? After all this time? Won't that cause — I don't know — some kind of... rebound? My neighbour had a bad spell coming off hers."
+        },
+        {
+          "pt_remark_correct": "My husband is in the waiting room. Please don't say 'emergent' where he can hear you through the door."
+        },
+        {
+          "pt_remark_wrong": "My neighbour gets those injections after her falls. I haven't fallen. The shaking is in my fingers, not my balance."
+        },
+        {
+          "pt_remark_correct": "Not an emergency. Good. I'll tell my husband. He's been losing sleep since January — he keeps saying things like 'we should have come sooner.'"
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "The same tablet I've been on for eight months. The one that hasn't moved a single degree on any of this."
+        },
+        {
+          "pt_remark_correct": "Alright. If that's what's been missing from the system all along, then — yes. I'll take it.",
+          "fennick_correct_comment": "\"Levodopa is the precursor. Carbidopa blocks peripheral decarboxylation — without it, 95% converts before reaching the brain.\""
+        },
+        {
+          "pt_remark_correct": "Haloperidol. That is for psychosis. Isn't it.",
+          "pt_remark_wrong": "Isn't that what they give people when they're... you know. Hearing things. Seeing things. I'm not doing any of that.",
+          "fennick_correct_comment": "\"A D2 antagonist for a D2 deficiency. Think about what you just prescribed.\""
+        },
+        {
+          "pt_remark_wrong": "My husband takes that for his shaking. His tremor goes away when he concentrates on something. Mine doesn't. Surely they can't be the same drug."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "I'm sorry — a biopsy of my brain. To check for... protein deposits. While I'm still alive and sitting here."
+        },
+        {
+          "pt_remark_correct": "Someone who can help me work out a way to still do my job. I haven't told anyone — not even my husband — how much I miss it."
+        },
+        {
+          "pt_remark_wrong": "A needle in my spine. But the problem is my hands. I don't — I'm not following the connection."
+        },
+        {
+          "pt_remark_correct": "Someone who only sees this. Not a physician who looks at me and immediately says 'depression' and sends me home with sertraline."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Home. With something to try. That's honestly all I came here for."
+        },
+        {
+          "pt_remark_wrong": "Admitted just for the scan. My husband can't manage the house alone. He doesn't know where anything is."
+        },
+        {
+          "pt_remark_wrong": "Admitted for more tests. How long? He can manage three days. Maybe four if the neighbour helps."
+        },
+        {
+          "pt_remark_wrong": "Nothing. Just — monitor it. Watch my handwriting get smaller and smaller and do nothing."
+        }
+      ]
+    ]
+  },
+  "002": {
+    "fennick_opening": "\"He did not come on his own. Remember that.\"",
+    "cc_after_addl_hx": "My wife packed the bag. I didn't know until she handed it to me at the door. She does not do things without a reason.",
+    "cc_after_pe": "You want me to lift both arms. I'll tell you which one won't go all the way up.",
+    "cc_after_imaging": "A mass in the chest. Say it plainly. I prefer plainly.",
+    "cc_after_hint": "The collar has been wrong for six weeks. I thought it had shrunk in the wash.",
+    "cc_after_dx": "I see. How long have I had it.",
+    "fennick_after_addl_hx": "\"Face swells worse in the morning, worse bending forward. The anatomy of that pattern points to one structure. Find it.\"",
+    "fennick_after_pe": "\"Non-pulsatile neck veins. Venous collaterals flowing downward. The upper body is draining somewhere other than where it should be.\"",
+    "fennick_after_imaging": "\"80% SVC compression. The CT is confirming what the collar already knew. What is compressing it and why.\"",
+    "patient_quote_addl_hx": "\"I've crossed the Ashgate lowlands in a broken cart with a fever and kept moving. I don't come to doctors. My wife packed my bag. I didn't even know she'd done it until she handed it to me at the door.\"",
+    "management": [
+      [
+        {
+          "pt_remark_wrong": "You want to drain my face like a blocked canal. That's not how you fix a blocked canal. You clear the obstruction."
+        },
+        {
+          "pt_remark_correct": "Head up, a steroid to reduce the swelling. Fine. That at least addresses the actual problem.",
+          "fennick_correct_comment": "\"Dexamethasone gives temporal relief while you establish histology. The mass is still there. The compression is still there. This buys time.\""
+        },
+        {
+          "pt_remark_wrong": "You think something is blocking the flow, so you thin the blood. Without knowing whether the blockage is even a clot."
+        },
+        {
+          "pt_remark_wrong": "You want to put a device in my chest before you have a single biopsy result. No. Find what the cargo is before you redesign the warehouse."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "More salt into a body that's already holding too much water. My crew does that at sea when fresh water runs low. It makes things worse."
+        },
+        {
+          "pt_remark_correct": "Less fluid in. So the body stops diluting itself. Alright, that tracks.",
+          "fennick_correct_comment": "\"Urine osmolality higher than serum despite hyponatraemia. That is SIADH in two numbers. The kidneys are retaining water they should be excreting.\""
+        },
+        {
+          "pt_remark_correct": "Normal saline. That is just salt water. I've drunk saltwater before. It didn't help.",
+          "pt_remark_wrong": "Salt water into the vein. You're adding to the problem.",
+          "fennick_correct_comment": "\"Normal saline in SIADH. The sodium will be excreted. The water will be retained. The sodium will drop further.\""
+        },
+        {
+          "pt_remark_wrong": "A kidney hormone. You think this is an adrenal problem. How did you get from my face to my adrenal gland."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "A drug designed for a specific mutation in the tumour. You haven't tested for the mutation."
+        },
+        {
+          "pt_remark_wrong": "Local radiation. To one spot. When the CT showed it's already gone further than one spot."
+        },
+        {
+          "pt_remark_wrong": "You want to cut me open. For a six centimetre mass in my chest. With a vein compressed 80 percent. No."
+        },
+        {
+          "pt_remark_correct": "Chemotherapy and the immunotherapy together. The standard approach. Fine. I've run trade routes through worse conditions than a hospital ward."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "Come back in two weeks. With a face that looks like this and oxygen at 94."
+        },
+        {
+          "pt_remark_wrong": "The intensive care unit. For treatment that requires a tissue result you don't have yet."
+        },
+        {
+          "pt_remark_correct": "Admitted. Properly. With the biopsy and the plan done right. Yes."
+        },
+        {
+          "pt_remark_wrong": "Open surgery today. On a tumour with no histology, no staging, no plan."
+        }
+      ]
+    ]
+  },
+  "003": {
+    "fennick_opening": "\"He has a chart. He brought it himself. Read it.\"",
+    "cc_after_addl_hx": "I looked it up. I thought it was a site virus. I kept saying it wasn't a big deal. Is it a big deal.",
+    "cc_after_pe": "You're checking my eyes, my fingers, my palms. You're connecting things I thought were separate.",
+    "cc_after_imaging": "Something on the valve. 1.4 centimetres. My wife is going to ask me what that means.",
+    "cc_after_hint": "The heart. My wife said my eyes looked yellow. I didn't think those two were related.",
+    "cc_after_dx": "Endocarditis. From a routine cleaning. From a routine cleaning.",
+    "fennick_after_addl_hx": "\"Dental procedure, bicuspid valve, no prophylaxis, two weeks to onset. The question is what organism and what it has already done to that valve.\"",
+    "fennick_after_pe": "\"Osler nodes: immune complex, painful. Janeway lesions: septic emboli, painless. Both present together. And a new murmur. The valve is already involved.\"",
+    "fennick_after_imaging": "\"1.4 centimetres on the non-coronary cusp. And PR prolongation on the EKG. Think about what sits adjacent to that anatomy.\"",
+    "patient_quote_addl_hx": "\"I actually looked up my symptoms last week. I thought maybe it was just a virus going around the construction site. My wife said I should come in sooner. I kept saying it wasn't a big deal. Is it a big deal?\"",
+    "management": [
+      [
+        {
+          "pt_remark_wrong": "Go home on oral tablets. After what you just found on the scan and the echo. Is that — is the situation not more serious than that?"
+        },
+        {
+          "pt_remark_wrong": "Open the chest before you've even grown the cultures. You'd never break into a foundation wall before you'd read the structural report."
+        },
+        {
+          "pt_remark_correct": "Okay — a few extra minutes to get the samples first. Can someone tell my wife I'm alright? She's been in the waiting room for three hours.",
+          "fennick_correct_comment": "\"15 minutes to draw cultures. He is not in septic shock. Every hour of antibiotics before cultures reduces identification probability.\""
+        },
+        {
+          "pt_remark_wrong": "The antibiotic before the cultures. Doesn't that — doesn't that mean you won't know what you're treating anymore?",
+          "fennick_correct_comment": "\"You gave antibiotics before you knew what was growing. Now you may never know. That is 6 weeks of empiric therapy instead of targeted.\""
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "A different antibiotic. When the results said penicillin works perfectly well."
+        },
+        {
+          "pt_remark_wrong": "I thought I read somewhere that one doesn't reach the lungs properly. Is that not — does that not matter here."
+        },
+        {
+          "pt_remark_wrong": "The one I've been on for a week. The one that hasn't done anything."
+        },
+        {
+          "pt_remark_correct": "Four weeks. Whatever I need to take for four weeks, I'll take. My wife will make sure I don't miss a dose.",
+          "fennick_correct_comment": "\"Ceftriaxone has the advantage of once-daily dosing for outpatient completion. If he stabilizes, OPAT becomes possible — but not before the complications are addressed.\""
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Another scan through the throat. If that gives you a clearer picture of what's happening near the wiring — yes. Whatever you need.",
+          "fennick_correct_comment": "\"The AV node sits millimetres from the aortic root. An abscess extending there delays conduction. That is what the EKG is showing you.\""
+        },
+        {
+          "pt_remark_wrong": "The heartbeat change is nothing to worry about. With an active infection sitting on my valve."
+        },
+        {
+          "pt_remark_wrong": "Two more weeks of antibiotics. Without checking first whether there's something else going on with the conduction."
+        },
+        {
+          "pt_remark_wrong": "A pacemaker wire. Threading a device through a valve that has an active infection on it."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "A tube in my arm and home. With spots on the lung X-ray and the heartbeat change you mentioned."
+        },
+        {
+          "pt_remark_wrong": "Emergency surgery tonight. Before the TEE, before you know what you're operating into."
+        },
+        {
+          "pt_remark_correct": "Admitted. Cardiology. Surgery available if needed. Four to six weeks. My wife will run the site — she's done it before, she's good."
+        },
+        {
+          "pt_remark_wrong": "General ward only. For something this complicated."
+        }
+      ]
+    ]
+  },
+  "004": {
+    "fennick_opening": "\"His aide is more alarmed than he is. That is the data point.\"",
+    "cc_after_addl_hx": "I've been in three campaigns. I don't collapse. This morning was fatigue from the night exercise. My aide exaggerates.",
+    "cc_after_pe": "You pressed there and it hurt. I've taken shrapnel without flinching. Note that.",
+    "cc_after_imaging": "A mass near the adrenal. That is what my mother had. No one ever told me what it was.",
+    "cc_after_hint": "The attacks come and then completely stop. Like a field engagement that ends as suddenly as it began.",
+    "cc_after_dx": "A tumour producing the crisis. That explains the attacks. That explains all of it.",
+    "fennick_after_addl_hx": "\"Paroxysmal. Complete resolution between attacks. The abdominal tenderness and family history of adrenal disease are not incidental.\"",
+    "fennick_after_pe": "\"188 over 112 at rest. During a paroxysm this pressure is probably over 250. The right upper quadrant tenderness with no palpable mass — lesion is retroperitoneal. Image it.\"",
+    "fennick_after_imaging": "\"4.8 centimetres, central necrosis, right adrenal. Family history confirmed. Before you do anything else — remember the one drug class you must never give first.\"",
+    "patient_quote_addl_hx": "\"I've been in three campaigns. I don't get dizzy. I don't collapse. What happened this morning was — I was simply fatigued from the night exercise. My aide is prone to exaggeration. I'm here as a courtesy.\"",
+    "management": [
+      [
+        {
+          "pt_remark_correct": "Alpha before beta. There's a sequence. I can follow a sequence.",
+          "fennick_correct_comment": "\"Phenoxybenzamine is irreversible and non-selective. That matters — you want sustained blockade before surgery. Do not stop it.\""
+        },
+        {
+          "pt_remark_wrong": "The heart rate drug. Before the blood pressure drug. The briefing I read on the way here said that order was wrong.",
+          "fennick_correct_comment": "\"You removed beta-2 vasodilation and left alpha-1 vasoconstriction unopposed. What happens to the pressure now.\""
+        },
+        {
+          "pt_remark_wrong": "The combined one. You said the ratio is still wrong for this situation."
+        },
+        {
+          "pt_remark_wrong": "Increasing the dosage of a compound that's been ineffective for two years. That is not a revised strategy. That is hope."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Twenty-four hour collection. I have conducted resupply operations in worse conditions than a hospital bathroom.",
+          "fennick_correct_comment": "\"Metanephrines are stable metabolites — they do not fluctuate with paroxysms the way catecholamines do. That is why they are more sensitive.\""
+        },
+        {
+          "pt_remark_correct": "A needle directly into the adrenal. You want to put a needle directly into it.",
+          "pt_remark_wrong": "A needle directly into the mass. Before it's been blocked, before it's been controlled. That concerns me.",
+          "fennick_correct_comment": "\"Do not touch it with a needle. Not until it is blocked, prepared, and on the surgical table.\""
+        },
+        {
+          "pt_remark_wrong": "The cortisol test. For episodes of pounding headache, sweating, and cardiac arrest on the way down. That doesn't add up."
+        },
+        {
+          "pt_remark_wrong": "Operate now. Without the blood test confirmed. Without the preparation complete."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Fourteen days of preparation. Then the operation. A proper timeline with clear stages. I can work with that."
+        },
+        {
+          "pt_remark_wrong": "Forty-eight hours because the mass is large. Size of the target does not change the preparation requirement."
+        },
+        {
+          "pt_remark_wrong": "The heart rate drug first. Before the blood pressure drug. We covered this."
+        },
+        {
+          "pt_remark_wrong": "Radiation to shrink it. Before surgery. This isn't a lymphoma."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Admitted. Prepared correctly. Then the operation at the right time. I accept that plan."
+        },
+        {
+          "pt_remark_wrong": "Outpatient referral. After I lost consciousness against my desk this morning."
+        },
+        {
+          "pt_remark_wrong": "The same two medications. And home. The ones that have been failing since 2024."
+        },
+        {
+          "pt_remark_wrong": "The intensive care unit. Tonight. Before the fourteen days of preparation are even started."
+        }
+      ]
+    ]
+  },
+  "005": {
+    "fennick_opening": "\"He apologized before he sat down. That is the first thing you should write.\"",
+    "cc_after_addl_hx": "I should have come in sooner. I'm sorry if I should have come in sooner. The other men have the headaches too but they haven't come in.",
+    "cc_after_pe": "Walk in a straight line. With my eyes closed. I — sorry. Let me try again.",
+    "cc_after_imaging": "The brain looks normal. Then why does my head feel like this.",
+    "cc_after_hint": "The other men. Two of them said the same thing last week. I thought it was just the long shifts.",
+    "cc_after_dx": "The furnace. It's been the furnace the whole time. I sealed those ducts myself. Last November.",
+    "fennick_after_addl_hx": "\"Worse at work. Better on days off. Two colleagues. Ventilation sealed for winter. The hall is still running right now.\"",
+    "fennick_after_pe": "\"SpO2 97% and encephalopathic. The numbers do not match the patient in front of you. Pulse oximetry cannot distinguish carboxyhemoglobin. That reading is a lie.\"",
+    "fennick_after_imaging": "\"CT normal. Brain is not the source — it is the target. Order the test the standard panel does not include.\"",
+    "patient_quote_addl_hx": "\"I — I'm sure it's just fatigue. I've been working long shifts. I don't want to make a fuss. The other men have headaches too but they haven't come in. Should I have... come in sooner? I'm sorry if I should have come sooner.\"",
+    "management": [
+      [
+        {
+          "pt_remark_correct": "2 litres. Fine. I can manage with the nose prongs.",
+          "pt_remark_wrong": "The small nose prongs — yes, sorry. I'll manage. I don't want to be a bother.",
+          "fennick_correct_comment": "\"2 litres per minute. You are moving his COHb half-life from 5 hours to perhaps 4 hours. That is not treatment.\""
+        },
+        {
+          "pt_remark_wrong": "A tube down my throat. I — I can breathe on my own. I'm sorry, I'm not trying to be difficult."
+        },
+        {
+          "pt_remark_wrong": "Something to fix the acid reading. Not whatever made the reading wrong in the first place."
+        },
+        {
+          "pt_remark_correct": "The full mask. And get me away from the building. I should have sealed those ducts differently. I'm sorry.",
+          "fennick_correct_comment": "\"Competitive displacement — at FiO2 1.0, oxygen outcompetes CO for haemoglobin binding sites. Every minute on room air adds to his half-life.\""
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "The pressure chamber. I looked it up on the way here because I was worried I was wasting your time. I think I need it. I'm sorry if I'm wrong.",
+          "fennick_correct_comment": "\"Delayed neurological syndrome — memory loss, personality change, parkinsonism — can emerge 2-4 weeks after apparent recovery. HBO reduces that risk. That is the argument beyond the acute phase.\""
+        },
+        {
+          "pt_remark_wrong": "The blue dye treatment. I thought that was for a different kind of blood problem — not this one.",
+          "fennick_correct_comment": "\"Methaemoglobin and carboxyhemoglobin are not the same. Both confound pulse oximetry. That is where the similarity ends.\""
+        },
+        {
+          "pt_remark_wrong": "Just the mask and no chamber. Even with the number at 28 and the symptoms I have."
+        },
+        {
+          "pt_remark_wrong": "My number is 28 and the threshold is 50. I read that. I'm sorry — I know I'm not the doctor here."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "A letter to the employer. Whilst the other men are still down in that hall right now."
+        },
+        {
+          "pt_remark_wrong": "You treat me, and the worksite is not part of your job. I understand that. But the others are still in there."
+        },
+        {
+          "pt_remark_wrong": "I take time off. And the other men keep working the lower hall."
+        },
+        {
+          "pt_remark_correct": "Please get them out first. I should have said something last week when Henrick started getting the headaches. I'm so sorry."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Admitted. With the monitoring. And someone has to call the hall — I can't stop thinking about the men in there."
+        },
+        {
+          "pt_remark_wrong": "Home oxygen by the small prongs. After the troponin result and everything else."
+        },
+        {
+          "pt_remark_wrong": "Two hours and then home. I don't want to be a burden, but — I fell yesterday. Is two hours really enough."
+        },
+        {
+          "pt_remark_wrong": "The chamber without the monitoring first. Is that — is that the right way to do it."
+        }
+      ]
+    ]
+  },
+  "006": {
+    "fennick_opening": "\"Second time. Same side. He ignored the first.\"",
+    "cc_after_addl_hx": "The first time I thought it was a pulled muscle. Should I have come in for that one.",
+    "cc_after_pe": "You're tapping on my chest. What does the difference in sound tell you.",
+    "cc_after_imaging": "Thirty percent of the left lung. That seems like something that should have been addressed the first time.",
+    "cc_after_hint": "Second time. Same side. I didn't think resting it the first time was the wrong call.",
+    "cc_after_dx": "It has a name. And I need an operation. I can see that from your face.",
+    "fennick_after_addl_hx": "\"Tall, lean, young, second ipsilateral episode. The first was 18 months ago and he ignored it. Recurrence rate after a second episode exceeds 80%.\"",
+    "fennick_after_pe": "\"Hyperresonance, absent breath sounds, trachea midline. Not tension. But 30% collapse in a symptomatic patient is not observation territory.\"",
+    "fennick_after_imaging": "\"Bilateral blebs. Largest 1.4cm, left upper lobe. Second episode, bilateral disease. The surgical threshold has been met.\"",
+    "patient_quote_addl_hx": "\"It happened once before, about a year and a half ago. Same side, same feeling. I just rested and it went away after a couple of days. I figured it was a pulled muscle. Should I have come in for that one?\"",
+    "management": [
+      [
+        {
+          "pt_remark_wrong": "But the first one... went away on its own after two days. Can't we just... see if this one does the same."
+        },
+        {
+          "pt_remark_correct": "Alright. Do what... you need to do. I just want to breathe properly again.",
+          "pt_remark_wrong": "Open surgery. For thirty percent."
+        },
+        {
+          "pt_remark_correct": "Alright. Do what you need to do.",
+          "pt_remark_wrong": "An operation? For a first... oh wait. Second time. Right. Still — open surgery seems like... a lot.",
+          "fennick_correct_comment": "\"Aspiration first. If the lung re-expands and stays up, you may avoid a chest tube. If it does not, or recurs, tube comes next.\""
+        },
+        {
+          "pt_remark_wrong": "Push air in. To a lung... that already has too much air in the wrong place."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Cut out the... the little balloon things and seal the lining. So it can't happen again. Yeah. That makes sense.",
+          "fennick_correct_comment": "\"VATS allows direct resection of the blebs, not just pleurodesis through a tube. In a young patient with bilateral disease, mechanical pleurodesis at the time of bullectomy gives the best long-term outcome.\""
+        },
+        {
+          "pt_remark_wrong": "An inhaler. But my... my airways are fine. The air is just in the wrong... compartment."
+        },
+        {
+          "pt_remark_wrong": "Wait for a third time. After two... on the same side."
+        },
+        {
+          "pt_remark_wrong": "Powder through a tube... instead of just going in and sorting out the blebs properly."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "A camera down my... throat. But there's nothing wrong with my... breathing tube. It's the lining."
+        },
+        {
+          "pt_remark_wrong": "A blood test for... for that. I've never — I don't think I'm in any of the... risk groups for that."
+        },
+        {
+          "pt_remark_correct": "A heart scan. And... genetics. Because I'm tall. I've just always been tall. I never thought... it might mean something was different inside.",
+          "fennick_correct_comment": "\"Aortic root dilation, progressive, dissection risk. You are not just screening for a diagnosis — you are looking for a potentially fatal complication he does not yet know he has.\""
+        },
+        {
+          "pt_remark_wrong": "Nothing else checked. Just... treated and sent. Second time round."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "A list of things... not to do. And home."
+        },
+        {
+          "pt_remark_wrong": "Home the same day... if the X-ray's better. With the bleb results you just showed me."
+        },
+        {
+          "pt_remark_wrong": "Operate today... before the lung's even settled back into place."
+        },
+        {
+          "pt_remark_correct": "Admitted. Proper scan... surgeon... heart check. In the right order. Yeah."
+        }
+      ]
+    ]
+  },
+  "007": {
+    "fennick_opening": "\"She knows exactly what happened. She told you before you asked.\"",
+    "cc_after_addl_hx": "I know what this is. I know it. I just didn't think it would happen through the skin. I've handled it before. Never for this long.",
+    "cc_after_pe": "8 millimetres. I could feel them not responding. Like they belonged to someone else.",
+    "cc_after_imaging": "680 millilitres. I can feel every millilitre of it. I could not understand why I couldn't go.",
+    "cc_after_hint": "How bad is it. Please just tell me how bad it is.",
+    "cc_after_dx": "The alkaloids. Through the skin. I know the pharmacology. I just couldn't believe I'd managed to dose myself through my hands.",
+    "fennick_after_addl_hx": "\"Two hours of direct contact with fresh belladonna. She gave you the exposure history before you asked. The rest is clinical confirmation.\"",
+    "fennick_after_pe": "\"Dry, hot, flushed, mydriasis, tachycardia, retention, silent bowel. Every secretion blocked. Muscarinic antagonism made visible.\"",
+    "fennick_after_imaging": "\"Bladder full, bowel silent, head clear. The CNS is the remaining concern. You have an antidote. Use it before the delirium worsens.\"",
+    "patient_quote_addl_hx": "\"I know what this is. I know it. I just — I didn't think it would happen through the skin. I wasn't even eating it. I've handled it before but never for this long. How bad is it? Please just tell me how bad it is.\"",
+    "management": [
+      [
+        {
+          "pt_remark_wrong": "Charcoal — that binds toxins in the stomach. But I didn't eat it. It went through... my skin. From my hands."
+        },
+        {
+          "pt_remark_correct": "Yes. The tube. The cooling. Whatever needs doing — please just do it.",
+          "fennick_correct_comment": "\"She cannot sweat. Without diaphoresis, hyperthermia will continue to climb. Cooling is not comfort — it is treatment.\""
+        },
+        {
+          "pt_remark_wrong": "Make me sick. There's nothing to bring up. I ground the plant with my hands for two hours. It didn't go through my mouth."
+        },
+        {
+          "pt_remark_wrong": "That medication — it makes things worse in the heat, doesn't it. My hands are already on fire and I can't... produce any moisture at all.",
+          "fennick_correct_comment": "\"QT 480 already. You gave her a drug with anticholinergic side effects and QT prolongation. The benzos work centrally without making any of this worse.\""
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "Opioids? Look at my eyes. Nightshade opens the pupils to let in more light. Poppies do the opposite — they close them down. This is nightshade."
+        },
+        {
+          "pt_remark_correct": "Yes. Please. Give it slowly. I know it has to be given slowly.",
+          "fennick_correct_comment": "\"The dose matters. Push it fast and you create cholinergic crisis. Slow push, atropine at bedside. It is an antidote, not an emergency bolus.\""
+        },
+        {
+          "pt_remark_wrong": "That would take away the only thing... stopping me from clawing the walls right now."
+        },
+        {
+          "pt_remark_wrong": "More — you want to give me more of what I already have too much of.",
+          "fennick_correct_comment": "\"You gave the poison as the antidote.\""
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "Nothing to watch for. My heart is going very fast and the interval on the screen is stretched. I can see it is stretched."
+        },
+        {
+          "pt_remark_correct": "The dangerous rhythm. Yes. I've read what happens when the interval stretches too far. Magnesium. Please have it close."
+        },
+        {
+          "pt_remark_wrong": "High potassium from muscle breakdown. My muscles aren't breaking down — every muscle I have is locked in a spasm I can't release."
+        },
+        {
+          "pt_remark_wrong": "Fluid on the lungs. I haven't been able to swallow properly in three hours. Look at my lips."
+        }
+      ],
+      [
+        {
+          "pt_remark_wrong": "Pills to take at home. For this."
+        },
+        {
+          "pt_remark_wrong": "Two hours. And go. Belladonna stays active for a long time — longer than two hours. I know this plant."
+        },
+        {
+          "pt_remark_wrong": "A psychiatrist. My pupils are eight millimetres, I can't urinate, and my mouth is cracking. This is not in my head."
+        },
+        {
+          "pt_remark_correct": "Admitted. Heart monitor overnight. Yes. I don't want to be alone with this tonight. I really don't."
+        }
+      ]
+    ]
+  },
+  "008": {
+    "fennick_opening": "\"Her supervisor noticed before she did. Think about that.\"",
+    "cc_after_addl_hx": "The periods have always been heavy. I just thought — I thought that was normal. Nobody ever told me it wasn't.",
+    "cc_after_pe": "My nails. I've been filing them down for months. I didn't know they were trying to tell me something.",
+    "cc_after_imaging": "My heart is alright though? At least tell me my heart is alright.",
+    "cc_after_hint": "Please. I just want to know what's wrong with me. I'm so tired of not knowing.",
+    "cc_after_dx": "Iron. All these months. And it was just iron.",
+    "fennick_after_addl_hx": "\"Seven to eight days. Clots. And not one person in her life thought to ask whether that was normal. Not one.\"",
+    "fennick_after_pe": "\"The colour of old linen. That is not depression. That is a woman running dry.\"",
+    "fennick_after_imaging": "\"Heart is holding. The flow murmur is compensatory — high output state from anaemia. The structure is fine. Look at the blood.\"",
+    "fennick_case_complete": [
+      "\"Put the chart down, Eddie.\"",
+      "\"She came in here carrying a diagnosis someone handed her because they did not look hard enough. Depression. Eight weeks of sertraline for a woman whose body was simply running out of the thing that makes blood red.\"",
+      "\"Every tear at her workbench. Every dropped stitch. Every morning she stood at the bottom of those stairs and wondered why her legs felt like iron — because they were starved of it.\"",
+      "\"We did not cure her today. We found her. That is what diagnosis actually is — not naming a disease, but finding the person underneath it.\"",
+      "\"She will pick up the red thread again. I promise you that.\""
+    ],
+    "patient_quote_addl_hx": "\"I keep thinking I should be able to push through it. I've always pushed through things. But it's like pushing through water. And the crying — I don't even know what I'm crying about. I just cry. The ice helps somehow. I know that sounds strange.\"",
+    "management": [
+      [
+        {
+          "pt_remark_correct": "So the test will show it. That something's actually been wrong. Not just... me being weak.",
+          "fennick_correct_comment": "\"Ferritin is an acute phase reactant — it can be falsely normal in inflammation. At Hgb 7.4 with this history, you will not find a false normal. Check it.\""
+        },
+        {
+          "pt_remark_wrong": "My thyroid. My colleague Bess had a thyroid problem. She got very cold and slow. I'm not cold. I'm just... empty."
+        },
+        {
+          "pt_remark_wrong": "You want to check if I've been taking them. I have. Every morning with my tea. They just don't do anything."
+        },
+        {
+          "pt_remark_wrong": "Something in my brain. I don't think it's my brain. My hands are shaking at the loom and I'm crying without knowing why. That doesn't feel like my brain."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Iron. If it works — if it actually works — I want to know what that feels like again.",
+          "fennick_correct_comment": "\"Vitamin C reduces ferric to ferrous iron in the gut — meaningfully increases absorption. It is not optional.\"",
+          "fennick_speech": [
+            "\"Stop. Before you write that prescription — look at her.\"",
+            "\"The dry riverbed of her veins is about to receive rain for the first time in months. The iron will flow back. The red will return — slowly, not all at once, but it will return.\"",
+            "\"In a week her reticulocytes will surge. In four weeks her Hgb will climb. And somewhere around week six... she will reach for a needle without thinking about it. Not because she decided to. Because her hands will remember before she does.\"",
+            "\"We did not treat depression today. We returned the thread to the woman who makes beautiful things.\""
+          ]
+        },
+        {
+          "pt_remark_wrong": "Straight into the vein. Is it — is it that serious. I just thought it was tiredness."
+        },
+        {
+          "pt_remark_wrong": "A transfusion. Like — blood. From someone else. Is it really that low."
+        },
+        {
+          "pt_remark_correct": "More sertraline. I knew you would say more sertraline.",
+          "pt_remark_wrong": "More of it. The sertraline that hasn't changed anything in eight weeks.",
+          "fennick_correct_comment": "\"Eight weeks of sertraline already tried. Already failed. What does a higher dose accomplish.\""
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Someone's going to actually ask about it. No one has ever asked about it before. Not the guild physician, not anyone.",
+          "fennick_correct_comment": "\"Oral iron without gynaecology referral means she is back here in six months with the same haemoglobin.\""
+        },
+        {
+          "pt_remark_wrong": "Eat more. I know I haven't been eating. I'll try. But eating more isn't going to fix the periods."
+        },
+        {
+          "pt_remark_wrong": "A camera inside me. Alright. I don't — alright."
+        },
+        {
+          "pt_remark_wrong": "Just the iron and no further questions about the rest of it."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "Four weeks. I can hold on for four weeks. And then — the needles again. The red thread."
+        },
+        {
+          "pt_remark_wrong": "I don't need to stay. I just want to go home and sleep."
+        },
+        {
+          "pt_remark_wrong": "The sertraline and the iron both. Alright. If that's what you think."
+        },
+        {
+          "pt_remark_wrong": "A psychiatrist. If that's what you think is wrong."
+        }
+      ]
+    ]
+  },
+  "010": {
+    "fennick_opening": "\"He was brought in by someone else. Note that.\"",
+    "cc_after_addl_hx": "I don't remember choosing the piece. I just play it.",
+    "cc_after_pe": "You want me to walk with my eyes closed. On a good day I could do that.",
+    "cc_after_imaging": "What does the scan look for exactly.",
+    "cc_after_hint": "Something is wrong with the mechanism. I know that much.",
+    "cc_after_dx": "I see. Does that mean — will I still play.",
+    "fennick_after_addl_hx": "\"Good days and bad days. Not a steady slope. That pattern is not arbitrary.\"",
+    "fennick_after_pe": "\"Upper motor. Lower motor. Both. In the same patient. The cord is not the problem.\"",
+    "fennick_after_imaging": "\"Posterior cortex. DaTscan. You have two pieces. Put them together.\"",
+    "fennick_case_complete": [
+      "\"He remembered the music. Not her.\"",
+      "\"We bought him time. That is the job. Put the chart down.\""
+    ],
+    "patient_quote_addl_hx": "\"I don't remember choosing the piece. I just play it.\"",
+    "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png",
+    "management": [
+      [
+        {
+          "pt_remark_correct": "More tests. I don't mind tests. I mind not knowing.",
+          "fennick_correct_comment": "\"The polysomnography is not optional. Without it you have a clinical impression. With it you have a diagnosis.\""
+        },
+        {
+          "pt_remark_wrong": "A needle in the spine. If that is what it takes."
+        },
+        {
+          "pt_remark_wrong": "Seizures. I hadn't thought of that."
+        },
+        {
+          "pt_remark_wrong": "A medication. Already. Before we know what this is."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "A patch. I can do a patch. Mira will make sure I use it.",
+          "fennick_correct_comment": "\"The cholinergic deficit here is more severe than in most dementias. That is why this drug works better here than anywhere else. It is also why these patients decompensate so badly if you block those receptors instead.\"",
+          "reactive_stage": {
+            "fennick_transition": "\"The rivastigmine is working. Now look at what the nights are doing to him.\"",
+            "pt_remark_transition": "I played something yesterday. I remembered the fingering for the third movement. I haven't remembered that in months.",
+            "options": [
+              {
+                "pt_remark_correct": "I was performing. I was in the hall. She was in the third row. I was playing the right notes.",
+                "fennick_correct_comment": "\"Clonazepam. The mechanism is GABA-A. It suppresses the brainstem circuit that is failing to hold the body still during REM. It will not slow the disease. It will stop him breaking his wrist.\"",
+                "fennick_speech": null
+              },
+              {
+                "pt_remark_wrong": "Something to make me sleep. Yes. I would like to sleep properly.",
+                "fennick_wrong_comment": "\"That drug has killed patients with this diagnosis. Never. Not even once.\""
+              },
+              {
+                "pt_remark_wrong": "More of the same. Alright.",
+                "fennick_wrong_comment": "\"More of the same does not fix a different problem.\""
+              },
+              {
+                "pt_remark_wrong": "A sleeping pill. I've never taken those.",
+                "fennick_wrong_comment": "\"Sedation is not sleep architecture. These are not the same thing.\""
+              }
+            ]
+          }
+        },
+        {
+          "pt_remark_wrong": "Another medication. I hope it doesn't make my hands slow."
+        },
+        {
+          "pt_remark_wrong": "The shaking. Yes. The shaking has been bothering me."
+        },
+        {
+          "pt_remark_wrong": "Something to calm the difficult days. Yes. Those days are very difficult."
+        }
+      ],
+      [
+        {
+          "pt_remark_correct": "I want to go home. The piano is there. I need to finish the piece."
+        },
+        {
+          "pt_remark_wrong": "A ward. I see. Will there be a piano."
+        },
+        {
+          "pt_remark_wrong": "A pill for the bad days. That sounds manageable."
+        },
+        {
+          "pt_remark_wrong": "I can manage on my own. I have always managed on my own."
+        }
+      ]
+    ]
+  }
+}
