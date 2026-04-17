@@ -1622,16 +1622,24 @@ let currentTrackIdx = 0;
 let musicStarted = false;
 
 function switchMusicTrack(trackName) {
-  // Find by name in TRACKS (case insensitive)
   let found = null;
   for(const type of Object.keys(TRACKS)) {
     const match = TRACKS[type].findIndex(t => t.name.toLowerCase() === trackName.toLowerCase());
     if(match >= 0) { found = { type, idx: match }; break; }
   }
   if(!found) return;
-  const audio = document.getElementById('music-player');
+  const audio = document.getElementById('bg-audio');
   if(!audio) return;
-  const targetVol = audio.volume || 0.5;
+  const targetVol = audio.volume > 0 ? audio.volume : 0.5;
+  // If already on this track, do nothing
+  if(currentTrackType === found.type && currentTrackIdx === found.idx) return;
+  if(!musicStarted || audio.paused) {
+    // Not playing yet — just set the track, it will play on first interaction
+    currentTrackType = found.type;
+    currentTrackIdx = found.idx;
+    audio.src = TRACKS[found.type][found.idx].url;
+    return;
+  }
   const fade = setInterval(()=>{
     if(audio.volume > 0.04) { audio.volume = Math.max(0, audio.volume - 0.04); }
     else {
@@ -1639,6 +1647,7 @@ function switchMusicTrack(trackName) {
       currentTrackType = found.type;
       currentTrackIdx = found.idx;
       audio.src = TRACKS[found.type][found.idx].url;
+      audio.volume = 0;
       audio.play().catch(()=>{});
       const fadeIn = setInterval(()=>{
         if(audio.volume < targetVol) audio.volume = Math.min(targetVol, audio.volume + 0.04);
@@ -2481,7 +2490,8 @@ function playFennickSpeech(lines) {
     }
     typewriterWrite(el, lines[i].replace(/^"|"$/g,''), 18).then(()=>{
       i++;
-      setTimeout(nextLine, 1800);
+      const delay = (window._isCaseComplete && i < lines.length) ? 3600 : 1800;
+      setTimeout(nextLine, delay);
     });
   }
   nextLine();
@@ -2492,7 +2502,7 @@ const _origEndCase = endCase;
 window.endCase = function(failed) {
   _origEndCase(failed);
   if(!failed && currentCase && currentCase.fennick_case_complete) {
-    setTimeout(()=>{ playFennickSpeech(currentCase.fennick_case_complete); }, 1200);
+    setTimeout(()=>{ window._isCaseComplete = true; playFennickSpeech(currentCase.fennick_case_complete); }, 1200);
   }
 };
 
