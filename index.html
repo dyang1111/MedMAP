@@ -1811,6 +1811,2714 @@ document.addEventListener("DOMContentLoaded", async function(){
 async function loadData() {
   CASES = [];
   DIAGNOSES = [];
+  // Load diagnoses - non-fatal
+  try {
+    const diagRes = await fetch('diagnoses.json');
+    if(diagRes.ok) {
+      const diagData = await diagRes.json();
+      if(Array.isArray(diagData) && diagData.length > 0) DIAGNOSES = diagData;
+    }
+  } catch(e) {}
+  // Load cases + remarks independently
+  try {
+    const now = new Date();
+    const ym = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
+    const casesRes = await fetch(ym + 'cases.json');
+    let remarksData = {};
+    try {
+      const remarksRes = await fetch(ym + 'remarks.json');
+      if(remarksRes.ok) remarksData = await remarksRes.json();
+    } catch(e) {}
+    if(casesRes.ok) {
+      const casesData = await casesRes.json();
+      if(Array.isArray(casesData) && casesData.length > 0) {
+        CASES = casesData.map(c => {
+          const r = remarksData[c.id];
+          if(!r) return c;
+          const merged = Object.assign({}, c, r);
+          if(r.management && merged.management) {
+            merged.management = merged.management.map((stage, si) => {
+              const stageR = (r.management[si]) || [];
+              return Object.assign({}, stage, {
+                options: stage.options.map((opt, oi) => {
+                  const optR = stageR[oi] || {};
+                  const mo = Object.assign({}, opt, optR);
+                  if(opt.reactive_stage && optR.reactive_stage) {
+                    mo.reactive_stage = Object.assign({}, opt.reactive_stage, optR.reactive_stage);
+                    if(opt.reactive_stage.options && optR.reactive_stage.options) {
+                      mo.reactive_stage.options = opt.reactive_stage.options.map((ro,roi) =>
+                        Object.assign({}, ro, (optR.reactive_stage.options[roi]||{}))
+                      );
+                    }
+                  }
+                  return mo;
+                })
+              });
+            });
+          }
+          return merged;
+        });
+      }
+    }
+  } catch (err) {}
+}
+
+function applyTimeTheme(bgOnly){
+  const now = new Date();
+  const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
+  const hr = cst.getHours();
+  const isNight = hr >= 18 || hr < 6;
+  const day = cst.getDay(); // 0=Sun,1=Mon
+  const isRainy = day === 1 || (typeof currentCase !== 'undefined' && currentCase && currentCase.tier === 3);
+  const bgUrl = isRainy
+    ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287296/default_rainy_lofo5p.png'
+    : isNight
+    ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287306/default_night1_lv5qrv.png'
+    : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287301/default_morning1_gvbydp.png';
+  document.getElementById('bg').style.backgroundImage = `url('${bgUrl}')`;
+  if(isNight) {
+    document.body.classList.remove('day');
+    document.body.classList.add('night');
+  } else {
+    document.body.classList.remove('night');
+    document.body.classList.add('day');
+  }
+  if(!bgOnly) initMusic(isNight);
+}
+
+function initCase(){ _fennickLocked = false;
+  const urlDate = new URLSearchParams(window.location.search).get('date');
+  const todayCST = new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  if(urlDate){
+    currentCase = CASES.find(c => c.date === urlDate) || CASES[0];
+  } else {
+    currentCase = CASES.find(c => c.date === todayCST) || CASES[CASES.length-1];
+  }
+  if(!currentCase) return;
+
+  if(urlDate) {
+    document.getElementById('case-num-lbl').textContent = 'Archive — ' + urlDate;
+  } else {
+    document.getElementById('case-num-lbl').textContent = 'Case no. ' + currentCase.id;
+  }
+
+  document.getElementById('pt-name').textContent = currentCase.patient.name + ', ' + currentCase.patient.age + currentCase.patient.sex;
+  document.getElementById('pt-occ').textContent = currentCase.patient.occupation;
+  const ptCcEl = document.getElementById('pt-cc');
+  if(ptCcEl) typewriterWrite(ptCcEl, '"' + currentCase.chart.cc + '"', 18);
+
+  const ptImg = document.getElementById('pt-img');
+  if(currentCase.patient.image_url){
+    ptImg.src = currentCase.patient.image_url.replace('w_110,h_130', 'w_340,h_340');
+    ptImg.style.display = 'block';
+  } else {
+    ptImg.style.display = 'none'; 
+  }
+
+  clearMgmtSelections();
+  const _opening = currentCase.fennick_opening || '"A new case has arrived. Take your time — but not too much of it."';
+  setFennick('chart', _opening); setTimeout(()=>setFennick('default',''), 2800);
+  // Case-specific music — delay slightly so audio is initialized
+  if(currentCase.music_default) {
+    setTimeout(()=>{ try { switchMusicTrack(currentCase.music_default); } catch(e) {} }, 1500);
+  }
+  renderChart();
+  renderLabsGrid();
+  renderManagement();
+  hints = currentCase.hints || [];
+
+  // Apply tier to body class
+  document.body.classList.remove('tier-1','tier-2','tier-3');
+  if(currentCase.tier) document.body.classList.add('tier-'+currentCase.tier);
+
+  // Re-apply time theme with tier (for rainy check)
+  applyTimeTheme();
+
+  ['workup-note','mgmt-note'].forEach((id, i) => {
+    const urls = [
+      'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600415/Gemini_Generated_Image_qwnyg6qwnyg6qwny_fsrwgl.png',
+      'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775600417/Gemini_Generated_Image_eb02e8eb02e8eb02_copy_nvovzo.png'
+    ];
+    const panel = document.getElementById(id);
+    panel.style.position = 'relative';
+    const tint = document.createElement('div');
+    tint.className = 'gear-tint-div';
+    const img = document.createElement('div');
+    img.className = 'gear-overlay-div';
+    img.style.backgroundImage = `url('${urls[i]}')`;
+    panel.insertBefore(tint, panel.firstChild);
+    panel.insertBefore(img, panel.firstChild);
+  });
+
+  // Medical chart panel — top-left corner gear
+  (function() {
+    const chartPanel = document.getElementById('chart-note');
+    if (!chartPanel) return;
+    chartPanel.style.position = 'relative';
+    chartPanel.style.overflow = 'hidden';
+    const tint = document.createElement('div');
+    tint.style.cssText = 'position:absolute;top:0;left:0;width:60%;height:75%;background:radial-gradient(ellipse at top left,rgba(140,90,20,0.22) 0%,rgba(180,130,50,0.08) 45%,transparent 70%);pointer-events:none;z-index:0;';
+    const img = document.createElement('div');
+    img.style.cssText = 'position:absolute;top:-10px;left:-10px;width:40%;height:110%;background-repeat:no-repeat;background-position:top left;background-size:100% auto;opacity:0.26;pointer-events:none;z-index:0;';
+    img.style.backgroundImage = "url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776394702/Unknown-2_r0sh0d.png')";
+    chartPanel.insertBefore(tint, chartPanel.firstChild);
+    chartPanel.insertBefore(img, chartPanel.firstChild);
+  })();
+}
+
+let _fennickLocked = false;
+function setFennick(expr, comment){ 
+  if(_fennickLocked && expr !== 'lose') return;
+  if(expr === 'lose') _fennickLocked = true;
+  const img = (expr==='default') ? getDefaultImg() : (FOX[expr] || getDefaultImg());
+  document.getElementById('fennick-img').src = img; 
+  if(comment){
+    const el = document.getElementById('fennick-comment');
+    if(el) typewriterWrite(el, comment.replace(/^"|"$/g,''), 20);
+  }
+}
+
+function drainHP(amount){ 
+  HP = Math.max(0, HP - amount); 
+  document.getElementById('hp-bar-nav').style.width = HP + '%'; 
+  document.getElementById('hp-num-nav').textContent = HP; 
+  if(HP === 0) endCase(true);
+}
+
+function updateFennickByErrors(){ 
+  if(errors === 0) setFennick('default','');
+  else if(errors === 1) setFennick('thinking', '"Careful now."');
+  else if(errors >= 2) setFennick('concerned', '"You are making this harder than it needs to be."');
+}
+
+function renderChart(){
+  if(currentCase.vitals) populateVitalsSidebar(currentCase.vitals);
+  const c=currentCase.chart;
+  // HPI partial blur — last 35% of text starts obscured
+  let hpiHtml = c.hpi || 'None';
+  if(c.hpi && c.hpi.length > 80) {
+    const splitAt = Math.floor(c.hpi.length * 0.65);
+    const clear = c.hpi.slice(0, splitAt);
+    const blurred = c.hpi.slice(splitAt);
+    hpiHtml = clear + '<span id="hpi-blur" style="filter:blur(3.5px);opacity:0.6;transition:filter 1.2s ease,opacity 1.2s ease;">' + blurred + '</span>';
+  }
+  const rows=[['HPI',hpiHtml],['PMH',c.pmh],['PSH',c.psh],['Medications',c.meds],['Allergies',c.allergies],['Family Hx',c.fh],['Social Hx',c.sh]];
+  document.getElementById('chart-grid').innerHTML=rows.map(([l,val])=>`<div class="chart-label">${l}</div><div class="chart-val">${val||'None'}</div>`).join('');
+}
+
+function clearHpiBlur() {
+  const el = document.getElementById('hpi-blur');
+  if(el) { el.style.filter='blur(0)'; el.style.opacity='1'; }
+}
+
+const revealedWorkup=new Set(),orderedLabs=new Set(),wrongAnswers=new Set();
+// Cleared on each new case load
+function clearMgmtSelections(){ Object.keys(_mgmtSelections).forEach(k=>delete _mgmtSelections[k]); }
+
+window.revealWorkup=function(type){
+  if(revealedWorkup.has(type))return;
+  // Fennick reacts to each workup type
+  const workupFennickLines = {
+    'addl-hx': currentCase.fennick_after_addl_hx || '"Good. Now we are actually listening."',
+    'pe':      currentCase.fennick_after_pe      || '"The body does not lie. Read it carefully."',
+    'imaging': currentCase.fennick_after_imaging || '"Machines see structure. They cannot see the person inside it. Do not forget that."',
+  };
+  const fennickLine = workupFennickLines[type];
+  if(fennickLine) setTimeout(()=>setFennick('chart', fennickLine), 300);
+  clearHpiBlur();
+  // Update patient CC dynamically
+  if(type==='addl-hx') {
+    const remark = currentCase.cc_after_addl_hx || getGenericRemark('addl-hx');
+    if(remark) setTimeout(()=>setPtRemark(remark), 400);
+  }
+  if(type==='pe') {
+    const remark = currentCase.cc_after_pe || getGenericRemark('pe');
+    if(remark) setTimeout(()=>setPtRemark(remark), 400);
+  }
+  if(type==='imaging') {
+    const remark = currentCase.cc_after_imaging || getGenericRemark('imaging');
+    if(remark) setTimeout(()=>setPtRemark(remark), 400);
+  }
+  drainHP({'addl-hx':5,'pe':8,'imaging':15}[type]||5);
+  try { window.setFogDensity(_fogTargetDensity - 10); } catch(e){}
+  revealedWorkup.add(type);document.getElementById('btn-'+type).classList.add('used');
+  const ct={'addl-hx':{label:'ADDITIONAL HISTORY',cls:'hx-card',text:currentCase.additional_hx},'pe':{label:'PHYSICAL EXAM FINDINGS',cls:'pe-card',text:currentCase.pe_findings},'imaging':{label:'IMAGING',cls:'img-card',text:currentCase.imaging}};
+  const c=ct[type];if(!c||!c.text)return;
+  const card=document.createElement('div');card.className='hint-reveal-card '+c.cls;
+  let quoteText = (type==='addl-hx' && currentCase.patient_quote_addl_hx) ? currentCase.patient_quote_addl_hx : '';
+  card.innerHTML=`<div class="hint-reveal-label">${c.label}</div>${quoteText ? '<div class="addl-hx-quote" style="font-style:italic;color:var(--text-secondary);font-size:14px;border-left:2px solid rgba(160,120,40,0.5);padding-left:10px;margin-bottom:10px"></div>' : ''}<div class="hint-reveal-text">${c.text}</div>`;
+  document.getElementById('workup-reveals').appendChild(card);
+  if(quoteText){
+    const qEl = card.querySelector('.addl-hx-quote');
+    if(qEl) setTimeout(()=>typewriterWrite(qEl, quoteText, 22), 200);
+  }
+};
+
+window.toggleLabsPanel=function(){
+  const p=document.getElementById('labs-panel'),open=p.style.display==='block';
+  p.style.display=open?'none':'block';
+  if(!open)document.getElementById('btn-labs').classList.add('used');
+};
+
+const STANDARD_LABS = ['CBC','CMP','EKG','Troponin','Lipase','UA','ABG/VBG','Coags'];
+
+function renderLabsGrid(){
+  const grid=document.getElementById('labs-grid');grid.innerHTML='';
+  STANDARD_LABS.forEach((name,i)=>{
+    const b=document.createElement('button');b.className='lab-btn';b.id='lab-btn-'+i;b.textContent=name;b.onclick=()=>orderLab(i);grid.appendChild(b);
+  });
+  if(currentCase.special_test){
+    const b=document.createElement('button');b.className='lab-btn locked-lab';b.id='lab-btn-special';
+    b.textContent='\ud83d\udd12 Special Test \u221220 HP';b.onclick=()=>orderSpecialTest();grid.appendChild(b);
+  }
+}
+
+window.orderLab=function(idx){
+  if(orderedLabs.has('lab-'+idx))return;
+  drainHP(5);
+  try { window.setFogDensity(_fogTargetDensity - 8); } catch(e){}
+  orderedLabs.add('lab-'+idx);
+  document.getElementById('lab-btn-'+idx).classList.add('ordered');
+  const rc=[...orderedLabs].filter(k=>k.startsWith('lab-')&&k!=='lab-special').length;
+  const counter=document.getElementById('lab-counter');
+  if(rc>=2){
+    const sb=document.getElementById('lab-btn-special');
+    if(sb){sb.classList.remove('locked-lab');sb.textContent='Special Test \u221220 HP';}
+    if(counter){counter.textContent='\ud83d\udd13 Special Test unlocked';counter.classList.add('unlocked');}
+  } else if(counter) counter.textContent=rc+'/2 for Special Test';
+  const labName=STANDARD_LABS[idx];
+  const testData=currentCase.tests?currentCase.tests.find(t=>t.name.toLowerCase()===labName.toLowerCase()):null;
+  const result=testData?testData.result:'No result available for this case.';
+  addLabResult(labName,result);
+  const _labComments = {
+    'cxr': '"The heart and lungs look intact. The machine itself is not broken. But a machine with no fuel still does not run, does it?"',
+    'mri': '"Clean. No fog inside the skull. Whatever is dimming this patient is coming from outside the brain — not within it."',
+    'cbc': '"Now we are asking the right questions."',
+    'cmp': '"Metabolic picture. Good instinct. Let the numbers speak."',
+  };
+  const _lc = _labComments[labName.toLowerCase()];
+  if(_lc) setTimeout(()=>setFennick('chart', _lc), 400);
+  // Patient remark on lab order
+  const labRemark = (currentCase && currentCase['cc_after_lab_'+labName.toLowerCase().replace(/\//g,'')]) || getGenericRemark('labs-generic');
+  if(labRemark) setTimeout(()=>setPtRemark(labRemark), 600);
+};
+
+window.orderSpecialTest=function(){
+  const rc=[...orderedLabs].filter(k=>k.startsWith('lab-')&&k!=='lab-special').length;
+  if(rc<2||orderedLabs.has('lab-special'))return;
+  drainHP(20);orderedLabs.add('lab-special');
+  const btn=document.getElementById('lab-btn-special');
+  if(btn){btn.classList.add('ordered');btn.textContent=currentCase.special_test.name;}
+  addLabResult(currentCase.special_test.name,currentCase.special_test.result);
+};
+
+function addLabResult(name,result){
+  const card=document.createElement('div');card.className='test-result-card';
+  // Check for memory fragment
+  const testData = currentCase && currentCase.tests ? currentCase.tests.find(t=>t.name.toLowerCase()===name.toLowerCase()) : null;
+  const frag = testData && testData.memory_fragment ? testData.memory_fragment : null;
+  const fragHtml = frag ? `<div class="memory-fragment" style="display:none" id="mem-${name.replace(/\s/g,'')}">${frag}</div>
+    <div style="font-size:11px;color:#9a7030;margin-top:5px;cursor:pointer;font-style:italic" onclick="revealMemory('${name.replace(/\s/g,'')}',this)">✦ A memory surfaces...</div>` : '';
+  card.innerHTML=`<div class="test-result-name">${name.toUpperCase()}</div><div class="test-result-val">${result}</div>${fragHtml}`;
+  document.getElementById('lab-results').appendChild(card);
+}
+
+window.revealMemory = function(id, trigger) {
+  const mem = document.getElementById('mem-'+id);
+  if(mem) { mem.style.display='block'; trigger.style.display='none'; }
+};
+
+window.dxInputHandler=function(){
+  const val=document.getElementById('dx-input').value.trim();
+  document.getElementById('dx-submit-btn').disabled=!val;
+  const q=val.toLowerCase(),sug=document.getElementById('dx-suggestions');
+  if(q.length<2){sug.style.display='none';return;}
+  const matches=DIAGNOSES.filter(d=>d.toLowerCase().includes(q)).slice(0,8);
+  if(!matches.length){sug.style.display='none';return;}
+  sug.innerHTML=matches.map(d=>{const iw=wrongAnswers.has(d);return `<div class="dx-suggestion${iw?' wrong-ans':''}" onclick="${iw?'void 0':"selectDx('"+d.replace(/'/g,"\\'")+"')"}">${d}${iw?' \u2014 incorrect':''}</div>`;}).join('');
+  sug.style.display='block';
+};
+
+window.selectDx=function(dx){document.getElementById('dx-input').value=dx;document.getElementById('dx-suggestions').style.display='none';document.getElementById('dx-submit-btn').disabled=false;};
+document.addEventListener('click',e=>{if(!e.target.closest('#dx-note'))document.getElementById('dx-suggestions').style.display='none';});
+
+window.submitDx=function(){
+  if(dxSubmitted&&dxCorrect)return;
+  const val=document.getElementById('dx-input').value.trim();if(!val)return;
+  // Validate against diagnoses list
+  const inList = DIAGNOSES.some(d => d.toLowerCase() === val.toLowerCase());
+  if(!inList){
+    const result=document.getElementById('dx-result');
+    result.className='dx-result wrong';
+    result.textContent='⚠ That diagnosis is not in our records. Check your spelling or search from the list.';
+    result.style.display='block';
+    const inp=document.getElementById('dx-input');inp.classList.add('wrong');setTimeout(()=>inp.classList.remove('wrong'),600);
+    return;
+  }
+  const result=document.getElementById('dx-result');
+  if(val.toLowerCase()===currentCase.dx_answer.toLowerCase()){
+    dxSubmitted=true;dxCorrect=true;
+    // Tier 3: dramatic fog clear on correct dx
+    if(currentCase.tier === 3) {
+      setTimeout(()=>{ try{ window.setFogDensity(0, 'warm'); }catch(e){} }, 300);
+    }
+    result.className='dx-result correct';result.textContent='\u2713 Correct \u2014 '+currentCase.dx_answer;result.style.display='block';
+    document.getElementById('dx-submit-btn').disabled=true;document.getElementById('dx-suggestions').style.display='none';
+    try { window.setFogDensity(_fogTargetDensity * 0.30); } catch(e){}
+    const dxRemark = (currentCase && currentCase.cc_after_dx) || getGenericRemark('dx-correct');
+    if(dxRemark) setTimeout(()=>setPtRemark(dxRemark), 600);
+    setFennick('good_job','"That is the diagnosis. Now let us see how you manage it."');
+    unlockManagement(); setTimeout(()=>switchTab('management'), 2600);
+  } else {
+    errors++;drainHP(10);wrongAnswers.add(val);triggerInkSplat();
+    result.className='dx-result wrong';result.textContent='\u2717 Incorrect. Try again.';result.style.display='block';
+    document.getElementById('dx-input').value='';
+    const inp=document.getElementById('dx-input');inp.classList.add('wrong');setTimeout(()=>inp.classList.remove('wrong'),600);
+    document.getElementById('dx-submit-btn').disabled=true;
+    document.getElementById('wrong-answers-list').innerHTML=[...wrongAnswers].map(w=>`<span class="wrong-answer-tag">${w}</span>`).join('');
+    updateFennickByErrors();
+  }
+};
+
+function showReport(){
+  const tmpl=currentCase.report_template,rn=document.getElementById('report-note');rn.style.display='block';
+  if(!tmpl){document.getElementById('report-text').textContent='Assessment: '+currentCase.dx_answer;rn.scrollIntoView({behavior:'smooth',block:'nearest'});return;}
+  let parts=[];
+  if(revealedWorkup.has('addl-hx')&&tmpl.pertinent_positives?.hx)parts.push('history notable for '+tmpl.pertinent_positives.hx);
+  if(revealedWorkup.has('pe')&&tmpl.pertinent_positives?.pe)parts.push('physical exam showing '+tmpl.pertinent_positives.pe);
+  if(orderedLabs.size>0&&tmpl.pertinent_positives?.labs)parts.push(tmpl.pertinent_positives.labs);
+  if(revealedWorkup.has('imaging')&&tmpl.pertinent_positives?.imaging)parts.push(tmpl.pertinent_positives.imaging);
+  if(orderedLabs.has('lab-special')&&tmpl.pertinent_positives?.special)parts.push(tmpl.pertinent_positives.special);
+  const p=parts.length>0?'Pertinent positives include '+parts.join('; ')+'.':'Limited workup obtained.';
+  document.getElementById('report-text').innerHTML=`<strong>Patient:</strong> ${tmpl.age}yo ${tmpl.sex==='F'?'female':'male'} with PMH of ${tmpl.pmh}, presenting with ${tmpl.presenting}. ${p} <strong>Assessment:</strong> ${tmpl.assessment}. <strong>Plan:</strong> ${tmpl.plan}.`;
+  rn.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function unlockManagement(){currentStage=0;renderManagement();document.getElementById('mgmt-note').scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+// Track which option was selected per stage so re-renders restore the state
+const _mgmtSelections = {}; // { stageIdx: { optIdx, correct, feedback } }
+
+function renderManagement(){
+  const stages=currentCase.management;if(!stages)return;
+  document.getElementById('mgmt-progress').innerHTML=stages.map((_,i)=>`${i>0?'<div class="prog-line" id="prog-line-'+i+'"></div>':''}<div class="prog-dot ${i===0&&dxCorrect?'cur':''}" id="prog-dot-${i}"></div>`).join('');
+  document.getElementById('mgmt-stages').innerHTML=stages.map((s,si)=>`
+    <div class="mgmt-stage" id="stage-wrap-${si}">${si>0?'<div class="stage-divider"></div>':''}
+      <div class="mgmt-stage-header"><div class="stage-num ${!dxCorrect||si>0?'locked':''}" id="stage-num-${si}">${si+1}</div><div class="stage-title ${!dxCorrect||si>0?'locked':''}" id="stage-title-${si}">${s.title}</div></div>
+      ${s.description ? `<div style="font-size:13px;color:#6a4a18;font-style:italic;margin:4px 0 8px 36px;line-height:1.5;opacity:0.85;">${s.description}</div>` : ''}
+      <div class="mgmt-options" id="stage-opts-${si}">${s.options.map((o,oi)=>`<div class="mgmt-option ${!dxCorrect||si>0?'locked-opt':''}" id="opt-${si}-${oi}" onclick="pickMgmt(${si},${oi})"><div class="mgmt-ob">${String.fromCharCode(65+oi)}</div><div><div class="mgmt-on">${o.text}</div>${o.sub?`<div class="mgmt-oc">${o.sub}</div>`:''}</div></div>`).join('')}</div>
+      <div id="stage-feedback-${si}" style="display:none"></div>
+    </div>`).join('');
+
+  // Restore previous selections after re-render
+  Object.entries(_mgmtSelections).forEach(([si, sel]) => {
+    const idx = parseInt(si);
+    // Lock all options in this stage
+    stages[idx].options.forEach((_,oi)=>{
+      const el=document.getElementById(`opt-${idx}-${oi}`);
+      if(el) el.classList.add('locked-opt');
+    });
+    // Re-apply selected state
+    const selEl = document.getElementById(`opt-${idx}-${sel.optIdx}`);
+    if(selEl) {
+      selEl.classList.remove('locked-opt');
+      selEl.classList.add(sel.correct ? 'selected-correct' : 'selected-wrong');
+    }
+    // Re-show feedback
+    const fbEl = document.getElementById(`stage-feedback-${idx}`);
+    if(fbEl && sel.feedback) {
+      fbEl.style.cssText = sel.correct
+        ? 'display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px'
+        : 'display:block;background:rgba(230,160,150,0.4);border:1px solid rgba(180,80,70,0.35);color:#4a1010;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';
+      fbEl.textContent = sel.feedback;
+    }
+    // Mark stage header done
+    const numEl = document.getElementById(`stage-num-${idx}`);
+    if(numEl) numEl.classList.add('done');
+    const titleEl = document.getElementById(`stage-title-${idx}`);
+    if(titleEl) titleEl.classList.remove('locked');
+  });
+}
+
+// ── TIER 3 SCENE TRANSITIONS ──
+function applyTier3Scene(trigger) {
+  if (!currentCase || currentCase.tier !== 3) return;
+  const bgEl = document.getElementById('bg');
+
+  if (trigger === 'mgmt_bg' && currentCase.tier3_bg_url) {
+    // Bloom flash — white overexposure — then bg swap to empty concert hall
+    const bloom = document.createElement('div');
+    bloom.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:9998;opacity:0;pointer-events:none;transition:opacity 0.3s ease;';
+    document.body.appendChild(bloom);
+    setTimeout(() => { bloom.style.opacity = '0.95'; }, 50);
+    setTimeout(() => {
+      if (bgEl) bgEl.style.backgroundImage = `url('${currentCase.tier3_bg_url}')`;
+      bloom.style.opacity = '0';
+      setTimeout(() => bloom.remove(), 400);
+    }, 350);
+    // Music: play most beautiful version if available
+    // (handled by audio system when implemented)
+
+  } else if (trigger === 'mgmt_silhouette' && currentCase.tier3_silhouette_url) {
+    // Swap background to bg2 (piano + old man playing)
+    if (bgEl) {
+      bgEl.style.transition = 'opacity 0.8s ease';
+      bgEl.style.opacity = '0';
+      setTimeout(() => {
+        bgEl.style.backgroundImage = `url('${currentCase.tier3_silhouette_url}')`;
+        bgEl.style.opacity = '1';
+      }, 800);
+    }
+    // Switch to scene 2 music if defined
+    if(currentCase.music_tier3_scene2) {
+      setTimeout(()=>{ try { switchMusicTrack(currentCase.music_tier3_scene2); } catch(e) {} }, 1200);
+    }
+    // Swap patient portrait to smiling version
+    if (currentCase.tier3_portrait_2_url) {
+      setTimeout(() => {
+        const ptImg = document.getElementById('pt-img');
+        if (ptImg) {
+          ptImg.style.transition = 'opacity 1.2s ease, filter 1.2s ease';
+          ptImg.style.opacity = '0';
+          setTimeout(() => {
+            ptImg.src = currentCase.tier3_portrait_2_url;
+            ptImg.style.filter = 'saturate(1) brightness(1) opacity(1)';
+            ptImg.style.opacity = '1';
+          }, 1200);
+        }
+      }, 900);
+    }
+  }
+}
+
+// ── REACTIVE MANAGEMENT INJECTION ──
+window.pickMgmt=function(stageIdx,optIdx){
+  if(stageIdx!==currentStage)return;
+  const stage=currentCase.management[stageIdx],opt=stage.options[optIdx];
+  const optEl=document.getElementById(`opt-${stageIdx}-${optIdx}`),fbEl=document.getElementById(`stage-feedback-${stageIdx}`);
+  stage.options.forEach((_,i)=>{const el=document.getElementById(`opt-${stageIdx}-${i}`);if(el)el.classList.add('locked-opt');});
+  if(opt.correct){
+    optEl.classList.remove('locked-opt');optEl.classList.add('selected-correct');document.getElementById('stage-num-'+stageIdx).classList.add('done');
+    if(fbEl){fbEl.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_correct||'Correct.';}
+    if(opt.fennick_speech && Array.isArray(opt.fennick_speech)) {
+      playFennickSpeech(opt.fennick_speech);
+    } else if(opt.fennick_correct_comment) {
+      setFennick('good_job', opt.fennick_correct_comment);
+    } else {
+      setFennick('good_job','"'+(opt.feedback_correct||'Good call.')+'"');
+    }
+    const mgmtRemark = opt.pt_remark_correct || getGenericRemark('mgmt-correct');
+    if(mgmtRemark) setTimeout(()=>setPtRemark(mgmtRemark), 700);
+    // Save selection state for re-render restoration
+    _mgmtSelections[stageIdx] = { optIdx, correct: true, feedback: opt.feedback_correct||'Correct.' };
+    // Scene trigger
+    if(opt.scene_trigger) setTimeout(()=>applyTier3Scene(opt.scene_trigger), 800);
+    // Reactive stage — inject new stage after current
+    if(opt.reactive_stage) {
+      const rs = opt.reactive_stage;
+      const delay = rs.delay_ms || 2500;
+      // Insert reactive stage right after current
+      currentCase.management.splice(stageIdx + 1, 0, rs);
+      // Transition: Fennick speaks the bridge, pt remark, vitals note
+      setTimeout(() => {
+        if(rs.fennick_transition) setFennick('concerned', rs.fennick_transition);
+        if(rs.pt_remark_transition) setTimeout(()=>setPtRemark(rs.pt_remark_transition), 800);
+        if(rs.description || rs.vitals_note) {
+          const vn = document.createElement('div');
+          vn.style.cssText='background:rgba(230,200,150,0.3);border:1px solid rgba(160,120,40,0.35);border-radius:6px;padding:8px 12px;font-size:13px;color:#4a3010;margin:8px 0;font-style:italic;';
+          vn.textContent = '📋 ' + (rs.description || rs.vitals_note);
+          const mgmtStages = document.getElementById('mgmt-stages');
+          if(mgmtStages) mgmtStages.insertBefore(vn, mgmtStages.firstChild);
+          vn.classList.add('note-slide-up');
+        }
+        // Rebuild management UI to include new stage
+        renderManagement();
+        advanceStage(stageIdx + 1);
+      }, delay);
+    } else {
+      advanceStage(stageIdx+1);
+    }
+  } else {
+    optEl.classList.remove('locked-opt');optEl.classList.add('selected-wrong');errors++;drainHP(10);
+    if(fbEl){fbEl.style.cssText='display:block;background:rgba(230,160,150,0.4);border:1px solid rgba(180,80,70,0.35);color:#4a1010;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_wrong||'Incorrect.';}
+    _perfectRun=false;const _wrongFace=(errors%2===0)?'concerned':'thinking';
+    const _wrongComment = opt.fennick_wrong_comment || ('"'+(opt.feedback_wrong||'Not quite.')+'"');
+    setFennick(_wrongFace, _wrongComment);updateFennickByErrors();
+    const mgmtWrongRemark = opt.pt_remark_wrong || getGenericRemark('mgmt-wrong');
+    if(mgmtWrongRemark) setTimeout(()=>setPtRemark(mgmtWrongRemark), 700);
+    // Save wrong selection for re-render
+    if(!_mgmtSelections[stageIdx]) _mgmtSelections[stageIdx] = { optIdx, correct: false, feedback: opt.feedback_wrong||'Incorrect.' };
+    setTimeout(()=>advanceStage(stageIdx+1),800);
+  }
+};
+
+function advanceStage(nextIdx){
+  const stages=currentCase.management;
+  if(nextIdx>=stages.length){
+    // Final management done — full clear
+    try {
+      window.setFogDensity(0);
+      document.body.classList.remove('tier-1','tier-2','tier-3');
+    } catch(e){}
+    setTimeout(()=>endCase(false),500);
+    return;
+  }
+  currentStage=nextIdx;
+  const pd=document.getElementById('prog-dot-'+(nextIdx-1));if(pd)pd.classList.replace('cur','done');
+  const pl=document.getElementById('prog-line-'+nextIdx);if(pl)pl.classList.add('done');
+  const cd=document.getElementById('prog-dot-'+nextIdx);if(cd)cd.classList.add('cur');
+  const ne=document.getElementById('stage-num-'+nextIdx);if(ne)ne.classList.remove('locked');
+  const te=document.getElementById('stage-title-'+nextIdx);if(te)te.classList.remove('locked');
+  stages[nextIdx].options.forEach((_,i)=>{const el=document.getElementById(`opt-${nextIdx}-${i}`);if(el)el.classList.remove('locked-opt');});
+  document.getElementById('stage-wrap-'+nextIdx)?.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function useHint(){
+  drainHP(10);
+  try { window.setFogDensity(_fogTargetDensity - 5); } catch(e){}
+  _perfectRun=false;
+  const hintRemark = (currentCase && currentCase.cc_after_hint) || getGenericRemark('hint');
+  if(hintRemark) setTimeout(()=>setPtRemark(hintRemark), 500);
+  if(!dxCorrect){const h=hints[currentHintIdx%hints.length];currentHintIdx++;const hintFace=(currentHintIdx%3===0)?'confused':'think';setFennick(hintFace,'"'+h+'"');}
+  else{const s=currentCase.management[currentStage];const hintFace2=(currentHintIdx%3===0)?'confused':'think';setFennick(hintFace2,'"'+(s&&s.hint?s.hint:'Trust your instincts.')+'"');}
+}
+
+function unlockNextStage(){}
+
+function endCase(failed){
+  // Tier 3: shutter → snap to Ferrovane → Polaroid
+  if(currentCase && currentCase.tier === 3) {
+    const bgEl = document.getElementById('bg');
+    // Step 1: shutter sound at 400ms
+    setTimeout(() => {
+      try {
+        const ctx = new (window.AudioContext||window.webkitAudioContext)();
+        const buf = ctx.createBuffer(1, ctx.sampleRate*0.08, ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        // Mechanical shutter: sharp click + brief decay
+        for(let i=0;i<d.length;i++){
+          const t = i/d.length;
+          d[i] = (Math.random()*2-1) * (t<0.05 ? 1.0 : Math.pow(1-t,1.2)*0.6);
+        }
+        const s=ctx.createBufferSource(); s.buffer=buf;
+        const g=ctx.createGain(); g.gain.value=1.4;
+        const f=ctx.createBiquadFilter(); f.type='bandpass'; f.frequency.value=3500;
+        s.connect(f); f.connect(g); g.connect(ctx.destination); s.start();
+      } catch(e){}
+    }, 400);
+    // Step 2: white flash at 450ms then snap bg back to Ferrovane
+    setTimeout(() => {
+      const flash = document.createElement('div');
+      flash.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:9997;opacity:1;pointer-events:none;transition:opacity 0.5s ease;';
+      document.body.appendChild(flash);
+      // Restore correct Ferrovane bg behind the flash
+      if(bgEl) {
+        bgEl.style.transition = 'none';
+        applyTimeTheme(true); // bgOnly — don't reinit music
+      }
+      // Fade flash out
+      setTimeout(()=>{ flash.style.opacity='0'; setTimeout(()=>flash.remove(),600); }, 100);
+    }, 450);
+    // Step 3: Polaroid drops in at 1400ms
+    if(currentCase.polaroid_success_url) {
+      setTimeout(() => {
+        const polaroid = document.createElement('div');
+        polaroid.id = 'tier3-polaroid';
+        polaroid.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) translateY(50px);z-index:9000;pointer-events:all;display:flex;flex-direction:column;align-items:center;opacity:0;transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1);';
+        polaroid.innerHTML = `
+          <div style="background:#f8f4ee;padding:14px 14px 36px 14px;box-shadow:0 12px 50px rgba(0,0,0,0.55);border-radius:2px;max-width:290px;position:relative;">
+            <button onclick="document.getElementById('tier3-polaroid').style.opacity='0';setTimeout(()=>document.getElementById('tier3-polaroid')?.remove(),600);"
+              style="position:absolute;top:6px;right:8px;background:none;border:none;color:rgba(80,50,10,0.5);font-size:18px;line-height:1;cursor:pointer;padding:2px 4px;z-index:1;">✕</button>
+            <img src="${currentCase.polaroid_success_url}" style="width:262px;height:262px;object-fit:cover;display:block;">
+            <div style="margin-top:8px;font-family:'Crimson Pro',Georgia,serif;font-size:13px;color:#3a2a10;text-align:center;font-style:italic;line-height:1.5;padding:0 4px;">
+              ${currentCase.polaroid_caption_success||''}
+            </div>
+          </div>
+        `;
+        document.body.appendChild(polaroid);
+        requestAnimationFrame(()=>{
+          setTimeout(()=>{
+            polaroid.style.opacity='1';
+            polaroid.style.transform='translate(-50%,-50%) translateY(0)';
+          }, 30);
+        });
+      }, 1400);
+    }
+  }
+  revealAllManagement();
+  document.getElementById('endgame').style.display='block';document.getElementById('endgame').scrollIntoView({behavior:'smooth'});
+  let grade,comment;
+  if(failed){grade='F';comment='"That drug would have destroyed the patient. Do not forget this."';setFennick('lose',comment);}
+  else if(HP>=80&&_perfectRun){grade='A';comment='"Not a single misstep. Good."';setFennick('answer',comment);}
+  else if(HP>=80&&!_perfectRun){grade='A';comment='"Strong finish. The early stumbles did not define it."';setFennick('good_job',comment);}
+  else if(HP>=60){grade='B';comment='"Solid. The right instincts, mostly."';setFennick('slight_approval',comment);}
+  else if(HP>=40){grade='C';comment='"You got there. The road was longer than it needed to be."';setFennick('concerned',comment);}
+  else{grade='F';comment='"We will not speak of this."';setFennick('lose',comment);}
+  document.getElementById('grade-circle').textContent=grade;document.getElementById('endgame-title').textContent=failed?'Case Lost':'Case Complete';document.getElementById('endgame-comment').textContent=comment;document.getElementById('end-hp').textContent=HP;document.getElementById('end-errors').textContent=errors;document.getElementById('end-grade').textContent=grade;
+}
+
+function revealAllManagement(){
+  if(!currentCase.management)return;
+  currentCase.management.forEach((s,si)=>{
+    s.options.forEach((o,oi)=>{
+      const el=document.getElementById(`opt-${si}-${oi}`);if(!el)return;
+      el.classList.remove('locked-opt');
+      if(!el.classList.contains('selected-correct')&&!el.classList.contains('selected-wrong')){
+        el.style.opacity='0.75';
+        el.onclick=()=>{
+          const fb=document.getElementById(`stage-feedback-${si}`);if(!fb)return;
+          if(o.correct){fb.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fb.textContent='\u2713 '+(o.feedback_correct||'Correct choice.');}
+          else{fb.style.cssText='display:block;background:rgba(230,160,150,0.4);border:1px solid rgba(180,80,70,0.35);color:#4a1010;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fb.textContent='\u2717 '+(o.feedback_wrong||'Incorrect.');}
+          setFennick(o.correct?'answer':'concerned','"'+(o.correct?o.feedback_correct:o.feedback_wrong)+'"');
+        };
+      }
+    });
+  });
+}
+
+
+
+
+
+// ── FOG DENSITY CONTROL ──
+let _fogDensity = 60;
+let _fogTargetDensity = 60;
+let _fogAnimFrame = null;
+
+window.setFogDensity = function(value, mode) {
+  _fogTargetDensity = Math.max(0, Math.min(100, value));
+  const scale = _fogTargetDensity / 100;
+  document.getElementById('fog-ambient').style.opacity = 0.12 * scale;
+  document.getElementById('fog-mid-a').style.opacity = 0.42 * scale;
+  document.getElementById('fog-mid-b').style.opacity = 0.32 * scale;
+  document.getElementById('fog-mid-c').style.opacity = 0.26 * scale;
+  document.getElementById('fog-mid-d').style.opacity = 0.18 * scale;
+  if(document.getElementById('fog-mid-e')) document.getElementById('fog-mid-e').style.opacity = 0.20 * scale;
+  // Lift portrait desaturation as fog clears
+  const ptImg = document.getElementById('pt-img');
+  if(ptImg) {
+    const saturation = 0.55 + (1 - scale) * 0.45; // 0.55 at full fog → 1.0 at no fog
+    const brightness = 0.95 + (1 - scale) * 0.05;
+    ptImg.style.filter = scale > 0.1 ? `saturate(${saturation.toFixed(2)}) brightness(${brightness.toFixed(2)})` : '';
+  }
+  if (mode === 'toxic') {
+    ['fog-mid-a','fog-mid-b','fog-mid-c'].forEach(id => {
+      document.getElementById(id).style.filter = 'hue-rotate(200deg) saturate(1.5)';
+    });
+    setTimeout(() => {
+      ['fog-mid-a','fog-mid-b','fog-mid-c'].forEach(id => {
+        document.getElementById(id).style.filter = '';
+      });
+    }, 2000);
+  }
+};
+
+window.fogSweep = function() {
+  window.setFogDensity(15, 'clear');
+};
+
+// Tier baselines
+const FOG_TIER_BASELINE = { 1: 50, 2: 70, 3: 90 };
+
+function setFogForCase(c) {
+  const tier = c && c.tier ? c.tier : 1;
+  _fogTargetDensity = FOG_TIER_BASELINE[tier] || 50;
+  window.setFogDensity(_fogTargetDensity);
+}
+
+
+
+
+// ── FENNICK SPEECH SYSTEM ──
+function playFennickSpeech(lines) {
+  if(!lines || !lines.length) return;
+  const el = document.getElementById('fennick-comment');
+  const img = document.getElementById('fennick-img');
+  img.src = FOX.answer;
+  let i = 0;
+  function nextLine() {
+    if(i >= lines.length) {
+      setTimeout(()=>{ img.src = FOX.good_job; }, 800);
+      return;
+    }
+    typewriterWrite(el, lines[i].replace(/^"|"$/g,''), 18).then(()=>{
+      i++;
+      const delay = (window._isCaseComplete && i < lines.length) ? 3600 : 1800;
+      setTimeout(nextLine, delay);
+    });
+  }
+  nextLine();
+}
+
+// Case complete monologue
+const _origEndCase = endCase;
+window.endCase = function(failed) {
+  _origEndCase(failed);
+  if(!failed && currentCase && currentCase.fennick_case_complete) {
+    setTimeout(()=>{ window._isCaseComplete = true; playFennickSpeech(currentCase.fennick_case_complete); }, 1200);
+  }
+};
+
+
+
+// ── INK SPLATTER ──
+function triggerInkSplat() {
+  const el = document.getElementById('ink-splatter');
+  if (!el) return;
+  el.style.animation = 'none';
+  el.style.opacity = '0';
+  void el.offsetWidth; // reflow
+  el.style.animation = 'inkSplat 0.9s cubic-bezier(0.22,1,0.36,1) forwards';
+}
+
+// ── STAMP SYSTEM ──
+function playStampSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    // Thud impact
+    const bufSize = ctx.sampleRate * 0.12;
+    const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < bufSize; i++) {
+      const t = i / bufSize;
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - t, 1.5) * 0.6;
+    }
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    const gain = ctx.createGain();
+    gain.gain.value = 0.9;
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 600;
+    src.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    src.start();
+  } catch(e) {}
+}
+
+function triggerStamp(suffix) {
+  suffix = suffix || '';
+  const wax = document.getElementById('stamp-wax' + suffix);
+  const tool = document.getElementById('stamp-tool' + suffix);
+  const panelId = suffix === '-end' ? 'endgame' : 'dx-note';
+  const panel = document.getElementById(panelId);
+  if (!wax || !tool) return;
+
+  // Reset
+  wax.style.animation = 'none';
+  tool.style.animation = 'none';
+  wax.style.opacity = '0';
+  tool.style.opacity = '0';
+  tool.style.transform = 'translateY(-80px)';
+
+  // Step 1: stamp drops in fast
+  setTimeout(() => {
+    tool.style.animation = 'stampDrop 0.22s cubic-bezier(0.22,1,0.36,1) forwards';
+    playStampSound();
+
+    // Step 2: shake panel on impact
+    setTimeout(() => {
+      if (panel) {
+        panel.style.animation = 'panelShake 0.18s ease-out';
+        setTimeout(() => { panel.style.animation = ''; }, 200);
+      }
+      // Step 3: wax appears
+      wax.style.animation = 'waxReveal 0.2s cubic-bezier(0.22,1,0.36,1) forwards';
+
+      // Step 4: stamp fades out after brief pause
+      setTimeout(() => {
+        tool.style.animation = 'stampFadeOut 0.3s ease-in forwards';
+      }, 350);
+    }, 180);
+  }, 80);
+}
+
+// ── TYPEWRITER INK SOUND — disabled ──
+function initInkSound() {}
+function playInkSound() {}
+
+// typewriterWrite patch — clean, no ink sound
+const _origTypewriterWrite = typewriterWrite;
+window.typewriterWrite = function(el, text, speed) {
+  speed = speed || 22;
+  return new Promise(resolve => {
+    el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    el.appendChild(cursor);
+    let i = 0;
+    function tick() {
+      if (i < text.length) {
+        el.insertBefore(document.createTextNode(text[i]), cursor);
+        i++;
+        setTimeout(tick, speed + Math.random() * 8);
+      } else {
+        cursor.remove();
+        resolve();
+      }
+    }
+    tick();
+  });
+};
+
+// ── CHART SLIDE-UP ── patch hint reveal cards and lab results
+const _origAddLabResult = window.addLabResult;
+// Already defined inline — patch via MutationObserver on workup-reveals and lab-results
+(function() {
+  function observeAndAnimate(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const obs = new MutationObserver(mutations => {
+      mutations.forEach(m => {
+        m.addedNodes.forEach(node => {
+          if (node.nodeType === 1) {
+            node.classList.add('note-slide-up');
+            playPaperSound();
+          }
+        });
+      });
+    });
+    obs.observe(container, { childList: true });
+  }
+  function playPaperSound() {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const bufSize = ctx.sampleRate * 0.07;
+      const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) {
+        const t = i / bufSize;
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - t, 2) * 0.18;
+      }
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'highpass';
+      filter.frequency.value = 2500;
+      src.connect(filter);
+      filter.connect(ctx.destination);
+      src.start();
+    } catch(e) {}
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    observeAndAnimate('workup-reveals');
+    observeAndAnimate('lab-results');
+  });
+})();
+
+// Trigger stamp on correct Dx
+const _origSubmitDxStamp = window.submitDx;
+window.submitDx = function() {
+  const val = document.getElementById('dx-input') ? document.getElementById('dx-input').value.trim() : '';
+  const isCorrect = val && currentCase && val.toLowerCase() === currentCase.dx_answer.toLowerCase();
+  _origSubmitDxStamp();
+  if (isCorrect) {
+    setTimeout(() => triggerStamp(), 400);
+  }
+};
+
+// Trigger stamp again on case complete
+const _origEndCaseStamp = window.endCase;
+window.endCase = function(failed) {
+  _origEndCaseStamp(failed);
+  setTimeout(() => triggerStamp('-end'), 900);
+};
+
+</script>
+<div id="lantern-cursor"></div>
+<script>
+(function(){
+  const lantern = document.getElementById('lantern-cursor');
+  let visible = false;
+  document.addEventListener('mousemove', function(e) {
+    lantern.style.left = e.clientX + 'px';
+    lantern.style.top  = e.clientY + 'px';
+    if (!visible) { lantern.style.opacity = '1'; visible = true; }
+  });
+  document.addEventListener('mouseleave', function() {
+    lantern.style.opacity = '0'; visible = false;
+  });
+})();
+</script>
+</body>
+</html>  z-index: 0;
+  background-size: cover;
+  background-position: center center;
+  transition: background-image 1s ease;
+}
+
+/* ── FOG LAYERS ── */
+.fog-layer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
+  transition: opacity 1.5s ease;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* Full screen ambient haze */
+#fog-ambient {
+  top: -25%;
+  height: 150%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776289464/foggg_utm3zt.jpg');
+  background-size: cover;
+  opacity: 0.10;
+  animation: fogBob1 90s ease-in-out infinite;
+}
+/* Middle band layers — 150% height keeps edges safe, faster bob */
+/* 4:1 fog images — height: 25vw matches natural aspect, 100% 100% fills perfectly, no cut */
+#fog-mid-a {
+  top: 18%;
+  height: 25vw;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776376438/fog1_r8hlh5.png');
+  background-size: 100% 100%;
+  opacity: 0.42;
+  animation: fogBob2 22s ease-in-out infinite;
+}
+#fog-mid-b {
+  top: 28%;
+  height: 25vw;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776376203/fog3_filb7j.png');
+  background-size: 100% 100%;
+  opacity: 0.30;
+  animation: fogBob3 35s ease-in-out infinite;
+}
+#fog-mid-c {
+  top: 10%;
+  height: 25vw;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776376202/fog2_mpz0gj.png');
+  background-size: 100% 100%;
+  opacity: 0.24;
+  animation: fogBob1 48s ease-in-out infinite;
+}
+#fog-mid-d {
+  top: 5%;
+  height: 25vw;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776376438/fog1_r8hlh5.png');
+  background-size: 100% 100%;
+  opacity: 0.16;
+  animation: fogBob2 62s ease-in-out infinite;
+}
+#fog-mid-e {
+  top: 34%;
+  height: 25vw;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776376202/fog2_mpz0gj.png');
+  background-size: 100% 100%;
+  opacity: 0.20;
+  animation: fogBob3 40s ease-in-out infinite;
+}
+
+/* Vertical bob — 150% height means ±50px is always safe */
+@keyframes fogBob1 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-50px); }
+  100% { transform: translateY(0px); }
+}
+@keyframes fogBob2 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(45px); }
+  100% { transform: translateY(0px); }
+}
+@keyframes fogBob3 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-55px); }
+  100% { transform: translateY(0px); }
+}
+
+
+/* ── TABLE OVERLAY ── */
+#table-overlay{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  height:36%;
+  z-index:2;
+  background-image:url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775788704/Table_default1_hpioo4.png');
+  background-size:cover;
+  background-position:center top;
+  pointer-events:none;
+}
+
+/* ── WOOD NAV ── */
+.fm-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 24px;
+  height:42px;
+  display:flex;justify-content:space-between;align-items:center;
+  background-color:#0e0601;
+  background-image:
+    repeating-linear-gradient(179deg,
+      transparent 0px,transparent 3px,
+      rgba(255,180,80,0.06) 3px,rgba(255,180,80,0.06) 4px,
+      transparent 4px,transparent 9px,
+      rgba(0,0,0,0.08) 9px,rgba(0,0,0,0.08) 10px,
+      transparent 10px,transparent 18px,
+      rgba(255,160,60,0.04) 18px,rgba(255,160,60,0.04) 19px,
+      transparent 19px,transparent 28px,
+      rgba(0,0,0,0.06) 28px,rgba(0,0,0,0.06) 29px,
+      transparent 29px,transparent 40px
+    ),
+    linear-gradient(176deg,#2a1206 0%,#1a0902 15%,#261004 30%,#180802 45%,#241004 60%,#1a0902 75%,#220e03 100%);
+  border-bottom:2px solid #7a4a12;
+}
+.fm-logo{display:flex;align-items:center;text-decoration:none;justify-content:center}
+.fm-logo-gear{color:#c8a45a}
+.fm-logo small{color:#b09050;font-size:10px;display:block;letter-spacing:.15em;font-style:italic;font-weight:400;margin-top:1px}
+.fm-nav-r{display:flex;gap:10px;align-items:center;justify-content:flex-end}
+.fm-nav-pill{color:#e8c87a;font-size:12px;border:1px solid #8b6914;border-radius:20px;padding:3px 12px;background:rgba(0,0,0,0.25);cursor:pointer;font-family:'Crimson Pro',Georgia,serif}
+.fm-nav-pill:hover{background:rgba(0,0,0,0.4)}
+.fm-case-lbl{color:#b09050;font-size:11px}
+.fm-hp-nav{display:flex;align-items:center;gap:6px}
+.fm-hp-nav-track{width:60px;height:6px;background:rgba(0,0,0,0.3);border-radius:99px;overflow:hidden;border:1px solid rgba(200,160,80,0.3)}
+.fm-hp-nav-fill{height:100%;background:#c8a45a;border-radius:99px;transition:width .4s ease}
+.fm-hp-nav-num{color:#e8c87a;font-size:11px;font-weight:600;min-width:28px}
+
+/* ── MAIN LAYOUT ── */
+#app{
+  position:relative;z-index:10;
+  padding-top:42px;
+  display:flex;
+  justify-content:center;
+  min-height:100vh;
+  overflow-x:clip;
+}
+
+#app-inner{
+  display:flex;
+  width:100%;
+  max-width:980px;
+  position:relative;
+  z-index:10;
+  min-height:calc(100vh - 42px);
+}
+
+/* ── LEFT COLUMN — FIXED ── */
+#left-col{
+  width:210px;flex-shrink:0;
+  height:calc(100vh - 42px);
+  position:sticky;top:42px;
+  display:flex;flex-direction:column;
+  padding:6px 12px;
+  gap:10px;
+  background-color:rgba(62, 30, 8, 0.98);
+  background-image:
+    repeating-linear-gradient(179deg,
+      transparent 0px,transparent 3px,
+      rgba(255,180,80,0.05) 3px,rgba(255,180,80,0.05) 4px,
+      transparent 4px,transparent 9px,
+      rgba(0,0,0,0.07) 9px,rgba(0,0,0,0.07) 10px,
+      transparent 10px,transparent 18px
+    ),
+    linear-gradient(176deg,#522a0c 0%,#3c1a06 20%,#4e2608 40%,#3a1605 60%,#4a2008 100%);
+  border-right:2px solid rgba(120,80,20,0.5);
+  overflow:hidden;
+}
+
+.fennick-portrait-box{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  background:linear-gradient(160deg,#4a2208 0%,#3a1a06 40%,#2e1405 100%);
+  border-radius:8px;
+  padding:8px 8px 10px;
+  border:1px solid rgba(200,160,60,0.25);
+}
+
+/* ── DR FENNICK PICTURE SPECIFICS (FIXED ZOOM) ── */
+#fennick-img-wrap {
+  width: 160px;
+  height: 160px;
+  border-radius: 6px;
+  overflow: hidden; 
+  background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 1px solid rgba(140,100,30,0.4);
+}
+#fennick-img{
+  width: 95%;
+  height: 95%;
+  object-fit: contain; 
+  object-position: bottom center; 
+  transition: opacity .3s;
+}
+.fennick-name{color:#e8c87a;font-family:'Playfair Display',serif;font-size:15px;font-weight:600;text-align:center;margin-top:4px}
+.fennick-title{color:#c8a45a;font-size:11px;text-align:center;letter-spacing:.04em}
+
+.fennick-comment-box{
+  background:rgba(0,0,0,0.22);
+  border:1px solid rgba(200,160,60,0.25);
+  border-radius:8px;padding:10px;
+  flex:1;
+}
+.fennick-comment-lbl{color:#c8a45a;font-size:11px;letter-spacing:.12em;margin-bottom:5px;display:block}
+#fennick-comment{color:#d4c4a0;font-size:14px;line-height:1.6;transition:color .3s}
+
+.hint-btn{
+  background:rgba(200,160,60,0.15);
+  border:1px solid rgba(200,160,60,0.35);
+  border-radius:8px;padding:9px 10px;
+  color:#e8c87a;font-size:14px;
+  cursor:pointer;text-align:center;
+  font-family:'Crimson Pro',Georgia,serif;
+  transition:background .2s;
+}
+.hint-btn:hover{background:rgba(200,160,60,0.25)}
+.hint-btn span{font-size:11px;color:#a08040;display:block;margin-top:2px}
+
+.streak-box{
+  background:rgba(0,0,0,0.18);
+  border:1px solid rgba(200,160,60,0.2);
+  border-radius:7px;padding:7px 10px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.streak-lbl{color:#a08040;font-size:13px}
+.streak-val{color:#e8c87a;font-size:14px}
+
+/* ── RIGHT SCROLLABLE — NEW PAPER BACKGROUND ── */
+#right-col{
+  flex:1;
+  max-width:700px;
+  height:calc(100vh - 42px);
+  overflow-y:auto;
+  padding:0px 26px 20px 16px;
+  display:flex;flex-direction:column;gap:0px;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775598232/Gemini_Generated_Image_3h2n6k3h2n6k3h2n_rbyyg4_a_90_km2htn.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #0a1520;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.3);
+  scroll-padding-top: 188px;
+}
+
+/* ── THEMATIC SCROLLBAR ── */
+#right-col::-webkit-scrollbar { width: 8px; }
+#right-col::-webkit-scrollbar-track { background: rgba(62, 30, 8, 0.1); border-radius: 4px; }
+#right-col::-webkit-scrollbar-thumb { background: rgba(160, 120, 40, 0.6); border-radius: 4px; }
+#right-col::-webkit-scrollbar-thumb:hover { background: rgba(200, 160, 60, 0.8); }
+
+/* ── NOTE PANELS (CLEAN IVORY, NO TEXTURE) ── */
+.note{
+  background: var(--panel-bg);
+  border:1px solid rgba(140,100,30,0.28);
+  border-radius:6px;
+  padding:18px 20px;
+  box-shadow:1px 2px 10px rgba(60,30,0,0.18);
+  font-size:15px;
+}
+
+/* ── PATIENT BANNER ── */
+#pt-banner{display:flex;gap:10px;align-items:flex-start}
+
+/* ── PATIENT PICTURE SPECIFICS ── */
+#pt-img-wrap{
+  width:160px; 
+  height:160px; 
+  flex-shrink:0;
+  background: linear-gradient(180deg, #fdf8e8 0%, #dcd0a0 100%);
+  border:1px solid rgba(160,120,40,0.4);
+  border-radius:6px;
+  overflow:hidden;
+  display:flex;align-items:flex-end;justify-content:center;
+  position:relative;
+}
+#pt-img{
+  width:95%;
+  height:95%;
+  object-fit:contain;
+  object-position:bottom center;
+  transition: filter 1.5s ease;
+}
+/* Tier vignette overlay */
+#pt-vignette {
+  position:absolute;
+  inset:0;
+  border-radius:6px;
+  pointer-events:none;
+  opacity:0;
+  transition: opacity 1.5s ease;
+}
+/* Tier 2 — slight desaturation + edge blur */
+body.tier-2 #pt-img {
+  filter: saturate(0.55) brightness(0.95);
+}
+body.tier-2 #pt-vignette {
+  opacity:1;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(30,15,5,0.45) 100%);
+  box-shadow: inset 0 0 18px rgba(20,10,0,0.5);
+}
+/* Tier 3 — ghost */
+body.tier-3 #pt-img {
+  filter: saturate(0.1) brightness(1.05) opacity(0.65);
+}
+body.tier-3 #pt-vignette {
+  opacity:1;
+  background: radial-gradient(ellipse at center, transparent 20%, rgba(180,200,220,0.35) 100%);
+  box-shadow: inset 0 0 28px rgba(140,170,200,0.5);
+}
+.pt-name{color: var(--text-primary);font-family:'Playfair Display',serif;font-size:21px;font-weight:600;margin-top:0}
+.pt-occ{color: var(--text-secondary);font-size:13px;margin-top:1px}
+.pt-tag{display:inline-flex;align-items:center;gap:5px;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.12em;padding:3px 9px;border-radius:4px;margin-top:6px}
+
+/* ── MEDICAL CHART ── */
+.chart-grid{display:grid;grid-template-columns:140px 1fr;gap:0;margin-top:10px}
+.chart-label{font-size:13px;color: var(--text-secondary);font-weight:600;letter-spacing:.04em;padding:6px 0;border-bottom:1px solid var(--chart-border)}
+.chart-val{font-size:15px;color: var(--text-primary);padding:6px 0 6px 12px;border-bottom:1px solid var(--chart-border);line-height:1.6;font-style:normal}
+
+.vitals-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.vital-item{display:flex;flex-direction:column;align-items:center;gap:1px}
+.vital-val{font-size:17px;font-weight:600;color: var(--text-primary);font-family:'Playfair Display',serif}
+.vital-lbl{font-size:11px;color: var(--text-secondary);letter-spacing:.08em}
+
+/* ── SECTION HEADERS ── */
+.section-tag{display:inline-block;background:#3a1a06;color:#e8c87a;font-size:11px;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-bottom:4px}
+
+/* ── ORDERABLE TESTS ── */
+.tests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.test-btn{
+  background: var(--test-btn-bg);
+  border:1px solid rgba(160,120,40,0.35);
+  border-radius:6px;padding:8px 10px;
+  cursor:pointer;text-align:center;
+  font-family:'Crimson Pro',Georgia,serif;
+  transition:background .15s;
+}
+.test-btn:hover{background: var(--test-btn-hover)}
+.test-btn.ordered{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
+.test-btn-name{font-size:14px;color: var(--text-primary)}
+.test-btn-cost{font-size:11px;color: var(--text-secondary);margin-top:2px}
+
+@keyframes fadeInResult { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.test-result-card{background:rgba(240,230,180,0.6);border:1px solid rgba(160,120,40,0.3);border-radius:6px;padding:10px 12px;margin-top:8px;animation: fadeInResult 0.3s ease-out forwards;}
+.test-result-name{font-size:12px;color: var(--text-secondary);letter-spacing:.1em;margin-bottom:4px}
+.test-result-val{font-size:15px;color: var(--text-primary);line-height:1.6}
+
+/* dx styles moved to new section */
+
+/* ── MANAGEMENT ── */
+.mgmt-stage{margin-bottom:4px}
+.mgmt-stage-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.stage-num{
+  width:22px;height:22px;border-radius:50%;
+  background:#3a1a06;color:#e8c87a;
+  font-size:11px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.stage-num.done{background:rgba(80,160,60,0.7)}
+.stage-num.locked{background:rgba(160,120,40,0.3);color:rgba(200,160,80,0.5)}
+.stage-title{font-family:'Playfair Display',serif;font-size:16px;color: var(--text-primary)}
+.stage-title.locked{color:rgba(60,40,10,0.4);opacity:0.5}
+
+.mgmt-options{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.mgmt-option{
+  background:rgba(255,255,255,0.48);
+  border:1px solid rgba(160,120,40,0.35);
+  border-radius:7px;padding:10px 12px;
+  cursor:pointer;display:flex;align-items:flex-start;gap:8px;
+  transition:background .15s;
+  font-family:'Crimson Pro',Georgia,serif;
+}
+.mgmt-option:hover{background:rgba(255,255,255,0.7)}
+.mgmt-option.selected-correct{background:rgba(180,230,160,0.45);border-color:rgba(80,160,60,0.45);cursor:default}
+.mgmt-option.selected-wrong{background:rgba(230,160,150,0.4);border-color:rgba(180,80,70,0.38);cursor:default;opacity:.7}
+.mgmt-option.selected-danger{background:rgba(230,80,60,0.25);border-color:rgba(200,50,30,0.5);cursor:default}
+.mgmt-option.locked-opt{opacity:.4;cursor:not-allowed !important;pointer-events:none !important}
+.mgmt-ob{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(160,120,40,0.45);
+  color:#2a1a06;font-size:11px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.mgmt-option.selected-correct .mgmt-ob{background:rgba(80,160,60,0.7);color:#fff}
+.mgmt-option.selected-wrong .mgmt-ob{background:rgba(180,80,70,0.7);color:#fff}
+.mgmt-option.selected-danger .mgmt-ob{background:rgba(200,50,30,0.8);color:#fff}
+.mgmt-on{font-family:'Playfair Display',serif;font-size:15px;color: var(--text-primary)}
+.mgmt-oc{font-size:13px;color: var(--text-secondary);margin-top:1px}
+
+.stage-divider{height:1px;background:rgba(120,90,20,0.15);margin:10px 0}
+
+/* ── PROGRESS BAR ── */
+.progress-track{display:flex;align-items:center;gap:0;padding:0 2px}
+.prog-dot{width:10px;height:10px;border-radius:50%;background:rgba(200,160,80,0.35);border:1.5px solid rgba(120,80,10,0.35);flex-shrink:0;transition:all .3s}
+.prog-dot.done{background:rgba(100,70,10,0.65);border-color:rgba(80,50,5,0.65)}
+.prog-dot.cur{background:#c8a45a;border-color:#8b6914}
+.prog-line{flex:1;height:2px;background:rgba(160,120,40,0.15);border-radius:2px;transition:background .3s}
+.prog-line.done{background:rgba(100,70,10,0.5)}
+
+.gear-overlay-div {
+  position: absolute;
+  top: -10px; right: -10px;
+  width: 40%;
+  height: 110%;
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 100% auto;
+  opacity: 0.26;
+  pointer-events: none;
+  z-index: 0;
+}
+.gear-tint-div {
+  position: absolute;
+  top: 0; right: 0;
+  width: 60%; height: 75%;
+  background: radial-gradient(ellipse at top right, rgba(140,90,20,0.22) 0%, rgba(180,130,50,0.08) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.section-tag, .tests-grid, .ordered-results, #ordered-results,
+#tests-grid, #mgmt-progress, #mgmt-stages, .test-btn,
+.mgmt-option, .test-result-card, .vitals-row, .chart-grid,
+.dx-input-wrap, #dx-submit-btn, #dx-result, .progress-track {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── MUSIC PLAYER ── */
+#music-btn {
+  background: none;
+  border: 1px solid rgba(200,160,60,0.4);
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #e8c87a;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+#music-btn:hover { background: rgba(200,160,60,0.15); }
+#music-btn svg { width: 16px; height: 16px; }
+#music-btn.playing { color: #f0d080; }
+
+#music-modal {
+  display: none;
+  position: fixed;
+  top: 60px; right: 16px;
+  width: 280px;
+  z-index: 200;
+  background: linear-gradient(160deg, #4a2208 0%, #3a1a06 60%, #2e1405 100%);
+  border: 1px solid rgba(200,160,60,0.35);
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+#music-modal.open { display: block; }
+.music-modal-title {
+  color: #e8c87a;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.music-close {
+  color: #a08040;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+.music-close:hover { color: #e8c87a; }
+.music-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s;
+  margin-bottom: 3px;
+}
+.music-track:hover { background: rgba(200,160,60,0.12); }
+.music-track.active { background: rgba(200,160,60,0.2); }
+.music-track-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200,160,60,0.5);
+  flex-shrink: 0;
+}
+.music-track.active .music-track-dot {
+  background: #c8a45a;
+  border-color: #c8a45a;
+  box-shadow: 0 0 6px rgba(200,160,60,0.6);
+}
+.music-track-name {
+  color: #d4c4a0;
+  font-size: 13px;
+  flex: 1;
+}
+.music-track.active .music-track-name { color: #e8c87a; }
+.music-section-lbl {
+  color: #a08040;
+  font-size: 10px;
+  letter-spacing: .12em;
+  margin: 8px 0 4px;
+}
+.music-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(200,160,60,0.15);
+}
+.music-ctrl-btn {
+  background: none;
+  border: none;
+  color: #c8a45a;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+}
+.music-ctrl-btn:hover { color: #e8c87a; }
+.music-vol {
+  -webkit-appearance: none;
+  width: 70px; height: 3px;
+  border-radius: 2px;
+  background: rgba(200,160,60,0.3);
+  outline: none;
+}
+.music-vol::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #c8a45a;
+  cursor: pointer;
+}
+.music-now-playing {
+  color: #a08040;
+  font-size: 11px;
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* ── WORKUP BUTTONS ── */
+.workup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+.workup-btn{background:rgba(255,255,255,0.5);border:1px solid rgba(160,120,40,0.35);border-radius:7px;padding:11px 13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .15s;font-family:'Crimson Pro',Georgia,serif}
+.workup-btn:hover:not(.used){background:rgba(255,255,255,0.75)}
+.workup-btn.used{background:rgba(180,230,160,0.35);border-color:rgba(80,160,60,0.4);cursor:default}
+.workup-btn-name{font-size:14px;color:var(--text-primary);font-weight:600}
+.workup-btn.used .workup-btn-name{color:#2a6a10}
+.workup-btn-cost{font-size:11px;font-weight:700;color:#c04040;background:rgba(200,60,60,0.1);padding:2px 7px;border-radius:4px}
+.workup-btn.used .workup-btn-cost{display:none}
+.workup-btn-check{display:none;font-size:11px;font-weight:700;color:#2a6a10}
+.workup-btn.used .workup-btn-check{display:inline}
+.hint-reveal-card{border-radius:7px;padding:12px 14px;margin-bottom:8px;animation:fadeInResult .25s ease-out}
+.hint-reveal-card.hx-card{background:rgba(240,255,240,0.7);border:1px solid rgba(80,160,60,0.3)}
+.hint-reveal-card.pe-card{background:rgba(245,240,255,0.7);border:1px solid rgba(120,80,200,0.3)}
+.hint-reveal-card.img-card{background:rgba(255,245,230,0.7);border:1px solid rgba(180,120,40,0.3)}
+.hint-reveal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.hx-card .hint-reveal-label{color:#2a6a10}
+.pe-card .hint-reveal-label{color:#6040b0}
+.img-card .hint-reveal-label{color:#a06020}
+.hint-reveal-text{font-size:14px;color:var(--text-primary);line-height:1.7}
+.labs-panel{background:rgba(255,255,255,0.35);border:1px solid rgba(160,120,40,0.25);border-radius:7px;padding:12px;margin-bottom:8px;display:none}
+.labs-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.labs-close-btn{background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:16px;padding:2px 6px;border-radius:4px}
+.labs-close-btn:hover{background:rgba(200,60,60,0.1);color:#c04040}
+.labs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.lab-btn{background:rgba(255,255,255,0.5);border:1px solid rgba(160,120,40,0.3);border-radius:6px;padding:8px 6px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text-primary);transition:all .15s;text-align:center;font-family:'Crimson Pro',Georgia,serif}
+.lab-btn:hover:not(.ordered):not(.locked-lab){border-color:rgba(160,120,40,0.7);background:rgba(255,255,255,0.8)}
+.lab-btn.ordered{background:rgba(180,230,160,0.4);border-color:rgba(80,160,60,0.4);color:#2a6a10;cursor:default}
+.lab-btn.locked-lab{opacity:.5;cursor:not-allowed;border-style:dashed}
+.lab-counter{font-size:11px;color:var(--text-secondary);background:rgba(0,0,0,0.08);padding:2px 8px;border-radius:4px}
+.lab-counter.unlocked{color:#2a6a10;background:rgba(80,160,60,0.15)}
+#dx-input{width:100%;padding:12px 14px;background:rgba(255,255,255,0.65);border:1.5px solid rgba(160,120,40,0.4);border-radius:7px;font-family:'Crimson Pro',Georgia,serif;font-size:16px;color:#2a1a06;font-style:italic;outline:none}
+#dx-input:focus{border-color:rgba(160,120,40,0.75);background:rgba(255,255,255,0.85)}
+#dx-input.wrong{border-color:rgba(200,60,60,0.7);background:rgba(255,240,240,0.7)}
+#dx-suggestions{position:absolute;top:100%;bottom:auto;left:0;right:0;z-index:50;background:#fdf8e8;border:1px solid rgba(160,120,40,0.4);border-radius:0 0 7px 7px;max-height:220px;overflow-y:auto;display:none;box-shadow:0 4px 12px rgba(60,30,0,0.15)}
+.dx-suggestion{padding:9px 14px;font-size:15px;color:#2a1a06;cursor:pointer;border-bottom:1px solid rgba(160,120,40,0.1)}
+.dx-suggestion:last-child{border-bottom:none}
+.dx-suggestion:hover{background:rgba(200,160,60,0.15)}
+.dx-suggestion.wrong-ans{text-decoration:line-through;color:#c04040;cursor:not-allowed}
+.dx-suggestion.wrong-ans:hover{background:rgba(200,60,60,0.08)}
+#dx-submit-btn{margin-top:8px;width:100%;padding:12px;background:#3a1a06;color:#e8c87a;border:none;border-radius:7px;font-family:'Playfair Display',serif;font-size:16px;cursor:pointer;transition:background .2s}
+#dx-submit-btn:hover:not(:disabled){background:#5a2a0a}
+#dx-submit-btn:disabled{opacity:.4;cursor:not-allowed}
+#dx-result{margin-top:8px;font-size:15px;display:none;padding:8px 12px;border-radius:6px}
+#dx-result.correct{background:rgba(180,230,160,0.45);color:#1a4a08;border:1px solid rgba(80,160,60,0.4)}
+#dx-result.wrong{background:rgba(230,160,150,0.4);color:#4a1010;border:1px solid rgba(180,80,70,0.35)}
+.wrong-answers-list{margin-bottom:6px;display:flex;flex-wrap:wrap;gap:5px}
+.wrong-answer-tag{font-size:12px;color:#8a3030;text-decoration:line-through;background:rgba(200,80,80,0.1);padding:2px 8px;border-radius:4px;border:1px solid rgba(200,80,80,0.2)}
+.report-text{font-size:14px;color:var(--text-primary);line-height:1.85;border-left:3px solid rgba(160,120,40,0.4);padding:12px 14px 12px 16px;background:rgba(255,255,255,0.35);border-radius:0 6px 6px 0}
+.report-text strong{font-style:normal;color:var(--text-secondary)}
+#disclaimer{text-align:center;padding:16px 20px 32px;font-size:12px;color:rgba(160,120,40,0.7);font-style:italic;position:relative;z-index:10}
+
+/* ── INK SPLATTER ── */
+#ink-splatter {
+  position: absolute;
+  left: 70%;
+  top: -50px;
+  transform: translateX(-50%) scale(0);
+  width: 360px;
+  height: 280px;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776395438/_ink-removebg_deq3v6.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+}
+@keyframes inkSplat {
+  0%   { transform: translateX(-50%) scale(0.2) rotate(-5deg); opacity: 0; }
+  25%  { transform: translateX(-50%) scale(1.12) rotate(1deg); opacity: 0.88; }
+  55%  { transform: translateX(-50%) scale(1.0)  rotate(0deg); opacity: 0.78; }
+  100% { transform: translateX(-50%) scale(1.05) rotate(0deg); opacity: 0; }
+}
+
+/* ── LANTERN CURSOR ── */
+#lantern-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 200, 80, 0.07) 0%,
+    rgba(220, 150, 40, 0.04) 35%,
+    rgba(180, 110, 20, 0.02) 60%,
+    transparent 75%
+  );
+  mix-blend-mode: screen;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+/* ── STAMP SYSTEM ── */
+#stamp-container {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 320px;
+  height: 320px;
+  z-index: 20;
+  pointer-events: none;
+  overflow: visible;
+}
+#stamp-wax {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 120px;
+  height: 120px;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776378857/wax_imprint_hs10c5.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: none;
+  pointer-events: none;
+}
+#stamp-tool {
+  position: absolute;
+  top: -110px;
+  left: -68px;
+  width: 320px;
+  height: 320px;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776379245/stamp1_oohmi6.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transform: translateY(-80px);
+  pointer-events: none;
+}
+/* End stamp — same as dx stamp */
+#stamp-container-end {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 320px;
+  height: 320px;
+  z-index: 20;
+  pointer-events: none;
+  overflow: visible;
+}
+#stamp-wax-end {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 120px;
+  height: 120px;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776378857/wax_imprint_hs10c5.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: none;
+  pointer-events: none;
+}
+#stamp-tool-end {
+  position: absolute;
+  top: -110px;
+  left: -68px;
+  width: 320px;
+  height: 320px;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776379245/stamp1_oohmi6.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transform: translateY(-80px);
+  pointer-events: none;
+}
+@keyframes stampDrop {
+  0%   { transform: translateY(-80px); opacity: 0; }
+  60%  { transform: translateY(8px);   opacity: 1; }
+  80%  { transform: translateY(-4px);  opacity: 1; }
+  100% { transform: translateY(0px);   opacity: 1; }
+}
+@keyframes stampFadeOut {
+  0%   { opacity: 1; transform: translateY(0px); }
+  100% { opacity: 0; transform: translateY(-40px); }
+}
+@keyframes waxReveal {
+  0%   { opacity: 0; transform: scale(0.5); }
+  60%  { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1.0); }
+}
+@keyframes panelShake {
+  0%   { transform: translateX(0) translateY(0); }
+  20%  { transform: translateX(-4px) translateY(2px); }
+  40%  { transform: translateX(4px) translateY(-2px); }
+  60%  { transform: translateX(-3px) translateY(1px); }
+  80%  { transform: translateX(2px) translateY(-1px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+@keyframes slideUpReveal {
+  0%   { opacity: 0; transform: translateY(18px) rotate(-0.8deg); }
+  70%  { opacity: 1; transform: translateY(-2px) rotate(0.1deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+.note-slide-up {
+  animation: slideUpReveal 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── MEMORY FRAGMENTS ── */
+.memory-fragment {
+  margin-top:6px;
+  padding:10px 14px;
+  background:rgba(255,245,220,0.6);
+  border-left:2px solid rgba(180,130,40,0.5);
+  border-radius:0 6px 6px 0;
+  font-size:13px;
+  font-style:italic;
+  color:#4a3010;
+  line-height:1.7;
+  animation: fadeInResult 0.4s ease-out;
+  cursor:default;
+}
+.memory-trigger {
+  color:#7a5010;
+  border-bottom:1px dotted rgba(160,120,40,0.6);
+  cursor:pointer;
+  transition:color 0.2s;
+}
+.memory-trigger:hover { color:#3a1a06; }
+
+/* ── FENNICK SPEECH ── */
+.fennick-speech-line {
+  display:block;
+  opacity:0;
+  font-size:14px;
+  color:#d4c4a0;
+  line-height:1.7;
+  animation: inkReveal 0.5s ease-out forwards;
+}
+
+
+/* ── END BUTTONS ── */
+.end-buttons{display:flex;gap:10px;margin-top:10px}
+.end-reveal-btn{
+  flex:1;padding:10px 14px;
+  border:1px solid rgba(200,160,60,0.4);border-radius:7px;
+  background:rgba(58,26,6,0.85);color:#e8c87a;
+  font-family:'Playfair Display',serif;font-size:14px;
+  cursor:pointer;transition:background .2s;text-align:center;
+}
+.end-reveal-btn:hover{background:rgba(90,42,10,0.95)}
+
+/* ── REPORT OVERLAY ── */
+#report-overlay,#explanation-overlay{
+  display:none;position:fixed;inset:0;z-index:400;
+  background:rgba(15,8,0,0.7);backdrop-filter:blur(4px);
+  align-items:flex-start;justify-content:center;
+  padding-top:42px;overflow-y:auto;
+}
+#report-overlay.open,#explanation-overlay.open{display:flex}
+.report-sheet,.explanation-sheet{
+  width:100%;max-width:640px;
+  background:rgba(252,248,225,1.0);
+  border:1px solid rgba(140,100,30,0.28);
+  border-radius:0 0 10px 10px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  overflow:hidden;
+  margin-bottom:40px;
+
+}
+.overlay-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;border-bottom:1px solid rgba(140,100,30,0.2);
+  background:rgba(58,26,6,0.92);
+}
+.overlay-title{color:#e8c87a;font-family:'Playfair Display',serif;font-size:16px;font-weight:600}
+.overlay-close{background:none;border:none;color:#a08040;cursor:pointer;font-size:18px;padding:2px 6px}
+.overlay-close:hover{color:#e8c87a}
+.overlay-body{padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+
+/* Report styles */
+.report-soap{font-size:14px;color:#2a1a06;line-height:1.85;font-style:italic;border-left:3px solid rgba(160,120,40,0.5);padding:12px 14px 12px 16px;background:rgba(255,255,255,0.45);border-radius:0 6px 6px 0}
+.report-soap strong{font-style:normal;color:#7a5010}
+
+/* Explanation styles */
+.exp-row{border-radius:8px;padding:11px 14px;display:flex;gap:10px;align-items:flex-start}
+.exp-row-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.exp-row-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+.exp-row-val{font-size:13px;color:#2a1a06;line-height:1.65}
+.exp-row.clr-blue{background:rgba(200,220,255,0.4);border:1px solid rgba(100,140,220,0.3)}.exp-row.clr-blue .exp-row-label{color:#2040a0}
+.exp-row.clr-amber{background:rgba(255,235,180,0.5);border:1px solid rgba(180,130,40,0.3)}.exp-row.clr-amber .exp-row-label{color:#8a5010}
+.exp-row.clr-red{background:rgba(255,210,200,0.4);border:1px solid rgba(200,80,70,0.3)}.exp-row.clr-red .exp-row-label{color:#8a2010}
+.exp-row.clr-green{background:rgba(200,240,200,0.4);border:1px solid rgba(60,160,60,0.3)}.exp-row.clr-green .exp-row-label{color:#1a6010}
+.exp-row.clr-purple{background:rgba(220,200,255,0.4);border:1px solid rgba(120,80,200,0.3)}.exp-row.clr-purple .exp-row-label{color:#5020a0}
+.exp-row.clr-teal{background:rgba(180,240,230,0.4);border:1px solid rgba(40,160,140,0.3)}.exp-row.clr-teal .exp-row-label{color:#0a6050}
+.exp-row.clr-slate{background:rgba(220,225,235,0.4);border:1px solid rgba(100,120,160,0.3)}.exp-row.clr-slate .exp-row-label{color:#304060}
+.exp-disclaimer{font-size:11px;color:#a08040;text-align:center;font-style:italic;padding-top:4px}
+
+
+
+/* ── TABS ── */
+.tab-bar{
+  display:flex;gap:0;margin-bottom:0;
+  position:relative;z-index:2;
+}
+
+.tab-content{display:none}
+.tab-content.active{display:flex;flex-direction:column;gap:14px;margin-top:1px;}
+
+@keyframes tabFlipIn{
+  0%{opacity:0;transform:translateY(5px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+.tab-content.active{
+  animation:tabFlipIn 0.2s ease-out both;
+}
+
+/* ── MAIN CONTENT LAYOUT ── */
+#case-management-area{
+  display:block;
+  width:100%;
+}
+
+#tab-area{flex:1;min-width:0;}
+
+
+
+/* ── LETTER BY LETTER ── */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.typing-cursor{display:inline-block;width:2px;height:1em;background:#7a5010;margin-left:2px;vertical-align:text-bottom;animation:blink .7s step-end infinite}
+
+
+
+
+/* Tab row clips scrolling content behind it */
+
+
+
+#scroll-content{
+  display:flex;flex-direction:column;gap:10px;
+  padding:0 0 20px;
+  pointer-events:all;
+}
+
+/* ── STICKY HEADER STACK ── */
+
+
+
+/* ── VITALS INLINE (left of tabs) ── */
+.tab-bar-row{
+  display:flex;align-items:flex-end;gap:0;
+  margin-bottom:0;
+  background:rgba(252,248,225,0);
+}
+#vitals-inline{
+  display:flex;
+  align-items:flex-end;
+  gap:12px;
+  padding-top:8px;
+  border-top:1px solid rgba(160,120,40,0.15);
+}
+.vi-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.vi-item + .vi-item{border-left:1px solid rgba(155,115,36,0.3);padding-left:12px}
+.vi-item{display:flex;flex-direction:column;align-items:center;gap:0}
+.vi-item + .vi-item{border-left:1px solid rgba(155,115,36,0.2);padding-left:10px}
+.vi-val{font-size:11px;font-weight:600;color:#2a1a06;font-family:'Playfair Display',serif;line-height:1.2}
+.vi-lbl{font-size:8px;color:#9a7030;letter-spacing:.07em}
+.vi-item.abnormal .vi-val{color:#8a2010}
+/* Container for tabs and chart */
+#tab-area{
+  display:block;
+  width:100%;
+  position:sticky;
+  top:178px;
+  z-index:15;
+  margin-top:8px;
+  pointer-events:none;
+  height:0;
+}
+#tab-area .tab-bar-row{
+  pointer-events:all;
+}
+
+.tab-bar-row{
+  position:sticky;
+  top:330px;
+  z-index:19;
+  width:0;
+  height:0;
+  overflow:visible;
+  align-self:flex-end;
+  margin-right:0;
+}
+
+.tab-bar{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.tab-btn{
+  writing-mode:vertical-rl;
+  padding:5px 3px;
+  font-family:'Playfair Display',serif;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:#9a7030;
+  background:linear-gradient(160deg,rgba(210,195,155,0.9),rgba(195,178,138,0.92));
+  border:1px solid rgba(155,115,36,0.38);
+  border-left:none;
+  border-radius:0 4px 4px 0;
+  cursor:pointer;
+  transition:background .18s ease, color .18s ease;
+  white-space:nowrap;
+}
+
+.tab-btn.active{
+  background:var(--panel-bg);
+  color:#2a1a06;
+  border-left:2px solid var(--panel-bg);
+  margin-left:-1px;
+  z-index:3;
+}
+
+/* ── STEAMPUNK ANIMATIONS ── */
+
+/* Keyframes */
+@keyframes panelReveal {
+  0%   { opacity:0; transform:translateY(14px) scale(0.99); }
+  70%  { opacity:1; transform:translateY(-2px) scale(1.002); }
+  100% { opacity:1; transform:translateY(0) scale(1); }
+}
+@keyframes inkReveal {
+  0%   { opacity:0; transform:translateY(5px); filter:blur(1px); }
+  100% { opacity:1; transform:translateY(0); filter:blur(0); }
+}
+@keyframes resultPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(200,160,60,0.5); }
+  60%  { box-shadow: 0 0 0 8px rgba(200,160,60,0); }
+  100% { box-shadow: 0 0 0 0 rgba(200,160,60,0); }
+}
+@keyframes gearSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Panel reveal — workup cards, lab results, hints */
+.hint-reveal-card {
+  animation: panelReveal 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.test-result-card {
+  animation: panelReveal 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Button press — all interactive buttons feel mechanical */
+.workup-btn:active,
+.lab-btn:active,
+.mgmt-option:active,
+.hint-btn:active,
+.fm-nav-pill:active,
+#dx-submit-btn:active,
+.end-reveal-btn:active {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 2px 4px rgba(0,0,0,0.15) !important;
+  transition: transform 0.06s ease, box-shadow 0.06s ease !important;
+}
+
+/* Amber glow hover — gaslight warmth */
+.workup-btn:hover {
+  background: rgba(255,255,255,0.72) !important;
+  box-shadow: 0 0 14px rgba(200,150,40,0.28), 0 2px 6px rgba(60,30,0,0.15) !important;
+  border-color: rgba(200,150,40,0.5) !important;
+  transition: all 0.18s ease !important;
+}
+.lab-btn:hover:not(.ordered):not(.locked-lab) {
+  background: rgba(255,255,255,0.72) !important;
+  box-shadow: 0 0 12px rgba(200,150,40,0.25), 0 2px 5px rgba(60,30,0,0.12) !important;
+  border-color: rgba(200,150,40,0.45) !important;
+}
+.mgmt-option:hover:not(.locked-opt):not(.selected-correct):not(.selected-wrong):not(.selected-danger) {
+  background: rgba(255,255,255,0.72) !important;
+  box-shadow: 0 0 14px rgba(200,150,40,0.28), 0 2px 6px rgba(60,30,0,0.15) !important;
+  border-color: rgba(200,150,40,0.5) !important;
+}
+.hint-btn:hover {
+  box-shadow: 0 0 16px rgba(200,150,40,0.3) !important;
+  border-color: rgba(200,160,60,0.55) !important;
+}
+#dx-submit-btn:hover {
+  box-shadow: 0 0 16px rgba(200,150,40,0.35), 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Smooth transition base for all interactive elements */
+.workup-btn, .lab-btn, .mgmt-option, .hint-btn, .fm-nav-pill, #dx-submit-btn, .end-reveal-btn {
+  transition: transform 0.12s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease !important;
+}
+
+/* Correct answer pulse — satisfying reveal */
+.mgmt-option.selected-correct {
+  animation: resultPulse 0.6s ease-out;
+}
+
+/* Diagnosis correct result — ink reveal */
+#dx-result.correct, #dx-result.wrong {
+  animation: inkReveal 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* DX input — warm focus glow */
+#dx-input:focus {
+  box-shadow: 0 0 0 2px rgba(200,150,40,0.3), inset 0 2px 4px rgba(60,30,0,0.08) !important;
+  border-color: rgba(200,150,40,0.6) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Nav pills */
+.fm-nav-pill:hover {
+  box-shadow: 0 0 10px rgba(200,150,40,0.2) !important;
+  border-color: rgba(200,160,60,0.5) !important;
+}
+
+/* ── ENDGAME ── */
+#endgame{display:none;text-align:center;padding:20px}
+.grade-circle{
+  width:100px;height:100px;border-radius:50%;
+  margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:48px;font-weight:600;color:#e8c87a;
+  background:#3a1a06;border:3px solid #c8a45a;
+}
+.endgame-title{font-family:'Playfair Display',serif;font-size:22px;color: var(--text-primary);font-weight:600;margin-bottom:6px}
+.endgame-fennick-comment{font-size:14px;color: var(--text-primary);font-style:normal;line-height:1.7;margin-bottom:16px;border-left:2px solid rgba(160,120,40,0.4);padding-left:12px;text-align:left}
+.endgame-stats{display:flex;gap:12px;justify-content:center;margin-bottom:16px}
+.endgame-stat{background:rgba(255,255,255,0.5);border:1px solid rgba(160,120,40,0.3);border-radius:7px;padding:10px 16px;text-align:center}
+.endgame-stat-val{font-family:'Playfair Display',serif;font-size:20px;color: var(--text-primary);font-weight:600}
+.endgame-stat-lbl{font-size:10px;color: var(--text-secondary);letter-spacing:.08em}
+
+</style>
+</head>
+<body class="day"> 
+
+<div id="music-modal">
+  <div class="music-modal-title">
+    <span>🎵 Soundtrack</span>
+    <span class="music-close" onclick="toggleMusicModal()">✕</span>
+  </div>
+  <div class="music-section-lbl">🌙 NIGHT THEMES</div>
+  <div class="music-track" id="track-n0" onclick="playTrack('night',0)">
+    <div class="music-track-dot"></div>
+    <div class="music-track-name">Foxfire at Midnight</div>
+  </div>
+  <div class="music-track" id="track-n1" onclick="playTrack('night',1)">
+    <div class="music-track-dot"></div>
+    <div class="music-track-name">Fox's Midnight Walk</div>
+  </div>
+  <div class="music-track" id="track-n2" onclick="playTrack('night',2)">
+    <div class="music-track-dot"></div>
+    <div class="music-track-name">Soft Lights, Quiet Hearts</div>
+  </div>
+  <div class="music-section-lbl">☀️ DAY THEMES</div>
+  <div class="music-track" id="track-d0" onclick="playTrack('day',0)">
+    <div class="music-track-dot"></div>
+    <div class="music-track-name">Main Theme</div>
+  </div>
+  <div class="music-track" id="track-d1" onclick="playTrack('day',1)">
+    <div class="music-track-dot"></div>
+    <div class="music-track-name">Foxfire Morning Waltz</div>
+  </div>
+  <div class="music-track" id="track-d2" onclick="playTrack('day',2)">
+    <div class="music-track-dot"></div>
+    <div class="music-track-name">Paws, Pipes & Possibilities</div>
+  </div>
+  <div class="music-controls">
+    <button class="music-ctrl-btn" onclick="prevTrack()" title="Previous">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+    </button>
+    <button class="music-ctrl-btn" id="play-pause-btn" onclick="togglePlayPause()" title="Play/Pause">
+      <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <button class="music-ctrl-btn" onclick="nextTrack()" title="Next">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2-6 8.5 6V6z"/></svg>
+    </button>
+    <input type="range" class="music-vol" id="vol-slider" min="0" max="1" step="0.05" value="0.5" oninput="setVolume(this.value)">
+  </div>
+  <div class="music-now-playing" id="now-playing-lbl">—</div>
+</div>
+
+
+<!-- REPORT OVERLAY -->
+<div id="report-overlay" onclick="if(event.target===this)closeOverlay('report')">
+  <div class="report-sheet">
+    <div class="overlay-header">
+      <div class="overlay-title">📋 Report to Attending</div>
+      <button class="overlay-close" onclick="closeOverlay('report')">✕</button>
+    </div>
+    <div class="overlay-body">
+      <div class="report-soap" id="report-soap-text">—</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLANATION OVERLAY -->
+<div id="explanation-overlay" onclick="if(event.target===this)closeOverlay('explanation')">
+  <div class="explanation-sheet">
+    <div class="overlay-header">
+      <div class="overlay-title">📚 High-Yield Explanation</div>
+      <button class="overlay-close" onclick="closeOverlay('explanation')">✕</button>
+    </div>
+    <div class="overlay-body" id="explanation-body"></div>
+  </div>
+</div>
+
+<audio id="bg-audio" loop></audio>
+
+<div id="bg"></div>
+<div id="fog-ambient" class="fog-layer"></div>
+<div id="fog-mid-a" class="fog-layer"></div>
+<div id="fog-mid-b" class="fog-layer"></div>
+<div id="fog-mid-c" class="fog-layer"></div>
+<div id="fog-mid-d" class="fog-layer"></div>
+<div id="fog-mid-e" class="fog-layer"></div>
+<div id="table-overlay"></div>
+
+<nav class="fm-nav">
+  <a class="fm-logo" href="#" style="margin-left:30px;">
+    <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775784059/Logo_jrogqf.png" alt="Fennick MD" style="height:44px;width:auto;display:block;">
+  </a>
+  <div class="fm-nav-r">
+    <button id="music-btn" onclick="toggleMusicModal()" title="Soundtrack">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+      </svg>
+    </button>
+    <div class="fm-hp-nav">
+      <div class="fm-hp-nav-track"><div class="fm-hp-nav-fill" id="hp-bar-nav" style="width:100%"></div></div>
+      <span class="fm-hp-nav-num" id="hp-num-nav">100</span>
+    </div>
+    <span class="fm-case-lbl" id="case-num-lbl">Case no. —</span>
+    <button class="fm-nav-pill" onclick="window.location.href='archives.html'" style="display:flex;align-items:center;gap:5px;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+      Archives
+    </button>
+  </div>
+</nav>
+
+<div id="app">
+<div id="app-inner">
+  <div id="left-col">
+    <div class="fennick-portrait-box">
+      <div id="fennick-img-wrap">
+        <img id="fennick-img" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854007/default2_bwxelk.png" alt="Dr. Fennick">
+      </div>
+      <div class="fennick-name">Dr. Fennick</div>
+      <div class="fennick-title">Chief Diagnostician</div>
+    </div>
+    <div class="fennick-comment-box">
+      <span class="fennick-comment-lbl">DR. FENNICK OBSERVES</span>
+      <div id="fennick-comment">"Loading today's case..."</div>
+    </div>
+    <button class="hint-btn" onclick="useHint()">
+      Ask Dr. Fennick
+      <span>−10 HP per hint</span>
+    </button>
+    <div class="streak-box">
+      <span class="streak-lbl">Streak</span>
+      <span class="streak-val" id="streak-val">0 🔥</span>
+    </div>
+  </div>
+
+  <div id="right-col">
+
+    <div class="note" id="pt-banner-note" style="padding:8px 14px;position:sticky;top:6px;z-index:20;background:rgba(252,248,225,1);margin-top:6px;margin-bottom:0;border-radius:6px;">
+      <div id="pt-banner" style="display:flex;gap:14px;align-items:stretch;">
+        
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div class="pt-name" id="pt-name">—</div>
+            <div class="pt-occ" id="pt-occ">—</div>
+            <div style="font-size:15px;color:#4a3010;margin-top:6px;font-style:italic;line-height:1.6;border-left:2px solid rgba(160,120,40,0.4);padding-left:8px" id="pt-cc">—</div>
+          </div>
+          <div id="vitals-inline"></div>
+        </div>
+
+        <div id="pt-img-wrap">
+          <img id="pt-img" src="" alt="Patient"><div id="pt-vignette"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TABS: direct child of right-col so sticky works, same as pt-banner-note -->
+    <div class="tab-bar-row">
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tab-case-btn" onclick="switchTab('case')">Case &amp; Dx</button>
+        <button class="tab-btn" id="tab-mgmt-btn" onclick="switchTab('management')">Management</button>
+      </div>
+    </div>
+
+    <!-- CASE/MANAGEMENT AREA -->
+    <div id="case-management-area">
+      <div id="tab-area">
+
+<div id="scroll-content">
+        <!-- CASE / DX TAB -->
+        <div class="tab-content active" id="tab-case">
+          <div class="note" id="chart-note" style="padding-top:6px;scroll-margin-top:188px;">
+            <span class="section-tag">MEDICAL CHART</span>
+            <div class="chart-grid" id="chart-grid"></div>
+          </div>
+
+          <div class="note" id="workup-note" style="position:relative">
+            <span class="section-tag">CLINICAL WORKUP</span>
+            <div class="workup-grid">
+              <button class="workup-btn" id="btn-addl-hx" onclick="revealWorkup('addl-hx')"><span class="workup-btn-name">Additional Hx</span><span class="workup-btn-cost">−5 HP</span><span class="workup-btn-check">✓ Revealed</span></button>
+              <button class="workup-btn" id="btn-pe" onclick="revealWorkup('pe')"><span class="workup-btn-name">PE Findings</span><span class="workup-btn-cost">−8 HP</span><span class="workup-btn-check">✓ Revealed</span></button>
+              <button class="workup-btn" id="btn-labs" onclick="toggleLabsPanel()"><span class="workup-btn-name">Order Labs</span><span class="workup-btn-cost">−5 ea</span><span class="workup-btn-check">✓ Open</span></button>
+              <button class="workup-btn" id="btn-imaging" onclick="revealWorkup('imaging')"><span class="workup-btn-name">Imaging</span><span class="workup-btn-cost">−15 HP</span><span class="workup-btn-check">✓ Revealed</span></button>
+            </div>
+            <div class="labs-panel" id="labs-panel">
+              <div class="labs-panel-header">
+                <span class="section-tag" style="margin-bottom:0">SELECT LAB</span>
+                <div style="display:flex;align-items:center;gap:8px"><span class="lab-counter" id="lab-counter">0/2 for Special Test</span><button class="labs-close-btn" onclick="toggleLabsPanel()">✕</button></div>
+              </div>
+              <div class="labs-grid" id="labs-grid"></div>
+            </div>
+            <div id="workup-reveals"></div>
+            <div id="lab-results"></div>
+          </div>
+
+          <div id="ink-splatter-wrap" style="position:relative;height:0;overflow:visible;z-index:10;pointer-events:none">
+            <div id="ink-splatter"></div>
+          </div>
+
+          <div class="note" id="dx-note" style="position:relative">
+            <div id="stamp-container">
+              <div id="stamp-wax"></div>
+              <div id="stamp-tool"></div>
+            </div>
+            <span class="section-tag">DIAGNOSIS</span>
+            <div class="wrong-answers-list" id="wrong-answers-list"></div>
+            <div style="position:relative">
+              <div id="dx-suggestions"></div>
+              <input id="dx-input" type="text" placeholder="Search diagnosis..." autocomplete="off" oninput="dxInputHandler()">
+            </div>
+            <button id="dx-submit-btn" onclick="submitDx()" disabled>Submit Diagnosis →</button>
+            <div id="dx-result"></div>
+          </div>
+        </div>
+
+        <!-- MANAGEMENT TAB -->
+        <div class="tab-content" id="tab-management">
+          <div class="note" id="mgmt-note">
+            <span class="section-tag">MANAGEMENT</span>
+            <div class="progress-track" id="mgmt-progress"></div>
+            <div style="margin-top:12px" id="mgmt-stages"></div>
+          </div>
+
+          <div class="note" id="endgame" style="display:none;position:relative">
+            <div id="stamp-container-end">
+              <div id="stamp-wax-end"></div>
+              <div id="stamp-tool-end"></div>
+            </div>
+            <div class="grade-circle" id="grade-circle">—</div>
+            <div class="endgame-title" id="endgame-title">Case Complete</div>
+            <div class="endgame-fennick-comment" id="endgame-comment">—</div>
+            <div class="endgame-stats">
+              <div class="endgame-stat"><div class="endgame-stat-val" id="end-hp">—</div><div class="endgame-stat-lbl">HP LEFT</div></div>
+              <div class="endgame-stat"><div class="endgame-stat-val" id="end-errors">—</div><div class="endgame-stat-lbl">ERRORS</div></div>
+              <div class="endgame-stat"><div class="endgame-stat-val" id="end-grade">—</div><div class="endgame-stat-lbl">GRADE</div></div>
+            </div>
+            <div class="end-buttons">
+              <button class="end-reveal-btn" onclick="openOverlay('report')">📋 Report to Attending</button>
+              <button class="end-reveal-btn" onclick="openOverlay('explanation')">📚 Explanation</button>
+            </div>
+            <button class="fm-nav-pill" style="width:100%;padding:10px;font-size:14px;margin-top:10px" onclick="location.reload()">Next Case →</button>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+</div><!-- end scroll-content -->
+
+  </div>
+</div>
+
+<script>
+
+
+// ── TAB SYSTEM ──
+let _currentTab = 'case';
+let _paperFlipAudio = null;
+
+function initPaperFlip(){
+  try {
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    _paperFlipAudio = ctx;
+  } catch(e){}
+}
+
+function playPaperFlip(){
+  if(!_paperFlipAudio) return;
+  try {
+    const ctx = _paperFlipAudio;
+    const buf = ctx.createBuffer(1, ctx.sampleRate * 0.08, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for(let i=0;i<data.length;i++){
+      data[i] = (Math.random()*2-1) * Math.pow(1-i/data.length, 3) * 0.35;
+    }
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'highpass';
+    filter.frequency.value = 2000;
+    src.connect(filter);
+    filter.connect(ctx.destination);
+    src.start();
+  } catch(e){}
+}
+
+window.switchTab = function(tab){
+  if(tab === _currentTab) return;
+  if(tab === 'management' && !dxCorrect){
+    setFennick('pause','"Reach a diagnosis first."');
+    return;
+  }
+  _currentTab = tab;
+  document.getElementById('tab-case').classList.toggle('active', tab==='case');
+  document.getElementById('tab-management').classList.toggle('active', tab==='management');
+  document.getElementById('tab-case-btn').classList.toggle('active', tab==='case');
+  document.getElementById('tab-mgmt-btn').classList.toggle('active', tab==='management');
+  document.getElementById('right-col').scrollTo({top:0,behavior:'smooth'});
+};
+
+// ── VITALS SIDEBAR ──
+function populateVitalsSidebar(v){
+  if(!v) return;
+  function cleanVal(s){ return s ? s.split(/[\s(]/)[0] : '—'; }
+  const bp = cleanVal(v.bp), hr = cleanVal(v.hr), rr = cleanVal(v.rr);
+  const temp = cleanVal(v.temp), o2 = cleanVal(v.o2);
+  const abnormalBP = parseInt(bp)>140 || parseInt(bp)<90;
+  const abnormalHR = parseInt(hr)>100 || parseInt(hr)<60;
+  const abnormalO2 = parseInt(o2)<95;
+  const abnormalTemp = parseFloat(temp)>37.5 || parseFloat(temp)<36;
+  const vitalsEl = document.getElementById('vitals-inline');
+  vitalsEl.innerHTML = [
+    {l:'BP',v:bp,a:abnormalBP},
+    {l:'HR',v:hr,a:abnormalHR},
+    {l:'RR',v:rr,a:false},
+    {l:'TEMP',v:temp+'°',a:abnormalTemp},
+    {l:'O₂',v:o2+'%',a:abnormalO2}
+  ].map(x=>`<div class="vi-item${x.a?' abnormal':''}"><div class="vi-val">${x.v}</div><span class="vi-lbl">${x.l}</span></div>`).join('');
+}
+
+// ── TYPEWRITER ──
+let _typeQueue = [];
+let _typing = false;
+
+// ── PATIENT REMARK SYSTEM ──
+function setPtRemark(text) {
+  const cc = document.getElementById('pt-cc');
+  if(!cc || !text) return;
+  cc.textContent = '';
+  setTimeout(() => typewriterWrite(cc, '"' + text + '"', 22), 100);
+}
+
+// Generic fallback remarks per workup type (used when case has no specific cc_after)
+const GENERIC_REMARKS = {
+  'addl-hx': [
+    "I didn't think any of that was worth mentioning.",
+    "I suppose that detail does matter, doesn't it.",
+    "Nobody ever asked me about that before."
+  ],
+  'pe': [
+    "Is it bad? Whatever you're seeing — is it bad?",
+    "I can tell by your face that something is wrong.",
+    "I didn't realise how much I'd been ignoring."
+  ],
+  'imaging': [
+    "I've been putting this off for months.",
+    "I kept telling myself it would go away on its own.",
+    "Whatever it shows — I want to know."
+  ],
+  'labs-generic': [
+    "The numbers will tell you what I can't.",
+    "I hope the results make sense of all this.",
+    "I just want someone to figure out what's wrong."
+  ],
+  'hint': [
+    "Please. Whatever you know — just tell me.",
+    "I can see you're thinking something.",
+    "I'd rather know than not know."
+  ],
+  'dx-correct': [
+    "That's it? That's what's been wrong with me all this time?",
+    "I can't believe something that simple could do all of this.",
+    "So there's a name for it. There's actually a name for it."
+  ],
+  'mgmt-correct': [
+    "Alright. I'll do whatever you say.",
+    "If that's what it takes, I'll do it.",
+    "Thank you. For actually listening."
+  ],
+  'mgmt-wrong': [
+    "...",
+    "I trust you. I have to trust you.",
+    "Whatever you think is best."
+  ]
+};
+
+function getGenericRemark(type) {
+  const pool = GENERIC_REMARKS[type] || [];
+  if(!pool.length) return null;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+function typewriterWrite(el, text, speed){
+  speed = speed || 22;
+  return new Promise(resolve => {
+    el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    el.appendChild(cursor);
+    let i = 0;
+    function tick(){
+      if(i < text.length){
+        el.insertBefore(document.createTextNode(text[i]), cursor);
+        i++;
+        setTimeout(tick, speed + Math.random()*8);
+      } else {
+        cursor.remove();
+        resolve();
+      }
+    }
+    tick();
+  });
+}
+
+// setFennick typewriter override — moved to after function definition below
+
+// Init on load
+document.addEventListener('click', function _initAudio(){
+  initPaperFlip();
+  document.removeEventListener('click', _initAudio);
+}, {once:true});
+
+// ── OVERLAYS ──
+window.openOverlay = function(type) {
+  if(type === 'report') buildReport();
+  if(type === 'explanation') buildExplanation();
+  document.getElementById(type+'-overlay').classList.add('open');
+};
+window.closeOverlay = function(type) {
+  document.getElementById(type+'-overlay').classList.remove('open');
+};
+
+async function buildReport() {
+  const el = document.getElementById('report-soap-text');
+  el.innerHTML = '<em style="color:#a08040">Loading...</em>';
+  let tmpl = null;
+  try {
+    const res = await fetch('case_reference.json');
+    if(res.ok){ const data = await res.json(); tmpl = data[currentCase.date]?.report; }
+  } catch(e) {}
+  if(!tmpl){ el.textContent = 'Report not available for this case.'; return; }
+  let parts = [];
+  if(revealedWorkup.has('addl-hx') && tmpl.pertinent_positives?.['addl-hx']) parts.push('history notable for ' + tmpl.pertinent_positives['addl-hx']);
+  if(revealedWorkup.has('pe') && tmpl.pertinent_positives?.pe) parts.push('physical exam showing ' + tmpl.pertinent_positives.pe);
+  if(orderedLabs.size > 0 && tmpl.pertinent_positives?.labs) parts.push(tmpl.pertinent_positives.labs);
+  if(revealedWorkup.has('imaging') && tmpl.pertinent_positives?.imaging) parts.push(tmpl.pertinent_positives.imaging);
+  if(orderedLabs.has('lab-special') && tmpl.pertinent_positives?.special) parts.push(tmpl.pertinent_positives.special);
+  const p = parts.length > 0 ? 'Pertinent positives include ' + parts.join('; ') + '. ' : 'Limited workup obtained. ';
+  el.innerHTML = `<strong>Patient:</strong> ${tmpl.age}yo ${tmpl.sex==='F'?'female':'male'} with PMH of ${tmpl.pmh}, presenting with ${tmpl.presenting}. ${p}<strong>Assessment:</strong> ${tmpl.assessment}. <strong>Plan:</strong> ${tmpl.plan}.`;
+}
+
+async function buildExplanation() {
+  const body = document.getElementById('explanation-body');
+  body.innerHTML = '<em style="color:#a08040">Loading...</em>';
+  let exp = null;
+  try {
+    const res = await fetch('case_reference.json');
+    if(res.ok){ const data = await res.json(); exp = data[currentCase.date]?.explanation; }
+  } catch(e) {}
+  if(!exp){ body.innerHTML = '<div style="color:#7a5010;font-size:14px;font-style:italic">No explanation available for this case yet.</div>'; return; }
+  const rows = [
+    {icon:'👤',label:'Who Gets It',val:exp.who_gets_it,clr:'clr-blue'},
+    {icon:'⚠️',label:'Risk Factors',val:exp.risk_factors,clr:'clr-amber'},
+    {icon:'🩺',label:'Typical Presentation',val:exp.typical_presentation,clr:'clr-red'},
+    {icon:'⚙️',label:'Mechanism',val:exp.moa,clr:'clr-purple'},
+    {icon:'📚',label:'Step Buzzwords',val:exp.step1_buzzwords,clr:'clr-teal'},
+    {icon:'🔬',label:'Lab Buzzwords',val:exp.lab_buzzwords,clr:'clr-slate'},
+    {icon:'💊',label:'Treatment',val:exp.treatment,clr:'clr-green'},
+  ];
+  body.innerHTML = rows.filter(r=>r.val).map(r=>`
+    <div class="exp-row ${r.clr}">
+      <div class="exp-row-icon">${r.icon}</div>
+      <div><div class="exp-row-label">${r.label}</div><div class="exp-row-val">${r.val}</div></div>
+    </div>`).join('') +
+    '<div class="exp-disclaimer">For educational purposes only. Verify with primary sources.</div>';
+}
+
+const TRACKS = {
+  night: [
+    { name: 'Foxfire at Midnight', url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606858/Foxfire_at_Midnight_wsbzbn.mp3' },
+    { name: "Fox's Midnight Walk", url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606862/Fox_s_Midnight_Walk_hkrhoo.mp3' },
+    { name: 'Soft Lights, Quiet Hearts', url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606867/Soft_Lights_Quiet_Hearts_vrorda.mp3' }
+  ],
+  day: [
+    { name: 'Main Theme', url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606963/Main_Theme_nlfas1.mp3' },
+    { name: 'Foxfire Morning Waltz', url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606970/Foxfire_Morning_Waltz_x1dl5d.mp3' },
+    { name: 'Paws, Pipes & Possibilities', url: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1775606974/Paws_Pipes_and_Possibilities_blnxsk.mp3' }
+  ]
+};
+
+let currentTimeOfDay = 'day';
+let currentTrackType = 'day';
+let currentTrackIdx = 0;
+let musicStarted = false;
+
+function switchMusicTrack(trackName) {
+  let found = null;
+  for(const type of Object.keys(TRACKS)) {
+    const match = TRACKS[type].findIndex(t => t.name.toLowerCase() === trackName.toLowerCase());
+    if(match >= 0) { found = { type, idx: match }; break; }
+  }
+  if(!found) return;
+  const audio = document.getElementById('bg-audio');
+  if(!audio) return;
+  const targetVol = audio.volume > 0 ? audio.volume : 0.5;
+  // If already on this track, do nothing
+  if(currentTrackType === found.type && currentTrackIdx === found.idx) return;
+  if(!musicStarted || audio.paused) {
+    // Set track and wire up play-on-first-click
+    currentTrackType = found.type;
+    currentTrackIdx = found.idx;
+    audio.src = TRACKS[found.type][found.idx].url;
+    audio.volume = parseFloat(document.getElementById('vol-slider').value) || 0.5;
+    audio.play().catch(() => {
+      // Browser blocked autoplay — play on next user click anywhere
+      document.addEventListener('click', function _switchPlay() {
+        audio.play().catch(()=>{});
+        musicStarted = true;
+        document.removeEventListener('click', _switchPlay);
+      }, { once: true });
+    });
+    updateTrackUI();
+    return;
+  }
+  const fade = setInterval(()=>{
+    if(audio.volume > 0.04) { audio.volume = Math.max(0, audio.volume - 0.04); }
+    else {
+      clearInterval(fade);
+      currentTrackType = found.type;
+      currentTrackIdx = found.idx;
+      audio.src = TRACKS[found.type][found.idx].url;
+      audio.volume = 0;
+      audio.play().catch(()=>{});
+      const fadeIn = setInterval(()=>{
+        if(audio.volume < targetVol) audio.volume = Math.min(targetVol, audio.volume + 0.04);
+        else clearInterval(fadeIn);
+      }, 80);
+    }
+  }, 80);
+}
+
+function initMusic(isNight) {
+  currentTimeOfDay = isNight ? 'night' : 'day';
+  const saved = localStorage.getItem('fennick_music_state');
+  if(saved){
+    try {
+      const s = JSON.parse(saved);
+      currentTrackType = s.type || currentTimeOfDay;
+      currentTrackIdx = s.idx || 0;
+      const audio = document.getElementById('bg-audio');
+      audio.volume = s.vol !== undefined ? s.vol : 0.5;
+      document.getElementById('vol-slider').value = audio.volume;
+      const track = TRACKS[currentTrackType][currentTrackIdx];
+      audio.src = track.url;
+      if(s.time) audio.currentTime = s.time;
+      if(s.playing !== false){
+        audio.play().catch(()=>{
+          document.addEventListener('click', function sc(){ audio.play(); document.removeEventListener('click',sc); }, {once:true});
+        });
+      }
+      updateTrackUI();
+      return;
+    } catch(e) {}
+  }
+  currentTrackType = currentTimeOfDay;
+  currentTrackIdx = Math.floor(Math.random() * TRACKS[currentTrackType].length);
+  loadAndPlay();
+}
+
+window.addEventListener('beforeunload', function(){
+  const audio = document.getElementById('bg-audio');
+  if(!audio) return;
+  localStorage.setItem('fennick_music_state', JSON.stringify({
+    type: currentTrackType, idx: currentTrackIdx,
+    time: audio.currentTime, vol: audio.volume, playing: !audio.paused
+  }));
+});
+
+function loadAndPlay() {
+  const audio = document.getElementById('bg-audio');
+  const track = TRACKS[currentTrackType][currentTrackIdx];
+  audio.src = track.url;
+  audio.volume = parseFloat(document.getElementById('vol-slider').value);
+  audio.play().catch(() => {
+    document.addEventListener('click', function startOnClick() {
+      audio.play();
+      document.removeEventListener('click', startOnClick);
+    }, { once: true });
+  });
+  updateTrackUI();
+}
+
+function updateTrackUI() {
+  const track = TRACKS[currentTrackType][currentTrackIdx];
+  document.querySelectorAll('.music-track').forEach(el => el.classList.remove('active'));
+  const id = `track-${currentTrackType[0]}${currentTrackIdx}`;
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
+  document.getElementById('now-playing-lbl').textContent = track.name;
+  const audio = document.getElementById('bg-audio');
+  document.getElementById('play-icon').innerHTML = audio.paused
+    ? '<path d="M8 5v14l11-7z"/>'
+    : '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+  document.getElementById('music-btn').classList.toggle('playing', !audio.paused);
+}
+
+window.playTrack = function(type, idx) {
+  currentTrackType = type;
+  currentTrackIdx = idx;
+  loadAndPlay();
+};
+
+window.togglePlayPause = function() {
+  const audio = document.getElementById('bg-audio');
+  if(audio.paused) { audio.play(); } else { audio.pause(); }
+  setTimeout(updateTrackUI, 100);
+};
+
+window.nextTrack = function() {
+  currentTrackIdx = (currentTrackIdx + 1) % TRACKS[currentTrackType].length;
+  loadAndPlay();
+};
+
+window.prevTrack = function() {
+  currentTrackIdx = (currentTrackIdx - 1 + TRACKS[currentTrackType].length) % TRACKS[currentTrackType].length;
+  loadAndPlay();
+};
+
+window.setVolume = function(val) {
+  document.getElementById('bg-audio').volume = parseFloat(val);
+};
+
+window.toggleMusicModal = function() {
+  document.getElementById('music-modal').classList.toggle('open');
+  updateTrackUI();
+};
+
+document.getElementById('bg-audio').addEventListener('ended', function() {
+  nextTrack();
+});
+let HP = 100;
+let errors = 0;
+let dxSubmitted = false;
+let dxCorrect = false;
+let _perfectRun = true;
+let currentStage = 0; 
+let orderedTests = new Set();
+let currentHintIdx = 0;
+let streak = 0;
+
+let DIAGNOSES = [];
+let CASES = [];
+let currentCase = null;
+let hints = [];
+
+let _defaultCallCount = 0;
+function getDefaultImg(){ _defaultCallCount++; return (_defaultCallCount % 7 === 0) ? FOX.default_alt : FOX.default; }
+const FOX = {
+  default:        'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854007/default2_bwxelk.png',
+  default_alt:    'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527220/FOX_default_ne8mxu.png',
+  answer:         'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527219/fox_answer_tipvmx.png',
+  think:          'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527222/fox_think_qk9moa.png',
+  concerned:      'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527214/fox_-1_i7vjma.png',
+  danger:         'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527217/fox_-3_cjhvcn.png',
+  lose:           'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775527215/fox_-2_t0r5hb.png',
+  slight_approval:'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854149/slight_approval_ldt5ce.png',
+  thinking:       'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775850935/thinking_f3mzdv.png',
+  confused:       'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854924/Confused_mgwca4.png',
+  good_job:       'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854211/Good_job_hqnigf.png',
+  chart:          'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854184/Chart_pn0rf4.png',
+  pause:          'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854182/Pause_gnt94k.png',
+  coffee:         'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775855149/coffe_en8cir.png',
+};
+
+document.addEventListener("DOMContentLoaded", async function(){
+  applyTimeTheme(); 
+  await loadData();
+  if (CASES.length > 0) {
+    initCase();
+  }
+});
+
+async function loadData() {
+  CASES = [];
+  DIAGNOSES = [];
   try {
     const diagRes = await fetch('diagnoses.json');
     if(diagRes.ok) {
