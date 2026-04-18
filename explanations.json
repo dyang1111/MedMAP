@@ -1,0 +1,72 @@
+{
+  "2026-04-06": {
+    "diagnosis": "Parkinson Disease",
+    "who_gets_it": "Adults over 60, slightly more common in men. Can occur younger with genetic mutations (LRRK2, PINK1, Parkin). Drug-induced parkinsonism mimics it — caused by dopamine blockers like haloperidol and metoclopramide.",
+    "risk_factors": "Age, male sex, pesticide/herbicide exposure, rural living, well water. Family history (LRRK2 most common genetic cause). Protective factors: smoking, caffeine (epidemiologically).",
+    "typical_presentation": "Rest tremor (pill-rolling, 4-6 Hz, disappears with movement), bradykinesia, cogwheel rigidity, postural instability. Non-motor: hyposmia, constipation, REM sleep behavior disorder, depression, micrographia, hypophonic voice, masked facies.",
+    "moa": "Loss of dopaminergic neurons in the substantia nigra pars compacta → reduced dopamine in the striatum → unopposed cholinergic activity → movement disorder. Lewy bodies (alpha-synuclein aggregates) are the pathologic hallmark found on autopsy.",
+    "step1_buzzwords": "Rest tremor, pill-rolling, cogwheel rigidity, masked facies, shuffling gait, micrographia, substantia nigra, Lewy bodies, dopamine deficiency, DaTscan comma-to-period sign.",
+    "lab_buzzwords": "DaTscan: reduced dopamine transporter uptake in putamen — asymmetric, comma becomes period. MRI brain normal on standard sequences. Clinical diagnosis — DaTscan confirms when uncertain.",
+    "treatment": "Levodopa/Carbidopa (gold standard — most effective symptomatic treatment). MAO-B inhibitors (selegiline, rasagiline) for mild/early disease. Dopamine agonists (pramipexole, ropinirole). NEVER give dopamine blockers (haloperidol, metoclopramide, promethazine) — catastrophic motor worsening. DBS for refractory cases."
+  },
+  "2026-04-07": {
+    "diagnosis": "Small Cell Lung Cancer",
+    "who_gets_it": "Heavy smokers (>30 pack-years), typically men over 60. SCLC accounts for ~15% of all lung cancers but is the most aggressive subtype with the fastest doubling time.",
+    "risk_factors": "Smoking (>95% of cases — strongest association of any lung cancer). Radon exposure. Occupational carcinogens (asbestos, arsenic, chromium). Prior thoracic radiation.",
+    "typical_presentation": "Central hilar mass, rapid doubling time, early mediastinal spread. Paraneoplastic syndromes in up to 20%: SIADH (hyponatremia — ectopic ADH), Lambert-Eaton (proximal weakness with facilitation — VGCC antibodies), Cushing syndrome (ectopic ACTH — very high cortisol). SVC syndrome when mediastinal nodes compress SVC — facial plethora, arm edema, non-pulsatile neck veins.",
+    "moa": "Neuroendocrine tumor arising from Kulchitsky cells of the bronchial epithelium. Expresses synaptophysin, chromogranin A, CD56, TTF-1. Rapid proliferation (Ki-67 >50%). Ectopic hormone production drives paraneoplastic syndromes.",
+    "step1_buzzwords": "Small blue cells, salt-and-pepper chromatin, nuclear molding, neuroendocrine markers, SIADH, Lambert-Eaton (facilitation on EMG), SVC syndrome, central hilar mass, never surgical in extensive stage.",
+    "lab_buzzwords": "Hyponatremia + inappropriately high urine sodium = SIADH. Lambert-Eaton: facilitation (increased strength) on repetitive high-frequency nerve stimulation — opposite of myasthenia gravis. Low voltage on EKG with large mediastinal mass.",
+    "treatment": "Extensive stage: Carboplatin + Etoposide + Atezolizumab (IMpower133 trial — added PD-L1 inhibitor). Limited stage: concurrent chemoradiation + prophylactic cranial irradiation. Surgery has no role in extensive stage. Highly chemo-sensitive initially — but relapses almost universally within 1-2 years."
+  },
+  "2026-04-08": {
+    "diagnosis": "Infective Endocarditis",
+    "who_gets_it": "Structural valve disease (bicuspid AV, MVP, rheumatic heart disease), IV drug users (tricuspid valve — S. aureus), prosthetic valves, recent dental or invasive procedures without antibiotic prophylaxis.",
+    "risk_factors": "Structural heart disease, IV drug use, poor dentition, central venous catheters, immunosuppression, hemodialysis, previous endocarditis.",
+    "typical_presentation": "Fever + new murmur = endocarditis until proven otherwise. Peripheral stigmata: Osler nodes (tender erythematous nodules on fingertips — immune complex deposition), Janeway lesions (painless hemorrhagic macules on palms/soles — septic emboli), splinter hemorrhages under nails, Roth spots (white-centered retinal hemorrhages). Embolic complications: stroke, renal infarct, septic pulmonary emboli (IV drug use). Immune complex GN: RBC casts on UA.",
+    "moa": "Bacteremia seeds damaged or turbulent endothelium → vegetation forms (platelets + fibrin + bacteria) → local valve destruction + systemic emboli + immune complex deposition. Strep viridans post-dental (native valve). S. aureus most aggressive (prosthetic, IV drug use). Enterococcus from GI/GU source.",
+    "step1_buzzwords": "Duke criteria (2 major OR 1 major + 3 minor OR 5 minor), Osler nodes, Janeway lesions, Roth spots, splinter hemorrhages, new murmur, positive blood cultures, vegetation on echo. PR prolongation → perivalvular abscess.",
+    "lab_buzzwords": "Blood cultures x3 before antibiotics — most critical step. UA: RBC casts = immune complex GN. New PR prolongation on EKG = perivalvular abscess until proven otherwise → urgent TEE. Echo vegetation = major Duke criterion.",
+    "treatment": "Native valve Strep viridans (penicillin-susceptible): IV Penicillin G or Ceftriaxone x4 weeks. S. aureus MSSA: IV Nafcillin x6 weeks. MRSA: Vancomycin x6 weeks. Surgery indications: heart failure from valve destruction, perivalvular abscess, uncontrolled infection despite antibiotics, recurrent emboli, fungal endocarditis. Prophylaxis: amoxicillin before dental procedures in high-risk valve patients."
+  },
+  "2026-04-09": {
+    "diagnosis": "Pheochromocytoma",
+    "who_gets_it": "Any age but peak 40-60. Associated with genetic syndromes in ~40% of cases: MEN2A/2B (RET mutation), Von Hippel-Lindau (VHL), Neurofibromatosis type 1, SDH mutations. Rule of 10s: 10% malignant, 10% bilateral, 10% extra-adrenal, 10% in children.",
+    "risk_factors": "Genetic syndromes (MEN2, VHL, NF1, SDH mutations). Family history of adrenal tumors. No lifestyle risk factors — this is not a preventable disease.",
+    "typical_presentation": "Classic triad: episodic headache, diaphoresis, palpitations. Paroxysmal hypertension triggered by exertion, bending, emotional stress, certain foods/medications. Episodes last 20-40 minutes with complete resolution between attacks. Hypertension may be sustained, paroxysmal, or both. Weight loss, hyperglycemia (catecholamines inhibit insulin), pallor during attacks.",
+    "moa": "Tumor of chromaffin cells in adrenal medulla secretes excess epinephrine, norepinephrine, and dopamine → alpha-1 activation (vasoconstriction, hypertension) + beta-1 activation (tachycardia, palpitations) + beta-2 (hyperglycemia, tremor). Episodes triggered by tumor manipulation, physical pressure, or sympathetic activation.",
+    "step1_buzzwords": "Rule of 10s, episodic hypertension, headache/sweating/palpitations triad, alpha-block before beta-block, never biopsy, plasma free metanephrines (most sensitive), 24-hr urine metanephrines, adrenal mass on CT.",
+    "lab_buzzwords": "Plasma free metanephrines >0.5 nmol/L = highly suspicious. 24-hr urine metanephrines >900 mcg = abnormal. Hyperglycemia without diabetes. Elevated hematocrit (volume contraction). CT: heterogeneous adrenal mass with central necrosis.",
+    "treatment": "1. Alpha-blockade first: Phenoxybenzamine (irreversible, non-selective) x10-14 days. 2. Add beta-blocker only after alpha-blockade established. 3. High-salt diet + IV fluids for volume expansion. 4. Laparoscopic adrenalectomy. NEVER: biopsy the tumor, give beta-blockers first, operate without preparation. Genetic testing post-op for all patients."
+  },
+  "2026-04-10": {
+    "diagnosis": "Carbon Monoxide Poisoning",
+    "who_gets_it": "Anyone in a poorly ventilated space with combustion. Workers in industrial settings, people with faulty heaters/furnaces, house fires. CO is odorless and colorless — the silent killer. All are at risk and may not know until symptoms are severe.",
+    "risk_factors": "Faulty heating systems, industrial furnaces with sealed ventilation, enclosed spaces with combustion engines, house fires, charcoal grills indoors. Winter risk highest when ventilation is sealed.",
+    "typical_presentation": "Headache (most common), nausea, confusion — symptoms that improve away from the source and worsen on return. Multiple people affected simultaneously is a classic clue. Cherry-red skin (late/severe). SpO2 falsely normal — this is the dangerous trap. Near-syncope or loss of consciousness in severe cases.",
+    "moa": "CO binds hemoglobin with 250x affinity of O2 → carboxyhemoglobin (COHb) → impaired O2 delivery to tissues. Also binds myoglobin and cytochrome c oxidase → direct cellular toxicity. SpO2 cannot distinguish COHb from OHb — reads falsely normal.",
+    "step1_buzzwords": "Cherry-red skin, normal SpO2 (false), elevated COHb, symptoms improve away from source, multiple people affected, elevated lactate despite normal pO2, bilateral globus pallidus on MRI (delayed).",
+    "lab_buzzwords": "COHb level on co-oximetry (ABG machine) — NOT pulse oximetry. Elevated lactate from cellular hypoxia. Normal pO2 on ABG (dissolved O2 unaffected). Elevated troponin if cardiac involvement. Polycythemia in chronic exposure.",
+    "treatment": "100% O2 via non-rebreather mask (reduces COHb half-life from 5hr to 60-90min). Hyperbaric oxygen (HBO) if: COHb >25%, loss of consciousness, neurological symptoms, cardiac involvement, pregnancy (reduces half-life to ~20min, prevents delayed neurological sequelae). Remove from source. Report and evacuate all others in the space."
+  },
+  "2026-04-11": {
+    "diagnosis": "Pneumothorax (Spontaneous)",
+    "who_gets_it": "Primary: tall, thin, young men (18-40) without lung disease — subpleural blebs rupture. Secondary: underlying lung disease (COPD, CF, Marfan, TB, PCP). Recurrence ~30% after first, >80% after second ipsilateral episode.",
+    "risk_factors": "Tall lean body habitus, male sex, smoking (secondary), Marfan syndrome, Ehlers-Danlos, CF, COPD, TB, Langerhans cell histiocytosis. Primary PSP: often no identifiable risk factor beyond habitus.",
+    "typical_presentation": "Sudden sharp pleuritic chest pain and dyspnea at rest — patients often describe a 'pop.' Decreased breath sounds and hyperresonance on affected side. Trachea midline unless tension. Tension PTX: tracheal deviation away, hypotension, JVP elevation — immediate needle decompression.",
+    "moa": "Rupture of subpleural bleb (primary) or bullae/blebs from underlying disease (secondary) → air enters pleural space → lung collapses → V/Q mismatch → hypoxemia. Tension: one-way valve effect → progressive air accumulation → mediastinal shift → obstructive shock.",
+    "step1_buzzwords": "Tall thin young man, sudden pleuritic chest pain, decreased breath sounds + hyperresonance, pleural line on CXR, tension = tracheal deviation away from affected side + hypotension (immediate needle decompression 2nd ICS MCL).",
+    "lab_buzzwords": "CXR: visible pleural line, absent lung markings peripherally. Low voltage on EKG ipsilateral leads. ABG: mild hypoxemia. CT chest: identifies blebs and quantifies collapse. SpO2 may be near-normal with small PTX.",
+    "treatment": "Small (<20%) asymptomatic: observation + O2 (accelerates resorption). Symptomatic or >20%: needle aspiration or small-bore chest tube. Second ipsilateral episode: VATS bullectomy + pleurodesis. Tension PTX: immediate needle decompression 2nd ICS MCL → chest tube. Always rule out Marfan in young recurrent PSP."
+  },
+  "2026-04-12": {
+    "diagnosis": "Anticholinergic Toxidrome",
+    "who_gets_it": "Anyone exposed to muscarinic blocking agents: belladonna/jimsonweed (Datura), atropine, scopolamine, diphenhydramine (Benadryl), tricyclic antidepressants, antipsychotics. Herbalists, children eating berries, medication overdose.",
+    "risk_factors": "Occupational exposure to belladonna plants, jimsonweed ingestion (intentional/accidental), TCA or antihistamine overdose, elderly patients on multiple anticholinergic medications (Beers Criteria).",
+    "typical_presentation": "The five classic mnemonics: Dry as a bone (anhidrosis), Blind as a bat (mydriasis, blurred vision), Red as a beet (cutaneous flushing, vasodilation), Hot as a hare (hyperthermia — no sweating), Mad as a hatter (delirium, agitation). Plus: tachycardia, urinary retention, absent bowel sounds (ileus), QT prolongation.",
+    "moa": "Competitive antagonism of muscarinic (M1-M5) acetylcholine receptors → blocked parasympathetic activity → tachycardia (vagal block), mydriasis, dry secretions, urinary retention, ileus, hyperthermia (anhidrosis), delirium.",
+    "step1_buzzwords": "Dry hot flushed skin (vs sympathomimetic = wet), fixed dilated pupils, tachycardia, urinary retention, absent bowel sounds, delirium, hyperthermia. KEY: DRY distinguishes from sympathomimetic toxidrome.",
+    "lab_buzzwords": "QT prolongation on EKG — risk of Torsades. Mildly elevated glucose (catecholamine release). Urine/serum toxicology for tropane alkaloids. Bladder scan confirming retention. Normal ABG until late.",
+    "treatment": "Supportive: benzodiazepines for agitation (NOT haloperidol — more anticholinergic + QT), urinary catheter, cooling, IV fluids. Antidote: Physostigmine IV (reversible AChE inhibitor, crosses BBB) — use for severe agitation/delirium, hemodynamic instability, seizures. Give slowly — risk of bradycardia/seizures. NEVER give atropine. NEVER give haloperidol. Monitor QT continuously."
+  }
+}
