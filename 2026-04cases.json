@@ -2715,13 +2715,14 @@
     },
     "chart": {
       "cc": "My tailor flagged it first, which I found embarrassing. I've gained considerable weight over the past year, centralised I'm told. My face has changed. I assumed stress. I have a significant schedule so I'd appreciate efficiency.",
-      "hpi": "The Politician arrived with his aide, who was asked to wait outside and was not used to being asked to wait outside. He has gained fourteen pounds over eighteen months — weight he describes as redistributing rather than generalising. His face is rounder than his Assembly portrait. He has noted easy bruising, attributed to a campaign event. His blood pressure has been elevated at three consecutive private consultations. He reports muscle fatigue on stairs — 'not weakness, fatigue, there is a distinction.' He has had intermittent irritability, attributed to the political climate. He has not brought a medication list. He considers his private healthcare arrangements his own business. He asks three times whether this consultation is confidential.",
+      "hpi": "The Politician arrived with his aide, who was asked to wait outside and was not used to being asked to wait outside. He has gained fourteen pounds over eighteen months — weight he describes as redistributing rather than generalising. His face is rounder than his Assembly portrait. He has noted easy bruising, attributed to a campaign event. His blood pressure has been elevated at three consecutive private consultations. He reports muscle fatigue on stairs. He has had intermittent irritability attributed to the political climate. He asks three times whether this consultation is confidential. On direct questioning he reports taking an oral corticosteroid prescribed privately eighteen months ago for lumbar radiculopathy — he has continued it without review because it controls the pain.",
       "pmh": "Hypertension — diagnosed age 37. Chronic low back pain.",
       "psh": "None.",
-      "meds": "Amlodipine 10mg daily. Prednisone 20mg daily — ongoing, prescribed by private physician for lumbar radiculopathy eighteen months ago. He does not mention this until directly asked.",
+      "meds": "Amlodipine 10mg daily.",
       "allergies": "NKDA.",
       "fh": "Father: hypertension, type 2 diabetes.",
-      "sh": "Member of the Ferrovane Assembly, southern district. Married. Lives in the Assembly quarter. Does not smoke. Drinks at official functions — 'socially, not habitually.'"
+      "sh": "Member of the Ferrovane Assembly, southern district. Married. Lives in the Assembly quarter. Does not smoke. Drinks at official functions — 'socially, not habitually.'",
+      "meds_on_addl_hx": "Prednisone 20mg daily — ongoing, prescribed privately for lumbar radiculopathy."
     },
     "vitals": {
       "bp": "158/96",
@@ -2796,29 +2797,29 @@
             "sub": "Cortisol excess confirmation",
             "correct": true,
             "feedback_correct": "Correct. Cortisol normally nadirs at midnight. Elevated late-night salivary cortisol on two separate collections confirms loss of diurnal rhythm. 24hr urine free cortisol is an alternative. Either establishes hypercortisolism biochemically before imaging.",
-            "fennick_correct_comment": "\"Biochemistry before anatomy. Always. An adrenal mass on CT means nothing without first confirming the hormone excess is real and measurable.\"",
-            "pt_remark_correct": "Spit into a tube at midnight. Twice. From home. I have a sitting at nine the following morning both times. You understand that."
+            "fennick_correct_comment": "\"Biochemistry before anatomy. Confirm the hormone excess before you image anything.\"",
+            "pt_remark_correct": "You want me to spit into a tube at midnight, twice, at home? I have a sitting at nine the morning after both times, you understand that."
           },
           {
             "text": "Random serum cortisol",
             "sub": "Single serum cortisol level",
             "correct": false,
             "feedback_wrong": "Random cortisol is unreliable — cortisol fluctuates enormously throughout the day and with acute stress. A single elevated result proves nothing. A single normal result excludes nothing. Timed or 24hr collections are required.",
-            "pt_remark_wrong": "One blood test and we're done with this part? That seems efficient. Let's do that."
+            "pt_remark_wrong": "One blood test and that's this part done? That seems efficient, let's do that."
           },
           {
             "text": "CT abdomen/pelvis to look for adrenal mass",
             "sub": "Adrenal imaging",
             "correct": false,
             "feedback_wrong": "Do not image before you have confirmed biochemical hypercortisolism. Adrenal incidentalomas are common — finding a small adrenal mass without biochemical confirmation leads to unnecessary workup and surgery. Establish the hormone excess first.",
-            "pt_remark_wrong": "A scan. Quick, definitive, no tubes at midnight. I'd prefer the scan."
+            "pt_remark_wrong": "A scan — quick, definitive, no tubes at midnight. I'd prefer that."
           },
           {
             "text": "MRI pituitary with contrast",
             "sub": "Pituitary imaging",
             "correct": false,
             "feedback_wrong": "Pituitary MRI is appropriate for ACTH-dependent Cushing's — but you have not yet confirmed hypercortisolism, and you have not yet measured ACTH. Imaging the pituitary now is several steps ahead of where you are. Establish biochemistry first.",
-            "pt_remark_wrong": "My brain. You want to look at my brain. Is there something else you're not telling me."
+            "pt_remark_wrong": "You want to look at my brain? Is there something else you haven't told me."
           }
         ]
       },
@@ -2831,64 +2832,64 @@
             "sub": "ACTH-dependent vs independent",
             "correct": true,
             "feedback_correct": "Correct. Low or suppressed ACTH means the cortisol is not being driven by the pituitary or ectopic source — adrenal autonomous production or exogenous source. High ACTH means pituitary or ectopic. This single result dictates the entire subsequent workup.",
-            "fennick_correct_comment": "\"ACTH suppressed. The signal from above has stopped. The cortisol is either coming from the adrenal gland itself — or from something he is putting into his body. Both possibilities are on the table until you ask the right question.\"",
-            "pt_remark_correct": "More blood. Fine. What's this one measuring exactly."
+            "fennick_correct_comment": "\"Suppressed ACTH means the signal from above has stopped. Exogenous or adrenal. One question settles it.\"",
+            "pt_remark_correct": "More blood, fine. What's this one actually measuring."
           },
           {
             "text": "CRH stimulation test",
             "sub": "Corticotropin-releasing hormone test",
             "correct": false,
             "feedback_wrong": "CRH stimulation is used to differentiate pituitary from ectopic ACTH-dependent Cushing's — after ACTH has already been found to be elevated. You have not measured ACTH yet. You are skipping a step.",
-            "pt_remark_wrong": "That test apparently takes several hours. I have a delegation from the southern boroughs at two o'clock."
+            "pt_remark_wrong": "That takes several hours apparently. I have a delegation at two o'clock."
           },
           {
             "text": "Inferior petrosal sinus sampling",
             "sub": "IPSS for pituitary localisation",
             "correct": false,
             "feedback_wrong": "Inferior petrosal sinus sampling is an invasive procedure used to confirm pituitary source when ACTH-dependent Cushing's has already been established and non-invasive tests are inconclusive. You are several investigations away from this being relevant.",
-            "pt_remark_wrong": "You want to put a catheter into my brain. For a diagnosis you haven't made yet."
+            "pt_remark_wrong": "A catheter into my brain. For a diagnosis you haven't made yet."
           },
           {
             "text": "Proceed to adrenal CT — suppressed ACTH assumed",
             "sub": "Skip to imaging",
             "correct": false,
             "feedback_wrong": "Do not assume. Measure. An elevated ACTH would completely redirect the workup away from the adrenal gland. This test takes hours and changes everything. Do it first.",
-            "pt_remark_wrong": "Skip the blood test, go straight to the scan. That's what I'd vote for. For what it's worth."
+            "pt_remark_wrong": "Skip the blood test, go straight to the scan. That's what I'd vote for, for what it's worth."
           }
         ]
       },
       {
-        "title": "The medication history — what have you been taking?",
-        "hint": "ACTH suppressed. Cortisol elevated. You have ruled out ACTH-dependent causes. Before adrenal CT — what one question changes everything?",
+        "title": "Connect the ACTH result to the source",
+        "hint": "ACTH suppressed. Cortisol elevated. You know he has been on prednisone for eighteen months. What does this tell you about the source of his cortisol excess?",
         "options": [
           {
-            "text": "Ask directly about all medications including steroids, supplements, and anything prescribed privately",
-            "sub": "Full medication reconciliation",
+            "text": "Exogenous prednisone explains the suppressed ACTH — no further imaging needed",
+            "sub": "Iatrogenic Cushing syndrome confirmed",
             "correct": true,
-            "feedback_correct": "This is the diagnosis. Eighteen months of prednisone 20mg daily suppresses the HPA axis completely. The elevated cortisol is exogenous. The adrenal gland is functional but idle. No adrenal CT required. No pituitary MRI required. The source has been in his medicine cabinet the entire time.",
-            "fennick_correct_comment": "\"He saw four private physicians in eighteen months. Not one of them looked at the man in front of them and connected the face, the weight, the pressure, and the tablet he had been taking every morning since they prescribed it.\"",
-            "pt_remark_correct": "The prednisone. It's for my back. I have been taking it because it works. If you're suggesting that a medication a licensed physician prescribed and continued to prescribe is responsible for all of this — then I would like to understand why no one told me that eighteen months ago."
+            "feedback_correct": "Correct. Suppressed ACTH plus eighteen months of exogenous prednisone is the complete picture. The adrenal gland is healthy but dormant. No CT, no MRI, no IPSS. The diagnosis is in the medication history.",
+            "fennick_correct_comment": "\"Suppressed ACTH. Exogenous steroid. The adrenal is fine. The diagnosis is done.\"",
+            "pt_remark_correct": "So the prednisone did all of this. The one that was renewed every three months without anyone asking questions."
           },
           {
             "text": "Order adrenal CT — ACTH-independent confirmed",
-            "sub": "Adrenal CT without medication review",
+            "sub": "Adrenal CT without connecting medication history",
             "correct": false,
-            "feedback_wrong": "You have not yet asked whether he is taking exogenous steroids. An adrenal CT at this point exposes the patient to radiation and cost for a diagnosis you could make with one question. Exogenous steroids are the most common cause of ACTH-independent Cushing syndrome. Ask first.",
-            "pt_remark_wrong": "The scan. Good. That's the kind of answer I came here for."
+            "feedback_wrong": "You have the answer already. Suppressed ACTH plus eighteen months of exogenous prednisone is the complete picture. Imaging the adrenal adds nothing and delays the correct management.",
+            "pt_remark_wrong": "A scan. Good. That's the kind of answer I came here for."
           },
           {
             "text": "Refer to endocrinology for full Cushing's workup",
             "sub": "Endocrinology referral without further questioning",
             "correct": false,
-            "feedback_wrong": "You are about to send this patient through an endocrine workup — IPSS, petrosal sinus sampling, adrenal CT, possibly surgery — when the answer is on his bathroom shelf. Ask about medications before you refer.",
-            "pt_remark_wrong": "A specialist. Fine. Someone who can see me this week, I assume."
+            "feedback_wrong": "You have enough to make the diagnosis. Suppressed ACTH, elevated cortisol, eighteen months of exogenous prednisone. Refer after confirming the source — not before.",
+            "pt_remark_wrong": "A specialist, fine. Someone who can see me this week I assume."
           },
           {
             "text": "Genetic testing for familial Cushing syndrome",
             "sub": "Genetic workup",
             "correct": false,
-            "feedback_wrong": "Familial Cushing syndrome is rare and is not your first consideration in a forty-year-old with eighteen months of progressive features. The clinical picture demands a medication history before genetic testing.",
-            "pt_remark_wrong": "Genetic. So this is hereditary. So my father's diabetes and blood pressure — you're saying this was always going to happen to me."
+            "feedback_wrong": "Familial Cushing syndrome is rare and not your first thought in a forty-year-old with a clear exogenous steroid history. The diagnosis is already in front of you.",
+            "pt_remark_wrong": "Genetic. So this was always going to happen to me."
           }
         ]
       },
@@ -2901,30 +2902,30 @@
             "sub": "Slow HPA axis recovery taper",
             "correct": true,
             "feedback_correct": "Correct. Eighteen months of supraphysiological glucocorticoid suppresses the adrenal cortex. Abrupt cessation causes acute adrenal insufficiency — hypotension, vomiting, collapse. The taper must be slow enough to allow HPA axis recovery — weeks to months. Endocrinology must be involved.",
-            "fennick_correct_comment": "\"The adrenal cortex has not had to work in eighteen months. You cannot demand it produce cortisol tomorrow. The taper is not about comfort — it is about avoiding crisis.\"",
-            "pt_remark_correct": "Months. To stop a tablet. How does that work — you mean I have to keep taking it while also stopping it. This is not going to be straightforward to explain to my schedule."
+            "fennick_correct_comment": "\"Eighteen months of suppression. The axis needs time. Taper slowly.\"",
+            "pt_remark_correct": "Months to stop a tablet. So I keep taking it while stopping it? That's going to be difficult to explain to my schedule."
           },
           {
             "text": "Stop prednisone immediately — the source of harm must be removed",
             "sub": "Abrupt cessation",
             "correct": false,
             "feedback_wrong": "Abrupt cessation of long-term high-dose steroids causes acute adrenal insufficiency — a life-threatening emergency. His HPA axis has been suppressed for eighteen months. The adrenal cortex cannot produce cortisol on demand. Never stop abruptly.",
-            "pt_remark_wrong": "Stop it today. That's reasonable isn't it. Remove the problem.",
-            "fennick_wrong_comment": "\"He will be hypotensive and vomiting within 24 hours. Possibly in collapse. His adrenal cortex has been sitting idle for eighteen months.\""
+            "pt_remark_wrong": "Stop it today — remove the problem. That's reasonable isn't it.",
+            "fennick_wrong_comment": "\"Acute adrenal insufficiency within 24 hours. His axis has been idle for eighteen months.\""
           },
           {
             "text": "Continue prednisone and add ketoconazole to block cortisol synthesis",
             "sub": "Add cortisol synthesis inhibitor",
             "correct": false,
             "feedback_wrong": "Ketoconazole is used to block endogenous cortisol synthesis in Cushing's Disease or ectopic ACTH syndrome. Here the cortisol is exogenous — from the prednisone itself. Blocking adrenal synthesis while continuing to give oral prednisone makes no sense.",
-            "pt_remark_wrong": "Two medications. To fix the problem caused by one medication. I'm not sure that's the right direction."
+            "pt_remark_wrong": "Two medications to fix the problem caused by one medication. I'm not sure that's the right direction."
           },
           {
             "text": "Bilateral adrenalectomy",
             "sub": "Surgical adrenal removal",
             "correct": false,
             "feedback_wrong": "Bilateral adrenalectomy is a last resort for refractory ACTH-dependent Cushing's. His adrenal glands are normal. The problem is exogenous. Surgery on healthy glands is not indicated.",
-            "pt_remark_wrong": "Remove both adrenal glands. For a back pain medication I've been taking for eighteen months. I'm going to need a second opinion."
+            "pt_remark_wrong": "Remove both adrenal glands for a back pain medication I've been taking for eighteen months. I'm going to need a second opinion."
           }
         ]
       },
@@ -2937,35 +2938,36 @@
             "sub": "Outpatient management with follow-up",
             "correct": true,
             "feedback_correct": "Correct. He is clinically stable. He needs a formal taper plan, endocrinology follow-up, blood pressure optimisation, monitoring for steroid-induced diabetes, and potassium supplementation for the hypokalaemia. Also counsel on bone protection given 18 months of steroid exposure.",
-            "pt_remark_correct": "Discharge. With a plan. Fine. I need written documentation of what happened here — not for legal purposes, I'm simply — I need to understand what to tell my private physician. Who should have caught this. Before today."
+            "pt_remark_correct": "Discharge with a plan, fine. I need written documentation — not for legal reasons, I just need to know what to tell my private physician. Who should have flagged this.",
+            "fennick_correct_comment": "\"Stable. Outpatient taper. Endocrinology. He needs a plan he can follow.\""
           },
           {
             "text": "Admit for immediate supervised steroid cessation",
             "sub": "Inpatient steroid withdrawal",
             "correct": false,
             "feedback_wrong": "He is clinically stable and does not need inpatient admission. The taper is a slow outpatient process over weeks. Admission is not indicated and would not change the management timeline.",
-            "pt_remark_wrong": "Admitted. I have Assembly sessions. Who do I speak to about a private room."
+            "pt_remark_wrong": "Admitted? I have Assembly sessions. Who do I speak to about a private room."
           },
           {
             "text": "Discharge with no follow-up — now that source is identified, the body will self-correct",
             "sub": "Discharge without follow-up",
             "correct": false,
             "feedback_wrong": "HPA axis recovery requires monitoring. Glucose 128 requires follow-up. K 3.1 requires supplementation. BP 158/96 requires optimisation. LVH requires cardiovascular follow-up. Discharging without a plan is not appropriate.",
-            "pt_remark_wrong": "It will resolve on its own. You're sure about that. Because my tailor spent forty minutes remeasuring me last month."
+            "pt_remark_wrong": "Come back in a week and it sorts itself out? My tailor spent forty minutes remeasuring me last month."
           },
           {
             "text": "Refer to bariatric surgery for central obesity",
             "sub": "Bariatric surgery referral",
             "correct": false,
             "feedback_wrong": "The central obesity, moon facies, and fat redistribution are directly caused by glucocorticoid excess. They will resolve as the steroid is tapered. Referring for bariatric surgery before addressing the root cause is profoundly wrong.",
-            "pt_remark_wrong": "Weight loss surgery. For weight gained from a drug you're now going to stop. I genuinely cannot tell if this is a serious suggestion."
+            "pt_remark_wrong": "Weight loss surgery. For weight gained from a drug you're now going to stop. I genuinely cannot tell if this is serious."
           }
         ]
       }
     ],
     "fennick_case_complete": [
-      "\"Four private consultations. Eighteen months. Fourteen pounds. A face his tailor recognised before his physician did.\"",
-      "\"He will ask whether this affects his cognitive function. That is the question underneath all the others. Tell him the truth — it might, and it may take time to resolve. He can handle the truth. He just prefers not to.\""
+      "\"The prednisone has been on his shelf for eighteen months. He may not have known what it was doing to him.\"",
+      "\"He'll ask about his cognition before he leaves. Answer it honestly.\""
     ],
     "report_template": {
       "age": 40,
@@ -2999,8 +3001,8 @@
     "cc_after_imaging": "The lungs are clear. Good. So it isn't something serious. Can we wrap up.",
     "cc_after_hint": "The prednisone. You keep coming back to the prednisone. Fine. What does the prednisone do.",
     "cc_after_dx": "Iatrogenic. Meaning it was caused by treatment. Meaning it was preventable. I'd like a moment before we continue.",
-    "fennick_after_addl_hx": "\"Eighteen months of prednisone 20mg. No one reviewed it. No one connected the face, the weight, the pressure, and the tablet. Ask for the full medication list before you move another step.\"",
-    "fennick_after_pe": "\"Wide purple striae. Not silver, not thin — wide and purple. That is not ageing and it is not weight gain alone. That is cortisol destroying collagen in real time.\"",
-    "fennick_after_imaging": "\"Clear lungs. Normal chest. The pathology is metabolic. Go back to the history — specifically the part he did not volunteer.\""
+    "fennick_after_addl_hx": "\"Eighteen months of steroids, no review. He may not have been told what to watch for. The medication history is the diagnosis.\"",
+    "fennick_after_pe": "\"Wide purple striae. That is not ageing. That is cortisol destroying collagen. Look at the whole picture.\"",
+    "fennick_after_imaging": "\"Clear lungs, normal chest. The pathology is metabolic. The history is where you need to be.\""
   }
 ]
