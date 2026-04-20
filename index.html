@@ -1829,6 +1829,7 @@ const FOX = {
   chart:          'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854184/Chart_pn0rf4.png',
   pause:          'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775854182/Pause_gnt94k.png',
   coffee:         'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1775855149/coffe_en8cir.png',
+  facepalm:       'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776725000/facepalm_kkbwd5.png',
 };
 
 document.addEventListener("DOMContentLoaded", async function(){
@@ -2192,6 +2193,8 @@ window.submitDx=function(){
   } else {
     errors++;drainHP(10);wrongAnswers.add(val);triggerInkSplat();
     try { window.setFogDensity(Math.min(100, _fogTargetDensity + 12)); } catch(e){}
+    setFennick('danger','');
+    setTimeout(()=>updateFennickByErrors(), 1200);
     result.className='dx-result wrong';result.textContent='\u2717 Incorrect. Try again.';result.style.display='block';
     document.getElementById('dx-input').value='';
     const inp=document.getElementById('dx-input');inp.classList.add('wrong');setTimeout(()=>inp.classList.remove('wrong'),600);
@@ -2373,7 +2376,7 @@ window.pickMgmt=function(stageIdx,optIdx){
       fbEl.textContent=opt.feedback_wrong||'Incorrect.';
     }
     _perfectRun=false;
-    const _wrongFace = opt.critical_error ? 'lose' : (errors%2===0)?'concerned':'thinking';
+    const _wrongFace = opt.critical_error ? 'lose' : (errors%2===0)?'facepalm':'concerned';
     const _wrongComment = opt.fennick_wrong_comment || ('"'+(opt.feedback_wrong||'Not quite.')+'"');
     setFennick(_wrongFace, _wrongComment);
     if(!opt.critical_error) updateFennickByErrors();
