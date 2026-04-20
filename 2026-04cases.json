@@ -3399,7 +3399,7 @@
     },
     "patient": {
       "name": "The Stoker",
-      "age": 28,
+      "age": 38,
       "sex": "M",
       "occupation": "Steam Engine Stoker, Ferrovane Central Rail",
       "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776718947/the_stoker_qykmra.png"
@@ -3632,7 +3632,7 @@
       }
     ],
     "report_template": {
-      "age": 28,
+      "age": 38,
       "sex": "M",
       "pmh": "no significant past medical history",
       "presenting": "cola-coloured urine and bilateral leg pain following one thousand squats in one hour",
