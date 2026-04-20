@@ -147,7 +147,9 @@
             "feedback_correct": "Haloperidol blocks D2 receptors. This patient needs dopamine restored, not blocked. This would catastrophically worsen every motor symptom.",
             "pt_remark_correct": "Haloperidol. That is for psychosis. Isn't it.",
             "pt_remark_wrong": "Isn't that what they give people when they're... you know. Hearing things. Seeing things. I'm not doing any of that.",
-            "fennick_correct_comment": "\"A D2 antagonist for a D2 deficiency. Think about what you just prescribed.\""
+            "fennick_correct_comment": "\"A D2 antagonist for a D2 deficiency. Think about what you just prescribed.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"She would have lost the ability to move. The diagnosis was correct. The treatment undid it.\""
           },
           {
             "text": "Propranolol",
@@ -222,7 +224,9 @@
             "sub": "Watch and wait",
             "correct": false,
             "feedback_wrong": "The diagnosis is established. Withholding levodopa serves no purpose and leaves the patient suffering unnecessarily.",
-            "pt_remark_wrong": "Nothing. Just — monitor it. Watch my handwriting get smaller and smaller and do nothing."
+            "pt_remark_wrong": "Nothing. Just — monitor it. Watch my handwriting get smaller and smaller and do nothing.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"She came here with a diagnosis and a question about treatment. You sent her back with nothing. The tremor continued.\""
           }
         ]
       }
@@ -466,14 +470,17 @@
             "sub": "Outpatient referral",
             "correct": false,
             "feedback_wrong": "Absolutely not. This patient has SVC syndrome, oxygen saturation of 94%, hemoptysis, and a sodium of 128. Sending him home risks acute decompensation from worsening SVC obstruction or hyponatremic seizure.",
-            "pt_remark_wrong": "Come back in two weeks. With a face that looks like this and lungs struggling."
+            "pt_remark_wrong": "Come back in two weeks. With a face that looks like this and lungs struggling.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"He would not have made it back. The collar was already too tight when he walked in.\""
           },
           {
             "text": "Admit to ICU for immediate chemo initiation",
             "sub": "ICU admission",
             "correct": false,
             "feedback_wrong": "Chemotherapy is not started without histologic confirmation. You need a tissue diagnosis first. Admitting to the general oncology floor for workup and stabilization is the appropriate level of care.",
-            "pt_remark_wrong": "The intensive care unit. For treatment that requires a result you don't have yet."
+            "pt_remark_wrong": "The intensive care unit. For treatment that requires a result you don't have yet.",
+            "critical_error": true
           },
           {
             "text": "Admit — oncology, IV dexamethasone, fluid restriction, urgent CT guided biopsy planning",
@@ -487,7 +494,9 @@
             "sub": "Emergent thoracic surgery",
             "correct": false,
             "feedback_wrong": "Surgery has no role in SCLC management and would be catastrophic without histologic diagnosis. Extensive stage SCLC is managed medically.",
-            "pt_remark_wrong": "Open surgery today. On a tumour with no results, no staging, no plan."
+            "pt_remark_wrong": "Open surgery today. On a tumour with no results, no staging, no plan.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Surgery on a tumour with no histology, no staging, and a vein 80 percent occluded. He would not have survived the table.\""
           }
         ]
       }
@@ -648,7 +657,9 @@
             "feedback_wrong": "Do not start antibiotics before blood cultures in stable endocarditis. He is not in septic shock. He can wait 15 minutes for cultures. Starting vancomycin blindly eliminates your ability to identify the organism and optimize therapy.",
             "feedback_correct": "Vancomycin before cultures destroys the diagnostic pathway. He is hemodynamically stable.",
             "pt_remark_wrong": "The antibiotic before the cultures. Doesn't that mean you won't know what you're treating anymore?",
-            "fennick_correct_comment": "\"You gave antibiotics before you knew what was growing. Now you may never know. That is 6 weeks of empiric therapy instead of targeted.\""
+            "fennick_correct_comment": "\"You gave antibiotics before you knew what was growing. Now you may never know. That is 6 weeks of empiric therapy instead of targeted.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You gave antibiotics before you knew what was growing. Six weeks of empiric therapy for an organism you will never identify. The valve continued to deteriorate.\""
           }
         ]
       },
@@ -731,14 +742,18 @@
             "sub": "Outpatient IV therapy",
             "correct": false,
             "feedback_wrong": "OPAT is appropriate only for stable, uncomplicated endocarditis after initial inpatient stabilization and when the organism and susceptibilities are known. This patient has active complications — PR prolongation, septic emboli — and is not a candidate for early discharge.",
-            "pt_remark_wrong": "A tube in my arm and home. With spots on the lung scan and the heartbeat change you mentioned."
+            "pt_remark_wrong": "A tube in my arm and home. With spots on the lung scan and the heartbeat change you mentioned.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Active PR prolongation, septic emboli, severe aortic regurgitation. You sent him home with a drip. He would have arrested before the cultures came back.\""
           },
           {
             "text": "Emergency valve replacement tonight",
             "sub": "Emergency surgery",
             "correct": false,
             "feedback_wrong": "Surgery is not emergent here. He is hemodynamically stable. Indications for urgent surgery include heart failure, uncontrolled infection, abscess, or recurrent emboli despite antibiotics. He needs TEE first to clarify anatomy before any surgical decision.",
-            "pt_remark_wrong": "Emergency surgery tonight. Before the throat scan, before you know what you're operating into."
+            "pt_remark_wrong": "Emergency surgery tonight. Before the throat scan, before you know what you're operating into.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Surgery tonight, before the TEE, before you know whether there is an abscess. You would have operated into the unknown.\""
           },
           {
             "text": "Admit to cardiology with cardiac surgery on standby",
@@ -899,7 +914,9 @@
             "feedback_wrong": "Never give beta-blockers first in pheochromocytoma. Blocking beta-2 vasodilation leaves unopposed alpha-1 vasoconstriction — you will precipitate a catastrophic hypertensive crisis. This is one of the classic dangerous drug errors in medicine.",
             "feedback_correct": "Beta blockade before alpha removes vasodilatory beta-2 effect and leaves unopposed alpha-1 constriction. Hypertensive crisis. A classic and potentially fatal error.",
             "pt_remark_wrong": "The heart rate drug before the blood pressure drug. The briefing I read on the way here said that order was wrong.",
-            "fennick_correct_comment": "\"You removed beta-2 vasodilation and left alpha-1 vasoconstriction unopposed. What happens to the pressure now.\""
+            "fennick_correct_comment": "\"You removed beta-2 vasodilation and left alpha-1 vasoconstriction unopposed. What happens to the pressure now.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You removed beta-2 vasodilation and left alpha-1 constriction unopposed. His pressure during the next paroxysm would have been unsurvivable.\""
           },
           {
             "text": "IV Labetalol",
@@ -937,7 +954,9 @@
             "feedback_correct": "Adrenal biopsy of a suspected pheo is absolutely contraindicated. Needle manipulation triggers massive catecholamine release. Potentially fatal on the table.",
             "pt_remark_correct": "A needle directly into the adrenal. You want to put a needle directly into it.",
             "pt_remark_wrong": "A needle directly into the mass. Before it's been blocked or controlled. That concerns me.",
-            "fennick_correct_comment": "\"Do not touch it with a needle. Not until it is blocked, prepared, and on the surgical table.\""
+            "fennick_correct_comment": "\"Do not touch it with a needle. Not until it is blocked, prepared, and on the surgical table.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"A needle in the mass before it was blocked or prepared. The catecholamine surge on the table would have killed him.\""
           },
           {
             "text": "Urine cortisol",
@@ -978,7 +997,9 @@
             "sub": "Beta-blocker alone",
             "correct": false,
             "feedback_wrong": "Beta-blockers before alpha-blockade is the cardinal error in pheochromocytoma management. You will cause unopposed alpha vasoconstriction and potentially fatal hypertension. Alpha first. Always.",
-            "pt_remark_wrong": "The heart rate drug first. Before the blood pressure drug. We covered this."
+            "pt_remark_wrong": "The heart rate drug first. Before the blood pressure drug. We covered this.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Beta before alpha. The next paroxysm would have been the last.\""
           },
           {
             "text": "Radiation therapy to shrink the mass preoperatively",
@@ -1005,14 +1026,18 @@
             "sub": "Outpatient referral",
             "correct": false,
             "feedback_wrong": "A BP of 188/112 with an uncontrolled catecholamine-secreting tumor and a history of collapse this morning is not an outpatient situation. The next paroxysm could be fatal. He stays.",
-            "pt_remark_wrong": "Outpatient referral. After I lost consciousness against my desk this morning."
+            "pt_remark_wrong": "Outpatient referral. After I lost consciousness against my desk this morning.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"He collapsed against his desk that morning. You sent him home on the medications that had been failing for two years.\""
           },
           {
             "text": "Discharge with increased amlodipine and aspirin",
             "sub": "Current medications unchanged",
             "correct": false,
             "feedback_wrong": "Amlodipine has failed for two years. Aspirin does nothing for a pheochromocytoma. Sending this man home with the same medications that have already failed is not a plan — it is negligence.",
-            "pt_remark_wrong": "The same two medications that haven't worked. And home."
+            "pt_remark_wrong": "The same two medications that haven't worked. And home.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"The same two medications. And home. The next attack would have come without warning, without preparation, without you.\""
           },
           {
             "text": "Admit to ICU for immediate surgery prep",
@@ -1263,14 +1288,18 @@
             "sub": "Home oxygen",
             "correct": false,
             "feedback_wrong": "Home oxygen at low flow is not adequate treatment for acute CO poisoning with neurological and cardiac involvement. This patient needs inpatient monitoring and HBO therapy.",
-            "pt_remark_wrong": "Home oxygen through the small prongs. After everything else you just told me."
+            "pt_remark_wrong": "Home oxygen through the small prongs. After everything else you just told me.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Home oxygen through nasal prongs for a man with cardiac injury and encephalopathy. He would not have made it through the night.\""
           },
           {
             "text": "Discharge after 2 hours of O2 in the ED",
             "sub": "Brief ED observation",
             "correct": false,
             "feedback_wrong": "Absolutely not. Troponin elevation, neurological symptoms, and COHb 28% all require admission. Delayed neurological sequelae of CO poisoning can appear days to weeks later — this patient needs monitoring and follow-up.",
-            "pt_remark_wrong": "Two hours and then home. I don't want to be a burden, but — I fell yesterday. Is two hours really enough."
+            "pt_remark_wrong": "Two hours and then home. I don't want to be a burden, but — I fell yesterday. Is two hours really enough.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Two hours and discharge. The troponin was elevated. The delayed neurological sequelae would have appeared three weeks later with no one watching.\""
           },
           {
             "text": "Transfer immediately to hyperbaric chamber without admission workup",
@@ -1526,7 +1555,9 @@
             "sub": "Immediate VATS",
             "correct": false,
             "feedback_wrong": "VATS is not performed acutely on a fresh pneumothorax. The lung needs time to re-expand fully before surgery. Admit, decompress, re-expand, then plan elective VATS.",
-            "pt_remark_wrong": "Operate today before the lung's even settled back into place."
+            "pt_remark_wrong": "Operate today before the lung's even settled back into place.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"VATS on a fresh pneumothorax before the lung has re-expanded. You would have operated on a collapsed field.\""
           },
           {
             "text": "Admit for observation, repeat CXR, thoracic surgery consult",
@@ -1685,7 +1716,9 @@
             "feedback_wrong": "Haloperidol is contraindicated in anticholinergic toxidrome — it has additional anticholinergic activity and prolongs the QT interval further. This patient already has QT 480ms. Benzodiazepines are the correct sedative agent here.",
             "feedback_correct": "Haloperidol has anticholinergic activity and prolongs QT. She already has QT 480ms. This worsens the toxidrome and increases arrhythmia risk simultaneously.",
             "pt_remark_wrong": "That medication makes things worse in the heat, doesn't it. I can't produce any moisture at all and I'm already burning up.",
-            "fennick_correct_comment": "\"QT 480 already. You gave her a drug with anticholinergic side effects and QT prolongation. The benzos work centrally without making any of this worse.\""
+            "fennick_correct_comment": "\"QT 480 already. You gave her a drug with anticholinergic side effects and QT prolongation. The benzos work centrally without making any of this worse.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Haloperidol into a patient with anticholinergic toxidrome and a QT of 480. Torsades would have followed within the hour.\""
           }
         ]
       },
@@ -1722,7 +1755,9 @@
             "feedback_wrong": "Atropine IS the poison here — giving more atropine would catastrophically worsen the toxidrome. This is one of the most dangerous errors in toxicology. Never give atropine for anticholinergic toxidrome.",
             "feedback_correct": "Atropine is the toxin. Giving more atropine to an anticholinergic toxidrome is catastrophic.",
             "pt_remark_wrong": "More of what I already have too much of. That can't be right.",
-            "fennick_correct_comment": "\"You gave the poison as the antidote.\""
+            "fennick_correct_comment": "\"You gave the poison as the antidote.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You gave the poison as the antidote. The toxidrome would have progressed without ceiling.\""
           }
         ]
       },
@@ -1783,7 +1818,8 @@
             "sub": "Psychiatric transfer",
             "correct": false,
             "feedback_wrong": "Her agitation is organic — caused by anticholinergic delirium. This is a medical emergency, not a psychiatric presentation. Psychiatric transfer would be inappropriate and dangerous without medical stabilization.",
-            "pt_remark_wrong": "A psychiatrist. My pupils are enormous, I can't urinate, and my mouth is cracking. This is not in my head."
+            "pt_remark_wrong": "A psychiatrist. My pupils are enormous, I can't urinate, and my mouth is cracking. This is not in my head.",
+            "critical_error": true
           },
           {
             "text": "Admit to monitored bed — toxicology, continuous telemetry, physostigmine if needed",
@@ -1863,8 +1899,8 @@
     },
     "memory_fragments": {
       "cbc": "The last dress she finished without noticing her hands — a deep red, January commission, the thread catching the lamplight just right. She remembers thinking: I could do this forever. That was four months ago. She has not touched red thread since.",
-      "pe_koilonychia": "She started filing her nails down in December. Not because they looked wrong — she couldn't say exactly why. Just that every time she looked at them she felt like she was borrowing someone else's hands to do her work.",
-      "addl_hx_ice": "The ice from the cart outside the mill. She started buying it in November and she cannot explain it except that for the thirty seconds it takes to crunch through a piece, she is completely herself. Sharp. Present. Then it melts and she goes back to the water she has been swimming through for months."
+      "addl_hx_ice": "The ice from the cart outside the mill. She started buying it in November and she cannot explain it except that for the thirty seconds it takes to crunch through a piece, she is completely herself. Sharp. Present. Then it melts and she goes back to the water she has been swimming through for months.",
+      "pe": "She started filing her nails down in December. Not because they looked wrong — she couldn't say exactly why. Just that every time she looked at them she felt like she was borrowing someone else's hands to do her work."
     },
     "tests": [
       {
@@ -2107,7 +2143,8 @@
       "\"Every tear at her workbench. Every dropped stitch. Every morning she stood at the bottom of those stairs and wondered why her legs felt like iron — because they were starved of it.\"",
       "\"We did not cure her today. We found her. That is what diagnosis actually is — not naming a disease, but finding the person underneath it.\"",
       "\"She will pick up the red thread again. I promise you that.\""
-    ]
+    ],
+    "patient_anchor": "the red thread"
   },
   {
     "id": "010",
@@ -2153,8 +2190,8 @@
     },
     "memory_fragments": {
       "cbc": "There is a photograph on top of the piano. Third row, center seat. He knows the face in it perfectly. He has known it for forty-one years. This morning he stood in front of it for a long time before he could remember her name.",
-      "datscan": "He did not fall on Thursday. He was performing. He was at the Ferrovane Conservatoire and the hall was full and the third movement was going exactly right. He is certain of this. He is less certain of why he woke up on the floor.",
-      "rbdsleep": "Sometimes when he plays there is someone in the third row. She sits very still. He plays more carefully when she is there — his hands remember how she liked the tempo. He has not told anyone about her. He does not think they would understand that she is not frightening."
+      "rbdsleep": "Sometimes when he plays there is someone in the third row. She sits very still. He plays more carefully when she is there — his hands remember how she liked the tempo. He has not told anyone about her. He does not think they would understand that she is not frightening.",
+      "imaging": "He did not fall on Thursday. He was performing. He was at the Ferrovane Conservatoire and the hall was full and the third movement was going exactly right. He is certain of this. He is less certain of why he woke up on the floor."
     },
     "tests": [
       {
@@ -2273,7 +2310,9 @@
                   "correct": false,
                   "feedback_wrong": "Haloperidol blocks dopamine receptors. In this diagnosis the dopaminergic system is already compromised. The sensitivity reaction — rigidity, impaired consciousness, autonomic instability — occurs in over 50% of cases. It can be fatal.",
                   "pt_remark_wrong": "Something to make me sleep. Yes. I would like to sleep properly.",
-                  "fennick_wrong_comment": "\"That drug has killed patients with this diagnosis. Never. Not even once.\""
+                  "fennick_wrong_comment": "\"That drug has killed patients with this diagnosis. Never. Not even once.\"",
+                  "critical_error": true,
+                  "fennick_endgame_comment": "\"Haloperidol in Lewy Body Dementia. The sensitivity reaction can be fatal. It would have been irreversible by morning.\""
                 },
                 {
                   "text": "Increase rivastigmine dose",
@@ -2318,7 +2357,9 @@
             "sub": "Typical antipsychotic",
             "correct": false,
             "feedback_wrong": "Haloperidol can precipitate a severe, potentially fatal neuroleptic sensitivity reaction in this diagnosis — acute parkinsonism, impaired consciousness, autonomic instability. Typical antipsychotics are contraindicated. This would be catastrophic.",
-            "pt_remark_wrong": "Something to calm the difficult days. Yes. Those days are very difficult."
+            "pt_remark_wrong": "Something to calm the difficult days. Yes. Those days are very difficult.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Haloperidol in Lewy Body Dementia. Neuroleptic sensitivity reaction — rigidity, impaired consciousness, autonomic instability. It occurs in over half of cases. He may not have recovered.\""
           }
         ]
       },
@@ -2339,14 +2380,18 @@
             "sub": "Memory care ward",
             "correct": false,
             "feedback_wrong": "He is medically stable, the acute situation is addressed, and admission to an unfamiliar environment — with a diagnosis that causes fluctuating cognition and visual phenomena — risks significant decompensation. The familiar environment of his flat is protective, not hazardous, with appropriate support.",
-            "pt_remark_wrong": "A ward. I see. Will there be a piano."
+            "pt_remark_wrong": "A ward. I see. Will there be a piano.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"An unfamiliar ward, with fluctuating cognition and visual phenomena, indefinitely. The environment would have accelerated the very deterioration you were trying to prevent.\""
           },
           {
             "text": "Discharge with olanzapine PRN for behavioral episodes",
             "sub": "Atypical antipsychotic PRN",
             "correct": false,
             "feedback_wrong": "Olanzapine carries significant neuroleptic sensitivity risk in this diagnosis. PRN antipsychotics in the community without specialist supervision is dangerous. This is not appropriate.",
-            "pt_remark_wrong": "A pill for the bad days. That sounds manageable."
+            "pt_remark_wrong": "A pill for the bad days. That sounds manageable.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Olanzapine at home, PRN, without specialist supervision. The neuroleptic sensitivity risk does not disappear because the dose is low.\""
           },
           {
             "text": "Discharge without follow-up — stable on current medications",
@@ -2400,7 +2445,8 @@
       "\"He remembered the music. Not her.\"",
       "\"We bought him time. That is the job. Put the chart down.\""
     ],
-    "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png"
+    "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png",
+    "patient_anchor": "the piece he plays every morning"
   },
   {
     "id": "011",
@@ -2645,14 +2691,18 @@
             "sub": "Early discharge after partial response",
             "correct": false,
             "feedback_wrong": "A single improving MetHb level is not sufficient for discharge. Aniline has ongoing dermal absorption potential and rebound methemoglobinemia can occur. Serial levels and cardiac monitoring are required before discharge is safe.",
-            "pt_remark_wrong": "Once I'm feeling better I can go. How long is that going to take."
+            "pt_remark_wrong": "Once I'm feeling better I can go. How long is that going to take.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"MetHb at 20 percent is still symptomatic. Aniline has ongoing dermal absorption. Rebound methemoglobinemia occurs. He would have deteriorated at home without anyone watching.\""
           },
           {
             "text": "Discharge with oral antidote and outpatient follow-up in one week",
             "sub": "Outpatient management",
             "correct": false,
             "feedback_wrong": "There is no oral antidote regimen for acute methemoglobinemia at this severity. MetHb 38% with tachycardia in a sixteen-year-old is not an outpatient situation.",
-            "pt_remark_wrong": "Come back in a week. For the thing that turned my blood brown."
+            "pt_remark_wrong": "Come back in a week. For the thing that turned my blood brown.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"An oral antidote that does not exist, for a level that required IV treatment. He would have gone home still poisoned.\""
           },
           {
             "text": "Transfer to burns unit for chemical decontamination",
@@ -2911,7 +2961,9 @@
             "correct": false,
             "feedback_wrong": "Abrupt cessation of long-term high-dose steroids causes acute adrenal insufficiency — a life-threatening emergency. His HPA axis has been suppressed for eighteen months. The adrenal cortex cannot produce cortisol on demand. Never stop abruptly.",
             "pt_remark_wrong": "Stop it today — remove the problem. That's reasonable isn't it.",
-            "fennick_wrong_comment": "\"Acute adrenal insufficiency within 24 hours. His axis has been idle for eighteen months.\""
+            "fennick_wrong_comment": "\"Acute adrenal insufficiency within 24 hours. His axis has been idle for eighteen months.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"His adrenal cortex had been idle for eighteen months. You stopped the tablet and asked it to produce cortisol by morning. It could not. He would have collapsed within 24 hours.\""
           },
           {
             "text": "Continue prednisone and add ketoconazole to block cortisol synthesis",
@@ -3004,5 +3056,315 @@
     "fennick_after_addl_hx": "\"Eighteen months of steroids, no review. He may not have been told what to watch for. The medication history is the diagnosis.\"",
     "fennick_after_pe": "\"Wide purple striae. That is not ageing. That is cortisol destroying collagen. Look at the whole picture.\"",
     "fennick_after_imaging": "\"Clear lungs, normal chest. The pathology is metabolic. The history is where you need to be.\""
+  },
+  {
+    "id": "013",
+    "date": "2026-04-18",
+    "tier": 2,
+    "urgency": "stable",
+    "title": "The Potter's Hands",
+    "dx_answer": "Osteoarthritis",
+    "patient_anchor": "the wooden rib",
+    "patient": {
+      "name": "The Potter",
+      "age": 61,
+      "sex": "M",
+      "occupation": "Studio Potter, Ashgate Quarter",
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776653758/potter_xgrt0e.png",
+      "image_url_success": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776654056/potter2_ypbfuy.png"
+    },
+    "chart": {
+      "cc": "My hands don't want to do what I ask them anymore.",
+      "hpi": "The Potter arrived with clay dust still in the seams of his coat and dried slip on his cuffs. He has had gradually worsening pain in both hands for just over a year — worst at the base of the thumbs and the finger joints he uses most at the wheel. The pain is worst after long sessions and eases with rest. He says the pain makes him slower, but what troubles him more is that the bowls he throws are no longer as clean and balanced as they were. His wife has noticed he complains more in the mornings. He has had mild morning stiffness — no more than twenty minutes — that loosens once he starts moving. He denies fevers, rash, eye symptoms, or weight loss. He has been working at the wheel for forty years.",
+      "pmh": "No significant medical history.",
+      "psh": "None.",
+      "meds": "Occasional ibuprofen for the pain. No regular medications.",
+      "allergies": "NKDA.",
+      "fh": "Mother had stiff hands in her sixties. No formal diagnosis recorded.",
+      "sh": "Studio potter, Ashgate quarter. Lives with his wife. Non-smoker. An occasional drink."
+    },
+    "vitals": {
+      "bp": "128/78",
+      "hr": "72",
+      "rr": "14",
+      "temp": "37.0",
+      "o2": "99% RA"
+    },
+    "memory_fragments": {
+      "pe": "He has carried a small wooden rib tool in his coat pocket every day for thirty years. It fits the curl of his right palm exactly — worn smooth where his thumb rests. He has started rubbing it between his fingers in waiting rooms. He does not know when he started doing this.",
+      "imaging": "The first bowl he ever threw — lopsided, thicker on one side — sits on the windowsill of his studio. He kept it because his teacher told him imperfection is where the piece remembers it was made by a person. He has been thinking about that a lot lately."
+    },
+    "additional_hx": "He answers carefully, like a man who measures things. Pain pattern: worse after work, better with rest — he is specific about this. Morning stiffness gone within twenty minutes of starting to move. The joints that hurt most are the base of both thumbs and the end joints of his index and middle fingers — the ones that press and shape. No other joint involvement. No swelling he can see — just a bony feeling, a thickening. He tried ibuprofen and it helps somewhat. He pulls the wooden rib from his coat pocket while talking and turns it over in his fingers without noticing.",
+    "patient_quote_addl_hx": "\"The wheel still knows what to do. It's just the hands arguing with me now. Forty years of the same motion — I suppose I should have expected them to have an opinion eventually.\"",
+    "pe_findings": "Both hands clay-dusted, well-muscled from decades of work. Bony enlargement of DIP joints bilaterally — Heberden's nodes at index and middle fingers. Tender first CMC joints bilaterally, worse on right. Mild crepitus with thumb opposition and wrist movement. No warm boggy synovitis. No ulnar deviation. No rheumatoid nodules. Grip strength limited by pain rather than weakness. No rash, no eye findings, no lymphadenopathy.",
+    "imaging": "Hand X-rays bilateral: joint space narrowing at first CMC joints and DIP joints bilaterally. Osteophyte formation. Subchondral sclerosis. No erosive changes. No periarticular osteopenia. No periosteal reaction. Pattern is consistent with degenerative change — not inflammatory arthritis.",
+    "special_test": {
+      "name": "Anti-CCP Antibody + Rheumatoid Factor",
+      "result": "Rheumatoid factor: negative. Anti-CCP antibody: negative. Both negative makes seronegative RA possible but significantly less likely given the clinical and radiological picture. ESR 22 mm/hr (mildly elevated — nonspecific at age 61, consistent with age-related change or minor chronic inflammation). CRP 4.1 mg/L (borderline — within normal range for age). Inflammatory markers do not support active synovitis."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "Normal. WBC 7.1, Hgb 14.6, Plt 288. No anaemia, no leukocytosis. No systemic inflammatory pattern."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal, uric acid 5.8 (normal — gout less likely). No metabolic derangement."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Normal sinus rhythm. Not relevant to this presentation."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Negative. Not relevant."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Normal. Not relevant."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Normal. No haematuria, no crystals, no infection."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "Normal. Not indicated here."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "Normal. Relevant if considering NSAID therapy in context of bleeding risk."
+      }
+    ],
+    "hints": [
+      "The pain is worse after use and better with rest. In rheumatoid arthritis, morning stiffness lasts over an hour and improves with movement. His stiffness is gone within twenty minutes. That pattern matters.",
+      "Look at which joints are involved. DIP joints and first CMC. Rheumatoid arthritis classically spares the DIP joints and attacks the MCP and PIP joints symmetrically. The distribution is telling you something.",
+      "The X-ray shows osteophytes and joint space narrowing — no erosions, no periarticular osteopenia. That is the radiological signature of mechanical wear, not autoimmune destruction.",
+      "RF negative, anti-CCP negative, ESR only mildly elevated at 22 in a 61-year-old. Inflammatory markers are not supporting synovitis. The mildly elevated ESR is age-appropriate and nonspecific. Don't let a borderline number override a clear pattern."
+    ],
+    "management": [
+      {
+        "title": "Workup direction — where do you start?",
+        "hint": "Bilateral hand pain in a 61-year-old. Before ordering anything — what does the joint distribution and pain character tell you about where to look first?",
+        "options": [
+          {
+            "text": "Examine joint distribution carefully — order targeted inflammatory markers and hand X-rays",
+            "sub": "Pattern-led targeted workup",
+            "correct": true,
+            "feedback_correct": "Correct. DIP involvement, pain worse with use, stiffness under 30 minutes — this pattern should direct you toward degenerative rather than inflammatory arthritis before you order anything. Targeted workup rather than a broad inflammatory panel.",
+            "fennick_correct_comment": "\"Which joints. That is always the first question in hand pain. The distribution decides everything that follows.\"",
+            "pt_remark_correct": "You're asking about which joints specifically. Nobody's asked me that before — they just look at the hands as a whole."
+          },
+          {
+            "text": "Order full inflammatory panel immediately — RF, anti-CCP, ESR, CRP, ANA",
+            "sub": "Broad inflammatory screen",
+            "correct": false,
+            "feedback_wrong": "Not wrong to order inflammatory markers, but ordering a broad panel without first characterising the joint pattern is backward. The distribution and pain character should guide your hypothesis before the labs do.",
+            "pt_remark_wrong": "A full panel. Right. Whatever gives you the most information I suppose."
+          },
+          {
+            "text": "Refer directly to rheumatology without further workup",
+            "sub": "Immediate specialist referral",
+            "correct": false,
+            "feedback_wrong": "Rheumatology referral may ultimately be appropriate but referring before any workup means you're sending a patient without a working hypothesis. Basic pattern recognition and initial labs belong in primary care before specialist input.",
+            "pt_remark_wrong": "A specialist. How long would that take. My hands are the problem now, not in six months."
+          },
+          {
+            "text": "Start empirical NSAIDs and review in three months",
+            "sub": "Treat without diagnosis",
+            "correct": false,
+            "feedback_wrong": "NSAIDs may be part of the eventual management but starting them without establishing the diagnosis delays recognition of a potentially progressive inflammatory arthritis if that's what this is. Diagnose first.",
+            "pt_remark_wrong": "Anti-inflammatories and come back later. What if it keeps getting worse while we wait."
+          }
+        ]
+      },
+      {
+        "title": "Interpreting the inflammatory markers",
+        "hint": "ESR 22. CRP 4.1. Borderline elevated, not clearly abnormal. RF negative. Anti-CCP negative. How do you read this in context?",
+        "options": [
+          {
+            "text": "Mildly elevated ESR is nonspecific at 61 — does not override the clinical and X-ray pattern",
+            "sub": "Context-appropriate interpretation",
+            "correct": true,
+            "feedback_correct": "Correct. ESR rises with age — a level of 22 in a 61-year-old is not meaningful evidence of active synovitis. Paired with negative RF, negative anti-CCP, and a radiological picture without erosions, this does not support inflammatory arthritis.",
+            "fennick_correct_comment": "\"ESR 22 at 61 is the city noise, not the diagnosis. Don't let a borderline number override a clear pattern.\"",
+            "pt_remark_correct": "So the number being slightly up doesn't mean what I thought it meant. It just means I'm 61."
+          },
+          {
+            "text": "Borderline CRP suggests early inflammatory arthritis — start hydroxychloroquine empirically",
+            "sub": "Empirical DMARD therapy",
+            "correct": false,
+            "feedback_wrong": "Hydroxychloroquine is a DMARD used in confirmed inflammatory arthritis — RA, lupus, connective tissue disease. Starting it empirically on a borderline CRP in a patient whose clinical and radiological picture points to OA is premature and exposes the patient to unnecessary medication.",
+            "pt_remark_wrong": "A medication for autoimmune disease. Before you're certain that's what this is."
+          },
+          {
+            "text": "Negative RF means this cannot be RA — diagnosis is confirmed as OA",
+            "sub": "Serology alone decides diagnosis",
+            "correct": false,
+            "feedback_wrong": "Seronegative RA exists — up to 20% of RA cases are RF negative. Negative serology is helpful evidence but not definitive exclusion. The full picture — joint distribution, pain character, X-ray findings, inflammatory markers — decides the diagnosis together.",
+            "pt_remark_wrong": "The test came back negative so that's settled. I'm glad it's that simple."
+          },
+          {
+            "text": "Repeat full inflammatory panel in six weeks to catch early RA",
+            "sub": "Repeat serology",
+            "correct": false,
+            "feedback_wrong": "Repeating the same tests while the clinical and X-ray picture already points clearly to OA does not serve the patient. If this were truly early inflammatory arthritis presenting atypically, the joint distribution and X-ray pattern would not fit — and you have both of those already.",
+            "pt_remark_wrong": "Come back in six weeks. My next commission is in three."
+          }
+        ]
+      },
+      {
+        "title": "Confirm the diagnosis — reading the X-ray",
+        "hint": "Osteophytes. Joint space narrowing. No erosions. No periarticular osteopenia. DIP and first CMC involvement. What are you looking at?",
+        "options": [
+          {
+            "text": "Osteoarthritis — mechanical degenerative pattern, no inflammatory erosive disease",
+            "sub": "Correct diagnosis",
+            "correct": true,
+            "feedback_correct": "Correct. Osteophytes and joint space narrowing at DIP and CMC joints with no erosions is the radiological hallmark of OA. The absence of periarticular osteopenia rules against inflammatory arthritis. The distribution confirms it.",
+            "fennick_correct_comment": "\"Osteophytes where the joint has been asking to survive. Erosions where the immune system has been eating it alive. These are not the same picture.\"",
+            "pt_remark_correct": "So the X-ray shows wear. Not attack. Just — forty years of asking the same joints to do the same thing."
+          },
+          {
+            "text": "Seronegative RA — erosions may not yet be visible on plain film",
+            "sub": "Seronegative inflammatory arthritis",
+            "correct": false,
+            "feedback_wrong": "Early RA before erosions develop is possible, but the DIP joint involvement, absence of periarticular osteopenia, and osteophyte formation all argue against it. Seronegative RA is a diagnosis of exclusion — not a default when serology is negative.",
+            "pt_remark_wrong": "So it might be the immune thing after all. Even without the positive tests."
+          },
+          {
+            "text": "Psoriatic arthritis — DIP involvement is characteristic",
+            "sub": "Psoriatic arthritis",
+            "correct": false,
+            "feedback_wrong": "DIP involvement does occur in psoriatic arthritis, but he has no rash, no nail changes, no family history of psoriasis, and the X-ray shows degenerative change not the pencil-in-cup deformity of psoriatic arthritis. The clinical picture doesn't support it.",
+            "pt_remark_wrong": "A skin disease. I don't have any skin problems — just the hands."
+          },
+          {
+            "text": "Gout — uric acid should be checked urgently",
+            "sub": "Gouty arthropathy",
+            "correct": false,
+            "feedback_wrong": "Gout causes acute flares rather than gradual progressive bilateral hand pain. Uric acid was normal at 5.8. The X-ray shows no tophi, no joint erosions with overhanging edges. This is not gout.",
+            "pt_remark_wrong": "Gout. My father had gout in his big toe. This has been both hands for a year."
+          }
+        ]
+      },
+      {
+        "title": "First-line management",
+        "hint": "Osteoarthritis of the hands — confirmed. What is the appropriate first-line approach for a 61-year-old with moderate symptoms and an occupation-specific functional goal?",
+        "options": [
+          {
+            "text": "Topical NSAIDs, thumb CMC splints, activity modification, occupational therapy referral",
+            "sub": "Conservative multimodal management",
+            "correct": true,
+            "feedback_correct": "Correct. Topical diclofenac directly to the affected joints — avoids systemic NSAID exposure. Splinting the first CMC joint reduces pain at the wheel. OT for adaptive techniques preserves the craft. This is the right approach for a stable, active man whose goal is to keep working.",
+            "fennick_correct_comment": "\"Topical first. The joint is accessible. There is no reason to expose the whole body to what you can put directly where it hurts.\"",
+            "pt_remark_correct": "Something on the joint itself. A splint for the thumb. Someone to help me adapt the way I work. I can do all of that. I just want to keep throwing."
+          },
+          {
+            "text": "Methotrexate — DMARD therapy for joint protection",
+            "sub": "Disease-modifying antirheumatic drug",
+            "correct": false,
+            "feedback_wrong": "Methotrexate is for inflammatory arthritis — RA, psoriatic arthritis. It has no role in osteoarthritis, which is not an autoimmune condition. Prescribing it here exposes the patient to significant toxicity with no therapeutic benefit.",
+            "pt_remark_wrong": "A strong immunosuppressant. For wear on the joints. Those are the same treatment?",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Methotrexate for osteoarthritis — an immunosuppressant for a mechanical problem. Hepatotoxicity, bone marrow suppression, pulmonary toxicity. No benefit. Significant harm.\""
+          },
+          {
+            "text": "Oral prednisolone course — reduce inflammation",
+            "sub": "Systemic corticosteroids",
+            "correct": false,
+            "feedback_wrong": "Systemic steroids have no established role in hand OA. Long-term use causes significant harm — osteoporosis, hyperglycaemia, adrenal suppression. The same trap the Politician fell into, prescribed for the wrong thing.",
+            "pt_remark_wrong": "Steroids. Long term. For something you just told me is mechanical wear."
+          },
+          {
+            "text": "Refer for surgical joint replacement",
+            "sub": "Surgical referral",
+            "correct": false,
+            "feedback_wrong": "Surgery — CMC arthroplasty or fusion — is reserved for severe refractory OA that has failed all conservative measures. This patient has not tried conservative management yet. Surgery is not the first step.",
+            "pt_remark_wrong": "An operation. On both hands. Before we've tried anything else."
+          }
+        ]
+      },
+      {
+        "title": "Disposition and follow-up",
+        "hint": "Stable, working, motivated to preserve his craft. What does the right discharge plan look like?",
+        "options": [
+          {
+            "text": "Discharge — topical NSAID, CMC splint, OT referral, GP follow-up in 6–8 weeks",
+            "sub": "Outpatient with OT and follow-up",
+            "correct": true,
+            "feedback_correct": "Exactly right. This is an outpatient condition. He goes home with a treatment plan that addresses the pain, protects the joint, and preserves the craft. OT is not optional — adaptive technique at the wheel is the difference between continuing and stopping.",
+            "fennick_correct_comment": "\"OT is not a soft referral. For a man whose hands are his livelihood, it is the most important part of the plan.\"",
+            "pt_remark_correct": "Home. With something to try. And someone who can help me figure out how to keep working around it. I picked up the rib this morning — just to see. It still knows where to go."
+          },
+          {
+            "text": "Admit for rheumatology inpatient review",
+            "sub": "Inpatient admission",
+            "correct": false,
+            "feedback_wrong": "There is no indication for admission. This is stable chronic OA. Inpatient rheumatology review serves no purpose here.",
+            "pt_remark_wrong": "Admitted. For a year of gradual hand pain in a stable man."
+          },
+          {
+            "text": "Discharge with oral ibuprofen only — review if worsens",
+            "sub": "Oral NSAID only",
+            "correct": false,
+            "feedback_wrong": "Oral NSAIDs alone misses the opportunity for targeted topical treatment, joint protection with splinting, and OT. And in a 61-year-old with no current GI or renal issues, systemic NSAIDs carry risk that topical formulations avoid.",
+            "pt_remark_wrong": "The same tablet I've been taking when it gets bad. And come back if it gets worse."
+          },
+          {
+            "text": "Refer to orthopaedics for surgical planning",
+            "sub": "Surgical referral",
+            "correct": false,
+            "feedback_wrong": "No conservative management has been tried. Orthopaedic referral for surgical planning at this stage bypasses everything that should come first.",
+            "pt_remark_wrong": "A surgeon. Before we've tried the splint or the therapy or anything else.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Surgery before conservative management was tried. Arthroplasty carries real risk. He had not yet tried a splint.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 61,
+      "sex": "M",
+      "pmh": "no significant past medical history",
+      "presenting": "one year of progressive bilateral hand pain worst at the thumb bases and DIP joints, worsening with use and easing with rest, with functional decline at the pottery wheel",
+      "pertinent_positives": {
+        "addl-hx": "pain worse with use and better with rest, morning stiffness under 20 minutes, DIP and first CMC joint involvement bilaterally, bony thickening, forty years of repetitive craft work",
+        "pe": "Heberden's nodes at DIP joints, tender first CMC joints bilaterally, crepitus with thumb opposition, no synovitis, no ulnar deviation, no nodules",
+        "labs": "RF negative, anti-CCP negative, ESR mildly elevated at 22 — nonspecific and age-appropriate, CRP borderline normal",
+        "imaging": "hand X-rays showing osteophytes and joint space narrowing at DIP and first CMC joints bilaterally, no erosions, no periarticular osteopenia",
+        "special": "negative RF and anti-CCP with nonspecific mild ESR elevation — inflammatory arthritis not supported"
+      },
+      "assessment": "Osteoarthritis of the hands — bilateral, DIP and first CMC distribution, occupational pattern",
+      "plan": "topical diclofenac to affected joints, first CMC splints, activity modification, occupational therapy referral for adaptive techniques, GP follow-up in 6-8 weeks, analgesia review"
+    },
+    "explanation": "Osteoarthritis is the most common joint disease — mechanical degeneration of articular cartilage from wear, age, and loading. Hand OA classically involves DIP joints (Heberden's nodes), PIP joints (Bouchard's nodes), and the first CMC joint. Pain worse with use and better with rest distinguishes it from inflammatory arthritis. X-ray: osteophytes, joint space narrowing, subchondral sclerosis — no erosions. Management: topical NSAIDs, splinting, OT, analgesia. DMARDs and steroids have no role.",
+    "explanation_detail": {
+      "who_gets_it": "Adults over 50, more common in women. Risk factors: age, female sex, obesity, prior joint injury, repetitive occupation. Strong occupational association.",
+      "risk_factors": "Age, female sex, obesity, prior injury, repetitive mechanical loading, family history.",
+      "typical_presentation": "Gradual onset joint pain worse with use, better with rest. Morning stiffness under 30 minutes. Bony enlargement rather than soft tissue swelling. Heberden's nodes (DIP), Bouchard's nodes (PIP), first CMC tenderness. No systemic features.",
+      "moa": "Cartilage breakdown from mechanical stress exceeding repair capacity. Subchondral bone remodels, osteophytes form at joint margins. Synovial inflammation is secondary and mild — not the primary driver. Not autoimmune.",
+      "step1_buzzwords": "Heberden's nodes DIP, Bouchard's nodes PIP, first CMC, pain worse with use, osteophytes, joint space narrowing, no erosions, no synovitis, RF negative.",
+      "lab_buzzwords": "RF and anti-CCP negative. ESR/CRP normal or mildly elevated — nonspecific. X-ray: osteophytes, subchondral sclerosis, joint space narrowing, NO erosions. No periarticular osteopenia.",
+      "treatment": "Topical NSAIDs (diclofenac gel) first-line. Oral NSAIDs if topical insufficient. Splinting first CMC. Occupational therapy. Intra-articular steroid for flares. Surgery (CMC arthroplasty) only for severe refractory disease after conservative failure."
+    },
+    "fennick_opening": "\"Forty years at the wheel. The hands have been paying attention the whole time.\"",
+    "music_default": "Foxfire at Midnight",
+    "cc_after_addl_hx": "The wheel still knows what to do. It's just the hands arguing with me now.",
+    "cc_after_pe": "You're feeling the joints one by one. I could tell you which ones before you get to them.",
+    "cc_after_imaging": "Wear. You're going to tell me it's wear. I think I knew that.",
+    "cc_after_hint": "The morning stiffness. I did say it was gone by the time I'd walked to the studio.",
+    "cc_after_dx": "So it's not that my hands forgot. They've just been wearing down. Forty years of the same motion — I suppose they were always going to say something eventually.",
+    "fennick_after_addl_hx": "\"Pain worse with use, better with rest. Stiffness gone in twenty minutes. The distribution and the pattern are already telling you which direction to go.\"",
+    "fennick_after_pe": "\"Heberden's nodes. First CMC tenderness. No synovitis, no boggy swelling, no ulnar drift. Bony, not inflamed. Read the joint, not just the hand.\"",
+    "fennick_after_imaging": "\"Osteophytes and narrowing. No erosions. No periarticular osteopenia. This is a joint that has been used, not attacked.\""
   }
 ]
