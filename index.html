@@ -1483,12 +1483,12 @@ function setPtRemark(text) {
         if(ci < seg.length) {
           cc.textContent += seg[ci];
           ci++;
-          setTimeout(typeChar, 80 + Math.random()*15);
+          setTimeout(typeChar, 40 + Math.random()*10);
         } else {
           segIdx++;
           if(segIdx < segments.length) {
             cc.textContent += '...';
-            setTimeout(writeNextSegment, 1500);
+            setTimeout(writeNextSegment, 750);
           }
         }
       }
@@ -1982,7 +1982,10 @@ function initCase(){
   if(ptCcEl) // pt_opening fires first if defined, then CC after a delay
   if(currentCase.pt_opening) {
     setPtRemark(currentCase.pt_opening);
-    setTimeout(()=>{ setPtRemark(currentCase.chart.cc); }, 5000);
+    // Calculate how long pt_opening will take before starting CC
+    const _openingSegs = ('"' + currentCase.pt_opening + '"').split('...');
+    const _openingDur = _openingSegs.reduce((t,s)=>t+s.length*40,0) + (_openingSegs.length-1)*750 + 1200;
+    setTimeout(()=>{ setPtRemark(currentCase.chart.cc); }, _openingDur);
   } else {
     setPtRemark(currentCase.chart.cc);
   }
