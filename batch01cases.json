@@ -2268,7 +2268,7 @@
             "feedback_correct": "Confirmed. Posterior cortical pattern on neuropsych — not hippocampal dominant. Polysomnography elevates RBD from symptom to diagnostic criterion.",
             "scene_trigger": null,
             "pt_remark_correct": "More tests. I don't mind tests. I mind not knowing.",
-            "fennick_correct_comment": "\"The polysomnography is not optional. Without it you have a clinical impression. With it you have a diagnosis.\""
+            "fennick_correct_comment": "\"Without the sleep study you have a guess.\""
           },
           {
             "text": "Lumbar puncture for CSF tau and amyloid-beta",
@@ -2316,7 +2316,7 @@
                   "feedback_correct": "Correct. RBD — acting out dreams without muscle atonia. Low-dose clonazepam 0.25mg or melatonin at night. Clear the floor beside the bed.",
                   "scene_trigger": "mgmt_silhouette",
                   "pt_remark_correct": "I was performing. I was in the hall. She was in the third row. I was playing the right notes.",
-                  "fennick_correct_comment": "\"Clonazepam. The mechanism is GABA-A. It suppresses the brainstem circuit that is failing to hold the body still during REM. It will not slow the disease. It will stop him breaking his wrist.\"",
+                  "fennick_correct_comment": "\"Won't slow the disease. Will stop him breaking his wrist.\"",
                   "fennick_speech": null
                 },
                 {
@@ -2325,7 +2325,7 @@
                   "correct": false,
                   "feedback_wrong": "Haloperidol blocks dopamine receptors. In this diagnosis the dopaminergic system is already compromised. The sensitivity reaction — rigidity, impaired consciousness, autonomic instability — occurs in over 50% of cases. It can be fatal.",
                   "pt_remark_wrong": "Something to make me sleep. Yes. I would like to sleep properly.",
-                  "fennick_wrong_comment": "\"That drug has killed patients with this diagnosis. Never. Not even once.\"",
+                  "fennick_wrong_comment": "\"Never. Not once. Not this diagnosis.\"",
                   "critical_error": true,
                   "fennick_endgame_comment": "\"Haloperidol in Lewy Body Dementia. The sensitivity reaction can be fatal. It would have been irreversible by morning.\""
                 },
@@ -2335,7 +2335,7 @@
                   "correct": false,
                   "feedback_wrong": "The rivastigmine is working. These are separate mechanisms — cholinergic deficit and REM motor disinhibition. You cannot dose your way out of the second one.",
                   "pt_remark_wrong": "More of the same. Alright.",
-                  "fennick_wrong_comment": "\"More of the same does not fix a different problem.\""
+                  "fennick_wrong_comment": "\"Different problem.\""
                 },
                 {
                   "text": "Zolpidem for sleep",
@@ -2343,7 +2343,7 @@
                   "correct": false,
                   "feedback_wrong": "Zolpidem sedates. It does not suppress REM motor activity. In an elderly patient with parkinsonism it increases fall risk. You are making the night more dangerous, not safer.",
                   "pt_remark_wrong": "A sleeping pill. I've never taken those.",
-                  "fennick_wrong_comment": "\"Sedation is not sleep architecture. These are not the same thing.\""
+                  "fennick_wrong_comment": "\"Sedation is not sleep.\""
                 }
               ],
               "description": "Found on floor beside bed at 03:10 — arm extended, vocalizing. Second episode this week. Bruised right forearm.",
@@ -2351,7 +2351,7 @@
               "pt_remark_transition": "I played something yesterday. I remembered the fingering for the third movement. I haven't remembered that in months."
             },
             "pt_remark_correct": "A patch. I can do a patch. Mira will make sure I use it.",
-            "fennick_correct_comment": "\"The cholinergic deficit here is more severe than in most dementias. That is why this drug works better here than anywhere else. It is also why these patients decompensate so badly if you block those receptors instead.\""
+            "fennick_correct_comment": "\"Deepest cholinergic deficit of any dementia. Works better here. Fails worse if you block it.\""
           },
           {
             "text": "Memantine alone",
@@ -2389,7 +2389,7 @@
             "feedback_correct": "Correct. Stable enough to go home. Familiar environment is protective. The medication alert card follows him everywhere — no haloperidol, no typical antipsychotics.",
             "scene_trigger": null,
             "pt_remark_correct": "I want to go home. The piano is there. I need to finish the piece.",
-            "fennick_correct_comment": "\"The medication alert card follows him everywhere — every ED, every GP, every locum. The one time someone gives him haloperidol for agitation because they didn't know, it may be the last time.\""
+            "fennick_correct_comment": "\"The card goes everywhere he does.\""
           },
           {
             "text": "Admit to memory care ward indefinitely",
@@ -2451,13 +2451,13 @@
     "cc_after_imaging": "What does the scan look for exactly. Whether the signal is still there, or whether it has — gone somewhere else.",
     "cc_after_hint": "Something is wrong with the mechanism. I've known that. I was hoping it was the piano.",
     "cc_after_dx": "I see. Does that mean — will I still play. That's the only thing I need to know.",
-    "fennick_after_addl_hx": "\"Good days and bad days. Not a steady slope — a flicker. That pattern is not grief. That pattern is diagnostic.\"",
-    "fennick_after_pe": "\"Cogwheel rigidity. Posterior cortical clock drawing. No resting tremor. The motor system and the memory system both. One disease does all of this simultaneously.\"",
-    "fennick_after_imaging": "\"Posterior cortex. Dopaminergic deficit on the DaTscan. He is still in there. The signal is being interrupted. Find what interrupts it.\"",
+    "fennick_after_addl_hx": "\"Good days and bad days. Not a slope — a flicker.\"",
+    "fennick_after_pe": "\"Cogwheel rigidity. Posterior cortex. No resting tremor.\"",
+    "fennick_after_imaging": "\"He is still in there. Find what interrupts the signal.\"",
     "patient_quote_addl_hx": "\"I don't remember choosing the piece. I just sit down and my hands begin. I used to choose. I used to know which piece I wanted before I touched the keys. Now I arrive at the piano and find out what I'm playing.\"",
     "fennick_case_complete": [
-      "\"He remembered the music. Not her.\"",
-      "\"We bought him time. That is the job. Put the chart down.\""
+      "\"He's playing again.\"",
+      "\"Put the chart down.\""
     ],
     "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png",
     "patient_anchor": "the piece he plays every morning"
