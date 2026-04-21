@@ -1461,30 +1461,34 @@ let _typeQueue = [];
 let _typing = false;
 
 // ── PATIENT REMARK SYSTEM ──
+let _ptRemarkGen = 0; // cancel token for breathless typewriter
 function setPtRemark(text) {
   const cc = document.getElementById('pt-cc');
   if(!cc || !text) return;
+  _ptRemarkGen++; // cancel any ongoing breathless write
+  const myGen = _ptRemarkGen;
   cc.textContent = '';
   const breathless = currentCase && currentCase.breathless_typing;
   if(breathless) {
-    // Segment-based breathless write — completely explicit
     const fullText = '"' + text + '"';
     const segments = fullText.split('...');
     let segIdx = 0;
     function writeNextSegment() {
+      if(myGen !== _ptRemarkGen) return; // cancelled
       if(segIdx >= segments.length) return;
       const seg = segments[segIdx];
       let ci = 0;
       function typeChar() {
+        if(myGen !== _ptRemarkGen) return; // cancelled
         if(ci < seg.length) {
           cc.textContent += seg[ci];
           ci++;
-          setTimeout(typeChar, 160 + Math.random()*30);
+          setTimeout(typeChar, 80 + Math.random()*15);
         } else {
           segIdx++;
           if(segIdx < segments.length) {
             cc.textContent += '...';
-            setTimeout(writeNextSegment, 4500);
+            setTimeout(writeNextSegment, 1500);
           }
         }
       }
