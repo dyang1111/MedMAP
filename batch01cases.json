@@ -1,7 +1,7 @@
 [
   {
     "id": "001",
-    "date": "2026-04-06",
+    "date": "2026-04-01",
     "urgency": "stable",
     "title": "The Clockmaker's Tremor",
     "dx_answer": "Parkinson Disease",
@@ -274,7 +274,7 @@
   },
   {
     "id": "002",
-    "date": "2026-04-07",
+    "date": "2026-04-02",
     "urgency": "urgent",
     "title": "The Merchant's Cough",
     "dx_answer": "Small Cell Lung Cancer",
@@ -546,7 +546,7 @@
   },
   {
     "id": "003",
-    "date": "2026-04-08",
+    "date": "2026-04-03",
     "urgency": "urgent",
     "title": "The Engineer's Fever",
     "dx_answer": "Infective Endocarditis",
@@ -818,7 +818,7 @@
   },
   {
     "id": "004",
-    "date": "2026-04-09",
+    "date": "2026-04-04",
     "urgency": "urgent",
     "title": "The General's Episodes",
     "dx_answer": "Pheochromocytoma",
@@ -1088,7 +1088,7 @@
   },
   {
     "id": "005",
-    "date": "2026-04-10",
+    "date": "2026-04-05",
     "urgency": "urgent",
     "title": "The Furnace Keeper's Headache",
     "dx_answer": "Carbon Monoxide Poisoning",
@@ -1352,7 +1352,7 @@
   },
   {
     "id": "006",
-    "date": "2026-04-11",
+    "date": "2026-04-06",
     "urgency": "stable",
     "title": "The Locksmith's Sudden Chest",
     "dx_answer": "Pneumothorax (Spontaneous)",
@@ -1611,7 +1611,7 @@
   },
   {
     "id": "007",
-    "date": "2026-04-12",
+    "date": "2026-04-07",
     "urgency": "urgent",
     "title": "The Herbalist's Affliction",
     "dx_answer": "Anticholinergic Toxidrome",
@@ -1875,7 +1875,7 @@
   },
   {
     "id": "008",
-    "date": "2026-04-13",
+    "date": "2026-04-08",
     "tier": 2,
     "urgency": "stable",
     "title": "The Seamstress's Sorrow",
@@ -2163,7 +2163,7 @@
   },
   {
     "id": "009",
-    "date": "2026-04-15",
+    "date": "2026-04-09",
     "tier": 3,
     "urgency": "urgent",
     "title": "The Maestro's Hands",
@@ -2464,7 +2464,7 @@
   },
   {
     "id": "010",
-    "date": "2026-04-16",
+    "date": "2026-04-10",
     "urgency": "urgent",
     "title": "The Dye Apprentice's Grey",
     "dx_answer": "Methemoglobinemia",
@@ -2767,7 +2767,7 @@
   },
   {
     "id": "011",
-    "date": "2026-04-17",
+    "date": "2026-04-11",
     "urgency": "stable",
     "title": "The Politician's Figure",
     "dx_answer": "Cushing Syndrome",
@@ -3074,7 +3074,7 @@
   },
   {
     "id": "012",
-    "date": "2026-04-18",
+    "date": "2026-04-12",
     "tier": 2,
     "urgency": "stable",
     "title": "The Potter's Hands",
@@ -3384,7 +3384,7 @@
   },
   {
     "id": "013",
-    "date": "2026-04-19",
+    "date": "2026-04-13",
     "tier": 1,
     "urgency": "urgent",
     "title": "The Stoker's PR",
@@ -3667,7 +3667,7 @@
   },
   {
     "id": "014",
-    "date": "2026-04-20",
+    "date": "2026-04-14",
     "tier": 2,
     "urgency": "urgent",
     "title": "The Madame's Breath",
@@ -3999,7 +3999,7 @@
   },
   {
     "id": "015",
-    "date": "2026-04-21",
+    "date": "2026-04-15",
     "tier": 1,
     "urgency": "stable",
     "title": "The Banker's Certainty",
