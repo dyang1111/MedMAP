@@ -1465,8 +1465,35 @@ function setPtRemark(text) {
   const cc = document.getElementById('pt-cc');
   if(!cc || !text) return;
   cc.textContent = '';
-  const spd = (currentCase && currentCase.breathless_typing) ? 160 : 22;
-  setTimeout(() => typewriterWrite(cc, '"' + text + '"', spd), 100);
+  const breathless = currentCase && currentCase.breathless_typing;
+  if(breathless) {
+    // Segment-based breathless write — completely explicit
+    const fullText = '"' + text + '"';
+    const segments = fullText.split('...');
+    let segIdx = 0;
+    function writeNextSegment() {
+      if(segIdx >= segments.length) return;
+      const seg = segments[segIdx];
+      let ci = 0;
+      function typeChar() {
+        if(ci < seg.length) {
+          cc.textContent += seg[ci];
+          ci++;
+          setTimeout(typeChar, 160 + Math.random()*30);
+        } else {
+          segIdx++;
+          if(segIdx < segments.length) {
+            cc.textContent += '...';
+            setTimeout(writeNextSegment, 4500);
+          }
+        }
+      }
+      typeChar();
+    }
+    setTimeout(writeNextSegment, 100);
+  } else {
+    setTimeout(() => typewriterWrite(cc, '"' + text + '"', 22), 100);
+  }
 }
 
 // Generic fallback remarks per workup type (used when case has no specific cc_after)
@@ -1950,10 +1977,10 @@ function initCase(){
   const ptCcEl = document.getElementById('pt-cc');
   if(ptCcEl) // pt_opening fires first if defined, then CC after a delay
   if(currentCase.pt_opening) {
-    typewriterWrite(ptCcEl, '"' + currentCase.pt_opening + '"', 20);
-    setTimeout(()=>{ typewriterWrite(ptCcEl, '"' + currentCase.chart.cc + '"', 20); }, 3200);
+    setPtRemark(currentCase.pt_opening);
+    setTimeout(()=>{ setPtRemark(currentCase.chart.cc); }, 5000);
   } else {
-    typewriterWrite(ptCcEl, '"' + currentCase.chart.cc + '"', 18);
+    setPtRemark(currentCase.chart.cc);
   }
 
   const ptImg = document.getElementById('pt-img');
