@@ -1465,7 +1465,8 @@ function setPtRemark(text) {
   const cc = document.getElementById('pt-cc');
   if(!cc || !text) return;
   cc.textContent = '';
-  setTimeout(() => typewriterWrite(cc, '"' + text + '"', 22), 100);
+  const spd = (currentCase && currentCase.breathless_typing) ? 160 : 22;
+  setTimeout(() => typewriterWrite(cc, '"' + text + '"', spd), 100);
 }
 
 // Generic fallback remarks per workup type (used when case has no specific cc_after)
@@ -1519,10 +1520,8 @@ function getGenericRemark(type) {
 }
 
 function typewriterWrite(el, text, speed){
-  speed = speed || 22;
-  // Breathless typing: slow speed + long pause at '...'
   const breathless = currentCase && currentCase.breathless_typing;
-  if(breathless) speed = 160;
+  speed = breathless ? 160 : (speed || 22);
   return new Promise(resolve => {
     el.textContent = '';
     const cursor = document.createElement('span');
