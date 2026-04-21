@@ -1470,60 +1470,34 @@ function setPtRemark(text) {
   cc.textContent = '';
   const breathless = currentCase && currentCase.breathless_typing;
   const anxious = currentCase && currentCase.anxious_typing;
-  if(breathless) {
+  const charSpeed = breathless ? 30 : anxious ? 7 : 0;
+  const pauseMs = breathless ? 750 : anxious ? 400 : 0;
+
+  if(breathless || anxious) {
     const fullText = '"' + text + '"';
-    const segments = fullText.split('...');
-    let segIdx = 0;
-    function writeNextSegment() {
-      if(myGen !== _ptRemarkGen) return; // cancelled
-      if(segIdx >= segments.length) return;
-      const seg = segments[segIdx];
+    const segs = fullText.split('...');
+    let si = 0;
+    const gen = myGen;
+    const writeSegs = () => {
+      if(gen !== _ptRemarkGen || si >= segs.length) return;
+      const seg = segs[si];
       let ci = 0;
-      function typeChar() {
-        if(myGen !== _ptRemarkGen) return; // cancelled
+      const typeC = () => {
+        if(gen !== _ptRemarkGen) return;
         if(ci < seg.length) {
-          cc.textContent += seg[ci];
-          ci++;
-          setTimeout(typeChar, 30 + Math.random()*10);
+          cc.textContent += seg[ci++];
+          setTimeout(typeC, charSpeed + Math.random()*5);
         } else {
-          segIdx++;
-          if(segIdx < segments.length) {
+          si++;
+          if(si < segs.length) {
             cc.textContent += '...';
-            setTimeout(writeNextSegment, 750);
+            setTimeout(writeSegs, pauseMs);
           }
         }
-      }
-      typeChar();
-    }
-    setTimeout(writeNextSegment, 100);
-  } else if(anxious) {
-    // Anxious: fast typing but ... still pauses (shorter than breathless)
-    const fullText = '"' + text + '"';
-    const segments = fullText.split('...');
-    let segIdx = 0;
-    const myGen2 = _ptRemarkGen;
-    function writeAnxiousSegment() {
-      if(myGen2 !== _ptRemarkGen) return;
-      if(segIdx >= segments.length) return;
-      const seg = segments[segIdx];
-      let ci = 0;
-      function typeAnxious() {
-        if(myGen2 !== _ptRemarkGen) return;
-        if(ci < seg.length) {
-          cc.textContent += seg[ci];
-          ci++;
-          setTimeout(typeAnxious, 7 + Math.random()*4);
-        } else {
-          segIdx++;
-          if(segIdx < segments.length) {
-            cc.textContent += '...';
-            setTimeout(writeAnxiousSegment, 400);
-          }
-        }
-      }
-      typeAnxious();
-    }
-    setTimeout(writeAnxiousSegment, 100);
+      };
+      typeC();
+    };
+    setTimeout(writeSegs, 100);
   } else {
     setTimeout(() => typewriterWrite(cc, '"' + text + '"', 22), 100);
   }
