@@ -4243,8 +4243,8 @@
             "sub": "Discharge with safety net",
             "correct": true,
             "feedback_correct": "Correct. Episodic tension headache with identified triggers is managed outpatient. Safety net: return if headache character changes, new neurological symptoms, or no improvement with conservative measures.",
-            "fennick_correct_comment": "\"No. You have a job. ... And a headache.\"",
-            "pt_remark_correct": "So I really, really don't have cancer. ... ... I wrote a will. ... It was quite good actually."
+            "fennick_correct_comment": "\"You don't have a tumour.\"",
+            "pt_remark_correct": "So I really, really don't have cancer. ... I wrote a will. ... It was quite good actually."
           },
           {
             "text": "Admit for observation and serial neurological examinations",
@@ -4310,6 +4310,7 @@
     "fennick_case_complete": [
       "\"No. You have a job. ... And a headache.\"",
       "\"Tell him to go home. And to sleep.\""
-    ]
+    ],
+    "fennick_case_complete_delay": 4000
   }
 ]
