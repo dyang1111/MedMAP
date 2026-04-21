@@ -1522,6 +1522,41 @@ function getGenericRemark(type) {
 function typewriterWrite(el, text, speed){
   const breathless = currentCase && currentCase.breathless_typing;
   speed = breathless ? 160 : (speed || 22);
+
+  // Breathless mode: split on '...' and write segments with long pauses between
+  if(breathless && text.indexOf('...') !== -1) {
+    el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    el.appendChild(cursor);
+    const segments = text.split('...');
+    let segIdx = 0;
+    function writeSegment() {
+      if(segIdx >= segments.length) { cursor.remove(); return; }
+      const seg = segments[segIdx];
+      let ci = 0;
+      function tickChar() {
+        if(ci < seg.length) {
+          el.insertBefore(document.createTextNode(seg[ci]), cursor);
+          ci++;
+          setTimeout(tickChar, speed + Math.random()*20);
+        } else {
+          segIdx++;
+          if(segIdx < segments.length) {
+            // Write the '...' dots first, then pause
+            el.insertBefore(document.createTextNode('...'), cursor);
+            setTimeout(writeSegment, 4500);
+          } else {
+            cursor.remove();
+          }
+        }
+      }
+      tickChar();
+    }
+    writeSegment();
+    return Promise.resolve();
+  }
+
   return new Promise(resolve => {
     el.textContent = '';
     const cursor = document.createElement('span');
@@ -1530,16 +1565,9 @@ function typewriterWrite(el, text, speed){
     let i = 0;
     function tick(){
       if(i < text.length){
-        // Check for '...' pause in breathless mode
-        if(breathless && text[i] === '.' && text[i+1] === '.' && text[i+2] === '.') {
-          el.insertBefore(document.createTextNode('...'), cursor);
-          i += 3;
-          setTimeout(tick, 5600 + Math.random()*800);
-        } else {
-          el.insertBefore(document.createTextNode(text[i]), cursor);
-          i++;
-          setTimeout(tick, speed + Math.random()*12);
-        }
+        el.insertBefore(document.createTextNode(text[i]), cursor);
+        i++;
+        setTimeout(tick, speed + Math.random()*8);
       } else {
         cursor.remove();
         resolve();
