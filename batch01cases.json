@@ -4104,21 +4104,21 @@
             "correct": true,
             "feedback_correct": "Correct. Tension headache is a clinical diagnosis. The history — bilateral, pressing, non-pulsating, work-related, no associated features — is characteristic. Examination confirms no red flags. No imaging required at this stage.",
             "fennick_correct_comment": "\"Bilateral. Pressing. No aura. No nausea. Work-related. The diagnosis is in the history.\"",
-            "pt_remark_correct": "You're just going to ask me questions? (pause) I have a document. (pause) It has graphs."
+            "pt_remark_correct": "You're just going to ask me questions? ... I have a document. ... It has graphs."
           },
           {
             "text": "Urgent MRI brain — exclude intracranial mass",
             "sub": "Immediate neuroimaging",
             "correct": false,
             "feedback_wrong": "No red flags are present — no thunderclap onset, no papilloedema, no focal deficit, no fever, no progressive worsening over days. MRI is not indicated as the first step for a classic tension-type headache presentation.",
-            "pt_remark_wrong": "Yes. The MRI. That's what I came for. (pause) Page four of my document recommends it."
+            "pt_remark_wrong": "Yes. The MRI. That's what I came for. ... Page four of my document recommends it."
           },
           {
             "text": "Lumbar puncture — exclude subarachnoid haemorrhage",
             "sub": "CSF analysis",
             "correct": false,
             "feedback_wrong": "LP is indicated for thunderclap headache or suspected meningitis — not a three-week progressive bilateral pressing headache with a clear precipitant and normal examination. There is no clinical indication here.",
-            "pt_remark_wrong": "A needle in the spine. (pause) That does seem proportionate to my situation."
+            "pt_remark_wrong": "A needle in the spine. ... That does seem proportionate to my situation."
           },
           {
             "text": "Reassure and discharge without assessment",
@@ -4139,28 +4139,28 @@
             "correct": true,
             "feedback_correct": "Correct. None of these are present. Onset was gradual over weeks, not thunderclap. No fever, no neck stiffness. Neurological exam normal. No papilloedema on fundoscopy. The headache improves on rest days. Red flags are absent.",
             "fennick_correct_comment": "\"No red flags. The examination is normal. The pattern is benign. Move forward.\"",
-            "pt_remark_correct": "So none of the serious things. (pause) That's what my document said too. (pause) Different conclusion though."
+            "pt_remark_correct": "So none of the serious things. ... That's what my document said too. ... Different conclusion though."
           },
           {
             "text": "Order CT head immediately — three weeks is too long to ignore",
             "sub": "CT without red flags",
             "correct": false,
             "feedback_wrong": "Duration alone does not indicate CT. Three weeks of bilateral pressing headache with a clear work-related pattern and normal examination does not meet imaging criteria. Red flags drive imaging decisions, not anxiety.",
-            "pt_remark_wrong": "Yes. The CT. I've been waiting for someone to say CT. (pause) I've been waiting three weeks."
+            "pt_remark_wrong": "Yes. The CT. I've been waiting for someone to say CT. ... I've been waiting three weeks."
           },
           {
             "text": "Refer to neurology before making any diagnosis",
             "sub": "Immediate neurology referral",
             "correct": false,
             "feedback_wrong": "Tension headache is a primary care diagnosis. Neurology referral is appropriate for atypical features, treatment-refractory cases, or diagnostic uncertainty — not a textbook presentation with no red flags.",
-            "pt_remark_wrong": "A specialist. Yes. (pause) I had assumed this would require a team."
+            "pt_remark_wrong": "A specialist. Yes. ... I had assumed this would require a team."
           },
           {
             "text": "Check inflammatory markers — exclude temporal arteritis",
             "sub": "ESR/CRP for vasculitis",
             "correct": false,
             "feedback_wrong": "Temporal arteritis presents in patients over 50 with new unilateral temporal headache, jaw claudication, and elevated ESR. This patient is 24 with bilateral pressing headache. Temporal arteritis is not in the differential.",
-            "pt_remark_wrong": "I did consider vasculitis. (pause) It was on page seven."
+            "pt_remark_wrong": "I did consider vasculitis. ... It was on page seven."
           }
         ]
       },
@@ -4174,28 +4174,28 @@
             "correct": true,
             "feedback_correct": "Correct. Bilateral, pressing or tightening quality, mild to moderate intensity, not aggravated by routine activity, no nausea or vomiting, pericranial muscle tenderness. Episodic tension-type headache, likely triggered by prolonged visual concentration and poor posture.",
             "fennick_correct_comment": "\"Pericranial muscle tension. Prolonged near work. Poor sleep. This is the diagnosis.\"",
-            "pt_remark_correct": "I don't have a tumour? (pause) ... My documents say otherwise. (pause) Are you certain."
+            "pt_remark_correct": "I don't have a tumour? ... My documents say otherwise. ... Are you certain."
           },
           {
             "text": "Migraine without aura",
             "sub": "Migraine",
             "correct": false,
             "feedback_wrong": "Migraine is unilateral, pulsating, moderate to severe, worsened by activity, with nausea or photo/phonophobia. This headache is bilateral, pressing, mild to moderate, not worsened by activity. The pattern does not fit migraine.",
-            "pt_remark_wrong": "Migraine. (pause) I hadn't considered migraine. (pause) Does migraine have a high mortality rate."
+            "pt_remark_wrong": "Migraine. ... I hadn't considered migraine. ... Does migraine have a high mortality rate."
           },
           {
             "text": "Intracranial hypertension — refer for LP",
             "sub": "Raised ICP",
             "correct": false,
             "feedback_wrong": "Raised ICP causes progressive headache worse in the morning, worse lying down, with papilloedema. This patient has normal fundoscopy, headache that improves on rest days, and a clear work-related pattern. Raised ICP does not fit.",
-            "pt_remark_wrong": "High pressure in the brain. (pause) That sounds about right actually."
+            "pt_remark_wrong": "High pressure in the brain. ... That sounds about right actually."
           },
           {
             "text": "Cluster headache",
             "sub": "Trigeminal autonomic cephalalgia",
             "correct": false,
             "feedback_wrong": "Cluster headache is strictly unilateral, excruciating, periorbital, with autonomic features — lacrimation, nasal congestion, ptosis. Episodes last 15-180 minutes. This presentation shares none of those features.",
-            "pt_remark_wrong": "Cluster. (pause) Is that worse than what I thought I had."
+            "pt_remark_wrong": "Cluster. ... Is that worse than what I thought I had."
           }
         ]
       },
@@ -4209,28 +4209,28 @@
             "correct": true,
             "feedback_correct": "Correct. Simple analgesia — paracetamol or ibuprofen — for acute episodes. Identify and address triggers: prolonged near work, poor posture, sleep disruption. Regular screen breaks. Reassurance is a significant part of the treatment in this case.",
             "fennick_correct_comment": "\"Paracetamol. Screen breaks. Sleep. And stop reading medical textbooks after hours.\"",
-            "pt_remark_correct": "Paracetamol. (pause) I have been avoiding it in case it masked the symptoms. (pause) I see. (pause) So I have been having headaches about having headaches."
+            "pt_remark_correct": "Paracetamol. ... I have been avoiding it in case it masked the symptoms. ... I see. ... So I have been having headaches about having headaches."
           },
           {
             "text": "Start prophylactic topiramate",
             "sub": "Preventive anticonvulsant",
             "correct": false,
             "feedback_wrong": "Topiramate prophylaxis is for frequent migraine or chronic daily headache. Episodic tension headache triggered by a clear occupational cause does not require prophylactic medication — it requires addressing the cause.",
-            "pt_remark_wrong": "A daily medication. (pause) For how long. (pause) I'll need to log this."
+            "pt_remark_wrong": "A daily medication. ... For how long. ... I'll need to log this."
           },
           {
             "text": "Refer for neurology and MRI before any treatment",
             "sub": "Defer treatment pending specialist",
             "correct": false,
             "feedback_wrong": "The diagnosis is clear, the examination is normal, red flags are absent. Deferring treatment while awaiting neurology and MRI is not appropriate for episodic tension headache with an identifiable trigger.",
-            "pt_remark_wrong": "More waiting. (pause) I can wait. (pause) I brought more documents."
+            "pt_remark_wrong": "More waiting. ... I can wait. ... I brought more documents."
           },
           {
             "text": "Prescribe triptans",
             "sub": "Triptan therapy",
             "correct": false,
             "feedback_wrong": "Triptans are for migraine and cluster headache — not tension headache. They act on serotonin receptors to abort a migraine attack. They are not effective for tension headache and are not indicated here.",
-            "pt_remark_wrong": "Something stronger. (pause) Yes. That seems more appropriate for my situation."
+            "pt_remark_wrong": "Something stronger. ... Yes. That seems more appropriate for my situation."
           }
         ]
       },
@@ -4244,14 +4244,14 @@
             "correct": true,
             "feedback_correct": "Correct. Episodic tension headache with identified triggers is managed outpatient. Safety net: return if headache character changes, new neurological symptoms, or no improvement with conservative measures.",
             "fennick_correct_comment": "\"No. You have a job. ... And a headache.\"",
-            "pt_remark_correct": "So I really, really don't have cancer. (pause) ... (pause) I wrote a will. (pause) It was quite good actually."
+            "pt_remark_correct": "So I really, really don't have cancer. ... ... I wrote a will. ... It was quite good actually."
           },
           {
             "text": "Admit for observation and serial neurological examinations",
             "sub": "Inpatient admission",
             "correct": false,
             "feedback_wrong": "There is no indication for admission. Tension headache is an outpatient condition. Normal examination, no red flags, identified triggers, and a clear management plan make admission entirely unnecessary.",
-            "pt_remark_wrong": "Admitted. (pause) For how long. (pause) I'll need to notify the bank.",
+            "pt_remark_wrong": "Admitted. ... For how long. ... I'll need to notify the bank.",
             "critical_error": true,
             "fennick_endgame_comment": "\"Admitted for tension headache. You occupied a bed that someone else needed.\""
           },
@@ -4260,14 +4260,14 @@
             "sub": "Discharge without safety net",
             "correct": false,
             "feedback_wrong": "Discharging without advice on triggers, analgesia guidance, and a safety net misses the point of the consultation. He needs to understand what caused the headaches and what to do if they change.",
-            "pt_remark_wrong": "Just go. (pause) That's it. (pause) I spent three weeks on this."
+            "pt_remark_wrong": "Just go. ... That's it. ... I spent three weeks on this."
           },
           {
             "text": "Emergency CT head before discharge",
             "sub": "CT without indication",
             "correct": false,
             "feedback_wrong": "No red flags. Normal examination. Clear diagnosis. CT adds radiation exposure and no clinical value here. The diagnosis does not require imaging confirmation.",
-            "pt_remark_wrong": "The CT. Finally. (pause) Can I keep the images."
+            "pt_remark_wrong": "The CT. Finally. ... Can I keep the images."
           }
         ]
       }
@@ -4299,11 +4299,11 @@
     },
     "fennick_opening": "\"He took a half-day. First time in six months. Note that.\"",
     "music_default": "Foxfire at Midnight",
-    "cc_after_addl_hx": "The onset correlates with shift length. I have a table. (pause) Would you like to see the table.",
-    "cc_after_pe": "You're pressing on my head. (pause) Is that diagnostic or are you just checking.",
-    "cc_after_imaging": "No mass. (pause) The scan says no mass. (pause) The books said there would be a mass.",
-    "cc_after_hint": "So the pattern matters more than the individual data points. (pause) I understand. (pause) I still think you should see the table.",
-    "cc_after_dx": "I don't have a tumour. (pause) ... (pause) My documents say otherwise. (pause) Are you certain.",
+    "cc_after_addl_hx": "The onset correlates with shift length. I have a table. ... Would you like to see the table.",
+    "cc_after_pe": "You're pressing on my head. ... Is that diagnostic or are you just checking.",
+    "cc_after_imaging": "No mass. ... The scan says no mass. ... The books said there would be a mass.",
+    "cc_after_hint": "So the pattern matters more than the individual data points. ... I understand. ... I still think you should see the table.",
+    "cc_after_dx": "I don't have a tumour. ... ... My documents say otherwise. ... Are you certain.",
     "fennick_after_addl_hx": "\"Work-triggered. Improves on rest. He cross-referenced his shift schedule. The diagnosis is already in his own notes.\"",
     "fennick_after_pe": "\"No papilloedema. No focal signs. Pericranial muscle tenderness. The examination is entirely normal except for the part that explains the headache.\"",
     "fennick_after_imaging": "\"Normal CT. He did not need it. But he needed it.\"",
