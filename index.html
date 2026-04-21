@@ -1469,6 +1469,7 @@ function setPtRemark(text) {
   const myGen = _ptRemarkGen;
   cc.textContent = '';
   const breathless = currentCase && currentCase.breathless_typing;
+  const anxious = currentCase && currentCase.anxious_typing;
   if(breathless) {
     const fullText = '"' + text + '"';
     const segments = fullText.split('...');
@@ -1496,7 +1497,8 @@ function setPtRemark(text) {
     }
     setTimeout(writeNextSegment, 100);
   } else {
-    setTimeout(() => typewriterWrite(cc, '"' + text + '"', 22), 100);
+    const spd = anxious ? 7 : 22;
+    setTimeout(() => typewriterWrite(cc, '"' + text + '"', spd), 100);
   }
 }
 
