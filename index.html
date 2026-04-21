@@ -1496,9 +1496,36 @@ function setPtRemark(text) {
       typeChar();
     }
     setTimeout(writeNextSegment, 100);
+  } else if(anxious) {
+    // Anxious: fast typing but ... still pauses (shorter than breathless)
+    const fullText = '"' + text + '"';
+    const segments = fullText.split('...');
+    let segIdx = 0;
+    const myGen2 = _ptRemarkGen;
+    function writeAnxiousSegment() {
+      if(myGen2 !== _ptRemarkGen) return;
+      if(segIdx >= segments.length) return;
+      const seg = segments[segIdx];
+      let ci = 0;
+      function typeAnxious() {
+        if(myGen2 !== _ptRemarkGen) return;
+        if(ci < seg.length) {
+          cc.textContent += seg[ci];
+          ci++;
+          setTimeout(typeAnxious, 7 + Math.random()*4);
+        } else {
+          segIdx++;
+          if(segIdx < segments.length) {
+            cc.textContent += '...';
+            setTimeout(writeAnxiousSegment, 400);
+          }
+        }
+      }
+      typeAnxious();
+    }
+    setTimeout(writeAnxiousSegment, 100);
   } else {
-    const spd = anxious ? 7 : 22;
-    setTimeout(() => typewriterWrite(cc, '"' + text + '"', spd), 100);
+    setTimeout(() => typewriterWrite(cc, '"' + text + '"', 22), 100);
   }
 }
 
