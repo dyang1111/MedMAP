@@ -29,8 +29,9 @@ html, body {
    SCENE 1 — CARRIAGE
 ══════════════════════════════ */
 #scene-carriage {
-  background: #2a1a08;
+  background: #1a0e04;
   overflow: hidden;
+  z-index: 1;
 }
 
 /* Parallax window layers */
@@ -38,7 +39,7 @@ html, body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  /* Window area — will be masked by the car image */
+  background: #0e0804;
 }
 
 .parallax-layer {
@@ -231,6 +232,7 @@ html, body {
 ══════════════════════════════ */
 #scene-alley {
   background: #1a0e04;
+  z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
