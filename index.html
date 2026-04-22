@@ -1393,34 +1393,6 @@ body.tier-3 #pt-vignette {
 
 // ── TAB SYSTEM ──
 let _currentTab = 'case';
-let _paperFlipAudio = null;
-
-function initPaperFlip(){
-  try {
-    const ctx = new (window.AudioContext||window.webkitAudioContext)();
-    _paperFlipAudio = ctx;
-  } catch(e){}
-}
-
-function playPaperFlip(){
-  if(!_paperFlipAudio) return;
-  try {
-    const ctx = _paperFlipAudio;
-    const buf = ctx.createBuffer(1, ctx.sampleRate * 0.08, ctx.sampleRate);
-    const data = buf.getChannelData(0);
-    for(let i=0;i<data.length;i++){
-      data[i] = (Math.random()*2-1) * Math.pow(1-i/data.length, 3) * 0.35;
-    }
-    const src = ctx.createBufferSource();
-    src.buffer = buf;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'highpass';
-    filter.frequency.value = 2000;
-    src.connect(filter);
-    filter.connect(ctx.destination);
-    src.start();
-  } catch(e){}
-}
 
 window.switchTab = function(tab){
   playSFX('tab_switch');
@@ -1616,7 +1588,6 @@ function typewriterWrite(el, text, speed){
 
 // Init on load
 document.addEventListener('click', function _initAudio(){
-  initPaperFlip();
   document.removeEventListener('click', _initAudio);
 }, {once:true});
 
@@ -1900,13 +1871,17 @@ const SFX = {
   workup_click: 'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1776891000/envelop_u74yul.wav',
   tab_switch:   'https://res.cloudinary.com/djiap51xq/video/upload/q_auto/f_auto/v1776891005/paperflip_loswsb.wav',
 };
+const SFX_VOL = {
+  workup_click: 0.95,
+};
 function playSFX(name) {
   const url = SFX[name];
   if(!url) return;
   try {
     const a = new Audio(url);
     const vol = parseFloat(document.getElementById('vol-slider')?.value || 0.5);
-    a.volume = Math.min(1, vol * 0.8);
+    const mult = SFX_VOL[name] || 0.8;
+    a.volume = Math.min(1, vol * mult);
     a.play().catch(()=>{});
   } catch(e) {}
 }
