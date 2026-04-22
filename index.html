@@ -2015,6 +2015,8 @@ function initCase(){
     const trackToPlay = isNight
       ? (currentCase.music_night || 'Foxfire at Midnight')
       : (currentCase.music_default || 'Paws, Pipes & Possibilities');
+    // Clear saved music state so localStorage doesn't override
+    localStorage.removeItem('fennick_music_state');
     setTimeout(()=>switchMusicTrack(trackToPlay), 300);
   }
   // Tier 3: fade out music after 5s
