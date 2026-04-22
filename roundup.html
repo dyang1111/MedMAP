@@ -45,32 +45,13 @@ html, body {
   position: absolute;
   top: 0;
   height: 100%;
+  width: auto;
   will-change: transform;
 }
 
-.layer-far {
-  width: 300%;
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png');
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  animation: scrollFar 18s linear infinite;
-}
-
-.layer-mid {
-  width: 300%;
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png');
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  animation: scrollMid 10s linear infinite;
-}
-
-.layer-near {
-  width: 300%;
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901118/layer3_axcpcv.png');
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  animation: scrollNear 5s linear infinite;
-}
+.layer-far  { height: 100%; animation: scrollFar  18s linear infinite; }
+.layer-mid  { height: 100%; animation: scrollMid  10s linear infinite; }
+.layer-near { height: 100%; animation: scrollNear  5s linear infinite; }
 
 @keyframes scrollFar  { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
 @keyframes scrollMid  { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
@@ -80,10 +61,10 @@ html, body {
 .car-overlay {
   position: absolute;
   inset: 0;
-  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776898857/Gemini_Generated_Image_woas7swoas7swoas-Photoroom_r5nrox.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   pointer-events: none;
   z-index: 10;
 }
@@ -299,13 +280,13 @@ html, body {
 
   <!-- Parallax background layers -->
   <div class="parallax-window">
-    <div class="parallax-layer layer-far"></div>
-    <div class="parallax-layer layer-mid"></div>
-    <div class="parallax-layer layer-near"></div>
+    <img class="parallax-layer layer-far" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png" alt="">
+    <img class="parallax-layer layer-mid" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png" alt="">
+    <img class="parallax-layer layer-near" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901118/layer3_axcpcv.png" alt="">
   </div>
 
   <!-- Car interior overlay -->
-  <div class="car-overlay"></div>
+  <img class="car-overlay" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776898857/Gemini_Generated_Image_woas7swoas7swoas-Photoroom_r5nrox.png" alt="">
 
   <!-- Clickable zones -->
   <div class="car-clickzone" id="zone-fennick" onclick="onFennickClick()" title="Dr. Fennick"></div>
