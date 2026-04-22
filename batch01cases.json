@@ -260,7 +260,6 @@
       "lab_buzzwords": "DaTscan: reduced dopamine transporter uptake in putamen (comma → period sign). MRI is normal on standard sequences. Clinical diagnosis.",
       "treatment": "Levodopa/Carbidopa (gold standard). MAO-B inhibitors (selegiline, rasagiline) for mild disease. Dopamine agonists (pramipexole, ropinirole). NEVER give dopamine blockers (haloperidol, metoclopramide) — catastrophic worsening."
     },
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"The tremor started a year ago. She adjusted her life around it before she came here.\"",
     "cc_after_addl_hx": "The right hand first. Then the left. I kept telling myself it was the fine work. But I know my hands. These are not tired hands.",
     "cc_after_pe": "Follow your finger, you said. I used to set the Grand Meridian tolerance to a tenth of a millimetre. I cannot follow your finger.",
@@ -532,7 +531,6 @@
       "lab_buzzwords": "Hyponatremia + high urine sodium (SIADH). Lambert-Eaton: facilitation on repetitive nerve stimulation (opposite of MG). ACTH-independent Cushing: very high ACTH, no dexamethasone suppression.",
       "treatment": "Extensive stage: Carboplatin + Etoposide + Atezolizumab (IMpower133). Limited stage: concurrent chemoradiation + prophylactic cranial irradiation. Surgery: no role in extensive stage. Highly chemo-sensitive initially but relapses almost universally."
     },
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"He did not come on his own. Remember that.\"",
     "cc_after_addl_hx": "My wife packed the bag. I didn't know until she handed it to me at the door. She does not do things without a reason.",
     "cc_after_pe": "You want me to lift both arms. I'll tell you which one won't go all the way up.",
@@ -804,7 +802,6 @@
       "lab_buzzwords": "Blood cultures x3 before antibiotics (most important step). UA: RBC casts (immune complex GN). New PR prolongation → perivalvular abscess → urgent TEE. Echo vegetation = major Duke criterion.",
       "treatment": "Native valve Strep viridans: IV Penicillin G or Ceftriaxone x4 weeks. S. aureus: IV Nafcillin (MSSA) or Vancomycin (MRSA) x6 weeks. Surgery indications: heart failure, abscess, uncontrolled infection, recurrent emboli despite antibiotics."
     },
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"He has a chart. He brought it himself. Read it.\"",
     "cc_after_addl_hx": "I looked it up. I thought it was a site virus. I kept saying it wasn't a big deal. Is it a big deal.",
     "cc_after_pe": "You're checking my eyes, my fingers, my palms. You're connecting things I thought were separate.",
@@ -1074,7 +1071,6 @@
       "plan": "admit for alpha-blockade with phenoxybenzamine, endocrinology and surgical oncology consult, 10-14 day preoperative preparation, genetic testing for RET/VHL/SDHB mutations, laparoscopic adrenalectomy after adequate preparation"
     },
     "explanation": "Pheochromocytoma is a catecholamine-secreting tumor of the adrenal medulla (or extra-adrenal paraganglia). The classic triad is episodic headache, sweating, and palpitations. Key: paroxysmal hypertension triggered by exertion, bending, or stress. Diagnose with plasma free metanephrines (most sensitive). Image with CT/MRI. Treat with alpha-blockade first (phenoxybenzamine), then beta-blockade, then surgery. Never biopsy. Never beta-block first.",
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"His aide is more alarmed than he is. That is the data point.\"",
     "cc_after_addl_hx": "I've been in three campaigns. I don't collapse. This morning was fatigue from the night exercise. My aide exaggerates.",
     "cc_after_pe": "You pressed there and it hurt. I've taken shrapnel without flinching. Note that.",
@@ -1338,7 +1334,6 @@
       "plan": "100% O2 via non-rebreather mask, admit for cardiac monitoring, hyperbaric oxygen therapy (COHb >25% with neurological symptoms), serial troponins, neurology follow-up for delayed sequelae, mandatory reporting and evacuation of furnace hall"
     },
     "explanation": "Carbon monoxide binds hemoglobin with 250x the affinity of oxygen, forming carboxyhemoglobin (COHb) and preventing oxygen delivery. Key: SpO2 is falsely normal — it cannot distinguish COHb from OHb. Classic presentation: headache/nausea/confusion worse at work, better on days off, multiple people affected. Treatment: 100% O2 via NRB (half-life 60-90 min vs 5hr on room air). HBO if COHb >25%, neuro symptoms, cardiac involvement, pregnancy.",
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"He apologized before he sat down. That is the first thing you should write.\"",
     "cc_after_addl_hx": "I should have come in sooner. I'm sorry if I should have come in sooner. The other men have the headaches too but they haven't come in.",
     "cc_after_pe": "Walk in a straight line. With my eyes closed. I — sorry. Let me try again.",
@@ -1597,7 +1592,6 @@
       "plan": "needle aspiration or small-bore chest tube, supplemental O2, admit for observation and repeat CXR, thoracic surgery consult for VATS pleurodesis, Marfan syndrome assessment"
     },
     "explanation": "Primary spontaneous pneumothorax (PSP) occurs in tall, thin young men without underlying lung disease — subpleural blebs rupture at the apex. Recurrence after first episode ~30%, after second >80%. Treat first episode: aspiration or small-bore chest tube. Second ipsilateral episode: VATS bullectomy + pleurodesis. Always rule out Marfan syndrome in young patients with recurrent PSP.",
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"Second time. Same side. He ignored the first.\"",
     "cc_after_addl_hx": "The first time I thought it was a pulled muscle. Should I have come in for that one.",
     "cc_after_pe": "You're tapping on my chest. What does the difference in sound tell you.",
@@ -1861,7 +1855,6 @@
       "plan": "IV benzodiazepines for agitation, urinary catheterization, active cooling, continuous telemetry for QT monitoring, IV magnesium on standby, physostigmine if refractory agitation or hemodynamic compromise, toxicology consult, admit for 24-48hr monitoring"
     },
     "explanation": "Anticholinergic toxidrome: dry as a bone (anhidrosis), blind as a bat (mydriasis), red as a beet (flushing), hot as a hare (hyperthermia), mad as a hatter (delirium). Caused by muscarinic blockade — atropine, scopolamine, belladonna, jimsonweed, diphenhydramine. Antidote: physostigmine (crosses BBB). Never give atropine. Never give haloperidol. Distinguish from sympathomimetic (also hot/tachy/agitated but DIAPHORETIC — key difference).",
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"She knows exactly what happened. She told you before you asked.\"",
     "cc_after_addl_hx": "I know what this is. I know it. I just didn't think it would happen through the skin. I've handled it before. Never for this long.",
     "cc_after_pe": "8 millimetres. I could feel them not responding. Like they belonged to someone else.",
@@ -2141,7 +2134,6 @@
       "lab_buzzwords": "Low Hgb, low MCV (<80), low MCH, high RDW, low ferritin (most sensitive), low serum iron, high TIBC. Peripheral smear: pencil cells, target cells, hypochromic microcytic RBCs.",
       "treatment": "Oral ferrous sulfate 325mg TID with vitamin C (enhances absorption). Take on empty stomach if tolerated. Reticulocytosis in 5-10 days, Hgb normalises in 4-8 weeks. Continue 3-6 months after normalisation to replete stores. Treat underlying cause."
     },
-    "music_default": "Foxfire at Midnight",
     "fennick_opening": "\"Her supervisor noticed before she did. Think about that.\"",
     "cc_after_addl_hx": "The periods have always been heavy. I just assumed that was mine to carry. Nobody asked.",
     "cc_after_pe": "I've been filing my nails down for months. I didn't know they were shaped like that underneath.",
@@ -2755,7 +2747,6 @@
       "treatment": "Methylene blue 1-2mg/kg IV over 5 min if G6PD normal. Repeat at 1mg/kg if no response at 1 hour. Maximum ~7mg/kg total. G6PD deficient: ascorbic acid 1-2g IV. Exchange transfusion for refractory cases. Remove from exposure. Skin decontamination."
     },
     "fennick_opening": "\"His master walked him to the door and left. The boy came in alone. Remember that.\"",
-    "music_default": "Foxfire at Midnight",
     "cc_after_addl_hx": "Everyone at the vats looks like this. My master's hands have been blue for fifteen years and he's fine. Nobody said anything to him.",
     "cc_after_pe": "You're looking at my nails like that. They've been that colour for two weeks. I thought it was just the dye getting in.",
     "cc_after_imaging": "The lungs are fine. So it's not the lungs. Then what is it.",
@@ -3062,7 +3053,6 @@
       "treatment": "Exogenous: gradual taper to allow HPA recovery — weeks to months. Endocrine follow-up. Manage complications. Pituitary disease: transsphenoidal surgery. Adrenal adenoma: unilateral adrenalectomy. Ectopic ACTH: treat primary source. Never abrupt cessation of long-term steroids."
     },
     "fennick_opening": "\"He came in with a schedule and a complaint about his tailor. Start with the medications.\"",
-    "music_default": "Foxfire at Midnight",
     "cc_after_addl_hx": "The prednisone is for my back. I have been taking it because it works. I don't see how a back medication is responsible for my face changing.",
     "cc_after_pe": "You're looking at my abdomen. Those marks — I thought those were from weight gain. How long have those been there.",
     "cc_after_imaging": "The lungs are clear. Good. So it isn't something serious. Can we wrap up.",
@@ -3372,7 +3362,6 @@
       "treatment": "Topical NSAIDs (diclofenac gel) first-line. Oral NSAIDs if topical insufficient. Splinting first CMC. Occupational therapy. Intra-articular steroid for flares. Surgery (CMC arthroplasty) only for severe refractory disease after conservative failure."
     },
     "fennick_opening": "\"Forty years at the wheel. The hands have been paying attention the whole time.\"",
-    "music_default": "Foxfire at Midnight",
     "cc_after_addl_hx": "The wheel still knows what to do. It's just the hands arguing with me now.",
     "cc_after_pe": "You're feeling the joints one by one. I could tell you which ones before you get to them.",
     "cc_after_imaging": "Wear. You're going to tell me it's wear. I think I knew that.",
@@ -3982,7 +3971,6 @@
       "treatment": "WHO class I-II: monotherapy PDE-5i or ERA. WHO class III-IV: upfront combination therapy (AMBITION trial). Adjunct: diuretics, anticoagulation, oxygen. Advanced: IV prostacyclin (epoprostenol), lung transplant."
     },
     "fennick_opening": "\"Two years. She came after two years.\"",
-    "music_default": "Foxfire at Midnight",
     "cc_after_addl_hx": "The stairs became... a project. ... I had them widened. ... It did not help.",
     "cc_after_pe": "You keep listening to my chest. ... I had the same concern. ... I bought a new mattress. ... Also did not help.",
     "cc_after_imaging": "The vessels look wrong. ... I thought it might be the ceiling. ... Should I buy a different house.",
