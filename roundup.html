@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fennick MD — Roundup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: #1a0e04;
+}
+
+/* ── SCENES ── */
+.scene {
+  position: fixed;
+  inset: 0;
+  display: none;
+  width: 100%; height: 100%;
+}
+.scene.active { display: block; }
+
+/* ══════════════════════════════
+   SCENE 1 — CARRIAGE
+══════════════════════════════ */
+#scene-carriage {
+  background: #2a1a08;
+  overflow: hidden;
+}
+
+/* Parallax window layers */
+.parallax-window {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* Window area — will be masked by the car image */
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  will-change: transform;
+}
+
+.layer-far {
+  width: 300%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: scrollFar 18s linear infinite;
+}
+
+.layer-mid {
+  width: 300%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: scrollMid 10s linear infinite;
+}
+
+.layer-near {
+  width: 300%;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901118/layer3_axcpcv.png');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: scrollNear 5s linear infinite;
+}
+
+@keyframes scrollFar  { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
+@keyframes scrollMid  { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
+@keyframes scrollNear { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
+
+/* Car overlay — sits on top of all layers */
+.car-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776898857/Gemini_Generated_Image_woas7swoas7swoas-Photoroom_r5nrox.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Clickable zones on car image */
+.car-clickzone {
+  position: absolute;
+  cursor: pointer;
+  z-index: 20;
+  border-radius: 50%;
+  transition: filter 0.2s;
+}
+.car-clickzone:hover { filter: brightness(1.15); }
+
+#zone-fennick {
+  /* Left side — Fennick in driver seat */
+  left: 5%;
+  top: 20%;
+  width: 28%;
+  height: 65%;
+  border-radius: 12px;
+}
+
+#zone-newspaper {
+  /* Center console cup holder area */
+  left: 56%;
+  top: 62%;
+  width: 12%;
+  height: 20%;
+  border-radius: 8px;
+}
+
+/* Dialogue box */
+.carriage-dialogue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(580px, 88vw);
+  background: rgba(20, 10, 2, 0.88);
+  border: 1px solid rgba(200, 160, 60, 0.4);
+  border-radius: 10px;
+  padding: 18px 24px;
+  z-index: 30;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.6);
+}
+
+.dialogue-speaker {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  letter-spacing: .15em;
+  color: #c8a45a;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.dialogue-text {
+  color: #e8d4a0;
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 48px;
+}
+
+.dialogue-continue {
+  text-align: right;
+  margin-top: 12px;
+  color: #a08040;
+  font-size: 13px;
+  font-style: italic;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+.dialogue-continue:hover { color: #e8c87a; }
+
+/* Arrive button */
+.arrive-btn {
+  position: absolute;
+  bottom: 32px;
+  right: 40px;
+  background: #3a1a06;
+  color: #e8c87a;
+  border: 1px solid rgba(200,160,60,0.5);
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 30;
+  display: none;
+  transition: background 0.2s;
+  letter-spacing: .06em;
+}
+.arrive-btn:hover { background: #5a2a0a; }
+
+/* Newspaper overlay */
+.newspaper-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,5,0,0.75);
+  z-index: 40;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.newspaper-overlay.open { display: flex; }
+
+.newspaper-paper {
+  width: min(520px, 85vw);
+  max-height: 75vh;
+  background: #f5eedc;
+  border-radius: 4px;
+  padding: 32px 36px;
+  overflow-y: auto;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.7), inset 0 0 60px rgba(180,140,60,0.08);
+  position: relative;
+  font-family: 'Crimson Pro', Georgia, serif;
+  color: #2a1a06;
+}
+
+.newspaper-masthead {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #2a1a06;
+  border-top: 2px solid #2a1a06;
+  padding: 6px 0;
+  margin-bottom: 4px;
+  letter-spacing: .1em;
+}
+.newspaper-date {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: #7a5010;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.newspaper-article { margin-bottom: 18px; }
+.newspaper-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.newspaper-body { font-size: 14px; line-height: 1.7; color: #3a2010; }
+
+.newspaper-close {
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #7a5010;
+  line-height: 1;
+}
+.newspaper-close:hover { color: #2a1a06; }
+
+/* ══════════════════════════════
+   SCENE 2 — ALLEY (placeholder)
+══════════════════════════════ */
+#scene-alley {
+  background: #1a0e04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alley-placeholder {
+  color: #c8a45a;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  opacity: 0.5;
+  letter-spacing: .1em;
+}
+
+/* ── NAV ── */
+.fm-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 48px; padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(20,10,2,0.85);
+  border-bottom: 1px solid rgba(200,160,60,0.2);
+  backdrop-filter: blur(8px);
+}
+.fm-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 600;
+  color: #e8c87a; text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.fm-logo small {
+  color: #9a7030; font-size: 10px;
+  letter-spacing: .15em; font-style: italic; font-weight: 400;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fm-nav">
+  <a class="fm-logo" href="index.html">
+    Fennick MD
+    <small>Roundup</small>
+  </a>
+</nav>
+
+<!-- ═══ SCENE 1: CARRIAGE ═══ -->
+<div class="scene active" id="scene-carriage">
+
+  <!-- Parallax background layers -->
+  <div class="parallax-window">
+    <div class="parallax-layer layer-far"></div>
+    <div class="parallax-layer layer-mid"></div>
+    <div class="parallax-layer layer-near"></div>
+  </div>
+
+  <!-- Car interior overlay -->
+  <div class="car-overlay"></div>
+
+  <!-- Clickable zones -->
+  <div class="car-clickzone" id="zone-fennick" onclick="onFennickClick()" title="Dr. Fennick"></div>
+  <div class="car-clickzone" id="zone-newspaper" onclick="openNewspaper()" title="The Ferrovane Gazette"></div>
+
+  <!-- Dialogue -->
+  <div class="carriage-dialogue" id="carriage-dialogue">
+    <div class="dialogue-speaker">Dr. Fennick</div>
+    <div class="dialogue-text" id="dialogue-text"></div>
+    <div class="dialogue-continue" id="dialogue-continue" onclick="nextDialogue()">tap to continue ›</div>
+  </div>
+
+  <!-- Arrive button -->
+  <button class="arrive-btn" id="arrive-btn" onclick="arriveAtScene()">We've arrived →</button>
+
+  <!-- Newspaper overlay -->
+  <div class="newspaper-overlay" id="newspaper-overlay">
+    <div class="newspaper-paper">
+      <div class="newspaper-close" onclick="closeNewspaper()">✕</div>
+      <div class="newspaper-masthead">THE FERROVANE GAZETTE</div>
+      <div class="newspaper-date" id="newspaper-date">Loading...</div>
+      <div id="newspaper-content">
+        <div class="newspaper-article">
+          <div class="newspaper-headline">Furnace Keeper Returns to Lower Gears</div>
+          <div class="newspaper-body">Henrik Marsh, formerly of the Ashgate Rail Works, returned to his post this week after a period of medical leave. His fellow workers say the headaches have not returned. The hall has been fitted with new ventilation.</div>
+        </div>
+        <div class="newspaper-article">
+          <div class="newspaper-headline">Seamstress Guild Reports Uptick in Referrals</div>
+          <div class="newspaper-body">The Threadneedle Textile Works guild physician has begun routine blood checks for workers on extended shifts. The guild cites a recent case in which a long-serving embroiderer was found to have been working through a prolonged and undetected condition.</div>
+        </div>
+        <div class="newspaper-article">
+          <div class="newspaper-headline">Fog Thickens Over the Quay — Third Week Running</div>
+          <div class="newspaper-body">Residents of the Quay district report persistent low fog since the new month began. The city engineers attribute the phenomenon to pressure differentials from the eastern furnace works. Ward Zero reports a slight increase in respiratory complaints.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ SCENE 2: ALLEY (placeholder) ═══ -->
+<div class="scene" id="scene-alley">
+  <div class="alley-placeholder">The alley scene — coming soon.</div>
+</div>
+
+<script>
+// ── ROUNDUP DATA (will come from roundup.json) ──
+const ROUNDUP = {
+  date: "2026-04-22",
+  district: "The Quay",
+  fennick_lines: [
+    "The fog sits low on the Quay today. It has for three weeks.",
+    "Two came to our attention this morning. The officer will brief you when we arrive.",
+    "You choose based on what you see. Not what you know. That is the point of coming here."
+  ],
+  arrive_after_line: 2  // show arrive button after this line index
+};
+
+let dialogueIdx = 0;
+
+function initDialogue() {
+  showLine(0);
+}
+
+function showLine(idx) {
+  const el = document.getElementById('dialogue-text');
+  const continueEl = document.getElementById('dialogue-continue');
+  const arriveBtn = document.getElementById('arrive-btn');
+  
+  const line = ROUNDUP.fennick_lines[idx];
+  if(!line) return;
+  
+  el.textContent = '';
+  let i = 0;
+  function tick() {
+    if(i < line.length) {
+      el.textContent += line[i++];
+      setTimeout(tick, 22 + Math.random()*8);
+    } else {
+      // Show arrive button on last line
+      if(idx >= ROUNDUP.arrive_after_line) {
+        continueEl.style.display = 'none';
+        arriveBtn.style.display = 'block';
+      } else {
+        continueEl.style.display = 'block';
+      }
+    }
+  }
+  continueEl.style.display = 'none';
+  arriveBtn.style.display = 'none';
+  tick();
+}
+
+function nextDialogue() {
+  dialogueIdx++;
+  if(dialogueIdx < ROUNDUP.fennick_lines.length) {
+    showLine(dialogueIdx);
+  }
+}
+
+function onFennickClick() {
+  // TODO: medical quiz or patient updates — TBD
+  // For now just a placeholder
+  const lines = [
+    "Keep your eyes open. The city hides what it does to people.",
+    "You are looking for a pattern. There is always a pattern.",
+    "Ward Zero will still be there when we return."
+  ];
+  const el = document.getElementById('dialogue-text');
+  const r = lines[Math.floor(Math.random()*lines.length)];
+  el.style.fontStyle = 'italic';
+  el.textContent = r;
+  setTimeout(()=>{ el.style.fontStyle = ''; }, 3000);
+}
+
+function openNewspaper() {
+  document.getElementById('newspaper-date').textContent = 
+    new Date().toLocaleDateString('en-GB', {weekday:'long', year:'numeric', month:'long', day:'numeric'}).toUpperCase();
+  document.getElementById('newspaper-overlay').classList.add('open');
+}
+
+function closeNewspaper() {
+  document.getElementById('newspaper-overlay').classList.remove('open');
+}
+
+function arriveAtScene() {
+  // Transition to alley scene
+  document.getElementById('scene-carriage').classList.remove('active');
+  document.getElementById('scene-alley').classList.add('active');
+}
+
+// Start
+window.addEventListener('DOMContentLoaded', ()=>{
+  setTimeout(initDialogue, 600);
+});
+</script>
+
+</body>
+</html>
