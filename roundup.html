@@ -295,8 +295,8 @@ html, body {
       <img id="layer1b" src="" alt="">
     </div>
     <div class="parallax-track layer-mid">
-      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png" alt="">
-      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png" alt="">
+      <img id="layer2a" src="" alt="">
+      <img id="layer2b" src="" alt="">
     </div>
     <div class="parallax-track layer-near">
       <img id="layer3a" src="" alt="">
@@ -356,11 +356,13 @@ html, body {
 const LAYERS = {
   day: {
     far:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png',
+    mid:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png',
     near: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776904335/layer3-_cg1u5e.png',
   },
   night: {
     far:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776904725/layer1_night_yzoz9e.png',
-    near: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776904334/layer3_night_ofqdcy.png',
+    mid:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776905033/layer2_copy_tqpnyu.png',
+    near: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776905030/layer3_night_phgafn.png',
   }
 };
 
@@ -370,6 +372,8 @@ function initLayers() {
   const set = isNight ? LAYERS.night : LAYERS.day;
   document.getElementById('layer1a').src = set.far;
   document.getElementById('layer1b').src = set.far;
+  document.getElementById('layer2a').src = set.mid;
+  document.getElementById('layer2b').src = set.mid;
   document.getElementById('layer3a').src = set.near;
   document.getElementById('layer3b').src = set.near;
 }
