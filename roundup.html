@@ -60,7 +60,7 @@ html, body {
 .layer-far  { animation: scrollTrack 18s linear infinite; }
 .layer-mid  { animation: scrollTrack 9s linear infinite; }
 .layer-near { animation: scrollTrack 3s linear infinite; }
-#track-town { animation: scrollTrack 10s linear infinite; }
+#track-town { animation: scrollTrack 6s linear infinite; }
 
 @keyframes scrollTrack {
   from { transform: translateX(0); }
@@ -99,21 +99,20 @@ html, body {
 }
 
 #zone-newspaper {
-  /* Center console cup holder area */
-  left: 56%;
-  top: 62%;
-  width: 12%;
-  height: 20%;
-  border-radius: 8px;
+  /* Cup holder — right of gear stick */
+  left: 68%;
+  top: 72%;
+  width: 10%;
+  height: 18%;
+  border-radius: 6px;
 }
 
 /* Dialogue box */
 .carriage-dialogue {
   position: absolute;
   bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(580px, 88vw);
+  left: 24px;
+  width: min(520px, 60vw);
   background: rgba(20, 10, 2, 0.88);
   border: 1px solid rgba(200, 160, 60, 0.4);
   border-radius: 10px;
