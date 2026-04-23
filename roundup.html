@@ -42,21 +42,31 @@ html, body {
   background: #0e0804;
 }
 
-.parallax-layer {
+.parallax-track {
   position: absolute;
   top: 0;
   height: 100%;
-  width: auto;
+  display: flex;
   will-change: transform;
 }
+.parallax-track img {
+  height: 100%;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+}
+.layer-far  { animation: scrollTrack 18s linear infinite; }
+.layer-mid  { animation: scrollTrack 9s linear infinite; }
+.layer-near { animation: scrollTrack 3s linear infinite; }
 
-.layer-far  { height: 100%; animation: scrollFar  18s linear infinite; }
-.layer-mid  { height: 100%; animation: scrollMid  10s linear infinite; }
-.layer-near { height: 100%; animation: scrollNear  5s linear infinite; }
+@keyframes scrollTrack {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
-@keyframes scrollFar  { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
-@keyframes scrollMid  { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
-@keyframes scrollNear { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
+ }
+ }
+ }
 
 /* Car overlay — sits on top of all layers */
 .car-overlay {
@@ -280,11 +290,20 @@ html, body {
 <!-- ═══ SCENE 1: CARRIAGE ═══ -->
 <div class="scene active" id="scene-carriage">
 
-  <!-- Parallax background layers -->
+  <!-- Parallax background layers — two copies each for seamless loop -->
   <div class="parallax-window">
-    <img class="parallax-layer layer-far" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png" alt="">
-    <img class="parallax-layer layer-mid" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png" alt="">
-    <img class="parallax-layer layer-near" src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901118/layer3_axcpcv.png" alt="">
+    <div class="parallax-track layer-far">
+      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png" alt="">
+      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png" alt="">
+    </div>
+    <div class="parallax-track layer-mid">
+      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png" alt="">
+      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png" alt="">
+    </div>
+    <div class="parallax-track layer-near">
+      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901118/layer3_axcpcv.png" alt="">
+      <img src="https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901118/layer3_axcpcv.png" alt="">
+    </div>
   </div>
 
   <!-- Car interior overlay -->
