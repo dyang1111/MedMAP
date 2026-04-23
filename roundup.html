@@ -396,7 +396,7 @@ const LAYERS = {
   day: {
     far:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer1_aby6q4.png',
     mid:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png',
-    near: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776904335/layer3-_cg1u5e.png',
+    near: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776979081/layer3_day_waknyh.png',
   },
   night: {
     far:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776904725/layer1_night_yzoz9e.png',
@@ -407,7 +407,7 @@ const LAYERS = {
 
 function initLayers() {
   const hr = new Date(new Date().toLocaleString('en-US',{timeZone:'America/Chicago'})).getHours();
-  const isNight = hr >= 18 || hr < 6;
+  const isNight = hr >= 20 || hr < 6;
   const set = isNight ? LAYERS.night : LAYERS.day;
   document.getElementById('layer1a').src = set.far;
   document.getElementById('layer1b').src = set.far;
