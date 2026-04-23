@@ -1939,13 +1939,16 @@ function applyTimeTheme(bgOnly){
   const now = new Date();
   const cst = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
   const hr = cst.getHours();
-  const isNight = hr >= 18 || hr < 6;
+  const isNight = hr >= 20 || hr < 6;
+  const isAfternoon = hr >= 12 && hr < 20;
   const day = cst.getDay(); // 0=Sun,1=Mon
   const isRainy = day === 1 || (typeof currentCase !== 'undefined' && currentCase && currentCase.tier === 3);
   const bgUrl = isRainy
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287296/default_rainy_lofo5p.png'
     : isNight
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287306/default_night1_lv5qrv.png'
+    : isAfternoon
+    ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776981152/default_day_g18qmo.png'
     : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287301/default_morning1_gvbydp.png';
   document.getElementById('bg').style.backgroundImage = `url('${bgUrl}')`;
   if(isNight) {
