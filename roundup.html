@@ -393,6 +393,11 @@ html, body {
 <script>
 // ── LAYER URLS ──
 const LAYERS = {
+  morning: {
+    far:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776981991/layer1_morning_tnxb4p.png',
+    mid:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png',
+    near: 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776904335/layer3-_cg1u5e.png',
+  },
   day: {
     far:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776981159/layer3_day_waknyh.png',
     mid:  'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776901119/layer2_tmgftf.png',
@@ -408,7 +413,8 @@ const LAYERS = {
 function initLayers() {
   const hr = new Date(new Date().toLocaleString('en-US',{timeZone:'America/Chicago'})).getHours();
   const isNight = hr >= 20 || hr < 6;
-  const set = isNight ? LAYERS.night : LAYERS.day;
+  const isMorning = hr >= 6 && hr < 13;
+  const set = isNight ? LAYERS.night : isMorning ? LAYERS.morning : LAYERS.day;
   document.getElementById('layer1a').src = set.far;
   document.getElementById('layer1b').src = set.far;
   document.getElementById('layer2a').src = set.mid;
