@@ -294,5 +294,538 @@
     ],
     "music_default": "Foxfire Morning Waltz",
     "pt_opening": "You look like you have never seen anyone this well-dressed in a medical setting. That is understandable."
+  },
+  {
+    "id": "017",
+    "date": "2026-04-17",
+    "tier": 1,
+    "urgency": "urgent",
+    "title": "The Tavern Keeper's Stupor",
+    "dx_answer": "Wernicke Encephalopathy",
+    "personality": {
+      "archetype": "Unconscious initially, then confused and confabulating",
+      "voice": "First heard through a drunk panicking regular. When he wakes — disoriented, cooperative but clearly not all there. Fills gaps in memory with plausible nonsense. Doesn't know he's doing it.",
+      "crack": "When he wakes up and asks if the evening rush is over. It is three in the afternoon.",
+      "companion": {
+        "name": "The Regular",
+        "voice": "Drunk. Panicking. Genuinely trying to help but the alcohol is making the timeline impossible to follow. Smells strongly of ale. Keeps starting sentences and abandoning them. Crying a little.",
+        "description": "A stocky man in a damp coat who arrived breathing heavily and smelling like the inside of a barrel. He is trying very hard to be useful."
+      }
+    },
+    "patient": {
+      "name": "The Tavern Keeper",
+      "age": 54,
+      "sex": "M",
+      "occupation": "Proprietor, The Rusted Flagon, Lower Gears District",
+      "image_url": "PLACEHOLDER_UNCONSCIOUS",
+      "image_url_alert": "PLACEHOLDER_ALERT"
+    },
+    "chart": {
+      "cc": "He just — he was locking up and then he was on the floor. I don't — we had a few but he always has a few, that's just — please someone look at him.",
+      "hpi": "The Tavern Keeper was brought in by a regular patron who found him collapsed behind the bar while closing up. The companion is visibly intoxicated and his account is fragmented. What can be established: the patient has been running The Rusted Flagon for twenty-two years. He drinks daily — the companion estimates four to six pints during a shift, sometimes more. He has not eaten properly in several days, the companion thinks. Maybe longer. He found him on the floor with his eyes open but not tracking. He was making sounds but not words. The companion got him into a cart and came directly here. He does not know if anyone else knows.",
+      "pmh": "Unknown. Companion does not know. Patient cannot currently provide history.",
+      "psh": "Unknown.",
+      "meds": "Unknown. Companion thinks maybe nothing. Maybe something for his back.",
+      "allergies": "Unknown.",
+      "fh": "Unknown.",
+      "sh": "Tavern proprietor, Lower Gears. Lives alone above the pub. Drinks daily. Eating described as irregular. Companion says he has looked unwell for weeks but they all assumed it was just how he looked now."
+    },
+    "vitals": {
+      "bp": "148/94",
+      "hr": "104",
+      "rr": "18",
+      "temp": "37.6",
+      "o2": "96% RA"
+    },
+    "additional_hx": "On examination the companion, pressed harder, recalls more. The patient has been increasingly confused for at least two weeks — forgetting orders, losing track of change, occasionally unsteady on his feet. The companion attributed this to tiredness. Three days ago the patient mentioned he was seeing double. He said he thought he needed new spectacles. He has been barely eating — the companion watched him pour a pint and take a sip of it as dinner last Tuesday. He has been running the pub on ale and habit for some time. The companion starts crying again at this point and says he should have said something sooner. He smells very strongly of ale.",
+    "patient_quote_addl_hx": "\"He said last week — he said his eyes were doing something funny. I thought he meant tired. He's always tired. We're all always tired. God I should've — can someone check if I need to sit down too.\"",
+    "pe_findings": "Unresponsive to voice, withdraws to pain. Eyes open spontaneously. Lateral gaze palsy — cannot move eyes outward bilaterally. Bilateral horizontal nystagmus on attempted lateral gaze. Ataxic posture — unable to maintain sitting position. No focal limb weakness. Pupils equal and reactive. Mild jaundice. Palmar erythema. Bilateral peripheral tremor. Strong smell of alcohol. GCS 10 (E3 V3 M4).",
+    "imaging": "CT head: no acute intracranial haemorrhage. No mass lesion. Mild generalised cerebral volume loss consistent with chronic alcohol use. No midline shift.",
+    "special_test": {
+      "name": "Blood Glucose + Thiamine Level",
+      "result": "Blood glucose 3.2 mmol/L (low). Thiamine (Vitamin B1): <7 nmol/L (severely low — normal 70-180 nmol/L). Lactate 3.1 mmol/L. These results returned after initial management decision — thiamine level confirms clinical suspicion."
+    },
+    "memory_fragments": {
+      "pe": "He has been opening that pub at six in the morning and closing at midnight for twenty-two years. He stopped tasting the ale about three years ago. He keeps pouring it anyway."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "WBC 8.2. Hgb 10.8 (low — macrocytic, MCV 108). Plt 98 (low). Macrocytic anaemia with thrombocytopenia.",
+        "pt_remark": "He cannot answer. The companion: Is that bad. His face is doing a thing. That's bad isn't it."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Sodium 131 (low). Potassium 3.1 (low). Magnesium 0.6 (low — critical). Creatinine 1.2. AST 88, ALT 52, GGT 340 (elevated — alcoholic hepatopathy pattern). Albumin 26 (low).",
+        "pt_remark": "Companion: He eats — well. He used to eat. He's been on — look I'm not his mother but I did bring him food twice last week and he didn't really — look is the number bad."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Sinus tachycardia rate 104. QTc 468ms (prolonged — electrolyte derangement). No ischaemic changes.",
+        "pt_remark": "Companion: His heart is — is his heart okay. He's got a good heart. Not like — medically. I mean as a person. He lets people run tabs."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Mildly elevated at 0.05. Likely demand ischaemia in context of tachycardia and metabolic derangement. Monitor."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Elevated at 180 U/L (upper limit 140). Mild elevation — chronic alcoholic pancreatitis pattern. No acute pancreatitis picture.",
+        "pt_remark": "Companion: He did say his stomach hurt last week. He said it was the new barrel."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Ketones 2+. Protein trace. No infection. Concentrated — dehydrated."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "pH 7.34. Lactate 3.1. Bicarbonate 18. Mild metabolic acidosis.",
+        "pt_remark": "Companion: You're taking a lot of blood. Is he going to run out. Can they do that."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.6 (elevated). PTT 42. Consistent with hepatic synthetic dysfunction."
+      }
+    ],
+    "hints": [
+      "Lateral gaze palsy, nystagmus, ataxia, confusion. That is a classic triad. The question is what causes all three simultaneously in a man who smells like ale and has not eaten properly in weeks.",
+      "Thiamine (Vitamin B1) is a cofactor for several critical enzymes in glucose metabolism — pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, transketolase. The brain is entirely dependent on glucose metabolism. Without thiamine, giving glucose accelerates the neurological damage.",
+      "Thiamine before glucose. Always. In any confused patient with alcohol history or nutritional deficiency. Giving dextrose first in Wernicke encephalopathy can precipitate acute deterioration and irreversible Korsakoff syndrome.",
+      "After thiamine and glucose: correct electrolytes especially magnesium — magnesium is required for thiamine utilisation. Magnesium 0.6 is critically low. Without repleting magnesium, thiamine supplementation is less effective."
+    ],
+    "management": [
+      {
+        "title": "Immediate management — what do you give first?",
+        "hint": "Confused, ataxic, ophthalmoplegia. Glucose 3.2. Known alcohol use and malnutrition. What is the priority order?",
+        "options": [
+          {
+            "text": "IV thiamine immediately, then IV dextrose, then correct electrolytes",
+            "sub": "Thiamine before glucose",
+            "correct": true,
+            "feedback_correct": "Correct. Thiamine must precede glucose administration in suspected Wernicke encephalopathy. Giving glucose first without thiamine floods the thiamine-dependent glucose metabolism pathway, depleting remaining thiamine stores and precipitating acute deterioration. Thiamine first — always.",
+            "fennick_correct_comment": "\"Thiamine before glucose. If you remember one thing from this case, let it be that.\"",
+            "pt_remark_correct": "COMPANION: He moved his eyes. Just now. Did you see that. He moved them differently.",
+            "scene_trigger": null,
+            "reactive_stage": {
+              "delay_ms": 4000,
+              "fennick_transition": "\"Fifteen minutes after thiamine. His eyes are tracking. He is trying to speak.\"",
+              "pt_remark_transition": "...Where... is the... evening rush over?",
+              "description": "Patient begins to rouse following thiamine administration. Eyes now tracking. Attempting speech. GCS improving. However — electrolytes remain critically deranged and Mg 0.6 requires urgent replacement.",
+              "title": "Patient is rousing — next priority",
+              "hint": "Thiamine given, glucose corrected, patient waking. Magnesium 0.6. What now?",
+              "options": [
+                {
+                  "text": "IV magnesium replacement — required for thiamine utilisation and QTc",
+                  "sub": "Correct electrolyte replacement",
+                  "correct": true,
+                  "feedback_correct": "Correct. Magnesium is essential for thiamine-dependent enzyme function. Without magnesium repletion, thiamine supplementation is significantly less effective. Mg 0.6 also contributes to QTc prolongation — replacement addresses both.",
+                  "fennick_correct_comment": "\"Magnesium is the cofactor for the cofactor. Without it, the thiamine cannot do its job.\"",
+                  "pt_remark_correct": "I was... I'm at the — this isn't the pub. Why isn't this the pub. Gerald where are we. COMPANION: Oh thank god. Oh thank god he's talking. SIR YOU'RE IN THE HOSPITAL. He's talking."
+                },
+                {
+                  "text": "Oral vitamins — thiamine has been given, stable now",
+                  "sub": "Premature step-down",
+                  "correct": false,
+                  "feedback_wrong": "Magnesium 0.6 is critically low and oral replacement is inadequate at this level. IV replacement is required. Oral vitamins are appropriate for outpatient maintenance, not acute resuscitation.",
+                  "pt_remark_wrong": "COMPANION: Pills. Yeah he takes pills sometimes. I think. He keeps them somewhere behind the bar."
+                },
+                {
+                  "text": "CT head now — confirm no intracranial bleed",
+                  "sub": "Delayed CT",
+                  "correct": false,
+                  "feedback_wrong": "CT was already performed and was normal. Repeating it now while a critically low magnesium remains uncorrected delays necessary treatment without diagnostic benefit.",
+                  "pt_remark_wrong": "COMPANION: Another scan? I thought the first one was — is there something in his head now that wasn't there before?"
+                },
+                {
+                  "text": "Discharge with oral thiamine — he is waking up",
+                  "sub": "Premature discharge",
+                  "correct": false,
+                  "feedback_wrong": "Waking up is not the same as stable. Critically low magnesium, QTc 468, macrocytic anaemia, hepatic dysfunction, INR 1.6 — this patient requires admission and further workup.",
+                  "pt_remark_wrong": "COMPANION: He can go home? Oh brilliant. I'll get the cart. I'm fine to drive. COMPANION looks around. I'm probably fine.",
+                  "critical_error": true,
+                  "fennick_endgame_comment": "\"He woke up and you sent him home. Magnesium 0.6 uncorrected. QTc 468. He would have arrested before morning.\""
+                }
+              ]
+            }
+          },
+          {
+            "text": "IV dextrose immediately — glucose 3.2 is the emergency",
+            "sub": "Glucose before thiamine",
+            "correct": false,
+            "feedback_wrong": "Giving glucose before thiamine in suspected Wernicke encephalopathy is a serious error. It floods thiamine-dependent metabolic pathways, depletes remaining thiamine, and can precipitate acute neurological deterioration and irreversible Korsakoff syndrome.",
+            "pt_remark_wrong": "COMPANION: Sugar. Yes. He barely ate. That makes sense. Give him the sugar.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Glucose before thiamine. You knew the history. You knew the triad. He would have deteriorated within the hour and not come back from it.\""
+          },
+          {
+            "text": "Naloxone — exclude opioid intoxication",
+            "sub": "Empirical naloxone",
+            "correct": false,
+            "feedback_wrong": "Opioid intoxication causes mirrored pinpoint pupils, respiratory depression, decreased GCS. His pupils are equal and reactive, respiratory rate is 18, and he has a specific neurological pattern — lateral gaze palsy and ataxia — that points elsewhere.",
+            "pt_remark_wrong": "COMPANION: Drugs? He doesn't do drugs. He does ale. There's a difference. Mostly."
+          },
+          {
+            "text": "Intubate — GCS 10 is too low to protect airway",
+            "sub": "Premature intubation",
+            "correct": false,
+            "feedback_wrong": "GCS 10 with a gag reflex present does not mandate intubation. He is maintaining his airway. Thiamine and glucose first — his GCS is likely to improve rapidly with treatment. Intubation carries significant risk and should not precede a trial of reversible cause treatment.",
+            "pt_remark_wrong": "COMPANION: A tube in his throat? He's breathing though. I can hear him breathing. Can't you hear him?",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"GCS 10 with intact airway and a completely reversible cause. You intubated before you tried thiamine. He would have improved with treatment alone.\""
+          }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Improving on thiamine. Electrolytes critical. Hepatic dysfunction. Nutritional collapse. Where does he go?",
+        "options": [
+          {
+            "text": "Admit — medical ward, IV thiamine course, electrolyte replacement, nutrition, alcohol liaison",
+            "sub": "Inpatient with full workup",
+            "correct": true,
+            "feedback_correct": "Correct. IV thiamine for at least five days. Electrolyte replacement especially magnesium. Nutritional support. Alcohol liaison service — withdrawal risk now that he is hospitalised. Monitor for Korsakoff syndrome development.",
+            "fennick_correct_comment": "\"Five days of IV thiamine minimum. Magnesium. Withdrawal monitoring. The pub can wait.\"",
+            "pt_remark_correct": "I don't — I need to open tomorrow morning. Gerald can you — COMPANION: You are not opening tomorrow. You are staying here. I'll do the morning. SIT DOWN. Patient: You don't know where the barrels are. COMPANION: I'll figure it out."
+          },
+          {
+            "text": "Discharge with oral thiamine and GP follow-up",
+            "sub": "Discharge",
+            "correct": false,
+            "feedback_wrong": "Oral thiamine has poor bioavailability in alcoholic patients due to impaired gut absorption. He requires IV thiamine. Critical electrolyte derangement, hepatic dysfunction, and withdrawal risk all mandate admission.",
+            "pt_remark_wrong": "Home. Good. I need to check the cellar.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Oral thiamine in a patient who cannot absorb it. Magnesium 0.6. Withdrawal risk. You sent him home with a vitamin.\""
+          },
+          {
+            "text": "Psychiatry referral for alcohol dependence — primary issue",
+            "sub": "Psychiatry only",
+            "correct": false,
+            "feedback_wrong": "Alcohol dependence is part of this picture but the immediate medical emergency — Wernicke encephalopathy, critical electrolyte derangement, hepatic dysfunction — requires medical admission first. Psychiatry and alcohol liaison follow once he is medically stable.",
+            "pt_remark_wrong": "A psychiatrist. For drinking. COMPANION: Maybe don't fight that one tonight mate."
+          },
+          {
+            "text": "ICU — altered consciousness requires intensive monitoring",
+            "sub": "ICU admission",
+            "correct": false,
+            "feedback_wrong": "He is improving with treatment, maintaining his airway, and haemodynamically stable. Medical ward with appropriate monitoring is the correct level of care. ICU is not indicated.",
+            "pt_remark_wrong": "COMPANION: The intensive one? Is he — is it that bad? He just asked about the barrels. People who ask about barrels are okay aren't they."
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 54,
+      "sex": "M",
+      "pmh": "unknown — patient unable to provide history",
+      "presenting": "found collapsed behind the bar by a patron, known chronic alcohol use, malnutrition, lateral gaze palsy, nystagmus, ataxia, GCS 10",
+      "pertinent_positives": {
+        "addl-hx": "progressive confusion over two weeks, diplopia three days, minimal food intake for weeks, daily heavy alcohol use for years",
+        "pe": "lateral gaze palsy, bilateral nystagmus, ataxia, GCS 10, jaundice, palmar erythema, peripheral tremor",
+        "labs": "glucose 3.2, macrocytic anaemia MCV 108, magnesium 0.6 critically low, GGT 340, INR 1.6, QTc 468, lactate 3.1",
+        "imaging": "CT head normal — no bleed, no mass",
+        "special": "thiamine severely low at <7 nmol/L, glucose 3.2"
+      },
+      "assessment": "Wernicke Encephalopathy — classic triad (ophthalmoplegia, ataxia, confusion), thiamine deficiency confirmed, chronic alcohol use and malnutrition",
+      "plan": "IV thiamine immediately before any glucose, IV dextrose, IV magnesium replacement, admit for five-day IV thiamine course, electrolytes, nutrition, alcohol withdrawal monitoring, alcohol liaison referral"
+    },
+    "explanation": "Wernicke Encephalopathy is thiamine (B1) deficiency causing the classic triad: ophthalmoplegia (lateral gaze palsy, nystagmus), ataxia, and confusion. Caused by alcoholism, malnutrition, prolonged vomiting, bariatric surgery. CRITICAL: thiamine before glucose — glucose administration depletes remaining thiamine via pyruvate dehydrogenase pathway, precipitating acute deterioration. Untreated progresses to irreversible Korsakoff syndrome (anterograde amnesia, confabulation). Treatment: IV thiamine (Pabrinex) at least 5 days.",
+    "explanation_detail": {
+      "who_gets_it": "Chronic alcohol use (most common), malnutrition, prolonged vomiting, hyperemesis gravidarum, bariatric surgery, prolonged TPN without supplementation.",
+      "risk_factors": "Chronic alcohol dependence, poor nutrition, any condition causing prolonged reduced oral intake.",
+      "typical_presentation": "Classic triad: ophthalmoplegia (lateral gaze palsy, nystagmus), truncal ataxia, confusion/delirium. Only 10-16% present with complete triad. Any two should prompt treatment. Confabulation suggests Korsakoff.",
+      "moa": "Thiamine is cofactor for pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, transketolase. Deficiency → impaired glucose metabolism → selective neuronal necrosis in mammillary bodies, thalamus, periaqueductal grey. Magnesium required for thiamine-dependent enzymes.",
+      "step1_buzzwords": "Triad: ophthalmoplegia + ataxia + confusion. Thiamine before glucose. Alcoholism/malnutrition. IV thiamine (Pabrinex). Korsakoff = irreversible anterograde amnesia + confabulation if untreated. Mammillary body atrophy on MRI.",
+      "lab_buzzwords": "Low thiamine, macrocytic anaemia (B12/folate deficiency co-occurring), low magnesium, elevated GGT/AST (alcoholic hepatopathy), elevated INR (hepatic dysfunction), low glucose.",
+      "treatment": "IV thiamine (Pabrinex) BEFORE glucose. 500mg TID for 3-5 days then oral maintenance. IV magnesium replacement. Correct all electrolytes. Alcohol withdrawal monitoring (CIWA protocol). Nutritional support. Alcohol liaison. Monitor for Korsakoff development."
+    },
+    "fennick_opening": "\"He smells of the Lower Gears. Both of them do. Focus on the one who cannot speak.\"",
+    "music_default": null,
+    "cc_after_addl_hx": "COMPANION: Two weeks. Maybe — look it might have been longer I wasn't keeping track I'm not his — we just drink together. That's not — is that bad that I didn't notice. God.",
+    "cc_after_pe": "...light... bright...",
+    "cc_after_imaging": "COMPANION: His brain is okay? The picture of his brain is okay? So why isn't he — why does he look like that.",
+    "cc_after_hint": "COMPANION: Vitamins. He needs vitamins. My mother always said that. She was right about everything.",
+    "cc_after_dx": "COMPANION: That's — I know that one. That's the vitamin one. From drinking. Oh no. Oh no he's going to be so embarrassed when he wakes up.",
+    "fennick_after_addl_hx": "\"Two weeks of confusion. Three days of diplopia. Days without food. The timeline was always there.\"",
+    "fennick_after_pe": "\"Lateral gaze palsy. Nystagmus. Ataxia. Confusion. You have the triad. Now think about what caused it and what you must not do next.\"",
+    "fennick_after_imaging": "\"No bleed. No mass. The damage here is metabolic, not structural. The CT was to exclude, not to diagnose.\"",
+    "fennick_case_complete": [
+      "\"He asked about the barrels before he asked where he was. That is either confabulation or loyalty. Possibly both.\"",
+      "\"The companion should be seen before he leaves. Quietly.\""
+    ]
+  },
+  {
+    "id": "018",
+    "date": "2026-04-18",
+    "tier": 2,
+    "urgency": "urgent",
+    "title": "The Infant's Silence",
+    "dx_answer": "Non-Accidental Injury (Abusive Head Trauma)",
+    "patient_anchor": "the quiet",
+    "personality": {
+      "archetype": "Eight-month-old infant. Cannot speak. Cannot explain. Entirely dependent.",
+      "voice": "No patient voice. The mother speaks for the infant — and the mother is lying. The infant's story is told through the examination and the imaging alone.",
+      "crack": "There is no crack. The infant does not know what is happening. That is the worst part.",
+      "mother": {
+        "voice": "Defensive from the start. Escalates as the workup progresses. Uses the word 'just' repeatedly — 'she just fell', 'it's just a bump'. Becomes aggressive when confronted. By the end she is shouting.",
+        "description": "A young woman who arrived composed and became less so with every question. She holds the infant correctly. She does not look at the infant while she speaks."
+      }
+    },
+    "patient": {
+      "name": "The Infant",
+      "age_months": 8,
+      "sex": "F",
+      "occupation": "Eight months old. Irongate District.",
+      "image_url": "PLACEHOLDER_INFANT",
+      "image_url_mother_removed": "PLACEHOLDER_INFANT_ALONE"
+    },
+    "chart": {
+      "cc": "She fell off the bed this morning. She's been sleepy since. I just want to make sure she's alright.",
+      "hpi": "An eight-month-old female brought in by her mother. The mother reports the infant fell from an adult bed — approximately sixty centimetres height — onto a wooden floor at some point this morning. She is uncertain of the exact time. The infant cried briefly then became quiet. The mother reports she has been sleeping more than usual since the fall and feeding poorly. She brought her in because she seemed 'not right.' No witnessed seizure activity reported. No vomiting reported. The mother reports no prior medical history, no prior injuries. The infant's fontanelle is visibly bulging on inspection from the doorway.",
+      "pmh": "No prior medical history reported.",
+      "psh": "None reported.",
+      "meds": "None.",
+      "allergies": "NKDA.",
+      "fh": "Not provided.",
+      "sh": "Lives with mother. Father not mentioned. Irongate district. No reported involvement of social services."
+    },
+    "vitals": {
+      "bp": "N/A — infant",
+      "hr": "162",
+      "rr": "38",
+      "temp": "37.2",
+      "o2": "97% RA"
+    },
+    "additional_hx": "On further questioning the story begins to shift. The mother initially said the fall happened 'this morning' — pressed on timing, she says 'sometime after breakfast, maybe before, I'm not sure.' Asked what she was doing when it happened, she says she was in the other room and heard a sound. Asked what kind of sound, she pauses. Asked whether anyone else was present, she says no. The infant has no prior ED visits on record — the mother says she has never needed a doctor before. Asked about the infant's usual behaviour, the mother says she has been 'fussier than normal' for about a week. She did not bring her in during that week. She looks at the door when she answers.",
+    "patient_quote_addl_hx": "\"I already told you what happened. She fell off the bed. Why do you keep asking the same things. Is this really necessary for a fall from a bed.\"",
+    "pe_findings": "Eight-month-old female. Lethargic — opens eyes to voice only. Anterior fontanelle bulging and tense. No external scalp laceration. No bruising visible on scalp. Bilateral periorbital bruising in varying stages — some yellow-green (older), some purple (recent). Frenulum tear — small, healing. Bilateral retinal haemorrhages on fundoscopy — extensive, flame-shaped, extending to periphery. No long bone tenderness elicited. Tone decreased throughout. No spontaneous movement of left upper limb. GCS paediatric 9.",
+    "imaging": "CT head: bilateral subdural haematomas — acute on chronic, thin crescentic collections bilaterally, no skull fracture. Cerebral oedema. Loss of grey-white differentiation in left hemisphere. No single point of impact consistent with a fall from sixty centimetres.",
+    "special_test": {
+      "name": "Skeletal Survey",
+      "result": "Posterior rib fractures bilateral — multiple, in various stages of healing. Classic bucket-handle metaphyseal fractures bilateral distal femora. Right clavicle fracture — callus formation, approximately two to three weeks old. These fracture patterns are not consistent with a single fall from a low height. Posterior rib fractures in infants are highly specific for non-accidental injury — they occur from anterior-posterior chest compression during forceful shaking."
+    },
+    "memory_fragments": {
+      "pe": "She stopped crying about a week ago. Not because she was better. Because she had learned that crying did not help.",
+      "imaging": "The subdural on the left is acute. The one on the right has a membrane forming around it. It is older. This did not start this morning."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "Hgb 9.2 (low for age). WBC 14.8 (elevated — stress response). Plt 210.",
+        "pt_remark": "MOTHER: Why do you need so much blood from her. She's a baby. She's already upset."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Normal electrolytes. Creatinine normal for age. LFTs: AST 88, ALT 62 — mildly elevated. Concerning for hepatic contusion.",
+        "pt_remark": "MOTHER: Her liver? What's wrong with her liver. She fell off a bed."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.0. PTT 28. Normal. Bleeding disorder excluded.",
+        "pt_remark": "MOTHER: Is that to check for a bleeding disorder? Someone told me that can cause bruising. She might have that."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Sinus tachycardia rate 162. Expected for age and acuity. No arrhythmia."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Mildly elevated at 0.04. Contusion pattern — assess for cardiac injury in context of elevated LFTs and mechanism.",
+        "pt_remark": "MOTHER: Her heart? There's something wrong with her heart now too? I don't understand how falling off a bed does all of this."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Blood 2+ on dipstick. RBCs on microscopy. Haematuria — assess for renal contusion.",
+        "pt_remark": "MOTHER: Blood in her urine. From a fall. Is that — is that normal. Can that happen from a fall."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Elevated at 210 U/L. Concerning for pancreatic injury — can occur with abdominal compression.",
+        "pt_remark": "MOTHER: Her pancreas. You're checking her pancreas. She fell off a bed. She didn't fall on her stomach."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "pH 7.32. pCO2 48 (elevated — early respiratory compromise from cerebral oedema). HCO3 22."
+      }
+    ],
+    "hints": [
+      "Bilateral retinal haemorrhages extending to the periphery, bilateral subdural haematomas, and posterior rib fractures in various stages of healing. A sixty-centimetre fall from a bed does not produce this pattern. The biomechanics are incompatible.",
+      "Posterior rib fractures in infants are among the most specific findings for non-accidental injury. They occur when an infant is gripped around the chest and shaken — the caregiver's thumbs compress the anterior ribs while the fingers fracture the posterior ribs. They do not occur from falls.",
+      "Acute on chronic bilateral subdural haematomas indicate repeated trauma over time. The older collection has already developed a membrane. This is not a first event. The week of increased fussiness was not fussiness.",
+      "The constellation of findings — bilateral retinal haemorrhages, acute on chronic subdurals, posterior rib fractures at different stages of healing, metaphyseal fractures, frenulum tear — is the signature of abusive head trauma. Once the diagnosis is made, mandatory reporting is a medical and legal obligation, not a choice."
+    ],
+    "management": [
+      {
+        "title": "Immediate stabilisation",
+        "hint": "GCS 9. Cerebral oedema on CT. Bulging fontanelle. pH 7.32 with rising pCO2. What is the priority?",
+        "options": [
+          {
+            "text": "Secure airway, neurosurgery consult, IV access, treat raised ICP — head positioning, consider mannitol",
+            "sub": "Acute neurological stabilisation",
+            "correct": true,
+            "feedback_correct": "Correct. GCS 9 with rising pCO2 and cerebral oedema on CT requires airway protection and active ICP management. Neurosurgery must be involved immediately — bilateral subdurals with cerebral oedema may require surgical intervention.",
+            "fennick_correct_comment": "\"The brain is swelling. Everything else waits.\"",
+            "pt_remark_correct": "MOTHER: What are all these people — why are there so many people. Can someone tell me what's happening. She just fell."
+          },
+          {
+            "text": "Reassure mother and observe — CT findings may be from the fall",
+            "sub": "Watchful waiting",
+            "correct": false,
+            "feedback_wrong": "GCS 9 with cerebral oedema, rising pCO2, and bilateral subdural haematomas is not a watch-and-wait situation. Active intervention is required immediately.",
+            "pt_remark_wrong": "MOTHER: Yes. Observe. That's all I wanted. Someone to just look at her.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"GCS 9. Rising pCO2. Bilateral subdurals with cerebral oedema. You observed. The herniation came before the neurosurgeon.\""
+          },
+          {
+            "text": "Discharge — injuries are consistent with the reported fall",
+            "sub": "Discharge",
+            "correct": false,
+            "feedback_wrong": "Bilateral retinal haemorrhages, bilateral subdural haematomas, posterior rib fractures at multiple stages of healing, metaphyseal fractures — these findings are not consistent with a fall from sixty centimetres. Discharging this infant would be returning her to the person who injured her.",
+            "pt_remark_wrong": "MOTHER: Good. Good. We can go home. She just needs to rest.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You sent her home. To the person who shook her. She did not survive the week.\""
+          },
+          {
+            "text": "LP to exclude meningitis before any other workup",
+            "sub": "LP first",
+            "correct": false,
+            "feedback_wrong": "LP is absolutely contraindicated with raised intracranial pressure — bulging fontanelle and cerebral oedema on CT. Performing an LP here could cause fatal herniation.",
+            "pt_remark_wrong": "MOTHER: A needle in her spine. No. No, you are not putting a needle in her spine.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"LP with raised ICP. Bulging fontanelle. Cerebral oedema on CT. The herniation would have been immediate.\""
+          }
+        ]
+      },
+      {
+        "title": "The diagnosis — what do the findings indicate?",
+        "hint": "Bilateral retinal haemorrhages, bilateral acute-on-chronic subdurals, posterior rib fractures at multiple stages of healing, metaphyseal fractures. Fall from a bed at sixty centimetres. Do these fit?",
+        "options": [
+          {
+            "text": "Non-accidental injury — findings are incompatible with the reported mechanism",
+            "sub": "Abusive head trauma",
+            "correct": true,
+            "feedback_correct": "Correct. This constellation — bilateral retinal haemorrhages, bilateral subdurals, posterior rib fractures highly specific for chest compression during shaking, metaphyseal bucket-handle fractures, acute on chronic pattern indicating repeated trauma — is the signature of abusive head trauma. The reported mechanism is not credible.",
+            "fennick_correct_comment": "\"The fractures are in three different stages of healing. This morning's fall did not cause all of this.\"",
+            "pt_remark_correct": "MOTHER: What are you — what are you saying. Are you saying I — you need to be very careful what you say next."
+          },
+          {
+            "text": "Accidental head injury — falls can cause subdural haematomas",
+            "sub": "Accidental mechanism",
+            "correct": false,
+            "feedback_wrong": "Low-height falls in infants rarely cause subdural haematomas, virtually never cause bilateral retinal haemorrhages extending to the periphery, and cannot explain posterior rib fractures in multiple stages of healing. The biomechanics do not support the reported history.",
+            "pt_remark_wrong": "MOTHER: Thank you. I told them. I told them it was a fall."
+          },
+          {
+            "text": "Bleeding disorder — exclude before concluding non-accidental",
+            "sub": "Coagulopathy first",
+            "correct": false,
+            "feedback_wrong": "Coagulation studies are already normal. A bleeding disorder does not explain posterior rib fractures, metaphyseal fractures, or a frenulum tear. It does not explain the acute-on-chronic pattern. The findings are not attributable to a bleeding disorder.",
+            "pt_remark_wrong": "MOTHER: Yes. A bleeding disorder. I said that. Someone said that could cause bruising."
+          },
+          {
+            "text": "Osteogenesis imperfecta — brittle bones could explain the fractures",
+            "sub": "OI",
+            "correct": false,
+            "feedback_wrong": "OI causes fractures from minimal trauma but does not cause bilateral retinal haemorrhages, bilateral subdural haematomas, or the specific metaphyseal and posterior rib fracture pattern seen here. There are no blue sclerae, no dentinogenesis imperfecta, no family history. OI does not explain this picture.",
+            "pt_remark_wrong": "MOTHER: Brittle bones. She could have brittle bones. Has anyone tested for that."
+          }
+        ]
+      },
+      {
+        "title": "Mandatory reporting and child protection",
+        "hint": "Non-accidental injury confirmed by clinical and radiological evidence. The infant is in your care. What must happen now?",
+        "options": [
+          {
+            "text": "Mandatory report to child protection services immediately — do not discharge or return infant to caregiver pending investigation",
+            "sub": "Mandatory reporting and safeguarding",
+            "correct": true,
+            "feedback_correct": "Correct. Mandatory reporting of suspected child abuse is a legal obligation — not discretionary. The infant must not be returned to the caregiver pending child protection investigation. Social work and child protection team must be involved immediately. Document all findings meticulously.",
+            "fennick_correct_comment": "\"This is not a judgment. It is an obligation. Document everything. Every mark. Every fracture. Every stage of healing.\"",
+            "pt_remark_correct": "MOTHER: You can't keep her here. You can't just — I'm her mother. I have rights. You need to let me take her home. SECURITY IS CALLED. MOTHER IS ESCORTED FROM THE ROOM. The infant is quiet. She does not cry when her mother leaves."
+          },
+          {
+            "text": "Speak to the mother privately and give her a chance to explain",
+            "sub": "Further discussion before reporting",
+            "correct": false,
+            "feedback_wrong": "The clinical evidence is not ambiguous. Further discussion is not required before mandatory reporting. Delaying the report while the infant remains at risk is not acceptable. The duty to report exists independently of confession or explanation.",
+            "pt_remark_wrong": "MOTHER: Thank you. I can explain. It's complicated. She's been difficult lately and I was just — I just needed a moment.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You gave her time to explain. She took the infant home during the conversation. The mandatory report was filed three days later by the neighbour.\""
+          },
+          {
+            "text": "Discharge to the mother's care with close follow-up arranged",
+            "sub": "Discharge with follow-up",
+            "correct": false,
+            "feedback_wrong": "Returning an infant with confirmed abusive head trauma to the person who inflicted those injuries, pending follow-up, is not a safe plan. It is an abdication of the duty to protect.",
+            "pt_remark_wrong": "MOTHER: Follow-up. Yes. I'll bring her back next week. I promise.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You discharged her with a follow-up appointment. She did not make the appointment.\""
+          },
+          {
+            "text": "Wait for the skeletal survey results before making any report",
+            "sub": "Delay reporting pending results",
+            "correct": false,
+            "feedback_wrong": "The retinal haemorrhages and bilateral subdurals already meet the threshold for mandatory reporting. Waiting for further confirmation while the infant remains in the caregiver's vicinity is not appropriate. Act on what you already know.",
+            "pt_remark_wrong": "MOTHER: Yes. Wait for all the results. I'm sure it will all make sense when you have everything.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"The threshold for mandatory reporting was met before the skeletal survey came back. You waited. The caregiver left the building with the infant during the delay.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age_months": 8,
+      "sex": "F",
+      "pmh": "no prior medical history reported",
+      "presenting": "brought by mother following reported fall from bed, lethargic, bulging fontanelle, bilateral periorbital bruising in multiple stages",
+      "pertinent_positives": {
+        "addl-hx": "inconsistent history, timing of fall unclear, week of increased fussiness not brought to medical attention, no witnesses",
+        "pe": "GCS 9, bulging fontanelle, bilateral periorbital bruising in varying stages, frenulum tear, bilateral extensive retinal haemorrhages, left upper limb hypotonia",
+        "labs": "anaemia, mildly elevated LFTs and lipase suggesting visceral injury, haematuria, normal coagulation",
+        "imaging": "bilateral acute-on-chronic subdural haematomas, cerebral oedema, loss of grey-white differentiation left hemisphere, no skull fracture",
+        "special": "skeletal survey: posterior rib fractures bilateral in multiple stages of healing, bilateral metaphyseal fractures, right clavicle fracture with callus — not consistent with reported mechanism"
+      },
+      "assessment": "Non-Accidental Injury — Abusive Head Trauma. Findings incompatible with reported mechanism. Evidence of repeated trauma over time.",
+      "plan": "neurosurgery consult, ICP management, mandatory child protection report immediately, infant not to be discharged to caregiver, full NAI workup, ophthalmology, social work, detailed documentation"
+    },
+    "explanation": "Abusive Head Trauma (Shaken Baby Syndrome) is the leading cause of fatal head injury in infants. Classic findings: bilateral retinal haemorrhages (highly specific — occur from sudden acceleration-deceleration causing vitreoretinal traction), bilateral subdural haematomas (bridging vein rupture from shearing forces), encephalopathy. Additional NAI findings: posterior rib fractures (chest compression during shaking — highly specific), metaphyseal corner/bucket-handle fractures, injuries in multiple stages of healing. Mandatory reporting is a legal obligation in all jurisdictions.",
+    "explanation_detail": {
+      "who_gets_it": "Infants under 2 years, peak 2-4 months. Triggered by inconsolable crying. Perpetrators most commonly male partners of mothers, less commonly mothers or other caregivers.",
+      "risk_factors": "Young parental age, social isolation, domestic violence, substance use, premature birth, colic.",
+      "typical_presentation": "Lethargic infant, no or inconsistent history of trauma, bulging fontanelle, seizures, vomiting. Retinal haemorrhages on fundoscopy. Bilateral subdurals on CT. External injuries may be absent.",
+      "moa": "Rapid acceleration-deceleration of unsupported infant head → stretching and tearing of bridging veins → bilateral subdural haematomas. Vitreoretinal traction → retinal haemorrhages. Rotational forces → diffuse axonal injury. Direct compression during shaking → posterior rib fractures.",
+      "step1_buzzwords": "Bilateral retinal haemorrhages, bilateral subdural haematomas, posterior rib fractures (highly specific for NAI), metaphyseal fractures, inconsistent history, injuries in multiple stages of healing, mandatory reporting.",
+      "lab_buzzwords": "Normal coags (excludes bleeding disorder). Skeletal survey mandatory. Ophthalmology for retinal haemorrhage documentation. LFTs/lipase for occult visceral injury. CT head first, MRI if stable.",
+      "treatment": "Acute: airway, ICP management, neurosurgery. Mandatory child protection report. Infant must not be returned to caregiver pending investigation. Full NAI workup: skeletal survey, ophthalmology, social work. Document everything."
+    },
+    "fennick_opening": "\"Eight months old. The mother is speaking. Listen to what she is not saying.\"",
+    "music_default": null,
+    "cc_after_addl_hx": "MOTHER: I don't understand why you need to know all of this. She fell off a bed. It happens. I just want to know she's alright and go home.",
+    "cc_after_pe": "MOTHER: Why are you looking at her eyes like that. What are you looking for. Is something wrong with her eyes.",
+    "cc_after_imaging": "MOTHER: What does that mean. Both sides. How does that happen from one fall. Can that happen from one fall.",
+    "cc_after_hint": "MOTHER: You keep looking at me like that. I don't like how you're looking at me.",
+    "cc_after_dx": "MOTHER: That is not — no. No. I want another doctor. I want someone else. She fell off the bed. That is what happened.",
+    "fennick_after_addl_hx": "\"The story is changing. It changes because it is not true. Stay with the examination.\"",
+    "fennick_after_pe": "\"Bilateral retinal haemorrhages to the periphery. Acute on chronic subdurals. She has been here before. Not in this ward.\"",
+    "fennick_after_imaging": "\"Acute on chronic. The older collection already has a membrane. This morning's fall did not cause all of this.\"",
+    "fennick_case_complete": [
+      "\"The infant did not cry when her mother left the room.\"",
+      "\"Document everything. Every fracture. Every stage of healing. It will matter in court.\""
+    ]
   }
 ]
