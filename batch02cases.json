@@ -19,8 +19,8 @@
       "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777304484/apr_14_vl53sr.png"
     },
     "chart": {
-      "cc": "There is a woman in my mirror. She copies everything I do. It is extremely irritating.",
-      "hpi": "The Milliner's Assistant arrived impeccably dressed, hat adjusted twice before sitting. She works at the Copperfield Hat Works where mirrors line every wall. She has been seeing a woman in mirrors for some time. The woman copies her exactly, which she finds personally offensive. She has also been hearing the woman's voice occasionally, commenting on what she does. She denies this is frightening. She is annoyed. She has noticed her thoughts sometimes feel interrupted, like someone changes the channel. No prior psychiatric history. No substance use. No recent illness or fever.",
+      "cc": "There is a woman in my mirror who copies everything I do. She has terrible taste.",
+      "hpi": "The Milliner's Assistant arrived impeccably dressed, hat adjusted twice before sitting. She works at the Copperfield Hat Works where mirrors line every wall. She has been seeing a woman in mirrors for some time — the woman copies her exactly, which she finds personally offensive rather than frightening. She has also been hearing the woman's voice occasionally, commenting on what she does. She denies this is frightening. She is annoyed. She has noticed her thoughts sometimes feel interrupted, like someone changes the channel. No prior psychiatric history. No substance use. No recent illness. The mirror woman started approximately three months ago — first in her hand mirror, then every reflective surface. The voice began about six weeks after that. She has stopped using the large fitting mirrors at work. She has not told her employer.",
       "pmh": "No significant medical history. No prior psychiatric diagnoses.",
       "psh": "None.",
       "meds": "None.",
@@ -47,29 +47,32 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 7.2, Hgb 13.4, Plt 310. Normal."
+        "result": "WBC 7.2, Hgb 13.4, Plt 310. Normal.",
+        "pt_remark": "My blood is fine. People comment on my circulation all the time. I have excellent colour."
       },
       {
         "name": "CMP",
         "cost": 5,
         "result": "Sodium 139, creatinine 0.8, glucose 84, calcium 9.4. LFTs normal.",
-        "pt_remark": "I had wine last night. Two glasses. It was a very good vintage. I assume that is not a problem."
+        "pt_remark": "I had wine last night. A very good one. I doubt my blood is anything but exceptional."
       },
       {
         "name": "TFTs",
         "cost": 5,
         "result": "TSH 1.8. Free T4 normal.",
-        "pt_remark": "Is that the thyroid one. My mother had thyroid problems. She was always cold. I am never cold."
+        "pt_remark": "The thyroid one. My neck is one of my better features. I am sure it is functioning beautifully."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Normal sinus rhythm rate 76. QTc 402ms."
+        "result": "Normal sinus rhythm rate 76. QTc 402ms.",
+        "pt_remark": "My heart is in perfect condition. Several people have commented on it. Metaphorically."
       },
       {
         "name": "Troponin",
         "cost": 5,
-        "result": "Negative. Not indicated."
+        "result": "Negative. Not indicated.",
+        "pt_remark": "Is that for the heart. My heart is not the problem. My mirror is."
       },
       {
         "name": "Lipase",
@@ -80,12 +83,13 @@
         "name": "UA",
         "cost": 5,
         "result": "Normal.",
-        "pt_remark": "A urine test. Really. What exactly are you looking for in that."
+        "pt_remark": "You want my urine. How glamorous."
       },
       {
         "name": "Coags",
         "cost": 5,
-        "result": "Normal. Not indicated."
+        "result": "Normal. Not indicated.",
+        "pt_remark": "Blood clotting. Are you expecting drama. There will not be any. I am very composed."
       }
     ],
     "hints": [
@@ -96,91 +100,58 @@
     ],
     "management": [
       {
-        "title": "Establish the diagnosis — what information do you still need?",
-        "hint": "She has positive psychotic symptoms. What do you need to confirm before naming the diagnosis?",
+        "title": "Exclude organic causes",
+        "hint": "New onset psychosis in a 22-year-old. What do you need to rule out before calling this primary psychiatric?",
         "options": [
           {
-            "text": "Clarify duration of symptoms, assess for mood episode, confirm medical causes excluded",
-            "sub": "Full diagnostic clarification",
+            "text": "UDS, TFTs, metabolic panel, CT head",
+            "sub": "Full organic exclusion workup",
             "correct": true,
-            "feedback_correct": "Correct. Duration separates schizophreniform from schizophrenia. Mood episode assessment separates both from schizoaffective. Medical causes must be formally excluded before a primary psychiatric diagnosis.",
-            "fennick_correct_comment": "\"Duration. Mood. Medical cause. In that order. The label follows the timeline.\"",
-            "pt_remark_correct": "You want to know how long. ... Fine. But I want it noted that I have been managing perfectly well."
+            "feedback_correct": "Correct. New onset psychosis requires exclusion of substance intoxication/withdrawal, thyroid dysfunction, metabolic derangement, and intracranial pathology before a primary psychiatric diagnosis can be made.",
+            "fennick_correct_comment": "\"Rule out the reversible first. Organic psychosis treated as primary psychiatric is a serious miss.\"",
+            "pt_remark_correct": "All of those. Fine. I hope none of them require removing the hat."
           },
           {
-            "text": "Diagnose schizophrenia — symptoms are clearly psychotic",
-            "sub": "Premature diagnosis",
+            "text": "Start antipsychotic immediately — symptoms are clearly psychiatric",
+            "sub": "Treat before organic exclusion",
             "correct": false,
-            "feedback_wrong": "Schizophrenia requires six months of symptoms including prodromal period. Three months does not meet criteria. Premature labelling carries significant consequences.",
-            "pt_remark_wrong": "Schizophrenia. ... That is a very unflattering diagnosis."
+            "feedback_wrong": "Starting antipsychotics before excluding organic causes risks masking a treatable underlying condition — thyroid storm, CNS pathology, substance intoxication. Workup first.",
+            "pt_remark_wrong": "A medication. Already. Without knowing what is actually happening. That seems hasty.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Antipsychotic before organic exclusion. A thyroid storm treated with risperidone. A tumour treated with risperidone. You did not check.\""
           },
           {
-            "text": "Diagnose schizoaffective disorder — she mentioned crying episodes",
-            "sub": "Schizoaffective without full criteria",
+            "text": "Psychiatric assessment only — organic cause unlikely at her age",
+            "sub": "Skip organic workup",
             "correct": false,
-            "feedback_wrong": "Schizoaffective requires a major mood episode concurrent with Criterion A symptoms, plus psychotic symptoms for at least two weeks independent of mood. Occasional crying does not constitute a major depressive episode.",
-            "pt_remark_wrong": "The mood one. Because I cried. Once."
+            "feedback_wrong": "Age does not exclude organic psychosis. Substance use, thyroid dysfunction, and CNS pathology all occur in young adults. Organic exclusion is mandatory for new onset psychosis regardless of age.",
+            "pt_remark_wrong": "Just talking. Fine. Though I should warn you I am an excellent conversationalist and this may take a while."
           },
           {
-            "text": "Diagnose brief psychotic disorder — symptoms are recent",
-            "sub": "Brief psychotic disorder",
+            "text": "Admit immediately for inpatient psychiatric evaluation",
+            "sub": "Inpatient before workup",
             "correct": false,
-            "feedback_wrong": "Brief psychotic disorder lasts one day to one month. Three months of symptoms excludes this diagnosis by duration.",
-            "pt_remark_wrong": "Brief. Yes. I would prefer brief."
-          }
-        ]
-      },
-      {
-        "title": "Interpret the duration — confirm the diagnosis",
-        "hint": "Three months of hallucinations and thought insertion. Medical causes excluded. Mood episode criteria not met. What is the diagnosis?",
-        "options": [
-          {
-            "text": "Schizophreniform disorder — Criterion A met, duration 1-6 months, medical causes excluded",
-            "sub": "Correct diagnosis",
-            "correct": true,
-            "feedback_correct": "Correct. Criterion A: visual hallucinations, auditory hallucinations, thought insertion — three symptoms, two required, at least one is hallucination. Duration three months — schizophreniform. Medical causes excluded. Major mood episode criteria not met for schizoaffective.",
-            "fennick_correct_comment": "\"Three months. Not six. Schizophreniform until the timeline proves otherwise.\"",
-            "pt_remark_correct": "Schizophreniform. ... That is somehow worse than the mirror woman."
-          },
-          {
-            "text": "Schizophrenia — severity warrants the diagnosis",
-            "sub": "Severity over duration",
-            "correct": false,
-            "feedback_wrong": "Severity does not replace duration. Schizophrenia requires six months. Three months is schizophreniform regardless of symptom intensity.",
-            "pt_remark_wrong": "The serious one. I knew I was intense."
-          },
-          {
-            "text": "Schizoaffective disorder — mood symptoms present",
-            "sub": "Schizoaffective",
-            "correct": false,
-            "feedback_wrong": "Schizoaffective requires a major mood episode concurrent with psychosis, plus psychosis independent of that mood episode. Occasional crying does not meet major depressive episode criteria.",
-            "pt_remark_wrong": "The mood one. Because I cried. Once."
-          },
-          {
-            "text": "Delusional disorder — the mirror belief is a fixed false belief",
-            "sub": "Delusional disorder",
-            "correct": false,
-            "feedback_wrong": "Delusional disorder requires non-bizarre delusions without prominent hallucinations. She has auditory hallucinations and thought insertion — this exceeds delusional disorder criteria.",
-            "pt_remark_wrong": "Delusional. So you think I am making it up."
+            "feedback_wrong": "Inpatient admission before basic organic exclusion is backwards. Workup can be done as part of the ED assessment before disposition is decided.",
+            "pt_remark_wrong": "Admitted. Before you have even done anything. I am not a hotel guest, I am a diagnostic challenge."
           }
         ]
       },
       {
         "title": "First-line pharmacotherapy",
-        "hint": "Schizophreniform disorder confirmed. Which antipsychotic and why?",
+        "hint": "Schizophreniform confirmed. Organic causes excluded. Which antipsychotic?",
         "options": [
           {
-            "text": "Risperidone — second-generation antipsychotic, D2 and 5-HT2A antagonist",
-            "sub": "Atypical antipsychotic first-line",
+            "text": "Risperidone — SGA, D2 and 5-HT2A antagonist",
+            "sub": "Second-generation antipsychotic",
             "correct": true,
-            "feedback_correct": "Correct. SGAs are first-line for schizophreniform and schizophrenia spectrum. Risperidone: effective for positive symptoms, lower EPS risk than FGAs. Monitor prolactin, metabolic parameters, QTc.",
+            "feedback_correct": "Correct. SGAs are first-line for schizophreniform disorder. Risperidone targets positive symptoms via D2 blockade. Monitor prolactin, metabolic parameters, QTc.",
             "fennick_correct_comment": "\"D2 for positive symptoms. 5-HT2A for the rest. Monitor prolactin. Monitor weight. Monitor QTc.\"",
-            "pt_remark_correct": "A tablet. Will it affect my complexion.",
+            "pt_remark_correct": "A tablet. Once a day. Fine. Does it interact with wine.",
             "reactive_stage": {
               "delay_ms": 3500,
               "fennick_transition": "\"She returns four weeks later. The mirror woman is quieter. But her neck will not stop moving.\"",
-              "pt_remark_transition": "The woman in the mirror is quieter. But my neck will not stop moving. It is extremely inconvenient.",
-              "description": "Four weeks later — partial response to risperidone. Patient returns with involuntary neck and jaw movements consistent with acute dystonia (EPS).",
+              "pt_remark_transition": "The woman in the mirror says less. This is an improvement. My neck, however, has developed opinions of its own.",
+              "description": "Four weeks later — partial response. Patient returns with involuntary neck and jaw movements consistent with acute dystonia.",
               "title": "Manage the extrapyramidal side effect",
               "hint": "Acute dystonia on risperidone. Involuntary neck and jaw movements. What do you add?",
               "options": [
@@ -188,23 +159,23 @@
                   "text": "Benztropine — anticholinergic, first-line for acute dystonia",
                   "sub": "Anticholinergic for EPS",
                   "correct": true,
-                  "feedback_correct": "Correct. Benztropine is first-line for antipsychotic-induced acute dystonia. Anticholinergic action counteracts dopamine blockade-induced EPS. Consider dose reduction if EPS persist.",
+                  "feedback_correct": "Correct. Benztropine is first-line for antipsychotic-induced acute dystonia. Anticholinergic action counteracts dopamine blockade-induced EPS.",
                   "fennick_correct_comment": "\"Anticholinergic to counter the dopamine blockade. Predictable cause. Predictable fix.\"",
-                  "pt_remark_correct": "A tablet for the tablet. Fine. As long as it stops the neck thing. It is not a good look."
+                  "pt_remark_correct": "Another tablet. To fix the problem caused by the first tablet. This is becoming a collection. I hope they are small."
                 },
                 {
                   "text": "Stop risperidone immediately",
                   "sub": "Abrupt cessation",
                   "correct": false,
-                  "feedback_wrong": "Abrupt antipsychotic cessation risks rebound psychosis. EPS should be managed with anticholinergics or dose reduction before considering switching.",
+                  "feedback_wrong": "Abrupt antipsychotic cessation risks rebound psychosis. Manage EPS with anticholinergics or dose reduction first.",
                   "pt_remark_wrong": "Stop it entirely. The mirror woman can come back. At least she does not make my neck do this."
                 },
                 {
-                  "text": "Add haloperidol — stronger D2 blockade",
-                  "sub": "First-generation antipsychotic addition",
+                  "text": "Add haloperidol",
+                  "sub": "FGA addition on EPS",
                   "correct": false,
-                  "feedback_wrong": "Adding haloperidol to a patient already experiencing EPS would worsen extrapyramidal symptoms significantly. Haloperidol has higher EPS risk than risperidone.",
-                  "pt_remark_wrong": "Another one. On top of the one already making my neck misbehave.",
+                  "feedback_wrong": "Adding a high-potency FGA to a patient already experiencing EPS would significantly worsen extrapyramidal symptoms.",
+                  "pt_remark_wrong": "A second antipsychotic. On top of the one already making my neck misbehave. Absolutely not.",
                   "critical_error": true,
                   "fennick_endgame_comment": "\"EPS already present. You added a high-potency FGA. The dystonia would have become a crisis.\""
                 },
@@ -212,73 +183,73 @@
                   "text": "Reassure — EPS resolves spontaneously",
                   "sub": "Watchful waiting",
                   "correct": false,
-                  "feedback_wrong": "Acute dystonia does not reliably resolve without treatment. Laryngeal dystonia can be life-threatening. Benztropine should be given.",
-                  "pt_remark_wrong": "Wait and see. While my neck does this. In public."
+                  "feedback_wrong": "Acute dystonia does not reliably resolve without treatment. Laryngeal involvement can be life-threatening.",
+                  "pt_remark_wrong": "Wait and see. While my neck does this. I have fittings this week."
                 }
               ]
             }
           },
           {
-            "text": "Haloperidol — proven efficacy for positive symptoms",
+            "text": "Haloperidol — high D2 potency",
             "sub": "First-generation antipsychotic",
             "correct": false,
-            "feedback_wrong": "FGAs have higher EPS risk and are not preferred first-line over SGAs. Reserve for specific indications or treatment resistance.",
-            "pt_remark_wrong": "That one sounds old. I prefer the newer things."
+            "feedback_wrong": "FGAs carry higher EPS risk and are not preferred first-line over SGAs for schizophreniform disorder.",
+            "pt_remark_wrong": "That one sounds very aggressive. I am not aggressive. I am simply right about most things."
           },
           {
-            "text": "Clozapine — most effective antipsychotic",
+            "text": "Clozapine — most effective antipsychotic available",
             "sub": "Clozapine first-line",
             "correct": false,
-            "feedback_wrong": "Clozapine is reserved for treatment-resistant schizophrenia — failure of at least two adequate antipsychotic trials. Never first-line. Agranulocytosis risk requires mandatory weekly monitoring.",
-            "pt_remark_wrong": "That one requires blood tests every week. Absolutely not.",
+            "feedback_wrong": "Clozapine is reserved for treatment-resistant cases — minimum two failed adequate antipsychotic trials. It is never first-line.",
+            "pt_remark_wrong": "Weekly blood tests. No. I have enough appointments already.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Clozapine first-line. Agranulocytosis risk without the indication. She had not failed a single prior trial.\""
+            "fennick_endgame_comment": "\"Clozapine first-line. She had not failed a single prior trial. Agranulocytosis risk without the indication.\""
           },
           {
             "text": "CBT alone — avoid medication side effects",
-            "sub": "Psychotherapy without pharmacotherapy",
+            "sub": "Therapy without pharmacotherapy",
             "correct": false,
-            "feedback_wrong": "CBT is adjunctive, not a replacement for antipsychotics in active schizophrenia spectrum disorders with prominent positive symptoms.",
-            "pt_remark_wrong": "Just talking. Yes. I am very good at talking."
+            "feedback_wrong": "CBT is adjunctive in schizophrenia spectrum disorders. It does not replace antipsychotics for active positive symptoms.",
+            "pt_remark_wrong": "Just talking. I am an excellent conversationalist. But I do not think that is the issue here."
           }
         ]
       },
       {
         "title": "Disposition",
-        "hint": "Schizophreniform, no immediate safety concerns, partial insight, engaged with treatment. Where does she go?",
+        "hint": "Schizophreniform, no immediate safety concern, partial insight, engaging with treatment. Where does she go?",
         "options": [
           {
-            "text": "Outpatient psychiatry — medication, psychoeducation, safety planning, close follow-up",
+            "text": "Outpatient psychiatry — medication, psychoeducation, safety planning, six-month review",
             "sub": "Outpatient with psychiatry",
             "correct": true,
-            "feedback_correct": "Correct. No immediate safety risk, no grave disability, able to engage. Outpatient psychiatry with close follow-up. Psychoeducation. Safety net. Monitor at six months — diagnosis may need revision to schizophrenia.",
+            "feedback_correct": "Correct. No immediate risk, functioning, partial insight, engaged. Outpatient psychiatry. Six-month review — if symptoms persist past six months, diagnosis revises to schizophrenia.",
             "fennick_correct_comment": "\"Stable enough for outpatient. Not well enough to leave without a plan.\"",
-            "pt_remark_correct": "A psychiatrist. Fine. As long as they do not have mirrors in the waiting room."
+            "pt_remark_correct": "A psychiatrist. Fine. I assume they will want to talk about the mirror woman. She is not that interesting."
           },
           {
-            "text": "Involuntary inpatient admission — psychosis requires hospitalisation",
+            "text": "Involuntary inpatient admission",
             "sub": "Involuntary admission",
             "correct": false,
-            "feedback_wrong": "Involuntary admission requires imminent risk to self or others, or grave disability. She is functioning, has partial insight, and is engaging with treatment. Outpatient is appropriate.",
-            "pt_remark_wrong": "Admitted. Against my will. I have hats to fit.",
+            "feedback_wrong": "No imminent risk to self or others, no grave disability. She is functioning and engaging. Involuntary admission is not warranted.",
+            "pt_remark_wrong": "Against my will. I want it noted that I came here voluntarily and I find this extremely rude.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"No imminent risk. Functioning. Engaged. You admitted her involuntarily. That is a significant overreach.\""
+            "fennick_endgame_comment": "\"No imminent risk. Functioning. Engaged. Involuntary admission here is a significant and unjustifiable overreach.\""
           },
           {
-            "text": "Discharge with no follow-up — symptoms are manageable",
+            "text": "Discharge with no follow-up",
             "sub": "Discharge without plan",
             "correct": false,
-            "feedback_wrong": "Schizophreniform without follow-up risks progression to schizophrenia without intervention. Early treatment is associated with significantly better outcomes.",
-            "pt_remark_wrong": "Go home. Fine. The mirror woman will be thrilled.",
+            "feedback_wrong": "Schizophreniform without follow-up risks progression to schizophrenia without intervention. Early treatment significantly improves outcomes.",
+            "pt_remark_wrong": "Go home. Fine. The mirror woman will be delighted.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Early psychosis without follow-up. You gave her nothing. The evidence on early intervention is not ambiguous.\""
+            "fennick_endgame_comment": "\"Early psychosis. No follow-up. You gave her nothing. The evidence on early intervention is unambiguous.\""
           },
           {
-            "text": "Voluntary inpatient for medication initiation monitoring",
-            "sub": "Voluntary admission",
+            "text": "Voluntary inpatient for medication initiation",
+            "sub": "Unnecessary admission",
             "correct": false,
-            "feedback_wrong": "Medication initiation for stable schizophreniform does not require inpatient admission. Outpatient initiation with close monitoring is standard practice.",
-            "pt_remark_wrong": "Voluntarily admitted. I suppose I could treat it as a spa."
+            "feedback_wrong": "Medication initiation for stable schizophreniform does not require admission. Outpatient initiation with close monitoring is standard.",
+            "pt_remark_wrong": "Voluntarily admitted. At least tell me you have decent rooms."
           }
         ]
       }
@@ -309,11 +280,11 @@
       "treatment": "SGAs first-line: risperidone, olanzapine, quetiapine, aripiprazole. Clozapine for treatment resistance only (2+ failed trials). EPS → benztropine. Metabolic effects → switch or metformin. Hyperprolactinaemia (risperidone) → switch to aripiprazole. CBT adjunct. Early intervention improves outcomes."
     },
     "fennick_opening": "\"She came because the mirror woman is annoying her. Remember that detail.\"",
-    "cc_after_addl_hx": "Three months. Not that I have been counting. I noticed when she started appearing in the shop windows as well.",
-    "cc_after_pe": "You are looking at me very carefully. Most people do. Though usually with more admiration.",
-    "cc_after_imaging": "A brain scan. To confirm there is nothing wrong with my brain. There is not. The problem is the mirror.",
-    "cc_after_hint": "You keep asking about time. Fine. Three months. Are you happy.",
-    "cc_after_dx": "Schizophreniform. ... That is a terrible word. It sounds like something that would happen to someone less put-together.",
+    "cc_after_addl_hx": "Three months. Yes. The woman appeared in my hand mirror first. She has since made herself at home in every reflective surface I own, which is many.",
+    "cc_after_pe": "Are you examining me or admiring the hat. Both are acceptable but I would like to know which.",
+    "cc_after_imaging": "A brain scan. To confirm I am in perfect condition. I assumed so but it is nice to have documentation.",
+    "cc_after_hint": "You keep asking about time. I am a very busy person. Three months. Write it down.",
+    "cc_after_dx": "Schizophreniform. ... That is an extremely ugly word for someone this put-together.",
     "fennick_after_addl_hx": "\"Three months. Criterion A present. Medical causes pending. Duration is the diagnostic axis.\"",
     "fennick_after_pe": "\"Circumstantial but coherent. Insight partial — she knows something is wrong. She frames it as the mirror being wrong.\"",
     "fennick_after_imaging": "\"CT clear. Organic cause excluded. Primary psychiatric presentation.\"",
@@ -321,6 +292,7 @@
       "\"The mirror woman is quieter now.\"",
       "\"She will need watching for six months. The diagnosis may change. The person will not.\""
     ],
-    "music_default": "Foxfire Morning Waltz"
+    "music_default": "Foxfire Morning Waltz",
+    "pt_opening": "You look like you have never seen anyone this well-dressed in a medical setting. That is understandable."
   }
 ]
