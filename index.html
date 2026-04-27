@@ -1927,10 +1927,12 @@ async function loadData() {
     }
     const now = new Date();
     const ym = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
-    const casesRes = await fetch('batch01cases.json');
-    if(casesRes.ok) {
-      const casesData = await casesRes.json();
-      if(Array.isArray(casesData) && casesData.length > 0) CASES = casesData;
+    const BATCH_FILES = ['batch01cases.json', 'batch02cases.json'];
+    for(const file of BATCH_FILES) {
+      try {
+        const r = await fetch(file);
+        if(r.ok) { const d = await r.json(); if(Array.isArray(d)) CASES = CASES.concat(d); }
+      } catch(e) {}
     }
   } catch (err) {}
 }
