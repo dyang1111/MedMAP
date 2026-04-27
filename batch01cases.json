@@ -40,17 +40,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224. No anemia or infection."
+        "result": "Normal. Hgb 13.8, WBC 7.2, Plt 224. No anemia or infection.",
+        "pt_remark": "I kept track of my energy levels in a notebook. In case it was relevant."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal. No metabolic cause."
+        "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal. No metabolic cause.",
+        "pt_remark": "I had chamomile tea this morning. I don't know if that matters."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Normal sinus rhythm. No arrhythmia. Not directly relevant."
+        "result": "Normal sinus rhythm. No arrhythmia. Not directly relevant.",
+        "pt_remark": "My husband has one of those every year. He says it tickles."
       },
       {
         "name": "Troponin",
@@ -312,12 +315,14 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 11.2. Hgb 10.4 (low — anemia of chronic disease). Plt 398 (mildly elevated, reactive)."
+        "result": "WBC 11.2. Hgb 10.4 (low — anemia of chronic disease). Plt 398 (mildly elevated, reactive).",
+        "pt_remark": "Fine."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Na 128 mEq/L (LOW — SIADH). K 3.8. Cr 1.1. LFTs mildly elevated. Albumin 2.8 (low)."
+        "result": "Na 128 mEq/L (LOW — SIADH). K 3.8. Cr 1.1. LFTs mildly elevated. Albumin 2.8 (low).",
+        "pt_remark": "How long does this one take."
       },
       {
         "name": "EKG",
@@ -342,7 +347,8 @@
       {
         "name": "ABG/VBG",
         "cost": 5,
-        "result": "pH 7.44. pO2 68 on room air. pCO2 38."
+        "result": "pH 7.44. pO2 68 on room air. pCO2 38.",
+        "pt_remark": "That one looks unpleasant."
       },
       {
         "name": "Coags",
@@ -583,12 +589,14 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 16,800 with 88% PMNs and left shift. Hgb 9.8 (low — anemia of chronic inflammation). Plt 142 (low-normal)."
+        "result": "WBC 16,800 with 88% PMNs and left shift. Hgb 9.8 (low — anemia of chronic inflammation). Plt 142 (low-normal).",
+        "pt_remark": "Is that the one that measures the white cells and the red cells separately. I read about it."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Cr 1.6 (elevated — immune complex GN). BUN 28. Tbili 2.4 (mildly elevated). LFTs mildly elevated. Albumin 2.6."
+        "result": "Cr 1.6 (elevated — immune complex GN). BUN 28. Tbili 2.4 (mildly elevated). LFTs mildly elevated. Albumin 2.6.",
+        "pt_remark": "I want to understand what each number means when the results come back."
       },
       {
         "name": "EKG",
@@ -608,7 +616,8 @@
       {
         "name": "UA",
         "cost": 5,
-        "result": "RBC 45/hpf. RBC casts present. Protein 2+."
+        "result": "RBC 45/hpf. RBC casts present. Protein 2+.",
+        "pt_remark": "I noticed it looked different last week. I should have mentioned it sooner."
       },
       {
         "name": "ABG/VBG",
@@ -854,17 +863,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 11.4. Hgb 15.2. Plt 312. Hematocrit mildly elevated."
+        "result": "WBC 11.4. Hgb 15.2. Plt 312. Hematocrit mildly elevated.",
+        "pt_remark": "Get what you need."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Glucose 148 (HIGH — catecholamines inhibit insulin release). Cr 1.2 (normal). BUN 18. LFTs normal. Na 141, K 3.4 (mildly low — catecholamine effect). No metabolic acidosis."
+        "result": "Glucose 148 (HIGH — catecholamines inhibit insulin release). Cr 1.2 (normal). BUN 18. LFTs normal. Na 141, K 3.4 (mildly low — catecholamine effect). No metabolic acidosis.",
+        "pt_remark": "I had coffee this morning. Black. Two cups."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Sinus tachycardia rate 108. LVH voltage criteria. Diffuse ST changes. Frequent PVCs. No STEMI pattern."
+        "result": "Sinus tachycardia rate 108. LVH voltage criteria. Diffuse ST changes. Frequent PVCs. No STEMI pattern.",
+        "pt_remark": "I've had these before. In the field. Never heard anything of concern."
       },
       {
         "name": "Troponin",
@@ -1123,12 +1135,14 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 10.2. Hgb 16.8. Plt 310. Hematocrit elevated."
+        "result": "WBC 10.2. Hgb 16.8. Plt 310. Hematocrit elevated.",
+        "pt_remark": "I'm sorry if my veins are difficult. I've been told they're small."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Lactate 4.2 mmol/L. Cr 1.1. Glucose 108. Anion gap 18."
+        "result": "Lactate 4.2 mmol/L. Cr 1.1. Glucose 108. Anion gap 18.",
+        "pt_remark": "I haven't eaten since this morning. I wasn't sure if I was supposed to. I'm sorry I didn't ask."
       },
       {
         "name": "EKG",
@@ -1153,7 +1167,8 @@
       {
         "name": "ABG/VBG",
         "cost": 5,
-        "result": "pH 7.31 (low — metabolic acidosis). pO2 104 on room air (NORMAL — dissolved O2 unaffected). pCO2 32. HCO3 16. Elevated lactate confirmed. CO poisoning has normal pO2 — another reason SpO2 is misleading."
+        "result": "pH 7.31 (low — metabolic acidosis). pO2 104 on room air (NORMAL — dissolved O2 unaffected). pCO2 32. HCO3 16. Elevated lactate confirmed. CO poisoning has normal pO2 — another reason SpO2 is misleading.",
+        "pt_remark": "Is that the one where you take blood from the wrist. I've heard that one hurts. I don't mind."
       },
       {
         "name": "Coags",
@@ -1386,7 +1401,8 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "Normal. WBC 9.2, Hgb 14.8, Plt 334. No infection or inflammatory process."
+        "result": "Normal. WBC 9.2, Hgb 14.8, Plt 334. No infection or inflammatory process.",
+        "pt_remark": "Fine. Do it."
       },
       {
         "name": "CMP",
@@ -1396,7 +1412,8 @@
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Sinus tachycardia rate 94. Low voltage QRS left-sided leads. No ischemic changes. No right heart strain."
+        "result": "Sinus tachycardia rate 94. Low voltage QRS left-sided leads. No ischemic changes. No right heart strain.",
+        "pt_remark": "My heart's fine. It's the lung."
       },
       {
         "name": "Troponin",
@@ -1416,7 +1433,8 @@
       {
         "name": "ABG/VBG",
         "cost": 5,
-        "result": "pH 7.44. pO2 78 on room air. pCO2 34."
+        "result": "pH 7.44. pO2 78 on room air. pCO2 34.",
+        "pt_remark": "That one necessary?"
       },
       {
         "name": "Coags",
@@ -1644,17 +1662,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 13.2 (mildly elevated — stress response/atropine effect). Hgb 13.8. Plt 310. No infection pattern."
+        "result": "WBC 13.2 (mildly elevated — stress response/atropine effect). Hgb 13.8. Plt 310. No infection pattern.",
+        "pt_remark": "Yes. Whatever you need."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Glucose 142 (mildly elevated — anticholinergic effect). Cr 1.1. BUN 18. Na 141, K 3.6. LFTs normal. No metabolic acidosis. Electrolytes normal."
+        "result": "Glucose 142 (mildly elevated — anticholinergic effect). Cr 1.1. BUN 18. Na 141, K 3.6. LFTs normal. No metabolic acidosis. Electrolytes normal.",
+        "pt_remark": "I know what's in my system. It's the plant. Just the plant."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Sinus tachycardia rate 128. Prolonged QT interval 480ms — anticholinergic cardiotoxicity. No ventricular arrhythmia currently. QT must be monitored — risk of Torsades de Pointes. No STEMI pattern."
+        "result": "Sinus tachycardia rate 128. Prolonged QT interval 480ms — anticholinergic cardiotoxicity. No ventricular arrhythmia currently. QT must be monitored — risk of Torsades de Pointes. No STEMI pattern.",
+        "pt_remark": "My heart is going very fast. I can feel it. Please hurry."
       },
       {
         "name": "Troponin",
@@ -1914,17 +1935,20 @@
         "name": "CBC",
         "cost": 5,
         "result": "Hgb 7.4. MCV 64. MCH 19. MCHC 28. RDW 18.2%. WBC 7.1. Plt 487.",
-        "memory_fragment": "The last dress she finished without noticing her hands — a deep red, January commission, the thread catching the lamplight just right. She remembers thinking: I could do this forever. That was four months ago. She has not touched red thread since."
+        "memory_fragment": "The last dress she finished without noticing her hands — a deep red, January commission, the thread catching the lamplight just right. She remembers thinking: I could do this forever. That was four months ago. She has not touched red thread since.",
+        "pt_remark": "I don't mind needles. I work with them every day."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Normal. Creatinine 0.7, glucose 82, LFTs normal, albumin 3.4 (mildly low — poor nutritional intake). No metabolic derangement."
+        "result": "Normal. Creatinine 0.7, glucose 82, LFTs normal, albumin 3.4 (mildly low — poor nutritional intake). No metabolic derangement.",
+        "pt_remark": "I had tea this morning. Just tea. I haven't had much appetite lately."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Sinus tachycardia rate 108. No ischemic changes. Tachycardia is a compensatory response to severe anaemia — high-output state. No arrhythmia."
+        "result": "Sinus tachycardia rate 108. No ischemic changes. Tachycardia is a compensatory response to severe anaemia — high-output state. No arrhythmia.",
+        "pt_remark": "Is that for the heart. I didn't think it was my heart."
       },
       {
         "name": "Troponin",
@@ -2204,17 +2228,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "Normal. WBC 6.8, Hgb 13.4, Plt 221. No inflammatory process."
+        "result": "Normal. WBC 6.8, Hgb 13.4, Plt 221. No inflammatory process.",
+        "pt_remark": "I remember having this done before. I think. The memory is not reliable at the moment."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Normal. Creatinine 1.0, glucose 96, LFTs normal, TSH 1.8. No metabolic cause for cognitive change."
+        "result": "Normal. Creatinine 1.0, glucose 96, LFTs normal, TSH 1.8. No metabolic cause for cognitive change.",
+        "pt_remark": "I ate this morning. I think it was breakfast. Mira makes sure I eat."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Normal sinus rhythm. No arrhythmia."
+        "result": "Normal sinus rhythm. No arrhythmia.",
+        "pt_remark": "That machine makes a sound. Like a metronome. I find it easier if I think of it that way."
       },
       {
         "name": "Troponin",
@@ -2496,12 +2523,14 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 9.2 (normal). Hgb 14.8 (normal — haemoglobin is present and plentiful; it is simply dysfunctional). Plt 312. No anaemia."
+        "result": "WBC 9.2 (normal). Hgb 14.8 (normal — haemoglobin is present and plentiful; it is simply dysfunctional). Plt 312. No anaemia.",
+        "pt_remark": "Fine. Take it."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Normal. Creatinine 0.8, glucose 92, LFTs normal. No metabolic derangement."
+        "result": "Normal. Creatinine 0.8, glucose 92, LFTs normal. No metabolic derangement.",
+        "pt_remark": "I ate at the bench today. Like every day. Is that a problem."
       },
       {
         "name": "EKG",
@@ -2521,7 +2550,8 @@
       {
         "name": "UA",
         "cost": 5,
-        "result": "Normal. No haematuria, no protein, no infection."
+        "result": "Normal. No haematuria, no protein, no infection.",
+        "pt_remark": "What do you need that for."
       },
       {
         "name": "ABG/VBG",
@@ -2799,17 +2829,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 13.4. Hgb 15.8. Plt 420."
+        "result": "WBC 13.4. Hgb 15.8. Plt 420.",
+        "pt_remark": "I had a full panel done privately three months ago. I'll have my aide send the results."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Glucose 128 (HIGH — glucocorticoid-induced insulin resistance, impaired glucose tolerance). K 3.1 (LOW — cortisol has mild mineralocorticoid activity). Creatinine 1.0 (normal). LFTs normal. Na 144."
+        "result": "Glucose 128 (HIGH — glucocorticoid-induced insulin resistance, impaired glucose tolerance). K 3.1 (LOW — cortisol has mild mineralocorticoid activity). Creatinine 1.0 (normal). LFTs normal. Na 144.",
+        "pt_remark": "I had a working breakfast. Eggs. Coffee. I assume that's within acceptable parameters."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Normal sinus rhythm. LVH voltage criteria. No ischemic changes."
+        "result": "Normal sinus rhythm. LVH voltage criteria. No ischemic changes.",
+        "pt_remark": "I've had these annually for six years. Nothing has ever been flagged."
       },
       {
         "name": "Troponin",
@@ -3111,17 +3144,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "Normal. WBC 7.1, Hgb 14.6, Plt 288. No anaemia, no leukocytosis. No systemic inflammatory pattern."
+        "result": "Normal. WBC 7.1, Hgb 14.6, Plt 288. No anaemia, no leukocytosis. No systemic inflammatory pattern.",
+        "pt_remark": "I don't know what you're looking for in that one. But I trust the process."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal, uric acid 5.8 (normal — gout less likely). No metabolic derangement."
+        "result": "Normal. Creatinine 1.0, glucose 94, LFTs normal, uric acid 5.8 (normal — gout less likely). No metabolic derangement.",
+        "pt_remark": "I ate this morning. Bread and some cold meat. I work with my hands all day so I eat well."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Normal sinus rhythm. Not relevant to this presentation."
+        "result": "Normal sinus rhythm. Not relevant to this presentation.",
+        "pt_remark": "My father had something with his heart in his sixties. I've always wondered if I should worry about that."
       },
       {
         "name": "Troponin",
@@ -3423,17 +3459,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 13.2. Hgb 15.8. Plt 334."
+        "result": "WBC 13.2. Hgb 15.8. Plt 334.",
+        "pt_remark": "Is that the one that shows red blood cells. I've read that endurance athletes have higher counts."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Creatinine 2.1 (elevated). BUN 34. K 5.8 (elevated). Ca 7.2 (low). Glucose normal. AST 680 (elevated). ALT mildly elevated. LFTs otherwise normal."
+        "result": "Creatinine 2.1 (elevated). BUN 34. K 5.8 (elevated). Ca 7.2 (low). Glucose normal. AST 680 (elevated). ALT mildly elevated. LFTs otherwise normal.",
+        "pt_remark": "I had a large meal after. Rice, chicken, two eggs. For recovery."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Sinus tachycardia rate 96. Peaked T waves in precordial leads. No PR prolongation. No sine wave pattern."
+        "result": "Sinus tachycardia rate 96. Peaked T waves in precordial leads. No PR prolongation. No sine wave pattern.",
+        "pt_remark": "Is my heart big. I've read that trained hearts are larger. Is that what this shows."
       },
       {
         "name": "Troponin",
@@ -3708,12 +3747,14 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "WBC 7.2. Hgb 13.8. Plt 312. Mild erythrocytosis — Hct 42%."
+        "result": "WBC 7.2. Hgb 13.8. Plt 312. Mild erythrocytosis — Hct 42%.",
+        "pt_remark": "I assume this is standard. My private physician runs these quarterly."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Sodium 138. Creatinine 1.1. BUN 18. LFTs: AST 44, ALT 38, bilirubin 1.4 (mildly elevated). Uric acid 7.2 (elevated)."
+        "result": "Sodium 138. Creatinine 1.1. BUN 18. LFTs: AST 44, ALT 38, bilirubin 1.4 (mildly elevated). Uric acid 7.2 (elevated).",
+        "pt_remark": "I had wine at dinner last night. Two glasses. A good one. I assume that is not relevant."
       },
       {
         "name": "EKG",
@@ -3728,7 +3769,8 @@
       {
         "name": "NT-proBNP",
         "cost": 5,
-        "result": "NT-proBNP 1,840 pg/mL (elevated)."
+        "result": "NT-proBNP 1,840 pg/mL (elevated).",
+        "pt_remark": "That one has a very long name. What is it measuring."
       },
       {
         "name": "UA",
@@ -4037,17 +4079,20 @@
       {
         "name": "CBC",
         "cost": 5,
-        "result": "Normal. WBC 6.8, Hgb 15.2, Plt 298."
+        "result": "Normal. WBC 6.8, Hgb 15.2, Plt 298.",
+        "pt_remark": "I believe the relevant markers here would be haemoglobin and white cell count. Based on my reading."
       },
       {
         "name": "CMP",
         "cost": 5,
-        "result": "Normal. Sodium 140, creatinine 0.9, glucose 88. LFTs normal."
+        "result": "Normal. Sodium 140, creatinine 0.9, glucose 88. LFTs normal.",
+        "pt_remark": "I fasted for twelve hours before coming. I read that was recommended. I also brought water. Was water acceptable."
       },
       {
         "name": "EKG",
         "cost": 5,
-        "result": "Normal sinus rhythm. Not indicated for this presentation."
+        "result": "Normal sinus rhythm. Not indicated for this presentation.",
+        "pt_remark": "I read that this one can detect abnormalities. Mine came back normal when I had it done two years ago. Is that still relevant."
       },
       {
         "name": "Troponin",
