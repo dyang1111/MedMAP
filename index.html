@@ -685,9 +685,9 @@ body.tier-3 #pt-vignette {
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle at center,
-    rgba(255, 210, 100, 0.22) 0%,
-    rgba(220, 160, 40, 0.14) 35%,
-    rgba(180, 110, 20, 0.06) 60%,
+    rgba(255, 200, 80, 0.07) 0%,
+    rgba(220, 150, 40, 0.04) 35%,
+    rgba(180, 110, 20, 0.02) 60%,
     transparent 75%
   );
   mix-blend-mode: screen;
@@ -2008,7 +2008,7 @@ function initCase(){
     setPtRemark(currentCase.pt_opening);
     // Calculate how long pt_opening will take before starting CC
     const _openingSegs = ('"' + currentCase.pt_opening + '"').split('...');
-    const _openingDur = _openingSegs.reduce((t,s)=>t+s.length*40,0) + (_openingSegs.length-1)*750 + 1200;
+    const _openingDur = _openingSegs.reduce((t,s)=>t+s.length*38,0) + (_openingSegs.length-1)*750 + 2200;
     setTimeout(()=>{ setPtRemark(currentCase.chart.cc); }, _openingDur);
   } else {
     setPtRemark(currentCase.chart.cc);
