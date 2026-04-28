@@ -275,7 +275,9 @@
     "cc_after_dx": "So it has a name. My hands have a name for what they are doing.",
     "fennick_after_addl_hx": "\"Fourteen months. Note the timeline.\"",
     "patient_quote_addl_hx": "\"The right hand first. Then the left began. I kept telling myself it was fatigue from the mechanisms — the fine work. But I know my hands. These are not tired hands. These are broken ones.\"",
-    "generic_lab_remark": "I keep a record of everything. I assumed you'd want it."
+    "generic_lab_remark": "I keep a record of everything. I assumed you'd want it.",
+    "fennick_after_pe": "\"Her hands gave it away before the examination started.\"",
+    "fennick_after_imaging": "\"DaTscan is the confirmatory test. MRI is not.\""
   },
   {
     "id": "002",
@@ -550,7 +552,9 @@
     "cc_after_hint": "The collar has been wrong for six weeks. I thought it had shrunk in the wash.",
     "cc_after_dx": "I see. How long have I had it.",
     "patient_quote_addl_hx": "\"I've crossed the Ashgate lowlands in a broken cart with a fever and kept moving. I don't come to doctors. My wife packed my bag. I didn't even know she'd done it until she handed it to me at the door.\"",
-    "generic_lab_remark": "Fine."
+    "generic_lab_remark": "Fine.",
+    "fennick_after_pe": "\"The collar is the story. Everything else confirms it.\"",
+    "fennick_after_imaging": "\"80% compression. The image shows what the collar already told you.\""
   },
   {
     "id": "003",
@@ -825,9 +829,10 @@
     "cc_after_imaging": "Something on the valve. 1.4 centimetres. My wife is going to ask me what that means.",
     "cc_after_hint": "The heart. My wife said my eyes looked yellow. I didn't think those two were related.",
     "cc_after_dx": "Endocarditis. From a routine cleaning. From a routine cleaning.",
-    "fennick_after_pe": "\"Osler nodes are painful. Janeway lesions are not.\"",
+    "fennick_after_pe": "\"Fever, murmur, embolic signs. Take your time.\"",
     "patient_quote_addl_hx": "\"I actually looked up my symptoms last week. I thought maybe it was just a virus going around the construction site. My wife said I should come in sooner. I kept saying it wasn't a big deal. Is it a big deal?\"",
-    "generic_lab_remark": "Whatever you need. Just be thorough."
+    "generic_lab_remark": "Whatever you need. Just be thorough.",
+    "fennick_after_imaging": "\"1.4 centimetres on the non-coronary cusp.\""
   },
   {
     "id": "004",
@@ -1103,7 +1108,9 @@
     "cc_after_hint": "The attacks come and then completely stop. Like a field engagement that ends as suddenly as it began.",
     "cc_after_dx": "A tumour producing the crisis. That explains the attacks. That explains all of it.",
     "patient_quote_addl_hx": "\"I've been in three campaigns. I don't get dizzy. I don't collapse. What happened this morning was — I was simply fatigued from the night exercise. My aide is prone to exaggeration. I'm here as a courtesy.\"",
-    "generic_lab_remark": "Get what you need. Make it quick."
+    "generic_lab_remark": "Get what you need. Make it quick.",
+    "fennick_after_pe": "\"190 over 118 at rest. Consider what it reaches during an episode.\"",
+    "fennick_after_imaging": "\"Right adrenal. 4.8 centimetres. Central necrosis.\""
   },
   {
     "id": "005",
@@ -1370,7 +1377,9 @@
     "cc_after_hint": "The other men. Two of them said the same thing last week. I thought it was just the long shifts.",
     "cc_after_dx": "The furnace. It's been the furnace the whole time. I sealed those ducts myself. Last November.",
     "patient_quote_addl_hx": "\"I — I'm sure it's just fatigue. I've been working long shifts. I don't want to make a fuss. The other men have headaches too but they haven't come in. Should I have... come in sooner? I'm sorry if I should have come sooner.\"",
-    "generic_lab_remark": "Of course. Whatever helps. I'm sorry if I'm not easy to work with."
+    "generic_lab_remark": "Of course. Whatever helps. I'm sorry if I'm not easy to work with.",
+    "fennick_after_pe": "\"Oxygen saturation 97. Look at the patient, not the number.\"",
+    "fennick_after_imaging": "\"Clear chest. Normal brain. The problem is elsewhere.\""
   },
   {
     "id": "006",
@@ -1632,7 +1641,9 @@
     "cc_after_hint": "Second time. Same side. I didn't think resting it the first time was the wrong call.",
     "cc_after_dx": "It has a name. And I need an operation. I can see that from your face.",
     "patient_quote_addl_hx": "\"It happened once before, about a year and a half ago. Same side, same feeling. I just rested and it went away after a couple of days. I figured it was a pulled muscle. Should I have come in for that one?\"",
-    "generic_lab_remark": "Do it."
+    "generic_lab_remark": "Do it.",
+    "fennick_after_pe": "\"One side. Listen to both.\"",
+    "fennick_after_imaging": "\"Bilateral blebs. Second episode.\""
   },
   {
     "id": "007",
@@ -1901,7 +1912,9 @@
     "cc_after_hint": "How bad is it. Please just tell me how bad it is.",
     "cc_after_dx": "The alkaloids. Through the skin. I know the pharmacology. I just couldn't believe I'd managed to dose myself through my hands.",
     "patient_quote_addl_hx": "\"I know what this is. I know it. I just — I didn't think it would happen through the skin. I wasn't even eating it. I've handled it before but never for this long. How bad is it? Please just tell me how bad it is.\"",
-    "generic_lab_remark": "Yes. Whatever it takes. Please hurry."
+    "generic_lab_remark": "Yes. Whatever it takes. Please hurry.",
+    "fennick_after_pe": "\"Every secretion suppressed. Every smooth muscle relaxed.\"",
+    "fennick_after_imaging": "\"Clear CT. The CNS is the remaining concern.\""
   },
   {
     "id": "008",
@@ -2192,7 +2205,9 @@
       "\"She will pick up the red thread again. I promise you that.\""
     ],
     "patient_anchor": "the red thread",
-    "generic_lab_remark": "Whatever you think is best. I don't mind."
+    "generic_lab_remark": "Whatever you think is best. I don't mind.",
+    "fennick_after_pe": "\"Pallor first. Then the hands.\"",
+    "fennick_after_imaging": "\"The heart is compensating. For now.\""
   },
   {
     "id": "009",
@@ -2492,7 +2507,7 @@
     "cc_after_hint": "Something is wrong with the mechanism. I've known that. I was hoping it was the piano.",
     "cc_after_dx": "I see. Does that mean — will I still play. That's the only thing I need to know.",
     "fennick_after_addl_hx": "\"Good days and bad days.\"",
-    "fennick_after_pe": "\"Cogwheel rigidity. Posterior cortex. No resting tremor.\"",
+    "fennick_after_pe": "\"Start at the hands.\"",
     "patient_quote_addl_hx": "\"I don't remember choosing the piece. I just sit down and my hands begin. I used to choose. I used to know which piece I wanted before I touched the keys. Now I arrive at the piano and find out what I'm playing.\"",
     "fennick_case_complete": [
       "\"He's playing again.\"",
@@ -2500,7 +2515,8 @@
     ],
     "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png",
     "patient_anchor": "the piece he plays every morning",
-    "generic_lab_remark": "I've had tests before. I believe. Mira would know."
+    "generic_lab_remark": "I've had tests before. I believe. Mira would know.",
+    "fennick_after_imaging": "\"He is still in there.\""
   },
   {
     "id": "010",
@@ -2806,7 +2822,9 @@
     "cc_after_imaging": "The lungs are fine. So it's not the lungs. Then what is it.",
     "cc_after_hint": "The dye. You think it's the dye. I knew it was the dye. I've known for a week.",
     "cc_after_dx": "Right. It's in my blood. Not just on my hands — it's actually in my blood.",
-    "generic_lab_remark": "Fine. Take it."
+    "generic_lab_remark": "Fine. Take it.",
+    "fennick_after_pe": "\"Saturation 85. He is not distressed. Hold that.\"",
+    "fennick_after_imaging": "\"Clear lungs. Normal chest.\""
   },
   {
     "id": "011",
@@ -3116,7 +3134,9 @@
     "cc_after_imaging": "The lungs are clear. Good. So it isn't something serious. Can we wrap up.",
     "cc_after_hint": "The prednisone. You keep coming back to the prednisone. Fine. What does the prednisone do.",
     "cc_after_dx": "Iatrogenic. Meaning it was caused by treatment. Meaning it was preventable. I'd like a moment before we continue.",
-    "generic_lab_remark": "I had a full panel done privately three months ago. I'll have it sent over."
+    "generic_lab_remark": "I had a full panel done privately three months ago. I'll have it sent over.",
+    "fennick_after_pe": "\"The skin tells you what the bloods will confirm.\"",
+    "fennick_after_imaging": "\"Clear chest. Metabolic process.\""
   },
   {
     "id": "012",
@@ -3430,7 +3450,9 @@
     "cc_after_imaging": "Wear. You're going to tell me it's wear. I think I knew that.",
     "cc_after_hint": "The morning stiffness. I did say it was gone by the time I'd walked to the studio.",
     "cc_after_dx": "So it's not that my hands forgot. They've just been wearing down. Forty years of the same motion — I suppose they were always going to say something eventually.",
-    "generic_lab_remark": "Whatever helps you understand it. I'd like to know what's happening too."
+    "generic_lab_remark": "Whatever helps you understand it. I'd like to know what's happening too.",
+    "fennick_after_pe": "\"The hands have forty years of history in them.\"",
+    "fennick_after_imaging": "\"Osteophytes. Narrowing. No erosions.\""
   },
   {
     "id": "013",
@@ -3719,8 +3741,9 @@
     "cc_after_imaging": "Are my kidneys big? I wish I could train them. Imagine kidney day.",
     "cc_after_hint": "So the urine thing is connected to the squats. I thought it might be.",
     "cc_after_dx": "So I lost muscle. ... How much. Specifically. That is important information.",
-    "fennick_after_pe": "\"Dipstick 3+ blood. No red cells on microscopy.\"",
-    "generic_lab_remark": "Is there one that shows muscle damage specifically. Just curious."
+    "fennick_after_pe": "\"Dipstick positive. Microscopy negative. Note that.\"",
+    "generic_lab_remark": "Is there one that shows muscle damage specifically. Just curious.",
+    "fennick_after_imaging": "\"Structurally intact. The threat arrives in the blood.\""
   },
   {
     "id": "014",
@@ -4061,7 +4084,9 @@
       "\"She will need a specialist centre. Make sure she goes.\""
     ],
     "pt_opening": "You look stressed. ... I have a physician for that. Shall I give you his name.",
-    "generic_lab_remark": "My private physician runs these quarterly. I assume yours are comparable."
+    "generic_lab_remark": "My private physician runs these quarterly. I assume yours are comparable.",
+    "fennick_after_pe": "\"Listen to the right side.\"",
+    "fennick_after_imaging": "\"Enlarged pulmonary artery. Peripheral pruning.\""
   },
   {
     "id": "015",
@@ -4383,6 +4408,7 @@
     ],
     "fennick_case_complete_delay": 4000,
     "fennick_grade_override": "\"You don't have a tumour.\"",
-    "generic_lab_remark": "I've prepared a note on which tests I believe are indicated. Would that be useful."
+    "generic_lab_remark": "I've prepared a note on which tests I believe are indicated. Would that be useful.",
+    "fennick_after_pe": "\"Pericranial tenderness. Fundoscopy clear.\""
   }
 ]
