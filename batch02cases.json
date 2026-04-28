@@ -317,8 +317,8 @@
       "age": 54,
       "sex": "M",
       "occupation": "Proprietor, The Rusted Flagon, Lower Gears District",
-      "image_url": "PLACEHOLDER_UNCONSCIOUS",
-      "image_url_alert": "PLACEHOLDER_ALERT"
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334987/the_tavern_keeper_and_friend_wm8wmf.png",
+      "image_url_alert": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334988/the_tavern_keeper_xj4lmz.png"
     },
     "chart": {
       "cc": "He just — he was locking up and then he was on the floor. I don't — we had a few but he always has a few, that's just — please someone look at him.",
@@ -454,7 +454,8 @@
                   "fennick_endgame_comment": "\"He woke up and you sent him home. Magnesium 0.6 uncorrected. QTc 468. He would have arrested before morning.\""
                 }
               ]
-            }
+            },
+            "portrait_swap": "image_url_alert"
           },
           {
             "text": "IV dextrose immediately — glucose 3.2 is the emergency",
@@ -583,8 +584,10 @@
       "age_months": 8,
       "sex": "F",
       "occupation": "Eight months old. Irongate District.",
-      "image_url": "PLACEHOLDER_INFANT",
-      "image_url_mother_removed": "PLACEHOLDER_INFANT_ALONE"
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334984/mom1_su23oo.png",
+      "image_url_mother_removed": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334986/the_infant_case_hzn6mh.png",
+      "image_url_flustered": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334985/mom2_fjfa8x.png",
+      "image_url_angry": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334986/mom3_ss1fyl.png"
     },
     "chart": {
       "cc": "She fell off the bed this morning. She's been sleepy since. I just want to make sure she's alright.",
@@ -680,7 +683,8 @@
             "correct": true,
             "feedback_correct": "Correct. GCS 9 with rising pCO2 and cerebral oedema on CT requires airway protection and active ICP management. Neurosurgery must be involved immediately — bilateral subdurals with cerebral oedema may require surgical intervention.",
             "fennick_correct_comment": "\"The brain is swelling. Everything else waits.\"",
-            "pt_remark_correct": "MOTHER: What are all these people — why are there so many people. Can someone tell me what's happening. She just fell."
+            "pt_remark_correct": "MOTHER: What are all these people — why are there so many people. Can someone tell me what's happening. She just fell.",
+            "portrait_swap": "image_url_angry"
           },
           {
             "text": "Reassure mother and observe — CT findings may be from the fall",
@@ -721,7 +725,8 @@
             "correct": true,
             "feedback_correct": "Correct. This constellation — bilateral retinal haemorrhages, bilateral subdurals, posterior rib fractures highly specific for chest compression during shaking, metaphyseal bucket-handle fractures, acute on chronic pattern indicating repeated trauma — is the signature of abusive head trauma. The reported mechanism is not credible.",
             "fennick_correct_comment": "\"The fractures are in three different stages of healing. This morning's fall did not cause all of this.\"",
-            "pt_remark_correct": "MOTHER: What are you — what are you saying. Are you saying I — you need to be very careful what you say next."
+            "pt_remark_correct": "MOTHER: What are you — what are you saying. Are you saying I — you need to be very careful what you say next.",
+            "portrait_swap": "image_url_flustered"
           },
           {
             "text": "Accidental head injury — falls can cause subdural haematomas",
@@ -756,7 +761,8 @@
             "correct": true,
             "feedback_correct": "Correct. Mandatory reporting of suspected child abuse is a legal obligation — not discretionary. The infant must not be returned to the caregiver pending child protection investigation. Social work and child protection team must be involved immediately. Document all findings meticulously.",
             "fennick_correct_comment": "\"This is not a judgment. It is an obligation. Document everything. Every mark. Every fracture. Every stage of healing.\"",
-            "pt_remark_correct": "MOTHER: You can't keep her here. You can't just — I'm her mother. I have rights. You need to let me take her home. SECURITY IS CALLED. MOTHER IS ESCORTED FROM THE ROOM. The infant is quiet. She does not cry when her mother leaves."
+            "pt_remark_correct": "MOTHER: You can't keep her here. You can't just — I'm her mother. I have rights. You need to let me take her home. SECURITY IS CALLED. MOTHER IS ESCORTED FROM THE ROOM. The infant is quiet. She does not cry when her mother leaves.",
+            "portrait_swap": "image_url_mother_removed"
           },
           {
             "text": "Speak to the mother privately and give her a chance to explain",
@@ -826,6 +832,8 @@
     "fennick_case_complete": [
       "\"The infant did not cry when her mother left the room.\"",
       "\"Document everything. Every fracture. Every stage of healing. It will matter in court.\""
-    ]
+    ],
+    "portrait_on_imaging": "image_url_flustered",
+    "portrait_on_pe": "image_url_flustered"
   }
 ]
