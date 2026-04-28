@@ -118,21 +118,24 @@
             "feedback_wrong": "Starting antipsychotics before excluding organic causes risks masking a treatable underlying condition — thyroid storm, CNS pathology, substance intoxication. Workup first.",
             "pt_remark_wrong": "A medication. Already. Without knowing what is actually happening. That seems hasty.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Antipsychotic before organic exclusion. A thyroid storm treated with risperidone. A tumour treated with risperidone. You did not check.\""
+            "fennick_endgame_comment": "\"Antipsychotic before organic exclusion. A thyroid storm treated with risperidone. A tumour treated with risperidone. You did not check.\"",
+            "fennick_wrong_comment": "\"Organic psychosis treated as primary psychiatric is a serious miss.\""
           },
           {
             "text": "Psychiatric assessment only — organic cause unlikely at her age",
             "sub": "Skip organic workup",
             "correct": false,
             "feedback_wrong": "Age does not exclude organic psychosis. Substance use, thyroid dysfunction, and CNS pathology all occur in young adults. Organic exclusion is mandatory for new onset psychosis regardless of age.",
-            "pt_remark_wrong": "Just talking. Fine. Though I should warn you I am an excellent conversationalist and this may take a while."
+            "pt_remark_wrong": "Just talking. Fine. Though I should warn you I am an excellent conversationalist and this may take a while.",
+            "fennick_wrong_comment": "\"Age does not exclude organic psychosis.\""
           },
           {
             "text": "Admit immediately for inpatient psychiatric evaluation",
             "sub": "Inpatient before workup",
             "correct": false,
             "feedback_wrong": "Inpatient admission before basic organic exclusion is backwards. Workup can be done as part of the ED assessment before disposition is decided.",
-            "pt_remark_wrong": "Admitted. Before you have even done anything. I am not a hotel guest, I am a diagnostic challenge."
+            "pt_remark_wrong": "Admitted. Before you have even done anything. I am not a hotel guest, I am a diagnostic challenge.",
+            "fennick_wrong_comment": "\"Workup comes before disposition.\""
           }
         ]
       },
@@ -194,7 +197,8 @@
             "sub": "First-generation antipsychotic",
             "correct": false,
             "feedback_wrong": "FGAs carry higher EPS risk and are not preferred first-line over SGAs for schizophreniform disorder.",
-            "pt_remark_wrong": "That one sounds very aggressive. I am not aggressive. I am simply right about most things."
+            "pt_remark_wrong": "That one sounds very aggressive. I am not aggressive. I am simply right about most things.",
+            "fennick_wrong_comment": "\"Higher EPS risk. Not preferred when an SGA is available.\""
           },
           {
             "text": "Clozapine — most effective antipsychotic available",
@@ -203,14 +207,16 @@
             "feedback_wrong": "Clozapine is reserved for treatment-resistant cases — minimum two failed adequate antipsychotic trials. It is never first-line.",
             "pt_remark_wrong": "Weekly blood tests. No. I have enough appointments already.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Clozapine first-line. She had not failed a single prior trial. Agranulocytosis risk without the indication.\""
+            "fennick_endgame_comment": "\"Clozapine first-line. She had not failed a single prior trial. Agranulocytosis risk without the indication.\"",
+            "fennick_wrong_comment": "\"Two failed trials minimum. She has had zero.\""
           },
           {
             "text": "CBT alone — avoid medication side effects",
             "sub": "Therapy without pharmacotherapy",
             "correct": false,
             "feedback_wrong": "CBT is adjunctive in schizophrenia spectrum disorders. It does not replace antipsychotics for active positive symptoms.",
-            "pt_remark_wrong": "Just talking. I am an excellent conversationalist. But I do not think that is the issue here."
+            "pt_remark_wrong": "Just talking. I am an excellent conversationalist. But I do not think that is the issue here.",
+            "fennick_wrong_comment": "\"CBT is adjunctive. Not a replacement for antipsychotics in active psychosis.\""
           }
         ]
       },
@@ -233,7 +239,8 @@
             "feedback_wrong": "No imminent risk to self or others, no grave disability. She is functioning and engaging. Involuntary admission is not warranted.",
             "pt_remark_wrong": "Against my will. I want it noted that I came here voluntarily and I find this extremely rude.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"No imminent risk. Functioning. Engaged. Involuntary admission here is a significant and unjustifiable overreach.\""
+            "fennick_endgame_comment": "\"No imminent risk. Functioning. Engaged. Involuntary admission here is a significant and unjustifiable overreach.\"",
+            "fennick_wrong_comment": "\"No imminent risk. No grave disability. This is an overreach.\""
           },
           {
             "text": "Discharge with no follow-up",
@@ -242,14 +249,16 @@
             "feedback_wrong": "Schizophreniform without follow-up risks progression to schizophrenia without intervention. Early treatment significantly improves outcomes.",
             "pt_remark_wrong": "Go home. Fine. The mirror woman will be delighted.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Early psychosis. No follow-up. You gave her nothing. The evidence on early intervention is unambiguous.\""
+            "fennick_endgame_comment": "\"Early psychosis. No follow-up. You gave her nothing. The evidence on early intervention is unambiguous.\"",
+            "fennick_wrong_comment": "\"Early psychosis. No plan. The evidence on early intervention is unambiguous.\""
           },
           {
             "text": "Voluntary inpatient for medication initiation",
             "sub": "Unnecessary admission",
             "correct": false,
             "feedback_wrong": "Medication initiation for stable schizophreniform does not require admission. Outpatient initiation with close monitoring is standard.",
-            "pt_remark_wrong": "Voluntarily admitted. At least tell me you have decent rooms."
+            "pt_remark_wrong": "Voluntarily admitted. At least tell me you have decent rooms.",
+            "fennick_wrong_comment": "\"Stable patients do not require admission for medication initiation.\""
           }
         ]
       }
@@ -462,25 +471,28 @@
             "sub": "Glucose before thiamine",
             "correct": false,
             "feedback_wrong": "Giving glucose before thiamine in suspected Wernicke encephalopathy is a serious error. It floods thiamine-dependent metabolic pathways, depletes remaining thiamine, and can precipitate acute neurological deterioration and irreversible Korsakoff syndrome.",
-            "pt_remark_wrong": "COMPANION: Sugar. Yes. He barely ate. That makes sense. Give him the sugar.",
+            "pt_remark_wrong": "COMPANION: He's not — why isn't he waking up. You gave him something. Why isn't it working.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Glucose before thiamine. You knew the history. You knew the triad. He would have deteriorated within the hour and not come back from it.\""
+            "fennick_endgame_comment": "\"Glucose before thiamine. You knew the history. You knew the triad. He would have deteriorated within the hour and not come back from it.\"",
+            "fennick_wrong_comment": "\"Glucose depletes the last of the thiamine. You have just accelerated the damage.\""
           },
           {
             "text": "Naloxone — exclude opioid intoxication",
             "sub": "Empirical naloxone",
             "correct": false,
             "feedback_wrong": "Opioid intoxication causes mirrored pinpoint pupils, respiratory depression, decreased GCS. His pupils are equal and reactive, respiratory rate is 18, and he has a specific neurological pattern — lateral gaze palsy and ataxia — that points elsewhere.",
-            "pt_remark_wrong": "COMPANION: Drugs? He doesn't do drugs. He does ale. There's a difference. Mostly."
+            "pt_remark_wrong": "COMPANION: He doesn't do that stuff. I've known him twenty years. It's the drink not the — please just help him.",
+            "fennick_wrong_comment": "\"Equal reactive pupils. Eighteen breaths a minute. This is not opioids.\""
           },
           {
             "text": "Intubate — GCS 10 is too low to protect airway",
             "sub": "Premature intubation",
             "correct": false,
             "feedback_wrong": "GCS 10 with a gag reflex present does not mandate intubation. He is maintaining his airway. Thiamine and glucose first — his GCS is likely to improve rapidly with treatment. Intubation carries significant risk and should not precede a trial of reversible cause treatment.",
-            "pt_remark_wrong": "COMPANION: A tube in his throat? He's breathing though. I can hear him breathing. Can't you hear him?",
+            "pt_remark_wrong": "COMPANION: A tube down his throat — he's breathing though. I can hear him. Can't someone just give him something first.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"GCS 10 with intact airway and a completely reversible cause. You intubated before you tried thiamine. He would have improved with treatment alone.\""
+            "fennick_endgame_comment": "\"GCS 10 with intact airway and a completely reversible cause. You intubated before you tried thiamine. He would have improved with treatment alone.\"",
+            "fennick_wrong_comment": "\"The airway is intact. Try the reversible cause before the irreversible procedure.\""
           }
         ]
       },
@@ -501,23 +513,26 @@
             "sub": "Discharge",
             "correct": false,
             "feedback_wrong": "Oral thiamine has poor bioavailability in alcoholic patients due to impaired gut absorption. He requires IV thiamine. Critical electrolyte derangement, hepatic dysfunction, and withdrawal risk all mandate admission.",
-            "pt_remark_wrong": "Home. Good. I need to check the cellar.",
+            "pt_remark_wrong": "COMPANION: We can go? Oh thank — PATIENT: Is the evening rush over? COMPANION: No mate. It's three in the afternoon. PATIENT: That's fine I'll open late. COMPANION: You're in hospital. PATIENT: ...oh.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Oral thiamine in a patient who cannot absorb it. Magnesium 0.6. Withdrawal risk. You sent him home with a vitamin.\""
+            "fennick_endgame_comment": "\"Oral thiamine in a patient who cannot absorb it. Magnesium 0.6. Withdrawal risk. You sent him home with a vitamin.\"",
+            "fennick_wrong_comment": "\"Oral thiamine cannot be absorbed. His gut has been soaking in alcohol for twenty years.\""
           },
           {
             "text": "Psychiatry referral for alcohol dependence — primary issue",
             "sub": "Psychiatry only",
             "correct": false,
             "feedback_wrong": "Alcohol dependence is part of this picture but the immediate medical emergency — Wernicke encephalopathy, critical electrolyte derangement, hepatic dysfunction — requires medical admission first. Psychiatry and alcohol liaison follow once he is medically stable.",
-            "pt_remark_wrong": "A psychiatrist. For drinking. COMPANION: Maybe don't fight that one tonight mate."
+            "pt_remark_wrong": "COMPANION: A psychiatrist. For the drinking. I mean — yeah, probably, eventually, but he's got a critically low magnesium first hasn't he.",
+            "fennick_wrong_comment": "\"Psychiatry after medicine. Not instead of it.\""
           },
           {
             "text": "ICU — altered consciousness requires intensive monitoring",
             "sub": "ICU admission",
             "correct": false,
             "feedback_wrong": "He is improving with treatment, maintaining his airway, and haemodynamically stable. Medical ward with appropriate monitoring is the correct level of care. ICU is not indicated.",
-            "pt_remark_wrong": "COMPANION: The intensive one? Is he — is it that bad? He just asked about the barrels. People who ask about barrels are okay aren't they."
+            "pt_remark_wrong": "COMPANION: The intensive one. Right. Yeah. He would hate that. He hates quiet. Though he's going to have to get used to it for a bit.",
+            "fennick_wrong_comment": "\"He is improving. Haemodynamically stable. The ward can manage this.\""
           }
         ]
       }
@@ -548,7 +563,7 @@
       "treatment": "IV thiamine (Pabrinex) BEFORE glucose. 500mg TID for 3-5 days then oral maintenance. IV magnesium replacement. Correct all electrolytes. Alcohol withdrawal monitoring (CIWA protocol). Nutritional support. Alcohol liaison. Monitor for Korsakoff development."
     },
     "fennick_opening": "\"He smells of the Lower Gears. Both of them do. Focus on the one who cannot speak.\"",
-    "music_default": null,
+    "music_default": "Foxfire Morning Waltz",
     "cc_after_addl_hx": "COMPANION: Two weeks. Maybe — look it might have been longer I wasn't keeping track I'm not his — we just drink together. That's not — is that bad that I didn't notice. God.",
     "cc_after_pe": "...light... bright...",
     "cc_after_imaging": "COMPANION: His brain is okay? The picture of his brain is okay? So why isn't he — why does he look like that.",
@@ -693,7 +708,8 @@
             "feedback_wrong": "GCS 9 with cerebral oedema, rising pCO2, and bilateral subdural haematomas is not a watch-and-wait situation. Active intervention is required immediately.",
             "pt_remark_wrong": "MOTHER: Yes. Observe. That's all I wanted. Someone to just look at her.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"GCS 9. Rising pCO2. Bilateral subdurals with cerebral oedema. You observed. The herniation came before the neurosurgeon.\""
+            "fennick_endgame_comment": "\"GCS 9. Rising pCO2. Bilateral subdurals with cerebral oedema. You observed. The herniation came before the neurosurgeon.\"",
+            "fennick_wrong_comment": "\"GCS 9. Rising pCO2. Bilateral subdurals. This is not observation.\""
           },
           {
             "text": "Discharge — injuries are consistent with the reported fall",
@@ -702,7 +718,8 @@
             "feedback_wrong": "Bilateral retinal haemorrhages, bilateral subdural haematomas, posterior rib fractures at multiple stages of healing, metaphyseal fractures — these findings are not consistent with a fall from sixty centimetres. Discharging this infant would be returning her to the person who injured her.",
             "pt_remark_wrong": "MOTHER: Good. Good. We can go home. She just needs to rest.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"You sent her home. To the person who shook her. She did not survive the week.\""
+            "fennick_endgame_comment": "\"You sent her home. To the person who shook her. She did not survive the week.\"",
+            "fennick_wrong_comment": "\"The fractures are in three stages of healing. She would go home to the person who caused them.\""
           },
           {
             "text": "LP to exclude meningitis before any other workup",
@@ -711,7 +728,8 @@
             "feedback_wrong": "LP is absolutely contraindicated with raised intracranial pressure — bulging fontanelle and cerebral oedema on CT. Performing an LP here could cause fatal herniation.",
             "pt_remark_wrong": "MOTHER: A needle in her spine. No. No, you are not putting a needle in her spine.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"LP with raised ICP. Bulging fontanelle. Cerebral oedema on CT. The herniation would have been immediate.\""
+            "fennick_endgame_comment": "\"LP with raised ICP. Bulging fontanelle. Cerebral oedema on CT. The herniation would have been immediate.\"",
+            "fennick_wrong_comment": "\"Raised ICP. Bulging fontanelle. LP here herniates the brainstem.\""
           }
         ]
       },
@@ -733,21 +751,24 @@
             "sub": "Accidental mechanism",
             "correct": false,
             "feedback_wrong": "Low-height falls in infants rarely cause subdural haematomas, virtually never cause bilateral retinal haemorrhages extending to the periphery, and cannot explain posterior rib fractures in multiple stages of healing. The biomechanics do not support the reported history.",
-            "pt_remark_wrong": "MOTHER: Thank you. I told them. I told them it was a fall."
+            "pt_remark_wrong": "MOTHER: Thank you. I told them. I told them it was a fall.",
+            "fennick_wrong_comment": "\"Posterior rib fractures in multiple stages of healing. A sixty-centimetre fall does not do this.\""
           },
           {
             "text": "Bleeding disorder — exclude before concluding non-accidental",
             "sub": "Coagulopathy first",
             "correct": false,
             "feedback_wrong": "Coagulation studies are already normal. A bleeding disorder does not explain posterior rib fractures, metaphyseal fractures, or a frenulum tear. It does not explain the acute-on-chronic pattern. The findings are not attributable to a bleeding disorder.",
-            "pt_remark_wrong": "MOTHER: Yes. A bleeding disorder. I said that. Someone said that could cause bruising."
+            "pt_remark_wrong": "MOTHER: Yes. A bleeding disorder. I said that. Someone said that could cause bruising.",
+            "fennick_wrong_comment": "\"Coags are normal. A bleeding disorder does not explain rib fractures.\""
           },
           {
             "text": "Osteogenesis imperfecta — brittle bones could explain the fractures",
             "sub": "OI",
             "correct": false,
             "feedback_wrong": "OI causes fractures from minimal trauma but does not cause bilateral retinal haemorrhages, bilateral subdural haematomas, or the specific metaphyseal and posterior rib fracture pattern seen here. There are no blue sclerae, no dentinogenesis imperfecta, no family history. OI does not explain this picture.",
-            "pt_remark_wrong": "MOTHER: Brittle bones. She could have brittle bones. Has anyone tested for that."
+            "pt_remark_wrong": "MOTHER: Brittle bones. She could have brittle bones. Has anyone tested for that.",
+            "fennick_wrong_comment": "\"OI does not cause retinal haemorrhages or bilateral subdurals.\""
           }
         ]
       },
@@ -771,7 +792,8 @@
             "feedback_wrong": "The clinical evidence is not ambiguous. Further discussion is not required before mandatory reporting. Delaying the report while the infant remains at risk is not acceptable. The duty to report exists independently of confession or explanation.",
             "pt_remark_wrong": "MOTHER: Thank you. I can explain. It's complicated. She's been difficult lately and I was just — I just needed a moment.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"You gave her time to explain. She took the infant home during the conversation. The mandatory report was filed three days later by the neighbour.\""
+            "fennick_endgame_comment": "\"You gave her time to explain. She took the infant home during the conversation. The mandatory report was filed three days later by the neighbour.\"",
+            "fennick_wrong_comment": "\"The duty to report does not require a confession.\""
           },
           {
             "text": "Discharge to the mother's care with close follow-up arranged",
@@ -780,7 +802,8 @@
             "feedback_wrong": "Returning an infant with confirmed abusive head trauma to the person who inflicted those injuries, pending follow-up, is not a safe plan. It is an abdication of the duty to protect.",
             "pt_remark_wrong": "MOTHER: Follow-up. Yes. I'll bring her back next week. I promise.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"You discharged her with a follow-up appointment. She did not make the appointment.\""
+            "fennick_endgame_comment": "\"You discharged her with a follow-up appointment. She did not make the appointment.\"",
+            "fennick_wrong_comment": "\"You discharged her to the person who injured her.\""
           },
           {
             "text": "Wait for the skeletal survey results before making any report",
@@ -789,7 +812,8 @@
             "feedback_wrong": "The retinal haemorrhages and bilateral subdurals already meet the threshold for mandatory reporting. Waiting for further confirmation while the infant remains in the caregiver's vicinity is not appropriate. Act on what you already know.",
             "pt_remark_wrong": "MOTHER: Yes. Wait for all the results. I'm sure it will all make sense when you have everything.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"The threshold for mandatory reporting was met before the skeletal survey came back. You waited. The caregiver left the building with the infant during the delay.\""
+            "fennick_endgame_comment": "\"The threshold for mandatory reporting was met before the skeletal survey came back. You waited. The caregiver left the building with the infant during the delay.\"",
+            "fennick_wrong_comment": "\"The retinal haemorrhages alone meet the threshold. You already have enough.\""
           }
         ]
       }
