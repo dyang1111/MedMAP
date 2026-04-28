@@ -2158,6 +2158,23 @@ function clearMgmtSelections(){ Object.keys(_mgmtSelections).forEach(k=>delete _
 window.revealWorkup=function(type){
   if(revealedWorkup.has(type))return;
   playSFX('workup_click');
+  // Portrait swap on PE/imaging reveal
+  if(type === 'pe' && currentCase && currentCase.portrait_on_pe) {
+    const url = currentCase.patient[currentCase.portrait_on_pe];
+    if(url) setTimeout(()=>{
+      const ptImg = document.getElementById('pt-img');
+      if(ptImg){ ptImg.style.transition='opacity 0.6s'; ptImg.style.opacity='0';
+        setTimeout(()=>{ ptImg.src=url; ptImg.style.opacity='1'; },600); }
+    }, 1200);
+  }
+  if(type === 'imaging' && currentCase && currentCase.portrait_on_imaging) {
+    const url2 = currentCase.patient[currentCase.portrait_on_imaging];
+    if(url2) setTimeout(()=>{
+      const ptImg = document.getElementById('pt-img');
+      if(ptImg){ ptImg.style.transition='opacity 0.6s'; ptImg.style.opacity='0';
+        setTimeout(()=>{ ptImg.src=url2; ptImg.style.opacity='1'; },600); }
+    }, 1200);
+  }
   const workupFennickLines = {
     'addl-hx': currentCase.fennick_after_addl_hx || '"Good. Now we are actually listening."',
     'pe':      currentCase.fennick_after_pe      || '"The body does not lie. Read it carefully."',
@@ -2483,6 +2500,20 @@ window.pickMgmt=function(stageIdx,optIdx){
   if(opt.correct){
     optEl.classList.remove('locked-opt');optEl.classList.add('selected-correct');document.getElementById('stage-num-'+stageIdx).classList.add('done');
     if(fbEl){fbEl.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_correct||'Correct.';}
+    // Portrait swap on correct management
+    if(opt.portrait_swap && currentCase && currentCase.patient) {
+      const swapUrl = currentCase.patient[opt.portrait_swap];
+      if(swapUrl) {
+        setTimeout(()=>{
+          const ptImg = document.getElementById('pt-img');
+          if(ptImg) {
+            ptImg.style.transition = 'opacity 0.6s';
+            ptImg.style.opacity = '0';
+            setTimeout(()=>{ ptImg.src = swapUrl; ptImg.style.opacity = '1'; }, 600);
+          }
+        }, 800);
+      }
+    }
     if(opt.fennick_speech && Array.isArray(opt.fennick_speech)) {
       playFennickSpeech(opt.fennick_speech);
     } else if(opt.fennick_correct_comment) {
