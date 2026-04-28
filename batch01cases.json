@@ -267,16 +267,15 @@
       "lab_buzzwords": "DaTscan: reduced dopamine transporter uptake in putamen (comma → period sign). MRI is normal on standard sequences. Clinical diagnosis.",
       "treatment": "Levodopa/Carbidopa (gold standard). MAO-B inhibitors (selegiline, rasagiline) for mild disease. Dopamine agonists (pramipexole, ropinirole). NEVER give dopamine blockers (haloperidol, metoclopramide) — catastrophic worsening."
     },
-    "fennick_opening": "\"The tremor started a year ago. She adjusted her life around it before she came here.\"",
+    "fennick_opening": "\"She adjusted her life around it before she came here.\"",
     "cc_after_addl_hx": "The right hand first. Then the left. I kept telling myself it was the fine work. But I know my hands. These are not tired hands.",
     "cc_after_pe": "Follow your finger, you said. I used to set the Grand Meridian tolerance to a tenth of a millimetre. I cannot follow your finger.",
     "cc_after_imaging": "The machine is very loud. Is that — is that what my brain looks like. Is that normal.",
     "cc_after_hint": "It is not depression. My husband thinks it is depression. It is not.",
     "cc_after_dx": "So it has a name. My hands have a name for what they are doing.",
-    "fennick_after_addl_hx": "\"Fourteen months misdiagnosed. The SSRI doing nothing is not a treatment failure — it is a clue. Follow it.\"",
-    "fennick_after_pe": "\"Four cardinal features in one room. Do not complicate what is already clear.\"",
-    "fennick_after_imaging": "\"Standard MRI cannot visualize dopaminergic neurons. The imaging confirms nothing — the clinical picture already has.\"",
-    "patient_quote_addl_hx": "\"The right hand first. Then the left began. I kept telling myself it was fatigue from the mechanisms — the fine work. But I know my hands. These are not tired hands. These are broken ones.\""
+    "fennick_after_addl_hx": "\"Fourteen months. Note the timeline.\"",
+    "patient_quote_addl_hx": "\"The right hand first. Then the left began. I kept telling myself it was fatigue from the mechanisms — the fine work. But I know my hands. These are not tired hands. These are broken ones.\"",
+    "generic_lab_remark": "I keep a record of everything. I assumed you'd want it."
   },
   {
     "id": "002",
@@ -544,16 +543,14 @@
       "lab_buzzwords": "Hyponatremia + high urine sodium (SIADH). Lambert-Eaton: facilitation on repetitive nerve stimulation (opposite of MG). ACTH-independent Cushing: very high ACTH, no dexamethasone suppression.",
       "treatment": "Extensive stage: Carboplatin + Etoposide + Atezolizumab (IMpower133). Limited stage: concurrent chemoradiation + prophylactic cranial irradiation. Surgery: no role in extensive stage. Highly chemo-sensitive initially but relapses almost universally."
     },
-    "fennick_opening": "\"He did not come on his own. Remember that.\"",
+    "fennick_opening": "\"He did not come on his own.\"",
     "cc_after_addl_hx": "My wife packed the bag. I didn't know until she handed it to me at the door. She does not do things without a reason.",
     "cc_after_pe": "You want me to lift both arms. I'll tell you which one won't go all the way up.",
     "cc_after_imaging": "A mass in the chest. Say it plainly. I prefer plainly.",
     "cc_after_hint": "The collar has been wrong for six weeks. I thought it had shrunk in the wash.",
     "cc_after_dx": "I see. How long have I had it.",
-    "fennick_after_addl_hx": "\"Face swells worse in the morning, worse bending forward. The anatomy of that pattern points to one structure. Find it.\"",
-    "fennick_after_pe": "\"Non-pulsatile neck veins. Venous collaterals flowing downward. The upper body is draining somewhere other than where it should be.\"",
-    "fennick_after_imaging": "\"80% SVC compression. The CT is confirming what the collar already knew. What is compressing it and why.\"",
-    "patient_quote_addl_hx": "\"I've crossed the Ashgate lowlands in a broken cart with a fever and kept moving. I don't come to doctors. My wife packed my bag. I didn't even know she'd done it until she handed it to me at the door.\""
+    "patient_quote_addl_hx": "\"I've crossed the Ashgate lowlands in a broken cart with a fever and kept moving. I don't come to doctors. My wife packed my bag. I didn't even know she'd done it until she handed it to me at the door.\"",
+    "generic_lab_remark": "Fine."
   },
   {
     "id": "003",
@@ -822,16 +819,15 @@
       "lab_buzzwords": "Blood cultures x3 before antibiotics (most important step). UA: RBC casts (immune complex GN). New PR prolongation → perivalvular abscess → urgent TEE. Echo vegetation = major Duke criterion.",
       "treatment": "Native valve Strep viridans: IV Penicillin G or Ceftriaxone x4 weeks. S. aureus: IV Nafcillin (MSSA) or Vancomycin (MRSA) x6 weeks. Surgery indications: heart failure, abscess, uncontrolled infection, recurrent emboli despite antibiotics."
     },
-    "fennick_opening": "\"He has a chart. He brought it himself. Read it.\"",
+    "fennick_opening": "\"He has a chart. He brought it himself.\"",
     "cc_after_addl_hx": "I looked it up. I thought it was a site virus. I kept saying it wasn't a big deal. Is it a big deal.",
     "cc_after_pe": "You're checking my eyes, my fingers, my palms. You're connecting things I thought were separate.",
     "cc_after_imaging": "Something on the valve. 1.4 centimetres. My wife is going to ask me what that means.",
     "cc_after_hint": "The heart. My wife said my eyes looked yellow. I didn't think those two were related.",
     "cc_after_dx": "Endocarditis. From a routine cleaning. From a routine cleaning.",
-    "fennick_after_addl_hx": "\"Dental procedure, bicuspid valve, no prophylaxis, two weeks to onset. The question is what organism and what it has already done to that valve.\"",
-    "fennick_after_pe": "\"Osler nodes: immune complex, painful. Janeway lesions: septic emboli, painless. Both present together. And a new murmur. The valve is already involved.\"",
-    "fennick_after_imaging": "\"1.4 centimetres on the non-coronary cusp. And PR prolongation on the EKG. Think about what sits adjacent to that anatomy.\"",
-    "patient_quote_addl_hx": "\"I actually looked up my symptoms last week. I thought maybe it was just a virus going around the construction site. My wife said I should come in sooner. I kept saying it wasn't a big deal. Is it a big deal?\""
+    "fennick_after_pe": "\"Osler nodes are painful. Janeway lesions are not.\"",
+    "patient_quote_addl_hx": "\"I actually looked up my symptoms last week. I thought maybe it was just a virus going around the construction site. My wife said I should come in sooner. I kept saying it wasn't a big deal. Is it a big deal?\"",
+    "generic_lab_remark": "Whatever you need. Just be thorough."
   },
   {
     "id": "004",
@@ -1100,16 +1096,14 @@
       "plan": "admit for alpha-blockade with phenoxybenzamine, endocrinology and surgical oncology consult, 10-14 day preoperative preparation, genetic testing for RET/VHL/SDHB mutations, laparoscopic adrenalectomy after adequate preparation"
     },
     "explanation": "Pheochromocytoma is a catecholamine-secreting tumor of the adrenal medulla (or extra-adrenal paraganglia). The classic triad is episodic headache, sweating, and palpitations. Key: paroxysmal hypertension triggered by exertion, bending, or stress. Diagnose with plasma free metanephrines (most sensitive). Image with CT/MRI. Treat with alpha-blockade first (phenoxybenzamine), then beta-blockade, then surgery. Never biopsy. Never beta-block first.",
-    "fennick_opening": "\"His aide is more alarmed than he is. That is the data point.\"",
+    "fennick_opening": "\"His aide is more alarmed than he is.\"",
     "cc_after_addl_hx": "I've been in three campaigns. I don't collapse. This morning was fatigue from the night exercise. My aide exaggerates.",
     "cc_after_pe": "You pressed there and it hurt. I've taken shrapnel without flinching. Note that.",
     "cc_after_imaging": "A mass near the adrenal. That is what my mother had. No one ever told me what it was.",
     "cc_after_hint": "The attacks come and then completely stop. Like a field engagement that ends as suddenly as it began.",
     "cc_after_dx": "A tumour producing the crisis. That explains the attacks. That explains all of it.",
-    "fennick_after_addl_hx": "\"Paroxysmal. Complete resolution between attacks. The abdominal tenderness and family history of adrenal disease are not incidental.\"",
-    "fennick_after_pe": "\"188 over 112 at rest. During a paroxysm this pressure is probably over 250. The right upper quadrant tenderness with no palpable mass — lesion is retroperitoneal. Image it.\"",
-    "fennick_after_imaging": "\"4.8 centimetres, central necrosis, right adrenal. Family history confirmed. Before you do anything else — remember the one drug class you must never give first.\"",
-    "patient_quote_addl_hx": "\"I've been in three campaigns. I don't get dizzy. I don't collapse. What happened this morning was — I was simply fatigued from the night exercise. My aide is prone to exaggeration. I'm here as a courtesy.\""
+    "patient_quote_addl_hx": "\"I've been in three campaigns. I don't get dizzy. I don't collapse. What happened this morning was — I was simply fatigued from the night exercise. My aide is prone to exaggeration. I'm here as a courtesy.\"",
+    "generic_lab_remark": "Get what you need. Make it quick."
   },
   {
     "id": "005",
@@ -1369,16 +1363,14 @@
       "plan": "100% O2 via non-rebreather mask, admit for cardiac monitoring, hyperbaric oxygen therapy (COHb >25% with neurological symptoms), serial troponins, neurology follow-up for delayed sequelae, mandatory reporting and evacuation of furnace hall"
     },
     "explanation": "Carbon monoxide binds hemoglobin with 250x the affinity of oxygen, forming carboxyhemoglobin (COHb) and preventing oxygen delivery. Key: SpO2 is falsely normal — it cannot distinguish COHb from OHb. Classic presentation: headache/nausea/confusion worse at work, better on days off, multiple people affected. Treatment: 100% O2 via NRB (half-life 60-90 min vs 5hr on room air). HBO if COHb >25%, neuro symptoms, cardiac involvement, pregnancy.",
-    "fennick_opening": "\"He apologized before he sat down. That is the first thing you should write.\"",
+    "fennick_opening": "\"He apologized before he sat down.\"",
     "cc_after_addl_hx": "I should have come in sooner. I'm sorry if I should have come in sooner. The other men have the headaches too but they haven't come in.",
     "cc_after_pe": "Walk in a straight line. With my eyes closed. I — sorry. Let me try again.",
     "cc_after_imaging": "The brain looks normal. Then why does my head feel like this.",
     "cc_after_hint": "The other men. Two of them said the same thing last week. I thought it was just the long shifts.",
     "cc_after_dx": "The furnace. It's been the furnace the whole time. I sealed those ducts myself. Last November.",
-    "fennick_after_addl_hx": "\"Worse at work. Better on days off. Two colleagues. Ventilation sealed for winter. The hall is still running right now.\"",
-    "fennick_after_pe": "\"SpO2 97% and encephalopathic. The numbers do not match the patient in front of you. Pulse oximetry cannot distinguish carboxyhemoglobin. That reading is a lie.\"",
-    "fennick_after_imaging": "\"CT normal. Brain is not the source — it is the target. Order the test the standard panel does not include.\"",
-    "patient_quote_addl_hx": "\"I — I'm sure it's just fatigue. I've been working long shifts. I don't want to make a fuss. The other men have headaches too but they haven't come in. Should I have... come in sooner? I'm sorry if I should have come sooner.\""
+    "patient_quote_addl_hx": "\"I — I'm sure it's just fatigue. I've been working long shifts. I don't want to make a fuss. The other men have headaches too but they haven't come in. Should I have... come in sooner? I'm sorry if I should have come sooner.\"",
+    "generic_lab_remark": "Of course. Whatever helps. I'm sorry if I'm not easy to work with."
   },
   {
     "id": "006",
@@ -1633,16 +1625,14 @@
       "plan": "needle aspiration or small-bore chest tube, supplemental O2, admit for observation and repeat CXR, thoracic surgery consult for VATS pleurodesis, Marfan syndrome assessment"
     },
     "explanation": "Primary spontaneous pneumothorax (PSP) occurs in tall, thin young men without underlying lung disease — subpleural blebs rupture at the apex. Recurrence after first episode ~30%, after second >80%. Treat first episode: aspiration or small-bore chest tube. Second ipsilateral episode: VATS bullectomy + pleurodesis. Always rule out Marfan syndrome in young patients with recurrent PSP.",
-    "fennick_opening": "\"Second time. Same side. He ignored the first.\"",
+    "fennick_opening": "\"Second time. Same side.\"",
     "cc_after_addl_hx": "The first time I thought it was a pulled muscle. Should I have come in for that one.",
     "cc_after_pe": "You're tapping on my chest. What does the difference in sound tell you.",
     "cc_after_imaging": "Thirty percent of the left lung. That seems like something that should have been addressed the first time.",
     "cc_after_hint": "Second time. Same side. I didn't think resting it the first time was the wrong call.",
     "cc_after_dx": "It has a name. And I need an operation. I can see that from your face.",
-    "fennick_after_addl_hx": "\"Tall, lean, young, second ipsilateral episode. The first was 18 months ago and he ignored it. Recurrence rate after a second episode exceeds 80%.\"",
-    "fennick_after_pe": "\"Hyperresonance, absent breath sounds, trachea midline. Not tension. But 30% collapse in a symptomatic patient is not observation territory.\"",
-    "fennick_after_imaging": "\"Bilateral blebs. Largest 1.4cm, left upper lobe. Second episode, bilateral disease. The surgical threshold has been met.\"",
-    "patient_quote_addl_hx": "\"It happened once before, about a year and a half ago. Same side, same feeling. I just rested and it went away after a couple of days. I figured it was a pulled muscle. Should I have come in for that one?\""
+    "patient_quote_addl_hx": "\"It happened once before, about a year and a half ago. Same side, same feeling. I just rested and it went away after a couple of days. I figured it was a pulled muscle. Should I have come in for that one?\"",
+    "generic_lab_remark": "Do it."
   },
   {
     "id": "007",
@@ -1904,16 +1894,14 @@
       "plan": "IV benzodiazepines for agitation, urinary catheterization, active cooling, continuous telemetry for QT monitoring, IV magnesium on standby, physostigmine if refractory agitation or hemodynamic compromise, toxicology consult, admit for 24-48hr monitoring"
     },
     "explanation": "Anticholinergic toxidrome: dry as a bone (anhidrosis), blind as a bat (mydriasis), red as a beet (flushing), hot as a hare (hyperthermia), mad as a hatter (delirium). Caused by muscarinic blockade — atropine, scopolamine, belladonna, jimsonweed, diphenhydramine. Antidote: physostigmine (crosses BBB). Never give atropine. Never give haloperidol. Distinguish from sympathomimetic (also hot/tachy/agitated but DIAPHORETIC — key difference).",
-    "fennick_opening": "\"She knows exactly what happened. She told you before you asked.\"",
+    "fennick_opening": "\"She told you before you asked.\"",
     "cc_after_addl_hx": "I know what this is. I know it. I just didn't think it would happen through the skin. I've handled it before. Never for this long.",
     "cc_after_pe": "8 millimetres. I could feel them not responding. Like they belonged to someone else.",
     "cc_after_imaging": "680 millilitres. I can feel every millilitre of it. I could not understand why I couldn't go.",
     "cc_after_hint": "How bad is it. Please just tell me how bad it is.",
     "cc_after_dx": "The alkaloids. Through the skin. I know the pharmacology. I just couldn't believe I'd managed to dose myself through my hands.",
-    "fennick_after_addl_hx": "\"Two hours of direct contact with fresh belladonna. She gave you the exposure history before you asked. The rest is clinical confirmation.\"",
-    "fennick_after_pe": "\"Dry, hot, flushed, mydriasis, tachycardia, retention, silent bowel. Every secretion blocked. Muscarinic antagonism made visible.\"",
-    "fennick_after_imaging": "\"Bladder full, bowel silent, head clear. The CNS is the remaining concern. You have an antidote. Use it before the delirium worsens.\"",
-    "patient_quote_addl_hx": "\"I know what this is. I know it. I just — I didn't think it would happen through the skin. I wasn't even eating it. I've handled it before but never for this long. How bad is it? Please just tell me how bad it is.\""
+    "patient_quote_addl_hx": "\"I know what this is. I know it. I just — I didn't think it would happen through the skin. I wasn't even eating it. I've handled it before but never for this long. How bad is it? Please just tell me how bad it is.\"",
+    "generic_lab_remark": "Yes. Whatever it takes. Please hurry."
   },
   {
     "id": "008",
@@ -2189,15 +2177,12 @@
       "lab_buzzwords": "Low Hgb, low MCV (<80), low MCH, high RDW, low ferritin (most sensitive), low serum iron, high TIBC. Peripheral smear: pencil cells, target cells, hypochromic microcytic RBCs.",
       "treatment": "Oral ferrous sulfate 325mg TID with vitamin C (enhances absorption). Take on empty stomach if tolerated. Reticulocytosis in 5-10 days, Hgb normalises in 4-8 weeks. Continue 3-6 months after normalisation to replete stores. Treat underlying cause."
     },
-    "fennick_opening": "\"Her supervisor noticed before she did. Think about that.\"",
+    "fennick_opening": "\"Her supervisor noticed before she did.\"",
     "cc_after_addl_hx": "The periods have always been heavy. I just assumed that was mine to carry. Nobody asked.",
     "cc_after_pe": "I've been filing my nails down for months. I didn't know they were shaped like that underneath.",
     "cc_after_imaging": "My heart is alright though? At least tell me my heart is alright.",
     "cc_after_hint": "The ice. I know the ice is strange. I've been trying not to mention the ice.",
     "cc_after_dx": "Iron. All these months. I kept thinking I was just — becoming less of a person. And it was iron.",
-    "fennick_after_addl_hx": "\"Seven to eight days. Clots. She carried this alone for years. The question is what has been running out of her.\"",
-    "fennick_after_pe": "\"Koilonychia. Angular cheilitis. Conjunctival pallor the colour of old linen. This is not a mood disorder. This is a woman running empty.\"",
-    "fennick_after_imaging": "\"Heart is compensating. Flow murmur — high output state. The structure is holding. The blood is not. Look at the counts.\"",
     "patient_quote_addl_hx": "\"I keep thinking I should be able to push through it. I've always pushed through things. But lately it's less like pushing and more like — like the thing I'm trying to push has stopped being solid. I can't find the edge of it anymore.\"",
     "fennick_case_complete": [
       "\"Put the chart down, Eddie.\"",
@@ -2206,7 +2191,8 @@
       "\"We did not cure her today. We found her. That is what diagnosis actually is — not naming a disease, but finding the person underneath it.\"",
       "\"She will pick up the red thread again. I promise you that.\""
     ],
-    "patient_anchor": "the red thread"
+    "patient_anchor": "the red thread",
+    "generic_lab_remark": "Whatever you think is best. I don't mind."
   },
   {
     "id": "009",
@@ -2499,22 +2485,22 @@
       "treatment": "Rivastigmine (strongest evidence of all dementias). Clonazepam or melatonin for RBD. Levodopa cautiously for motor symptoms. ABSOLUTE CONTRAINDICATION: typical antipsychotics, many atypicals (risperidone, olanzapine — high sensitivity risk). Quetiapine or clozapine if antipsychotic unavoidable."
     },
     "polaroid_success_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401074/poloarid_p9ovhf.png",
-    "fennick_opening": "\"He was brought in by someone else. Note that.\"",
+    "fennick_opening": "\"He was brought in by someone else.\"",
     "cc_after_addl_hx": "I don't remember choosing the piece. I just play it. Whoever chose it — he knew what he was doing.",
     "cc_after_pe": "You want me to walk with my eyes closed. On a good day I could do that. I'm not certain which kind of day today is.",
     "cc_after_imaging": "What does the scan look for exactly. Whether the signal is still there, or whether it has — gone somewhere else.",
     "cc_after_hint": "Something is wrong with the mechanism. I've known that. I was hoping it was the piano.",
     "cc_after_dx": "I see. Does that mean — will I still play. That's the only thing I need to know.",
-    "fennick_after_addl_hx": "\"Good days and bad days. Not a slope — a flicker.\"",
+    "fennick_after_addl_hx": "\"Good days and bad days.\"",
     "fennick_after_pe": "\"Cogwheel rigidity. Posterior cortex. No resting tremor.\"",
-    "fennick_after_imaging": "\"He is still in there. Find what interrupts the signal.\"",
     "patient_quote_addl_hx": "\"I don't remember choosing the piece. I just sit down and my hands begin. I used to choose. I used to know which piece I wanted before I touched the keys. Now I arrive at the piano and find out what I'm playing.\"",
     "fennick_case_complete": [
       "\"He's playing again.\"",
       "\"Put the chart down.\""
     ],
     "tier3_portrait_2_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776401114/apr_14_2_egjzb7.png",
-    "patient_anchor": "the piece he plays every morning"
+    "patient_anchor": "the piece he plays every morning",
+    "generic_lab_remark": "I've had tests before. I believe. Mira would know."
   },
   {
     "id": "010",
@@ -2814,15 +2800,13 @@
       "lab_buzzwords": "ABG: normal pO2 with low pulse ox SpO2 = dyshemoglobinaemia. Co-oximetry: direct MetHb measurement. Standard pulse ox unreliable. Hgb normal — not anaemia.",
       "treatment": "Methylene blue 1-2mg/kg IV over 5 min if G6PD normal. Repeat at 1mg/kg if no response at 1 hour. Maximum ~7mg/kg total. G6PD deficient: ascorbic acid 1-2g IV. Exchange transfusion for refractory cases. Remove from exposure. Skin decontamination."
     },
-    "fennick_opening": "\"His master walked him to the door and left. The boy came in alone. Remember that.\"",
+    "fennick_opening": "\"His master walked him to the door and left.\"",
     "cc_after_addl_hx": "Everyone at the vats looks like this. My master's hands have been blue for fifteen years and he's fine. Nobody said anything to him.",
     "cc_after_pe": "You're looking at my nails like that. They've been that colour for two weeks. I thought it was just the dye getting in.",
     "cc_after_imaging": "The lungs are fine. So it's not the lungs. Then what is it.",
     "cc_after_hint": "The dye. You think it's the dye. I knew it was the dye. I've known for a week.",
     "cc_after_dx": "Right. It's in my blood. Not just on my hands — it's actually in my blood.",
-    "fennick_after_addl_hx": "\"Mikkel's lips are grey after two years. The master's hands have been blue for fifteen. Nobody has ever tested any of them. Think about what that ward round would look like.\"",
-    "fennick_after_pe": "\"SpO2 85% and breathing room air without distress. That number and that patient do not belong in the same room unless the number is wrong about what it is measuring.\"",
-    "fennick_after_imaging": "\"Clear lungs. Normal chest. The problem is not ventilation. The problem is not perfusion. The problem is the molecule that is supposed to carry the oxygen. Get the ABG with co-oximetry.\""
+    "generic_lab_remark": "Fine. Take it."
   },
   {
     "id": "011",
@@ -3126,15 +3110,13 @@
       "lab_buzzwords": "Late-night salivary cortisol (x2) or 24hr UFC. Overnight dexamethasone suppression — normal <50 nmol/L. ACTH: low = ACTH-independent (exogenous/adrenal); high = ACTH-dependent (pituitary/ectopic). Leukocytosis, hyperglycaemia, hypokalaemia.",
       "treatment": "Exogenous: gradual taper to allow HPA recovery — weeks to months. Endocrine follow-up. Manage complications. Pituitary disease: transsphenoidal surgery. Adrenal adenoma: unilateral adrenalectomy. Ectopic ACTH: treat primary source. Never abrupt cessation of long-term steroids."
     },
-    "fennick_opening": "\"He came in with a schedule and a complaint about his tailor. Start with the medications.\"",
+    "fennick_opening": "\"He came in with a schedule.\"",
     "cc_after_addl_hx": "The prednisone is for my back. I have been taking it because it works. I don't see how a back medication is responsible for my face changing.",
     "cc_after_pe": "You're looking at my abdomen. Those marks — I thought those were from weight gain. How long have those been there.",
     "cc_after_imaging": "The lungs are clear. Good. So it isn't something serious. Can we wrap up.",
     "cc_after_hint": "The prednisone. You keep coming back to the prednisone. Fine. What does the prednisone do.",
     "cc_after_dx": "Iatrogenic. Meaning it was caused by treatment. Meaning it was preventable. I'd like a moment before we continue.",
-    "fennick_after_addl_hx": "\"Eighteen months of steroids, no review. He may not have been told what to watch for. The medication history is the diagnosis.\"",
-    "fennick_after_pe": "\"Wide purple striae. That is not ageing. That is cortisol destroying collagen. Look at the whole picture.\"",
-    "fennick_after_imaging": "\"Clear lungs, normal chest. The pathology is metabolic. The history is where you need to be.\""
+    "generic_lab_remark": "I had a full panel done privately three months ago. I'll have it sent over."
   },
   {
     "id": "012",
@@ -3442,15 +3424,13 @@
       "lab_buzzwords": "RF and anti-CCP negative. ESR/CRP normal or mildly elevated — nonspecific. X-ray: osteophytes, subchondral sclerosis, joint space narrowing, NO erosions. No periarticular osteopenia.",
       "treatment": "Topical NSAIDs (diclofenac gel) first-line. Oral NSAIDs if topical insufficient. Splinting first CMC. Occupational therapy. Intra-articular steroid for flares. Surgery (CMC arthroplasty) only for severe refractory disease after conservative failure."
     },
-    "fennick_opening": "\"Forty years at the wheel. The hands have been paying attention the whole time.\"",
+    "fennick_opening": "\"Forty years at the wheel.\"",
     "cc_after_addl_hx": "The wheel still knows what to do. It's just the hands arguing with me now.",
     "cc_after_pe": "You're feeling the joints one by one. I could tell you which ones before you get to them.",
     "cc_after_imaging": "Wear. You're going to tell me it's wear. I think I knew that.",
     "cc_after_hint": "The morning stiffness. I did say it was gone by the time I'd walked to the studio.",
     "cc_after_dx": "So it's not that my hands forgot. They've just been wearing down. Forty years of the same motion — I suppose they were always going to say something eventually.",
-    "fennick_after_addl_hx": "\"Pain worse with use, better with rest. Stiffness gone in twenty minutes. The distribution and the pattern are already telling you which direction to go.\"",
-    "fennick_after_pe": "\"Heberden's nodes. First CMC tenderness. No synovitis, no boggy swelling, no ulnar drift. Bony, not inflamed. Read the joint, not just the hand.\"",
-    "fennick_after_imaging": "\"Osteophytes and narrowing. No erosions. No periarticular osteopenia. This is a joint that has been used, not attacked.\""
+    "generic_lab_remark": "Whatever helps you understand it. I'd like to know what's happening too."
   },
   {
     "id": "013",
@@ -3732,16 +3712,15 @@
       "lab_buzzwords": "CK >1000 diagnostic, >10,000 high AKI risk. UA: dipstick 3+ blood, microscopy no RBCs. CMP: elevated creatinine, K, low Ca, high phosphate, elevated AST (muscle). EKG: peaked T waves from hyperkalaemia.",
       "treatment": "Aggressive IV fluids — normal saline or Hartmann's, target urine output 200-300mL/hr. Sodium bicarbonate alkalinisation — target urine pH >6.5. Monitor K closely — calcium gluconate if EKG changes, salbutamol, consider kayexalate. Dialysis only if refractory AKI or hyperkalaemia."
     },
-    "fennick_opening": "\"He achieved something yesterday. He is not entirely sure what.\"",
+    "fennick_opening": "\"He achieved something yesterday.\"",
     "music_default": "Foxfire Morning Waltz",
     "cc_after_addl_hx": "One thousand. One hour. The legs went quiet around seven hundred. I thought that was the zone.",
     "cc_after_pe": "More pain more gain, right doc.",
     "cc_after_imaging": "Are my kidneys big? I wish I could train them. Imagine kidney day.",
     "cc_after_hint": "So the urine thing is connected to the squats. I thought it might be.",
     "cc_after_dx": "So I lost muscle. ... How much. Specifically. That is important information.",
-    "fennick_after_addl_hx": "\"One thousand repetitions in one hour. Minimal hydration. Sensation loss at seven hundred interpreted as progress. The muscle did not stop because he did.\"",
-    "fennick_after_pe": "\"Dipstick 3+ blood. No red cells on microscopy. That is not haematuria. Something else cross-reacts with the haem test. Order the CK before anything else.\"",
-    "fennick_after_imaging": "\"Kidneys structurally intact. The threat is not anatomical. It is what is arriving in the tubule from the bloodstream. The CK will tell you how much.\""
+    "fennick_after_pe": "\"Dipstick 3+ blood. No red cells on microscopy.\"",
+    "generic_lab_remark": "Is there one that shows muscle damage specifically. Just curious."
   },
   {
     "id": "014",
@@ -4076,14 +4055,13 @@
     "cc_after_imaging": "The vessels look wrong. ... I thought it might be the ceiling. ... Should I buy a different house.",
     "cc_after_hint": "You look concerned. ... I find that more alarming than the breathing, frankly.",
     "cc_after_dx": "I see. ... How long has this been happening. ... I see. ... I should have bought a different house earlier.",
-    "fennick_after_addl_hx": "\"Two years of stairs. She slept on a lower floor and told no one.\"",
-    "fennick_after_pe": "\"Loud P2. RV heave. Elevated JVP. Clear lungs. The right heart has been working against something for a long time.\"",
-    "fennick_after_imaging": "\"Enlarged pulmonary artery. Peripheral pruning. The vessels have been narrowing. This did not start last week.\"",
+    "fennick_after_addl_hx": "\"Two years of stairs. She told no one.\"",
     "fennick_case_complete": [
       "\"Two years. She adapted around it until she couldn't.\"",
       "\"She will need a specialist centre. Make sure she goes.\""
     ],
-    "pt_opening": "You look stressed. ... I have a physician for that. Shall I give you his name."
+    "pt_opening": "You look stressed. ... I have a physician for that. Shall I give you his name.",
+    "generic_lab_remark": "My private physician runs these quarterly. I assume yours are comparable."
   },
   {
     "id": "015",
@@ -4391,21 +4369,20 @@
       "lab_buzzwords": "All normal. Diagnosis is clinical. Imaging only if red flags present: thunderclap, progressive, fever, focal deficit, papilloedema, age >50 new headache.",
       "treatment": "Acute: paracetamol, NSAIDs, aspirin. Prophylaxis for chronic TTH: amitriptyline (first line), mirtazapine, venlafaxine. Lifestyle: trigger avoidance, posture, sleep, stress management."
     },
-    "fennick_opening": "\"He took a half-day. First time in six months. Note that.\"",
+    "fennick_opening": "\"He took a half-day. First time in six months.\"",
     "music_default": "Foxfire Morning Waltz",
     "cc_after_addl_hx": "The onset correlates with shift length. I have a table. ... Would you like to see the table.",
     "cc_after_pe": "You're pressing on my head. ... Is that diagnostic or are you just checking.",
     "cc_after_imaging": "No mass. ... The scan says no mass. ... The books said there would be a mass.",
     "cc_after_hint": "So the pattern matters more than the individual data points. ... I understand. ... I still think you should see the table.",
     "cc_after_dx": "I don't have a tumour. ... ... My documents say otherwise. ... Are you certain.",
-    "fennick_after_addl_hx": "\"Work-triggered. Improves on rest. He cross-referenced his shift schedule. The diagnosis is already in his own notes.\"",
-    "fennick_after_pe": "\"No papilloedema. No focal signs. Pericranial muscle tenderness. The examination is entirely normal except for the part that explains the headache.\"",
     "fennick_after_imaging": "\"Normal CT. He did not need it. But he needed it.\"",
     "fennick_case_complete": [
       "\"No. You have a job. ... And a headache.\"",
       "\"Tell him to go home. And to sleep.\""
     ],
     "fennick_case_complete_delay": 4000,
-    "fennick_grade_override": "\"You don't have a tumour.\""
+    "fennick_grade_override": "\"You don't have a tumour.\"",
+    "generic_lab_remark": "I've prepared a note on which tests I believe are indicated. Would that be useful."
   }
 ]
