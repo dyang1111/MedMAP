@@ -153,7 +153,8 @@
             "pt_remark_wrong": "Isn't that what they give people when they're... you know. Hearing things. Seeing things. I'm not doing any of that.",
             "fennick_correct_comment": "\"A D2 antagonist for a D2 deficiency. Think about what you just prescribed.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"She would have lost the ability to move. The diagnosis was correct. The treatment undid it.\""
+            "fennick_endgame_comment": "\"She would have lost the ability to move. The diagnosis was correct. The treatment undid it.\"",
+            "fennick_wrong_comment": "\"Dopamine blockade in a dopamine-deficient disease. The rigidity would have worsened significantly.\""
           },
           {
             "text": "Propranolol",
@@ -217,14 +218,16 @@
             "sub": "Inpatient imaging",
             "correct": false,
             "feedback_wrong": "DaTscan is an outpatient nuclear medicine study. There is no indication for inpatient admission to obtain it.",
-            "pt_remark_wrong": "Admitted just for the scan. My husband can't manage the house alone. He doesn't know where anything is."
+            "pt_remark_wrong": "Admitted just for the scan. My husband can't manage the house alone. He doesn't know where anything is.",
+            "fennick_wrong_comment": "\"DaTscan confirms, it does not diagnose. The clinical picture is already sufficient.\""
           },
           {
             "text": "Admit to neurology floor",
             "sub": "Inpatient workup",
             "correct": false,
             "feedback_wrong": "No indication for admission. This has been present for 14 months and she is hemodynamically stable. Admission wastes resources.",
-            "pt_remark_wrong": "Admitted for more tests. How long? He can manage three days. Maybe four if the neighbour helps."
+            "pt_remark_wrong": "Admitted for more tests. How long? He can manage three days. Maybe four if the neighbour helps.",
+            "fennick_wrong_comment": "\"Parkinson disease does not require admission for treatment initiation.\""
           },
           {
             "text": "Discharge without treatment",
@@ -233,7 +236,8 @@
             "feedback_wrong": "The diagnosis is established. Withholding levodopa serves no purpose and leaves the patient suffering unnecessarily.",
             "pt_remark_wrong": "Nothing. Just — monitor it. Watch my handwriting get smaller and smaller and do nothing.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"She came here with a diagnosis and a question about treatment. You sent her back with nothing. The tremor continued.\""
+            "fennick_endgame_comment": "\"She came here with a diagnosis and a question about treatment. You sent her back with nothing. The tremor continued.\"",
+            "fennick_wrong_comment": "\"The tremor is progressing. Leaving without treatment is leaving without care.\""
           }
         ]
       }
@@ -482,7 +486,8 @@
             "feedback_wrong": "Absolutely not. This patient has SVC syndrome, oxygen saturation of 94%, hemoptysis, and a sodium of 128. Sending him home risks acute decompensation from worsening SVC obstruction or hyponatremic seizure.",
             "pt_remark_wrong": "Come back in two weeks. With a face that looks like this and lungs struggling.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"He would not have made it back. The collar was already too tight when he walked in.\""
+            "fennick_endgame_comment": "\"He would not have made it back. The collar was already too tight when he walked in.\"",
+            "fennick_wrong_comment": "\"SVC syndrome with haemodynamic compromise. This cannot wait for an outpatient appointment.\""
           },
           {
             "text": "Admit to ICU for immediate chemo initiation",
@@ -490,7 +495,8 @@
             "correct": false,
             "feedback_wrong": "Chemotherapy is not started without histologic confirmation. You need a tissue diagnosis first. Admitting to the general oncology floor for workup and stabilization is the appropriate level of care.",
             "pt_remark_wrong": "The intensive care unit. For treatment that requires a result you don't have yet.",
-            "critical_error": true
+            "critical_error": true,
+            "fennick_wrong_comment": "\"Tissue first. You cannot treat a cancer you have not confirmed.\""
           },
           {
             "text": "Admit — oncology, IV dexamethasone, fluid restriction, urgent CT guided biopsy planning",
@@ -507,7 +513,8 @@
             "feedback_wrong": "Surgery has no role in SCLC management and would be catastrophic without histologic diagnosis. Extensive stage SCLC is managed medically.",
             "pt_remark_wrong": "Open surgery today. On a tumour with no results, no staging, no plan.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Surgery on a tumour with no histology, no staging, and a vein 80 percent occluded. He would not have survived the table.\""
+            "fennick_endgame_comment": "\"Surgery on a tumour with no histology, no staging, and a vein 80 percent occluded. He would not have survived the table.\"",
+            "fennick_wrong_comment": "\"Biopsy before resection. Always.\""
           }
         ]
       }
@@ -672,7 +679,8 @@
             "pt_remark_wrong": "The antibiotic before the cultures. Doesn't that mean you won't know what you're treating anymore?",
             "fennick_correct_comment": "\"You gave antibiotics before you knew what was growing. Now you may never know. That is 6 weeks of empiric therapy instead of targeted.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"You gave antibiotics before you knew what was growing. Six weeks of empiric therapy for an organism you will never identify. The valve continued to deteriorate.\""
+            "fennick_endgame_comment": "\"You gave antibiotics before you knew what was growing. Six weeks of empiric therapy for an organism you will never identify. The valve continued to deteriorate.\"",
+            "fennick_wrong_comment": "\"Culture before antibiotics. You have just made every subsequent result uninterpretable.\""
           }
         ]
       },
@@ -757,7 +765,8 @@
             "feedback_wrong": "OPAT is appropriate only for stable, uncomplicated endocarditis after initial inpatient stabilization and when the organism and susceptibilities are known. This patient has active complications — PR prolongation, septic emboli — and is not a candidate for early discharge.",
             "pt_remark_wrong": "A tube in my arm and home. With spots on the lung scan and the heartbeat change you mentioned.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Active PR prolongation, septic emboli, severe aortic regurgitation. You sent him home with a drip. He would have arrested before the cultures came back.\""
+            "fennick_endgame_comment": "\"Active PR prolongation, septic emboli, severe aortic regurgitation. You sent him home with a drip. He would have arrested before the cultures came back.\"",
+            "fennick_wrong_comment": "\"Prosthetic valve endocarditis is not an outpatient condition.\""
           },
           {
             "text": "Emergency valve replacement tonight",
@@ -766,7 +775,8 @@
             "feedback_wrong": "Surgery is not emergent here. He is hemodynamically stable. Indications for urgent surgery include heart failure, uncontrolled infection, abscess, or recurrent emboli despite antibiotics. He needs TEE first to clarify anatomy before any surgical decision.",
             "pt_remark_wrong": "Emergency surgery tonight. Before the throat scan, before you know what you're operating into.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Surgery tonight, before the TEE, before you know whether there is an abscess. You would have operated into the unknown.\""
+            "fennick_endgame_comment": "\"Surgery tonight, before the TEE, before you know whether there is an abscess. You would have operated into the unknown.\"",
+            "fennick_wrong_comment": "\"Antibiotics first, surgery after optimisation. Not before cultures have grown.\""
           },
           {
             "text": "Admit to cardiology with cardiac surgery on standby",
@@ -781,7 +791,8 @@
             "sub": "General medicine admission",
             "correct": false,
             "feedback_wrong": "The complexity of this case — new severe AR, EKG changes suggesting possible abscess, septic emboli — requires cardiology input and cardiac surgery availability. General medicine alone is insufficient.",
-            "pt_remark_wrong": "General ward only. For something this complicated."
+            "pt_remark_wrong": "General ward only. For something this complicated.",
+            "fennick_wrong_comment": "\"Cardiothoracic surgery needs to be involved before he deteriorates further.\""
           }
         ]
       }
@@ -932,7 +943,8 @@
             "pt_remark_wrong": "The heart rate drug before the blood pressure drug. The briefing I read on the way here said that order was wrong.",
             "fennick_correct_comment": "\"You removed beta-2 vasodilation and left alpha-1 vasoconstriction unopposed. What happens to the pressure now.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"You removed beta-2 vasodilation and left alpha-1 constriction unopposed. His pressure during the next paroxysm would have been unsurvivable.\""
+            "fennick_endgame_comment": "\"You removed beta-2 vasodilation and left alpha-1 constriction unopposed. His pressure during the next paroxysm would have been unsurvivable.\"",
+            "fennick_wrong_comment": "\"Beta-blocker before alpha-blockade in phaeochromocytoma causes unopposed alpha vasoconstriction. Hypertensive crisis.\""
           },
           {
             "text": "IV Labetalol",
@@ -972,7 +984,8 @@
             "pt_remark_wrong": "A needle directly into the mass. Before it's been blocked or controlled. That concerns me.",
             "fennick_correct_comment": "\"Do not touch it with a needle. Not until it is blocked, prepared, and on the surgical table.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"A needle in the mass before it was blocked or prepared. The catecholamine surge on the table would have killed him.\""
+            "fennick_endgame_comment": "\"A needle in the mass before it was blocked or prepared. The catecholamine surge on the table would have killed him.\"",
+            "fennick_wrong_comment": "\"You do not biopsy a phaeochromocytoma. The catecholamine surge can be fatal.\""
           },
           {
             "text": "Urine cortisol",
@@ -1016,7 +1029,8 @@
             "feedback_wrong": "Beta-blockers before alpha-blockade is the cardinal error in pheochromocytoma management. You will cause unopposed alpha vasoconstriction and potentially fatal hypertension. Alpha first. Always.",
             "pt_remark_wrong": "The heart rate drug first. Before the blood pressure drug. We covered this.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Beta before alpha. The next paroxysm would have been the last.\""
+            "fennick_endgame_comment": "\"Beta before alpha. The next paroxysm would have been the last.\"",
+            "fennick_wrong_comment": "\"Alpha before beta. The sequence is not negotiable.\""
           },
           {
             "text": "Radiation therapy to shrink the mass preoperatively",
@@ -1046,7 +1060,8 @@
             "feedback_wrong": "A BP of 188/112 with an uncontrolled catecholamine-secreting tumor and a history of collapse this morning is not an outpatient situation. The next paroxysm could be fatal. He stays.",
             "pt_remark_wrong": "Outpatient referral. After I lost consciousness against my desk this morning.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"He collapsed against his desk that morning. You sent him home on the medications that had been failing for two years.\""
+            "fennick_endgame_comment": "\"He collapsed against his desk that morning. You sent him home on the medications that had been failing for two years.\"",
+            "fennick_wrong_comment": "\"BP 210/130 with episodic features. This cannot wait.\""
           },
           {
             "text": "Discharge with increased amlodipine and aspirin",
@@ -1055,14 +1070,16 @@
             "feedback_wrong": "Amlodipine has failed for two years. Aspirin does nothing for a pheochromocytoma. Sending this man home with the same medications that have already failed is not a plan — it is negligence.",
             "pt_remark_wrong": "The same two medications that haven't worked. And home.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"The same two medications. And home. The next attack would have come without warning, without preparation, without you.\""
+            "fennick_endgame_comment": "\"The same two medications. And home. The next attack would have come without warning, without preparation, without you.\"",
+            "fennick_wrong_comment": "\"This is not essential hypertension.\""
           },
           {
             "text": "Admit to ICU for immediate surgery prep",
             "sub": "Immediate ICU",
             "correct": false,
             "feedback_wrong": "ICU is not immediately necessary unless he is in active hypertensive emergency. He needs medical stabilization over 10-14 days before surgery. Admit to a monitored bed on the endocrine or medical service, not the ICU.",
-            "pt_remark_wrong": "The intensive care unit tonight. Before the two weeks of preparation are even started."
+            "pt_remark_wrong": "The intensive care unit tonight. Before the two weeks of preparation are even started.",
+            "fennick_wrong_comment": "\"Biochemical control first. Operating on an unprepared phaeochromocytoma is dangerous.\""
           }
         ]
       }
@@ -1312,7 +1329,8 @@
             "feedback_wrong": "Home oxygen at low flow is not adequate treatment for acute CO poisoning with neurological and cardiac involvement. This patient needs inpatient monitoring and HBO therapy.",
             "pt_remark_wrong": "Home oxygen through the small prongs. After everything else you just told me.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Home oxygen through nasal prongs for a man with cardiac injury and encephalopathy. He would not have made it through the night.\""
+            "fennick_endgame_comment": "\"Home oxygen through nasal prongs for a man with cardiac injury and encephalopathy. He would not have made it through the night.\"",
+            "fennick_wrong_comment": "\"100% NRB is the treatment. Nasal cannula is insufficient for CO poisoning.\""
           },
           {
             "text": "Discharge after 2 hours of O2 in the ED",
@@ -1321,14 +1339,16 @@
             "feedback_wrong": "Absolutely not. Troponin elevation, neurological symptoms, and COHb 28% all require admission. Delayed neurological sequelae of CO poisoning can appear days to weeks later — this patient needs monitoring and follow-up.",
             "pt_remark_wrong": "Two hours and then home. I don't want to be a burden, but — I fell yesterday. Is two hours really enough.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Two hours and discharge. The troponin was elevated. The delayed neurological sequelae would have appeared three weeks later with no one watching.\""
+            "fennick_endgame_comment": "\"Two hours and discharge. The troponin was elevated. The delayed neurological sequelae would have appeared three weeks later with no one watching.\"",
+            "fennick_wrong_comment": "\"COHb 28%. Two hours is not enough. The half-life on 100% O2 is 60-90 minutes — the rest still needs clearing.\""
           },
           {
             "text": "Transfer immediately to hyperbaric chamber without admission workup",
             "sub": "Direct HBO transfer",
             "correct": false,
             "feedback_wrong": "HBO is indicated but so is proper stabilization first — 100% O2 via NRB, IV access, cardiac monitoring, and admission workup. Transfer to HBO without this is premature and potentially dangerous.",
-            "pt_remark_wrong": "The chamber without the monitoring first. Is that — is that the right way to do it."
+            "pt_remark_wrong": "The chamber without the monitoring first. Is that — is that the right way to do it.",
+            "fennick_wrong_comment": "\"Hyperbaric after NRB stabilisation. Not instead of it.\""
           }
         ]
       }
@@ -1565,14 +1585,16 @@
             "sub": "Activity restriction only",
             "correct": false,
             "feedback_wrong": "Activity restrictions alone are not definitive management for a second ipsilateral spontaneous pneumothorax with known bleb disease. This patient needs surgical referral and admission — not a list of things to avoid.",
-            "pt_remark_wrong": "A list of things not to do. And home."
+            "pt_remark_wrong": "A list of things not to do. And home.",
+            "fennick_wrong_comment": "\"Moderate pneumothorax does not resolve with advice.\""
           },
           {
             "text": "Discharge immediately after aspiration if CXR improved",
             "sub": "Same-day discharge",
             "correct": false,
             "feedback_wrong": "Same-day discharge after aspiration is reasonable only for small first-episode pneumothoraces in reliable patients close to hospital. This is a second episode with bilateral blebs — he needs admission and surgical planning.",
-            "pt_remark_wrong": "Home the same day if the scan looks better. With the bleb results you just showed me."
+            "pt_remark_wrong": "Home the same day if the scan looks better. With the bleb results you just showed me.",
+            "fennick_wrong_comment": "\"Aspiration is not definitive treatment. He needs a chest drain and admission.\""
           },
           {
             "text": "Transfer to thoracic surgery for immediate VATS today",
@@ -1581,7 +1603,8 @@
             "feedback_wrong": "VATS is not performed acutely on a fresh pneumothorax. The lung needs time to re-expand fully before surgery. Admit, decompress, re-expand, then plan elective VATS.",
             "pt_remark_wrong": "Operate today before the lung's even settled back into place.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"VATS on a fresh pneumothorax before the lung has re-expanded. You would have operated on a collapsed field.\""
+            "fennick_endgame_comment": "\"VATS on a fresh pneumothorax before the lung has re-expanded. You would have operated on a collapsed field.\"",
+            "fennick_wrong_comment": "\"VATS is for recurrence or failed drainage. Not first presentation.\""
           },
           {
             "text": "Admit for observation, repeat CXR, thoracic surgery consult",
@@ -1745,7 +1768,8 @@
             "pt_remark_wrong": "That medication makes things worse in the heat, doesn't it. I can't produce any moisture at all and I'm already burning up.",
             "fennick_correct_comment": "\"QT 480 already. You gave her a drug with anticholinergic side effects and QT prolongation. The benzos work centrally without making any of this worse.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Haloperidol into a patient with anticholinergic toxidrome and a QT of 480. Torsades would have followed within the hour.\""
+            "fennick_endgame_comment": "\"Haloperidol into a patient with anticholinergic toxidrome and a QT of 480. Torsades would have followed within the hour.\"",
+            "fennick_wrong_comment": "\"Anticholinergic toxidrome. Haloperidol lowers the seizure threshold and worsens anticholinergic load.\""
           }
         ]
       },
@@ -1784,7 +1808,8 @@
             "pt_remark_wrong": "More of what I already have too much of. That can't be right.",
             "fennick_correct_comment": "\"You gave the poison as the antidote.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"You gave the poison as the antidote. The toxidrome would have progressed without ceiling.\""
+            "fennick_endgame_comment": "\"You gave the poison as the antidote. The toxidrome would have progressed without ceiling.\"",
+            "fennick_wrong_comment": "\"Atropine in anticholinergic toxidrome. You have just doubled the toxicity.\""
           }
         ]
       },
@@ -1832,14 +1857,16 @@
             "sub": "Outpatient prescription",
             "correct": false,
             "feedback_wrong": "Physostigmine is an IV medication used in acute toxidrome management — it is not dispensed as an outpatient oral prescription. This patient requires inpatient monitoring and IV management.",
-            "pt_remark_wrong": "Pills to take at home. For this."
+            "pt_remark_wrong": "Pills to take at home. For this.",
+            "fennick_wrong_comment": "\"Physostigmine is hospital-only. The toxidrome needs monitoring.\""
           },
           {
             "text": "Discharge after 2 hours of observation if vitals improve",
             "sub": "Brief observation",
             "correct": false,
             "feedback_wrong": "Two hours is not adequate. Belladonna alkaloids have a prolonged duration of action — effects can last 24-48 hours. QT prolongation and hyperthermia require sustained monitoring. She needs admission.",
-            "pt_remark_wrong": "Two hours and go. Belladonna stays active for a long time — longer than two hours. I know this plant."
+            "pt_remark_wrong": "Two hours and go. Belladonna stays active for a long time — longer than two hours. I know this plant.",
+            "fennick_wrong_comment": "\"Anticholinergic toxidrome can deteriorate hours in. Two hours is premature.\""
           },
           {
             "text": "Transfer to psychiatry for agitation management",
@@ -1847,7 +1874,8 @@
             "correct": false,
             "feedback_wrong": "Her agitation is organic — caused by anticholinergic delirium. This is a medical emergency, not a psychiatric presentation. Psychiatric transfer would be inappropriate and dangerous without medical stabilization.",
             "pt_remark_wrong": "A psychiatrist. My pupils are enormous, I can't urinate, and my mouth is cracking. This is not in my head.",
-            "critical_error": true
+            "critical_error": true,
+            "fennick_wrong_comment": "\"This is toxicology. Not psychiatry.\""
           },
           {
             "text": "Admit to monitored bed — toxicology, continuous telemetry, physostigmine if needed",
@@ -2114,21 +2142,24 @@
             "sub": "Inpatient admission",
             "correct": false,
             "feedback_wrong": "There is no indication for admission. She is haemodynamically stable, not actively bleeding, and oral iron will work.",
-            "pt_remark_wrong": "I don't need to stay. I just want to go home and sleep."
+            "pt_remark_wrong": "I don't need to stay. I just want to go home and sleep.",
+            "fennick_wrong_comment": "\"Oral iron works. Admission is not required for moderate IDA.\""
           },
           {
             "text": "Discharge with increased sertraline dose and iron",
             "sub": "Combined SSRI and iron",
             "correct": false,
             "feedback_wrong": "The depression is the anaemia. Once the iron is repleted, the mood will follow — reliably, within weeks. Continuing the sertraline perpetuates a misdiagnosis.",
-            "pt_remark_wrong": "The sertraline and the iron both. Alright. If that's what you think."
+            "pt_remark_wrong": "The sertraline and the iron both. Alright. If that's what you think.",
+            "fennick_wrong_comment": "\"Her mood may be secondary to the anaemia. Treat the cause first.\""
           },
           {
             "text": "Refer to psychiatry for treatment-resistant depression",
             "sub": "Psychiatry referral",
             "correct": false,
             "feedback_wrong": "Referring her to psychiatry now would be the final insult of a long diagnostic failure. She does not have treatment-resistant depression. She has a Hgb of 7.4 and empty iron stores.",
-            "pt_remark_wrong": "A psychiatrist. If that's what you think is wrong."
+            "pt_remark_wrong": "A psychiatrist. If that's what you think is wrong.",
+            "fennick_wrong_comment": "\"Treat the iron deficiency before calling the depression treatment-resistant.\""
           }
         ]
       }
@@ -2393,7 +2424,8 @@
             "feedback_wrong": "Haloperidol can precipitate a severe, potentially fatal neuroleptic sensitivity reaction in this diagnosis — acute parkinsonism, impaired consciousness, autonomic instability. Typical antipsychotics are contraindicated. This would be catastrophic.",
             "pt_remark_wrong": "Something to calm the difficult days. Yes. Those days are very difficult.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Haloperidol in Lewy Body Dementia. Neuroleptic sensitivity reaction — rigidity, impaired consciousness, autonomic instability. It occurs in over half of cases. He may not have recovered.\""
+            "fennick_endgame_comment": "\"Haloperidol in Lewy Body Dementia. Neuroleptic sensitivity reaction — rigidity, impaired consciousness, autonomic instability. It occurs in over half of cases. He may not have recovered.\"",
+            "fennick_wrong_comment": "\"High-potency FGA in Lewy body dementia. Severe neuroleptic sensitivity — potentially fatal.\""
           }
         ]
       },
@@ -2417,7 +2449,8 @@
             "feedback_wrong": "He is medically stable, the acute situation is addressed, and admission to an unfamiliar environment — with a diagnosis that causes fluctuating cognition and visual phenomena — risks significant decompensation. The familiar environment of his flat is protective, not hazardous, with appropriate support.",
             "pt_remark_wrong": "A ward. I see. Will there be a piano.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"An unfamiliar ward, with fluctuating cognition and visual phenomena, indefinitely. The environment would have accelerated the very deterioration you were trying to prevent.\""
+            "fennick_endgame_comment": "\"An unfamiliar ward, with fluctuating cognition and visual phenomena, indefinitely. The environment would have accelerated the very deterioration you were trying to prevent.\"",
+            "fennick_wrong_comment": "\"He is not at that stage. Goals of care have not been discussed.\""
           },
           {
             "text": "Discharge with olanzapine PRN for behavioral episodes",
@@ -2426,14 +2459,16 @@
             "feedback_wrong": "Olanzapine carries significant neuroleptic sensitivity risk in this diagnosis. PRN antipsychotics in the community without specialist supervision is dangerous. This is not appropriate.",
             "pt_remark_wrong": "A pill for the bad days. That sounds manageable.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Olanzapine at home, PRN, without specialist supervision. The neuroleptic sensitivity risk does not disappear because the dose is low.\""
+            "fennick_endgame_comment": "\"Olanzapine at home, PRN, without specialist supervision. The neuroleptic sensitivity risk does not disappear because the dose is low.\"",
+            "fennick_wrong_comment": "\"Lewy body dementia and antipsychotics. The sensitivity warning applies to all of them.\""
           },
           {
             "text": "Discharge without follow-up — stable on current medications",
             "sub": "Discharge without follow-up",
             "correct": false,
             "feedback_wrong": "This is a progressive neurodegenerative condition with a specific and serious medication risk profile. Discharging without specialist follow-up, without a care plan, without a medication alert — and without telling Mira what to watch for — is abandonment dressed as efficiency.",
-            "pt_remark_wrong": "I can manage on my own. I have always managed on my own."
+            "pt_remark_wrong": "I can manage on my own. I have always managed on my own.",
+            "fennick_wrong_comment": "\"Tier 3 presentation. He needs coordinated follow-up. Not an open door.\""
           }
         ]
       }
@@ -2730,7 +2765,8 @@
             "feedback_wrong": "A single improving MetHb level is not sufficient for discharge. Aniline has ongoing dermal absorption potential and rebound methemoglobinemia can occur. Serial levels and cardiac monitoring are required before discharge is safe.",
             "pt_remark_wrong": "Once I'm feeling better I can go. How long is that going to take.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"MetHb at 20 percent is still symptomatic. Aniline has ongoing dermal absorption. Rebound methemoglobinemia occurs. He would have deteriorated at home without anyone watching.\""
+            "fennick_endgame_comment": "\"MetHb at 20 percent is still symptomatic. Aniline has ongoing dermal absorption. Rebound methemoglobinemia occurs. He would have deteriorated at home without anyone watching.\"",
+            "fennick_wrong_comment": "\"20% is still symptomatic. Treat to resolution, not to an arbitrary threshold.\""
           },
           {
             "text": "Discharge with oral antidote and outpatient follow-up in one week",
@@ -2739,14 +2775,16 @@
             "feedback_wrong": "There is no oral antidote regimen for acute methemoglobinemia at this severity. MetHb 38% with tachycardia in a sixteen-year-old is not an outpatient situation.",
             "pt_remark_wrong": "Come back in a week. For the thing that turned my blood brown.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"An oral antidote that does not exist, for a level that required IV treatment. He would have gone home still poisoned.\""
+            "fennick_endgame_comment": "\"An oral antidote that does not exist, for a level that required IV treatment. He would have gone home still poisoned.\"",
+            "fennick_wrong_comment": "\"Methylene blue is IV only. There is no oral formulation.\""
           },
           {
             "text": "Transfer to burns unit for chemical decontamination",
             "sub": "Burns unit referral",
             "correct": false,
             "feedback_wrong": "This is a systemic toxidrome, not primarily a skin injury. The burns unit manages cutaneous chemical burns — the appropriate setting here is a monitored medical bed with access to co-oximetry and repeat methylene blue.",
-            "pt_remark_wrong": "The burns ward. Because of some blue on my arms."
+            "pt_remark_wrong": "The burns ward. Because of some blue on my arms.",
+            "fennick_wrong_comment": "\"This is haematological toxicity, not a chemical burn. Wrong specialty.\""
           }
         ]
       }
@@ -3037,21 +3075,24 @@
             "sub": "Inpatient steroid withdrawal",
             "correct": false,
             "feedback_wrong": "He is clinically stable and does not need inpatient admission. The taper is a slow outpatient process over weeks. Admission is not indicated and would not change the management timeline.",
-            "pt_remark_wrong": "Admitted? I have Assembly sessions. Who do I speak to about a private room."
+            "pt_remark_wrong": "Admitted? I have Assembly sessions. Who do I speak to about a private room.",
+            "fennick_wrong_comment": "\"Abrupt cessation after eighteen months of steroids. Adrenal crisis within hours.\""
           },
           {
             "text": "Discharge with no follow-up — now that source is identified, the body will self-correct",
             "sub": "Discharge without follow-up",
             "correct": false,
             "feedback_wrong": "HPA axis recovery requires monitoring. Glucose 128 requires follow-up. K 3.1 requires supplementation. BP 158/96 requires optimisation. LVH requires cardiovascular follow-up. Discharging without a plan is not appropriate.",
-            "pt_remark_wrong": "Come back in a week and it sorts itself out? My tailor spent forty minutes remeasuring me last month."
+            "pt_remark_wrong": "Come back in a week and it sorts itself out? My tailor spent forty minutes remeasuring me last month.",
+            "fennick_wrong_comment": "\"You identified the source. You did not confirm the axis will recover.\""
           },
           {
             "text": "Refer to bariatric surgery for central obesity",
             "sub": "Bariatric surgery referral",
             "correct": false,
             "feedback_wrong": "The central obesity, moon facies, and fat redistribution are directly caused by glucocorticoid excess. They will resolve as the steroid is tapered. Referring for bariatric surgery before addressing the root cause is profoundly wrong.",
-            "pt_remark_wrong": "Weight loss surgery. For weight gained from a drug you're now going to stop. I genuinely cannot tell if this is serious."
+            "pt_remark_wrong": "Weight loss surgery. For weight gained from a drug you're now going to stop. I genuinely cannot tell if this is serious.",
+            "fennick_wrong_comment": "\"The central obesity is a consequence of hypercortisolaemia. Treat the cause.\""
           }
         ]
       }
@@ -3316,7 +3357,8 @@
             "feedback_wrong": "Methotrexate is for inflammatory arthritis — RA, psoriatic arthritis. It has no role in osteoarthritis, which is not an autoimmune condition. Prescribing it here exposes the patient to significant toxicity with no therapeutic benefit.",
             "pt_remark_wrong": "A strong immunosuppressant. For wear on the joints. Those are the same treatment?",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Methotrexate for osteoarthritis — an immunosuppressant for a mechanical problem. Hepatotoxicity, bone marrow suppression, pulmonary toxicity. No benefit. Significant harm.\""
+            "fennick_endgame_comment": "\"Methotrexate for osteoarthritis — an immunosuppressant for a mechanical problem. Hepatotoxicity, bone marrow suppression, pulmonary toxicity. No benefit. Significant harm.\"",
+            "fennick_wrong_comment": "\"DMARDs are for inflammatory arthritis. This is osteoarthritis. Wrong mechanism.\""
           },
           {
             "text": "Oral prednisolone course — reduce inflammation",
@@ -3351,14 +3393,16 @@
             "sub": "Inpatient admission",
             "correct": false,
             "feedback_wrong": "There is no indication for admission. This is stable chronic OA. Inpatient rheumatology review serves no purpose here.",
-            "pt_remark_wrong": "Admitted. For a year of gradual hand pain in a stable man."
+            "pt_remark_wrong": "Admitted. For a year of gradual hand pain in a stable man.",
+            "fennick_wrong_comment": "\"Osteoarthritis does not require inpatient admission.\""
           },
           {
             "text": "Discharge with oral ibuprofen only — review if worsens",
             "sub": "Oral NSAID only",
             "correct": false,
             "feedback_wrong": "Oral NSAIDs alone misses the opportunity for targeted topical treatment, joint protection with splinting, and OT. And in a 61-year-old with no current GI or renal issues, systemic NSAIDs carry risk that topical formulations avoid.",
-            "pt_remark_wrong": "The same tablet I've been taking when it gets bad. And come back if it gets worse."
+            "pt_remark_wrong": "The same tablet I've been taking when it gets bad. And come back if it gets worse.",
+            "fennick_wrong_comment": "\"NSAIDs alone without safety netting or physio is incomplete management.\""
           },
           {
             "text": "Refer to orthopaedics for surgical planning",
@@ -3367,7 +3411,8 @@
             "feedback_wrong": "No conservative management has been tried. Orthopaedic referral for surgical planning at this stage bypasses everything that should come first.",
             "pt_remark_wrong": "A surgeon. Before we've tried the splint or the therapy or anything else.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Surgery before conservative management was tried. Arthroplasty carries real risk. He had not yet tried a splint.\""
+            "fennick_endgame_comment": "\"Surgery before conservative management was tried. Arthroplasty carries real risk. He had not yet tried a splint.\"",
+            "fennick_wrong_comment": "\"Surgery is the last step, not the first. Conservative management has not been tried.\""
           }
         ]
       }
@@ -3541,7 +3586,8 @@
             "feedback_wrong": "Dialysis is a last resort for refractory AKI that does not respond to aggressive hydration. His kidneys are not there yet — creatinine is 2.1, not anuric failure. Aggressive IV fluids are the first intervention. Dialysis may never be needed if you act now.",
             "pt_remark_wrong": "Dialysis. Is that like a machine that does what the kidneys do. Can it also build muscle.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Creatinine 2.1 with a rising trend is not dialysis territory yet. You bypassed the intervention that could have prevented it entirely.\""
+            "fennick_endgame_comment": "\"Creatinine 2.1 with a rising trend is not dialysis territory yet. You bypassed the intervention that could have prevented it entirely.\"",
+            "fennick_wrong_comment": "\"CK 48200 without renal failure. IV fluids first — dialysis is not indicated yet.\""
           }
         ]
       },
@@ -3599,7 +3645,8 @@
             "feedback_wrong": "K 5.8 with EKG changes in a patient whose CK is 48,200 and still rising is not reassurance territory. This number will keep climbing as muscle breakdown continues. Peaked T waves are the warning before it becomes fatal.",
             "pt_remark_wrong": "It's fine. I feel fine.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"K 5.8 with peaked T waves and ongoing muscle breakdown. You reassured him. The potassium continued to rise.\""
+            "fennick_endgame_comment": "\"K 5.8 with peaked T waves and ongoing muscle breakdown. You reassured him. The potassium continued to rise.\"",
+            "fennick_wrong_comment": "\"Potassium 5.8 with a CK of 48200 and oliguria. This is not mild.\""
           },
           {
             "text": "Immediate haemodialysis for hyperkalaemia",
@@ -3636,7 +3683,8 @@
             "feedback_wrong": "Absolutely not. CK 48,200, creatinine rising, potassium 5.8 with EKG changes. He cannot drink enough water at home to achieve the urine output required. He needs IV fluids at a rate that oral intake cannot match.",
             "pt_remark_wrong": "I can drink more at home. I have a two litre bottle.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"CK still rising. Kidneys still failing. Potassium climbing toward an arrhythmia. You sent him home with a water bottle.\""
+            "fennick_endgame_comment": "\"CK still rising. Kidneys still failing. Potassium climbing toward an arrhythmia. You sent him home with a water bottle.\"",
+            "fennick_wrong_comment": "\"He needs IV fluids at a rate that cannot be matched orally.\""
           },
           {
             "text": "Discharge once urine clears — visual inspection sufficient",
@@ -3645,14 +3693,16 @@
             "feedback_wrong": "Urine colour normalising does not mean CK has normalised. CK peaks 24-48 hours after the insult and the renal injury continues beyond when the urine clears. Visual inspection is not a discharge criterion.",
             "pt_remark_wrong": "The colour's already getting better I think. I checked this morning.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"The urine cleared. The CK continued to rise for another 36 hours. The kidneys did not know the urine looked better.\""
+            "fennick_endgame_comment": "\"The urine cleared. The CK continued to rise for another 36 hours. The kidneys did not know the urine looked better.\"",
+            "fennick_wrong_comment": "\"Visual inspection is not a substitute for urine myoglobin quantification.\""
           },
           {
             "text": "ICU admission for immediate dialysis",
             "sub": "ICU and dialysis",
             "correct": false,
             "feedback_wrong": "ICU and dialysis are not yet indicated. He is not anuric, not haemodynamically unstable, and has not failed medical management. Monitored ward bed with aggressive IV fluids is the appropriate level of care right now.",
-            "pt_remark_wrong": "ICU. That sounds serious. Can I still have my shake in there."
+            "pt_remark_wrong": "ICU. That sounds serious. Can I still have my shake in there.",
+            "fennick_wrong_comment": "\"No renal failure yet. Aggressive IV hydration is the treatment — not immediate dialysis.\""
           }
         ]
       }
@@ -3828,7 +3878,8 @@
             "feedback_wrong": "O2 93% at rest. Elevated JVP. RV heave. Loud P2. This is not anxiety. Discharging this patient risks decompensation within days.",
             "pt_remark_wrong": "Anxiety. ... Yes. ... My decorator said the same thing about the wallpaper. ... He was also wrong.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"O2 93% at rest. Right heart under critical pressure. You sent her home with lifestyle advice. She would not have made it to the end of the week.\""
+            "fennick_endgame_comment": "\"O2 93% at rest. Right heart under critical pressure. You sent her home with lifestyle advice. She would not have made it to the end of the week.\"",
+            "fennick_wrong_comment": "\"Right heart strain on echo, RVSP 68, severe functional limitation. This is not anxiety.\""
           }
         ]
       },
@@ -3858,7 +3909,8 @@
             "feedback_wrong": "Beta blockers are contraindicated in PAH. The right ventricle is compensating for massively elevated pulmonary pressures through tachycardia and hypertrophy. Blocking that compensatory response can precipitate acute right heart failure.",
             "pt_remark_wrong": "Something for the heart rate. ... My jeweller recommended something similar once. ... That also did not work.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"The right ventricle is surviving on tachycardia. You removed it. The RV had nothing left to compensate with.\""
+            "fennick_endgame_comment": "\"The right ventricle is surviving on tachycardia. You removed it. The RV had nothing left to compensate with.\"",
+            "fennick_wrong_comment": "\"Beta-blockade worsens right heart failure in PAH. Contraindicated.\""
           },
           {
             "text": "Repeat echo in three months — monitor progression",
@@ -3867,7 +3919,8 @@
             "feedback_wrong": "RVSP 74 mmHg with RV dilation and O2 93% at rest is not a watch-and-wait situation. This patient needs urgent specialist input and haemodynamic confirmation now.",
             "pt_remark_wrong": "Come back in three months. ... Yes. ... I will have my secretary arrange it.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"RVSP 74. RV dilation. O2 93% at rest. You scheduled a follow-up appointment. She decompensated before it.\""
+            "fennick_endgame_comment": "\"RVSP 74. RV dilation. O2 93% at rest. You scheduled a follow-up appointment. She decompensated before it.\"",
+            "fennick_wrong_comment": "\"She cannot walk to the bathroom without desaturating. Three months is not acceptable.\""
           }
         ]
       },
@@ -3897,7 +3950,8 @@
             "feedback_wrong": "Lung biopsy is not part of PAH workup and carries serious risk in a patient with severely elevated pulmonary pressures. The diagnosis is haemodynamic, not histological.",
             "pt_remark_wrong": "A biopsy. Of the lung. ... While it is still in use.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Biopsy in severely elevated pulmonary pressures. The bleeding risk alone. This was not a histological diagnosis.\""
+            "fennick_endgame_comment": "\"Biopsy in severely elevated pulmonary pressures. The bleeding risk alone. This was not a histological diagnosis.\"",
+            "fennick_wrong_comment": "\"Biopsy is not part of the PAH diagnostic algorithm. RHC is.\""
           },
           {
             "text": "Refer to psychiatry — symptom exaggeration cannot be excluded",
@@ -3906,7 +3960,8 @@
             "feedback_wrong": "O2 93%, RVSP 74 mmHg, right heart failure on examination. There is nothing psychiatric about this presentation.",
             "pt_remark_wrong": "A psychiatrist. ... I am not sure whether to be offended or amused. ... Both, I think. ... I will send him a gift either way.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"The right heart was in failure. You sent her to psychiatry.\""
+            "fennick_endgame_comment": "\"The right heart was in failure. You sent her to psychiatry.\"",
+            "fennick_wrong_comment": "\"Her echo is objective. Her desaturation is objective. Psychiatry is not indicated.\""
           }
         ]
       },
@@ -3964,7 +4019,8 @@
             "feedback_wrong": "O2 93% at rest, right heart failure, RVSP 74. She cannot wait 6 weeks. Outpatient initiation of PAH therapy is appropriate for stable class II patients — not class III with active right heart failure.",
             "pt_remark_wrong": "Six weeks. ... Yes. That suits my schedule. ... I have the stairs to deal with in the meantime.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Class III. Active right heart failure. O2 93% at rest. You sent her home with a prescription and a six-week appointment.\""
+            "fennick_endgame_comment": "\"Class III. Active right heart failure. O2 93% at rest. You sent her home with a prescription and a six-week appointment.\"",
+            "fennick_wrong_comment": "\"She needs same-day specialist review, not a six-week wait.\""
           },
           {
             "text": "Discharge — reassure that medication will resolve symptoms within days",
@@ -3973,7 +4029,8 @@
             "feedback_wrong": "PAH therapy improves symptoms over weeks to months — it does not resolve them within days. And this patient cannot safely be discharged with active right heart failure.",
             "pt_remark_wrong": "Better in a few days. ... Excellent. ... I will tell my husband the stairs were the problem after all.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"You told her she would feel better in a few days. She deteriorated overnight.\""
+            "fennick_endgame_comment": "\"You told her she would feel better in a few days. She deteriorated overnight.\"",
+            "fennick_wrong_comment": "\"PAH medications take weeks to show effect. Discharging without monitoring is unsafe.\""
           },
           {
             "text": "ICU admission — intubation and mechanical ventilation",
@@ -3982,7 +4039,8 @@
             "feedback_wrong": "Intubation in severe PAH can precipitate acute right heart failure and cardiovascular collapse — positive pressure ventilation dramatically increases pulmonary vascular resistance. Intubation is a last resort, not a first step in a conscious, communicating patient.",
             "pt_remark_wrong": "A tube in the throat. ... That does seem excessive. ... Though I did once commission a very aggressive renovation.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Positive pressure ventilation in severe PAH. The right ventricle had nothing left to push against the increased resistance.\""
+            "fennick_endgame_comment": "\"Positive pressure ventilation in severe PAH. The right ventricle had nothing left to push against the increased resistance.\"",
+            "fennick_wrong_comment": "\"Intubation in PAH dramatically increases mortality. Avoid unless absolutely unavoidable.\""
           }
         ]
       }
@@ -4286,21 +4344,24 @@
             "feedback_wrong": "There is no indication for admission. Tension headache is an outpatient condition. Normal examination, no red flags, identified triggers, and a clear management plan make admission entirely unnecessary.",
             "pt_remark_wrong": "Admitted. ... For how long. ... I'll need to notify the bank.",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Admitted for tension headache. You occupied a bed that someone else needed.\""
+            "fennick_endgame_comment": "\"Admitted for tension headache. You occupied a bed that someone else needed.\"",
+            "fennick_wrong_comment": "\"Normal examination, no red flags, clear diagnosis. He occupied a bed that someone else needed.\""
           },
           {
             "text": "Discharge with no advice or follow-up plan",
             "sub": "Discharge without safety net",
             "correct": false,
             "feedback_wrong": "Discharging without advice on triggers, analgesia guidance, and a safety net misses the point of the consultation. He needs to understand what caused the headaches and what to do if they change.",
-            "pt_remark_wrong": "Just go. ... That's it. ... I spent three weeks on this."
+            "pt_remark_wrong": "Just go. ... That's it. ... I spent three weeks on this.",
+            "fennick_wrong_comment": "\"He leaves without knowing what caused it or what to do if it changes.\""
           },
           {
             "text": "Emergency CT head before discharge",
             "sub": "CT without indication",
             "correct": false,
             "feedback_wrong": "No red flags. Normal examination. Clear diagnosis. CT adds radiation exposure and no clinical value here. The diagnosis does not require imaging confirmation.",
-            "pt_remark_wrong": "The CT. Finally. ... Can I keep the images."
+            "pt_remark_wrong": "The CT. Finally. ... Can I keep the images.",
+            "fennick_wrong_comment": "\"No red flags. Normal examination. The radiation adds nothing here.\""
           }
         ]
       }
