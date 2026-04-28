@@ -1646,7 +1646,20 @@ async function buildReport() {
   if(revealedWorkup.has('imaging') && tmpl.pertinent_positives?.imaging) parts.push(tmpl.pertinent_positives.imaging);
   if(orderedLabs.has('lab-special') && tmpl.pertinent_positives?.special) parts.push(tmpl.pertinent_positives.special);
   const p = parts.length > 0 ? 'Pertinent positives include ' + parts.join('; ') + '. ' : 'Limited workup obtained. ';
-  el.innerHTML = `<strong>Patient:</strong> ${tmpl.age}yo ${tmpl.sex==='F'?'female':'male'} with PMH of ${tmpl.pmh}, presenting with ${tmpl.presenting}. ${p}<strong>Assessment:</strong> ${tmpl.assessment}. <strong>Plan:</strong> ${tmpl.plan}.`;
+  el.innerHTML = `<strong>Patient:</strong> ${tmpl.age}yo ${tmpl.sex==='F'?'female':'male'} with PMH of ${tmpl.pmh}, presenting with ${tmpl.presenting}. ${p}<strong>Assessment:</strong> ${tmpl.assessment}. <strong>Plan:</strong> ${(()=>{
+    let planText = tmpl.plan;
+    if(currentCase && currentCase.management && window._mgmtSelections) {
+      const lastIdx = currentCase.management.length - 1;
+      const lastSel = window._mgmtSelections[lastIdx];
+      if(lastSel) {
+        const lastOpt = currentCase.management[lastIdx].options[lastSel.optIdx];
+        if(lastOpt && !lastSel.correct && lastOpt.feedback_wrong) {
+          planText += ' <em style="color:#a04020">(' + lastOpt.text.split('—')[0].trim() + ' — ' + lastOpt.feedback_wrong.split('.')[0] + '.)</em>';
+        }
+      }
+    }
+    return planText;
+  })()}.`;
 }
 
 async function buildExplanation() {
@@ -2382,7 +2395,7 @@ function showReport(){
 function unlockManagement(){currentStage=0;renderManagement();document.getElementById('mgmt-note').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 // Track which option was selected per stage so re-renders restore the state
-const _mgmtSelections = {}; // { stageIdx: { optIdx, correct, feedback } }
+const _mgmtSelections = {}; window._mgmtSelections = _mgmtSelections; // { stageIdx: { optIdx, correct, feedback } }
 
 function renderManagement(){
   const stages=currentCase.management;if(!stages)return;
@@ -2572,9 +2585,9 @@ window.pickMgmt=function(stageIdx,optIdx){
     setFennick(_wrongFace, _wrongComment);
     if(!opt.critical_error) updateFennickByErrors();
     const mgmtWrongRemark = opt.pt_remark_wrong || getGenericRemark('mgmt-wrong');
-    if(mgmtWrongRemark) setTimeout(()=>setPtRemark(mgmtWrongRemark), 700);
+    if(mgmtWrongRemark) setTimeout(()=>setPtRemark(mgmtWrongRemark), 1200);
     if(!_mgmtSelections[stageIdx]) _mgmtSelections[stageIdx] = { optIdx, correct: false, feedback: opt.feedback_wrong||'Incorrect.' };
-    setTimeout(()=>advanceStage(stageIdx+1),800);
+    setTimeout(()=>advanceStage(stageIdx+1), opt.critical_error ? 5000 : 3500);
   }
 };
 
@@ -2696,7 +2709,11 @@ function endCase(failed){
     }
   }
   revealAllManagement();
-  document.getElementById('endgame').style.display='block';document.getElementById('endgame').scrollIntoView({behavior:'smooth'});
+  const _endgameDelay = _hasCriticalError ? 4000 : 1800;
+  setTimeout(()=>{
+    document.getElementById('endgame').style.display='block';
+    document.getElementById('endgame').scrollIntoView({behavior:'smooth'});
+  }, _endgameDelay);
   let grade,comment;
   // Case-specific grade override
   const _gradeOverride = currentCase && currentCase.fennick_grade_override;
