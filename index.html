@@ -685,9 +685,9 @@ body.tier-3 #pt-vignette {
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle at center,
-    rgba(255, 200, 80, 0.07) 0%,
-    rgba(220, 150, 40, 0.04) 35%,
-    rgba(180, 110, 20, 0.02) 60%,
+    rgba(255, 210, 100, 0.22) 0%,
+    rgba(220, 160, 40, 0.14) 35%,
+    rgba(180, 110, 20, 0.06) 60%,
     transparent 75%
   );
   mix-blend-mode: screen;
@@ -2279,9 +2279,14 @@ window.orderLab=function(idx){
   };
   const _lc = _labComments[labName.toLowerCase()];
   if(_lc) setTimeout(()=>setFennick('chart', _lc), 400);
-  // Patient remark on lab order
-  const labRemark = (currentCase && currentCase['cc_after_lab_'+labName.toLowerCase().replace(/\//g,'')]) || getGenericRemark('labs-generic');
-  if(labRemark) setTimeout(()=>setPtRemark(labRemark), 600);
+  // Patient remark on lab order — skip generic if test has specific pt_remark
+  const _testHasRemark = currentCase && currentCase.tests && currentCase.tests.find(t=>t.name.toLowerCase()===labName.toLowerCase() && t.pt_remark);
+  if(!_testHasRemark) {
+    const labRemark = (currentCase && currentCase['cc_after_lab_'+labName.toLowerCase().replace(/\//g,'')]) 
+      || (currentCase && currentCase.generic_lab_remark)
+      || getGenericRemark('labs-generic');
+    if(labRemark) setTimeout(()=>setPtRemark(labRemark), 600);
+  }
 };
 
 window.orderSpecialTest=function(){
