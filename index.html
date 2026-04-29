@@ -2308,6 +2308,21 @@ function addLabResult(name,result){
   // Fire pt_remark if test has one
   const ptRemark = testData && testData.pt_remark ? testData.pt_remark : null;
   if(ptRemark) setTimeout(()=>setPtRemark(ptRemark), 300);
+  // Portrait swap on specific lab order
+  if(currentCase && currentCase.portrait_on_labs) {
+    const labSwapKey = currentCase.portrait_on_labs[name.toLowerCase()];
+    if(labSwapKey && currentCase.patient) {
+      const labSwapUrl = currentCase.patient[labSwapKey];
+      if(labSwapUrl) setTimeout(()=>{
+        const ptImg = document.getElementById('pt-img');
+        if(ptImg) {
+          ptImg.style.transition = 'opacity 0.6s';
+          ptImg.style.opacity = '0';
+          setTimeout(()=>{ ptImg.src = labSwapUrl; ptImg.style.opacity = '1'; }, 600);
+        }
+      }, 800);
+    }
+  }
   card.innerHTML=`<div class="test-result-name">${name.toUpperCase()}</div><div class="test-result-val">${result}</div>${fragHtml}`;
   document.getElementById('lab-results').appendChild(card);
 }
@@ -2352,6 +2367,18 @@ window.submitDx=function(){
     // Tier 3: dramatic fog clear on correct dx
     if(currentCase.tier === 3) {
       setTimeout(()=>{ try{ window.setFogDensity(0, 'warm'); }catch(e){} }, 300);
+    }
+    // Portrait swap on correct dx — only if portrait_swap_on_dx field set
+    if(currentCase.portrait_swap_on_dx && currentCase.patient) {
+      const swapUrl = currentCase.patient[currentCase.portrait_swap_on_dx];
+      if(swapUrl) setTimeout(()=>{
+        const ptImg = document.getElementById('pt-img');
+        if(ptImg) {
+          ptImg.style.transition = 'opacity 0.6s';
+          ptImg.style.opacity = '0';
+          setTimeout(()=>{ ptImg.src = swapUrl; ptImg.style.opacity = '1'; }, 600);
+        }
+      }, 800);
     }
     result.className='dx-result correct';result.textContent='\u2713 Correct \u2014 '+currentCase.dx_answer;result.style.display='block';
     document.getElementById('dx-submit-btn').disabled=true;document.getElementById('dx-suggestions').style.display='none';
