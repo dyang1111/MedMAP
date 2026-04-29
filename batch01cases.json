@@ -518,6 +518,46 @@
             "fennick_wrong_comment": "\"Biopsy before resection. Always.\""
           }
         ]
+      },
+      {
+        "title": "Delivering the diagnosis",
+        "hint": "The patient is with family. She has been waiting. How do you begin?",
+        "options": [
+          {
+            "text": "Ask if she would like anyone to remain in the room, then proceed when she is ready",
+            "sub": "Patient-led disclosure",
+            "correct": true,
+            "feedback_correct": "Correct. The patient controls who is present during disclosure. Asking first respects autonomy and gives her a moment to prepare. This is the SPIKES approach — Setting before Information.",
+            "fennick_correct_comment": "\"The words matter as much as the treatment.\"",
+            "pt_remark_correct": "She looks at her daughter. Then at you. ... Yes. She can stay."
+          },
+          {
+            "text": "Ask the family to step outside — speak to the patient alone first",
+            "sub": "Exclude family without asking",
+            "correct": false,
+            "feedback_wrong": "Removing family without asking the patient removes her choice. She may want them present. Always let the patient decide who stays.",
+            "pt_remark_wrong": "The daughter stands. The Merchant's hand tightens on hers. ... No. They stay.",
+            "fennick_wrong_comment": "\"Her choice. Not yours.\""
+          },
+          {
+            "text": "Deliver the diagnosis directly — the family is already present and she has been waiting",
+            "sub": "Immediate disclosure without setting",
+            "correct": false,
+            "feedback_wrong": "Even when the patient is expecting bad news, taking a moment to establish setting and ask who she wants present makes a significant difference. Efficiency is not the priority here.",
+            "pt_remark_wrong": "She hears it. The family hears it. Nobody was ready. The daughter starts crying before the Merchant does.",
+            "fennick_wrong_comment": "\"She was ready for the news. She was not ready for the moment.\""
+          },
+          {
+            "text": "Tell a family member the diagnosis privately first so they can support her",
+            "sub": "Disclose to family before patient",
+            "correct": false,
+            "feedback_wrong": "Disclosing to family before the patient violates confidentiality and removes her autonomy entirely. The patient is the primary recipient of her own diagnosis — always.",
+            "pt_remark_wrong": "Her daughter knows before she does. She sees it on her daughter's face before you say a word. She never quite forgives that.",
+            "fennick_wrong_comment": "\"She heard it from her daughter's expression. Not from you.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You told the family first. The patient lost trust before you said a word to her. That trust does not come back.\""
+          }
+        ]
       }
     ],
     "report_template": {
