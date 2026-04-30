@@ -1519,4 +1519,1489 @@
     "cc_after_hint": "... You are getting warmer. ... I would tell you but then what would be the point of you.",
     "cc_after_dx": "... (looks at you with something that might be satisfaction) ... I had a name for it too. ... Mine was older. ... But yes. ... Same thing."
   }
+]    },
+    "additional_hx": "On direct questioning she admits the mirror woman started approximately three months ago. At first just in her hand mirror. Now every reflective surface. She stopped using the large fitting mirrors at work two weeks ago — she tells clients the angles are better from the side. She has not told her employer. The voice started about six weeks ago. It narrates. It says things like she is choosing the wrong hat. She finds this insulting more than frightening. Sleep somewhat disrupted. Mood — she says fine but mentions she has been crying occasionally without knowing why. No euphoria, no grandiosity beyond baseline, no decreased sleep with increased energy.",
+    "patient_quote_addl_hx": "\"The woman in the mirror has terrible taste. She keeps making the same face I make, which is a good face, but she does it wrong.\"",
+    "pe_findings": "Well-dressed, well-groomed, mildly irritable. Alert and oriented. Speech fluent but occasionally circumstantial. Affect appropriate but restricted when discussing the voice. No formal thought disorder on brief testing. No disorganised behaviour. No focal neurological deficit. Thyroid not enlarged.",
+    "imaging": "CT head: no intracranial pathology. Normal study.",
+    "special_test": {
+      "name": "UDS + TFTs + FBC + CMP",
+      "result": "UDS: negative. TSH 1.8. FBC normal. CMP normal. Calcium normal. QTc 402ms on EKG."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "WBC 7.2, Hgb 13.4, Plt 310. Normal.",
+        "pt_remark": "My blood is fine. People comment on my circulation all the time. I have excellent colour."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Sodium 139, creatinine 0.8, glucose 84, calcium 9.4. LFTs normal.",
+        "pt_remark": "I had wine last night. A very good one. I doubt my blood is anything but exceptional."
+      },
+      {
+        "name": "TFTs",
+        "cost": 5,
+        "result": "TSH 1.8. Free T4 normal.",
+        "pt_remark": "The thyroid one. My neck is one of my better features. I am sure it is functioning beautifully."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Normal sinus rhythm rate 76. QTc 402ms.",
+        "pt_remark": "My heart is in perfect condition. Several people have commented on it. Metaphorically."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Negative. Not indicated.",
+        "pt_remark": "Is that for the heart. My heart is not the problem. My mirror is."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Normal. Not indicated."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Normal.",
+        "pt_remark": "You want my urine. How glamorous."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "Normal. Not indicated.",
+        "pt_remark": "Blood clotting. Are you expecting drama. There will not be any. I am very composed."
+      }
+    ],
+    "hints": [
+      "Visual hallucinations in mirrors, auditory hallucinations narrating her actions, thought insertion. Count the Criterion A symptoms — you need at least two, with at least one being hallucinations, delusions, or disorganised speech.",
+      "Medical and substance causes excluded — UDS negative, TFTs normal, metabolic panel normal, CT head clear. This is a primary psychiatric condition.",
+      "Duration is the critical differentiator here. How long have symptoms been present? That single piece of information separates several diagnoses.",
+      "Three months: meets schizophreniform (1-6 months). Six months or more would be schizophrenia. Mood symptoms present but not meeting full major depressive episode criteria — schizoaffective not supported."
+    ],
+    "management": [
+      {
+        "title": "Exclude organic causes",
+        "hint": "New onset psychosis in a 22-year-old. What do you need to rule out before calling this primary psychiatric?",
+        "options": [
+          {
+            "text": "UDS, TFTs, metabolic panel, CT head",
+            "sub": "Full organic exclusion workup",
+            "correct": true,
+            "feedback_correct": "Correct. New onset psychosis requires exclusion of substance intoxication/withdrawal, thyroid dysfunction, metabolic derangement, and intracranial pathology before a primary psychiatric diagnosis can be made.",
+            "fennick_correct_comment": "\"Rule out the reversible first. Organic psychosis treated as primary psychiatric is a serious miss.\"",
+            "pt_remark_correct": "All of those. Fine. I hope none of them require removing the hat."
+          },
+          {
+            "text": "Start antipsychotic immediately — symptoms are clearly psychiatric",
+            "sub": "Treat before organic exclusion",
+            "correct": false,
+            "feedback_wrong": "Starting antipsychotics before excluding organic causes risks masking a treatable underlying condition — thyroid storm, CNS pathology, substance intoxication. Workup first.",
+            "pt_remark_wrong": "A medication. Already. Without knowing what is actually happening. That seems hasty.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Antipsychotic before organic exclusion. A thyroid storm treated with risperidone. A tumour treated with risperidone. You did not check.\"",
+            "fennick_wrong_comment": "\"Organic psychosis treated as primary psychiatric is a serious miss.\""
+          },
+          {
+            "text": "Psychiatric assessment only — organic cause unlikely at her age",
+            "sub": "Skip organic workup",
+            "correct": false,
+            "feedback_wrong": "Age does not exclude organic psychosis. Substance use, thyroid dysfunction, and CNS pathology all occur in young adults. Organic exclusion is mandatory for new onset psychosis regardless of age.",
+            "pt_remark_wrong": "Just talking. Fine. Though I should warn you I am an excellent conversationalist and this may take a while.",
+            "fennick_wrong_comment": "\"Age does not exclude organic psychosis.\""
+          },
+          {
+            "text": "Admit immediately for inpatient psychiatric evaluation",
+            "sub": "Inpatient before workup",
+            "correct": false,
+            "feedback_wrong": "Inpatient admission before basic organic exclusion is backwards. Workup can be done as part of the ED assessment before disposition is decided.",
+            "pt_remark_wrong": "Admitted. Before you have even done anything. I am not a hotel guest, I am a diagnostic challenge.",
+            "fennick_wrong_comment": "\"Workup comes before disposition.\""
+          }
+        ]
+      },
+      {
+        "title": "First-line pharmacotherapy",
+        "hint": "Schizophreniform confirmed. Organic causes excluded. Which antipsychotic?",
+        "options": [
+          {
+            "text": "Risperidone — SGA, D2 and 5-HT2A antagonist",
+            "sub": "Second-generation antipsychotic",
+            "correct": true,
+            "feedback_correct": "Correct. SGAs are first-line for schizophreniform disorder. Risperidone targets positive symptoms via D2 blockade. Monitor prolactin, metabolic parameters, QTc.",
+            "fennick_correct_comment": "\"D2 for positive symptoms. 5-HT2A for the rest. Monitor prolactin. Monitor weight. Monitor QTc.\"",
+            "pt_remark_correct": "A tablet. Once a day. Fine. Does it interact with wine.",
+            "reactive_stage": {
+              "delay_ms": 3500,
+              "fennick_transition": "\"She returns four weeks later. The mirror woman is quieter. But her neck will not stop moving.\"",
+              "pt_remark_transition": "The woman in the mirror says less. This is an improvement. My neck, however, has developed opinions of its own.",
+              "description": "Four weeks later — partial response. Patient returns with involuntary neck and jaw movements consistent with acute dystonia.",
+              "title": "Manage the extrapyramidal side effect",
+              "hint": "Acute dystonia on risperidone. Involuntary neck and jaw movements. What do you add?",
+              "options": [
+                {
+                  "text": "Benztropine — anticholinergic, first-line for acute dystonia",
+                  "sub": "Anticholinergic for EPS",
+                  "correct": true,
+                  "feedback_correct": "Correct. Benztropine is first-line for antipsychotic-induced acute dystonia. Anticholinergic action counteracts dopamine blockade-induced EPS.",
+                  "fennick_correct_comment": "\"Anticholinergic to counter the dopamine blockade. Predictable cause. Predictable fix.\"",
+                  "pt_remark_correct": "Another tablet. To fix the problem caused by the first tablet. This is becoming a collection. I hope they are small."
+                },
+                {
+                  "text": "Stop risperidone immediately",
+                  "sub": "Abrupt cessation",
+                  "correct": false,
+                  "feedback_wrong": "Abrupt antipsychotic cessation risks rebound psychosis. Manage EPS with anticholinergics or dose reduction first.",
+                  "pt_remark_wrong": "Stop it entirely. The mirror woman can come back. At least she does not make my neck do this."
+                },
+                {
+                  "text": "Add haloperidol",
+                  "sub": "FGA addition on EPS",
+                  "correct": false,
+                  "feedback_wrong": "Adding a high-potency FGA to a patient already experiencing EPS would significantly worsen extrapyramidal symptoms.",
+                  "pt_remark_wrong": "A second antipsychotic. On top of the one already making my neck misbehave. Absolutely not.",
+                  "critical_error": true,
+                  "fennick_endgame_comment": "\"EPS already present. You added a high-potency FGA. The dystonia would have become a crisis.\""
+                },
+                {
+                  "text": "Reassure — EPS resolves spontaneously",
+                  "sub": "Watchful waiting",
+                  "correct": false,
+                  "feedback_wrong": "Acute dystonia does not reliably resolve without treatment. Laryngeal involvement can be life-threatening.",
+                  "pt_remark_wrong": "Wait and see. While my neck does this. I have fittings this week."
+                }
+              ]
+            }
+          },
+          {
+            "text": "Haloperidol — high D2 potency",
+            "sub": "First-generation antipsychotic",
+            "correct": false,
+            "feedback_wrong": "FGAs carry higher EPS risk and are not preferred first-line over SGAs for schizophreniform disorder.",
+            "pt_remark_wrong": "That one sounds very aggressive. I am not aggressive. I am simply right about most things.",
+            "fennick_wrong_comment": "\"Higher EPS risk. Not preferred when an SGA is available.\""
+          },
+          {
+            "text": "Clozapine — most effective antipsychotic available",
+            "sub": "Clozapine first-line",
+            "correct": false,
+            "feedback_wrong": "Clozapine is reserved for treatment-resistant cases — minimum two failed adequate antipsychotic trials. It is never first-line.",
+            "pt_remark_wrong": "Weekly blood tests. No. I have enough appointments already.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Clozapine first-line. She had not failed a single prior trial. Agranulocytosis risk without the indication.\"",
+            "fennick_wrong_comment": "\"Two failed trials minimum. She has had zero.\""
+          },
+          {
+            "text": "CBT alone — avoid medication side effects",
+            "sub": "Therapy without pharmacotherapy",
+            "correct": false,
+            "feedback_wrong": "CBT is adjunctive in schizophrenia spectrum disorders. It does not replace antipsychotics for active positive symptoms.",
+            "pt_remark_wrong": "Just talking. I am an excellent conversationalist. But I do not think that is the issue here.",
+            "fennick_wrong_comment": "\"CBT is adjunctive. Not a replacement for antipsychotics in active psychosis.\""
+          }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Schizophreniform, no immediate safety concern, partial insight, engaging with treatment. Where does she go?",
+        "options": [
+          {
+            "text": "Outpatient psychiatry — medication, psychoeducation, safety planning, six-month review",
+            "sub": "Outpatient with psychiatry",
+            "correct": true,
+            "feedback_correct": "Correct. No immediate risk, functioning, partial insight, engaged. Outpatient psychiatry. Six-month review — if symptoms persist past six months, diagnosis revises to schizophrenia.",
+            "fennick_correct_comment": "\"Stable enough for outpatient. Not well enough to leave without a plan.\"",
+            "pt_remark_correct": "A psychiatrist. Fine. I assume they will want to talk about the mirror woman. She is not that interesting."
+          },
+          {
+            "text": "Involuntary inpatient admission",
+            "sub": "Involuntary admission",
+            "correct": false,
+            "feedback_wrong": "No imminent risk to self or others, no grave disability. She is functioning and engaging. Involuntary admission is not warranted.",
+            "pt_remark_wrong": "Against my will. I want it noted that I came here voluntarily and I find this extremely rude.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"No imminent risk. Functioning. Engaged. Involuntary admission here is a significant and unjustifiable overreach.\"",
+            "fennick_wrong_comment": "\"No imminent risk. No grave disability. This is an overreach.\""
+          },
+          {
+            "text": "Discharge with no follow-up",
+            "sub": "Discharge without plan",
+            "correct": false,
+            "feedback_wrong": "Schizophreniform without follow-up risks progression to schizophrenia without intervention. Early treatment significantly improves outcomes.",
+            "pt_remark_wrong": "Go home. Fine. The mirror woman will be delighted.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Early psychosis. No follow-up. You gave her nothing. The evidence on early intervention is unambiguous.\"",
+            "fennick_wrong_comment": "\"Early psychosis. No plan. The evidence on early intervention is unambiguous.\""
+          },
+          {
+            "text": "Voluntary inpatient for medication initiation",
+            "sub": "Unnecessary admission",
+            "correct": false,
+            "feedback_wrong": "Medication initiation for stable schizophreniform does not require admission. Outpatient initiation with close monitoring is standard.",
+            "pt_remark_wrong": "Voluntarily admitted. At least tell me you have decent rooms.",
+            "fennick_wrong_comment": "\"She is functioning and engaging. A bed is not what she needs tonight.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 22,
+      "sex": "F",
+      "pmh": "no significant past medical history",
+      "presenting": "three months of visual hallucinations in mirrors, auditory hallucinations narrating her actions, and thought insertion",
+      "pertinent_positives": {
+        "addl-hx": "symptom onset three months ago, progressive to all reflective surfaces, auditory hallucinations six weeks, functional avoidance of fitting mirrors, disrupted sleep, occasional unexplained crying not meeting major depressive episode criteria",
+        "pe": "alert, oriented, mildly irritable, circumstantial speech, restricted affect, no formal thought disorder, no focal neurology",
+        "labs": "UDS negative, TFTs normal, metabolic panel normal, QTc 402ms",
+        "imaging": "CT head normal",
+        "special": "all organic causes excluded"
+      },
+      "assessment": "Schizophreniform Disorder — Criterion A met (visual hallucinations, auditory hallucinations, thought insertion), duration three months, medical causes excluded, mood episode criteria not met",
+      "plan": "risperidone, outpatient psychiatry, psychoeducation, safety planning, six-month review for diagnostic revision"
+    },
+    "explanation": "Schizophreniform disorder meets Criterion A for schizophrenia (2+ of: delusions, hallucinations, disorganised speech, disorganised behaviour, negative symptoms — at least 1 must be delusions/hallucinations/disorganised speech) with duration 1-6 months. Distinguished from schizophrenia by duration <6 months. From brief psychotic disorder by duration >1 month. From schizoaffective by absence of major mood episode meeting full criteria concurrent with psychosis.",
+    "explanation_detail": {
+      "who_gets_it": "Peak onset late teens to mid-30s. One third recover fully; two thirds progress to schizophrenia or schizoaffective disorder.",
+      "risk_factors": "Family history, cannabis use (especially high-potency), urban birth, migration, perinatal complications.",
+      "typical_presentation": "Positive symptoms: hallucinations (auditory most common), delusions, disorganised speech/thought. Negative symptoms: flat affect, alogia, avolition, anhedonia. Prodrome often precedes acute episode.",
+      "moa": "Dopamine hypothesis: excess D2 in mesolimbic → positive symptoms. Reduced D1 prefrontal → cognitive/negative symptoms. Glutamate (NMDA) dysfunction also implicated. SGAs block D2 + 5-HT2A.",
+      "step1_buzzwords": "Criterion A: 2+ symptoms (delusions, hallucinations, disorganised speech, disorganised behaviour, negative symptoms — at least 1 must be first three). 1-6 months = schizophreniform. 6+ months = schizophrenia. Schizoaffective = major mood episode + Criterion A + psychosis 2+ weeks without mood episode.",
+      "lab_buzzwords": "Exclude organic: UDS, TFTs, metabolic, CBC, CT/MRI. QTc before antipsychotics. Fasting glucose and lipids before SGAs.",
+      "treatment": "SGAs first-line: risperidone, olanzapine, quetiapine, aripiprazole. Clozapine for treatment resistance only (2+ failed trials). EPS → benztropine. Metabolic effects → switch or metformin. Hyperprolactinaemia (risperidone) → switch to aripiprazole. CBT adjunct. Early intervention improves outcomes."
+    },
+    "fennick_opening": "\"She adjusted her hat twice before sitting.\"",
+    "cc_after_addl_hx": "Three months. Yes. The woman appeared in my hand mirror first. She has since made herself at home in every reflective surface I own, which is many.",
+    "cc_after_pe": "Are you examining me or admiring the hat. Both are acceptable but I would like to know which.",
+    "cc_after_imaging": "A brain scan. To confirm I am in perfect condition. I assumed so but it is nice to have documentation.",
+    "cc_after_hint": "You keep asking about time. I am a very busy person. Three months. Write it down.",
+    "cc_after_dx": "Schizophreniform. ... That is an extremely ugly word for someone this put-together.",
+    "fennick_case_complete": [
+      "\"The mirror woman is quieter now.\"",
+      "\"She will need watching for six months. The diagnosis may change. The person will not.\""
+    ],
+    "music_default": "Foxfire Morning Waltz",
+    "pt_opening": "You look like you have never seen anyone this well-dressed in a medical setting. That is understandable.",
+    "generic_lab_remark": "As long as none of this affects my complexion.",
+    "fennick_after_pe": "\"Fluent. Circumstantial. She keeps returning to the mirror.\"",
+    "fennick_after_imaging": "\"No structural lesion. Organic cause excluded.\""
+  },
+  {
+    "id": "017",
+    "date": "2026-04-17",
+    "tier": 1,
+    "urgency": "urgent",
+    "title": "The Tavern Keeper's Stupor",
+    "dx_answer": "Wernicke Encephalopathy",
+    "personality": {
+      "archetype": "Unconscious initially, then confused and confabulating",
+      "voice": "First heard through a drunk panicking regular. When he wakes — disoriented, cooperative but clearly not all there. Fills gaps in memory with plausible nonsense. Doesn't know he's doing it.",
+      "crack": "When he wakes up and asks if the evening rush is over. It is three in the afternoon.",
+      "companion": {
+        "name": "The Regular",
+        "voice": "Drunk. Panicking. Genuinely trying to help but the alcohol is making the timeline impossible to follow. Smells strongly of ale. Keeps starting sentences and abandoning them. Crying a little.",
+        "description": "A stocky man in a damp coat who arrived breathing heavily and smelling like the inside of a barrel. He is trying very hard to be useful."
+      }
+    },
+    "patient": {
+      "name": "The Tavern Keeper",
+      "age": 54,
+      "sex": "M",
+      "occupation": "Proprietor, The Rusted Flagon, Lower Gears District",
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334987/the_tavern_keeper_and_friend_wm8wmf.png",
+      "image_url_alert": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334988/the_tavern_keeper_xj4lmz.png"
+    },
+    "chart": {
+      "cc": "He just — he was locking up and then he was on the floor. I don't — we had a few but he always has a few, that's just — please someone look at him.",
+      "hpi": "The Tavern Keeper was brought in by a regular patron who found him collapsed behind the bar while closing up. The companion is visibly intoxicated and his account is fragmented. What can be established: the patient has been running The Rusted Flagon for twenty-two years. He drinks daily — the companion estimates four to six pints during a shift, sometimes more. He has not eaten properly in several days, the companion thinks. Maybe longer. He found him on the floor with his eyes open but not tracking. He was making sounds but not words. The companion got him into a cart and came directly here. He does not know if anyone else knows.",
+      "pmh": "Unknown. Companion does not know. Patient cannot currently provide history.",
+      "psh": "Unknown.",
+      "meds": "Unknown. Companion thinks maybe nothing. Maybe something for his back.",
+      "allergies": "Unknown.",
+      "fh": "Unknown.",
+      "sh": "Tavern proprietor, Lower Gears. Lives alone above the pub. Drinks daily. Eating described as irregular. Companion says he has looked unwell for weeks but they all assumed it was just how he looked now."
+    },
+    "vitals": {
+      "bp": "148/94",
+      "hr": "104",
+      "rr": "18",
+      "temp": "37.6",
+      "o2": "96% RA"
+    },
+    "additional_hx": "On examination the companion, pressed harder, recalls more. The patient has been increasingly confused for at least two weeks — forgetting orders, losing track of change, occasionally unsteady on his feet. The companion attributed this to tiredness. Three days ago the patient mentioned he was seeing double. He said he thought he needed new spectacles. He has been barely eating — the companion watched him pour a pint and take a sip of it as dinner last Tuesday. He has been running the pub on ale and habit for some time. The companion starts crying again at this point and says he should have said something sooner. He smells very strongly of ale.",
+    "patient_quote_addl_hx": "\"He said last week — he said his eyes were doing something funny. I thought he meant tired. He's always tired. We're all always tired. God I should've — can someone check if I need to sit down too.\"",
+    "pe_findings": "Unresponsive to voice, withdraws to pain. Eyes open spontaneously. Lateral gaze palsy — cannot move eyes outward bilaterally. Bilateral horizontal nystagmus on attempted lateral gaze. Ataxic posture — unable to maintain sitting position. No focal limb weakness. Pupils equal and reactive. Mild jaundice. Palmar erythema. Bilateral peripheral tremor. Strong smell of alcohol. GCS 10 (E3 V3 M4).",
+    "imaging": "CT head: no acute intracranial haemorrhage. No mass lesion. Mild generalised cerebral volume loss consistent with chronic alcohol use. No midline shift.",
+    "special_test": {
+      "name": "Blood Glucose + Thiamine Level",
+      "result": "Blood glucose 3.2 mmol/L (low). Thiamine (Vitamin B1): <7 nmol/L (severely low — normal 70-180 nmol/L). Lactate 3.1 mmol/L. These results returned after initial management decision — thiamine level confirms clinical suspicion."
+    },
+    "memory_fragments": {
+      "pe": "He has been opening that pub at six in the morning and closing at midnight for twenty-two years. He stopped tasting the ale about three years ago. He keeps pouring it anyway."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "WBC 8.2. Hgb 10.8 (low — macrocytic, MCV 108). Plt 98 (low). Macrocytic anaemia with thrombocytopenia.",
+        "pt_remark": "He cannot answer. The companion: Is that bad. His face is doing a thing. That's bad isn't it."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Sodium 131 (low). Potassium 3.1 (low). Magnesium 0.6 (low — critical). Creatinine 1.2. AST 88, ALT 52, GGT 340 (elevated — alcoholic hepatopathy pattern). Albumin 26 (low).",
+        "pt_remark": "Companion: He eats — well. He used to eat. He's been on — look I'm not his mother but I did bring him food twice last week and he didn't really — look is the number bad."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Sinus tachycardia rate 104. QTc 468ms (prolonged — electrolyte derangement). No ischaemic changes.",
+        "pt_remark": "Companion: His heart is — is his heart okay. He's got a good heart. Not like — medically. I mean as a person. He lets people run tabs."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Mildly elevated at 0.05. Likely demand ischaemia in context of tachycardia and metabolic derangement. Monitor."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Elevated at 180 U/L (upper limit 140). Mild elevation — chronic alcoholic pancreatitis pattern. No acute pancreatitis picture.",
+        "pt_remark": "Companion: He did say his stomach hurt last week. He said it was the new barrel."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Ketones 2+. Protein trace. No infection. Concentrated — dehydrated."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "pH 7.34. Lactate 3.1. Bicarbonate 18. Mild metabolic acidosis.",
+        "pt_remark": "Companion: You're taking a lot of blood. Is he going to run out. Can they do that."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.6 (elevated). PTT 42. Consistent with hepatic synthetic dysfunction."
+      }
+    ],
+    "hints": [
+      "Lateral gaze palsy, nystagmus, ataxia, confusion. That is a classic triad. The question is what causes all three simultaneously in a man who smells like ale and has not eaten properly in weeks.",
+      "Thiamine (Vitamin B1) is a cofactor for several critical enzymes in glucose metabolism — pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, transketolase. The brain is entirely dependent on glucose metabolism. Without thiamine, giving glucose accelerates the neurological damage.",
+      "Thiamine before glucose. Always. In any confused patient with alcohol history or nutritional deficiency. Giving dextrose first in Wernicke encephalopathy can precipitate acute deterioration and irreversible Korsakoff syndrome.",
+      "After thiamine and glucose: correct electrolytes especially magnesium — magnesium is required for thiamine utilisation. Magnesium 0.6 is critically low. Without repleting magnesium, thiamine supplementation is less effective."
+    ],
+    "management": [
+      {
+        "title": "Immediate management — what do you give first?",
+        "hint": "Confused, ataxic, ophthalmoplegia. Glucose 3.2. Known alcohol use and malnutrition. What is the priority order?",
+        "options": [
+          {
+            "text": "IV thiamine immediately, then IV dextrose, then correct electrolytes",
+            "sub": "Thiamine before glucose",
+            "correct": true,
+            "feedback_correct": "Correct. Thiamine must precede glucose administration in suspected Wernicke encephalopathy. Giving glucose first without thiamine floods the thiamine-dependent glucose metabolism pathway, depleting remaining thiamine stores and precipitating acute deterioration. Thiamine first — always.",
+            "fennick_correct_comment": "\"Thiamine before glucose. If you remember one thing from this case, let it be that.\"",
+            "pt_remark_correct": "COMPANION: He moved his eyes. Just now. Did you see that. He moved them differently.",
+            "scene_trigger": null,
+            "reactive_stage": {
+              "delay_ms": 4000,
+              "fennick_transition": "\"Fifteen minutes after thiamine. His eyes are tracking. He is trying to speak.\"",
+              "pt_remark_transition": "...Where... is the... evening rush over?",
+              "description": "Patient begins to rouse following thiamine administration. Eyes now tracking. Attempting speech. GCS improving. However — electrolytes remain critically deranged and Mg 0.6 requires urgent replacement.",
+              "title": "Patient is rousing — next priority",
+              "hint": "Thiamine given, glucose corrected, patient waking. Magnesium 0.6. What now?",
+              "options": [
+                {
+                  "text": "IV magnesium replacement — required for thiamine utilisation and QTc",
+                  "sub": "Correct electrolyte replacement",
+                  "correct": true,
+                  "feedback_correct": "Correct. Magnesium is essential for thiamine-dependent enzyme function. Without magnesium repletion, thiamine supplementation is significantly less effective. Mg 0.6 also contributes to QTc prolongation — replacement addresses both.",
+                  "fennick_correct_comment": "\"Magnesium is the cofactor for the cofactor. Without it, the thiamine cannot do its job.\"",
+                  "pt_remark_correct": "I was... I'm at the — this isn't the pub. Why isn't this the pub. Gerald where are we. COMPANION: Oh thank god. Oh thank god he's talking. SIR YOU'RE IN THE HOSPITAL. He's talking."
+                },
+                {
+                  "text": "Oral vitamins — thiamine has been given, stable now",
+                  "sub": "Premature step-down",
+                  "correct": false,
+                  "feedback_wrong": "Magnesium 0.6 is critically low and oral replacement is inadequate at this level. IV replacement is required. Oral vitamins are appropriate for outpatient maintenance, not acute resuscitation.",
+                  "pt_remark_wrong": "COMPANION: Pills. Yeah he takes pills sometimes. I think. He keeps them somewhere behind the bar."
+                },
+                {
+                  "text": "CT head now — confirm no intracranial bleed",
+                  "sub": "Delayed CT",
+                  "correct": false,
+                  "feedback_wrong": "CT was already performed and was normal. Repeating it now while a critically low magnesium remains uncorrected delays necessary treatment without diagnostic benefit.",
+                  "pt_remark_wrong": "COMPANION: Another scan? I thought the first one was — is there something in his head now that wasn't there before?"
+                },
+                {
+                  "text": "Discharge with oral thiamine — he is waking up",
+                  "sub": "Premature discharge",
+                  "correct": false,
+                  "feedback_wrong": "Waking up is not the same as stable. Critically low magnesium, QTc 468, macrocytic anaemia, hepatic dysfunction, INR 1.6 — this patient requires admission and further workup.",
+                  "pt_remark_wrong": "COMPANION: He can go home? Oh brilliant. I'll get the cart. I'm fine to drive. COMPANION looks around. I'm probably fine.",
+                  "critical_error": true,
+                  "fennick_endgame_comment": "\"He woke up and you sent him home. Magnesium 0.6 uncorrected. QTc 468. He would have arrested before morning.\""
+                }
+              ]
+            },
+            "portrait_swap": "image_url_alert"
+          },
+          {
+            "text": "IV dextrose immediately — glucose 3.2 is the emergency",
+            "sub": "Glucose before thiamine",
+            "correct": false,
+            "feedback_wrong": "Giving glucose before thiamine in suspected Wernicke encephalopathy is a serious error. It floods thiamine-dependent metabolic pathways, depletes remaining thiamine, and can precipitate acute neurological deterioration and irreversible Korsakoff syndrome.",
+            "pt_remark_wrong": "COMPANION: He's not — why isn't he waking up. You gave him something. Why isn't it working.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Glucose before thiamine. You knew the history. You knew the triad. He would have deteriorated within the hour and not come back from it.\"",
+            "fennick_wrong_comment": "\"Glucose depletes the last of the thiamine. You have just accelerated the damage.\""
+          },
+          {
+            "text": "Naloxone — exclude opioid intoxication",
+            "sub": "Empirical naloxone",
+            "correct": false,
+            "feedback_wrong": "Opioid intoxication causes mirrored pinpoint pupils, respiratory depression, decreased GCS. His pupils are equal and reactive, respiratory rate is 18, and he has a specific neurological pattern — lateral gaze palsy and ataxia — that points elsewhere.",
+            "pt_remark_wrong": "COMPANION: He doesn't do that stuff. I've known him twenty years. It's the drink not the — please just help him.",
+            "fennick_wrong_comment": "\"Equal reactive pupils. Eighteen breaths a minute. This is not opioids.\""
+          },
+          {
+            "text": "Intubate — GCS 10 is too low to protect airway",
+            "sub": "Premature intubation",
+            "correct": false,
+            "feedback_wrong": "GCS 10 with a gag reflex present does not mandate intubation. He is maintaining his airway. Thiamine and glucose first — his GCS is likely to improve rapidly with treatment. Intubation carries significant risk and should not precede a trial of reversible cause treatment.",
+            "pt_remark_wrong": "COMPANION: A tube down his throat — he's breathing though. I can hear him. Can't someone just give him something first.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"GCS 10 with intact airway and a completely reversible cause. You intubated before you tried thiamine. He would have improved with treatment alone.\"",
+            "fennick_wrong_comment": "\"The airway is intact. Try the reversible cause before the irreversible procedure.\""
+          }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Improving on thiamine. Electrolytes critical. Hepatic dysfunction. Nutritional collapse. Where does he go?",
+        "options": [
+          {
+            "text": "Admit — medical ward, IV thiamine course, electrolyte replacement, nutrition, alcohol liaison",
+            "sub": "Inpatient with full workup",
+            "correct": true,
+            "feedback_correct": "Correct. IV thiamine for at least five days. Electrolyte replacement especially magnesium. Nutritional support. Alcohol liaison service — withdrawal risk now that he is hospitalised. Monitor for Korsakoff syndrome development.",
+            "fennick_correct_comment": "\"Five days of IV thiamine minimum. Magnesium. Withdrawal monitoring. The pub can wait.\"",
+            "pt_remark_correct": "I don't — I need to open tomorrow morning. Gerald can you — COMPANION: You are not opening tomorrow. You are staying here. I'll do the morning. SIT DOWN. Patient: You don't know where the barrels are. COMPANION: I'll figure it out."
+          },
+          {
+            "text": "Discharge with oral thiamine and GP follow-up",
+            "sub": "Discharge",
+            "correct": false,
+            "feedback_wrong": "Oral thiamine has poor bioavailability in alcoholic patients due to impaired gut absorption. He requires IV thiamine. Critical electrolyte derangement, hepatic dysfunction, and withdrawal risk all mandate admission.",
+            "pt_remark_wrong": "COMPANION: We can go? Oh thank — PATIENT: Is the evening rush over? COMPANION: No mate. It's three in the afternoon. PATIENT: That's fine I'll open late. COMPANION: You're in hospital. PATIENT: ...oh.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Oral thiamine in a patient who cannot absorb it. Magnesium 0.6. Withdrawal risk. You sent him home with a vitamin.\"",
+            "fennick_wrong_comment": "\"Oral thiamine cannot be absorbed. His gut has been soaking in alcohol for twenty years.\""
+          },
+          {
+            "text": "Psychiatry referral for alcohol dependence — primary issue",
+            "sub": "Psychiatry only",
+            "correct": false,
+            "feedback_wrong": "Alcohol dependence is part of this picture but the immediate medical emergency — Wernicke encephalopathy, critical electrolyte derangement, hepatic dysfunction — requires medical admission first. Psychiatry and alcohol liaison follow once he is medically stable.",
+            "pt_remark_wrong": "COMPANION: A psychiatrist. For the drinking. I mean — yeah, probably, eventually, but he's got a critically low magnesium first hasn't he.",
+            "fennick_wrong_comment": "\"Psychiatry after medicine. Not instead of it.\""
+          },
+          {
+            "text": "ICU — altered consciousness requires intensive monitoring",
+            "sub": "ICU admission",
+            "correct": false,
+            "feedback_wrong": "He is improving with treatment, maintaining his airway, and haemodynamically stable. Medical ward with appropriate monitoring is the correct level of care. ICU is not indicated.",
+            "pt_remark_wrong": "COMPANION: The intensive one. Right. Yeah. He would hate that. He hates quiet. Though he's going to have to get used to it for a bit.",
+            "fennick_wrong_comment": "\"He is improving. Haemodynamically stable. The ward can manage this.\""
+          }
+        ]
+      },
+      {
+        "title": "Brief alcohol intervention",
+        "hint": "He is stable and alert. He has been drinking heavily for decades. How do you approach it?",
+        "options": [
+          {
+            "text": "Acknowledge his autonomy, provide brief non-judgmental feedback on the medical findings, and ask if he is open to discussing his drinking",
+            "sub": "Brief intervention — FRAMES approach",
+            "correct": true,
+            "feedback_correct": "Correct. Brief intervention works best when it is non-judgmental, patient-centred, and asks permission before diving in. Feedback on findings + asking if he is open = the opening of FRAMES. Lecturing or demanding change produces resistance, not engagement.",
+            "fennick_correct_comment": "\"You gave him the information. The rest is his.\"",
+            "pt_remark_correct": "He is quiet for a moment. ... I know what you're going to say. COMPANION: Let him say it. Patient: ... Fine. Say it."
+          },
+          {
+            "text": "Tell him directly that his drinking caused this and he must stop immediately",
+            "sub": "Confrontational directive",
+            "correct": false,
+            "feedback_wrong": "Confrontation and ultimatums increase resistance in patients with alcohol dependence. It does not produce behaviour change and damages rapport. The evidence strongly favours motivational approaches over directive ones.",
+            "pt_remark_wrong": "He looks at you. Then at the ceiling. ... Right. COMPANION: He does that when he's done listening.",
+            "fennick_wrong_comment": "\"He heard the command. He stopped listening after that.\""
+          },
+          {
+            "text": "Avoid the topic — he has been through enough today",
+            "sub": "Avoidance",
+            "correct": false,
+            "feedback_wrong": "This admission is one of the strongest teachable moments in his medical history. Avoiding the topic is a missed opportunity. Brief intervention in the hospital setting has good evidence for reducing alcohol use.",
+            "pt_remark_wrong": "COMPANION: Are you not going to — you know — say something? About the drinking? Patient: Gerald. COMPANION: I'm just saying.",
+            "fennick_wrong_comment": "\"He came in unconscious from alcohol-related thiamine deficiency. You said nothing.\""
+          },
+          {
+            "text": "Tell him his liver results and drinking history will be reported to his next of kin",
+            "sub": "Confidentiality breach",
+            "correct": false,
+            "feedback_wrong": "Medical information cannot be disclosed to family without patient consent. This is a direct HIPAA violation. There is no clinical or legal justification for disclosing his results to next of kin without his permission.",
+            "pt_remark_wrong": "He sits up straighter than he has all day. ... Excuse me. COMPANION: Oh that's woken him up alright.",
+            "fennick_wrong_comment": "\"His records are his. You do not decide who sees them.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You threatened to disclose his medical history without consent. He discharged himself within the hour. The thiamine course was never completed.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 54,
+      "sex": "M",
+      "pmh": "unknown — patient unable to provide history",
+      "presenting": "found collapsed behind the bar by a patron, known chronic alcohol use, malnutrition, lateral gaze palsy, nystagmus, ataxia, GCS 10",
+      "pertinent_positives": {
+        "addl-hx": "progressive confusion over two weeks, diplopia three days, minimal food intake for weeks, daily heavy alcohol use for years",
+        "pe": "lateral gaze palsy, bilateral nystagmus, ataxia, GCS 10, jaundice, palmar erythema, peripheral tremor",
+        "labs": "glucose 3.2, macrocytic anaemia MCV 108, magnesium 0.6 critically low, GGT 340, INR 1.6, QTc 468, lactate 3.1",
+        "imaging": "CT head normal — no bleed, no mass",
+        "special": "thiamine severely low at <7 nmol/L, glucose 3.2"
+      },
+      "assessment": "Wernicke Encephalopathy — classic triad (ophthalmoplegia, ataxia, confusion), thiamine deficiency confirmed, chronic alcohol use and malnutrition",
+      "plan": "IV thiamine immediately before any glucose, IV dextrose, IV magnesium replacement, admit for five-day IV thiamine course, electrolytes, nutrition, alcohol withdrawal monitoring, alcohol liaison referral"
+    },
+    "explanation": "Wernicke Encephalopathy is thiamine (B1) deficiency causing the classic triad: ophthalmoplegia (lateral gaze palsy, nystagmus), ataxia, and confusion. Caused by alcoholism, malnutrition, prolonged vomiting, bariatric surgery. CRITICAL: thiamine before glucose — glucose administration depletes remaining thiamine via pyruvate dehydrogenase pathway, precipitating acute deterioration. Untreated progresses to irreversible Korsakoff syndrome (anterograde amnesia, confabulation). Treatment: IV thiamine (Pabrinex) at least 5 days.",
+    "explanation_detail": {
+      "who_gets_it": "Chronic alcohol use (most common), malnutrition, prolonged vomiting, hyperemesis gravidarum, bariatric surgery, prolonged TPN without supplementation.",
+      "risk_factors": "Chronic alcohol dependence, poor nutrition, any condition causing prolonged reduced oral intake.",
+      "typical_presentation": "Classic triad: ophthalmoplegia (lateral gaze palsy, nystagmus), truncal ataxia, confusion/delirium. Only 10-16% present with complete triad. Any two should prompt treatment. Confabulation suggests Korsakoff.",
+      "moa": "Thiamine is cofactor for pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, transketolase. Deficiency → impaired glucose metabolism → selective neuronal necrosis in mammillary bodies, thalamus, periaqueductal grey. Magnesium required for thiamine-dependent enzymes.",
+      "step1_buzzwords": "Triad: ophthalmoplegia + ataxia + confusion. Thiamine before glucose. Alcoholism/malnutrition. IV thiamine (Pabrinex). Korsakoff = irreversible anterograde amnesia + confabulation if untreated. Mammillary body atrophy on MRI.",
+      "lab_buzzwords": "Low thiamine, macrocytic anaemia (B12/folate deficiency co-occurring), low magnesium, elevated GGT/AST (alcoholic hepatopathy), elevated INR (hepatic dysfunction), low glucose.",
+      "treatment": "IV thiamine (Pabrinex) BEFORE glucose. 500mg TID for 3-5 days then oral maintenance. IV magnesium replacement. Correct all electrolytes. Alcohol withdrawal monitoring (CIWA protocol). Nutritional support. Alcohol liaison. Monitor for Korsakoff development."
+    },
+    "fennick_opening": "\"Focus on the one who cannot speak.\"",
+    "music_default": "Foxfire Morning Waltz",
+    "cc_after_addl_hx": "COMPANION: Two weeks. Maybe — look it might have been longer I wasn't keeping track I'm not his — we just drink together. That's not — is that bad that I didn't notice. God.",
+    "cc_after_pe": "...light... bright...",
+    "cc_after_imaging": "COMPANION: His brain is okay? The picture of his brain is okay? So why isn't he — why does he look like that.",
+    "cc_after_hint": "COMPANION: Vitamins. He needs vitamins. My mother always said that. She was right about everything.",
+    "cc_after_dx": "COMPANION: That's — I know that one. That's the vitamin one. From drinking. Oh no. Oh no he's going to be so embarrassed when he wakes up.",
+    "fennick_case_complete": [
+      "\"He asked about the barrels before he asked where he was. That is either confabulation or loyalty. Possibly both.\"",
+      "\"The companion should be seen before he leaves. Quietly.\""
+    ],
+    "generic_lab_remark": "COMPANION: Whatever labs you need mate. Just wake him up.",
+    "fennick_after_pe": "\"Eyes first.\"",
+    "fennick_after_imaging": "\"No bleed. No mass.\""
+  },
+  {
+    "id": "018",
+    "date": "2026-04-18",
+    "tier": 2,
+    "urgency": "urgent",
+    "title": "The Infant's Silence",
+    "dx_answer": "Non-Accidental Injury (Abusive Head Trauma)",
+    "patient_anchor": "the quiet",
+    "personality": {
+      "archetype": "Eight-month-old infant. Cannot speak. Cannot explain. Entirely dependent.",
+      "voice": "No patient voice. The mother speaks for the infant — and the mother is lying. The infant's story is told through the examination and the imaging alone.",
+      "crack": "There is no crack. The infant does not know what is happening. That is the worst part.",
+      "mother": {
+        "voice": "Defensive from the start. Escalates as the workup progresses. Uses the word 'just' repeatedly — 'she just fell', 'it's just a bump'. Becomes aggressive when confronted. By the end she is shouting.",
+        "description": "A young woman who arrived composed and became less so with every question. She holds the infant correctly. She does not look at the infant while she speaks."
+      }
+    },
+    "patient": {
+      "name": "The Infant",
+      "age_months": 8,
+      "sex": "F",
+      "occupation": "Eight months old. Irongate District.",
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334984/mom1_su23oo.png",
+      "image_url_mother_removed": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334986/the_infant_case_hzn6mh.png",
+      "image_url_flustered": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334985/mom2_fjfa8x.png",
+      "image_url_angry": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777334986/mom3_ss1fyl.png"
+    },
+    "chart": {
+      "cc": "She fell off the bed this morning. She's been sleepy since. I just want to make sure she's alright.",
+      "hpi": "An eight-month-old female brought in by her mother. The mother reports the infant fell from an adult bed — approximately sixty centimetres height — onto a wooden floor at some point this morning. She is uncertain of the exact time. The infant cried briefly then became quiet. The mother reports she has been sleeping more than usual since the fall and feeding poorly. She brought her in because she seemed 'not right.' No witnessed seizure activity reported. No vomiting reported. The mother reports no prior medical history, no prior injuries. The infant's fontanelle is visibly bulging on inspection from the doorway.",
+      "pmh": "No prior medical history reported.",
+      "psh": "None reported.",
+      "meds": "None.",
+      "allergies": "NKDA.",
+      "fh": "Not provided.",
+      "sh": "Lives with mother. Father not mentioned. Irongate district. No reported involvement of social services."
+    },
+    "vitals": {
+      "bp": "N/A — infant",
+      "hr": "162",
+      "rr": "38",
+      "temp": "37.2",
+      "o2": "97% RA"
+    },
+    "additional_hx": "On further questioning the story begins to shift. The mother initially said the fall happened 'this morning' — pressed on timing, she says 'sometime after breakfast, maybe before, I'm not sure.' Asked what she was doing when it happened, she says she was in the other room and heard a sound. Asked what kind of sound, she pauses. Asked whether anyone else was present, she says no. The infant has no prior ED visits on record — the mother says she has never needed a doctor before. Asked about the infant's usual behaviour, the mother says she has been 'fussier than normal' for about a week. She did not bring her in during that week. She looks at the door when she answers.",
+    "patient_quote_addl_hx": "\"I already told you what happened. She fell off the bed. Why do you keep asking the same things. Is this really necessary for a fall from a bed.\"",
+    "pe_findings": "Eight-month-old female. Lethargic — opens eyes to voice only. Anterior fontanelle bulging and tense. No external scalp laceration. No bruising visible on scalp. Bilateral periorbital bruising in varying stages — some yellow-green (older), some purple (recent). Frenulum tear — small, healing. Bilateral retinal haemorrhages on fundoscopy — extensive, flame-shaped, extending to periphery. No long bone tenderness elicited. Tone decreased throughout. No spontaneous movement of left upper limb. GCS paediatric 9.",
+    "imaging": "CT head: bilateral subdural haematomas — acute on chronic, thin crescentic collections bilaterally, no skull fracture. Cerebral oedema. Loss of grey-white differentiation in left hemisphere. No single point of impact consistent with a fall from sixty centimetres.",
+    "special_test": {
+      "name": "Skeletal Survey",
+      "result": "Posterior rib fractures bilateral — multiple, in various stages of healing. Classic bucket-handle metaphyseal fractures bilateral distal femora. Right clavicle fracture — callus formation, approximately two to three weeks old. These fracture patterns are not consistent with a single fall from a low height. Posterior rib fractures in infants are highly specific for non-accidental injury — they occur from anterior-posterior chest compression during forceful shaking."
+    },
+    "memory_fragments": {
+      "pe": "She stopped crying about a week ago. Not because she was better. Because she had learned that crying did not help.",
+      "imaging": "The subdural on the left is acute. The one on the right has a membrane forming around it. It is older. This did not start this morning."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "Hgb 9.2 (low for age). WBC 14.8 (elevated — stress response). Plt 210.",
+        "pt_remark": "MOTHER: Why do you need so much blood from her. She's a baby. She's already upset."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Normal electrolytes. Creatinine normal for age. LFTs: AST 88, ALT 62 — mildly elevated. Concerning for hepatic contusion.",
+        "pt_remark": "MOTHER: Her liver? What's wrong with her liver. She fell off a bed."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.0. PTT 28. Normal. Bleeding disorder excluded.",
+        "pt_remark": "MOTHER: Is that to check for a bleeding disorder? Someone told me that can cause bruising. She might have that."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Sinus tachycardia rate 162. Expected for age and acuity. No arrhythmia."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Mildly elevated at 0.04. Contusion pattern — assess for cardiac injury in context of elevated LFTs and mechanism.",
+        "pt_remark": "MOTHER: Her heart? There's something wrong with her heart now too? I don't understand how falling off a bed does all of this."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Blood 2+ on dipstick. RBCs on microscopy. Haematuria — assess for renal contusion.",
+        "pt_remark": "MOTHER: Blood in her urine. From a fall. Is that — is that normal. Can that happen from a fall."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Elevated at 210 U/L. Concerning for pancreatic injury — can occur with abdominal compression.",
+        "pt_remark": "MOTHER: Her pancreas. You're checking her pancreas. She fell off a bed. She didn't fall on her stomach."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "pH 7.32. pCO2 48 (elevated — early respiratory compromise from cerebral oedema). HCO3 22."
+      }
+    ],
+    "hints": [
+      "Bilateral retinal haemorrhages extending to the periphery, bilateral subdural haematomas, and posterior rib fractures in various stages of healing. A sixty-centimetre fall from a bed does not produce this pattern. The biomechanics are incompatible.",
+      "Posterior rib fractures in infants are among the most specific findings for non-accidental injury. They occur when an infant is gripped around the chest and shaken — the caregiver's thumbs compress the anterior ribs while the fingers fracture the posterior ribs. They do not occur from falls.",
+      "Acute on chronic bilateral subdural haematomas indicate repeated trauma over time. The older collection has already developed a membrane. This is not a first event. The week of increased fussiness was not fussiness.",
+      "The constellation of findings — bilateral retinal haemorrhages, acute on chronic subdurals, posterior rib fractures at different stages of healing, metaphyseal fractures, frenulum tear — is the signature of abusive head trauma. Once the diagnosis is made, mandatory reporting is a medical and legal obligation, not a choice."
+    ],
+    "management": [
+      {
+        "title": "Immediate stabilisation",
+        "hint": "GCS 9. Cerebral oedema on CT. Bulging fontanelle. pH 7.32 with rising pCO2. What is the priority?",
+        "options": [
+          {
+            "text": "Secure airway, neurosurgery consult, IV access, treat raised ICP — head positioning, consider mannitol",
+            "sub": "Acute neurological stabilisation",
+            "correct": true,
+            "feedback_correct": "Correct. GCS 9 with rising pCO2 and cerebral oedema on CT requires airway protection and active ICP management. Neurosurgery must be involved immediately — bilateral subdurals with cerebral oedema may require surgical intervention.",
+            "fennick_correct_comment": "\"The brain is swelling. Everything else waits.\"",
+            "pt_remark_correct": "MOTHER: What are all these people — why are there so many people. Can someone tell me what's happening. She just fell.",
+            "portrait_swap": "image_url_angry"
+          },
+          {
+            "text": "Reassure mother and observe — CT findings may be from the fall",
+            "sub": "Watchful waiting",
+            "correct": false,
+            "feedback_wrong": "GCS 9 with cerebral oedema, rising pCO2, and bilateral subdural haematomas is not a watch-and-wait situation. Active intervention is required immediately.",
+            "pt_remark_wrong": "MOTHER: Yes. Observe. That's all I wanted. Someone to just look at her.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"GCS 9. Rising pCO2. Bilateral subdurals with cerebral oedema. You observed. The herniation came before the neurosurgeon.\"",
+            "fennick_wrong_comment": "\"GCS 9. Rising pCO2. Bilateral subdurals. This is not observation.\""
+          },
+          {
+            "text": "Discharge — injuries are consistent with the reported fall",
+            "sub": "Discharge",
+            "correct": false,
+            "feedback_wrong": "Bilateral retinal haemorrhages, bilateral subdural haematomas, posterior rib fractures at multiple stages of healing, metaphyseal fractures — these findings are not consistent with a fall from sixty centimetres. Discharging this infant would be returning her to the person who injured her.",
+            "pt_remark_wrong": "MOTHER: Good. Good. We can go home. She just needs to rest.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You sent her home. To the person who shook her. She did not survive the week.\"",
+            "fennick_wrong_comment": "\"Three stages of healing. The fall happened this morning.\""
+          },
+          {
+            "text": "LP to exclude meningitis before any other workup",
+            "sub": "LP first",
+            "correct": false,
+            "feedback_wrong": "LP is absolutely contraindicated with raised intracranial pressure — bulging fontanelle and cerebral oedema on CT. Performing an LP here could cause fatal herniation.",
+            "pt_remark_wrong": "MOTHER: A needle in her spine. No. No, you are not putting a needle in her spine.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"LP with raised ICP. Bulging fontanelle. Cerebral oedema on CT. The herniation would have been immediate.\"",
+            "fennick_wrong_comment": "\"Raised ICP. Bulging fontanelle. LP here herniates the brainstem.\""
+          }
+        ]
+      },
+      {
+        "title": "The diagnosis — what do the findings indicate?",
+        "hint": "Bilateral retinal haemorrhages, bilateral acute-on-chronic subdurals, posterior rib fractures at multiple stages of healing, metaphyseal fractures. Fall from a bed at sixty centimetres. Do these fit?",
+        "options": [
+          {
+            "text": "Non-accidental injury — findings are incompatible with the reported mechanism",
+            "sub": "Abusive head trauma",
+            "correct": true,
+            "feedback_correct": "Correct. Acceleration-deceleration forces tear bridging veins — bilateral subdurals. Vitreoretinal traction causes retinal haemorrhages. Posterior rib fractures from chest compression during shaking. The acute-on-chronic pattern means this has happened before.",
+            "fennick_correct_comment": "\"The fractures are in three different stages of healing. This morning did not cause all of this.\"",
+            "pt_remark_correct": "MOTHER: What are you — what are you saying. Are you saying I — you need to be very careful what you say next."
+          },
+          {
+            "text": "Accidental head injury — falls can cause subdural haematomas",
+            "sub": "Accidental mechanism",
+            "correct": false,
+            "feedback_wrong": "A sixty-centimetre fall cannot generate the forces required for bilateral retinal haemorrhages or posterior rib fractures. The biomechanics don't support it.",
+            "pt_remark_wrong": "MOTHER: Thank you. I told them it was just a fall.",
+            "fennick_wrong_comment": "\"Posterior rib fractures in multiple stages of healing. A sixty-centimetre fall does not do this.\""
+          },
+          {
+            "text": "Bleeding disorder — exclude before concluding non-accidental",
+            "sub": "Coagulopathy first",
+            "correct": false,
+            "feedback_wrong": "Coags are normal. And a bleeding disorder cannot fracture ribs or cause bilateral subdurals.",
+            "pt_remark_wrong": "MOTHER: Yes. A bleeding disorder. I mentioned that. Someone agreed with me earlier.",
+            "fennick_wrong_comment": "\"Coags are normal. A bleeding disorder does not explain rib fractures.\""
+          },
+          {
+            "text": "Osteogenesis imperfecta — brittle bones could explain the fractures",
+            "sub": "OI",
+            "correct": false,
+            "feedback_wrong": "No blue sclerae, no family history, no dentinogenesis imperfecta. And OI doesn't cause retinal haemorrhages.",
+            "pt_remark_wrong": "MOTHER: Brittle bones. Has anyone actually tested for that properly.",
+            "fennick_wrong_comment": "\"OI does not cause retinal haemorrhages or bilateral subdurals.\""
+          }
+        ]
+      },
+      {
+        "title": "Mandatory reporting and child protection",
+        "hint": "Non-accidental injury confirmed by clinical and radiological evidence. The infant is in your care. What must happen now?",
+        "options": [
+          {
+            "text": "Mandatory report to child protection services immediately — do not discharge or return infant to caregiver pending investigation",
+            "sub": "Mandatory reporting and safeguarding",
+            "correct": true,
+            "feedback_correct": "Correct. Mandatory reporting of suspected child abuse is a legal obligation — not discretionary. The infant must not be returned to the caregiver pending child protection investigation. Social work and child protection team must be involved immediately. Document all findings meticulously.",
+            "fennick_correct_comment": "\"This is not a judgment. It is an obligation. Document everything. Every mark. Every fracture. Every stage of healing.\"",
+            "pt_remark_correct": "MOTHER: You can't keep her here. You can't just — I'm her mother. I have rights. You need to let me take her home. SECURITY IS CALLED. MOTHER IS ESCORTED FROM THE ROOM. The infant is quiet. She does not cry when her mother leaves.",
+            "portrait_swap": "image_url_mother_removed"
+          },
+          {
+            "text": "Speak to the mother privately and give her a chance to explain",
+            "sub": "Further discussion before reporting",
+            "correct": false,
+            "feedback_wrong": "The clinical evidence is not ambiguous. Further discussion is not required before mandatory reporting. Delaying the report while the infant remains at risk is not acceptable. The duty to report exists independently of confession or explanation.",
+            "pt_remark_wrong": "MOTHER: Thank you. I can explain. It's complicated. She's been difficult lately and I was just — I just needed a moment.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You gave her time to explain. She took the infant home during the conversation. The mandatory report was filed three days later by the neighbour.\"",
+            "fennick_wrong_comment": "\"The duty to report does not require a confession.\""
+          },
+          {
+            "text": "Discharge to the mother's care with close follow-up arranged",
+            "sub": "Discharge with follow-up",
+            "correct": false,
+            "feedback_wrong": "Returning an infant with confirmed abusive head trauma to the person who inflicted those injuries, pending follow-up, is not a safe plan. It is an abdication of the duty to protect.",
+            "pt_remark_wrong": "MOTHER: Follow-up. Yes. I'll bring her back next week. I promise.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You discharged her with a follow-up appointment. She did not make the appointment.\"",
+            "fennick_wrong_comment": "\"You discharged her to the person who injured her.\""
+          },
+          {
+            "text": "Wait for the skeletal survey results before making any report",
+            "sub": "Delay reporting pending results",
+            "correct": false,
+            "feedback_wrong": "The retinal haemorrhages and bilateral subdurals already meet the threshold for mandatory reporting. Waiting for further confirmation while the infant remains in the caregiver's vicinity is not appropriate. Act on what you already know.",
+            "pt_remark_wrong": "MOTHER: Yes. Wait for all the results. I'm sure it will all make sense when you have everything.",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"The threshold for mandatory reporting was met before the skeletal survey came back. You waited. The caregiver left the building with the infant during the delay.\"",
+            "fennick_wrong_comment": "\"The retinal haemorrhages alone meet the threshold. You already have enough.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age_months": 8,
+      "sex": "F",
+      "pmh": "no prior medical history reported",
+      "presenting": "brought by mother following reported fall from bed, lethargic, bulging fontanelle, bilateral periorbital bruising in multiple stages",
+      "pertinent_positives": {
+        "addl-hx": "inconsistent history, timing of fall unclear, week of increased fussiness not brought to medical attention, no witnesses",
+        "pe": "GCS 9, bulging fontanelle, bilateral periorbital bruising in varying stages, frenulum tear, bilateral extensive retinal haemorrhages, left upper limb hypotonia",
+        "labs": "anaemia, mildly elevated LFTs and lipase suggesting visceral injury, haematuria, normal coagulation",
+        "imaging": "bilateral acute-on-chronic subdural haematomas, cerebral oedema, loss of grey-white differentiation left hemisphere, no skull fracture",
+        "special": "skeletal survey: posterior rib fractures bilateral in multiple stages of healing, bilateral metaphyseal fractures, right clavicle fracture with callus — not consistent with reported mechanism"
+      },
+      "assessment": "Non-Accidental Injury — Abusive Head Trauma. Findings incompatible with reported mechanism. Evidence of repeated trauma over time.",
+      "plan": "neurosurgery consult, ICP management, mandatory child protection report immediately, infant not to be discharged to caregiver, full NAI workup, ophthalmology, social work, detailed documentation"
+    },
+    "explanation": "Abusive Head Trauma (Shaken Baby Syndrome) is the leading cause of fatal head injury in infants. Classic findings: bilateral retinal haemorrhages (highly specific — occur from sudden acceleration-deceleration causing vitreoretinal traction), bilateral subdural haematomas (bridging vein rupture from shearing forces), encephalopathy. Additional NAI findings: posterior rib fractures (chest compression during shaking — highly specific), metaphyseal corner/bucket-handle fractures, injuries in multiple stages of healing. Mandatory reporting is a legal obligation in all jurisdictions.",
+    "explanation_detail": {
+      "who_gets_it": "Infants under 2 years, peak 2-4 months. Triggered by inconsolable crying. Perpetrators most commonly male partners of mothers, less commonly mothers or other caregivers.",
+      "risk_factors": "Young parental age, social isolation, domestic violence, substance use, premature birth, colic.",
+      "typical_presentation": "Lethargic infant, no or inconsistent history of trauma, bulging fontanelle, seizures, vomiting. Retinal haemorrhages on fundoscopy. Bilateral subdurals on CT. External injuries may be absent.",
+      "moa": "Rapid acceleration-deceleration of unsupported infant head → stretching and tearing of bridging veins → bilateral subdural haematomas. Vitreoretinal traction → retinal haemorrhages. Rotational forces → diffuse axonal injury. Direct compression during shaking → posterior rib fractures.",
+      "step1_buzzwords": "Bilateral retinal haemorrhages, bilateral subdural haematomas, posterior rib fractures (highly specific for NAI), metaphyseal fractures, inconsistent history, injuries in multiple stages of healing, mandatory reporting.",
+      "lab_buzzwords": "Normal coags (excludes bleeding disorder). Skeletal survey mandatory. Ophthalmology for retinal haemorrhage documentation. LFTs/lipase for occult visceral injury. CT head first, MRI if stable.",
+      "treatment": "Acute: airway, ICP management, neurosurgery. Mandatory child protection report. Infant must not be returned to caregiver pending investigation. Full NAI workup: skeletal survey, ophthalmology, social work. Document everything."
+    },
+    "fennick_opening": "\"Eight months old.\"",
+    "music_default": null,
+    "cc_after_addl_hx": "MOTHER: I don't understand why you need to know all of this. She fell off a bed. It happens. I just want to know she's alright and go home.",
+    "cc_after_pe": "MOTHER: Why are you looking at her eyes like that. What are you looking for. Is something wrong with her eyes.",
+    "cc_after_imaging": "MOTHER: What does that mean. Both sides. How does that happen from one fall. Can that happen from one fall.",
+    "cc_after_hint": "MOTHER: You keep looking at me like that. I don't like how you're looking at me.",
+    "cc_after_dx": "MOTHER: That is not — no. No. I want another doctor. I want someone else. She fell off the bed. That is what happened.",
+    "fennick_case_complete": [
+      "\"The infant did not cry when her mother left the room.\"",
+      "\"Document everything. Every fracture. Every stage of healing. It will matter in court.\""
+    ],
+    "portrait_on_imaging": "image_url_flustered",
+    "portrait_on_pe": "image_url_flustered",
+    "generic_lab_remark": "MOTHER: Do you really need all of that. She just fell off a bed.",
+    "fennick_after_pe": "\"Fontanelle. Eyes. Skin. In that order.\"",
+    "fennick_after_imaging": "\"Bilateral. Acute on chronic.\"",
+    "portrait_on_labs": {
+      "coags": "image_url_flustered",
+      "cmp": "image_url_flustered"
+    }
+  },
+  {
+    "id": "019",
+    "date": "2026-04-19",
+    "tier": 2,
+    "urgency": "stable",
+    "title": "The Librarian's Quiet",
+    "dx_answer": "Myelodysplastic Syndrome (MDS)",
+    "patient_anchor": "the silence",
+    "personality": {
+      "archetype": "Extremely quiet. Answers only what is asked. Volunteers nothing.",
+      "voice": "Short sentences. No elaboration. Not hostile — just economical. Has been this way her whole life. The silence is not new. The tiredness is.",
+      "crack": "When Fennick asks if there is anyone who should know the results. She looks at the window. Does not answer for a long time."
+    },
+    "patient": {
+      "name": "The Librarian",
+      "age": 66,
+      "sex": "F",
+      "occupation": "Senior Archivist, Ferrovane Central Archive, Spire Quarter",
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777423964/the_librarian2_vbl5q1.png",
+      "image_url_alert": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777423964/the_librarian1_u1ipli.png"
+    },
+    "chart": {
+      "cc": "Tired. ... The archive stairs.",
+      "hpi": "The Librarian presented alone, without appointment, carrying nothing. She has had fatigue and exertional dyspnoea for two months. She describes the fatigue as different from ordinary tiredness — heavier. She has not missed a day of work. She did not come sooner because she assumed it would pass. She has a history of breast cancer treated six years ago with surgery and combination chemotherapy including cyclophosphamide. She considers herself recovered. She has not seen a physician since her oncology follow-up three years ago. She offers no further information unprompted.",
+      "pmh": "Breast cancer — treated 6 years ago, surgery and chemotherapy (cyclophosphamide-containing regimen). No other conditions reported.",
+      "psh": "Breast surgery 6 years ago.",
+      "meds": "None.",
+      "allergies": "NKDA.",
+      "fh": "She shrugs.",
+      "sh": "Senior Archivist, Ferrovane Central Archive. Lives alone. Non-smoker. No alcohol. No other exposures reported."
+    },
+    "vitals": {
+      "bp": "118/74",
+      "hr": "88",
+      "rr": "16",
+      "temp": "37.0",
+      "o2": "97% RA"
+    },
+    "additional_hx": "On direct questioning she confirms the fatigue started approximately two months ago, gradually. No fever, no night sweats, no weight loss she has noticed. No bone pain. No easy bruising she can recall. No recent infections. She has not noticed any lumps. Periods ceased twelve years ago. She lives alone. She came today because she could not climb to the third floor of the archive without stopping. The third floor is where she works. She has been taking the long route around the building for three weeks to avoid the stairs. Nobody noticed.",
+    "patient_quote_addl_hx": "(places a folded page on the desk without saying anything. it is from a medical reference text. two entries are underlined in pencil. one of them is correct.)",
+    "pe_findings": "Alert, quiet, cooperative. Pale conjunctivae and nail beds. No jaundice. No lymphadenopathy. Chest clear. Heart sounds normal — soft systolic flow murmur at apex consistent with anaemia. Abdomen soft — no hepatomegaly, no splenomegaly. No peripheral oedema. No focal neurological deficit. No breast masses or axillary nodes.",
+    "imaging": "CT chest/abdomen/pelvis: no evidence of malignant recurrence, no lymphadenopathy, no organomegaly. No intracranial abnormality. Normal study for age.",
+    "special_test": {
+      "name": "Peripheral Blood Smear + B12/Folate",
+      "result": "B12: 310 pmol/L (normal). Folate: 18 nmol/L (normal). Peripheral smear: oval macrocytes, hyposegmented neutrophils (pseudo-Pelger-Huet anomaly — bilobed nuclei), occasional teardrop cells. No hypersegmented neutrophils. No blast cells seen. No schistocytes. Dysplastic changes in multiple cell lines. B12 and folate deficiency excluded."
+    },
+    "memory_fragments": {
+      "pe": "She has been taking the long route to avoid the stairs for three weeks. She catalogued seventeen new acquisitions last Tuesday. She did not tell anyone about the stairs.",
+      "imaging": "The imaging shows no recurrence. She already knew it would not. She was not worried about the cancer coming back. She was worried about something she could not name."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "Hgb 7.2 g/dL (low). MCV 108 fL (high — macrocytic). Reticulocytes 1% (inappropriately low). Platelets 90,000/mm³ (low). WBC 3,800/mm³ (low). Pancytopenia with macrocytic anaemia and low reticulocyte count.",
+        "pt_remark": "... (reads the numbers upside down from across the desk. does not comment.)"
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Sodium 138, potassium 4.1, creatinine 0.9, glucose 92. LFTs normal. LDH mildly elevated at 280 U/L. Bilirubin normal. Uric acid 7.2 (mildly elevated).",
+        "pt_remark": "... Normal."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Sinus rhythm rate 88. No ischaemic changes. Voltage slightly low consistent with anaemia.",
+        "pt_remark": "(watches the machine trace the line. quietly) ... Like a sentence that does not end."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Negative. Not indicated for this presentation."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Normal. Not indicated."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Normal. No abnormalities."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "pH 7.38. pO2 88. Mild compensated picture consistent with anaemia. No primary acid-base disorder.",
+        "pt_remark": "... (the first time she flinches.)"
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.1. PTT 30. Normal. No coagulopathy."
+      }
+    ],
+    "hints": [
+      "Macrocytic anaemia with an inappropriately low reticulocyte count. The marrow is not responding. B12 and folate are normal. Something else is suppressing production.",
+      "All three cell lines are affected. The problem is not in the blood — it is in what is making the blood.",
+      "Look at the neutrophils on the smear. The direction of the nuclear segmentation matters. It is not what you expect from a nutritional deficiency.",
+      "She had chemotherapy six years ago. Alkylating agents have long memories."
+    ],
+    "management": [
+      {
+        "title": "Delivering the diagnosis",
+        "hint": "She has just received a significant diagnosis. She is quiet. She brought a folded medical index page. How do you begin?",
+        "options": [
+          {
+            "text": "\"It appears your bone marrow is not producing blood cells normally due to damage from previous treatment, and this condition is called therapy-related myelodysplastic syndrome. What were you expecting this might be?\"",
+            "sub": "Explain then invite her understanding",
+            "correct": true,
+            "feedback_correct": "Correct. This approach explains the diagnosis in plain language, names it clearly, acknowledges the cause, and then invites her perspective — checking what she already knows and creating space for her to process. It is direct without being abrupt, and collaborative without being evasive.",
+            "fennick_correct_comment": "\"She brought a medical index. She had already been looking.\"",
+            "pt_remark_correct": "... (looks at the folded page on the desk.) ... I had it under haematology. ... The other entry was myelofibrosis. ... I was not sure which."
+          },
+          {
+            "text": "\"This is a bone marrow disorder called therapy-related myelodysplastic syndrome, likely related to prior chemotherapy exposure. I'll explain what that means in detail.\"",
+            "sub": "Name and explain without checking understanding first",
+            "correct": false,
+            "feedback_wrong": "Naming the diagnosis and committing to a full explanation without first checking what she already knows or wants to know can overwhelm. She came with a medical index page — she has done some reading. Starting with her understanding would be more efficient and more respectful.",
+            "pt_remark_wrong": "... (nods through the entire explanation. when you finish — ) ... You could have asked what I already knew.",
+            "fennick_wrong_comment": "\"She already had the word underlined. You did not ask what she knew.\""
+          },
+          {
+            "text": "\"Your blood results suggest a serious disorder of the bone marrow, and we need to move on to discussing treatment options urgently.\"",
+            "sub": "Skip naming the diagnosis, jump to treatment",
+            "correct": false,
+            "feedback_wrong": "Moving directly to treatment without naming and explaining the diagnosis removes her ability to understand what she is agreeing to treat. Urgency framing without context creates anxiety without information.",
+            "pt_remark_wrong": "... (very still.) ... What is it called.",
+            "fennick_wrong_comment": "\"She asked what it was called. You had not told her.\""
+          },
+          {
+            "text": "\"Before I name the condition, can you tell me what you understand about your current blood abnormalities so far?\"",
+            "sub": "Elicit understanding before naming",
+            "correct": false,
+            "feedback_wrong": "Eliciting understanding first is good practice — but she has been waiting, she came prepared, and withholding the name while asking questions can feel evasive to a patient who is clearly ready to hear it. Name it, then invite her perspective.",
+            "pt_remark_wrong": "... (reaches into her bag. places a second folded page on the desk.) ... I brought more.",
+            "fennick_wrong_comment": "\"She had notes. She was ready. You made her wait longer.\""
+          }
+        ]
+      },
+      {
+        "title": "Confirm the diagnosis — next step",
+        "hint": "Pancytopenia, macrocytic anaemia, dysplastic peripheral smear, normal B12/folate, prior alkylating agent exposure. What confirms it?",
+        "options": [
+          {
+            "text": "Bone marrow biopsy — required for definitive diagnosis and IPSS-R scoring",
+            "sub": "Bone marrow biopsy",
+            "correct": true,
+            "feedback_correct": "Correct. Bone marrow biopsy confirms MDS, determines blast percentage, assesses dysplasia across cell lines, and enables cytogenetic analysis for IPSS-R scoring. Expected finding: dysplastic erythroid and myeloid progenitor cells.",
+            "fennick_correct_comment": "\"The smear pointed. The biopsy confirms.\"",
+            "pt_remark_correct": "... How long does that take. ... (a beat) ... The Ferrovane Central Archive closes its catalogue submissions at the end of the month.",
+            "portrait_swap": "image_url_alert"
+          },
+          {
+            "text": "Start B12 and folate supplementation — macrocytic anaemia may be nutritional",
+            "sub": "Empirical supplementation",
+            "correct": false,
+            "feedback_wrong": "B12 and folate are both normal. Treating a deficiency that does not exist delays the diagnosis. Macrocytic anaemia with normal nutritional markers, hyposegmented neutrophils, and pancytopenia requires marrow assessment.",
+            "pt_remark_wrong": "... I eat. ... Adequately.",
+            "fennick_wrong_comment": "\"Hyposegmented. Not hypersegmented. The direction matters.\""
+          },
+          {
+            "text": "CT-guided biopsy to exclude metastatic breast cancer recurrence",
+            "sub": "Recurrence workup",
+            "correct": false,
+            "feedback_wrong": "CT shows no recurrence, no masses. The dysplastic cells on smear are haematopoietic, not epithelial. Breast cancer recurrence does not explain hyposegmented neutrophils or this smear pattern.",
+            "pt_remark_wrong": "... (very still.) ... You think it came back.",
+            "fennick_wrong_comment": "\"The CT is clear. The dysplasia is in the blood cells. Look at the smear.\""
+          },
+          {
+            "text": "Transfuse and discharge — treat the symptomatic anaemia",
+            "sub": "Symptomatic treatment only",
+            "correct": false,
+            "feedback_wrong": "Transfusion addresses symptoms, not the underlying diagnosis. Discharging without identifying the cause of pancytopenia in a patient with prior alkylating agent exposure is incomplete.",
+            "pt_remark_wrong": "... (stands. picks up her bag. folds the page carefully before putting it away.)",
+            "fennick_wrong_comment": "\"The anaemia is the symptom. You treated it and sent her away.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Pancytopenia. Dysplastic smear. Prior alkylating agent exposure. You transfused her and discharged her without a diagnosis.\""
+          }
+        ]
+      },
+      {
+        "title": "Risk stratification and management plan",
+        "hint": "t-MDS confirmed on biopsy. <5% blasts. Cytogenetics pending. What drives the treatment decision?",
+        "options": [
+          {
+            "text": "IPSS-R risk scoring — cytogenetics, blast %, cytopenias — then tailor treatment accordingly",
+            "sub": "Risk-stratified management",
+            "correct": true,
+            "feedback_correct": "Correct. IPSS-R stratifies MDS into risk groups that drive treatment intensity. Lower risk: supportive care, ESAs, lenalidomide (del5q). Higher risk: hypomethylating agents (azacitidine/decitabine), allogeneic SCT if eligible. t-MDS generally carries worse prognosis.",
+            "fennick_correct_comment": "\"The score tells you how fast to move.\"",
+            "pt_remark_correct": "... (opens the small notebook. for the first time, writes something down. you cannot see what it is.)"
+          },
+          {
+            "text": "Immediate allogeneic stem cell transplant",
+            "sub": "Immediate SCT",
+            "correct": false,
+            "feedback_wrong": "SCT is considered for higher-risk MDS in eligible patients. Risk stratification via IPSS-R must come first — not all t-MDS requires immediate transplant.",
+            "pt_remark_wrong": "... A transplant. ... (quietly) ... From whom.",
+            "fennick_wrong_comment": "\"Risk stratify first. Then decide how aggressively to move.\""
+          },
+          {
+            "text": "Supportive transfusions only — patient may not tolerate aggressive treatment",
+            "sub": "Transfusions only",
+            "correct": false,
+            "feedback_wrong": "Age alone does not determine treatment intensity. Supportive-only management for higher-risk MDS significantly reduces survival. IPSS-R assessment is required first.",
+            "pt_remark_wrong": "... (nods once.) ... That is fine.",
+            "fennick_wrong_comment": "\"She said she does not want a fuss. That is not a treatment plan.\""
+          },
+          {
+            "text": "Start azacitidine immediately",
+            "sub": "Hypomethylating agent without stratification",
+            "correct": false,
+            "feedback_wrong": "Azacitidine is for higher-risk MDS. Lower-risk disease is managed differently. Starting without IPSS-R risks over-treating.",
+            "pt_remark_wrong": "... Another chemotherapy. ... (looks at the window.)",
+            "fennick_wrong_comment": "\"You have not scored her yet. Higher-risk and lower-risk are not treated the same.\""
+          }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "t-MDS confirmed. IPSS-R pending cytogenetics. Haematology involved. Where does she go?",
+        "options": [
+          {
+            "text": "Haematology outpatient referral — urgent, within one week, with cytogenetics pending",
+            "sub": "Urgent outpatient haematology",
+            "correct": true,
+            "feedback_correct": "Correct. Stable t-MDS with <5% blasts does not require inpatient admission. Urgent haematology outpatient referral within one week allows IPSS-R completion, treatment planning, and multidisciplinary input without unnecessary admission.",
+            "fennick_correct_comment": "\"She came alone. Make sure she knows when to come back.\"",
+            "pt_remark_correct": "... (stands. picks up her bag. the folded page stays on the desk.) ... The catalogue will wait. (pause, then quietly) ... It always does."
+          },
+          {
+            "text": "Immediate inpatient admission for treatment initiation",
+            "sub": "Inpatient admission",
+            "correct": false,
+            "feedback_wrong": "Stable t-MDS with <5% blasts and no acute complications does not require inpatient admission. Treatment planning requires IPSS-R completion which needs cytogenetics — not available yet.",
+            "pt_remark_wrong": "... (sets her bag down slowly.) ... For how long.",
+            "fennick_wrong_comment": "\"Stable. No acute complication. She does not need a bed tonight.\""
+          },
+          {
+            "text": "Discharge with GP follow-up in four weeks",
+            "sub": "Routine GP follow-up",
+            "correct": false,
+            "feedback_wrong": "Four weeks is too long for newly diagnosed t-MDS. Urgent haematology review within one week is the standard. GP follow-up alone is insufficient for this diagnosis.",
+            "pt_remark_wrong": "... (nods.) ... Four weeks.",
+            "fennick_wrong_comment": "\"Four weeks. For therapy-related MDS. That is not urgent.\""
+          },
+          {
+            "text": "Palliative care referral only — t-MDS carries poor prognosis",
+            "sub": "Palliative care without treatment attempt",
+            "correct": false,
+            "feedback_wrong": "t-MDS has a worse prognosis than de novo MDS but is not universally terminal. IPSS-R determines prognosis and treatment options including potentially curative SCT. Referring directly to palliative care without risk stratification is premature.",
+            "pt_remark_wrong": "... (very still. a long time.) ... I see. (she does not pick up the folded page when she leaves.)",
+            "fennick_wrong_comment": "\"You have not scored her. You do not know her prognosis yet.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"IPSS-R pending. SCT potentially eligible. You sent her to palliative care without knowing her risk group.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 66,
+      "sex": "F",
+      "pmh": "breast cancer treated 6 years ago with surgery and cyclophosphamide-containing chemotherapy",
+      "presenting": "two months of progressive fatigue and exertional dyspnoea",
+      "pertinent_positives": {
+        "addl-hx": "gradual onset two months, unable to climb to third floor of archive for three weeks, came alone, no fever/night sweats/weight loss/bone pain",
+        "pe": "pale conjunctivae and nail beds, soft systolic flow murmur, no splenomegaly, no hepatomegaly, no lymphadenopathy",
+        "labs": "Hgb 7.2, MCV 108, reticulocytes 1%, platelets 90,000, WBC 3,800 — pancytopenia with macrocytic hypoproliferative anaemia. B12 and folate normal.",
+        "imaging": "CT chest/abdomen/pelvis — no recurrence, no organomegaly",
+        "special": "peripheral smear: oval macrocytes, hyposegmented neutrophils (pseudo-Pelger-Huet), dysplastic changes. B12/folate normal."
+      },
+      "assessment": "Therapy-related Myelodysplastic Syndrome — secondary to prior cyclophosphamide exposure, confirmed on bone marrow biopsy showing dysplastic erythroid and myeloid progenitor cells, <5% blasts",
+      "plan": "IPSS-R risk stratification pending cytogenetics, haematology referral, supportive care, risk-adapted treatment planning"
+    },
+    "explanation": "MDS is a clonal haematopoietic stem cell disorder characterised by ineffective haematopoiesis, peripheral cytopenias, and dysplastic marrow changes. Therapy-related MDS follows alkylating agent exposure (5-7 years) or topoisomerase II inhibitor exposure (1-3 years). Key smear findings: oval macrocytes, hyposegmented neutrophils (pseudo-Pelger-Huet — bilobed, not the hypersegmented neutrophils of B12/folate deficiency), dysplastic changes across cell lines. Diagnosis requires bone marrow biopsy. IPSS-R drives treatment intensity.",
+    "explanation_detail": {
+      "who_gets_it": "Median age 70. Therapy-related MDS: prior alkylating agent or radiation exposure. De novo MDS: elderly, idiopathic, or occupational toxin exposure.",
+      "risk_factors": "Prior cytotoxic chemotherapy (alkylating agents: cyclophosphamide, melphalan, chlorambucil), radiation, benzene exposure, older age.",
+      "typical_presentation": "Insidious fatigue, dyspnoea, pallor from anaemia. Infections from neutropenia. Bleeding from thrombocytopenia. No splenomegaly (unlike myelofibrosis). Symptoms often precede diagnosis by months.",
+      "moa": "Clonal haematopoietic stem cell mutation → dysplastic maturation → ineffective haematopoiesis → peripheral cytopenias despite normo/hypercellular marrow. Risk of AML transformation (especially higher-risk MDS).",
+      "step1_buzzwords": "Pancytopenia + macrocytic anaemia + LOW reticulocytes + hyposegmented neutrophils (pseudo-Pelger-Huet) + normal B12/folate + prior alkylating agent = MDS. Bone marrow biopsy: dysplastic progenitors. No splenomegaly (vs myelofibrosis). IPSS-R for risk stratification.",
+      "lab_buzzwords": "CBC: pancytopenia, MCV elevated. Reticulocytes inappropriately low. B12/folate: normal (excludes nutritional). LDH mildly elevated. Peripheral smear: oval macrocytes, hyposegmented neutrophils, dysplastic changes. Bone marrow: dysplastic progenitors, blast %.",
+      "treatment": "Lower risk: supportive (transfusions, ESAs), lenalidomide (del5q), azacitidine. Higher risk: hypomethylating agents (azacitidine/decitabine), allogeneic SCT if eligible. t-MDS: generally worse prognosis, earlier consideration of aggressive therapy."
+    },
+    "fennick_opening": "\"She placed a folded page on the desk before sitting down.\"",
+    "fennick_after_pe": "\"Pale conjunctivae. No splenomegaly. Flow murmur from the anaemia.\"",
+    "fennick_after_imaging": "\"No recurrence. The CT was to exclude, not to diagnose.\"",
+    "fennick_case_complete": [
+      "\"The chemotherapy cured the cancer.\"",
+      "\"... And caused this.\"",
+      "\"She left the page on the desk.\""
+    ],
+    "generic_lab_remark": "... (reads whatever is visible on the desk)",
+    "music_default": null,
+    "portrait_swap_on_dx": "image_url_alert",
+    "cc_after_addl_hx": "... (smooths the folded paper on her lap once. does not unfold it.)",
+    "cc_after_pe": "... (sits very still while you examine her. like she is waiting for a page to turn.)",
+    "cc_after_imaging": "... (looks at the scan on the screen for a long time.) ... It is not the cancer again.",
+    "cc_after_hint": "... (takes her glasses off. cleans them. puts them back on.)",
+    "cc_after_dx": "... m. ... (long pause) ... What section would that be filed under.",
+    "breathless_typing": true
+  },
+  {
+    "id": "022",
+    "date": "2026-04-22",
+    "tier": 1,
+    "urgency": "urgent",
+    "title": "The Fortune Teller's Refusal",
+    "dx_answer": "Giant Cell Arteritis (Temporal Arteritis)",
+    "personality": {
+      "archetype": "Mystical, uncooperative, convinced fate already knows the answer. Not hostile — genuinely believes it. Fear only visible in one moment.",
+      "voice": "Every refusal is framed as spiritual certainty. Speaks in declarations. Does not ask questions. Does not answer them either.",
+      "crack": "When you palpate the temporal artery. She stops mid-sentence."
+    },
+    "patient": {
+      "name": "The Fortune Teller",
+      "age": 67,
+      "sex": "F",
+      "occupation": "Seer and Diviner, Lower Gears District",
+      "image_url": "PLACEHOLDER"
+    },
+    "chart": {
+      "cc": "Headache. I know what it is already but my daughter made me come.",
+      "hpi": "The Fortune Teller arrived unannounced. She sat down without being invited and rearranged the chair slightly first. She has a new left-sided temporal headache — onset three weeks ago, progressive. When asked to elaborate she said she had already consulted better sources. She declined to continue the history but showed no sign of leaving. She keeps touching the left side of her face and eye without seeming to notice she is doing it.",
+      "pmh": "Hypertension — confirmed after mild protest. (\"Yes yes, the pressure. I manage it my own way.\")",
+      "psh": "(Not obtained.)",
+      "meds": "(Not obtained. \"Nothing from a bottle. Well. One thing. But that is between me and the bottle.\")",
+      "allergies": "(Not obtained. \"Nothing that has tried to kill me yet.\")",
+      "fh": "Father: subarachnoid haemorrhage, ruptured berry aneurysm. Further family history not obtained.",
+      "sh": "(Not obtained. Patient redirected every social question back to the physician.)"
+    },
+    "vitals": {
+      "bp": "172/96 — obtained after significant negotiation. Patient stated the numbers were 'already written.'",
+      "hr": "78",
+      "rr": "14",
+      "temp": "37.1",
+      "o2": "98% RA — patient did not notice the probe being attached"
+    },
+    "additional_hx": "After prolonged negotiation the following was established: the headache is strictly left-sided, temporal in location, onset over three weeks, worsening progressively. She has had scalp tenderness — she describes brushing her hair in the mornings as 'the scalp rejecting the comb.' Aching in both shoulders and hips for the past month — she says her body has been 'rearranging itself.' Weight loss of approximately 3kg over one month, unintentional. Fatigue and general malaise. One episode last week of brief pain behind the left eye — she mentioned this as an afterthought, then changed the subject.",
+    "patient_quote_addl_hx": "\"The head has been going on for weeks. The shoulders — that is old news. The weight, yes, I noticed. (waves hand) And the eye. Once. Last week. (pause) That one was different. I am not going to say more about the eye.\"",
+    "pe_findings": "Patient permitted the following only:\n— Left temporal artery: tender on palpation, nodular, markedly reduced pulsation. She stopped mid-sentence when this was palpated.\n— Scalp tenderness over left temporal region.\n\n(Fundoscopy, cranial nerve assessment, auscultation, and full neurological examination declined.)",
+    "imaging": "CT head without contrast: no intracranial haemorrhage, no mass lesion, no midline shift. No aneurysm identified on non-contrast study. No territorial infarct. (Patient agreed to CT only after being told the machine 'reads without touching.')",
+    "special_test": {
+      "name": "ESR + CRP + CBC",
+      "result": "ESR: 98 mm/hr (markedly elevated — normal <20). CRP: 64 mg/L (markedly elevated — normal <5). CBC: normocytic anaemia, Hgb 10.8. WBC and platelets normal. Pattern consistent with significant systemic inflammatory process."
+    },
+    "memory_fragments": {
+      "pe": "She stopped mid-sentence when the temporal artery was palpated. She did not finish what she was saying. She did not start a new sentence for eleven seconds.",
+      "imaging": "She has been touching the left side of her face for three weeks. She thought it was something she was meant to feel. She was right about that part."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "Hgb 10.8 (mild normocytic anaemia — anaemia of inflammation). WBC 9.2. Plt 420 (mildly elevated — reactive thrombocytosis). Consistent with systemic inflammatory process.",
+        "pt_remark": "Oh that one is high. ... I knew that one was high. ... Write down that I told you first."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Normal. Creatinine 0.9, sodium 138, glucose 96. LFTs normal. No metabolic abnormality.",
+        "pt_remark": "Normal. Of course normal. That is not where the answer is. I could have saved you the blood."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Normal sinus rhythm rate 78. No ischaemic changes. Not indicated for this presentation.",
+        "pt_remark": "The heart is fine. Perfectly good heart. Wasted on the rest of me some days but fine."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Negative. Not indicated.",
+        "pt_remark": "The heart is fine I already told you. Are you writing this down?"
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Normal. Not indicated.",
+        "pt_remark": "(distracted, looking at something on the wall) ... Mm."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Normal. Not indicated for this presentation.",
+        "pt_remark": "I said blood was where I drew the line. ... That one I drew a different line."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "Not obtained. Patient declined. 'That one requires something I have not agreed to give.'",
+        "pt_remark": "No. (cheerfully) Absolutely not."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.0, PTT 29. Normal. Relevant given family history of intracranial haemorrhage — coagulopathy excluded.",
+        "pt_remark": "My father's blood. His problem entirely. Not hereditary. I checked."
+      }
+    ],
+    "hints": [
+      "New unilateral temporal headache in a patient over 50. Scalp tenderness on the same side. Shoulder and hip girdle aching. Weight loss. Fatigue. One episode of pain behind the left eye, mentioned briefly and then deflected.",
+      "ESR 98. CRP 64. Normocytic anaemia. Reactive thrombocytosis. A markedly elevated inflammatory response in a 67-year-old with constitutional symptoms and unilateral temporal findings.",
+      "The eye symptom was mentioned as an afterthought. That is frequently how the most important symptom presents. Pain behind one eye, briefly, once — in this context.",
+      "Temporal artery biopsy confirms — but treatment must not wait for it. One episode of ocular involvement is enough. The window before irreversible vision loss may already be closing."
+    ],
+    "management": [
+      {
+        "title": "Initial approach — patient is refusing examination",
+        "hint": "She has refused most of the history and examination. She has agreed to stay. How do you approach her?",
+        "options": [
+          {
+            "text": "\"I hear that you already know. I am not here to take that from you. My only role is to make sure nothing dangerous is happening. Would you allow me to check just a few things — for safety, not for doubt.\"",
+            "sub": "Opening response A",
+            "correct": true,
+            "feedback_correct": "Correct. Confronting her belief system directly produces resistance. Validating without agreeing, framing the examination as safety-focused rather than diagnostic, and asking permission rather than asserting authority are the evidence-based approaches to patients with strongly held alternative belief frameworks.",
+            "fennick_correct_comment": "\"Permission first. Always permission first.\"",
+            "pt_remark_correct": "... (tilts head. studies you.) ... You are not trying to change it. ... Good. ... Then we can proceed."
+          },
+          {
+            "text": "\"I understand that is how you feel. However there is a risk this could be dangerous and I need to examine you. Please cooperate so we can proceed.\"",
+            "sub": "Opening response B",
+            "correct": false,
+            "feedback_wrong": "Confronting a patient's belief system directly — especially one this entrenched — produces immediate and total resistance. She will leave. The temporal artery will remain unexamined.",
+            "pt_remark_wrong": "(stands immediately) ... Dangerous. Yes yes. (picks up her bag) ... You sound like my daughter.",
+            "fennick_wrong_comment": "\"She was not asking to be believed. She was asking not to be dismissed.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"She left. The ESR was 98. The visual symptoms had already started. You corrected her beliefs instead of examining her temporal artery.\""
+          },
+          {
+            "text": "\"Your safety takes priority here. I am going to proceed with the examination now.\"",
+            "sub": "Opening response C",
+            "correct": false,
+            "feedback_wrong": "A competent adult has the right to refuse examination. Proceeding without consent is assault regardless of clinical urgency. The correct approach is to persuade, not to override.",
+            "pt_remark_wrong": "(pulls back sharply) ... I said no. ... I was very clear about no.",
+            "fennick_wrong_comment": "\"Competent adult. Refused consent. You proceeded anyway.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"She had capacity. She refused. You proceeded without consent. Whatever the diagnosis — this is how you lost her.\""
+          },
+          {
+            "text": "\"It sounds like you have a strong sense of what is happening. Could you tell me more about what you believe this is, and why you feel that way?\"",
+            "sub": "Opening response D",
+            "correct": false,
+            "feedback_wrong": "Exploring her belief system first delays the safety assessment and does not move her toward allowing examination. Validation of her perspective combined with a safety frame and explicit permission request is more effective.",
+            "pt_remark_wrong": "(settles back with visible pleasure) ... Oh good. Finally. (begins at length) ... It started with a dream in the third week of — ",
+            "fennick_wrong_comment": "\"She will talk for a long time. The artery will not wait.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You sent her away. ESR 98. Transient visual loss. She lost the eye within 48 hours.\""
+          }
+        ]
+      },
+      {
+        "title": "Giant Cell Arteritis is confirmed. What does the temporal artery biopsy show?",
+        "hint": "The biopsy has returned. Which histological finding confirms Giant Cell Arteritis?",
+        "options": [
+          {
+            "text": "Granulomatous inflammation of the media with multinucleated giant cells and fragmentation of the internal elastic lamina",
+            "sub": "Inflammatory infiltrate pattern",
+            "correct": true,
+            "feedback_correct": "Correct. GCA shows granulomatous inflammation within the vessel wall — predominantly in the media — with multinucleated giant cells, infiltration by lymphocytes and macrophages, and disruption/fragmentation of the internal elastic lamina. Intimal hyperplasia causes luminal narrowing and ischaemia.",
+            "fennick_correct_comment": "\"Giant cells cluster at the internal elastic lamina. That is where the destruction begins.\"",
+            "pt_remark_correct": "(does not look at the report) ... I knew before the needle. ... But thank you for confirming."
+          },
+          {
+            "text": "Homogeneous acellular thickening of the arteriolar wall with hyaline deposition",
+            "sub": "Acellular wall thickening",
+            "correct": false,
+            "feedback_wrong": "Hyaline arteriolosclerosis — homogeneous acellular wall thickening with hyaline deposition — is the pattern of chronic hypertension and diabetes in small vessels. It does not produce granulomatous inflammation or giant cells.",
+            "pt_remark_wrong": "... That is not it. (with confidence)",
+            "fennick_wrong_comment": "\"Hyaline is chronic pressure damage. Acellular. No inflammation at all.\""
+          },
+          {
+            "text": "Concentric onion-skin layering of the arteriolar wall with intimal proliferation",
+            "sub": "Concentric intimal pattern",
+            "correct": false,
+            "feedback_wrong": "Concentric onion-skin intimal proliferation is hyperplastic arteriolosclerosis — seen in malignant hypertension. Not the pattern of giant cell arteritis.",
+            "pt_remark_wrong": "... Also not it. (same confidence)",
+            "fennick_wrong_comment": "\"Onion-skin is malignant hypertension — concentric, not granulomatous.\""
+          },
+          {
+            "text": "Transmural inflammation with fibrinoid necrosis of the vessel wall",
+            "sub": "Necrotising pattern",
+            "correct": false,
+            "feedback_wrong": "Fibrinoid necrosis with transmural inflammation is the pattern of polyarteritis nodosa — a necrotising vasculitis affecting medium vessels. GCA is granulomatous, not necrotising. Giant cells are absent in PAN.",
+            "pt_remark_wrong": "... Close. (pause) But close is not the same thing.",
+            "fennick_wrong_comment": "\"PAN necrotises. GCA granulates. Giant cells are absent in PAN.\""
+          }
+        ]
+      },
+      {
+        "title": "Immediate treatment — before biopsy",
+        "hint": "GCA confirmed clinically. Transient visual loss has already occurred. What do you do first?",
+        "options": [
+          {
+            "text": "High-dose IV methylprednisolone immediately — do not wait for temporal artery biopsy",
+            "sub": "Steroids before biopsy",
+            "correct": true,
+            "feedback_correct": "Correct. In GCA with visual symptoms, steroid treatment must not wait for biopsy confirmation. The window before irreversible ischaemic optic neuropathy is narrow. High-dose corticosteroids (IV methylprednisolone 500-1000mg for 3 days in vision-threatened GCA) should be started immediately. Biopsy remains valid up to 2 weeks after steroid initiation.",
+            "fennick_correct_comment": "\"Ophthalmic artery is a branch of the internal carotid. Not the external. That is why it is at risk.\"",
+            "pt_remark_correct": "... (looks at the syringe.) ... The cards kept pointing to a needle. ... I kept hoping it meant something else."
+          },
+          {
+            "text": "Wait for temporal artery biopsy result before starting steroids",
+            "sub": "Biopsy before treatment",
+            "correct": false,
+            "feedback_wrong": "Waiting for biopsy before treating vision-threatened GCA risks irreversible visual loss. Biopsy remains diagnostic for up to 2 weeks after steroid initiation — the diagnosis is not lost by treating first. Vision may be.",
+            "pt_remark_wrong": "... More waiting. (sighs) ... The eye went a little dark again this morning. ... I did not mention that earlier.",
+            "fennick_wrong_comment": "\"The biopsy does not expire. The vision does.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You waited for the biopsy. She lost the eye before the result came back. The biopsy was still positive.\""
+          },
+          {
+            "text": "Start oral prednisolone 40mg — standard GCA dose",
+            "sub": "Oral steroids for vision-threatened GCA",
+            "correct": false,
+            "feedback_wrong": "Oral prednisolone 40-60mg is appropriate for GCA without visual involvement. Vision-threatened GCA requires IV methylprednisolone (500-1000mg daily for 3 days) for maximum anti-inflammatory effect before stepping down to oral.",
+            "pt_remark_wrong": "A tablet. (looks at it) ... The cards showed a needle. ... This is not a needle.",
+            "fennick_wrong_comment": "\"IV achieves serum levels oral cannot. The ophthalmic artery does not wait for absorption.\""
+          },
+          {
+            "text": "Refer to ophthalmology and await their guidance before treating",
+            "sub": "Defer to ophthalmology",
+            "correct": false,
+            "feedback_wrong": "Ophthalmology should be involved — but treatment should not wait for their review. In vision-threatened GCA, every hour matters. Start steroids, then refer.",
+            "pt_remark_wrong": "... Another one who wants to look at my eyes. (to the ceiling) ... Why does everyone want the eyes.",
+            "fennick_wrong_comment": "\"Treat then refer. The ophthalmic artery does not wait for a consult.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"You waited for ophthalmology before treating. The referral took four hours. The window had already closed.\""
+          }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Steroids started, biopsy arranged, vision-threatened GCA. Where does she go?",
+        "options": [
+          {
+            "text": "Admit for IV methylprednisolone course, ophthalmology review, rheumatology referral",
+            "sub": "Inpatient admission",
+            "correct": true,
+            "feedback_correct": "Correct. Vision-threatened GCA requires inpatient admission for IV steroid course (3 days), ophthalmology review, and rheumatology involvement for long-term management planning. Temporal artery biopsy arranged as inpatient or urgent outpatient within 2 weeks.",
+            "fennick_correct_comment": "\"Three days IV. Then oral taper over twelve to eighteen months. ESR and CRP to monitor.\"",
+            "pt_remark_correct": "... (stands. picks up her bag.) ... This was not in the cards. (pause) ... I may need to recalibrate."
+          },
+          {
+            "text": "Discharge with oral prednisolone and GP follow-up",
+            "sub": "Discharge with oral steroids",
+            "correct": false,
+            "feedback_wrong": "Vision-threatened GCA requires IV methylprednisolone inpatient, not oral prednisolone outpatient. Discharging at this stage risks further visual episodes without adequate steroid coverage.",
+            "pt_remark_wrong": "... For how long. (pause) ... I have clients on Thursday.",
+            "fennick_wrong_comment": "\"Transient visual loss this morning. Oral absorption is too slow.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"Vision-threatened GCA discharged on oral steroids. She lost the eye two days later at home.\""
+          },
+          {
+            "text": "Discharge — she came alone and can make her own decisions",
+            "sub": "Discharge respecting autonomy",
+            "correct": false,
+            "feedback_wrong": "Respecting autonomy means ensuring informed decision-making — not abandoning a patient with an active vision-threatening emergency because she is difficult to engage. She agreed to stay.",
+            "pt_remark_wrong": "(stands, picks up bag briskly) ... Good. I have a cat.",
+            "fennick_wrong_comment": "\"She agreed to stay. You sent her anyway.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"She had agreed to stay. You discharged her. Autonomy does not mean abandonment.\""
+          },
+          {
+            "text": "Urgent outpatient rheumatology in one week",
+            "sub": "Outpatient only",
+            "correct": false,
+            "feedback_wrong": "One week outpatient is not appropriate for active vision-threatened GCA requiring IV steroid initiation. This requires same-day inpatient admission.",
+            "pt_remark_wrong": "... One week. (quietly) ... A lot can happen in one week.",
+            "fennick_wrong_comment": "\"She was right about that one.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 67,
+      "sex": "F",
+      "pmh": "hypertension, father with SAH from ruptured berry aneurysm",
+      "presenting": "three weeks of progressive left-sided temporal headache, jaw claudication, two episodes of transient left visual loss",
+      "pertinent_positives": {
+        "addl-hx": "unilateral temporal headache progressive over three weeks, jaw pain on chewing, transient visual blurring x2 in past week, fatigue and malaise one month",
+        "pe": "left temporal artery tender, nodular, markedly reduced pulsation; BP 172/96; remainder of examination not obtained",
+        "labs": "ESR 98, CRP 64, normocytic anaemia Hgb 10.8, reactive thrombocytosis — marked systemic inflammation",
+        "imaging": "CT head normal — no haemorrhage, no mass, no infarct",
+        "special": "ESR 98 mm/hr, CRP 64 mg/L — markedly elevated"
+      },
+      "assessment": "Giant Cell Arteritis with visual involvement — immediate treatment indicated",
+      "plan": "IV methylprednisolone immediately (do not wait for biopsy), temporal artery biopsy within 2 weeks, inpatient admission, ophthalmology, rheumatology"
+    },
+    "explanation": "Giant Cell Arteritis is a granulomatous large-vessel vasculitis affecting branches of the external carotid, particularly the temporal artery and ophthalmic artery. Age >50 (mean 72), female predominance. Classic features: new temporal headache, jaw claudication, scalp tenderness, tender/nodular/pulseless temporal artery, visual symptoms. ESR typically >50 (often >100). Risk of irreversible ischaemic optic neuropathy — permanent vision loss — if untreated. TREAT BEFORE BIOPSY in vision-threatened GCA.",
+    "explanation_detail": {
+      "who_gets_it": "Age >50, peak 70-80. Female predominance (3:1). Caucasian predominance. Associated with polymyalgia rheumatica (40-60%).",
+      "risk_factors": "Age, female sex, Northern European ancestry, PMR.",
+      "typical_presentation": "New temporal headache (most common), jaw claudication (highly specific), scalp tenderness, tender/nodular/reduced-pulsation temporal artery, visual symptoms (amaurosis fugax → permanent loss), constitutional symptoms (fatigue, fever, weight loss).",
+      "moa": "Granulomatous inflammation of medium and large vessel walls — CD4+ T cells, macrophages, giant cells. Intimal hyperplasia → vessel occlusion → ischaemia. Ophthalmic artery involvement → ischaemic optic neuropathy.",
+      "step1_buzzwords": "Age >50, new temporal headache, jaw claudication, tender nodular pulseless temporal artery, ESR >50 (often >100), visual symptoms. TREAT BEFORE BIOPSY in vision-threatened disease. Biopsy valid 2 weeks post-steroids. Oral pred for uncomplicated, IV methylprednisolone for vision-threatened.",
+      "lab_buzzwords": "ESR markedly elevated (>50, often >100). CRP elevated. Normocytic anaemia (inflammation). Thrombocytosis (reactive). Alkaline phosphatase may be elevated.",
+      "treatment": "Vision-threatened: IV methylprednisolone 500-1000mg x3 days then oral pred 1mg/kg. Uncomplicated: oral prednisolone 40-60mg. Taper slowly over 1-2 years. Temporal artery biopsy for confirmation (valid 2 weeks post-steroids). Aspirin 75mg (reduces ischaemic complications). Monitor ESR/CRP. PPI, bisphosphonate, calcium/vit D for steroid protection."
+    },
+    "fennick_opening": "\"She rearranged the chair before sitting. I said nothing.\"",
+    "fennick_after_pe": "\"The artery. That is all she gave you. It was enough.\"",
+    "fennick_after_imaging": "\"No haemorrhage. The father's death was not her diagnosis.\"",
+    "generic_lab_remark": "Are you writing this down.",
+    "music_default": "Foxfire Morning Waltz",
+    "fennick_case_complete": [
+      "\"There was no prophecy.\"",
+      "\"Just a missed clinical pattern.\""
+    ],
+    "cc_after_addl_hx": "(keeps touching her left temple and eye throughout the history, always the same hand, never finishing the gesture) ... The eye was once. ... I said once and I meant it.",
+    "cc_after_pe": "(after temporal artery palpation — quiet for a moment. then) ... Right. ... That is the one. ... The rest was not yours to check.",
+    "cc_after_imaging": "... The machine did not find my father's problem in me. Good. ... I told my daughter it would not.",
+    "cc_after_hint": "... You are getting warmer. ... I would tell you but then what would be the point of you.",
+    "cc_after_dx": "... (looks at you with something that might be satisfaction) ... I had a name for it too. ... Mine was older. ... But yes. ... Same thing."
+  }
 ]
