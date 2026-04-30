@@ -2396,6 +2396,19 @@ window.submitDx=function(){
     if(currentCase.tier === 3) {
       setTimeout(()=>{ try{ window.setFogDensity(0, 'warm'); }catch(e){} }, 300);
     }
+    // Typing speed change on correct dx
+    if(currentCase.typing_speed_on_dx) {
+      if(currentCase.typing_speed_on_dx === 'anxious') {
+        currentCase.breathless_typing = false;
+        currentCase.anxious_typing = true;
+      } else if(currentCase.typing_speed_on_dx === 'breathless') {
+        currentCase.anxious_typing = false;
+        currentCase.breathless_typing = true;
+      } else if(currentCase.typing_speed_on_dx === 'normal') {
+        currentCase.anxious_typing = false;
+        currentCase.breathless_typing = false;
+      }
+    }
     // Portrait swap on correct dx — only if portrait_swap_on_dx field set
     if(currentCase.portrait_swap_on_dx && currentCase.patient) {
       const swapUrl = currentCase.patient[currentCase.portrait_swap_on_dx];
