@@ -2890,7 +2890,7 @@ function playFennickSpeech(lines) {
     }
     typewriterWrite(el, lines[i].replace(/^"|"$/g,''), 18).then(()=>{
       i++;
-      const delay = (window._isCaseComplete && i < lines.length) ? 3600 : 1800;
+      const delay = (window._isCaseComplete && i < lines.length) ? (currentCase && currentCase.fennick_speech_delay || 3600) : 1800;
       setTimeout(nextLine, delay);
     });
   }
