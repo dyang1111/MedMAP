@@ -258,7 +258,7 @@
             "correct": false,
             "feedback_wrong": "Medication initiation for stable schizophreniform does not require admission. Outpatient initiation with close monitoring is standard.",
             "pt_remark_wrong": "Voluntarily admitted. At least tell me you have decent rooms.",
-            "fennick_wrong_comment": "\"Stable patients do not require admission for medication initiation.\""
+            "fennick_wrong_comment": "\"She is functioning and engaging. A bed is not what she needs tonight.\""
           }
         ]
       }
@@ -759,7 +759,7 @@
             "pt_remark_wrong": "MOTHER: Good. Good. We can go home. She just needs to rest.",
             "critical_error": true,
             "fennick_endgame_comment": "\"You sent her home. To the person who shook her. She did not survive the week.\"",
-            "fennick_wrong_comment": "\"The fractures are in three stages of healing. She would go home to the person who caused them.\""
+            "fennick_wrong_comment": "\"Three stages of healing. The fall happened this morning.\""
           },
           {
             "text": "LP to exclude meningitis before any other workup",
@@ -1321,7 +1321,7 @@
             "sub": "Validation + safety framing + permission",
             "correct": true,
             "feedback_correct": "Correct. Confronting her belief system directly produces resistance. Validating without agreeing, framing the examination as safety-focused rather than diagnostic, and asking permission rather than asserting authority are the evidence-based approaches to patients with strongly held alternative belief frameworks.",
-            "fennick_correct_comment": "\"She does not have to believe you. She has to let you help her.\"",
+            "fennick_correct_comment": "\"Permission first. Always permission first.\"",
             "pt_remark_correct": "... (tilts head. studies you.) ... You are not trying to change it. ... Good. ... Then we can proceed. (already rolling up her sleeve) ... The left one."
           },
           {
@@ -1365,7 +1365,7 @@
             "sub": "GCA pattern",
             "correct": true,
             "feedback_correct": "Correct. GCA shows granulomatous inflammation within the vessel wall — predominantly in the media — with multinucleated giant cells, infiltration by lymphocytes and macrophages, and disruption/fragmentation of the internal elastic lamina. Intimal hyperplasia causes luminal narrowing and ischaemia.",
-            "fennick_correct_comment": "\"The wall destroys itself from within. The giant cells are the signature.\"",
+            "fennick_correct_comment": "\"Giant cells cluster at the internal elastic lamina. That is where the destruction begins.\"",
             "pt_remark_correct": "(does not look at the report) ... I knew before the needle. ... But thank you for confirming."
           },
           {
@@ -1374,7 +1374,7 @@
             "correct": false,
             "feedback_wrong": "Hyaline arteriolosclerosis — homogeneous acellular wall thickening with hyaline deposition — is the pattern of chronic hypertension and diabetes in small vessels. It does not produce granulomatous inflammation or giant cells.",
             "pt_remark_wrong": "... That is not it. (with confidence)",
-            "fennick_wrong_comment": "\"Hypertension changes small vessels. GCA destroys medium ones differently.\""
+            "fennick_wrong_comment": "\"Hyaline is chronic pressure damage. Acellular. No inflammation at all.\""
           },
           {
             "text": "Concentric onion-skin layering of the arteriolar wall with intimal proliferation",
@@ -1382,7 +1382,7 @@
             "correct": false,
             "feedback_wrong": "Concentric onion-skin intimal proliferation is hyperplastic arteriolosclerosis — seen in malignant hypertension. Not the pattern of giant cell arteritis.",
             "pt_remark_wrong": "... Also not it. (same confidence)",
-            "fennick_wrong_comment": "\"Onion-skin is malignant hypertension. Not granulomatous vasculitis.\""
+            "fennick_wrong_comment": "\"Onion-skin is malignant hypertension — concentric, not granulomatous.\""
           },
           {
             "text": "Transmural inflammation with fibrinoid necrosis of the vessel wall",
@@ -1390,7 +1390,7 @@
             "correct": false,
             "feedback_wrong": "Fibrinoid necrosis with transmural inflammation is the pattern of polyarteritis nodosa — a necrotising vasculitis affecting medium vessels. GCA is granulomatous, not necrotising. Giant cells are absent in PAN.",
             "pt_remark_wrong": "... Close. (pause) But close is not the same thing.",
-            "fennick_wrong_comment": "\"Fibrinoid necrosis is PAN. GCA granulates — it does not necrotise.\""
+            "fennick_wrong_comment": "\"PAN necrotises. GCA granulates. Giant cells are absent in PAN.\""
           }
         ]
       },
@@ -1403,7 +1403,7 @@
             "sub": "Steroids before biopsy",
             "correct": true,
             "feedback_correct": "Correct. In GCA with visual symptoms, steroid treatment must not wait for biopsy confirmation. The window before irreversible ischaemic optic neuropathy is narrow. High-dose corticosteroids (IV methylprednisolone 500-1000mg for 3 days in vision-threatened GCA) should be started immediately. Biopsy remains valid up to 2 weeks after steroid initiation.",
-            "fennick_correct_comment": "\"The biopsy can wait two weeks. The eye cannot wait two days.\"",
+            "fennick_correct_comment": "\"Ophthalmic artery is a branch of the internal carotid. Not the external. That is why it is at risk.\"",
             "pt_remark_correct": "... (looks at the syringe for a long moment) ... This is the one the cards kept pointing to. ... I kept hoping it meant something else. ... The eye. ... You are saying this changes what is coming."
           },
           {
@@ -1422,7 +1422,7 @@
             "correct": false,
             "feedback_wrong": "Oral prednisolone 40-60mg is appropriate for GCA without visual involvement. Vision-threatened GCA requires IV methylprednisolone (500-1000mg daily for 3 days) for maximum anti-inflammatory effect before stepping down to oral.",
             "pt_remark_wrong": "A tablet. (looks at it) ... The cards showed a needle. ... This is not a needle.",
-            "fennick_wrong_comment": "\"Oral is for uncomplicated GCA. She has had two episodes of transient visual loss. She needs IV.\""
+            "fennick_wrong_comment": "\"IV achieves serum levels oral cannot. The ophthalmic artery does not wait for absorption.\""
           },
           {
             "text": "Refer to ophthalmology and await their guidance before treating",
@@ -1430,7 +1430,7 @@
             "correct": false,
             "feedback_wrong": "Ophthalmology should be involved — but treatment should not wait for their review. In vision-threatened GCA, every hour matters. Start steroids, then refer.",
             "pt_remark_wrong": "... Another one who wants to look at my eyes. (to the ceiling) ... Why does everyone want the eyes.",
-            "fennick_wrong_comment": "\"Refer after you treat. Not instead of treating.\"",
+            "fennick_wrong_comment": "\"Treat then refer. The ophthalmic artery does not wait for a consult.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"You waited for ophthalmology before treating. The referral took four hours. The window had already closed.\""
           }
@@ -1445,7 +1445,7 @@
             "sub": "Inpatient admission",
             "correct": true,
             "feedback_correct": "Correct. Vision-threatened GCA requires inpatient admission for IV steroid course (3 days), ophthalmology review, and rheumatology involvement for long-term management planning. Temporal artery biopsy arranged as inpatient or urgent outpatient within 2 weeks.",
-            "fennick_correct_comment": "\"She agreed to stay. That was the harder diagnosis.\"",
+            "fennick_correct_comment": "\"Three days IV. Then oral taper over twelve to eighteen months. ESR and CRP to monitor.\"",
             "pt_remark_correct": "... (long pause. then matter-of-factly) ... I will need my cards. ... And someone will need to feed the cat. ... (beat) ... She is also called Fate. ... I named her that before all this. ... Seemed funny at the time."
           },
           {
@@ -1454,7 +1454,7 @@
             "correct": false,
             "feedback_wrong": "Vision-threatened GCA requires IV methylprednisolone inpatient, not oral prednisolone outpatient. Discharging at this stage risks further visual episodes without adequate steroid coverage.",
             "pt_remark_wrong": "... For how long. (pause) ... I have clients on Thursday.",
-            "fennick_wrong_comment": "\"IV methylprednisolone. Inpatient. She had transient visual loss this morning.\"",
+            "fennick_wrong_comment": "\"Transient visual loss this morning. Oral absorption is too slow.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"Vision-threatened GCA discharged on oral steroids. She lost the eye two days later at home.\""
           },
