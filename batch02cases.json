@@ -1245,7 +1245,7 @@
     },
     "additional_hx": "After prolonged negotiation the following was established: the headache is strictly left-sided, temporal in location, onset over three weeks, worsening progressively. She has had scalp tenderness — she describes brushing her hair in the mornings as 'the scalp rejecting the comb.' Aching in both shoulders and hips for the past month — she says her body has been 'rearranging itself.' Weight loss of approximately 3kg over one month, unintentional. Fatigue and general malaise. One episode last week of brief pain behind the left eye — she mentioned this as an afterthought, then changed the subject.",
     "patient_quote_addl_hx": "\"The head has been going on for weeks. The shoulders — that is old news. The weight, yes, I noticed. (waves hand) And the eye. Once. Last week. (pause) That one was different. I am not going to say more about the eye.\"",
-    "pe_findings": "Patient permitted the following only:\n— Left temporal artery: tender on palpation, nodular, markedly reduced pulsation. She went quiet mid-sentence when this was palpated. First time she stopped talking.\n— Scalp tenderness over left temporal region on light touch.\n\nThe following was declined:\n— Fundoscopy: \"These are working eyes. You will have to wait your turn.\"\n— Cranial nerve assessment: \"All present. I use them professionally.\"\n— Auscultation: \"Nothing interesting in there. I checked last Tuesday.\"\n— Full neurological examination: \"If something were wrong in there I would know. Next question.\"",
+    "pe_findings": "Patient permitted the following only:\n— Left temporal artery: tender on palpation, nodular, markedly reduced pulsation. She stopped mid-sentence when this was palpated.\n— Scalp tenderness over left temporal region.\n\n(Fundoscopy, cranial nerve assessment, auscultation, and full neurological examination declined.)",
     "imaging": "CT head without contrast: no intracranial haemorrhage, no mass lesion, no midline shift. No aneurysm identified on non-contrast study. No territorial infarct. (Patient agreed to CT only after being told the machine 'reads without touching.')",
     "special_test": {
       "name": "ESR + CRP + CBC",
@@ -1322,7 +1322,7 @@
             "correct": true,
             "feedback_correct": "Correct. Confronting her belief system directly produces resistance. Validating without agreeing, framing the examination as safety-focused rather than diagnostic, and asking permission rather than asserting authority are the evidence-based approaches to patients with strongly held alternative belief frameworks.",
             "fennick_correct_comment": "\"Permission first. Always permission first.\"",
-            "pt_remark_correct": "... (tilts head. studies you.) ... You are not trying to change it. ... Good. ... Then we can proceed. (already rolling up her sleeve) ... The left one."
+            "pt_remark_correct": "... (tilts head. studies you.) ... You are not trying to change it. ... Good. ... Then we can proceed."
           },
           {
             "text": "\"I understand that is how you feel. However there is a risk this could be dangerous and I need to examine you. Please cooperate so we can proceed.\"",
@@ -1362,7 +1362,7 @@
         "options": [
           {
             "text": "Granulomatous inflammation of the media with multinucleated giant cells and fragmentation of the internal elastic lamina",
-            "sub": "GCA pattern",
+            "sub": "Inflammatory infiltrate pattern",
             "correct": true,
             "feedback_correct": "Correct. GCA shows granulomatous inflammation within the vessel wall — predominantly in the media — with multinucleated giant cells, infiltration by lymphocytes and macrophages, and disruption/fragmentation of the internal elastic lamina. Intimal hyperplasia causes luminal narrowing and ischaemia.",
             "fennick_correct_comment": "\"Giant cells cluster at the internal elastic lamina. That is where the destruction begins.\"",
@@ -1370,7 +1370,7 @@
           },
           {
             "text": "Homogeneous acellular thickening of the arteriolar wall with hyaline deposition",
-            "sub": "Hyaline arteriolosclerosis",
+            "sub": "Acellular wall thickening",
             "correct": false,
             "feedback_wrong": "Hyaline arteriolosclerosis — homogeneous acellular wall thickening with hyaline deposition — is the pattern of chronic hypertension and diabetes in small vessels. It does not produce granulomatous inflammation or giant cells.",
             "pt_remark_wrong": "... That is not it. (with confidence)",
@@ -1378,7 +1378,7 @@
           },
           {
             "text": "Concentric onion-skin layering of the arteriolar wall with intimal proliferation",
-            "sub": "Hyperplastic arteriolosclerosis",
+            "sub": "Concentric intimal pattern",
             "correct": false,
             "feedback_wrong": "Concentric onion-skin intimal proliferation is hyperplastic arteriolosclerosis — seen in malignant hypertension. Not the pattern of giant cell arteritis.",
             "pt_remark_wrong": "... Also not it. (same confidence)",
@@ -1386,7 +1386,7 @@
           },
           {
             "text": "Transmural inflammation with fibrinoid necrosis of the vessel wall",
-            "sub": "Fibrinoid necrosis pattern",
+            "sub": "Necrotising pattern",
             "correct": false,
             "feedback_wrong": "Fibrinoid necrosis with transmural inflammation is the pattern of polyarteritis nodosa — a necrotising vasculitis affecting medium vessels. GCA is granulomatous, not necrotising. Giant cells are absent in PAN.",
             "pt_remark_wrong": "... Close. (pause) But close is not the same thing.",
@@ -1404,7 +1404,7 @@
             "correct": true,
             "feedback_correct": "Correct. In GCA with visual symptoms, steroid treatment must not wait for biopsy confirmation. The window before irreversible ischaemic optic neuropathy is narrow. High-dose corticosteroids (IV methylprednisolone 500-1000mg for 3 days in vision-threatened GCA) should be started immediately. Biopsy remains valid up to 2 weeks after steroid initiation.",
             "fennick_correct_comment": "\"Ophthalmic artery is a branch of the internal carotid. Not the external. That is why it is at risk.\"",
-            "pt_remark_correct": "... (looks at the syringe for a long moment) ... This is the one the cards kept pointing to. ... I kept hoping it meant something else. ... The eye. ... You are saying this changes what is coming."
+            "pt_remark_correct": "... (looks at the syringe.) ... The cards kept pointing to a needle. ... I kept hoping it meant something else."
           },
           {
             "text": "Wait for temporal artery biopsy result before starting steroids",
@@ -1446,7 +1446,7 @@
             "correct": true,
             "feedback_correct": "Correct. Vision-threatened GCA requires inpatient admission for IV steroid course (3 days), ophthalmology review, and rheumatology involvement for long-term management planning. Temporal artery biopsy arranged as inpatient or urgent outpatient within 2 weeks.",
             "fennick_correct_comment": "\"Three days IV. Then oral taper over twelve to eighteen months. ESR and CRP to monitor.\"",
-            "pt_remark_correct": "... (long pause. then matter-of-factly) ... I will need my cards. ... And someone will need to feed the cat. ... (beat) ... She is also called Fate. ... I named her that before all this. ... Seemed funny at the time."
+            "pt_remark_correct": "... (stands. picks up her bag.) ... This was not in the cards. (pause) ... I may need to recalibrate."
           },
           {
             "text": "Discharge with oral prednisolone and GP follow-up",
@@ -1510,12 +1510,11 @@
     "generic_lab_remark": "Are you writing this down.",
     "music_default": "Foxfire Morning Waltz",
     "fennick_case_complete": [
-      "\"She named the cat Fate.\"",
-      "\"Before all this.\"",
-      "\"She said it seemed funny at the time.\""
+      "\"There was no prophecy.\"",
+      "\"Just a missed clinical pattern.\""
     ],
     "cc_after_addl_hx": "(keeps touching her left temple and eye throughout the history, always the same hand, never finishing the gesture) ... The eye was once. ... I said once and I meant it.",
-    "cc_after_pe": "(after the temporal artery palpation — goes very quiet for a moment. then, briskly) ... Right. Yes. That is the one.",
+    "cc_after_pe": "(after temporal artery palpation — quiet for a moment. then) ... Right. ... That is the one. ... The rest was not yours to check.",
     "cc_after_imaging": "... The machine did not find my father's problem in me. Good. ... I told my daughter it would not.",
     "cc_after_hint": "... You are getting warmer. ... I would tell you but then what would be the point of you.",
     "cc_after_dx": "... (looks at you with something that might be satisfaction) ... I had a name for it too. ... Mine was older. ... But yes. ... Same thing."
