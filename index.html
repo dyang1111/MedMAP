@@ -1472,7 +1472,35 @@ function setPtRemark(text) {
     };
     setTimeout(writeSegs, 100);
   } else {
-    setTimeout(() => typewriterWrite(cc, '"' + text + '"', 22), 100);
+    // Normal speed but still pause on ...
+    const fullText = '"' + text + '"';
+    if(fullText.includes('...')) {
+      const segs = fullText.split('...');
+      let si = 0;
+      const gen = myGen;
+      const writeSegs = () => {
+        if(gen !== _ptRemarkGen || si >= segs.length) return;
+        const seg = segs[si];
+        let ci = 0;
+        const typeC = () => {
+          if(gen !== _ptRemarkGen) return;
+          if(ci < seg.length) {
+            cc.textContent += seg[ci++];
+            setTimeout(typeC, 22 + Math.random()*8);
+          } else {
+            si++;
+            if(si < segs.length) {
+              cc.textContent += '...';
+              setTimeout(writeSegs, 600);
+            }
+          }
+        };
+        typeC();
+      };
+      setTimeout(writeSegs, 100);
+    } else {
+      setTimeout(() => typewriterWrite(cc, fullText, 22), 100);
+    }
   }
 }
 
