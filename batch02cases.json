@@ -1812,5 +1812,308 @@
     "cc_after_pe": "Okay, I will follow your directions. Uhh. Actually I should not promise that.",
     "cc_after_dx": "Foot drop? Wait — so my foot is just... quitting its job? That is kind of dramatic actually.",
     "fennick_speech_delay": 1800
+  },
+  {
+    "id": "024",
+    "date": "2026-04-24",
+    "tier": 1,
+    "urgency": "stable",
+    "title": "The King of the Alley",
+    "dx_answer": "Wilson Disease",
+    "breathless_typing": true,
+    "typing_speed_on_dx": "anxious",
+    "portrait_swap_on_dx": "image_url_alert",
+    "personality": {
+      "archetype": "Homeless man who believes himself a king. Slow, deliberate, regal. The dignity is entirely self-constructed and entirely sincere.",
+      "voice": "Archaic speech. Never hurries. Holds eye contact. The hands are dirty but the gestures are intentional. Every pause is theatrical.",
+      "crack": "When the neurological findings are mentioned. Half a second. Then it closes. He does not let it open again until the diagnosis.",
+      "post_dx": "Complete collapse of the persona. Fast, frightened, genuinely human. The king was always a performance. The fear underneath was always real."
+    },
+    "patient": {
+      "name": "The King of the Alley",
+      "age": 33,
+      "sex": "M",
+      "occupation": "Sovereign of the Lower Gears Eastern Alley (self-proclaimed). No fixed abode.",
+      "image_url": "PLACEHOLDER_REGAL",
+      "image_url_alert": "PLACEHOLDER_FRIGHTENED",
+      "image_url_flustered": "PLACEHOLDER_FLUSTERED"
+    },
+    "portrait_on_pe": "image_url_flustered",
+    "chart": {
+      "cc": "Hm. ... A minor inconvenience has seen fit to disturb the royal schedule. ... Speak.",
+      "hpi": "The patient was brought in by a concerned ward constable who noted he had been behaving erratically in the Lower Gears district for several weeks — getting into altercations with local residents he refers to as his 'subjects,' slurring his speech at times, and on one occasion appearing confused about where he was. He denies any problem. He has been living without fixed abode for approximately two years. He is 33 years old. He has no history of significant alcohol use — constable confirms this. No head trauma. No recent illness. Family history of bipolar disorder in a first-degree relative.",
+      "pmh": "No known medical history. No prior psychiatric diagnoses.",
+      "psh": "None reported.",
+      "meds": "None.",
+      "allergies": "NKDA.",
+      "fh": "First-degree relative with bipolar disorder — details not obtained.",
+      "sh": "No fixed abode, Lower Gears district. Non-drinker per constable report. Non-smoker. Diet described as 'whatever the kingdom provides.'"
+    },
+    "vitals": {
+      "bp": "118/76",
+      "hr": "78",
+      "rr": "14",
+      "temp": "37.1",
+      "o2": "98% RA"
+    },
+    "additional_hx": "On direct questioning — conducted with considerable diplomatic negotiation — the following was established: mood has been more irritable than usual for approximately eight months, with episodes of rage disproportionate to provocation. Speech difficulties noted by others though patient denies them. Mild unsteadiness when walking, which he attributes to 'the weight of the crown.' Some difficulty with fine tasks he previously managed easily. He has not sought medical attention before. The constable notes that prior to approximately one year ago, the patient was considerably more lucid and less grandiose.",
+    "patient_quote_addl_hx": "짐의 기질이 격렬한 것은... 왕의 품격이라 할 수 있지 않겠는가. ... 그대들 소인배들이 짐의 심기를 건드리는 것이니라.",
+    "pe_findings": "Alert, oriented to person but not reliably to place. Speech mildly dysarthric — more prominent on sustained phonation. Mild resting tremor of both hands, right greater than left — patient holds hands deliberately still when observed. Mild bradykinesia. Mild cogwheel rigidity on passive right arm movement. Gait mildly ataxic. Slit-lamp examination: slight discoloration at the periphery of both corneas — noted on careful inspection. Liver: mildly enlarged on palpation, non-tender. No asterixis.",
+    "imaging": "CT head: mild generalised volume loss. No focal lesion, no haemorrhage. Findings consistent with early structural change — non-specific.",
+    "special_test": {
+      "name": "Serum Ceruloplasmin + 24hr Urine Copper + LFTs",
+      "result": "Ceruloplasmin: 0.08 g/L (low — normal 0.20-0.60). 24-hour urine copper: 210 mcg/day (elevated — normal <100). AST 88, ALT 102 (elevated). Alkaline phosphatase 34 (low — characteristically low in Wilson disease). Serum copper: low (reflects low ceruloplasmin-bound copper). Free copper: elevated."
+    },
+    "memory_fragments": {
+      "pe": "He has been holding his hands still for months. He noticed the tremor before anyone else did. He decided it was beneath a king to acknowledge it.",
+      "imaging": "The CT shows early change. It does not show what caused it. The cause is in the copper. The copper has been there for years."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "Mild haemolytic anaemia — Hgb 11.2, MCV 92 (normocytic), reticulocytes 3.2% (elevated). Coombs negative. Platelets 142 (mild thrombocytopenia).",
+        "pt_remark": "짐의 혈액은 고귀한 것이나... ... 그 수치가 짐을 걱정케 하는 것은 아니로다."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "AST 88, ALT 102 (elevated). ALP 34 (low). Bilirubin 28 (mildly elevated). Creatinine 0.9. Sodium 138. Glucose 91.",
+        "pt_remark": "간이라... ... 짐의 몸 안에서도 내란이 일어나고 있는 것인가. ... 진압하면 될 것이니라."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Normal sinus rhythm rate 78. No arrhythmia.",
+        "pt_remark": "짐의 심장은... ... 왕의 박동으로 뛰고 있느니라. ... 당연한 것이니 계속하게."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Negative. Not indicated.",
+        "pt_remark": "심장은 이상 없다 하지 않았는가. ... 짐은 이미 알고 있었느니라."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Proteinuria 1+ (mild). Aminoaciduria on microscopy. Consistent with renal tubular dysfunction.",
+        "pt_remark": "소변까지... ... 짐의 왕국이 전방위로 시험받고 있구나. ... 견뎌낼 것이니라."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.3 (mildly elevated). PTT 36. Consistent with mild hepatic synthetic dysfunction.",
+        "pt_remark": "... (손이 미세하게 떨림) ... 짐의 혈액응고 체계도... ... 계속하게."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "pH 7.37. Normal. Not primarily indicated.",
+        "pt_remark": "숨쉬기는 괜찮다. ... 항상 그래왔느니라."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Normal. Not indicated.",
+        "pt_remark": "췌장도 짐에게 충성하고 있구나. ... 훌륭하니라."
+      }
+    ],
+    "hints": [
+      "Psychiatric presentation — mood lability, irritability, personality change — in a 33-year-old with no alcohol use, no prior psychiatric history, and a family history of bipolar disorder. The family history is a trap. The liver enzymes are not.",
+      "AST and ALT elevated. ALP characteristically low. Mild haemolytic anaemia. Coombs negative. Proteinuria. Multiple organ systems involved — hepatic, neurological, renal, haematological.",
+      "Age under 40. Neurological symptoms plus liver disease plus haemolytic anaemia without an obvious cause. The corneal finding is subtle but present.",
+      "Ceruloplasmin low. 24-hour urine copper elevated. Free copper elevated. The copper has been accumulating since before the kingdom was established."
+    ],
+    "management": [
+      {
+        "title": "Genetic basis — which gene and inheritance pattern?",
+        "hint": "Wilson disease confirmed biochemically. What is the underlying mutation?",
+        "options": [
+          {
+            "text": "ATP7B mutation — autosomal recessive copper transporter defect",
+            "sub": "Copper transporter gene",
+            "correct": true,
+            "feedback_correct": "Correct. Wilson disease is caused by mutations in ATP7B — encoding a copper-transporting ATPase in the liver. Autosomal recessive. Defective copper excretion into bile leads to hepatic accumulation, then overflow into brain, eyes, kidneys, and blood. Ceruloplasmin synthesis also impaired.",
+            "fennick_correct_comment": "\"ATP7B. The liver cannot move the copper out. So the copper moves itself — everywhere.\"",
+            "pt_remark_correct": "의... 의원님. ... 제가... 제가 태어날 때부터... 이미 정해진 것이었습니까."
+          },
+          {
+            "text": "ATP7A mutation — X-linked recessive copper deficiency",
+            "sub": "X-linked transporter",
+            "correct": false,
+            "feedback_wrong": "ATP7A mutations cause Menkes disease — X-linked recessive copper deficiency, not excess. Kinky hair, neurodegeneration in infancy. Opposite problem, different gene.",
+            "pt_remark_wrong": "... (눈동자가 흔들림) ... 그건... 짐의 것이 아닌 것 같은데.",
+            "fennick_wrong_comment": "\"Menkes is copper deficiency. Wilson is copper excess. Different gene, opposite direction.\""
+          },
+          {
+            "text": "HEXA mutation — autosomal recessive lysosomal storage",
+            "sub": "Lysosomal enzyme defect",
+            "correct": false,
+            "feedback_wrong": "HEXA mutations cause Tay-Sachs disease — hexosaminidase A deficiency, GM2 gangliosidosis. Not copper metabolism.",
+            "pt_remark_wrong": "... 짐은 그것이 무엇인지 모르겠느니라. ... 좋은 것은 아닌 것 같구나.",
+            "fennick_wrong_comment": "\"Tay-Sachs. Not copper. Wrong metabolic pathway entirely.\""
+          },
+          {
+            "text": "HFE mutation — autosomal recessive iron overload",
+            "sub": "Iron transporter defect",
+            "correct": false,
+            "feedback_wrong": "HFE mutations cause hereditary haemochromatosis — iron overload, not copper. Elevated ferritin, transferrin saturation. This patient has copper accumulation.",
+            "pt_remark_wrong": "... 철... 짐은 철의 왕도 될 수 있었을 텐데. ... 아니구나.",
+            "fennick_wrong_comment": "\"Haemochromatosis is iron. The ceruloplasmin and urine copper already told you which metal.\""
+          }
+        ]
+      },
+      {
+        "title": "First-line pharmacological treatment",
+        "hint": "Wilson disease confirmed. Neurological and hepatic involvement. What is first-line treatment?",
+        "options": [
+          {
+            "text": "D-penicillamine — copper chelation, first-line for Wilson disease",
+            "sub": "Copper chelation",
+            "correct": true,
+            "feedback_correct": "Correct. D-penicillamine is a copper chelator — binds free copper and promotes urinary excretion. First-line for Wilson disease. Monitor for side effects: nephrotic syndrome, lupus-like reaction, bone marrow suppression. Zinc acetate is an alternative (blocks intestinal copper absorption) and is preferred in pre-symptomatic or pregnant patients.",
+            "fennick_correct_comment": "\"Penicillamine binds what the liver cannot move. The kidneys finish the job.\"",
+            "pt_remark_correct": "살려주십시오... 제발... 이 약이... 이 약이 저를 고쳐줍니까... 의원님... 제발요."
+          },
+          {
+            "text": "Phlebotomy — reduce copper load by removing blood",
+            "sub": "Therapeutic phlebotomy",
+            "correct": false,
+            "feedback_wrong": "Phlebotomy reduces iron load — it is the treatment for haemochromatosis. It does not significantly reduce copper. Wilson disease requires chelation.",
+            "pt_remark_wrong": "피를 뽑는다고... ... 짐의... 그게 도움이 됩니까.",
+            "fennick_wrong_comment": "\"Phlebotomy removes iron. The problem here is copper.\""
+          },
+          {
+            "text": "Corticosteroids — treat autoimmune hepatitis pattern",
+            "sub": "Immunosuppression",
+            "correct": false,
+            "feedback_wrong": "Wilson disease can mimic autoimmune hepatitis on biopsy and biochemistry — a common diagnostic trap. Steroids do not treat the underlying copper accumulation and would delay appropriate therapy.",
+            "pt_remark_wrong": "... 염증을 잡는다고... ... 짐의 왕국에 염증이 있는 것은 아닌 것 같은데.",
+            "fennick_wrong_comment": "\"Wilson mimics autoimmune hepatitis. Steroids treat the mimic, not the metal.\""
+          },
+          {
+            "text": "Liver transplant — definitive cure, indicated immediately",
+            "sub": "Immediate transplant",
+            "correct": false,
+            "feedback_wrong": "Liver transplant is curative in Wilson disease but reserved for acute liver failure or failed medical management. Medical therapy with chelation is first-line. Transplant is not the first step in a stable patient.",
+            "pt_remark_wrong": "간을... 바꾼다고... 짐의 간을... (매우 조용해짐)",
+            "fennick_wrong_comment": "\"Transplant cures it. Chelation comes first. He is not in liver failure yet.\""
+          }
+        ]
+      },
+      {
+        "title": "Multisystem involvement — which other organs are monitored?",
+        "hint": "Wilson disease affects more than the liver and brain. What else needs monitoring?",
+        "options": [
+          {
+            "text": "Eyes (Kayser-Fleischer rings), kidneys (Fanconi syndrome), bone marrow (haemolytic anaemia), bone (osteoporosis)",
+            "sub": "Multisystem monitoring",
+            "correct": true,
+            "feedback_correct": "Correct. Wilson disease is a multisystem copper deposition disorder. Eyes: Kayser-Fleischer rings (corneal copper deposition — slit lamp required, absent in ~50% of hepatic-only presentations). Kidneys: Fanconi syndrome — proximal tubular dysfunction causing aminoaciduria, phosphaturia, glucosuria. Haematological: Coombs-negative haemolytic anaemia. Skeletal: osteoporosis, arthropathy. Cardiac: cardiomyopathy (rare).",
+            "fennick_correct_comment": "\"Copper deposits wherever the blood goes. Eyes, kidney tubules, bone marrow. Follow all of them.\"",
+            "pt_remark_correct": "이렇게나... 많은 곳에... 제가... 몸이 이렇게 된 줄 몰랐습니다... 의원님... 죄송합니다."
+          },
+          {
+            "text": "Lungs and thyroid only — systemic inflammatory screen",
+            "sub": "Inflammatory organ screen",
+            "correct": false,
+            "feedback_wrong": "Pulmonary and thyroid involvement is not characteristic of Wilson disease. The target organs are liver, brain, eyes, kidneys, blood, and bone.",
+            "pt_remark_wrong": "폐와 갑상선... 짐의... 그것들은 괜찮을 것 같은데요.",
+            "fennick_wrong_comment": "\"Wilson does not target the lungs or thyroid. Follow the copper.\""
+          },
+          {
+            "text": "Cardiac monitoring only — copper cardiomyopathy is the main risk",
+            "sub": "Cardiac focus",
+            "correct": false,
+            "feedback_wrong": "Cardiac involvement occurs but is rare. Renal Fanconi syndrome, haemolytic anaemia, and Kayser-Fleischer rings are more consistent and important monitoring targets.",
+            "pt_remark_wrong": "심장만... 짐의 심장은 강합니다... 아마도.",
+            "fennick_wrong_comment": "\"Cardiac is rare. Renal Fanconi and haemolytic anaemia are the consistent findings.\""
+          },
+          {
+            "text": "No additional monitoring — liver and brain are the only organs affected",
+            "sub": "Limited monitoring",
+            "correct": false,
+            "feedback_wrong": "Wilson disease is explicitly multisystem. Fanconi syndrome (already evidenced by proteinuria and aminoaciduria here), haemolytic anaemia (already present), and Kayser-Fleischer rings are all present or likely in this patient.",
+            "pt_remark_wrong": "그것만... 그것만이면 좋겠습니다만.",
+            "fennick_wrong_comment": "\"The proteinuria and haemolytic anaemia are already there. He has Fanconi. He has corneal changes. Both.\""
+          }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Wilson disease confirmed, chelation initiated. Neurological and hepatic involvement, no acute failure. Where does he go?",
+        "options": [
+          {
+            "text": "Admit for initiation of chelation therapy, hepatology and neurology referral, social work involvement for housing and follow-up support",
+            "sub": "Inpatient initiation with multidisciplinary input",
+            "correct": true,
+            "feedback_correct": "Correct. Initiation of D-penicillamine requires monitoring for early side effects and baseline organ function assessment. Hepatology and neurology for ongoing management. Social work is essential — he has no fixed abode and will not maintain outpatient follow-up without support. Neurological symptoms may initially worsen with chelation (paradoxical worsening from mobilisation of copper).",
+            "fennick_correct_comment": "\"Chelation can worsen neurology initially. Start slowly. Watch closely.\"",
+            "pt_remark_correct": "입원을... 입원을 하겠습니다. ... 의원님 말씀대로... 하겠습니다. ... 제발 고쳐주십시오. (깊이 고개를 숙임)"
+          },
+          {
+            "text": "Discharge with oral D-penicillamine prescription and outpatient hepatology in 4 weeks",
+            "sub": "Outpatient initiation",
+            "correct": false,
+            "feedback_wrong": "No fixed abode. No support structure. D-penicillamine initiation requires monitoring and follow-up he cannot maintain without housing. Outpatient discharge here is not a realistic management plan.",
+            "pt_remark_wrong": "... 4주 후에... 짐이... 어디에 있을지... 알 수 없느니라. (조용히)",
+            "fennick_wrong_comment": "\"No address. No follow-up possible. The prescription will not find him.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"No fixed abode. You discharged him with a prescription and a date. He did not make the appointment.\""
+          },
+          {
+            "text": "Refer to psychiatry for bipolar disorder — mood symptoms are the primary presentation",
+            "sub": "Psychiatric referral only",
+            "correct": false,
+            "feedback_wrong": "Mood symptoms in Wilson disease are secondary to copper deposition in the basal ganglia and limbic system. Treating as primary bipolar disorder misses the underlying cause. Chelation addresses the mood symptoms alongside the rest.",
+            "pt_remark_wrong": "정신과... 짐이... 미쳤다는 것입니까.",
+            "fennick_wrong_comment": "\"The basal ganglia have copper in them. That is why the mood changed. Treat the copper.\""
+          },
+          {
+            "text": "Urgent liver transplant assessment — Wilson disease is progressive without transplant",
+            "sub": "Urgent transplant referral",
+            "correct": false,
+            "feedback_wrong": "Transplant is reserved for acute liver failure or medical treatment failure. This patient has elevated transaminases and mild synthetic dysfunction — not acute failure. Chelation first.",
+            "pt_remark_wrong": "이식... 지금 당장... 그것이 필요한 것입니까.",
+            "fennick_wrong_comment": "\"Stable hepatic function. Chelation first. Transplant is the last resort, not the first step.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 33,
+      "sex": "M",
+      "pmh": "no known medical history",
+      "presenting": "eight months of mood lability, irritability, dysarthria, tremor, and ataxia in a 33-year-old with no alcohol use and family history of bipolar disorder",
+      "pertinent_positives": {
+        "addl-hx": "progressive mood change and personality alteration over 8 months, speech difficulties, fine motor difficulty, unsteadiness",
+        "pe": "dysarthria, bilateral resting tremor right greater than left, cogwheel rigidity, ataxic gait, mild hepatomegaly, subtle peripheral corneal discoloration",
+        "labs": "elevated AST/ALT, low ALP, Coombs-negative haemolytic anaemia, proteinuria with aminoaciduria, mildly elevated bilirubin",
+        "imaging": "CT head — mild generalised volume loss, non-specific",
+        "special": "ceruloplasmin low 0.08, 24hr urine copper 210 mcg/day elevated, ALP characteristically low"
+      },
+      "assessment": "Wilson Disease — ATP7B mutation, autosomal recessive, copper accumulation with hepatic, neurological, renal, and haematological involvement",
+      "plan": "D-penicillamine chelation, inpatient initiation, hepatology and neurology referral, social work, monitor for paradoxical neurological worsening"
+    },
+    "explanation": "Wilson disease is an autosomal recessive disorder of copper metabolism caused by ATP7B mutations. Defective biliary copper excretion leads to hepatic accumulation, then overflow deposition in brain (basal ganglia, cerebellum), cornea (Kayser-Fleischer rings), kidneys, and blood. Presents before age 40. Neuropsychiatric presentation common — can mimic bipolar disorder, schizophrenia. Key labs: low ceruloplasmin, elevated 24hr urine copper, low ALP (characteristic), elevated transaminases. Treatment: D-penicillamine or trientine (chelation), zinc acetate (blocks absorption).",
+    "explanation_detail": {
+      "who_gets_it": "Autosomal recessive. 1 in 30,000. Presents age 5-35. Hepatic presentation in children, neuropsychiatric more common in young adults.",
+      "risk_factors": "Homozygous or compound heterozygous ATP7B mutation. Family history.",
+      "typical_presentation": "Hepatic: elevated transaminases, cirrhosis, acute liver failure (low ALP characteristic). Neurological: dysarthria, tremor, dystonia, ataxia, personality change. Psychiatric: mood lability, psychosis, mimics bipolar/schizophrenia. Eyes: Kayser-Fleischer rings (slit lamp). Renal: Fanconi syndrome. Blood: Coombs-negative haemolytic anaemia.",
+      "moa": "ATP7B encodes a copper-transporting ATPase in hepatocytes. Mutation → impaired biliary copper excretion → hepatic copper accumulation → liver damage → copper overflow into circulation → deposition in brain, cornea, kidney tubules.",
+      "step1_buzzwords": "ATP7B. Autosomal recessive. Age <40. Low ceruloplasmin. Elevated 24hr urine copper. Low ALP (characteristic). Kayser-Fleischer rings (slit lamp). Fanconi syndrome. Coombs-negative haemolytic anaemia. D-penicillamine or trientine. Zinc acetate for pre-symptomatic/pregnant.",
+      "lab_buzzwords": "Ceruloplasmin low (<0.20). 24hr urine copper elevated (>100 mcg/day, >40 on chelation). Serum copper low (bound) but free copper high. ALP low (characteristic — seen in acute Wilson liver failure). LFTs elevated. Coombs-negative haemolytic anaemia.",
+      "treatment": "D-penicillamine (copper chelator, first-line, monitor for nephrotic syndrome/lupus-like/bone marrow suppression). Trientine (alternative chelator, fewer side effects). Zinc acetate (blocks GI copper absorption — pre-symptomatic, maintenance, pregnancy). Liver transplant for acute liver failure or failed medical therapy. Paradoxical neurological worsening possible at chelation initiation — start low, go slow."
+    },
+    "fennick_opening": "\"The constable brought him. He arrived as if he had called for the appointment himself.\"",
+    "fennick_after_pe": "\"Tremor. Rigidity. Dysarthria. Ataxia. Cornea.\"",
+    "fennick_after_imaging": "\"Volume loss. Non-specific. The CT shows the result. Not the cause.\"",
+    "generic_lab_remark": "짐의 몸이... 많은 것을 드러내고 있구나. ... 계속하게.",
+    "music_default": "Foxfire Morning Waltz",
+    "fennick_case_complete": [
+      "\"The king was a performance.\"",
+      "\"The fear underneath was always real.\"",
+      "\"He asked if he could still be helped. That was the first honest thing he said.\""
+    ]
   }
 ]
