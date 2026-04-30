@@ -925,7 +925,7 @@
       "image_url_alert": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777423964/the_librarian1_u1ipli.png"
     },
     "chart": {
-      "cc": "Tired. And short of breath when I climb the archive stairs.",
+      "cc": "Tired. And short of breath on the archive stairs.",
       "hpi": "The Librarian presented alone, without appointment, carrying nothing. She has had fatigue and exertional dyspnoea for two months. She describes the fatigue as different from ordinary tiredness — heavier. She has not missed a day of work. She did not come sooner because she assumed it would pass. She has a history of breast cancer treated six years ago with surgery and combination chemotherapy including cyclophosphamide. She considers herself recovered. She has not seen a physician since her oncology follow-up three years ago. She offers no further information unprompted.",
       "pmh": "Breast cancer — treated 6 years ago, surgery and chemotherapy (cyclophosphamide-containing regimen). No other conditions reported.",
       "psh": "Breast surgery 6 years ago.",
@@ -942,7 +942,7 @@
       "o2": "97% RA"
     },
     "additional_hx": "On direct questioning she confirms the fatigue started approximately two months ago, gradually. No fever, no night sweats, no weight loss she has noticed. No bone pain. No easy bruising she can recall. No recent infections. She has not noticed any lumps. Periods ceased twelve years ago. She lives alone. She came today because she could not climb to the third floor of the archive without stopping. The third floor is where she works. She has been taking the long route around the building for three weeks to avoid the stairs. Nobody noticed.",
-    "patient_quote_addl_hx": "\"I did not want to make a fuss. I still do not.\"",
+    "patient_quote_addl_hx": "(sets a folded piece of paper on the desk. it is a page from a medical index. she has underlined two entries.)",
     "pe_findings": "Alert, quiet, cooperative. Pale conjunctivae and nail beds. No jaundice. No lymphadenopathy. Chest clear. Heart sounds normal — soft systolic flow murmur at apex consistent with anaemia. Abdomen soft — no hepatomegaly, no splenomegaly. No peripheral oedema. No focal neurological deficit. No breast masses or axillary nodes.",
     "imaging": "CT chest/abdomen/pelvis: no evidence of malignant recurrence, no lymphadenopathy, no organomegaly. No intracranial abnormality. Normal study for age.",
     "special_test": {
@@ -958,19 +958,19 @@
         "name": "CBC",
         "cost": 5,
         "result": "Hgb 7.2 g/dL (low). MCV 108 fL (high — macrocytic). Reticulocytes 1% (inappropriately low). Platelets 90,000/mm³ (low). WBC 3,800/mm³ (low). Pancytopenia with macrocytic anaemia and low reticulocyte count.",
-        "pt_remark": "Is that the complete picture."
+        "pt_remark": "... (reads the result upside down from across the desk)"
       },
       {
         "name": "CMP",
         "cost": 5,
         "result": "Sodium 138, potassium 4.1, creatinine 0.9, glucose 92. LFTs normal. LDH mildly elevated at 280 U/L. Bilirubin normal. Uric acid 7.2 (mildly elevated).",
-        "pt_remark": "Normal, then."
+        "pt_remark": "... Normal, then."
       },
       {
         "name": "EKG",
         "cost": 5,
         "result": "Sinus rhythm rate 88. No ischaemic changes. Voltage slightly low consistent with anaemia.",
-        "pt_remark": "I did not think it was my heart."
+        "pt_remark": "(watches the machine. says nothing.)"
       },
       {
         "name": "Troponin",
@@ -991,7 +991,7 @@
         "name": "ABG/VBG",
         "cost": 5,
         "result": "pH 7.38. pO2 88. Mild compensated picture consistent with anaemia. No primary acid-base disorder.",
-        "pt_remark": "That one was uncomfortable."
+        "pt_remark": "... (grimaces slightly. first expression she has shown)"
       },
       {
         "name": "Coags",
@@ -1000,165 +1000,166 @@
       }
     ],
     "hints": [
-      "Macrocytic anaemia with a low reticulocyte count. The bone marrow is failing to respond. B12 and folate are normal — this is not nutritional. What else causes macrocytic anaemia with a hypoproliferative marrow?",
-      "Pancytopenia — all three cell lines affected. Low haemoglobin, low platelets, low WBC. No splenomegaly to suggest sequestration. No hepatomegaly. The problem is in the marrow itself.",
-      "Hyposegmented neutrophils — pseudo-Pelger-Huet anomaly. This is dysplasia. Not the hypersegmented neutrophils of B12 deficiency. Hypo, not hyper. The direction matters.",
-      "Therapy-related MDS. Cyclophosphamide — an alkylating agent — given six years ago. Alkylating agents cause therapy-related myeloid neoplasms typically 5-7 years after exposure. The chemotherapy that cured the breast cancer caused this."
+      "Macrocytic anaemia with an inappropriately low reticulocyte count. The marrow is not responding. B12 and folate are normal. Something else is suppressing production.",
+      "All three cell lines are affected. The problem is not in the blood — it is in what is making the blood.",
+      "Look at the neutrophils on the smear. The direction of the nuclear segmentation matters. It is not what you expect from a nutritional deficiency.",
+      "She had chemotherapy six years ago. Alkylating agents have long memories."
     ],
     "management": [
       {
-        "title": "Confirm the diagnosis — what is the next step?",
-        "hint": "Pancytopenia, macrocytic anaemia, low reticulocytes, dysplastic peripheral smear, normal B12/folate, no splenomegaly. What confirms the diagnosis?",
+        "title": "Delivering the diagnosis",
+        "hint": "She has just received a significant diagnosis. She is quiet. She brought a folded medical index page. How do you begin?",
         "options": [
           {
-            "text": "Bone marrow biopsy — required for definitive MDS diagnosis and IPSS-R scoring",
-            "sub": "Bone marrow biopsy",
+            "text": "\"It appears your bone marrow is not producing blood cells normally due to damage from previous treatment, and this condition is called therapy-related myelodysplastic syndrome. What were you expecting this might be?\"",
+            "sub": "Explain then invite her understanding",
             "correct": true,
-            "feedback_correct": "Correct. Bone marrow biopsy is required to confirm MDS, determine blast percentage, assess cytogenetics, and calculate IPSS-R score — which drives treatment decisions. Peripheral smear suggests dysplasia but biopsy confirms it. Expected finding: dysplastic erythroid and myeloid progenitor cells.",
-            "fennick_correct_comment": "\"The smear pointed. The biopsy will confirm. Order it.\"",
-            "pt_remark_correct": "A biopsy of the marrow. ... How long does that take."
+            "feedback_correct": "Correct. This approach explains the diagnosis in plain language, names it clearly, acknowledges the cause, and then invites her perspective — checking what she already knows and creating space for her to process. It is direct without being abrupt, and collaborative without being evasive.",
+            "fennick_correct_comment": "\"She brought a medical index. She had already been looking.\"",
+            "pt_remark_correct": "... (looks at the folded paper on the desk) ... I had it under haematology. ... I was not sure."
           },
           {
-            "text": "Start B12 and folate supplementation — macrocytic anaemia is likely nutritional",
-            "sub": "Empirical B12/folate",
+            "text": "\"This is a bone marrow disorder called therapy-related myelodysplastic syndrome, likely related to prior chemotherapy exposure. I'll explain what that means in detail.\"",
+            "sub": "Name and explain without checking understanding first",
             "correct": false,
-            "feedback_wrong": "B12 and folate are both normal. Treating a nutritional deficiency that does not exist delays the real diagnosis. Macrocytic anaemia with normal B12/folate, hyposegmented (not hypersegmented) neutrophils, and pancytopenia requires a different explanation.",
-            "pt_remark_wrong": "Vitamins. ... I eat adequately.",
+            "feedback_wrong": "Naming the diagnosis and committing to a full explanation without first checking what she already knows or wants to know can overwhelm. She came with a medical index page — she has done some reading. Starting with her understanding would be more efficient and more respectful.",
+            "pt_remark_wrong": "... (nods slowly. does not interrupt. when you finish — ) ... I see. ... Can I ask something.",
+            "fennick_wrong_comment": "\"She already had the word underlined. You did not ask what she knew.\""
+          },
+          {
+            "text": "\"Your blood results suggest a serious disorder of the bone marrow, and we need to move on to discussing treatment options urgently.\"",
+            "sub": "Skip naming the diagnosis, jump to treatment",
+            "correct": false,
+            "feedback_wrong": "Moving directly to treatment without naming and explaining the diagnosis removes her ability to understand what she is agreeing to treat. Urgency framing without context creates anxiety without information.",
+            "pt_remark_wrong": "... (very still) ... What is it called.",
+            "fennick_wrong_comment": "\"She asked what it was called. You had not told her.\""
+          },
+          {
+            "text": "\"Before I name the condition, can you tell me what you understand about your current blood abnormalities so far?\"",
+            "sub": "Elicit understanding before naming",
+            "correct": false,
+            "feedback_wrong": "Eliciting understanding first is good practice — but she has been waiting, she came prepared, and withholding the name while asking questions can feel evasive to a patient who is clearly ready to hear it. Name it, then invite her perspective.",
+            "pt_remark_wrong": "... (reaches into her bag. places another folded page on the desk.) ... I brought notes.",
+            "fennick_wrong_comment": "\"She had notes. She was ready. You made her wait longer.\""
+          }
+        ]
+      },
+      {
+        "title": "Confirm the diagnosis — next step",
+        "hint": "Pancytopenia, macrocytic anaemia, dysplastic peripheral smear, normal B12/folate, prior alkylating agent exposure. What confirms it?",
+        "options": [
+          {
+            "text": "Bone marrow biopsy — required for definitive diagnosis and IPSS-R scoring",
+            "sub": "Bone marrow biopsy",
+            "correct": true,
+            "feedback_correct": "Correct. Bone marrow biopsy confirms MDS, determines blast percentage, assesses dysplasia across cell lines, and enables cytogenetic analysis for IPSS-R scoring. Expected finding: dysplastic erythroid and myeloid progenitor cells.",
+            "fennick_correct_comment": "\"The smear pointed. The biopsy confirms.\"",
+            "pt_remark_correct": "... How long does that take. ... I have a catalogue to finish.",
+            "portrait_swap": "image_url_alert"
+          },
+          {
+            "text": "Start B12 and folate supplementation — macrocytic anaemia may be nutritional",
+            "sub": "Empirical supplementation",
+            "correct": false,
+            "feedback_wrong": "B12 and folate are both normal. Treating a deficiency that does not exist delays the diagnosis. Macrocytic anaemia with normal nutritional markers, hyposegmented neutrophils, and pancytopenia requires marrow assessment.",
+            "pt_remark_wrong": "... Vitamins. ... I eat adequately.",
             "fennick_wrong_comment": "\"Hyposegmented. Not hypersegmented. The direction matters.\""
           },
           {
-            "text": "CT-guided biopsy of any recurrent breast lesion — exclude metastatic disease",
+            "text": "CT-guided biopsy to exclude metastatic breast cancer recurrence",
             "sub": "Recurrence workup",
             "correct": false,
-            "feedback_wrong": "CT shows no evidence of recurrence, no masses, no lymphadenopathy. The peripheral smear shows dysplastic haematopoietic cells — not metastatic epithelial cells. Breast cancer recurrence does not explain hyposegmented neutrophils or this smear pattern.",
-            "pt_remark_wrong": "You think it has come back. ... I see.",
-            "fennick_wrong_comment": "\"The CT is clear. The dysplasia is in the haematopoietic cells. Look at the smear again.\""
+            "feedback_wrong": "CT shows no recurrence, no masses. The dysplastic cells on smear are haematopoietic, not epithelial. Breast cancer recurrence does not explain hyposegmented neutrophils or this smear pattern.",
+            "pt_remark_wrong": "... (very still) You think it came back.",
+            "fennick_wrong_comment": "\"The CT is clear. The dysplasia is in the blood cells. Look at the smear.\""
           },
           {
-            "text": "Transfuse packed red cells and discharge — symptomatic treatment for anaemia",
-            "sub": "Transfuse and discharge",
+            "text": "Transfuse and discharge — treat the symptomatic anaemia",
+            "sub": "Symptomatic treatment only",
             "correct": false,
-            "feedback_wrong": "Transfusion addresses symptoms but not the underlying diagnosis. Discharging without identifying the cause of pancytopenia in a patient with prior alkylating agent chemotherapy is incomplete and potentially dangerous.",
-            "pt_remark_wrong": "You are sending me home. ... Alright.",
-            "fennick_wrong_comment": "\"The anaemia is the symptom. You treated the symptom and sent her away.\"",
+            "feedback_wrong": "Transfusion addresses symptoms, not the underlying diagnosis. Discharging without identifying the cause of pancytopenia in a patient with prior alkylating agent exposure is incomplete.",
+            "pt_remark_wrong": "... (picks up her bag. stands.)",
+            "fennick_wrong_comment": "\"The anaemia is the symptom. You treated it and sent her away.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"Six years of chemotherapy exposure. Pancytopenia. Dysplastic smear. You transfused her and discharged her without a diagnosis.\""
+            "fennick_endgame_comment": "\"Pancytopenia. Dysplastic smear. Prior alkylating agent exposure. You transfused her and discharged her without a diagnosis.\""
           }
         ]
       },
       {
-        "title": "Interpret the bone marrow biopsy result",
-        "hint": "Bone marrow biopsy returns: dysplastic erythroid and myeloid progenitor cells, hypercellular marrow, <5% blasts, cytogenetics pending. What is the diagnosis?",
-        "options": [
-          {
-            "text": "Therapy-related MDS — secondary to prior cyclophosphamide exposure",
-            "sub": "Therapy-related MDS",
-            "correct": true,
-            "feedback_correct": "Correct. Dysplastic progenitor cells on biopsy confirms MDS. Therapy-related MDS (t-MDS) follows alkylating agent exposure by 5-7 years — cyclophosphamide given 6 years ago fits precisely. Typically presents with pancytopenia and dysplasia. Carries worse prognosis than de novo MDS.",
-            "fennick_correct_comment": "\"The chemotherapy cured the cancer. It also caused this. Both things are true.\"",
-            "pt_remark_correct": "The chemotherapy. ... From six years ago. ... I see. (long pause) I see."
-          },
-          {
-            "text": "Aplastic anaemia — hypercellular marrow rules it out but could be hypoplastic",
-            "sub": "Aplastic anaemia",
-            "correct": false,
-            "feedback_wrong": "Aplastic anaemia shows a hypocellular marrow with fatty replacement — not a hypercellular marrow with dysplastic progenitors. The dysplastic changes on biopsy are the defining feature of MDS.",
-            "pt_remark_wrong": "Is that better or worse than what you said before.",
-            "fennick_wrong_comment": "\"Hypocellular and empty. Not dysplastic and overcrowded. These are different findings.\""
-          },
-          {
-            "text": "Myelofibrosis — teardrop cells on smear suggest marrow fibrosis",
-            "sub": "Myelofibrosis",
-            "correct": false,
-            "feedback_wrong": "Myelofibrosis presents with massive splenomegaly from extramedullary haematopoiesis. She has no splenomegaly. Biopsy in myelofibrosis shows fibrotic marrow, not dysplastic progenitors. Occasional teardrop cells can appear in MDS too.",
-            "pt_remark_wrong": "You mentioned the spleen earlier. It was normal, you said.",
-            "fennick_wrong_comment": "\"No splenomegaly. No fibrotic marrow. The teardrops misled you.\""
-          },
-          {
-            "text": "AML transformation — blast percentage confirms progression",
-            "sub": "AML",
-            "correct": false,
-            "feedback_wrong": "AML requires ≥20% blasts on bone marrow biopsy. This biopsy shows <5% blasts. This is MDS, not AML. MDS can transform to AML — that is a risk, not the current diagnosis.",
-            "pt_remark_wrong": "Leukaemia. ... That is what you are saying.",
-            "fennick_wrong_comment": "\"Less than five percent blasts. The threshold for AML is twenty. She is not there yet.\""
-          }
-        ]
-      },
-      {
-        "title": "Initial management — IPSS-R risk stratification",
-        "hint": "t-MDS confirmed, <5% blasts. IPSS-R score pending cytogenetics. What guides initial management decisions?",
+        "title": "Risk stratification and management plan",
+        "hint": "t-MDS confirmed on biopsy. <5% blasts. Cytogenetics pending. What drives the treatment decision?",
         "options": [
           {
             "text": "IPSS-R risk scoring — cytogenetics, blast %, cytopenias — then tailor treatment accordingly",
             "sub": "Risk-stratified management",
             "correct": true,
-            "feedback_correct": "Correct. IPSS-R stratifies MDS into risk groups driving treatment intensity. Lower risk: supportive care, ESAs, lenalidomide (del5q). Higher risk: hypomethylating agents (azacitidine/decitabine), allogeneic SCT if eligible. t-MDS generally has worse prognosis and may warrant earlier aggressive intervention.",
+            "feedback_correct": "Correct. IPSS-R stratifies MDS into risk groups that drive treatment intensity. Lower risk: supportive care, ESAs, lenalidomide (del5q). Higher risk: hypomethylating agents (azacitidine/decitabine), allogeneic SCT if eligible. t-MDS generally carries worse prognosis.",
             "fennick_correct_comment": "\"The score tells you how fast to move.\"",
-            "pt_remark_correct": "What does that mean. In plain language. (pause) Please."
+            "pt_remark_correct": "... (opens the notebook she brought. finally writes something.)"
           },
           {
-            "text": "Immediate allogeneic stem cell transplant — t-MDS always requires transplant",
+            "text": "Immediate allogeneic stem cell transplant",
             "sub": "Immediate SCT",
             "correct": false,
-            "feedback_wrong": "SCT is considered for higher-risk MDS in eligible patients. Not all t-MDS requires immediate transplant — IPSS-R risk score, performance status, comorbidities, and patient preference all factor in. Age 66 with no current comorbidities may be eligible but this decision requires full risk stratification first.",
-            "pt_remark_wrong": "A transplant. ... From whom.",
+            "feedback_wrong": "SCT is considered for higher-risk MDS in eligible patients. Risk stratification via IPSS-R must come first — not all t-MDS requires immediate transplant.",
+            "pt_remark_wrong": "... A transplant. ... From whom.",
             "fennick_wrong_comment": "\"Risk stratify first. Then decide how aggressively to move.\""
           },
           {
-            "text": "Supportive transfusions only — she is 66 and may not tolerate aggressive treatment",
+            "text": "Supportive transfusions only — patient may not tolerate aggressive treatment",
             "sub": "Transfusions only",
             "correct": false,
-            "feedback_wrong": "Age alone does not determine treatment intensity in MDS. Supportive care only for higher-risk MDS significantly reduces survival. IPSS-R assessment is required before deciding on a supportive-only approach.",
-            "pt_remark_wrong": "That is fine. I do not want a fuss.",
+            "feedback_wrong": "Age alone does not determine treatment intensity. Supportive-only management for higher-risk MDS significantly reduces survival. IPSS-R assessment is required first.",
+            "pt_remark_wrong": "... (nods once) That is fine. I do not want a fuss.",
             "fennick_wrong_comment": "\"She said she does not want a fuss. That is not a treatment plan.\""
           },
           {
-            "text": "Start azacitidine immediately — hypomethylating agent for all MDS",
-            "sub": "Azacitidine without stratification",
+            "text": "Start azacitidine immediately",
+            "sub": "Hypomethylating agent without stratification",
             "correct": false,
-            "feedback_wrong": "Azacitidine is indicated for higher-risk MDS. Lower-risk MDS is managed differently. Starting it without IPSS-R stratification risks over-treating lower-risk disease.",
-            "pt_remark_wrong": "Another chemotherapy. ... I see.",
-            "fennick_wrong_comment": "\"Hypomethylating agents are for higher-risk disease. You have not scored her yet.\""
+            "feedback_wrong": "Azacitidine is for higher-risk MDS. Lower-risk disease is managed differently. Starting without IPSS-R risks over-treating.",
+            "pt_remark_wrong": "... Another chemotherapy. ... I see.",
+            "fennick_wrong_comment": "\"You have not scored her yet. Higher-risk and lower-risk are not treated the same.\""
           }
         ]
       },
       {
-        "title": "Communication — results and next of kin",
-        "hint": "She came alone. She has been alone through all of this. You have the diagnosis. How do you proceed?",
+        "title": "Disposition",
+        "hint": "t-MDS confirmed. IPSS-R pending cytogenetics. Haematology involved. Where does she go?",
         "options": [
           {
-            "text": "Ask if there is anyone she would like to contact or have present before discussing the full results",
-            "sub": "Patient-centred disclosure",
+            "text": "Haematology outpatient referral — urgent, within one week, with cytogenetics pending",
+            "sub": "Urgent outpatient haematology",
             "correct": true,
-            "feedback_correct": "Correct. She made a choice to come alone. That choice is hers. Before delivering significant results, checking whether she wants support — and leaving that decision entirely to her — respects her autonomy.",
-            "fennick_correct_comment": "\"She came alone. Ask before you assume she wants to stay that way.\"",
-            "pt_remark_correct": "She looks at the window. A long time. ... No. (pause) Tell me."
+            "feedback_correct": "Correct. Stable t-MDS with <5% blasts does not require inpatient admission. Urgent haematology outpatient referral within one week allows IPSS-R completion, treatment planning, and multidisciplinary input without unnecessary admission.",
+            "fennick_correct_comment": "\"She came alone. Make sure she knows when to come back.\"",
+            "pt_remark_correct": "... (stands. picks up her bag. folds the notebook carefully.) ... Can I still work. ... In the archive."
           },
           {
-            "text": "Contact her next of kin directly — results of this severity require family notification",
-            "sub": "Unsolicited family notification",
+            "text": "Immediate inpatient admission for treatment initiation",
+            "sub": "Inpatient admission",
             "correct": false,
-            "feedback_wrong": "There is no medical or legal basis for contacting family without patient consent. She is a competent adult. Her results are hers. Contacting family without her permission is a confidentiality violation regardless of diagnosis severity.",
-            "pt_remark_wrong": "She is very still. ... You will call someone without asking me. (pause) I would like you to leave.",
-            "fennick_wrong_comment": "\"She came alone. That was a decision. You overrode it without asking.\"",
+            "feedback_wrong": "Stable t-MDS with <5% blasts and no acute complications does not require inpatient admission. Treatment planning requires IPSS-R completion which needs cytogenetics — not available yet.",
+            "pt_remark_wrong": "... (sets her bag down.) ... For how long.",
+            "fennick_wrong_comment": "\"Stable. No acute complication. She does not need a bed tonight.\""
+          },
+          {
+            "text": "Discharge with GP follow-up in four weeks",
+            "sub": "Routine GP follow-up",
+            "correct": false,
+            "feedback_wrong": "Four weeks is too long for newly diagnosed t-MDS. Urgent haematology review within one week is the standard. GP follow-up alone is insufficient for this diagnosis.",
+            "pt_remark_wrong": "... (nods. stands.) ... Four weeks.",
+            "fennick_wrong_comment": "\"Four weeks. For therapy-related MDS. That is not urgent.\""
+          },
+          {
+            "text": "Palliative care referral only — t-MDS carries poor prognosis",
+            "sub": "Palliative care without treatment attempt",
+            "correct": false,
+            "feedback_wrong": "t-MDS has a worse prognosis than de novo MDS but is not universally terminal. IPSS-R determines prognosis and treatment options including potentially curative SCT. Referring directly to palliative care without risk stratification is premature.",
+            "pt_remark_wrong": "... (very still. a long time.) ... I see.",
+            "fennick_wrong_comment": "\"You have not scored her. You do not know her prognosis yet.\"",
             "critical_error": true,
-            "fennick_endgame_comment": "\"She came alone. She had her reasons. You called someone without asking. She discharged herself and did not return.\""
-          },
-          {
-            "text": "Deliver the full diagnosis immediately — she asked for plain language and deserves directness",
-            "sub": "Immediate full disclosure without setting",
-            "correct": false,
-            "feedback_wrong": "Directness is appropriate. Skipping the step of checking whether she wants support before hearing a significant diagnosis is not. She asked for plain language — she did not ask to skip the process of preparing for it.",
-            "pt_remark_wrong": "She nods. Once. Slowly. She does not ask any questions. That is not the same as being ready.",
-            "fennick_wrong_comment": "\"She said plain language. She did not say immediately and alone without asking first.\""
-          },
-          {
-            "text": "Suggest she come back with a family member before receiving the results",
-            "sub": "Defer without her input",
-            "correct": false,
-            "feedback_wrong": "Suggesting she return with family assumes she wants family involved. She came alone. She may have very good reasons. The decision about who is present belongs to her — not to you.",
-            "pt_remark_wrong": "I have been coming to this building alone for forty years. (pause) I will come back alone.",
-            "fennick_wrong_comment": "\"You assumed she needed someone. She has been alone her whole life. Ask first.\""
+            "fennick_endgame_comment": "\"IPSS-R pending. SCT potentially eligible. You sent her to palliative care without knowing her risk group.\""
           }
         ]
       }
@@ -1188,16 +1189,22 @@
       "lab_buzzwords": "CBC: pancytopenia, MCV elevated. Reticulocytes inappropriately low. B12/folate: normal (excludes nutritional). LDH mildly elevated. Peripheral smear: oval macrocytes, hyposegmented neutrophils, dysplastic changes. Bone marrow: dysplastic progenitors, blast %.",
       "treatment": "Lower risk: supportive (transfusions, ESAs), lenalidomide (del5q), azacitidine. Higher risk: hypomethylating agents (azacitidine/decitabine), allogeneic SCT if eligible. t-MDS: generally worse prognosis, earlier consideration of aggressive therapy."
     },
-    "fennick_opening": "\"She came alone. She brought nothing.\"",
+    "fennick_opening": "\"She came alone. She brought a folded piece of paper.\"",
     "fennick_after_pe": "\"Pale conjunctivae. No splenomegaly. Flow murmur from the anaemia.\"",
     "fennick_after_imaging": "\"No recurrence. The CT was to exclude, not to diagnose.\"",
     "fennick_case_complete": [
       "\"The chemotherapy cured the cancer.\"",
       "\"... And caused this.\"",
-      "\"She already knew, I think. She just needed someone to say it plainly.\""
+      "\"She asked if she could still work.\""
     ],
-    "generic_lab_remark": "Is that relevant.",
+    "generic_lab_remark": "... (reads whatever is visible on the desk)",
     "music_default": null,
-    "portrait_swap_on_dx": "image_url_alert"
+    "portrait_swap_on_dx": "image_url_alert",
+    "cc_after_addl_hx": "... (taps the folded paper once)",
+    "cc_after_pe": "... (adjusts her glasses. waits.)",
+    "cc_after_imaging": "... (opens her bag. takes out a small notebook. does not write anything.)",
+    "cc_after_hint": "... (looks at the window)",
+    "cc_after_dx": "... m. ... What was it called.",
+    "breathless_typing": true
   }
 ]
