@@ -1227,14 +1227,14 @@
       "image_url": "PLACEHOLDER"
     },
     "chart": {
-      "cc": "Headache. ... But I already know.",
-      "hpi": "The Fortune Teller arrived unannounced. She sat down without being invited. She has a new left-sided temporal headache — onset three weeks ago, progressive. When asked to elaborate she said the pain had been foretold. She declined to continue the history. She declined physical examination. She agreed to remain in the room.",
-      "pmh": "Hypertension — confirmed by patient when pressed. ('The pressure is known to me. It has been managed by other means.') Father: died of subarachnoid haemorrhage from ruptured berry aneurysm — volunteered unprompted, then refused to discuss further.",
-      "psh": "(Not obtained. Patient uncooperative.)",
-      "meds": "(Not obtained. Patient states she does not take what she does not believe in.)",
-      "allergies": "(Not obtained.)",
+      "cc": "Headache. I know what it is already but my daughter made me come.",
+      "hpi": "The Fortune Teller arrived unannounced. She sat down without being invited and rearranged the chair slightly first. She has a new left-sided temporal headache — onset three weeks ago, progressive. When asked to elaborate she said she had already consulted better sources. She declined to continue the history but showed no sign of leaving. She keeps touching the left side of her face and eye without seeming to notice she is doing it.",
+      "pmh": "Hypertension — confirmed after mild protest. (\"Yes yes, the pressure. I manage it my own way.\")",
+      "psh": "(Not obtained.)",
+      "meds": "(Not obtained. \"Nothing from a bottle. Well. One thing. But that is between me and the bottle.\")",
+      "allergies": "(Not obtained. \"Nothing that has tried to kill me yet.\")",
       "fh": "Father: subarachnoid haemorrhage, ruptured berry aneurysm. Further family history not obtained.",
-      "sh": "(Not obtained. Patient uncooperative.)"
+      "sh": "(Not obtained. Patient redirected every social question back to the physician.)"
     },
     "vitals": {
       "bp": "172/96 — obtained after significant negotiation. Patient stated the numbers were 'already written.'",
@@ -1244,8 +1244,8 @@
       "o2": "98% RA — patient did not notice the probe being attached"
     },
     "additional_hx": "After prolonged negotiation the following was established: the headache is strictly left-sided, temporal in location, onset over three weeks, worsening progressively. She has had scalp tenderness — she describes brushing her hair in the mornings as 'the scalp rejecting the comb.' Aching in both shoulders and hips for the past month — she says her body has been 'rearranging itself.' Weight loss of approximately 3kg over one month, unintentional. Fatigue and general malaise. One episode last week of brief pain behind the left eye — she mentioned this as an afterthought, then changed the subject.",
-    "patient_quote_addl_hx": "\"The head. The shoulders. The eye — once. (pause) The eye was different. ... That one I did not expect.\"",
-    "pe_findings": "Patient permitted the following only:\n— Left temporal artery: tender on palpation, nodular, markedly reduced pulsation. Patient stopped speaking mid-sentence when this was palpated.\n— Scalp tenderness over left temporal region confirmed on light touch.\n— BP confirmed 172/96 on repeat.\n— Patient noted to wince when turning head.\n\n(Patient declined the following: fundoscopy — 'the eyes are not for you today'; cranial nerve assessment — 'those are already being used'; auscultation — 'you will not hear what you are looking for there'; full neurological examination — declined without explanation.)",
+    "patient_quote_addl_hx": "\"The head has been going on for weeks. The shoulders — that is old news. The weight, yes, I noticed. (waves hand) And the eye. Once. Last week. (pause) That one was different. I am not going to say more about the eye.\"",
+    "pe_findings": "Patient permitted the following only:\n— Left temporal artery: tender on palpation, nodular, markedly reduced pulsation. She went quiet mid-sentence when this was palpated. First time she stopped talking.\n— Scalp tenderness over left temporal region on light touch.\n\nThe following was declined:\n— Fundoscopy: \"These are working eyes. You will have to wait your turn.\"\n— Cranial nerve assessment: \"All present. I use them professionally.\"\n— Auscultation: \"Nothing interesting in there. I checked last Tuesday.\"\n— Full neurological examination: \"If something were wrong in there I would know. Next question.\"",
     "imaging": "CT head without contrast: no intracranial haemorrhage, no mass lesion, no midline shift. No aneurysm identified on non-contrast study. No territorial infarct. (Patient agreed to CT only after being told the machine 'reads without touching.')",
     "special_test": {
       "name": "ESR + CRP + CBC",
@@ -1260,49 +1260,49 @@
         "name": "CBC",
         "cost": 5,
         "result": "Hgb 10.8 (mild normocytic anaemia — anaemia of inflammation). WBC 9.2. Plt 420 (mildly elevated — reactive thrombocytosis). Consistent with systemic inflammatory process.",
-        "pt_remark": "... Numbers. ... (glances at result) ... The inflammation. ... You can see it from the outside now."
+        "pt_remark": "Oh that one is high. ... I knew that one was high. ... Write down that I told you first."
       },
       {
         "name": "CMP",
         "cost": 5,
         "result": "Normal. Creatinine 0.9, sodium 138, glucose 96. LFTs normal. No metabolic abnormality.",
-        "pt_remark": "... Normal. ... Of course. That is not where the answer is."
+        "pt_remark": "Normal. Of course normal. That is not where the answer is. I could have saved you the blood."
       },
       {
         "name": "EKG",
         "cost": 5,
         "result": "Normal sinus rhythm rate 78. No ischaemic changes. Not indicated for this presentation.",
-        "pt_remark": "... The heart is not the problem. ... I could have told you that without the machine."
+        "pt_remark": "The heart is fine. Perfectly good heart. Wasted on the rest of me some days but fine."
       },
       {
         "name": "Troponin",
         "cost": 5,
         "result": "Negative. Not indicated.",
-        "pt_remark": "Also not the problem."
+        "pt_remark": "The heart is fine I already told you. Are you writing this down?"
       },
       {
         "name": "Lipase",
         "cost": 5,
         "result": "Normal. Not indicated.",
-        "pt_remark": "(looks at the ceiling. says nothing.)"
+        "pt_remark": "(distracted, looking at something on the wall) ... Mm."
       },
       {
         "name": "UA",
         "cost": 5,
         "result": "Normal. Not indicated for this presentation.",
-        "pt_remark": "... I drew the boundary at blood. ... I meant it."
+        "pt_remark": "I said blood was where I drew the line. ... That one I drew a different line."
       },
       {
         "name": "ABG/VBG",
         "cost": 5,
         "result": "Not obtained. Patient declined. 'That one requires something I have not agreed to give.'",
-        "pt_remark": "No. (not a pause. just no.)"
+        "pt_remark": "No. (cheerfully) Absolutely not."
       },
       {
         "name": "Coags",
         "cost": 5,
         "result": "PT/INR 1.0, PTT 29. Normal. Relevant given family history of intracranial haemorrhage — coagulopathy excluded.",
-        "pt_remark": "... My father's blood was his own matter. ... Not mine."
+        "pt_remark": "My father's blood. His problem entirely. Not hereditary. I checked."
       }
     ],
     "hints": [
@@ -1317,80 +1317,80 @@
         "hint": "She has refused most of the history and examination. She has agreed to stay. How do you approach her?",
         "options": [
           {
-            "text": "Validate her perspective, frame your role as safety rather than challenge, ask permission for minimal assessment",
-            "sub": "Validation and safety framing",
+            "text": "\"I hear that you already know. I am not here to take that from you. My only role is to make sure nothing dangerous is happening. Would you allow me to check just a few things — for safety, not for doubt.\"",
+            "sub": "Validation + safety framing + permission",
             "correct": true,
             "feedback_correct": "Correct. Confronting her belief system directly produces resistance. Validating without agreeing, framing the examination as safety-focused rather than diagnostic, and asking permission rather than asserting authority are the evidence-based approaches to patients with strongly held alternative belief frameworks.",
             "fennick_correct_comment": "\"She does not have to believe you. She has to let you help her.\"",
-            "pt_remark_correct": "... (long pause) ... You are not trying to take it from me. ... Fine. What do you need."
+            "pt_remark_correct": "... (tilts head. studies you.) ... You are not trying to change it. ... Good. ... Then we can proceed. (already rolling up her sleeve) ... The left one."
           },
           {
-            "text": "Explain that her beliefs have no scientific basis and examination is medically necessary",
-            "sub": "Direct confrontation",
+            "text": "\"I understand that is how you feel. However there is a risk this could be dangerous and I need to examine you. Please cooperate so we can proceed.\"",
+            "sub": "Acknowledge then override",
             "correct": false,
             "feedback_wrong": "Confronting a patient's belief system directly — especially one this entrenched — produces immediate and total resistance. She will leave. The temporal artery will remain unexamined.",
-            "pt_remark_wrong": "... (stands) ... I did not come here to be corrected. (moves toward the door)",
+            "pt_remark_wrong": "(stands immediately) ... Dangerous. Yes yes. (picks up her bag) ... You sound like my daughter.",
             "fennick_wrong_comment": "\"She was not asking to be believed. She was asking not to be dismissed.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"She left. The ESR was 98. The visual symptoms had already started. You corrected her beliefs instead of examining her temporal artery.\""
           },
           {
-            "text": "Proceed with full examination immediately — her safety overrides her refusal",
-            "sub": "Forced examination",
+            "text": "\"Your safety takes priority here. I am going to proceed with the examination now.\"",
+            "sub": "Safety override without consent",
             "correct": false,
             "feedback_wrong": "A competent adult has the right to refuse examination. Proceeding without consent is assault regardless of clinical urgency. The correct approach is to persuade, not to override.",
-            "pt_remark_wrong": "... (pulls back sharply) ... Do not. ... I said do not.",
+            "pt_remark_wrong": "(pulls back sharply) ... I said no. ... I was very clear about no.",
             "fennick_wrong_comment": "\"Competent adult. Refused consent. You proceeded anyway.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"She had capacity. She refused. You proceeded without consent. Whatever the diagnosis — this is how you lost her.\""
           },
           {
-            "text": "Tell her examination refusal means you cannot help her and she should leave",
-            "sub": "Discharge without engagement",
+            "text": "\"It sounds like you have a strong sense of what is happening. Could you tell me more about what you believe this is, and why you feel that way?\"",
+            "sub": "Explore belief before safety framing",
             "correct": false,
-            "feedback_wrong": "Discharging a patient with acute visual symptoms, temporal headache, and ESR 98 because she is difficult to engage is abandonment. The clinical picture demands persistent, skilled engagement — not dismissal.",
-            "pt_remark_wrong": "... (nods slowly) ... As you wish. (stands, unhurried)",
-            "fennick_wrong_comment": "\"She would have walked out. The eye would have gone by morning.\"",
+            "feedback_wrong": "Exploring her belief system first delays the safety assessment and does not move her toward allowing examination. Validation of her perspective combined with a safety frame and explicit permission request is more effective.",
+            "pt_remark_wrong": "(settles back with visible pleasure) ... Oh good. Finally. (begins at length) ... It started with a dream in the third week of — ",
+            "fennick_wrong_comment": "\"She will talk for a long time. The artery will not wait.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"You sent her away. ESR 98. Transient visual loss. She lost the eye within 48 hours.\""
           }
         ]
       },
       {
-        "title": "Diagnosis",
-        "hint": "67-year-old. New unilateral temporal headache. Jaw claudication. Transient visual loss. Tender, nodular temporal artery with reduced pulsation. ESR 98, CRP 64. What is the diagnosis?",
+        "title": "Giant Cell Arteritis is confirmed. What does the temporal artery biopsy show?",
+        "hint": "The biopsy has returned. Which histological finding confirms Giant Cell Arteritis?",
         "options": [
           {
-            "text": "Giant Cell Arteritis (Temporal Arteritis)",
-            "sub": "Large vessel granulomatous vasculitis",
+            "text": "Granulomatous inflammation of the media with multinucleated giant cells and fragmentation of the internal elastic lamina",
+            "sub": "GCA pattern",
             "correct": true,
-            "feedback_correct": "Correct. Classic presentation: age >50, new unilateral temporal headache, scalp tenderness, constitutional symptoms (shoulder/hip girdle aching, weight loss, fatigue), tender nodular temporal artery with reduced pulsation, markedly elevated ESR and CRP. One episode of ocular pain. Giant cell arteritis.",
-            "fennick_correct_comment": "\"The artery told you. She told you. ESR 98 confirmed it.\"",
-            "pt_remark_correct": "... (quietly) ... That is what it is called. ... (pause) ... I knew there was a name."
+            "feedback_correct": "Correct. GCA shows granulomatous inflammation within the vessel wall — predominantly in the media — with multinucleated giant cells, infiltration by lymphocytes and macrophages, and disruption/fragmentation of the internal elastic lamina. Intimal hyperplasia causes luminal narrowing and ischaemia.",
+            "fennick_correct_comment": "\"The wall destroys itself from within. The giant cells are the signature.\"",
+            "pt_remark_correct": "(does not look at the report) ... I knew before the needle. ... But thank you for confirming."
           },
           {
-            "text": "Subarachnoid haemorrhage — thunderclap headache, family history of berry aneurysm",
-            "sub": "SAH",
+            "text": "Homogeneous acellular thickening of the arteriolar wall with hyaline deposition",
+            "sub": "Hyaline arteriolosclerosis",
             "correct": false,
-            "feedback_wrong": "SAH presents with sudden-onset thunderclap headache — instantaneous peak, worst of life. This headache is progressive over three weeks. CT is normal. The father's history created cognitive bias here.",
-            "pt_remark_wrong": "... My father's death is not my death.",
-            "fennick_wrong_comment": "\"Three weeks. Progressive. Not thunderclap. The family history led you away from what was in front of you.\""
+            "feedback_wrong": "Hyaline arteriolosclerosis — homogeneous acellular wall thickening with hyaline deposition — is the pattern of chronic hypertension and diabetes in small vessels. It does not produce granulomatous inflammation or giant cells.",
+            "pt_remark_wrong": "... That is not it. (with confidence)",
+            "fennick_wrong_comment": "\"Hypertension changes small vessels. GCA destroys medium ones differently.\""
           },
           {
-            "text": "Hypertensive emergency — BP 172/96 with headache",
-            "sub": "Hypertensive emergency",
+            "text": "Concentric onion-skin layering of the arteriolar wall with intimal proliferation",
+            "sub": "Hyperplastic arteriolosclerosis",
             "correct": false,
-            "feedback_wrong": "Hypertensive emergency requires end-organ damage. BP 172/96 with normal CT and no papilloedema (fundoscopy declined — but ESR 98 and temporal artery findings point elsewhere). The unilateral temporal distribution and jaw claudication are not explained by hypertension alone.",
-            "pt_remark_wrong": "... The pressure has always been high. This is different.",
-            "fennick_wrong_comment": "\"The blood pressure did not cause the jaw claudication. Or the nodular artery.\""
+            "feedback_wrong": "Concentric onion-skin intimal proliferation is hyperplastic arteriolosclerosis — seen in malignant hypertension. Not the pattern of giant cell arteritis.",
+            "pt_remark_wrong": "... Also not it. (same confidence)",
+            "fennick_wrong_comment": "\"Onion-skin is malignant hypertension. Not granulomatous vasculitis.\""
           },
           {
-            "text": "Tension headache — chronic, bilateral, stress-related",
-            "sub": "Tension headache",
+            "text": "Transmural inflammation with fibrinoid necrosis of the vessel wall",
+            "sub": "Fibrinoid necrosis pattern",
             "correct": false,
-            "feedback_wrong": "Tension headache is bilateral, pressing, not associated with scalp tenderness, constitutional symptoms, or ESR 98. This is not tension headache.",
-            "pt_remark_wrong": "... Tension. ... You think this is tension.",
-            "fennick_wrong_comment": "\"ESR 98. Jaw claudication. Nodular artery. Transient visual loss. Tension headache does not produce a single one of these findings.\""
+            "feedback_wrong": "Fibrinoid necrosis with transmural inflammation is the pattern of polyarteritis nodosa — a necrotising vasculitis affecting medium vessels. GCA is granulomatous, not necrotising. Giant cells are absent in PAN.",
+            "pt_remark_wrong": "... Close. (pause) But close is not the same thing.",
+            "fennick_wrong_comment": "\"Fibrinoid necrosis is PAN. GCA granulates — it does not necrotise.\""
           }
         ]
       },
@@ -1404,14 +1404,14 @@
             "correct": true,
             "feedback_correct": "Correct. In GCA with visual symptoms, steroid treatment must not wait for biopsy confirmation. The window before irreversible ischaemic optic neuropathy is narrow. High-dose corticosteroids (IV methylprednisolone 500-1000mg for 3 days in vision-threatened GCA) should be started immediately. Biopsy remains valid up to 2 weeks after steroid initiation.",
             "fennick_correct_comment": "\"The biopsy can wait two weeks. The eye cannot wait two days.\"",
-            "pt_remark_correct": "... (looks at the syringe) ... And this will stop it. ... (pause) ... The eye. ... (pause) ... You are telling me this will stop it."
+            "pt_remark_correct": "... (looks at the syringe for a long moment) ... This is the one the cards kept pointing to. ... I kept hoping it meant something else. ... The eye. ... You are saying this changes what is coming."
           },
           {
             "text": "Wait for temporal artery biopsy result before starting steroids",
             "sub": "Biopsy before treatment",
             "correct": false,
             "feedback_wrong": "Waiting for biopsy before treating vision-threatened GCA risks irreversible visual loss. Biopsy remains diagnostic for up to 2 weeks after steroid initiation — the diagnosis is not lost by treating first. Vision may be.",
-            "pt_remark_wrong": "... More waiting. ... (quietly) ... The eye went dark again this morning.",
+            "pt_remark_wrong": "... More waiting. (sighs) ... The eye went a little dark again this morning. ... I did not mention that earlier.",
             "fennick_wrong_comment": "\"The biopsy does not expire. The vision does.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"You waited for the biopsy. She lost the eye before the result came back. The biopsy was still positive.\""
@@ -1421,7 +1421,7 @@
             "sub": "Oral steroids for vision-threatened GCA",
             "correct": false,
             "feedback_wrong": "Oral prednisolone 40-60mg is appropriate for GCA without visual involvement. Vision-threatened GCA requires IV methylprednisolone (500-1000mg daily for 3 days) for maximum anti-inflammatory effect before stepping down to oral.",
-            "pt_remark_wrong": "... A tablet. ... For the eye.",
+            "pt_remark_wrong": "A tablet. (looks at it) ... The cards showed a needle. ... This is not a needle.",
             "fennick_wrong_comment": "\"Oral is for uncomplicated GCA. She has had two episodes of transient visual loss. She needs IV.\""
           },
           {
@@ -1429,48 +1429,10 @@
             "sub": "Defer to ophthalmology",
             "correct": false,
             "feedback_wrong": "Ophthalmology should be involved — but treatment should not wait for their review. In vision-threatened GCA, every hour matters. Start steroids, then refer.",
-            "pt_remark_wrong": "... Another person who will want to look at my eyes.",
+            "pt_remark_wrong": "... Another one who wants to look at my eyes. (to the ceiling) ... Why does everyone want the eyes.",
             "fennick_wrong_comment": "\"Refer after you treat. Not instead of treating.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"You waited for ophthalmology before treating. The referral took four hours. The window had already closed.\""
-          }
-        ]
-      },
-      {
-        "title": "Confirm diagnosis — next step after steroids",
-        "hint": "Steroids started. GCA clinically diagnosed. What confirms it?",
-        "options": [
-          {
-            "text": "Temporal artery biopsy — gold standard, valid up to 2 weeks post-steroids",
-            "sub": "Temporal artery biopsy",
-            "correct": true,
-            "feedback_correct": "Correct. Temporal artery biopsy is the gold standard for GCA confirmation. It remains valid for up to 2 weeks after steroid initiation. Expected finding: granulomatous inflammation with giant cells, intimal hyperplasia, disruption of internal elastic lamina.",
-            "fennick_correct_comment": "\"She agreed to this one. She said the artery had already spoken anyway.\"",
-            "pt_remark_correct": "... (looks at the arm marked for biopsy) ... It is just a vessel. ... (quietly) ... It already told you everything."
-          },
-          {
-            "text": "MRI brain — exclude intracranial pathology",
-            "sub": "MRI brain",
-            "correct": false,
-            "feedback_wrong": "CT is already normal. MRI is not the confirmatory test for GCA. Temporal artery biopsy is.",
-            "pt_remark_wrong": "... Another machine.",
-            "fennick_wrong_comment": "\"The confirmation comes from the artery. Not the brain.\""
-          },
-          {
-            "text": "Repeat ESR and CRP in 4 weeks to confirm steroid response",
-            "sub": "Inflammatory markers only",
-            "correct": false,
-            "feedback_wrong": "ESR and CRP support the diagnosis and monitor treatment response — they do not confirm it. Biopsy is the gold standard and should be obtained while still valid.",
-            "pt_remark_wrong": "... More numbers.",
-            "fennick_wrong_comment": "\"Inflammatory markers monitor. They do not confirm. The biopsy window closes in two weeks.\""
-          },
-          {
-            "text": "Clinical diagnosis is sufficient — biopsy is unnecessary",
-            "sub": "No biopsy",
-            "correct": false,
-            "feedback_wrong": "Clinical diagnosis can be made — but biopsy confirmation is important for long-term steroid commitment. GCA requires months to years of steroids with significant side effects. Biopsy confirmation prevents prolonged treatment of an incorrect diagnosis.",
-            "pt_remark_wrong": "... Good. No more instruments.",
-            "fennick_wrong_comment": "\"Years of steroids. Significant side effects. She deserves confirmation before committing to that.\""
           }
         ]
       },
@@ -1484,14 +1446,14 @@
             "correct": true,
             "feedback_correct": "Correct. Vision-threatened GCA requires inpatient admission for IV steroid course (3 days), ophthalmology review, and rheumatology involvement for long-term management planning. Temporal artery biopsy arranged as inpatient or urgent outpatient within 2 weeks.",
             "fennick_correct_comment": "\"She agreed to stay. That was the harder diagnosis.\"",
-            "pt_remark_correct": "... (long pause) ... I will need my cards. ... (pause) ... Someone will need to feed the cat."
+            "pt_remark_correct": "... (long pause. then matter-of-factly) ... I will need my cards. ... And someone will need to feed the cat. ... (beat) ... She is also called Fate. ... I named her that before all this. ... Seemed funny at the time."
           },
           {
             "text": "Discharge with oral prednisolone and GP follow-up",
             "sub": "Discharge with oral steroids",
             "correct": false,
             "feedback_wrong": "Vision-threatened GCA requires IV methylprednisolone inpatient, not oral prednisolone outpatient. Discharging at this stage risks further visual episodes without adequate steroid coverage.",
-            "pt_remark_wrong": "... Home. ... (slowly picks up her bag) ... Good.",
+            "pt_remark_wrong": "... For how long. (pause) ... I have clients on Thursday.",
             "fennick_wrong_comment": "\"IV methylprednisolone. Inpatient. She had transient visual loss this morning.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"Vision-threatened GCA discharged on oral steroids. She lost the eye two days later at home.\""
@@ -1501,7 +1463,7 @@
             "sub": "Discharge respecting autonomy",
             "correct": false,
             "feedback_wrong": "Respecting autonomy means ensuring informed decision-making — not abandoning a patient with an active vision-threatening emergency because she is difficult to engage. She agreed to stay.",
-            "pt_remark_wrong": "... (nods) ... I know my own way out.",
+            "pt_remark_wrong": "(stands, picks up bag briskly) ... Good. I have a cat.",
             "fennick_wrong_comment": "\"She agreed to stay. You sent her anyway.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"She had agreed to stay. You discharged her. Autonomy does not mean abandonment.\""
@@ -1511,7 +1473,7 @@
             "sub": "Outpatient only",
             "correct": false,
             "feedback_wrong": "One week outpatient is not appropriate for active vision-threatened GCA requiring IV steroid initiation. This requires same-day inpatient admission.",
-            "pt_remark_wrong": "... One week. ... (quietly) ... A lot can happen in one week.",
+            "pt_remark_wrong": "... One week. (quietly) ... A lot can happen in one week.",
             "fennick_wrong_comment": "\"She was right about that one.\""
           }
         ]
@@ -1542,20 +1504,20 @@
       "lab_buzzwords": "ESR markedly elevated (>50, often >100). CRP elevated. Normocytic anaemia (inflammation). Thrombocytosis (reactive). Alkaline phosphatase may be elevated.",
       "treatment": "Vision-threatened: IV methylprednisolone 500-1000mg x3 days then oral pred 1mg/kg. Uncomplicated: oral prednisolone 40-60mg. Taper slowly over 1-2 years. Temporal artery biopsy for confirmation (valid 2 weeks post-steroids). Aspirin 75mg (reduces ischaemic complications). Monitor ESR/CRP. PPI, bisphosphonate, calcium/vit D for steroid protection."
     },
-    "fennick_opening": "\"She sat down without being invited.\"",
+    "fennick_opening": "\"She rearranged the chair before sitting. I said nothing.\"",
     "fennick_after_pe": "\"The artery. That is all she gave you. It was enough.\"",
     "fennick_after_imaging": "\"No haemorrhage. The father's death was not her diagnosis.\"",
-    "generic_lab_remark": "... (does not look at the result. already knows it does not matter.)",
-    "music_default": null,
+    "generic_lab_remark": "Are you writing this down.",
+    "music_default": "Foxfire Morning Waltz",
     "fennick_case_complete": [
-      "\"She agreed to stay.\"",
-      "\"That was the harder diagnosis.\"",
-      "\"She asked for her cards. And someone to feed the cat.\""
+      "\"She named the cat Fate.\"",
+      "\"Before all this.\"",
+      "\"She said it seemed funny at the time.\""
     ],
-    "cc_after_addl_hx": "... (touches her own temple briefly. removes the hand.) ... You heard what I said about the eye.",
-    "cc_after_pe": "... (very still after the temporal artery palpation. then, quietly) ... You found it.",
-    "cc_after_imaging": "... (looks at the scan without expression.) ... My father died of something that showed on those. ... This is different.",
-    "cc_after_hint": "... (looks at you steadily.) ... You are getting closer.",
-    "cc_after_dx": "... (a long silence.) ... I have been calling it something else. ... (pause) ... But yes. ... That is what it is."
+    "cc_after_addl_hx": "(keeps touching her left temple and eye throughout the history, always the same hand, never finishing the gesture) ... The eye was once. ... I said once and I meant it.",
+    "cc_after_pe": "(after the temporal artery palpation — goes very quiet for a moment. then, briskly) ... Right. Yes. That is the one.",
+    "cc_after_imaging": "... The machine did not find my father's problem in me. Good. ... I told my daughter it would not.",
+    "cc_after_hint": "... You are getting warmer. ... I would tell you but then what would be the point of you.",
+    "cc_after_dx": "... (looks at you with something that might be satisfaction) ... I had a name for it too. ... Mine was older. ... But yes. ... Same thing."
   }
 ]
