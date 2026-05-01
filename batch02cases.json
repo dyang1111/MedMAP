@@ -2140,5 +2140,345 @@
     },
     "cc_after_pe_flash": "... the hand. ... It has been doing that.",
     "cc_after_imaging_flash": "... my brain is."
+  },
+  {
+    "id": "025",
+    "date": "2026-04-25",
+    "tier": 1,
+    "urgency": "urgent",
+    "title": "The Hangman's Complaint",
+    "dx_answer": "Acute Cholangitis",
+    "breathless_typing": true,
+    "typing_speed_on_dx": "normal",
+    "portrait_swap_on_dx": "image_url_alert",
+    "personality": {
+      "archetype": "Enormous, masked executioner. Speaks in fragments. No emotion. Pre-dx: threatening undercurrent in everything. Post-dx: the threat drains out. Same short sentences — but honest now.",
+      "voice": "Subject. Verb. Stop. Never more than four words per sentence. Pre-dx every sentence has a quiet edge. Post-dx same structure but the edge is gone. Just a large man who is frightened.",
+      "crack": "When the RUQ is palpated. A sound. Not a word."
+    },
+    "patient": {
+      "name": "The Hangman",
+      "age": 40,
+      "sex": "M",
+      "occupation": "State Executioner, Ferrovane Judicial District",
+      "image_url": "PLACEHOLDER_DEFAULT",
+      "image_url_alert": "PLACEHOLDER_POST_DX"
+    },
+    "pt_opening": "나. 의사. 왔다. 몸. 이상하다. 고쳐라.",
+    "chart": {
+      "cc": "나. 몸. 노랗다. 거울. 봤다. 괴물. 같다. 그리고. 춥다. 덜덜. 떨린다. 밧줄. 못. 묶겠다.",
+      "hpi": "The patient presented without appointment, occupying the doorway for several seconds before entering. He is a 40-year-old male state executioner who reports three days of progressive jaundice, rigors, and right upper quadrant pain. He noted his urine had darkened to the colour of rope. He had a similar but milder episode approximately four months ago that resolved without treatment. He declined to elaborate further.",
+      "pmh": "No known medical conditions. Similar biliary episode four months ago — self-resolved.",
+      "psh": "None reported.",
+      "meds": "None.",
+      "allergies": "NKDA.",
+      "fh": "Not obtained.",
+      "sh": "State executioner. Occupation physically demanding. Non-drinker. Diet unremarkable. Lives alone."
+    },
+    "vitals": {
+      "bp": "96/62",
+      "hr": "114",
+      "rr": "20",
+      "temp": "39.4",
+      "o2": "96% RA"
+    },
+    "additional_hx": "On direct questioning: the pain is localised to the right side under the ribs, sharp, worse after eating. The urine has been dark for three days, stools pale. He has had no appetite. The rigors started yesterday. He reports no chest pain, no vomiting blood, no change in bowel habit beyond pale stools. The previous episode resolved in two days. This one has not.",
+    "patient_quote_addl_hx": "오줌. 진하다. 밧줄. 색깔. 같다. 예전에도. 조금. 아팠다. 금방. 나았다. 이번엔. 다르다. 계속. 춥다.",
+    "pe_findings": "Alert but uncomfortable. Markedly jaundiced sclera and skin. Febrile, diaphoretic. RUQ tenderness on palpation — patient made a sound and pulled back. Guarding present in RUQ. No peritoneal signs. Liver not enlarged. Spleen not palpable. Murphy's sign positive. No asterixis. No peripheral oedema.",
+    "imaging": "Abdominal ultrasound: biliary ductal dilation. Common bile duct 12mm (dilated). Gallstones visible within the gallbladder. No free fluid. No hepatic mass.",
+    "special_test": null,
+    "memory_fragments": {
+      "pe": "He made a sound when the RUQ was palpated. Not a word. He had not made any sound before that.",
+      "imaging": "Dilated duct. Stone visible. The bile has nowhere to go. That is why he is yellow. That is why he has a fever. That is why he is here."
+    },
+    "tests": [
+      {
+        "name": "CBC",
+        "cost": 5,
+        "result": "WBC 18.4 (markedly elevated, left shift). Hgb 14.2. Plt 210. Leukocytosis consistent with bacterial infection.",
+        "pt_remark": "피. 검사. 별로다."
+      },
+      {
+        "name": "CMP",
+        "cost": 5,
+        "result": "Total bilirubin 6.8 (elevated — direct predominant). ALP 320 (elevated). GGT 280 (elevated). AST 88, ALT 96 (mildly elevated). Creatinine 1.4 (mildly elevated). Sodium 136.",
+        "pt_remark": "숫자. 많다. 나쁜. 건가."
+      },
+      {
+        "name": "EKG",
+        "cost": 5,
+        "result": "Sinus tachycardia rate 114. No ischaemic changes.",
+        "pt_remark": "심장. 빠르다. 알고. 있다."
+      },
+      {
+        "name": "Troponin",
+        "cost": 5,
+        "result": "Negative. Not primarily indicated.",
+        "pt_remark": "심장. 아니다. 나도. 안다."
+      },
+      {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Lipase 68 (normal upper limit 60 — borderline). Not significantly elevated. Pancreatitis not the primary diagnosis.",
+        "pt_remark": "거기. 안. 아프다."
+      },
+      {
+        "name": "UA",
+        "cost": 5,
+        "result": "Bilirubin 3+ (elevated — conjugated bilirubin in urine). Urobilinogen low. Dark urine confirmed. No infection.",
+        "pt_remark": "오줌. 얘기. 또. 하나."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.6 (elevated). PTT 42. Consistent with hepatic dysfunction affecting synthetic function.",
+        "pt_remark": "피. 잘. 안. 멈추나."
+      },
+      {
+        "name": "ABG/VBG",
+        "cost": 5,
+        "result": "pH 7.32 (mild acidosis). Lactate 2.8 (elevated). Consistent with early sepsis physiology.",
+        "pt_remark": "숨. 쉬기. 힘들다."
+      }
+    ],
+    "hints": [
+      "Fever. RUQ pain. Jaundice. Three findings. One triad.",
+      "The bile duct is dilated on ultrasound. There is a stone. The duct is infected. Bile is not draining. The infection is building upstream.",
+      "Tachycardia. Fever. Elevated WBC with left shift. Mildly elevated creatinine. Lactate 2.8. This is not a stable patient.",
+      "The previous episode resolved in two days — likely a stone that passed. This one has not passed. The duct is obstructed. Decompression is eventually required."
+    ],
+    "management": [
+      {
+        "title": "Immediate resuscitation — first step",
+        "hint": "Febrile, tachycardic, hypotensive, jaundiced, RUQ pain. What do you do first?",
+        "options": [
+          {
+            "text": "IV fluid resuscitation and broad-spectrum antibiotics immediately",
+            "sub": "Resuscitation and source control",
+            "correct": true,
+            "feedback_correct": "Correct. Acute cholangitis is a surgical emergency. IV fluids for haemodynamic support and broad-spectrum antibiotics immediately — before any further workup or intervention. Do not wait for blood cultures to return before starting antibiotics in a septic patient.",
+            "fennick_correct_comment": "\"Obstruction plus infection plus systemic response. The order matters — fluids and antibiotics first.\"",
+            "pt_remark_correct": "주사. 맞는다. ... 아프면. 말해도. 되나."
+          },
+          {
+            "text": "Urgent ERCP immediately — decompress the biliary system first",
+            "sub": "Immediate procedural intervention",
+            "correct": false,
+            "feedback_wrong": "ERCP is required but not the first step. The patient needs haemodynamic stabilisation and antibiotics before any procedure. ERCP on an unstable, non-resuscitated patient significantly increases procedural risk.",
+            "pt_remark_wrong": "수술. 지금. 바로. 하나.",
+            "fennick_wrong_comment": "\"Stabilise before you scope. The duct can wait one hour. The blood pressure cannot.\""
+          },
+          {
+            "text": "CT abdomen with contrast — confirm diagnosis before treating",
+            "sub": "Imaging before treatment",
+            "correct": false,
+            "feedback_wrong": "The diagnosis is clinical — Charcot's triad with supporting ultrasound and labs. Delaying treatment for CT in a septic patient with confirmed biliary obstruction is not appropriate. Treat first.",
+            "pt_remark_wrong": "또. 기계. 들어가나.",
+            "fennick_wrong_comment": "\"Charcot's triad. Dilated duct on ultrasound. The diagnosis is made. Treat it.\""
+          },
+          {
+            "text": "Observe and repeat bloods in four hours — may resolve spontaneously",
+            "sub": "Watchful waiting",
+            "correct": false,
+            "feedback_wrong": "This patient has sepsis physiology — tachycardia, hypotension, fever, elevated lactate. Watchful waiting in acute cholangitis with systemic sepsis is dangerous. The previous episode resolved because it was mild. This one has not.",
+            "pt_remark_wrong": "기다린다. 또.",
+            "fennick_wrong_comment": "\"Lactate 2.8. BP 96/62. HR 114. This is not a waiting case.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"He deteriorated within two hours. Reynolds Pentad by morning.\""
+          }
+        ]
+      },
+      {
+        "title": "Antibiotic selection",
+        "hint": "Broad-spectrum antibiotics for biliary sepsis. The source is the biliary tree. What covers it?",
+        "options": [
+          {
+            "text": "Piperacillin-tazobactam (pip-tazo) — broad Gram-negative and anaerobic coverage",
+            "sub": "Beta-lactam/beta-lactamase inhibitor",
+            "correct": true,
+            "feedback_correct": "Correct. Pip-tazo provides excellent coverage for the common biliary pathogens — E. coli, Klebsiella, Enterococcus, and anaerobes. First-line for moderate-severe acute cholangitis per Tokyo Guidelines. Alternatives: carbapenems for severe/resistant cases, ceftriaxone + metronidazole for mild-moderate.",
+            "fennick_correct_comment": "\"Gram-negatives from the gut. Enterococcus. Anaerobes. Pip-tazo covers all three lanes.\"",
+            "pt_remark_correct": "약. 독한. 건가. ... 괜찮다. 맞겠다."
+          },
+          {
+            "text": "Vancomycin monotherapy — cover Gram-positive organisms",
+            "sub": "Gram-positive coverage only",
+            "correct": false,
+            "feedback_wrong": "Biliary infections are predominantly Gram-negative — E. coli, Klebsiella. Vancomycin monotherapy leaves the dominant pathogens uncovered.",
+            "pt_remark_wrong": "약. 이름. 모른다.",
+            "fennick_wrong_comment": "\"The biliary tree grows Gram-negatives. Vancomycin does not reach them.\""
+          },
+          {
+            "text": "Fluconazole — cover Candida biliary infection",
+            "sub": "Antifungal",
+            "correct": false,
+            "feedback_wrong": "Fungal cholangitis is rare and reserved for immunocompromised patients with failed bacterial therapy. This is bacterial cholangitis — start with bacterial coverage.",
+            "pt_remark_wrong": "곰팡이. 아니다. 나는.",
+            "fennick_wrong_comment": "\"Fungal cholangitis is immunocompromised patients only. Start with bacteria.\""
+          },
+          {
+            "text": "Metronidazole monotherapy — anaerobic biliary coverage",
+            "sub": "Anaerobic coverage only",
+            "correct": false,
+            "feedback_wrong": "Metronidazole covers anaerobes but not the dominant Gram-negative aerobes in biliary sepsis. Monotherapy is insufficient.",
+            "pt_remark_wrong": "약. 하나만. 맞는다.",
+            "fennick_wrong_comment": "\"Anaerobic coverage alone misses E. coli and Klebsiella. The dominant organisms here.\""
+          }
+        ]
+      },
+      {
+        "title": "ERCP timing — when to decompress",
+        "hint": "Antibiotics started, fluids running. Patient remains febrile and tachycardic. When does ERCP happen?",
+        "options": [
+          {
+            "text": "Urgent ERCP within 24-48 hours — after initial stabilisation with antibiotics and fluids",
+            "sub": "Staged biliary decompression",
+            "correct": true,
+            "feedback_correct": "Correct. For moderate-severe cholangitis without Reynolds Pentad, ERCP within 24-48 hours after initial stabilisation is the standard. Antibiotics buy time and reduce septic load — ERCP then removes the obstruction definitively. Early ERCP within 24h is preferred for Tokyo Grade II/III.",
+            "fennick_correct_comment": "\"Antibiotics treat the infection. ERCP removes the cause. Both are required. In that order.\"",
+            "pt_remark_correct": "카메라. 목구멍. 넣는다. ... 싫다. 그래도. 한다."
+          },
+          {
+            "text": "ERCP only if fever persists beyond 72 hours of antibiotics",
+            "sub": "Delayed decompression",
+            "correct": false,
+            "feedback_wrong": "Waiting 72 hours in obstructive cholangitis risks further deterioration and progression to Reynolds Pentad. Antibiotics alone cannot clear an obstructed duct. ERCP within 24-48 hours is the standard.",
+            "pt_remark_wrong": "3일. 기다린다. 알겠다.",
+            "fennick_wrong_comment": "\"Antibiotics suppress the infection. They do not unblock the duct. The obstruction remains.\""
+          },
+          {
+            "text": "Proceed immediately with ERCP before further antibiotic doses",
+            "sub": "Immediate decompression",
+            "correct": false,
+            "feedback_wrong": "ERCP without adequate stabilisation carries higher procedural risk. The patient is currently hypotensive and tachycardic. A minimum period of resuscitation improves outcomes before endoscopy.",
+            "pt_remark_wrong": "지금. 바로. 하나.",
+            "fennick_wrong_comment": "\"BP 96/62. Resuscitate first. The endoscope can wait one hour.\""
+          },
+          {
+            "text": "Elective ERCP in 2 weeks after discharge — once infection clears",
+            "sub": "Elective outpatient approach",
+            "correct": false,
+            "feedback_wrong": "Elective outpatient ERCP is for incidental bile duct stones in stable patients, not for acute cholangitis with systemic sepsis. This patient needs inpatient biliary decompression.",
+            "pt_remark_wrong": "2주. 후. 퇴원. 가능. 한가.",
+            "fennick_wrong_comment": "\"Obstructed infected bile duct does not wait two weeks. Neither does sepsis.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"He deteriorated overnight. Emergency ERCP at 3am. The delay cost him.\""
+          }
+        ]
+      },
+      {
+        "title": "Reynolds Pentad — what triggers urgent ERCP?",
+        "hint": "The patient suddenly becomes confused and his blood pressure drops further. Which combination mandates emergency ERCP within hours?",
+        "options": [
+          {
+            "text": "Charcot's Triad plus hypotension and altered mental status",
+            "sub": "Full pentad present",
+            "correct": true,
+            "feedback_correct": "Correct. Reynolds Pentad = Charcot's Triad (RUQ pain + fever + jaundice) plus hypotension and altered mental status. This represents suppurative cholangitis — a life-threatening emergency requiring emergency biliary decompression within hours, not 24-48 hours. Mortality without urgent drainage is very high.",
+            "fennick_correct_comment": "\"Five findings. Not three. When the mind goes and the pressure drops — hours, not days.\"",
+            "pt_remark_correct": "... 어지럽다. ... 의사. ... 나. ... 괜찮나."
+          },
+          {
+            "text": "Charcot's Triad plus bloody diarrhoea and peritoneal signs",
+            "sub": "GI complication pattern",
+            "correct": false,
+            "feedback_wrong": "Bloody diarrhoea and peritoneal signs suggest a different abdominal emergency — ischaemic colitis, perforation. They are not part of Reynolds Pentad. The Pentad specifically adds hypotension and altered mental status to Charcot's Triad.",
+            "pt_remark_wrong": "피똥. 안. 쌌다. 나는.",
+            "fennick_wrong_comment": "\"Reynolds adds hemodynamic collapse and CNS dysfunction. Not GI bleeding.\""
+          },
+          {
+            "text": "Charcot's Triad plus elevated troponin and new ST changes",
+            "sub": "Cardiac complication pattern",
+            "correct": false,
+            "feedback_wrong": "Cardiac findings indicate a separate pathology — demand ischaemia from sepsis is possible but troponin elevation and ST changes are not part of Reynolds Pentad and do not independently trigger emergency ERCP.",
+            "pt_remark_wrong": "심장. 얘기. 또. 나온다.",
+            "fennick_wrong_comment": "\"Troponin can rise in sepsis. It does not change the Pentad.\""
+          },
+          {
+            "text": "Charcot's Triad plus WBC above 20 and lactate above 4",
+            "sub": "Laboratory severity markers",
+            "correct": false,
+            "feedback_wrong": "Severely elevated WBC and lactate indicate sepsis severity and should prompt aggressive management — but they are not the defined components of Reynolds Pentad. The clinical findings of hypotension and altered consciousness define the Pentad.",
+            "pt_remark_wrong": "숫자. 또. 나쁜. 건가.",
+            "fennick_wrong_comment": "\"Reynolds is clinical — blood pressure and mental status. Not laboratory values.\""
+          }
+        ]
+      },
+      {
+        "title": "Disposition",
+        "hint": "Cholangitis confirmed. Antibiotics started, fluids running, ERCP planned. Where does he go?",
+        "options": [
+          {
+            "text": "Admit to monitored bed — gastroenterology and general surgery, ERCP within 24-48 hours",
+            "sub": "Monitored inpatient admission",
+            "correct": true,
+            "feedback_correct": "Correct. Acute cholangitis with sepsis physiology requires inpatient admission with close monitoring. GI for ERCP, surgery on standby if ERCP fails. NPO in preparation for procedure. Serial vitals and lactate to monitor response to antibiotics.",
+            "fennick_correct_comment": "\"NPO. Monitored bed. ERCP team informed. Surgery aware.\"",
+            "pt_remark_correct": "입원. 한다. ... 방. 혼자. 쓰나. (after a long pause) ... 배. 아프면. 불러도. 되나."
+          },
+          {
+            "text": "Discharge with oral antibiotics and outpatient gastroenterology referral",
+            "sub": "Outpatient management",
+            "correct": false,
+            "feedback_wrong": "This patient has sepsis, hypotension, and biliary obstruction requiring IV antibiotics and ERCP. Oral antibiotics and outpatient follow-up are not appropriate.",
+            "pt_remark_wrong": "집에. 간다. 알겠다.",
+            "fennick_wrong_comment": "\"Hypotension. IV antibiotics. ERCP required. He cannot go home tonight.\"",
+            "critical_error": true,
+            "fennick_endgame_comment": "\"He went home. He came back by ambulance six hours later.\""
+          },
+          {
+            "text": "Admit to ICU — septic shock requires intensive care",
+            "sub": "ICU admission",
+            "correct": false,
+            "feedback_wrong": "ICU is appropriate if Reynolds Pentad develops or the patient fails to respond to initial resuscitation. Currently he is septic but not in refractory shock — a monitored bed with close observation is appropriate. Escalate to ICU if he deteriorates.",
+            "pt_remark_wrong": "중환자실. 무겁다. 그. 단어.",
+            "fennick_wrong_comment": "\"Monitored ward first. ICU if he does not respond. Do not skip steps.\""
+          },
+          {
+            "text": "Emergency surgery — cholecystectomy tonight",
+            "sub": "Emergency surgical intervention",
+            "correct": false,
+            "feedback_wrong": "Cholecystectomy is definitive treatment for gallstone disease but is performed electively after the acute episode resolves — not during active cholangitis. ERCP first to decompress, surgery later.",
+            "pt_remark_wrong": "수술. 칼. 싫다.",
+            "fennick_wrong_comment": "\"Decompress first with ERCP. Cholecystectomy is for after the inflammation settles.\""
+          }
+        ]
+      }
+    ],
+    "report_template": {
+      "age": 40,
+      "sex": "M",
+      "pmh": "similar biliary episode four months ago, self-resolved",
+      "presenting": "three days of jaundice, rigors, and right upper quadrant pain with haemodynamic compromise",
+      "pertinent_positives": {
+        "addl-hx": "dark urine, pale stools, prior similar episode, no appetite, rigors since yesterday",
+        "pe": "jaundice, fever, RUQ tenderness with guarding, positive Murphy's sign, tachycardia, hypotension",
+        "labs": "WBC 18.4 left shift, bilirubin 6.8 direct-predominant, ALP 320, GGT 280, INR 1.6, lactate 2.8, creatinine 1.4",
+        "imaging": "biliary ductal dilation 12mm, gallstones, no free fluid",
+        "special": "N/A"
+      },
+      "assessment": "Acute Cholangitis (Charcot's Triad) with sepsis — biliary obstruction from choledocholithiasis",
+      "plan": "IV fluids, broad-spectrum antibiotics (pip-tazo), ERCP within 24-48 hours, monitored admission, GI and surgery referral"
+    },
+    "explanation": "Acute cholangitis results from bacterial infection of an obstructed biliary system — most commonly from choledocholithiasis. Charcot's Triad: RUQ pain + fever/rigors + jaundice. Reynolds Pentad adds hypotension and altered mental status — indicates suppurative cholangitis, a life-threatening emergency. Treatment: IV fluids, broad-spectrum antibiotics (pip-tazo or carbapenem), biliary decompression via ERCP (24-48h for moderate, emergency for Reynolds Pentad). Cholecystectomy electively after resolution.",
+    "explanation_detail": {
+      "who_gets_it": "Gallstones most common cause. Also: biliary strictures, malignancy, PSC, parasites. Any age.",
+      "risk_factors": "Cholelithiasis, prior biliary procedures, PSC, malignant biliary obstruction.",
+      "typical_presentation": "Charcot's Triad in ~50-70%. RUQ pain + fever + jaundice. Dark urine, pale stools. Reynolds Pentad (adds hypotension + AMS) = suppurative cholangitis, life-threatening.",
+      "moa": "Biliary obstruction → bile stasis → bacterial overgrowth (E. coli, Klebsiella, Enterococcus, anaerobes) → ascending infection → bacteraemia → sepsis. INR elevation from hepatic synthetic dysfunction.",
+      "step1_buzzwords": "Charcot's Triad = RUQ pain + fever + jaundice. Reynolds Pentad = + hypotension + AMS. Dilated CBD on US. Elevated ALP/GGT/bilirubin (direct). Pip-tazo first line. ERCP to decompress. Cholecystectomy after. Tokyo Guidelines grade severity.",
+      "lab_buzzwords": "WBC elevated with left shift. Direct hyperbilirubinaemia. ALP and GGT elevated (obstructive pattern). AST/ALT mildly elevated. INR elevated (synthetic dysfunction). Lactate elevated if sepsis. UA: bilirubin positive, urobilinogen low.",
+      "treatment": "Mild: antibiotics + elective ERCP. Moderate/severe: IV antibiotics + ERCP 24-48h. Reynolds Pentad: emergency ERCP within hours. Antibiotics: pip-tazo (first line), carbapenems (severe/resistant), ceftriaxone + metronidazole (mild-moderate). Cholecystectomy electively after resolution."
+    },
+    "fennick_opening": "\"... Sir.\"",
+    "fennick_after_pe": "\"RUQ. Guarding. Murphy positive.\"",
+    "fennick_after_imaging": "\"Dilated. Twelve millimetres. Stone visible.\"",
+    "generic_lab_remark": "숫자. 나쁜. 건가.",
+    "music_default": null,
+    "fennick_speech_delay": 2400,
+    "fennick_case_complete": [
+      "\"He came in threatening.\"",
+      "\"He left asking.\""
+    ]
   }
 ]
