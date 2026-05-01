@@ -1670,7 +1670,7 @@
             "correct": true,
             "feedback_correct": "Correct. Prolonged deep squatting compresses the common fibular nerve against the fibular head from the outside. Classic causes: habitual squatting, prolonged leg crossing, weight loss exposing the nerve, plaster casts. No trauma, no mass, no systemic disease — the cause is purely mechanical and modifiable.",
             "fennick_correct_comment": "\"The nerve does not know it is being compressed by a cat conversation. It just stops conducting.\"",
-            "pt_remark_correct": "Wait... so... the cats... did this to me? (beat) I mean. Not ON PURPOSE. They are cats. But. Oh no. Wait— so I just... I cannot squat anymore? ... Mr. Fluffy is going to think I am ignoring him."
+            "pt_remark_correct": "Wait... so... the cats... did this to me? ... I mean. Not ON PURPOSE. They are cats. But. Oh no. Wait— so I just... I cannot squat anymore? ... Mr. Fluffy is going to think I am ignoring him."
           },
           {
             "text": "Diabetic mononeuropathy — check HbA1c",
@@ -1708,7 +1708,7 @@
             "correct": true,
             "feedback_correct": "Correct. The cause is modifiable — stop the compression. AFO prevents tripping and maintains gait while the nerve recovers. Physiotherapy for strengthening and gait retraining. Most compressive fibular palsies recover fully with conservative management over weeks to months if the cause is removed.",
             "fennick_correct_comment": "\"Remove the cause. The nerve will do the rest. Nerves are patient.\"",
-            "pt_remark_correct": "Wait... so I just... try harder at walking? ... That feels like motivational speech medicine. (beat) Also I cannot squat. ... Wait. You are telling me I cannot talk to my cat friends for hours anymore? ... No. ... Ms. Whiskers and Mr. Fluffy. ... They will miss me."
+            "pt_remark_correct": "Wait... so I just... try harder at walking? ... That feels like motivational speech medicine. ... Also I cannot squat. ... Wait. You are telling me I cannot talk to my cat friends for hours anymore? ... No. ... Ms. Whiskers and Mr. Fluffy. ... They will miss me."
           },
           {
             "text": "Surgical decompression at the fibular head — definitive treatment",
@@ -1838,7 +1838,6 @@
       "image_url_alert": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777593401/the_beggar_king_3_dhec2f.png",
       "image_url_flustered": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777593402/the_beggar_king_2_x9t3ra.png"
     },
-    "portrait_on_pe": "image_url_flustered",
     "chart": {
       "cc": "A minor inconvenience has seen fit to disturb the royal schedule. ... Speak.",
       "hpi": "The patient was brought in by a concerned ward constable who noted he had been behaving erratically in the Lower Gears district for several weeks — getting into altercations with local residents he refers to as his 'subjects,' slurring his speech at times, and on one occasion appearing confused about where he was. He denies any problem. He has been living without fixed abode for approximately two years. He is 33 years old. He has no history of significant alcohol use — constable confirms this. No head trauma. No recent illness. Family history of bipolar disorder in a first-degree relative.",
@@ -1866,7 +1865,7 @@
     },
     "memory_fragments": {
       "pe": "He has been holding his hands still for months. He noticed the tremor before anyone else did. He decided it was beneath a king to acknowledge it.",
-      "imaging": "The CT shows early change. It does not show what caused it. The cause is in the copper. The copper has been there for years."
+      "imaging": "The CT shows early change. It does not show what caused it. Whatever is doing this has been there for years. Long before the kingdom."
     },
     "tests": [
       {
@@ -1934,32 +1933,32 @@
         "hint": "Wilson disease confirmed biochemically. What is the underlying mutation?",
         "options": [
           {
-            "text": "ATP7B mutation — autosomal recessive copper transporter defect",
-            "sub": "Copper transporter gene",
+            "text": "ATP7B mutation — autosomal recessive",
+            "sub": "Option A",
             "correct": true,
             "feedback_correct": "Correct. Wilson disease is caused by mutations in ATP7B — encoding a copper-transporting ATPase in the liver. Autosomal recessive. Defective copper excretion into bile leads to hepatic accumulation, then overflow into brain, eyes, kidneys, and blood. Ceruloplasmin synthesis also impaired.",
             "fennick_correct_comment": "\"ATP7B. The liver cannot move the copper out. So the copper moves itself — everywhere.\"",
             "pt_remark_correct": "I— ... I beg your pardon, physician. ... I did not— ... is it serious. ... Please. ... Tell me plainly."
           },
           {
-            "text": "ATP7A mutation — X-linked recessive copper deficiency",
-            "sub": "X-linked transporter",
+            "text": "ATP7A mutation — X-linked recessive",
+            "sub": "Option B",
             "correct": false,
             "feedback_wrong": "ATP7A mutations cause Menkes disease — X-linked recessive copper deficiency, not excess. Kinky hair, neurodegeneration in infancy. Opposite problem, different gene.",
             "pt_remark_wrong": "... (the eyes shift.) ... That is not the right one.",
             "fennick_wrong_comment": "\"Menkes is copper deficiency. Wilson is copper excess. Different gene, opposite direction.\""
           },
           {
-            "text": "HEXA mutation — autosomal recessive lysosomal storage",
-            "sub": "Lysosomal enzyme defect",
+            "text": "HEXA mutation — autosomal recessive",
+            "sub": "Option C",
             "correct": false,
             "feedback_wrong": "HEXA mutations cause Tay-Sachs disease — hexosaminidase A deficiency, GM2 gangliosidosis. Not copper metabolism.",
             "pt_remark_wrong": "(slow blink.) ... That sounds like a different kingdom entirely.",
             "fennick_wrong_comment": "\"Tay-Sachs. Not copper. Wrong metabolic pathway entirely.\""
           },
           {
-            "text": "HFE mutation — autosomal recessive iron overload",
-            "sub": "Iron transporter defect",
+            "text": "HFE mutation — autosomal recessive",
+            "sub": "Option D",
             "correct": false,
             "feedback_wrong": "HFE mutations cause hereditary haemochromatosis — iron overload, not copper. Elevated ferritin, transferrin saturation. This patient has copper accumulation.",
             "pt_remark_wrong": "... Iron. ... I could have been the iron king. ... (recovers) ... Apparently not.",
@@ -1972,32 +1971,32 @@
         "hint": "Wilson disease confirmed. Neurological and hepatic involvement. What is first-line treatment?",
         "options": [
           {
-            "text": "D-penicillamine — copper chelation, first-line for Wilson disease",
-            "sub": "Copper chelation",
+            "text": "D-penicillamine",
+            "sub": "Option A",
             "correct": true,
             "feedback_correct": "Correct. D-penicillamine is a copper chelator — binds free copper and promotes urinary excretion. First-line for Wilson disease. Monitor for side effects: nephrotic syndrome, lupus-like reaction, bone marrow suppression. Zinc acetate is an alternative (blocks intestinal copper absorption) and is preferred in pre-symptomatic or pregnant patients.",
             "fennick_correct_comment": "\"Penicillamine binds what the liver cannot move. The kidneys finish the job.\"",
             "pt_remark_correct": "(voice drops completely) Please. ... Whatever this is. ... Give it to me. ... I will do whatever is required."
           },
           {
-            "text": "Phlebotomy — reduce copper load by removing blood",
-            "sub": "Therapeutic phlebotomy",
+            "text": "Phlebotomy",
+            "sub": "Option B",
             "correct": false,
             "feedback_wrong": "Phlebotomy reduces iron load — it is the treatment for haemochromatosis. It does not significantly reduce copper. Wilson disease requires chelation.",
             "pt_remark_wrong": "... Blood removal. ... Is that what passes for medicine here.",
             "fennick_wrong_comment": "\"Phlebotomy removes iron. The problem here is copper.\""
           },
           {
-            "text": "Corticosteroids — treat autoimmune hepatitis pattern",
-            "sub": "Immunosuppression",
+            "text": "Corticosteroids",
+            "sub": "Option C",
             "correct": false,
             "feedback_wrong": "Wilson disease can mimic autoimmune hepatitis on biopsy and biochemistry — a common diagnostic trap. Steroids do not treat the underlying copper accumulation and would delay appropriate therapy.",
             "pt_remark_wrong": "(tilts head.) ... Inflammation. ... Is that what this is.",
             "fennick_wrong_comment": "\"Wilson mimics autoimmune hepatitis. Steroids treat the mimic, not the metal.\""
           },
           {
-            "text": "Liver transplant — definitive cure, indicated immediately",
-            "sub": "Immediate transplant",
+            "text": "Liver transplant",
+            "sub": "Option D",
             "correct": false,
             "feedback_wrong": "Liver transplant is curative in Wilson disease but reserved for acute liver failure or failed medical management. Medical therapy with chelation is first-line. Transplant is not the first step in a stable patient.",
             "pt_remark_wrong": "(goes very quiet.) ... The liver. ... (does not finish the sentence.)",
@@ -2011,7 +2010,7 @@
         "options": [
           {
             "text": "Eyes (Kayser-Fleischer rings), kidneys (Fanconi syndrome), bone marrow (haemolytic anaemia), bone (osteoporosis)",
-            "sub": "Multisystem monitoring",
+            "sub": "Option A",
             "correct": true,
             "feedback_correct": "Correct. Wilson disease is a multisystem copper deposition disorder. Eyes: Kayser-Fleischer rings (corneal copper deposition — slit lamp required, absent in ~50% of hepatic-only presentations). Kidneys: Fanconi syndrome — proximal tubular dysfunction causing aminoaciduria, phosphaturia, glucosuria. Haematological: Coombs-negative haemolytic anaemia. Skeletal: osteoporosis, arthropathy. Cardiac: cardiomyopathy (rare).",
             "fennick_correct_comment": "\"Copper deposits wherever the blood goes. Eyes, kidney tubules, bone marrow. Follow all of them.\"",
@@ -2019,7 +2018,7 @@
           },
           {
             "text": "Lungs and thyroid only — systemic inflammatory screen",
-            "sub": "Inflammatory organ screen",
+            "sub": "Option B",
             "correct": false,
             "feedback_wrong": "Pulmonary and thyroid involvement is not characteristic of Wilson disease. The target organs are liver, brain, eyes, kidneys, blood, and bone.",
             "pt_remark_wrong": "... The lungs work. ... The thyroid is not the concern.",
@@ -2027,7 +2026,7 @@
           },
           {
             "text": "Cardiac monitoring only — copper cardiomyopathy is the main risk",
-            "sub": "Cardiac focus",
+            "sub": "Option C",
             "correct": false,
             "feedback_wrong": "Cardiac involvement occurs but is rare. Renal Fanconi syndrome, haemolytic anaemia, and Kayser-Fleischer rings are more consistent and important monitoring targets.",
             "pt_remark_wrong": "... The heart is strong. ... Probably.",
@@ -2035,7 +2034,7 @@
           },
           {
             "text": "No additional monitoring — liver and brain are the only organs affected",
-            "sub": "Limited monitoring",
+            "sub": "Option D",
             "correct": false,
             "feedback_wrong": "Wilson disease is explicitly multisystem. Fanconi syndrome (already evidenced by proteinuria and aminoaciduria here), haemolytic anaemia (already present), and Kayser-Fleischer rings are all present or likely in this patient.",
             "pt_remark_wrong": "... If only.",
@@ -2049,7 +2048,7 @@
         "options": [
           {
             "text": "Admit for initiation of chelation therapy, hepatology and neurology referral, social work involvement for housing and follow-up support",
-            "sub": "Inpatient initiation with multidisciplinary input",
+            "sub": "Option A",
             "correct": true,
             "feedback_correct": "Correct. Initiation of D-penicillamine requires monitoring for early side effects and baseline organ function assessment. Hepatology and neurology for ongoing management. Social work is essential — he has no fixed abode and will not maintain outpatient follow-up without support. Neurological symptoms may initially worsen with chelation (paradoxical worsening from mobilisation of copper).",
             "fennick_correct_comment": "\"Chelation can worsen neurology initially. Start slowly. Watch closely.\"",
@@ -2057,7 +2056,7 @@
           },
           {
             "text": "Discharge with oral D-penicillamine prescription and outpatient hepatology in 4 weeks",
-            "sub": "Outpatient initiation",
+            "sub": "Option B",
             "correct": false,
             "feedback_wrong": "No fixed abode. No support structure. D-penicillamine initiation requires monitoring and follow-up he cannot maintain without housing. Outpatient discharge here is not a realistic management plan.",
             "pt_remark_wrong": "(four weeks.) ... (very quietly.) ... I may not be findable in four weeks.",
@@ -2067,7 +2066,7 @@
           },
           {
             "text": "Refer to psychiatry for bipolar disorder — mood symptoms are the primary presentation",
-            "sub": "Psychiatric referral only",
+            "sub": "Option C",
             "correct": false,
             "feedback_wrong": "Mood symptoms in Wilson disease are secondary to copper deposition in the basal ganglia and limbic system. Treating as primary bipolar disorder misses the underlying cause. Chelation addresses the mood symptoms alongside the rest.",
             "pt_remark_wrong": "... Psychiatry. ... You think this is madness.",
@@ -2075,7 +2074,7 @@
           },
           {
             "text": "Urgent liver transplant assessment — Wilson disease is progressive without transplant",
-            "sub": "Urgent transplant referral",
+            "sub": "Option D",
             "correct": false,
             "feedback_wrong": "Transplant is reserved for acute liver failure or medical treatment failure. This patient has elevated transaminases and mild synthetic dysfunction — not acute failure. Chelation first.",
             "pt_remark_wrong": "(almost inaudible.) ... Right now. ... Is it that urgent.",
@@ -2120,15 +2119,26 @@
       "\"He asked if he could still be helped. That was the first honest thing he said.\""
     ],
     "cc_after_addl_hx": "(holds posture deliberately still) ... The mood is not the problem. ... The subjects are the problem. ... Continue.",
-    "cc_after_pe": "... the hand. ... It has been doing that. ... One does not speak of it. ... Continue your examination, physician.",
-    "cc_after_imaging": "... my brain is. ... Tell me what you are suspecting, physician.",
+    "cc_after_pe": "One does not speak of it. ... Continue your examination, physician.",
+    "cc_after_imaging": "Tell me what you are suspecting, physician.",
     "cc_after_hint": "(tilts head. almost imperceptibly.) ... You are looking at something. ... What is it you think you see.",
-    "cc_after_dx": "(very still for a long moment.) ... Wilson. ... (beat) ... Is that a name or a verdict.",
+    "cc_after_dx": "(very still for a long moment.) ... Wilson. ... ... ... Is that a name or a verdict.",
     "portrait_on_labs": {
       "cbc": "image_url_flustered",
       "cmp": "image_url_flustered",
       "ua": "image_url_flustered",
       "coags": "image_url_flustered"
-    }
+    },
+    "portrait_flash_on_pe": "image_url_flustered",
+    "portrait_flash_on_imaging": "image_url_flustered",
+    "portrait_flash_duration": 3000,
+    "portrait_flash_labs": {
+      "cbc": true,
+      "cmp": true,
+      "ua": true,
+      "coags": true
+    },
+    "cc_after_pe_flash": "... the hand. ... It has been doing that.",
+    "cc_after_imaging_flash": "... my brain is."
   }
 ]
