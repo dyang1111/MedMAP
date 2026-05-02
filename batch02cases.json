@@ -2161,7 +2161,9 @@
       "age": 67,
       "sex": "M",
       "occupation": "Retired Principal, Ferrovane Academy of Letters",
-      "image_url": "PLACEHOLDER"
+      "image_url": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777766234/the_principal_1_z3agen.png",
+      "image_url_flustered": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777766235/the_principal_2_ai40ke.png",
+      "image_url_crisis": "https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1777766234/the_principal_3_irrfta.png"
     },
     "vital_progression": {
       "baseline": {
@@ -2196,7 +2198,8 @@
         "bp": "98/62",
         "hr": "88",
         "o2": "96% RA"
-      }
+      },
+      "on_crisis_portrait": "image_url_crisis"
     },
     "crisis_stage": {
       "title": "Ventricular fibrillation — immediate response",
@@ -2625,9 +2628,20 @@
       "\"He said she lacked perspective. She said she would drive him next time.\""
     ],
     "cc_after_addl_hx": "The jaw has been involved since this morning. I attributed it to tension. ... I was incorrect. You may record that. It does not happen often.",
-    "cc_after_pe": "Your hands are cold, Doctor. Basic patient care. ... The crackling in my lungs. I assume that is relevant. You will tell me why.",
-    "cc_after_imaging": "The congestion in the lung fields. I attributed that to the weather and poor ventilation in my study. ... I was wrong about that as well. It has been an instructive morning.",
-    "cc_after_dx": "Inferior myocardial infarction. ... That is considerably more serious than what I told my wife this morning. ... She is going to be insufferable about this."
+    "cc_after_pe": "Basic patient care. ... The crackling in my lungs. I assume that is relevant. You will tell me why.",
+    "cc_after_imaging": "I attributed that to poor ventilation in my study. ... I was wrong about that as well. It has been an instructive morning.",
+    "cc_after_dx": "Inferior myocardial infarction. ... That is considerably more serious than what I told my wife this morning. ... She is going to be insufferable about this.",
+    "portrait_flash_on_pe": "image_url_flustered",
+    "portrait_flash_on_imaging": "image_url_flustered",
+    "portrait_flash_duration": 3000,
+    "portrait_flash_labs": {
+      "troponin": true
+    },
+    "portrait_on_labs": {
+      "troponin": "image_url_flustered"
+    },
+    "cc_after_pe_flash": "Your stethoscope is cold, Doctor.",
+    "cc_after_imaging_flash": "The congestion in the lung fields."
   },
   {
     "id": "026",
