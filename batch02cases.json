@@ -2374,7 +2374,7 @@
         "options": [
           {
             "text": "Prasugrel or ticagrelor (P2Y12 inhibitor) + unfractionated heparin",
-            "sub": "Option A",
+            "sub": "Dual antiplatelet approach",
             "correct": false,
             "feedback_correct": "Correct. Dual antiplatelet therapy: aspirin + P2Y12 inhibitor (prasugrel or ticagrelor preferred over clopidogrel for STEMI going to PCI — faster onset, more potent). Unfractionated heparin as the anticoagulant of choice for primary PCI. Bivalirudin is an alternative. LMWH not preferred for primary PCI.",
             "fennick_correct_comment": "\"Ticagrelor onset 30 minutes. Prasugrel onset 30 minutes. Clopidogrel onset 2-6 hours. The clock is running.\"",
@@ -2385,7 +2385,7 @@
           },
           {
             "text": "Alteplase IV — fibrinolytic reperfusion",
-            "sub": "Option B",
+            "sub": "Systemic thrombolysis",
             "correct": true,
             "feedback_wrong": "Alteplase is a fibrinolytic — appropriate when primary PCI is unavailable within 120 minutes. The cath lab has been activated. PCI is available. Fibrinolytics in PCI-capable centres have worse outcomes than primary PCI and carry bleeding risk including intracranial haemorrhage.",
             "pt_remark_wrong": "A dissolving agent. For the clot. That sounds logical. (starts deteriorating faster) Though I notice. I feel. Considerably worse.",
@@ -2396,7 +2396,7 @@
           },
           {
             "text": "Tenecteplase IV — weight-based fibrinolytic, easier to administer",
-            "sub": "Option C",
+            "sub": "Single-bolus thrombolysis",
             "correct": false,
             "feedback_wrong": "Tenecteplase is also an acceptable fibrinolytic — single bolus, weight-based, less chance of dosing error. However alteplase is the more established agent with broader evidence. Either is acceptable in practice — for this question, alteplase is the preferred answer.",
             "pt_remark_wrong": "A single injection. Efficient. I appreciate efficiency.",
@@ -2405,7 +2405,7 @@
           },
           {
             "text": "Streptokinase IV — first-generation fibrinolytic",
-            "sub": "Option D",
+            "sub": "First-generation thrombolysis",
             "correct": false,
             "feedback_wrong": "Streptokinase is a first-generation fibrinolytic — antigenic, cannot be given twice, lower efficacy than alteplase or tenecteplase. Not the preferred agent when others are available.",
             "pt_remark_wrong": "An older medication. I respect. The classics.",
@@ -2414,7 +2414,7 @@
           },
           {
             "text": "Argatroban — direct thrombin inhibitor anticoagulation",
-            "sub": "Option E",
+            "sub": "Direct thrombin inhibition",
             "correct": false,
             "feedback_wrong": "Argatroban is a direct thrombin inhibitor used in HIT — not a fibrinolytic and not indicated for STEMI reperfusion.",
             "pt_remark_wrong": "I do not recognise that name. Should I.",
@@ -2423,7 +2423,7 @@
           },
           {
             "text": "Clopidogrel + enoxaparin",
-            "sub": "Option F",
+            "sub": "Antiplatelet plus anticoagulant",
             "correct": false,
             "feedback_wrong": "Clopidogrel and enoxaparin are antithrombotic adjuncts — they do not dissolve the existing clot. Reperfusion therapy is still required.",
             "pt_remark_wrong": "Those I know. From the textbooks. I used to recommend them to the school nurse.",
@@ -2438,7 +2438,7 @@
         "options": [
           {
             "text": "Ruptured atherosclerotic plaque with overlying occlusive thrombus — TIMI 0 flow",
-            "sub": "Acute occlusive pattern",
+            "sub": "Ruptured plaque, complete occlusion",
             "correct": true,
             "feedback_correct": "Correct. Acute STEMI results from plaque rupture or erosion with superimposed thrombus causing complete coronary occlusion — TIMI 0 (no flow) or TIMI 1 (minimal flow). The fibrous cap ruptures, exposing the lipid-rich necrotic core to platelets and the coagulation cascade. Thrombus forms rapidly and occludes the vessel.",
             "fennick_correct_comment": "\"The cap ruptured. Not the stenosis that caused this — the instability of the plaque did.\"",
@@ -2446,7 +2446,7 @@
           },
           {
             "text": "Stable calcified plaque with 70% luminal narrowing — TIMI 2 flow",
-            "sub": "Chronic obstructive pattern",
+            "sub": "Stable plaque, partial occlusion",
             "correct": false,
             "feedback_wrong": "70% stable stenosis with TIMI 2 flow may cause stable angina or exertional symptoms — not acute STEMI. STEMI requires complete or near-complete occlusion from an acute thrombotic event, not gradual fixed narrowing.",
             "pt_remark_wrong": "Seventy percent narrowing. That sounds manageable. With the right programme.",
@@ -2454,7 +2454,7 @@
           },
           {
             "text": "Diffuse non-obstructive coronary disease — no focal culprit lesion",
-            "sub": "Non-obstructive pattern",
+            "sub": "Diffuse disease, no focal lesion",
             "correct": false,
             "feedback_wrong": "MINOCA — myocardial infarction with non-obstructive coronary arteries — is a recognised entity but less common and usually a diagnosis of exclusion. This patient has inferior STEMI with RV involvement and a clear ECG pattern — a culprit lesion is expected.",
             "pt_remark_wrong": "No blockage. Then what caused all of this. I demand an explanation.",
@@ -2462,7 +2462,7 @@
           },
           {
             "text": "Plaque with 40% luminal narrowing — incidental finding, non-culprit",
-            "sub": "Incidental finding",
+            "sub": "Minimal stenosis, non-culprit",
             "correct": false,
             "feedback_wrong": "40% narrowing does not cause acute coronary occlusion or STEMI. This would be a non-significant incidental finding. The culprit in STEMI is an acutely ruptured or eroded plaque with thrombus.",
             "pt_remark_wrong": "Forty percent. That is quite modest. I may have overreacted.",
@@ -2476,7 +2476,7 @@
         "options": [
           {
             "text": "Decreased cardiac output, decreased contractility, elevated PCWP, elevated SVR",
-            "sub": "Pattern A",
+            "sub": "Low output, high resistance, high filling pressure",
             "correct": true,
             "feedback_correct": "Correct. Cardiogenic shock: the pump fails — contractility drops, cardiac output drops. The failing LV cannot eject — PCWP (pulmonary capillary wedge pressure) rises as blood backs up. SVR rises compensatorily as the body vasoconstricts to maintain pressure. This is the cold, clammy, congested patient with cool peripheries and bilateral crackles.",
             "fennick_correct_comment": "\"SVR rises to compensate. That is why the extremities are cold. The body is centralising.\"",
@@ -2484,7 +2484,7 @@
           },
           {
             "text": "Decreased cardiac output, decreased contractility, decreased PCWP, decreased SVR",
-            "sub": "Pattern B",
+            "sub": "Low output, low resistance, low filling pressure",
             "correct": false,
             "feedback_wrong": "Decreased PCWP and decreased SVR describe distributive shock — septic shock, anaphylaxis. In cardiogenic shock the PCWP is elevated (fluid backing up behind the failing LV) and the SVR is elevated (compensatory vasoconstriction). The peripheries are cold and clammy, not warm.",
             "pt_remark_wrong": "That pattern does not match what I am experiencing. I would know.",
@@ -2492,7 +2492,7 @@
           },
           {
             "text": "Normal cardiac output, normal contractility, elevated PCWP, normal SVR",
-            "sub": "Pattern C",
+            "sub": "Normal output, normal resistance, high filling pressure",
             "correct": false,
             "feedback_wrong": "Normal cardiac output with normal contractility is not cardiogenic shock — that is compensated heart failure or volume overload. Cardiogenic shock requires reduced cardiac output from pump failure.",
             "pt_remark_wrong": "Normal output. Is that possible.",
@@ -2500,7 +2500,7 @@
           },
           {
             "text": "Decreased cardiac output, normal contractility, elevated PCWP, elevated SVR",
-            "sub": "Pattern D",
+            "sub": "Low output, high resistance, high filling pressure, preserved contractility",
             "correct": false,
             "feedback_wrong": "Normal contractility with reduced output and elevated PCWP suggests obstruction to flow — tamponade, massive PE, tension pneumothorax. In cardiogenic shock the contractility is impaired — the myocardium itself is the problem.",
             "pt_remark_wrong": "Normal contractility. I wish that were the case.",
@@ -2514,7 +2514,7 @@
         "options": [
           {
             "text": "Metoprolol succinate — cardioselective beta-1 blocker",
-            "sub": "Agent A",
+            "sub": "Beta-1 selective, extended release",
             "correct": true,
             "feedback_correct": "Correct. Metoprolol succinate (extended release) is cardioselective — primarily blocks beta-1 receptors in the myocardium. Reduces heart rate, myocardial oxygen demand, and mortality post-MI. Cardioselectivity minimises bronchospasm risk. Start low, titrate up. Carvedilol (non-selective + alpha) is an alternative with proven mortality benefit in heart failure.",
             "fennick_correct_comment": "\"Beta-1 selectivity is relative. At high doses it fades. Keep the dose appropriate for the ejection fraction.\"",
@@ -2522,7 +2522,7 @@
           },
           {
             "text": "Propranolol — non-selective beta-blocker",
-            "sub": "Agent B",
+            "sub": "Non-selective beta blockade",
             "correct": false,
             "feedback_wrong": "Propranolol blocks beta-1 and beta-2. Beta-2 blockade causes bronchospasm — problematic in patients with airways disease. Cardioselective agents are preferred post-MI for this reason. Propranolol also lacks the mortality evidence of metoprolol or carvedilol in this setting.",
             "pt_remark_wrong": "I know that one. It predates my entire career in education.",
@@ -2530,7 +2530,7 @@
           },
           {
             "text": "Labetalol — alpha and beta blocker, used for hypertensive emergencies",
-            "sub": "Agent C",
+            "sub": "Combined alpha and beta blockade",
             "correct": false,
             "feedback_wrong": "Labetalol is used for hypertensive emergencies and hypertension in pregnancy — not the first-choice post-MI beta-blocker. Metoprolol or carvedilol have specific post-MI mortality data.",
             "pt_remark_wrong": "That is the emergency version. Is this not still an emergency.",
@@ -2538,7 +2538,7 @@
           },
           {
             "text": "Atenolol — cardioselective, once daily",
-            "sub": "Agent D",
+            "sub": "Beta-1 selective, short acting",
             "correct": false,
             "feedback_wrong": "Atenolol is cardioselective and once-daily — but the post-MI mortality evidence is weaker than metoprolol succinate or carvedilol. Guidelines favour agents with robust outcome data. Atenolol is also renally cleared — relevant given his rising creatinine.",
             "pt_remark_wrong": "Once daily. A sensible schedule. I have always respected a well-designed timetable.",
