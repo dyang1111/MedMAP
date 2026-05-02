@@ -2654,7 +2654,7 @@ window.pickMgmt=function(stageIdx,optIdx){
     if(fbEl){fbEl.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_correct||'Correct.';}
     // Dynamic vitals update on correct management
     if(currentCase && currentCase.vital_progression) {
-      const vKey = opt.vital_update_on_correct || ('on_mng_' + stageIdx + '_correct');
+      const vKey = opt.vital_update_on_correct || ('on_mng_' + (stageIdx + 1) + '_correct');
       const vUpdate = currentCase.vital_progression[vKey];
       if(vUpdate) setTimeout(()=>updateVitals(vUpdate), 1200);
     }
@@ -2734,8 +2734,8 @@ window.pickMgmt=function(stageIdx,optIdx){
       }
       if(currentCase.crisis_stage) {
         currentCase.management.splice(stageIdx + 1, 0, currentCase.crisis_stage);
-        // Render the new crisis stage immediately
-        setTimeout(()=>{ advanceStage(stageIdx + 1); }, 2000);
+        // advanceStage will be called by the wrong option handler after 3500ms
+        // Just update vitals immediately
       }
     }
     if(opt.critical_error) {
