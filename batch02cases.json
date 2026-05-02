@@ -2208,7 +2208,8 @@
           "correct": true,
           "feedback_correct": "Correct. Ventricular fibrillation is a shockable rhythm — defibrillate immediately. Unsynchronised shock (not cardioversion — no organised rhythm to sync to). 200J biphasic first shock. Resume CPR immediately after. Adrenaline 1mg IV every 3-5 minutes if VF persists.",
           "fennick_correct_comment": "\"VF does not negotiate. Shock first. Everything else after.\"",
-          "pt_remark_correct": "(after ROSC) ... That was. ... Unpleasant. ... You could have warned me."
+          "pt_remark_correct": "You did not give a countdown. Coordination is key to any successful drill. You lack synchronisation. I am telling you this so you do not fail the next one.",
+          "vital_update_on_correct": "on_crisis_resolved"
         },
         {
           "text": "Synchronised cardioversion 100J — treat as unstable tachycardia",
@@ -2241,7 +2242,7 @@
       ]
     },
     "chart": {
-      "cc": "Chest. Pain. Since this morning. Also — your coat needs pressing. Presentation matters in medicine.",
+      "cc": "My chest is tight. But look at your station, Doctor. Disorganized. Chaos in the workspace leads to chaos in the mind. I am only pointing this out for your professional growth. Now. Perform your assessment.",
       "hpi": "The patient presented ambulatory, declining the wheelchair offered at triage. He is a 67-year-old retired school principal with a 45-minute history of central crushing chest pain radiating to the left arm, accompanied by diaphoresis and progressive dyspnoea. He described the pain as a sensation of someone sitting on his sternum, then immediately corrected himself — he said the correct anatomical term was retrosternal pressure. He has a history of hypertension and hypercholesterolaemia. He has not taken his antihypertensives today because he did not feel they were necessary. He arrived alone, having told his wife the appointment was routine.",
       "pmh": "Hypertension. Hypercholesterolaemia. No prior cardiac events.",
       "psh": "Appendectomy, age 34.",
@@ -2258,7 +2259,7 @@
       "o2": "92% RA"
     },
     "additional_hx": "On direct questioning: the pain started at rest this morning, rated severe, constant, not relieved by position change. Radiation to left jaw and arm. Associated nausea. He had similar but milder chest discomfort two weeks ago which he attributed to indigestion. He did not seek attention. He drove himself here today. He has been increasingly short of breath over the past hour.",
-    "patient_quote_addl_hx": "The discomfort started this morning. I would have come sooner but I had correspondence to finish. (clutches chest briefly) The jaw is also. Involved. (straightens) I am fine. Continue.",
+    "patient_quote_addl_hx": "I had reports to finish. A man of my standing does not let a little discomfort derail the curriculum. It is a matter of character. Something the younger generation seems to lack. Proceed.",
     "pe_findings": "Diaphoretic, pale. In evident discomfort though maintaining upright posture. Heart sounds present — S4 audible. No murmur. Lungs: bilateral basal crackles. JVP mildly elevated. Peripheral pulses weak bilaterally. Skin cool and clammy. No peripheral oedema.",
     "imaging": "CXR: mild pulmonary venous congestion. Cardiac silhouette upper normal. No pneumothorax. No aortic widening.",
     "special_test": {
@@ -2274,49 +2275,49 @@
         "name": "CBC",
         "cost": 5,
         "result": "WBC 13.2 (stress leukocytosis). Hgb 14.8. Plt 290. No significant abnormality.",
-        "pt_remark": "The white cells. Reacting to stress. As they should. I taught biology once."
+        "pt_remark": "White cells elevated. Stress response. The body, at least, is paying attention. Unlike some of the students I have had to manage over the years."
       },
       {
         "name": "CMP",
         "cost": 5,
         "result": "Sodium 138, potassium 4.1, creatinine 1.3 (mildly elevated — hypoperfusion). Glucose 9.2 (stress hyperglycaemia). LFTs normal.",
-        "pt_remark": "The kidneys. Slightly off. I will address that later. With discipline."
+        "pt_remark": "The kidneys underperforming. (frowns) Underachievement is a pattern I recognise. We will address that. With structure."
       },
       {
         "name": "EKG",
         "cost": 5,
         "result": "See special test — 12-lead ECG already obtained. ST elevation leads II, III, aVF. Reciprocal changes I, aVL. V4R positive. Rate 118.",
-        "pt_remark": "The tracing. Yes. I can see it is irregular. (looks away) That is fine."
+        "pt_remark": "Look at these tracings. Messy. If a student turned this in I would make them do it over. You have a lot to learn about presentation, Doctor."
       },
       {
         "name": "Troponin",
         "cost": 5,
         "result": "Troponin I: 2.8 ng/mL (markedly elevated — normal <0.04). Serial troponin rising. Confirms active myocardial injury.",
-        "pt_remark": "That number is. High. (long pause) Is it very high. (does not wait for answer) It does not matter. Continue."
+        "pt_remark": "That number is an F-grade performance from my myocardium. Check your equipment. Precision is the hallmark of a true educator. Do not let the machines get lazy on you."
       },
       {
         "name": "Lipase",
         "cost": 5,
         "result": "Normal. Not indicated — epigastric component noted but ECG findings take priority.",
-        "pt_remark": "The pancreas is irrelevant. I could have told you that."
+        "pt_remark": "The pancreas. Irrelevant to this consultation. You could have used that time more productively. I am noting that."
       },
       {
         "name": "UA",
         "cost": 5,
         "result": "Mild proteinuria 1+. Concentrated urine. Consistent with reduced renal perfusion. No infection.",
-        "pt_remark": "Unnecessary test. But thorough. I respect thorough."
+        "pt_remark": "Thorough. I will give you that. Thoroughness is a virtue I have always rewarded. Even when it is misdirected."
       },
       {
         "name": "Coags",
         "cost": 5,
         "result": "PT/INR 1.1. PTT 28. Normal. Important baseline before anticoagulation.",
-        "pt_remark": "Before you give me something to thin it. Sensible. You are learning."
+        "pt_remark": "A baseline before the anticoagulant. Anticipatory thinking. That is precisely the kind of planning I tried to instil in my staff for thirty years."
       },
       {
         "name": "ABG/VBG",
         "cost": 5,
         "result": "pH 7.31 (mild acidosis). pO2 68 (low). Lactate 3.4 (elevated). pCO2 32 (compensatory hyperventilation). Cardiogenic shock physiology.",
-        "pt_remark": "(grimaces at the needle) The angle was wrong. ... But the result is. Concerning. I admit that."
+        "pt_remark": "Your needle technique lacks grace. I taught biology for a decade. I know a poor strike when I feel one. Take it as a lesson. It is for your own good."
       }
     ],
     "hints": [
@@ -2332,35 +2333,35 @@
         "options": [
           {
             "text": "Aspirin 300mg, supplemental oxygen, IV access, continuous monitoring, activate cath lab",
-            "sub": "STEMI bundle initiation",
+            "sub": "Initial bundle",
             "correct": true,
             "feedback_correct": "Correct. Immediate STEMI management: aspirin 300mg loading dose (antiplatelet — irreversible COX inhibition), supplemental O2 if sats below 94%, IV access, continuous ECG monitoring, and immediate cath lab activation. Door-to-balloon time target is 90 minutes. Do not delay reperfusion for further workup.",
             "fennick_correct_comment": "\"Aspirin inhibits thromboxane A2 irreversibly. The platelets that absorbed it are gone for their lifetime.\"",
-            "pt_remark_correct": "(accepts aspirin) ... Aspirin. I know what aspirin is. (chews it without being asked) ... That is. Quite bitter. You could have mentioned that.",
+            "pt_remark_correct": "Bitter. You should have provided a verbal warning. Communication is the foundation of a healthy school environment. Remember that for next time.",
             "typing_speed_after": "normal"
           },
           {
             "text": "Morphine, oxygen, nitrates, aspirin — the MONA protocol",
-            "sub": "MONA protocol",
+            "sub": "Combination protocol",
             "correct": false,
             "feedback_wrong": "MONA is outdated. Morphine in STEMI is associated with worse outcomes — it delays absorption of oral antiplatelets and may mask ischaemic pain without treating it. Nitrates are contraindicated in inferior STEMI with RV involvement — they drop preload and can cause catastrophic hypotension. Aspirin yes. The others — no.",
-            "pt_remark_wrong": "Nitrates. For the chest. That seems reasonable. (starts to look unwell faster)",
+            "pt_remark_wrong": "I feel faint. You rushed the process, did you not. Shortcuts are the ruin of modern society. This is a failure of logic, Doctor.",
             "fennick_wrong_comment": "\"Nitrates in inferior STEMI with RV involvement. Preload dropped. BP is already 88.\""
           },
           {
             "text": "IV fluids 1L bolus — treat the hypotension first",
-            "sub": "Volume resuscitation first",
+            "sub": "Haemodynamic support first",
             "correct": false,
             "feedback_wrong": "In cardiogenic shock from left ventricular failure, aggressive fluid loading worsens pulmonary oedema. There are already bilateral crackles. However, in RV infarction specifically, cautious fluid resuscitation is appropriate — but that is the second step, not the first. Cath lab activation and aspirin take priority.",
-            "pt_remark_wrong": "More fluid. Into this body. (looks sceptical) Is that the approach now.",
+            "pt_remark_wrong": "More fluid. Into this body. (regards the drip) In my experience, throwing resources at a problem without diagnosing it is how schools fail their students.",
             "fennick_wrong_comment": "\"Bilateral crackles. Fluid in the lungs already. More fluid is not the first move.\""
           },
           {
             "text": "Urgent echocardiogram to assess LV function before any treatment",
-            "sub": "Imaging before treatment",
+            "sub": "Structural assessment first",
             "correct": false,
             "feedback_wrong": "Echo is useful but not before treatment in an acute STEMI. The diagnosis is made. The clock is running. Every minute of delay worsens outcome. Echo can follow after cath lab activation.",
-            "pt_remark_wrong": "More assessment. Yes. Thorough. I appreciate thoroughness. (visibly deteriorating)",
+            "pt_remark_wrong": "More assessment. Yes. (deteriorating but maintaining posture) I have always said that data precedes action. Though I note the data. Is not improving.",
             "fennick_wrong_comment": "\"The ECG made the diagnosis. The clock started then. Not after the echo.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"STEMI. Cardiogenic shock. You ordered an echo before activating the cath lab. Door-to-balloon time was 180 minutes.\""
@@ -2368,59 +2369,66 @@
         ]
       },
       {
-        "title": "Antithrombotic therapy — which agent and which additional?",
-        "hint": "Aspirin given. Cath lab activated. What antiplatelet and anticoagulant combination for STEMI going to primary PCI?",
+        "title": "Reperfusion strategy — nearest cath lab is 140 minutes away",
+        "hint": "STEMI confirmed. Nearest PCI-capable centre is 140 minutes away. Transfer time exceeds the window. What is the reperfusion strategy?",
         "options": [
           {
             "text": "Prasugrel or ticagrelor (P2Y12 inhibitor) + unfractionated heparin",
-            "sub": "Dual antiplatelet + anticoagulant",
-            "correct": true,
+            "sub": "Option A",
+            "correct": false,
             "feedback_correct": "Correct. Dual antiplatelet therapy: aspirin + P2Y12 inhibitor (prasugrel or ticagrelor preferred over clopidogrel for STEMI going to PCI — faster onset, more potent). Unfractionated heparin as the anticoagulant of choice for primary PCI. Bivalirudin is an alternative. LMWH not preferred for primary PCI.",
             "fennick_correct_comment": "\"Ticagrelor onset 30 minutes. Prasugrel onset 30 minutes. Clopidogrel onset 2-6 hours. The clock is running.\"",
-            "pt_remark_correct": "Two more medications. Loading doses. (considers) You are being aggressive. ... Good. Be aggressive."
+            "pt_remark_correct": "Two more. Loading doses. (considers the vials) You are being aggressive. (pause) Good. In my experience, half-measures produce half-results.",
+            "feedback_wrong": "PCI is the preferred strategy when available within 120 minutes of first medical contact. The nearest cath lab is 140 minutes away — transfer would exceed the window. Fibrinolytic therapy is now the appropriate strategy. Transfer after fibrinolysis for pharmacoinvasive PCI within 3-24 hours.",
+            "fennick_wrong_comment": "\"140 minutes. The threshold is 120. The balloon cannot get here in time.\"",
+            "pt_remark_wrong": "Transfer. To another facility. Now. (grips armrest) How far. (quietly) That is too far."
           },
           {
             "text": "Alteplase IV — fibrinolytic reperfusion",
-            "sub": "Fibrinolytic therapy",
-            "correct": false,
+            "sub": "Option B",
+            "correct": true,
             "feedback_wrong": "Alteplase is a fibrinolytic — appropriate when primary PCI is unavailable within 120 minutes. The cath lab has been activated. PCI is available. Fibrinolytics in PCI-capable centres have worse outcomes than primary PCI and carry bleeding risk including intracranial haemorrhage.",
-            "pt_remark_wrong": "A clot-dissolving medication. (nods slowly) That sounds. Logical.",
+            "pt_remark_wrong": "A dissolving agent. For the clot. That sounds logical. (starts deteriorating faster) Though I notice. I feel. Considerably worse.",
             "fennick_wrong_comment": "\"PCI-capable centre. Cath lab activated. Fibrinolytics here have worse outcomes than the balloon.\"",
-            "triggers_crisis": true
+            "feedback_correct": "Correct. When primary PCI cannot be achieved within 120 minutes of first medical contact, fibrinolytic therapy is the reperfusion strategy of choice. Alteplase (tPA) is a tissue plasminogen activator — activates plasminogen to plasmin, dissolving the fibrin clot. Administer within 12 hours of symptom onset. Transfer to PCI centre after fibrinolysis regardless — pharmacoinvasive strategy.",
+            "fennick_correct_comment": "\"120 minutes is the threshold. Beyond that, the balloon arrives too late. The drug goes now.\"",
+            "pt_remark_correct": "A dissolving agent. Through the vein. (considers) And the cath lab cannot reach us in time. (long pause) That is a logistical failure. I would have planned better routes. But we work with what we have. Proceed."
           },
           {
             "text": "Tenecteplase IV — weight-based fibrinolytic, easier to administer",
-            "sub": "Single-bolus fibrinolytic",
+            "sub": "Option C",
             "correct": false,
-            "feedback_wrong": "Tenecteplase is a fibrinolytic — same argument as alteplase. Single-bolus convenience does not change the indication. PCI is available. Use it.",
+            "feedback_wrong": "Tenecteplase is also an acceptable fibrinolytic — single bolus, weight-based, less chance of dosing error. However alteplase is the more established agent with broader evidence. Either is acceptable in practice — for this question, alteplase is the preferred answer.",
             "pt_remark_wrong": "A single injection. Efficient. I appreciate efficiency.",
-            "fennick_wrong_comment": "\"Single bolus does not change the indication. PCI available. PCI preferred.\"",
-            "triggers_crisis": true
+            "fennick_wrong_comment": "\"Tenecteplase is acceptable. Alteplase has the longer evidence base in this setting.\"",
+            "triggers_crisis": false
           },
           {
             "text": "Streptokinase IV — first-generation fibrinolytic",
-            "sub": "First-generation fibrinolytic",
+            "sub": "Option D",
             "correct": false,
-            "feedback_wrong": "Streptokinase is rarely used now — antigenic, cannot be given twice, slower to act than newer fibrinolytics. And again — PCI is available. Fibrinolytics are not the choice here.",
-            "pt_remark_wrong": "An older medication. I respect tradition. (wheezing)",
-            "fennick_wrong_comment": "\"Antigenic. Cannot be repeated. And PCI is right there.\"",
-            "triggers_crisis": true
+            "feedback_wrong": "Streptokinase is a first-generation fibrinolytic — antigenic, cannot be given twice, lower efficacy than alteplase or tenecteplase. Not the preferred agent when others are available.",
+            "pt_remark_wrong": "An older medication. (wryly) I respect. The classics.",
+            "fennick_wrong_comment": "\"Streptokinase is antigenic. Cannot be repeated. Alteplase or tenecteplase are preferred.\"",
+            "triggers_crisis": false
           },
           {
             "text": "Argatroban — direct thrombin inhibitor anticoagulation",
-            "sub": "Direct thrombin inhibitor",
+            "sub": "Option E",
             "correct": false,
-            "feedback_wrong": "Argatroban is a direct thrombin inhibitor used in HIT — not first-line anticoagulation for STEMI. Unfractionated heparin or bivalirudin are the anticoagulants for primary PCI.",
-            "pt_remark_wrong": "I do not recognise that name. Should I?",
-            "fennick_wrong_comment": "\"Argatroban is for HIT. No heparin indication here. Use heparin.\""
+            "feedback_wrong": "Argatroban is a direct thrombin inhibitor used in HIT — not a fibrinolytic and not indicated for STEMI reperfusion.",
+            "pt_remark_wrong": "I do not recognise that name. (frowns) Should I.",
+            "fennick_wrong_comment": "\"Argatroban is for HIT. No heparin indication here. Use heparin.\"",
+            "triggers_crisis": false
           },
           {
             "text": "Clopidogrel + enoxaparin",
-            "sub": "Older antiplatelet + LMWH",
+            "sub": "Option F",
             "correct": false,
-            "feedback_wrong": "Clopidogrel has slower onset than prasugrel or ticagrelor and is less effective in STEMI going to PCI. Enoxaparin has less predictable anticoagulation during PCI than unfractionated heparin. Not preferred for primary PCI.",
-            "pt_remark_wrong": "Those names I know. From the textbooks I used to recommend.",
-            "fennick_wrong_comment": "\"Clopidogrel onset 2-6 hours. Ticagrelor onset 30 minutes. The door-to-balloon clock does not pause.\""
+            "feedback_wrong": "Clopidogrel and enoxaparin are antithrombotic adjuncts — they do not dissolve the existing clot. Reperfusion therapy is still required.",
+            "pt_remark_wrong": "Those I know. From the textbooks. I used to recommend them to the school nurse. (deteriorating)",
+            "fennick_wrong_comment": "\"Clopidogrel onset 2-6 hours. Ticagrelor onset 30 minutes. The door-to-balloon clock does not pause.\"",
+            "triggers_crisis": false
           }
         ]
       },
@@ -2430,18 +2438,18 @@
         "options": [
           {
             "text": "Ruptured atherosclerotic plaque with overlying occlusive thrombus — TIMI 0 flow",
-            "sub": "Complete occlusion pattern",
+            "sub": "Acute occlusive pattern",
             "correct": true,
             "feedback_correct": "Correct. Acute STEMI results from plaque rupture or erosion with superimposed thrombus causing complete coronary occlusion — TIMI 0 (no flow) or TIMI 1 (minimal flow). The fibrous cap ruptures, exposing the lipid-rich necrotic core to platelets and the coagulation cascade. Thrombus forms rapidly and occludes the vessel.",
             "fennick_correct_comment": "\"The cap ruptured. Not the stenosis that caused this — the instability of the plaque did.\"",
-            "pt_remark_correct": "A blockage. Complete. (absorbs this) I see. (long pause) That is. More serious than I communicated to my wife."
+            "pt_remark_correct": "A ruptured plaque. Exactly as I suspected. It is the small, undisciplined elements that collapse the entire institution. At least you found the culprit. Good."
           },
           {
             "text": "Stable calcified plaque with 70% luminal narrowing — TIMI 2 flow",
-            "sub": "Significant fixed stenosis",
+            "sub": "Chronic obstructive pattern",
             "correct": false,
             "feedback_wrong": "70% stable stenosis with TIMI 2 flow may cause stable angina or exertional symptoms — not acute STEMI. STEMI requires complete or near-complete occlusion from an acute thrombotic event, not gradual fixed narrowing.",
-            "pt_remark_wrong": "Seventy percent. That sounds. Significant.",
+            "pt_remark_wrong": "Seventy percent narrowing. (with faint hope) That sounds. Manageable. With the right programme.",
             "fennick_wrong_comment": "\"Stable stenosis causes exertional symptoms. STEMI requires acute occlusion — the plaque ruptured.\""
           },
           {
@@ -2449,15 +2457,15 @@
             "sub": "Non-obstructive pattern",
             "correct": false,
             "feedback_wrong": "MINOCA — myocardial infarction with non-obstructive coronary arteries — is a recognised entity but less common and usually a diagnosis of exclusion. This patient has inferior STEMI with RV involvement and a clear ECG pattern — a culprit lesion is expected.",
-            "pt_remark_wrong": "No blockage. Then what. Caused this.",
+            "pt_remark_wrong": "No blockage. (confused) Then what caused all of this. I demand an explanation.",
             "fennick_wrong_comment": "\"MINOCA exists. But inferior STEMI with RV involvement has a culprit until proven otherwise.\""
           },
           {
             "text": "Plaque with 40% luminal narrowing — incidental finding, non-culprit",
-            "sub": "Non-significant stenosis",
+            "sub": "Incidental finding",
             "correct": false,
             "feedback_wrong": "40% narrowing does not cause acute coronary occlusion or STEMI. This would be a non-significant incidental finding. The culprit in STEMI is an acutely ruptured or eroded plaque with thrombus.",
-            "pt_remark_wrong": "Forty percent. That is. Manageable. Surely.",
+            "pt_remark_wrong": "Forty percent. (almost relieved) That is quite modest. I may have overreacted.",
             "fennick_wrong_comment": "\"40% stenosis does not occlude. The STEMI came from somewhere else.\""
           }
         ]
@@ -2468,34 +2476,34 @@
         "options": [
           {
             "text": "Decreased cardiac output, decreased contractility, elevated PCWP, elevated SVR",
-            "sub": "Cardiogenic profile",
+            "sub": "Pattern A",
             "correct": true,
             "feedback_correct": "Correct. Cardiogenic shock: the pump fails — contractility drops, cardiac output drops. The failing LV cannot eject — PCWP (pulmonary capillary wedge pressure) rises as blood backs up. SVR rises compensatorily as the body vasoconstricts to maintain pressure. This is the cold, clammy, congested patient with cool peripheries and bilateral crackles.",
             "fennick_correct_comment": "\"SVR rises to compensate. That is why the extremities are cold. The body is centralising.\"",
-            "pt_remark_correct": "The pump. (quietly) Is that how you think of it. (looks at his own hands) I suppose it is."
+            "pt_remark_correct": "The body compensating by restricting everything peripheral. To keep the centre running. (long pause) I have managed a school on exactly that principle. It does not end well. But it buys time."
           },
           {
             "text": "Decreased cardiac output, decreased contractility, decreased PCWP, decreased SVR",
-            "sub": "Distributive-like profile",
+            "sub": "Pattern B",
             "correct": false,
             "feedback_wrong": "Decreased PCWP and decreased SVR describe distributive shock — septic shock, anaphylaxis. In cardiogenic shock the PCWP is elevated (fluid backing up behind the failing LV) and the SVR is elevated (compensatory vasoconstriction). The peripheries are cold and clammy, not warm.",
-            "pt_remark_wrong": "That profile. Does not match. What I am feeling.",
+            "pt_remark_wrong": "That pattern does not match what I am experiencing. I would know.",
             "fennick_wrong_comment": "\"Warm peripheries, low SVR — that is distributive. His hands were cold. His SVR is up.\""
           },
           {
             "text": "Normal cardiac output, normal contractility, elevated PCWP, normal SVR",
-            "sub": "Isolated congestion pattern",
+            "sub": "Pattern C",
             "correct": false,
             "feedback_wrong": "Normal cardiac output with normal contractility is not cardiogenic shock — that is compensated heart failure or volume overload. Cardiogenic shock requires reduced cardiac output from pump failure.",
-            "pt_remark_wrong": "Normal output. I wish.",
+            "pt_remark_wrong": "Normal output. (brief, quiet hope) Is that possible.",
             "fennick_wrong_comment": "\"Cardiogenic shock requires the output to fall. Normal output is compensated heart failure — different stage.\""
           },
           {
             "text": "Decreased cardiac output, normal contractility, elevated PCWP, elevated SVR",
-            "sub": "Obstructive-like profile",
+            "sub": "Pattern D",
             "correct": false,
             "feedback_wrong": "Normal contractility with reduced output and elevated PCWP suggests obstruction to flow — tamponade, massive PE, tension pneumothorax. In cardiogenic shock the contractility is impaired — the myocardium itself is the problem.",
-            "pt_remark_wrong": "Normal contractility. (faint hope) Is that. Me.",
+            "pt_remark_wrong": "Normal contractility. (very quietly) I wish that were the case.",
             "fennick_wrong_comment": "\"Normal contractility with obstruction — tamponade, PE, tension. His myocardium is the problem, not the plumbing.\""
           }
         ]
@@ -2506,34 +2514,34 @@
         "options": [
           {
             "text": "Metoprolol succinate — cardioselective beta-1 blocker",
-            "sub": "Cardioselective beta-blocker",
+            "sub": "Agent A",
             "correct": true,
             "feedback_correct": "Correct. Metoprolol succinate (extended release) is cardioselective — primarily blocks beta-1 receptors in the myocardium. Reduces heart rate, myocardial oxygen demand, and mortality post-MI. Cardioselectivity minimises bronchospasm risk. Start low, titrate up. Carvedilol (non-selective + alpha) is an alternative with proven mortality benefit in heart failure.",
             "fennick_correct_comment": "\"Beta-1 selectivity is relative. At high doses it fades. Keep the dose appropriate for the ejection fraction.\"",
-            "pt_remark_correct": "A heart medication. For the heart. (considers) That makes sense. I will take it. (beat) Do not look so surprised."
+            "pt_remark_correct": "A heart medication. For the heart. (considers) That is logical. I will take it. (looks up) Do not look surprised. I can follow a well-reasoned instruction."
           },
           {
             "text": "Propranolol — non-selective beta-blocker",
-            "sub": "Non-selective agent",
+            "sub": "Agent B",
             "correct": false,
             "feedback_wrong": "Propranolol blocks beta-1 and beta-2. Beta-2 blockade causes bronchospasm — problematic in patients with airways disease. Cardioselective agents are preferred post-MI for this reason. Propranolol also lacks the mortality evidence of metoprolol or carvedilol in this setting.",
-            "pt_remark_wrong": "An older drug. I have heard of it.",
+            "pt_remark_wrong": "I know that one. It predates my entire career in education.",
             "fennick_wrong_comment": "\"Non-selective. Beta-2 blockade. Bronchospasm risk. Cardioselective is preferred.\""
           },
           {
             "text": "Labetalol — alpha and beta blocker, used for hypertensive emergencies",
-            "sub": "Combined alpha-beta blocker",
+            "sub": "Agent C",
             "correct": false,
             "feedback_wrong": "Labetalol is used for hypertensive emergencies and hypertension in pregnancy — not the first-choice post-MI beta-blocker. Metoprolol or carvedilol have specific post-MI mortality data.",
-            "pt_remark_wrong": "That one I recognise from the pharmacology textbooks in my office.",
+            "pt_remark_wrong": "That is the emergency version. Is this not still an emergency.",
             "fennick_wrong_comment": "\"Labetalol is for hypertensive emergencies. Post-MI beta-blockade uses metoprolol or carvedilol.\""
           },
           {
             "text": "Atenolol — cardioselective, once daily",
-            "sub": "Alternative cardioselective agent",
+            "sub": "Agent D",
             "correct": false,
             "feedback_wrong": "Atenolol is cardioselective and once-daily — but the post-MI mortality evidence is weaker than metoprolol succinate or carvedilol. Guidelines favour agents with robust outcome data. Atenolol is also renally cleared — relevant given his rising creatinine.",
-            "pt_remark_wrong": "Once daily. Convenient. I appreciate convenience.",
+            "pt_remark_wrong": "Once daily. A sensible schedule. I have always respected a well-designed timetable.",
             "fennick_wrong_comment": "\"Atenolol is renally cleared. His creatinine is rising. Metoprolol is hepatically cleared.\""
           }
         ]
@@ -2548,14 +2556,14 @@
             "correct": true,
             "feedback_correct": "Correct. Post-primary PCI: CCU for continuous cardiac monitoring, echo to assess LV function and ejection fraction, initiation of secondary prevention (dual antiplatelet, statin, ACE inhibitor, beta-blocker), monitoring for complications — reperfusion arrhythmias, mechanical complications (VSD, free wall rupture, MR), re-occlusion.",
             "fennick_correct_comment": "\"Reperfusion arrhythmias peak in the first 24 hours. He needs the monitor.\"",
-            "pt_remark_correct": "The cardiac ward. Yes. (settles back) I will need. Something to read. And my wife should be. Informed. (quietly) She will not be pleased that I drove myself."
+            "pt_remark_correct": "The cardiac ward. Understood. I will expect a daily progress report. And Doctor. Fix your posture. You represent the medical profession. Appearance is everything."
           },
           {
             "text": "General medical ward — stable post-procedure",
             "sub": "Standard ward admission",
             "correct": false,
             "feedback_wrong": "Post-STEMI with prior cardiogenic shock requires CCU-level monitoring. Reperfusion arrhythmias, haemodynamic instability, and mechanical complications can occur within hours of PCI. General ward monitoring is insufficient.",
-            "pt_remark_wrong": "A general ward. With the. Others.",
+            "pt_remark_wrong": "A general ward. With the others. (mildly offended, too tired to argue further)",
             "fennick_wrong_comment": "\"Reperfusion arrhythmias. Mechanical complications. He needs continuous monitoring, not an hourly obs round.\""
           },
           {
@@ -2563,7 +2571,7 @@
             "sub": "Early discharge",
             "correct": false,
             "feedback_wrong": "Discharging a post-STEMI patient with prior cardiogenic shock on the day of PCI is not appropriate. Minimum 24-48h CCU monitoring is required for all STEMI patients, longer for those with haemodynamic compromise.",
-            "pt_remark_wrong": "Home. (almost hopeful) Today.",
+            "pt_remark_wrong": "Home. Today. (almost hopeful) I have a full diary tomorrow.",
             "fennick_wrong_comment": "\"Not today. The first 24 hours after reperfusion are the most dangerous.\"",
             "critical_error": true,
             "fennick_endgame_comment": "\"Post-STEMI with prior cardiogenic shock. Discharged same day. He came back by ambulance.\""
@@ -2573,7 +2581,7 @@
             "sub": "Intensive care admission",
             "correct": false,
             "feedback_wrong": "ICU is appropriate if cardiogenic shock persists despite PCI, or if mechanical support (IABP, Impella) is required. His vitals are improving post-PCI. CCU provides adequate monitoring without unnecessary ICU resource use.",
-            "pt_remark_wrong": "Intensive care. That sounds. Rather dramatic.",
+            "pt_remark_wrong": "Intensive care. (quietly) That sounds. Rather dramatic. For someone with my constitution.",
             "fennick_wrong_comment": "\"Vitals improving post-PCI. CCU is appropriate. ICU if he fails to stabilise.\""
           }
         ]
@@ -2614,7 +2622,11 @@
       "\"He told his wife it was routine.\"",
       "\"She was not pleased.\"",
       "\"He said she lacked perspective. She said she would drive him next time.\""
-    ]
+    ],
+    "cc_after_addl_hx": "(had been gripping lapel, releases it) The jaw has been involved since this morning. I attributed it to tension. (straightens) I was incorrect. You may record that. It does not happen often.",
+    "cc_after_pe": "Your hands are cold, Doctor. Basic patient care. (breathes with difficulty) The crackling in my lungs. I assume that is relevant. You will tell me why.",
+    "cc_after_imaging": "(looks at film) The congestion in the lung fields. I attributed that to the weather and poor ventilation in my study. (pause) I was wrong about that as well. It has been an instructive morning.",
+    "cc_after_dx": "(very still) Inferior myocardial infarction. (long exhale) That is considerably more serious than what I told my wife this morning. (adjusts jacket) She is going to be insufferable about this."
   },
   {
     "id": "026",
