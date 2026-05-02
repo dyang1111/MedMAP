@@ -967,6 +967,8 @@ body.tier-3 #pt-vignette {
 .vi-val{font-size:11px;font-weight:600;color:#2a1a06;font-family:'Playfair Display',serif;line-height:1.2}
 .vi-lbl{font-size:8px;color:#9a7030;letter-spacing:.07em}
 .vi-item.abnormal .vi-val{color:#8a2010}
+.vi-item.vi-changed .vi-val{color:#ff4444;animation:vitalFlash 0.4s ease}
+@keyframes vitalFlash{0%{transform:scale(1.18)}100%{transform:scale(1)}}
 /* Container for tabs and chart */
 #tab-area{
   display:block;
@@ -1415,18 +1417,33 @@ function populateVitalsSidebar(v){
   function cleanVal(s){ return s ? s.split(/[\s(]/)[0] : '—'; }
   const bp = cleanVal(v.bp), hr = cleanVal(v.hr), rr = cleanVal(v.rr);
   const temp = cleanVal(v.temp), o2 = cleanVal(v.o2);
+  const o2Clean = o2.replace(/%.*/, '').trim(); // strip % and RA
   const abnormalBP = parseInt(bp)>140 || parseInt(bp)<90;
   const abnormalHR = parseInt(hr)>100 || parseInt(hr)<60;
-  const abnormalO2 = parseInt(o2)<95;
+  const abnormalO2 = parseInt(o2Clean)<95;
   const abnormalTemp = parseFloat(temp)>37.5 || parseFloat(temp)<36;
   const vitalsEl = document.getElementById('vitals-inline');
+  if(!vitalsEl) return;
+  // Track previous values for change animation
+  const _prevVitals = vitalsEl._lastVitals || {};
+  const _newVitals = {bp, hr, rr, temp, o2: o2Clean};
   vitalsEl.innerHTML = [
-    {l:'BP',v:bp,a:abnormalBP},
-    {l:'HR',v:hr,a:abnormalHR},
-    {l:'RR',v:rr,a:false},
-    {l:'TEMP',v:temp+'°',a:abnormalTemp},
-    {l:'O₂',v:o2+'%',a:abnormalO2}
-  ].map(x=>`<div class="vi-item${x.a?' abnormal':''}"><div class="vi-val">${x.v}</div><span class="vi-lbl">${x.l}</span></div>`).join('');
+    {l:'BP',v:bp,a:abnormalBP,k:'bp'},
+    {l:'HR',v:hr,a:abnormalHR,k:'hr'},
+    {l:'RR',v:rr,a:false,k:'rr'},
+    {l:'TEMP',v:temp+'°',a:abnormalTemp,k:'temp'},
+    {l:'O₂',v:o2Clean+'%',a:abnormalO2,k:'o2'}
+  ].map(x=>{
+    const changed = _prevVitals[x.k] && _prevVitals[x.k] !== (x.k==='o2'?o2Clean:x.v.replace('°',''));
+    return `<div class="vi-item${x.a?' abnormal':''}${changed?' vi-changed':''}"><div class="vi-val">${x.v}</div><span class="vi-lbl">${x.l}</span></div>`;
+  }).join('');
+  vitalsEl._lastVitals = {bp, hr, rr, temp, o2: o2Clean};
+  // Flash changed items back to normal color after 3s
+  if(Object.keys(_prevVitals).length) {
+    setTimeout(()=>{
+      vitalsEl.querySelectorAll('.vi-changed').forEach(el=>el.classList.remove('vi-changed'));
+    }, 3000);
+  };
 }
 
 // ── TYPEWRITER ──
@@ -1990,8 +2007,6 @@ function applyTimeTheme(bgOnly){
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287296/default_rainy_lofo5p.png'
     : isNight
     ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776287306/default_night1_lv5qrv.png'
-    : isAfternoon
-    ? 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776981152/default_day_g18qmo.png'
     : 'https://res.cloudinary.com/djiap51xq/image/upload/q_auto/f_auto/v1776981986/default_morning_omuzj9.png';
   document.getElementById('bg').style.backgroundImage = `url('${bgUrl}')`;
   if(isNight) {
@@ -2637,6 +2652,25 @@ window.pickMgmt=function(stageIdx,optIdx){
   if(opt.correct){
     optEl.classList.remove('locked-opt');optEl.classList.add('selected-correct');document.getElementById('stage-num-'+stageIdx).classList.add('done');
     if(fbEl){fbEl.style.cssText='display:block;background:rgba(180,230,160,0.4);border:1px solid rgba(80,160,60,0.4);color:#1a4a08;padding:8px 12px;border-radius:6px;margin-top:8px;font-size:14px';fbEl.textContent=opt.feedback_correct||'Correct.';}
+    // Dynamic vitals update on correct management
+    if(currentCase && currentCase.vital_progression) {
+      const vKey = 'on_mng_' + stageIdx + '_correct';
+      const vUpdate = currentCase.vital_progression[vKey];
+      if(vUpdate) setTimeout(()=>updateVitals(vUpdate), 1200);
+    }
+    // Typing speed change on correct management stage
+    if(opt.typing_speed_after) {
+      if(opt.typing_speed_after === 'normal') {
+        currentCase.breathless_typing = false;
+        currentCase.anxious_typing = false;
+      } else if(opt.typing_speed_after === 'anxious') {
+        currentCase.breathless_typing = false;
+        currentCase.anxious_typing = true;
+      } else if(opt.typing_speed_after === 'breathless') {
+        currentCase.anxious_typing = false;
+        currentCase.breathless_typing = true;
+      }
+    }
     // Portrait swap on correct management
     if(opt.portrait_swap && currentCase && currentCase.patient) {
       const swapUrl = currentCase.patient[opt.portrait_swap];
@@ -2693,6 +2727,15 @@ window.pickMgmt=function(stageIdx,optIdx){
   } else {
     optEl.classList.remove('locked-opt');optEl.classList.add('selected-wrong');errors++;drainHP(10);
     // Critical error — flag for grade override
+    // Crisis vitals + stage inject
+    if(opt.triggers_crisis && currentCase) {
+      if(currentCase.vital_progression && currentCase.vital_progression.on_crisis) {
+        setTimeout(()=>updateVitals(currentCase.vital_progression.on_crisis), 800);
+      }
+      if(currentCase.crisis_stage) {
+        currentCase.management.splice(stageIdx + 1, 0, currentCase.crisis_stage);
+      }
+    }
     if(opt.critical_error) {
       _hasCriticalError = true;
       // endgame comment is different from the in-the-moment line
@@ -3134,4 +3177,9 @@ window.endCase = function(failed) {
 })();
 </script>
 </body>
-</html>
+</html>// Dynamic vitals update
+function updateVitals(vitalsObj) {
+  if(!vitalsObj || !currentCase) return;
+  const v = {...currentCase.vitals, ...vitalsObj};
+  renderVitals(v);
+}
