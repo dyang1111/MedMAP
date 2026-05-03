@@ -2268,7 +2268,7 @@
       "result": "ST elevation in leads II, III, aVF greater than 2mm. Reciprocal ST depression in I and aVL. Q waves developing in III. Rate 118. No bundle branch block. Pattern consistent with acute inferior STEMI. Right-sided leads: ST elevation in V4R — right ventricular involvement."
     },
     "memory_fragments": {
-      "special": "Significant ST elevation across the inferior leads. He looked at the upward trend on the monitor and remarked that it looked like a positive trajectory. He has no idea he was watching his heart die in real time. Troponin 2.8. He noted that it was not a failing grade and seemed satisfied. I did not tell him that the higher the number, the more of his heart has already turned to scar tissue."
+      "troponin": "Significant ST elevation across the inferior leads. He looked at the upward trend on the monitor and remarked that it looked like a positive trajectory. He has no idea he was watching his heart die in real time. Troponin 2.8. He noted that it was not a failing grade and seemed satisfied. I did not tell him that the higher the number, the more of his heart has already turned to scar tissue."
     },
     "tests": [
       {
