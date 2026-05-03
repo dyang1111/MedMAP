@@ -951,9 +951,6 @@
       "name": "Peripheral Blood Smear + B12/Folate",
       "result": "B12: 310 pmol/L (normal). Folate: 18 nmol/L (normal). Peripheral smear: oval macrocytes, hyposegmented neutrophils (pseudo-Pelger-Huet anomaly — bilobed nuclei), occasional teardrop cells. No hypersegmented neutrophils. No blast cells seen. No schistocytes. Dysplastic changes in multiple cell lines. B12 and folate deficiency excluded."
     },
-    "memory_fragments": {
-      "pe": "She has been taking the long route to avoid the archive stairs for three weeks. She catalogued seventeen new acquisitions last Tuesday. Nobody noticed the route had changed."
-    },
     "tests": [
       {
         "name": "CBC",
@@ -1251,9 +1248,6 @@
     "special_test": {
       "name": "ESR + CRP + CBC",
       "result": "ESR: 98 mm/hr (markedly elevated — normal <20). CRP: 64 mg/L (markedly elevated — normal <5). CBC: normocytic anaemia, Hgb 10.8. WBC and platelets normal. Pattern consistent with significant systemic inflammatory process."
-    },
-    "memory_fragments": {
-      "pe": "She stopped mid-sentence when the temporal artery was palpated. She did not finish what she was saying. She did not start a new sentence for eleven seconds."
     },
     "tests": [
       {
@@ -2240,7 +2234,9 @@
           "critical_error": true,
           "fennick_endgame_comment": "\"VF. Shockable rhythm. You chose adrenaline first. The window closed.\""
         }
-      ]
+      ],
+      "fennick_transition": "\"VF. Shockable rhythm.\"",
+      "description": "Monitor shows ventricular fibrillation. No pulse."
     },
     "chart": {
       "cc": "My chest is tight. But look at your station, Doctor. Disorganized. Chaos in the workspace leads to chaos in the mind. I am only pointing this out for your professional growth. Now. Perform your assessment.",
@@ -2268,7 +2264,7 @@
       "result": "ST elevation in leads II, III, aVF greater than 2mm. Reciprocal ST depression in I and aVL. Q waves developing in III. Rate 118. No bundle branch block. Pattern consistent with acute inferior STEMI. Right-sided leads: ST elevation in V4R — right ventricular involvement."
     },
     "memory_fragments": {
-      "troponin": "Significant ST elevation across the inferior leads. He looked at the upward trend on the monitor and remarked that it looked like a positive trajectory. He has no idea he was watching his heart die in real time. Troponin 2.8. He noted that it was not a failing grade and seemed satisfied. I did not tell him that the higher the number, the more of his heart has already turned to scar tissue."
+      "troponin": "Troponin 2.8. He noted that it was not a failing grade and seemed satisfied. I did not tell him that the higher the number, the more of his heart has already turned to scar tissue."
     },
     "tests": [
       {
@@ -2381,7 +2377,7 @@
             "pt_remark_correct": "Two more. Loading doses. (considers the vials) You are being aggressive. ... Good. In my experience, half-measures produce half-results.",
             "feedback_wrong": "PCI is the preferred strategy when available within 120 minutes of first medical contact. The nearest cath lab is 140 minutes away — transfer would exceed the window. Fibrinolytic therapy is now the appropriate strategy. Transfer after fibrinolysis for pharmacoinvasive PCI within 3-24 hours.",
             "fennick_wrong_comment": "\"140 minutes. The threshold is 120. The balloon cannot get here in time.\"",
-            "pt_remark_wrong": "Transfer. To another facility. Now. ... How far. ... That is too far.",
+            "pt_remark_wrong": "...",
             "triggers_crisis": true
           },
           {
@@ -2400,7 +2396,7 @@
             "sub": "Anticoagulation only",
             "correct": false,
             "feedback_wrong": "Heparin is an anticoagulant — it prevents new clot formation but does not dissolve the existing thrombus. Reperfusion therapy (fibrinolysis or PCI) is still required. Anticoagulation alone is insufficient for STEMI.",
-            "pt_remark_wrong": "A blood thinner. That is all. Without the dissolving part. ... That does seem insufficient even to me, Doctor.",
+            "pt_remark_wrong": "...",
             "fennick_wrong_comment": "\"Heparin prevents clot extension. It does not dissolve the one already blocking the artery.\"",
             "triggers_crisis": true
           },
@@ -2409,7 +2405,7 @@
             "sub": "First-generation thrombolysis",
             "correct": false,
             "feedback_wrong": "Streptokinase is a first-generation fibrinolytic — antigenic, cannot be given twice, lower efficacy than alteplase or tenecteplase. Not the preferred agent when others are available.",
-            "pt_remark_wrong": "An older medication. I respect. The classics.",
+            "pt_remark_wrong": "...",
             "fennick_wrong_comment": "\"Streptokinase is antigenic. Cannot be repeated. Alteplase or tenecteplase are preferred.\"",
             "triggers_crisis": true
           },
@@ -2418,7 +2414,7 @@
             "sub": "Direct thrombin inhibition",
             "correct": false,
             "feedback_wrong": "Argatroban is a direct thrombin inhibitor used in HIT — not a fibrinolytic and not indicated for STEMI reperfusion.",
-            "pt_remark_wrong": "I do not recognise that name. Should I.",
+            "pt_remark_wrong": "...",
             "fennick_wrong_comment": "\"Argatroban is for HIT. No heparin indication here. Use heparin.\"",
             "triggers_crisis": true
           },
@@ -2427,7 +2423,7 @@
             "sub": "Antiplatelet plus anticoagulant",
             "correct": false,
             "feedback_wrong": "Clopidogrel and enoxaparin are antithrombotic adjuncts — they do not dissolve the existing clot. Reperfusion therapy is still required.",
-            "pt_remark_wrong": "Those I know. From the textbooks. I used to recommend them to the school nurse.",
+            "pt_remark_wrong": "...",
             "fennick_wrong_comment": "\"Clopidogrel onset 2-6 hours. Ticagrelor onset 30 minutes. The door-to-balloon clock does not pause.\"",
             "triggers_crisis": true
           }
