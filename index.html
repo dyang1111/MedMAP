@@ -2390,7 +2390,12 @@ function addLabResult(name,result){
   const card=document.createElement('div');card.className='test-result-card';
   // Check for memory fragment
   const testData = currentCase && currentCase.tests ? currentCase.tests.find(t=>t.name.toLowerCase()===name.toLowerCase()) : null;
-  const frag = testData && testData.memory_fragment ? testData.memory_fragment : null;
+  const _labFragKey = name.toLowerCase().replace(/\s/g,'').replace(/\(.*\)/g,'');
+  const frag = (testData && testData.memory_fragment) 
+    ? testData.memory_fragment 
+    : (currentCase && currentCase.memory_fragments && currentCase.memory_fragments[_labFragKey])
+    ? currentCase.memory_fragments[_labFragKey]
+    : null;
   const fragHtml = frag ? `<div class="memory-fragment" style="display:none" id="mem-${name.replace(/\s/g,'')}">${frag}</div>
     <div style="font-size:11px;color:#9a7030;margin-top:5px;cursor:pointer;font-style:italic" onclick="revealMemory('${name.replace(/\s/g,'')}',this)">✦ A memory surfaces...</div>` : '';
   // Fire pt_remark if test has one
