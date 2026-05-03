@@ -2756,9 +2756,19 @@ window.pickMgmt=function(stageIdx,optIdx){
         }
       }
       if(currentCase.crisis_stage) {
-        currentCase.management.splice(stageIdx + 1, 0, currentCase.crisis_stage);
-        // advanceStage will be called by the wrong option handler after 3500ms
-        // Just update vitals immediately
+        const cs = currentCase.crisis_stage;
+        currentCase.management.splice(stageIdx + 1, 0, cs);
+        // Fire Fennick transition line then advance to crisis stage
+        const csDelay = 2500;
+        if(cs.fennick_transition) {
+          setTimeout(()=>{
+            const fel = document.getElementById('fennick-comment');
+            const fig = document.getElementById('fennick-img');
+            if(fig) fig.src = FOX.concerned;
+            if(fel) typewriterWrite(fel, cs.fennick_transition.replace(/^"|"$/g,''), 18);
+          }, 1200);
+        }
+        setTimeout(()=>advanceStage(stageIdx + 1), csDelay);
       }
     }
     if(opt.critical_error) {
