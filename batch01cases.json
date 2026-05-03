@@ -277,7 +277,11 @@
     "patient_quote_addl_hx": "\"The right hand first. Then the left began. I kept telling myself it was fatigue from the mechanisms — the fine work. But I know my hands. These are not tired hands. These are broken ones.\"",
     "generic_lab_remark": "I keep a record of everything. I assumed you'd want it.",
     "fennick_after_pe": "\"Her hands gave it away before the examination started.\"",
-    "fennick_after_imaging": "\"DaTscan is the confirmatory test. MRI is not.\""
+    "fennick_after_imaging": "\"DaTscan is the confirmatory test. MRI is not.\"",
+    "memory_fragments": {
+      "pe": "She wound the examination room clock while waiting. It was already correct. She wound it anyway."
+    },
+    "tier": 1
   },
   {
     "id": "002",
@@ -594,7 +598,11 @@
     "patient_quote_addl_hx": "\"I've crossed the Ashgate lowlands in a broken cart with a fever and kept moving. I don't come to doctors. My wife packed my bag. I didn't even know she'd done it until she handed it to me at the door.\"",
     "generic_lab_remark": "Fine.",
     "fennick_after_pe": "\"The collar is the story. Everything else confirms it.\"",
-    "fennick_after_imaging": "\"80% compression. The image shows what the collar already told you.\""
+    "fennick_after_imaging": "\"80% compression. The image shows what the collar already told you.\"",
+    "memory_fragments": {
+      "imaging": "He looked at the X-ray and said the shadow had probably always been there. He seemed relieved by this explanation. It had not always been there."
+    },
+    "tier": 1
   },
   {
     "id": "003",
@@ -872,7 +880,11 @@
     "fennick_after_pe": "\"Fever, murmur, embolic signs. Take your time.\"",
     "patient_quote_addl_hx": "\"I actually looked up my symptoms last week. I thought maybe it was just a virus going around the construction site. My wife said I should come in sooner. I kept saying it wasn't a big deal. Is it a big deal?\"",
     "generic_lab_remark": "Whatever you need. Just be thorough.",
-    "fennick_after_imaging": "\"1.4 centimetres on the non-coronary cusp.\""
+    "fennick_after_imaging": "\"1.4 centimetres on the non-coronary cusp.\"",
+    "memory_fragments": {
+      "pe": "He tapped the murmur rhythm on his knee while being examined. He thought he was keeping time. He was not keeping time."
+    },
+    "tier": 1
   },
   {
     "id": "004",
@@ -1150,7 +1162,11 @@
     "patient_quote_addl_hx": "\"I've been in three campaigns. I don't get dizzy. I don't collapse. What happened this morning was — I was simply fatigued from the night exercise. My aide is prone to exaggeration. I'm here as a courtesy.\"",
     "generic_lab_remark": "Get what you need. Make it quick.",
     "fennick_after_pe": "\"190 over 118 at rest. Consider what it reaches during an episode.\"",
-    "fennick_after_imaging": "\"Right adrenal. 4.8 centimetres. Central necrosis.\""
+    "fennick_after_imaging": "\"Right adrenal. 4.8 centimetres. Central necrosis.\"",
+    "memory_fragments": {
+      "addl-hx": "He described the episodes as his body running a drill without orders. He has been trying to countermand them for two years. The body has not listened."
+    },
+    "tier": 1
   },
   {
     "id": "005",
@@ -1419,7 +1435,11 @@
     "patient_quote_addl_hx": "\"I — I'm sure it's just fatigue. I've been working long shifts. I don't want to make a fuss. The other men have headaches too but they haven't come in. Should I have... come in sooner? I'm sorry if I should have come sooner.\"",
     "generic_lab_remark": "Of course. Whatever helps. I'm sorry if I'm not easy to work with.",
     "fennick_after_pe": "\"Oxygen saturation 97. Look at the patient, not the number.\"",
-    "fennick_after_imaging": "\"Clear chest. Normal brain. The problem is elsewhere.\""
+    "fennick_after_imaging": "\"Clear chest. Normal brain. The problem is elsewhere.\"",
+    "memory_fragments": {
+      "addl-hx": "He apologised for coming in. He said the others at the furnace probably felt the same and he did not want to cause a fuss. The others at the furnace felt the same."
+    },
+    "tier": 1
   },
   {
     "id": "006",
@@ -1683,7 +1703,11 @@
     "patient_quote_addl_hx": "\"It happened once before, about a year and a half ago. Same side, same feeling. I just rested and it went away after a couple of days. I figured it was a pulled muscle. Should I have come in for that one?\"",
     "generic_lab_remark": "Do it.",
     "fennick_after_pe": "\"One side. Listen to both.\"",
-    "fennick_after_imaging": "\"Bilateral blebs. Second episode.\""
+    "fennick_after_imaging": "\"Bilateral blebs. Second episode.\"",
+    "memory_fragments": {
+      "pe": "He rated the pain a four out of ten. He said he had worked through worse. His oxygen saturation disagreed."
+    },
+    "tier": 1
   },
   {
     "id": "007",
@@ -1954,7 +1978,11 @@
     "patient_quote_addl_hx": "\"I know what this is. I know it. I just — I didn't think it would happen through the skin. I wasn't even eating it. I've handled it before but never for this long. How bad is it? Please just tell me how bad it is.\"",
     "generic_lab_remark": "Yes. Whatever it takes. Please hurry.",
     "fennick_after_pe": "\"Every secretion suppressed. Every smooth muscle relaxed.\"",
-    "fennick_after_imaging": "\"Clear CT. The CNS is the remaining concern.\""
+    "fennick_after_imaging": "\"Clear CT. The CNS is the remaining concern.\"",
+    "memory_fragments": {
+      "addl-hx": "She brought the plant that caused it. She placed it on the desk and said it might be helpful for identification. It was already identified. It was the evidence."
+    },
+    "tier": 1
   },
   {
     "id": "008",
@@ -1995,9 +2023,8 @@
       "result": "Hypochromic microcytic red blood cells. Pencil cells. Occasional target cells. Marked anisocytosis and poikilocytosis. RDW elevated. Platelets mildly elevated. No spherocytes, no schistocytes, no hypersegmented neutrophils."
     },
     "memory_fragments": {
-      "cbc": "The last dress she finished without noticing her hands — a deep red, January commission, the thread catching the lamplight just right. She remembers thinking: I could do this forever. That was four months ago. She has not touched red thread since.",
-      "addl_hx_ice": "The ice from the cart outside the mill. She started buying it in November and she cannot explain it except that for the thirty seconds it takes to crunch through a piece, she is completely herself. Sharp. Present. Then it melts and she goes back to the water she has been swimming through for months.",
-      "pe": "She started filing her nails down in December. Not because they looked wrong — she couldn't say exactly why. Just that every time she looked at them she felt like she was borrowing someone else's hands to do her work."
+      "pe": "She has been shortening her route home for three months. Fewer stairs. She told herself it was the weather.",
+      "imaging": "The heart is compensating. It has been compensating quietly for long enough that she stopped noticing it had changed."
     },
     "tests": [
       {
@@ -2864,7 +2891,11 @@
     "cc_after_dx": "Right. It's in my blood. Not just on my hands — it's actually in my blood.",
     "generic_lab_remark": "Fine. Take it.",
     "fennick_after_pe": "\"Saturation 85. He is not distressed. Hold that.\"",
-    "fennick_after_imaging": "\"Clear lungs. Normal chest.\""
+    "fennick_after_imaging": "\"Clear lungs. Normal chest.\"",
+    "memory_fragments": {
+      "pe": "His lips were the colour of a bruise. He said it was the dye from work and held out his hands to show the staining. His hands were clean."
+    },
+    "tier": 1
   },
   {
     "id": "011",
@@ -3176,7 +3207,11 @@
     "cc_after_dx": "Iatrogenic. Meaning it was caused by treatment. Meaning it was preventable. I'd like a moment before we continue.",
     "generic_lab_remark": "I had a full panel done privately three months ago. I'll have it sent over.",
     "fennick_after_pe": "\"The skin tells you what the bloods will confirm.\"",
-    "fennick_after_imaging": "\"Clear chest. Metabolic process.\""
+    "fennick_after_imaging": "\"Clear chest. Metabolic process.\"",
+    "memory_fragments": {
+      "addl-hx": "He attributed the weight gain to parliamentary dinners. He attributed the bruising to a vigorous handshake campaign. He had a prepared answer for every finding. He did not have one for the cortisol."
+    },
+    "tier": 1
   },
   {
     "id": "012",
@@ -3212,8 +3247,7 @@
       "o2": "99% RA"
     },
     "memory_fragments": {
-      "pe": "He has carried a small wooden rib tool in his coat pocket every day for thirty years. It fits the curl of his right palm exactly — worn smooth where his thumb rests. He has started rubbing it between his fingers in waiting rooms. He does not know when he started doing this.",
-      "imaging": "The first bowl he ever threw — lopsided, thicker on one side — sits on the windowsill of his studio. He kept it because his teacher told him imperfection is where the piece remembers it was made by a person. He has been thinking about that a lot lately."
+      "pe": "His hands have forty years of clay in them. The joints that hurt the most are the ones he uses the most. He has not considered stopping."
     },
     "additional_hx": "He answers carefully, like a man who measures things. Pain pattern: worse after work, better with rest — he is specific about this. Morning stiffness gone within twenty minutes of starting to move. The joints that hurt most are the base of both thumbs and the end joints of his index and middle fingers — the ones that press and shape. No other joint involvement. No swelling he can see — just a bony feeling, a thickening. He tried ibuprofen and it helps somewhat. He pulls the wooden rib from his coat pocket while talking and turns it over in his fingers without noticing.",
     "patient_quote_addl_hx": "\"The wheel still knows what to do. It's just the hands arguing with me now. Forty years of the same motion — I suppose I should have expected them to have an opinion eventually.\"",
@@ -3540,7 +3574,7 @@
       "result": "CK 48,200 U/L. Creatinine 2.1 mg/dL. BUN 34. Potassium 5.8 mEq/L. LDH elevated. AST 680 U/L. ALT mildly elevated. Urine myoglobin positive."
     },
     "memory_fragments": {
-      "pe": "Seven hundred repetitions in, his legs went quiet. He kept going. He thought that was the point."
+      "addl-hx": "He brought his training log. He wanted to show it was working. The urine colour in the corner of his notes said otherwise."
     },
     "tests": [
       {
@@ -3824,8 +3858,8 @@
       "o2": "93% RA"
     },
     "memory_fragments": {
-      "pe": "She noticed the stairs last winter. Not the breathlessness — the pause at the top. She had never paused before. She started leaving earlier so no one would see.",
-      "imaging": "The Irongate house has four floors. She has been sleeping on the second for eight months. She told her husband the upper rooms were too cold."
+      "pe": "She took the stairs to the examination room. She has not taken stairs in four months. She did not mention this.",
+      "imaging": "The right heart is enlarging to compensate for what the lungs will no longer allow. She has been calling it fatigue. It is not fatigue."
     },
     "additional_hx": "She is precise when asked directly. The breathlessness started on exertion — specifically the stairs at home. Four flights. She now stops at the second floor. She attributes this to being less active than she used to be. The near-fainting episodes occurred after standing quickly from a chair and after walking briskly to a carriage. Both resolved in minutes. The ankle swelling is bilateral, worse by evening, gone by morning. She has not told her husband how limited she has become. She mentions this as an afterthought, with no particular emotion.",
     "patient_quote_addl_hx": "\"The stairs became... a project. I thought I was simply getting older. One does, I'm told.\"",
@@ -4174,7 +4208,7 @@
       "result": "No papilloedema. Disc margins sharp bilaterally. Vessels normal calibre. No haemorrhage, no exudates."
     },
     "memory_fragments": {
-      "pe": "He noticed the headaches start exactly at the three-hour mark of ledger work. He wrote this down. He also wrote down that writing it down gave him a headache."
+      "addl-hx": "He called it the worst headache of his life, then immediately pulled out a ledger to track his symptoms. He had already cross-referenced three other causes. He refused to look at the one that required a lumbar puncture."
     },
     "tests": [
       {
