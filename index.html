@@ -2755,10 +2755,10 @@ window.pickMgmt=function(stageIdx,optIdx){
           }, 1000);
         }
       }
-      if(currentCase.crisis_stage) {
-        const cs = currentCase.crisis_stage;
-        currentCase.management.splice(stageIdx + 1, 0, cs);
-        // Fire Fennick transition line then advance to crisis stage
+      // Find hidden crisis stage in management array
+      const csIdx = currentCase.management.findIndex(s=>s.crisis_insert);
+      if(csIdx !== -1) {
+        const cs = currentCase.management[csIdx];
         const csDelay = 2500;
         if(cs.fennick_transition) {
           setTimeout(()=>{
@@ -2768,25 +2768,19 @@ window.pickMgmt=function(stageIdx,optIdx){
             if(fel) typewriterWrite(fel, cs.fennick_transition.replace(/^"|"$/g,''), 18);
           }, 1200);
         }
-        // Find the crisis stage index and show it
-        const csIdx = currentCase.management.findIndex(s=>s.crisis_insert && s.hidden_until_crisis);
-        if(csIdx !== -1) {
-          currentCase.management[csIdx].hidden_until_crisis = false;
-          setTimeout(()=>{
-            const wrap = document.getElementById('stage-wrap-'+csIdx);
-            if(wrap) {
-              wrap.style.display='';
-              // Unlock the options
-              const ne=document.getElementById('stage-num-'+csIdx);if(ne)ne.classList.remove('locked');
-              const te=document.getElementById('stage-title-'+csIdx);if(te)te.classList.remove('locked');
-              currentCase.management[csIdx].options.forEach((_,i)=>{
-                const el=document.getElementById('opt-'+csIdx+'-'+i);if(el)el.classList.remove('locked-opt');
-              });
-              currentStage = csIdx;
-              wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
-            }
-          }, csDelay);
-        }
+        setTimeout(()=>{
+          const wrap = document.getElementById('stage-wrap-'+csIdx);
+          if(wrap) {
+            wrap.style.display='';
+            const ne=document.getElementById('stage-num-'+csIdx);if(ne)ne.classList.remove('locked');
+            const te=document.getElementById('stage-title-'+csIdx);if(te)te.classList.remove('locked');
+            cs.options.forEach((_,i)=>{
+              const el=document.getElementById('opt-'+csIdx+'-'+i);if(el)el.classList.remove('locked-opt');
+            });
+            currentStage = csIdx;
+            wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
+          }
+        }, csDelay);
       }
     }
     if(opt.critical_error) {
