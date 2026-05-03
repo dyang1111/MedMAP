@@ -57,12 +57,6 @@
         "pt_remark": "I had wine last night. A very good one. I doubt my blood is anything but exceptional."
       },
       {
-        "name": "TFTs",
-        "cost": 5,
-        "result": "TSH 1.8. Free T4 normal.",
-        "pt_remark": "The thyroid one. My neck is one of my better features. I am sure it is functioning beautifully."
-      },
-      {
         "name": "EKG",
         "cost": 5,
         "result": "Normal sinus rhythm rate 76. QTc 402ms.",
@@ -90,6 +84,12 @@
         "cost": 5,
         "result": "Normal. Not indicated.",
         "pt_remark": "Blood clotting. Are you expecting drama. There will not be any. I am very composed."
+      },
+      {
+        "name": "TFTs",
+        "cost": 5,
+        "result": "TSH 1.8. Free T4 normal.",
+        "pt_remark": "The thyroid one. My neck is one of my better features. I am sure it is functioning beautifully."
       }
     ],
     "hints": [
@@ -689,12 +689,6 @@
         "pt_remark": "MOTHER: Her liver? What's wrong with her liver. She fell off a bed."
       },
       {
-        "name": "Coags",
-        "cost": 5,
-        "result": "PT/INR 1.0. PTT 28. Normal. Bleeding disorder excluded.",
-        "pt_remark": "MOTHER: Is that to check for a bleeding disorder? Someone told me that can cause bruising. She might have that."
-      },
-      {
         "name": "EKG",
         "cost": 5,
         "result": "Sinus tachycardia rate 162. Expected for age and acuity. No arrhythmia."
@@ -706,21 +700,27 @@
         "pt_remark": "MOTHER: Her heart? There's something wrong with her heart now too? I don't understand how falling off a bed does all of this."
       },
       {
-        "name": "UA",
-        "cost": 5,
-        "result": "Blood 2+ on dipstick. RBCs on microscopy. Haematuria — assess for renal contusion.",
-        "pt_remark": "MOTHER: Blood in her urine. From a fall. Is that — is that normal. Can that happen from a fall."
-      },
-      {
         "name": "Lipase",
         "cost": 5,
         "result": "Elevated at 210 U/L. Concerning for pancreatic injury — can occur with abdominal compression.",
         "pt_remark": "MOTHER: Her pancreas. You're checking her pancreas. She fell off a bed. She didn't fall on her stomach."
       },
       {
+        "name": "UA",
+        "cost": 5,
+        "result": "Blood 2+ on dipstick. RBCs on microscopy. Haematuria — assess for renal contusion.",
+        "pt_remark": "MOTHER: Blood in her urine. From a fall. Is that — is that normal. Can that happen from a fall."
+      },
+      {
         "name": "ABG/VBG",
         "cost": 5,
         "result": "pH 7.32. pCO2 48 (elevated — early respiratory compromise from cerebral oedema). HCO3 22."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.0. PTT 28. Normal. Bleeding disorder excluded.",
+        "pt_remark": "MOTHER: Is that to check for a bleeding disorder? Someone told me that can cause bruising. She might have that."
       }
     ],
     "hints": [
@@ -1562,7 +1562,7 @@
       "result": "Reduced conduction velocity and amplitude of the common fibular (peroneal) nerve at the fibular head. Tibial nerve conduction normal. L4/L5 nerve root conduction normal. Localised compression neuropathy confirmed at the fibular head."
     },
     "memory_fragments": {
-      "addl-hx": "He has been lifting his right knee higher for three weeks. He thought he was just walking enthusiastically. He told a kitten about it. The kitten was not concerned."
+      "pe": "He has been lifting his right knee higher for three weeks. He thought he was just walking enthusiastically. He told a kitten about it. The kitten was not concerned."
     },
     "tests": [
       {
@@ -1893,17 +1893,16 @@
         "pt_remark": "The heart is fine. ... I said as much."
       },
       {
+        "name": "Lipase",
+        "cost": 5,
+        "result": "Normal. Not indicated.",
+        "pt_remark": "(waves a slow hand.) ... The pancreas is loyal."
+      },
+      {
         "name": "UA",
         "cost": 5,
         "result": "Proteinuria 1+ (mild). Aminoaciduria on microscopy. Consistent with renal tubular dysfunction.",
         "pt_remark": "... (the composure slips for exactly one second.) ... Protein. ... In the urine. ... (recovers) ... Proceed.",
-        "portrait_swap": "image_url_flustered"
-      },
-      {
-        "name": "Coags",
-        "cost": 5,
-        "result": "PT/INR 1.3 (mildly elevated). PTT 36. Consistent with mild hepatic synthetic dysfunction.",
-        "pt_remark": "(the hand shifts almost imperceptibly.) ... What does that mean for the blood.",
         "portrait_swap": "image_url_flustered"
       },
       {
@@ -1913,10 +1912,11 @@
         "pt_remark": "Breathing is fine. ... Has always been fine."
       },
       {
-        "name": "Lipase",
+        "name": "Coags",
         "cost": 5,
-        "result": "Normal. Not indicated.",
-        "pt_remark": "(waves a slow hand.) ... The pancreas is loyal."
+        "result": "PT/INR 1.3 (mildly elevated). PTT 36. Consistent with mild hepatic synthetic dysfunction.",
+        "pt_remark": "(the hand shifts almost imperceptibly.) ... What does that mean for the blood.",
+        "portrait_swap": "image_url_flustered"
       }
     ],
     "hints": [
@@ -2308,16 +2308,16 @@
         "pt_remark": "Thorough. I will give you that. Thoroughness is a virtue I have always rewarded. Even when it is misdirected."
       },
       {
-        "name": "Coags",
-        "cost": 5,
-        "result": "PT/INR 1.1. PTT 28. Normal. Important baseline before anticoagulation.",
-        "pt_remark": "A baseline before the anticoagulant. Anticipatory thinking. Precisely the kind of planning I tried to instil in my staff for thirty years."
-      },
-      {
         "name": "ABG/VBG",
         "cost": 5,
         "result": "pH 7.31 (mild acidosis). pO2 68 (low). Lactate 3.4 (elevated). pCO2 32 (compensatory hyperventilation). Cardiogenic shock physiology.",
         "pt_remark": "Your needle technique lacks grace. I taught biology for a decade. I know a poor strike when I feel one. Take it as a lesson. It is for your own good."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.1. PTT 28. Normal. Important baseline before anticoagulation.",
+        "pt_remark": "A baseline before the anticoagulant. Anticipatory thinking. Precisely the kind of planning I tried to instil in my staff for thirty years."
       }
     ],
     "hints": [
@@ -2727,16 +2727,16 @@
         "pt_remark": "Urine. Talking about again."
       },
       {
-        "name": "Coags",
-        "cost": 5,
-        "result": "PT/INR 1.6 (elevated). PTT 42. Consistent with hepatic dysfunction affecting synthetic function.",
-        "pt_remark": "Blood. Not stopping well?"
-      },
-      {
         "name": "ABG/VBG",
         "cost": 5,
         "result": "pH 7.32 (mild acidosis). Lactate 2.8 (elevated). Consistent with early sepsis physiology.",
         "pt_remark": "Breathing. Hard. Little bit."
+      },
+      {
+        "name": "Coags",
+        "cost": 5,
+        "result": "PT/INR 1.6 (elevated). PTT 42. Consistent with hepatic dysfunction affecting synthetic function.",
+        "pt_remark": "Blood. Not stopping well?"
       }
     ],
     "hints": [
