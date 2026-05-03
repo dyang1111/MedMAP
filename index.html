@@ -2406,7 +2406,7 @@ function addLabResult(name,result){
     const labSwapKey = currentCase.portrait_on_labs[name.toLowerCase()];
     if(labSwapKey && currentCase.patient) {
       const labSwapUrl = currentCase.patient[labSwapKey];
-      const _labIsFlash = currentCase.portrait_flash_labs && currentCase.portrait_flash_labs[_labKey];
+      const _labIsFlash = currentCase.portrait_flash_labs && currentCase.portrait_flash_labs[name.toLowerCase()];
       if(_labIsFlash) {
         const _labFlashDur = currentCase.portrait_flash_duration || 3000;
         setTimeout(()=>flashPortrait(labSwapUrl, _labFlashDur), 400);
